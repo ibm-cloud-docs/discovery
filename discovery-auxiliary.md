@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-08-25"
 
 ---
 
@@ -335,6 +335,8 @@ A new version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2
 ### Querying Watson Discovery News Original
 
 A new version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. {{site.data.keyword.discoverynewsfull}} Original was retired with a removal from service date of **15, January 2018**. See [Watson Discovery News](watson-discovery-news.html) for information on this new version.
+
+**Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
 
 {{site.data.keyword.discoverynewsfull}} Original uses a similar, but slightly different JSON schema from the one used for private collections. You do not need to include `enriched_text` in your queries, for example:
 

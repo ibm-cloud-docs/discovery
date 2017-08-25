@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-08-25"
 
 ---
 
@@ -26,10 +26,10 @@ The {{site.data.keyword.discoveryfull}} service offers three plans that provide 
 
 | Lite                     |  Standard         | Advanced          |
 |--------------------------|-------------------|-------------------|
-| Up to 2,000 concurrent documents per month\*   |Up to 100,000 concurrent documents per month\*<br/> $10 per 1,000 concurrent documents per month ($0.0139USD/1000Doc/Hr)\*\*\*<br/> 2,000 documents per month free\*\*\*\*  | $1,000/month base rate<br/> Up to 1,000,000 documents per month\*<br/> $5 per 1,000 concurrent documents per month ($0.00694 USD/1000Doc/Hr)\*\*\*<br/> 100,000 documents per month included\*\*\*\*
+| Up to 2,000 concurrent documents per month\*   |Up to 100,000 concurrent documents per month\*<br/> $10 per 1,000 concurrent documents per month ($0.0139USD/1000Doc/Hr)\*\*\*<br/> 2,000 documents per month free\*\*\*\*  | **Reserved environment**</br>$1,000/month base rate<br/> Up to 1,000,000 documents per month\*<br/> $5 per 1,000 concurrent documents per month ($0.00694 USD/1000Doc/Hr)\*\*\*<br/> 100,000 documents per month included\*\*\*\*</br> For larger environments, contact [Sales ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/marketing/iwm/dre/signup?source=MAIL-watson){: new_window}.
 | 200MB\*\*                  |10GB\*\*  | 80GB\*\*
 | Up to 2 Collections      |Up to 4 Collections | Up to 100 Collections|
-| Up to 1 Custom Model     |Up to 1 Custom Model | Unlimited Custom Models<br/>1 Custom Model included <br/>Additional $800 per model per month|
+| Up to 1 {{site.data.keyword.knowledgestudiofull}} Custom Model     |Up to 1 {{site.data.keyword.knowledgestudioshort}} Custom Model | Unlimited {{site.data.keyword.knowledgestudioshort}} Custom Models<br/>1 {{site.data.keyword.knowledgestudioshort}} Custom Model included <br/>Additional $800 per {{site.data.keyword.knowledgestudioshort}} model per month|
 
 **Note:** In all plans, the first 1,000 {{site.data.keyword.discoverynewsshort}} queries per month are free. {{site.data.keyword.discoverynewsshort}} queries are charged at $0.10 per query after the first 1,000.
 

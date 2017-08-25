@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-08-25"
 
 ---
 
@@ -32,5 +32,7 @@ Use cases for Watson Discovery News:
 For information about writing queries for {{site.data.keyword.discoverynewsfull}}, see [Building Queries and Delivering Content](using.html) and [Query Building Reference](query-reference.html).
 
 You cannot adjust the {{site.data.keyword.discoverynewsfull}} configuration, train, or add documents to the {{site.data.keyword.discoverynewsfull}} collection.
+
+**Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
 
 **Note:** This version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. The original version has been renamed {{site.data.keyword.discoverynewsfull}} Original and has been retired with a removal from service date of **15, January 2018**. For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).

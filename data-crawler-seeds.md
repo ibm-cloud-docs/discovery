@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-08-25"
 
 ---
 
@@ -132,18 +132,18 @@ The following values can be configured for the Database crawl seed file. To set 
 
 -   **`url`** - The URL of the table or view to retrieve. Defines your custom SQL database seed URL. The structure is:
 
-    -   `database-system://host:port/database?[per-num]&[sql-SQL]`
+    -   `database-system://host:port/database?[per=num]&[sql=SQL]`
 
     Testing a seed URL will show all of the enqueued URLs. For example, testing the following URL for a database containing 200 records:
-    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?per-100&sql-select_*_from_vessel&`
+    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?per=100&sql=select%20*%20from%20vessel&`
 
     shows the following enqueued URLs:
-    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?key-val-0&`
-    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?key-val-100&`
-    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?key-val-200&`
+    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?key-val=0&`
+    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?key-val=100&`
+    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?key-val=200&`
 
     While testing the following URL will show the data retrieved from row 43:
-    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?per-1&key-val-43`
+    -   `sqlserver://test.mycompany.com:1433/WWII_Navy/?per-1&key-val=43`
 -   **`hops`** - Internal use only.
 -   **`default-allow`** - Internal use only.
 -   **`user-password`** - Credentials for the database system. The username and password need to be separated by a `:`, and the password must be encrypted using the vcrypt program shipped with the Data Crawler. For example: `username:[[vcrypt/3]]passwordstring`

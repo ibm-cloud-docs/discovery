@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-08-25"
 
 ---
 
@@ -233,6 +233,8 @@ The following example query returns the top 10 articles in {{site.data.keyword.d
 1.  Click **Customize display options**, then enter `10` (this is the default) in the `Number of documents to return` field.
 1.  Click **Run query**. The top 10 articles about the Pittsburgh Steelers with a positive sentiment will be displayed.
 
+**Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
+
 ### Additional example Watson Discovery News queries
 
 -  `enriched_text.concepts.text:"Health care"` - Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then enter this query. It will return all articles that include the concept of `health care`. If you specify a count, such as 50, in the **Number of documents to return** field you will receive the top 50 most relevant articles.
@@ -256,6 +258,6 @@ filter(enriched_text.entities.text:twitter).term(enriched_text.sentiment.documen
 
 If you enter this aggregation in the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field, it will first narrow down (filter) the set of articles to only the ones that include the entities text of twitter, then divide those articles by the document sentiment types. Only the top 3 document sentiment types (`positive`, `negative`, `neutral`) will be returned.
 
-Adding `nested` before an aggregation query restricts the aggregation to the area of the results specified. For example: `nested(text.entities)` means that only the `text.entities` components of any result are used to aggregate against. This affect can be seen easily by looking at the differences between the following two queries: `filter(text.entities.type::City)` - the aggregation counts the number of *Results* that contain one or more `entity` with the type `City` and `nested(text.entities).filter(text.entities.type::City)` - the aggregation counts the number of instances of an `entity` with the type `City` in the results.  Additionally, any subsequent operation will further restrict the result set that can be aggregated against. For example `nested(text.entities).filter(text.entities.type::City)` means that any only entities of `type::City` will be aggregated. For example: `nested(text.entities).filter(text.entities.type::City).term(text.entities.text,count:3)` will aggregate the top 3 entities of type `City`, Where as: `filter(text.entities.type::City).term(text.entities.text,count:3)` will return the top 3 entities where the result contains at least one entity of type `City`.
+Adding `nested` before an aggregation query restricts the aggregation to the area of the results specified. For example: `nested(text.entities)` means that only the `text.entities` components of any result are used to aggregate against. This effect can be seen easily by looking at the differences between the following two queries: `filter(text.entities.type::City)` - the aggregation counts the number of *Results* that contain one or more `entity` with the type `City` and `nested(text.entities).filter(text.entities.type::City)` - the aggregation counts the number of instances of an `entity` with the type `City` in the results.  Additionally, any subsequent operation will further restrict the result set that can be aggregated against. For example `nested(text.entities).filter(text.entities.type::City)` means that any only entities of `type::City` will be aggregated. For example: `nested(text.entities).filter(text.entities.type::City).term(text.entities.text,count:3)` will aggregate the top 3 entities of type `City`, Where as: `filter(text.entities.type::City).term(text.entities.text,count:3)` will return the top 3 entities where the result contains at least one entity of type `City`.
 
 You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.mybluemix.net/){: new_window}.
