@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-08-25"
 
 ---
 
@@ -179,7 +179,7 @@ Perform the following steps to add an example to a training-data query.
       ]
     }
    ```
-  {: codeblock}
+   {: codeblock}
 
 1. Add the new example by using the same syntax you use to define examples when creating a new training-data query. The following command example does not include a cross reference.
 
@@ -190,7 +190,7 @@ Perform the following steps to add an example to a training-data query.
       "relevance": 3
     }' "https://gateway.watsonplatform.net/discovery/api/v1/environments//a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data/484baad4-d440-44b7-a0dd-70bb2ac77baa?version=2016-12-01"
    ```
-   {: pre}
+   {: pre}
 
 1. Verify that the new example has been added to the training-data query by again [listing the collection's training-data queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}:
 
@@ -200,7 +200,6 @@ Perform the following steps to add an example to a training-data query.
    {: pre}
 
    The JSON that is returned will be of the following format:
-
 
    ```json
     {
@@ -271,11 +270,11 @@ Perform the following steps to add an example to a training-data query.
 
 1. When the following fields in the previous step all return `true`, issue some sample queries to see if the service returns more relevant results:
 
-    - `minimum_queries_added`
-    - `minimum_examples_added`
-    - `sufficient_label_diversity`
+   - `minimum_queries_added`
+   - `minimum_examples_added`
+   - `sufficient_label_diversity`
 
-    If the relevance of your results has not improved, add more training queries until the results meet your requirements.
+   If the relevance of your results has not improved, add more training queries until the results meet your requirements.
 
 ## Performing other training-data query operations
 
