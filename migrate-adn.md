@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-08-31"
 
 ---
 
@@ -79,14 +79,14 @@ In all of the following examples, replace `{username}` and `{password}` with the
 ### Using direct calls to the API
 
 ```bash
-curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-08-01&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-09-01&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 
 ### Using the Java SDK
 
 ```java
-Discovery discovery = new Discovery("2017-08-01");
+Discovery discovery = new Discovery("2017-09-01");
 discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
 discovery.setUsernameAndPassword("{username}", "{password}");  
 String environmentId = "system";
@@ -107,7 +107,7 @@ var watson = require('watson-developer-cloud');
 var discovery = new DiscoveryV1({  
   username: '{username}',  
   password: '{password}',  
-  version_date: '2017-08-01'  
+  version_date: '2017-09-01'  
 });  
 
 discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),  
@@ -127,7 +127,7 @@ from watson_developer_cloud import DiscoveryV1
 discovery = DiscoveryV1(
   username="{username}",
   password="{password}",
-  version="2017-08-01"
+  version="2017-09-01"
 )
 
 qopts = {'query': 'enriched_text.entities.text:IBM'}
