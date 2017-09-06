@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-09-06"
 
 ---
 
@@ -158,6 +158,10 @@ The JSON that is returned will be of the following format:
 ```
 {: codeblock}
 
+-  `deduplicate.field={field}`: A beta capability that excludes duplicate documents from your query results based on the specified `{field}`. See [Excluding duplicate documents from query results](/docs/services/discovery/query-reference.html#deduplication).
+
+-  `deduplicate=true`: A beta capability that excludes duplicate documents from {{site.data.keyword.discoverynewsfull}} collection query results based on the `title` field. See [Excluding duplicate documents from query results](/docs/services/discovery/query-reference.html#deduplication).
+
 ## Operators
 {: #operators}
 
@@ -274,3 +278,45 @@ The following example workflow detects an anomaly for the text entity `London` a
   1. Term aggregation to retrieve top keywords: `query=entities.text:London&count=0&aggregation=term(keywords.text,count:5)&filter=blekko.last_crawled>=1490140800,<=1490227200`
   1. Query to retrieve top enriched title: `query=entities.text:London,keywords.text:Westminster Bridge|police officer|people|Prime Minister Theresa|parliament&count=1&filter=blekko.last_crawled>=1490140800,<=1490227200&return=enrichedTitle.text`
   -->
+
+### Excluding duplicate documents from query results
+{: #deduplication}
+
+If you are querying the {{site.data.keyword.discoverynewsfull}} collection, or your private data collection contains multiple identical (or near-identical) documents, you can exclude most of them from your query results using document deduplication.
+
+**Note:** Document deduplication is currently supported only as a beta capability. See [Beta features](/docs/services/discovery/release-notes.html#beta-features) in the Release notes for more information.
+
+**Note:**  Each query is deduplicated independently, so deduplication across offsets is not supported.
+
+Deduplication is performed after `passages` are extracted and aggregations are calculated, so if you include the `passages` parameter in your query, passages will be returned from all documents in the query results, before deduplication. If you run an aggregation and query together, the aggregation results will include data from all documents returned, before deduplication.
+
+Deduplication is performed on returned fields only. If you choose to specify the `return=` in your query, include the field you are deduplicating on.
+
+To apply deduplication, use the following syntax in your query.  Replace `{field}` with the name of the field you wish to deduplicate on. The specified `{field}` must be a string, such as `title`.
+
+```
+&deduplicate.field={field}
+```
+{: codeblock}
+
+When deduplicating, the JSON response includes `"duplicates_removed": x`, where `x` is the number of documents removed from the results.
+
+#### Deduplicating documents in Watson Discovery News
+
+News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. Using deduplication will remove most duplicate articles from your search queries.
+
+{{site.data.keyword.discoveryshort}} deduplicates by using approximate matching on the `title` field and therefore a field doesn't need to be specified.
+
+To apply deduplication, use the following parameter in your query. This query automatically deduplicates on the `title` field in {{site.data.keyword.discoverynewsfull}}.
+
+```
+&deduplicate=true
+```
+{: codeblock}
+
+If you prefer to deduplicate on a field other than `title`, use the following syntax in your query. Replace `{field}` with the name of the field you wish to deduplicate on. The specified `{field}` must be a string.
+
+```
+&deduplicate.field={field}
+```
+{: codeblock}
