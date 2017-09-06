@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-25"
+lastupdated: "2017-09-06"
 
 ---
 
@@ -41,6 +41,12 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+### 6 September 2017
+
+- Added the beta ability to deduplicate documents returned from your query. This beta feature works for both private and Watson Discovery News collections. See [Excluding duplicate documents from query results](/docs/services/discovery/query-reference.html#deduplication) for details.
+
+Document deduplication is currently supported only as a beta capability. See the statement regarding betas at the top of this document for more information.
 
 ### 31 August 2017
 

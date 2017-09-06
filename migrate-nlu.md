@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-09-06"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2017-08-18"
 Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU).  These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments, named {{site.data.keyword.alchemylanguageshort}} enrichments, will be deprecated.
 {: shortdesc}
 
-**Note:** When integrating with Watson Knowledge Studio, the {{site.data.keyword.alchemylanguageshort}} enrichment configuration must be still used. See [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html) for details.
+**Note:** For information about integrating with {{site.data.keyword.knowledgestudioshort}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
 
 {{site.data.keyword.alchemylanguageshort}} enrichment support will end on **15 January, 2018**.
 
