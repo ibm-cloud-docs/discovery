@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-09-14"
 
 ---
 
@@ -101,27 +101,7 @@ Once you are happy with the custom conversion of your sample document it's time 
 
 1.  Once you have uploaded all your documents, you are ready to begin searching them. Click on the magnifying glass icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select your collection and click **Get started**.
 
-1.  The **My data insights** screen will open. This screen displays the insights Watson discovered in your enriched documents. Each card displays the results of one enrichment. If you applied the default configuration to your collection, the following cards will display:
-
-    -  **General sentiments** displays the percentage breakdown of documents tagged as positive, neutral, and negative discovered by the Sentiment Analysis enrichment.
-    -  **Top entities** displays persons, places, and organizations discovered in your documents by the Entity Extraction enrichment.
-    -  **Content hierarchy** displays the hierarchical taxonomies discovered in your documents by the Category Classification enrichment.
-    -  **Related concepts** displays the concepts discovered in your documents by the Concept Tagging enrichment.
-
-    **Note:** Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU). See [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments) for details. If you applied the **Default Configuration** to a collection prior to this date, that collection was enriched with the {{site.data.keyword.alchemylanguageshort}} enrichments. The insight cards in collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments will not update automatically.
-
-    You can fine-tune the default insights by filtering on the **Type of enrichment** and **Term** in the **Filtering my data insights** panel on the left.
-
-    To learn more about each enrichment see [Adding Enrichments](/docs/services/discovery/building.html#adding-enrichments).
-
-    The **Top entities** and **Related concepts** insight cards display the number of documents each entity or concept can be found in. When you review the insight cards for the example documents, you will notice (among other things) that 75% of the documents in that collection have a positive sentiment, 25% have a negative sentiment; and that the top keywords are GMT, Oct, URL, APIs, and Celgene Corporation.
-
-    These queries are ready-to-use as-is, or you can use them as a starting point for building your own queries. Click the **More options** icon on the top right of any card for two options:
-
-    -  **Copy query URL** - Click here and you will copy the generated query. You can then use the query in your application.
-    -  **Edit query** - Click here and you will open the **Build your own query** screen. The generated query will be displayed for editing. (If you want to return to the **My data insights** screen, click the **Close** button at the bottom.
-
-1.  Click the **Build your own query** button to build and test queries. Under **Search for Documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then:
+1.  The **Build your own query** screen opens. Under **Search for Documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then:
 
     -  To search for results with entities named "IBM", enter `enriched_text.entities.text:IBM` in the **Enter query here** field, then click **Run Query**. - The query will return 4 results.
     -  To search for results with entities named "Watson", enter `enriched_text.entities.text:watson` in the **Enter query here** field, then click **Run Query**. - The query will return 3 results.
@@ -131,11 +111,15 @@ Once you are happy with the custom conversion of your sample document it's time 
 
     The **Query URL** link provided under the **JSON** tab is ready-to-use in your application.
 
-    To learn more about the {{site.data.keyword.discoveryshort}} Query Language see [Building a Basic Query](/docs/services/discovery/using.html#building-a-basic-query). In addition, you can click on the **?** icons next to any of the **Enter query here** fields for more examples. Both filters (**Limit which documents you query**) and aggregations (**Include analysis of your results**) must be written in the {{site.data.keyword.discoveryshort}} Query Language.
-
     You can also click on the **Use natural language** button and write a natural language query, such as "IBM Watson partnerships". To learn more about natural language queries, see [Search parameters](/docs/services/discovery/query-reference.html#search-parameters).
 
     Watson can be trained to improve the results of natural language queries, see [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html).
+
+    Additional resources:
+
+    -  To learn more about the data schema of your documents, click the **View Data Schema** icon on the left or click on the **JSON** tab on the right. See [Building a basic query](/docs/services/discovery/using.html#building-a-basic-query) for details.
+    -  To learn more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query building](/docs/services/discovery/query-reference.html).
+    -  Click on the **?** icons next to any of the **Enter query here** fields for more examples. Both filters (**Limit which documents you query**) and aggregations (**Include analysis of your results**) must be written in the {{site.data.keyword.discoveryshort}} Query Language.
 
 ## Next steps
 

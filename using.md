@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-25"
+lastupdated: "2017-09-14"
 
 ---
 
@@ -42,9 +42,8 @@ You can also write natural language queries (such as "IBM Watson partnerships") 
 
 1.  On the **Your data** screen, choose the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases.
 
-1.  Click **Query this collection**. The **My data insights** screen will display some of the insights Watson discovered in your enriched documents. You can review them to get an overview of the insights in this collection.
+1.  Click **View insights about your data**. The **My data insights** screen displays some of the insights Watson discovered in your enriched documents. You can review them to get an overview of the insights in this collection.
 
-    -  **Top keywords** displays the most important topics in your documents, discovered by the Keyword Extraction enrichment.
     -  **General sentiments** displays the percentage breakdown of documents tagged as positive, neutral, and negative discovered by the Sentiment Analysis enrichment.
     -  **Top entities** displays persons, places, and organizations discovered in your documents by the Entity Extraction enrichment.
     -  **Content hierarchy** displays the hierarchical taxonomies discovered in your documents by the Category Classification enrichment.
@@ -54,20 +53,25 @@ You can also write natural language queries (such as "IBM Watson partnerships") 
 
        You can learn more about each insight by clicking on it, or click **More options** icon on the top right of any card to look at the query that returned those results, but now we want to look at the JSON.
 
-1.  Now run an "empty" query. Click the **Build your own query** button, then **Run Query**. You can now see how each of the four documents was enriched with Watson insights. The results will be displayed on the right, under two tabs, **Summary** (an overview of the query results) and **JSON**. Start by opening the **JSON** tab.
-    -  Each of the four documents will be proceeded by an `id` number.
-    -  Scroll down to the `enriched_text` field. All of the enrichments applied to your documents with the **Default Configuration** file can be found here. Examine each enrichment to learn about the JSON fields you can query on.
+1.  Once you are familiar with the data schema of your documents, it will be easier to write queries in the {{site.data.keyword.discoveryshort}} Query Language. There are two ways to do this.
 
-       ![Default configuration fields](images/JSON.png)
+One option is to click the **View Data Schema** button. The **View data schema** screen displays the fields and values in your transformed documents two ways: by document (**Document view**), or by field (**Collection view**). A maximum of 50 documents will display in **Document view**. **Collection view** will display the fields in the entire collection.
 
-    -  **entities** - Start by finding the `text` field, and examine the other enrichment information.
-    -  **sentiment** - Start by finding the `label` field, and examine the other enrichment information.
-    -  **concepts** - Start by finding the `text` field, and examine the other enrichment information.
-    -  **categories** - Start by finding the `document` field, and examine the other enrichment information.
+- In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied with the **Default Configuration** file. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
+
+Alternatively, you can run an "empty" query to view the JSON. On the **View data schema** screen, click the **Build your own query** button, then **Run Query**. The results will display on the right, under two tabs, **Summary** (an overview of the query results) and **JSON**. Start by opening the **JSON** tab.
+
+-  Each of the four documents will be proceeded by an `id` number.
+-  Scroll down to the `enriched_text` field. Examine each enrichment to learn about the JSON fields you can query on.
+
+![Default configuration fields](images/JSON.png)
+
+-  **entities** - Start by finding the `text` field, and examine the other enrichment information.
+-  **sentiment** - Start by finding the `label` field, and examine the other enrichment information.
+-  **concepts** - Start by finding the `text` field, and examine the other enrichment information.
+-  **categories** - Start by finding the `document` field, and examine the other enrichment information.
 
 After you have examined the insights in the first document, you can look at the other three documents if you wish.
-
-Once you are familiar with the JSON it will be easier to write queries in the {{site.data.keyword.discoveryshort}} Query Language.
 
 ### How to structure a basic query
 
@@ -90,7 +94,7 @@ Your query would be structured like this:
 
 So to find the concept `Cloud computing` in your collection:
 
-1.  Under **Search for Documents** click **Use the {{site.data.keyword.discoveryshort}} Query Language**. Enter `enriched_text.concepts.text:Cloud computing` into the **Enter query here** field. The delimiter in this query is `.` and the operator is `:`, see [Operators](/docs/services/discovery/query-reference.html#operators) to learn about other operators available in the {{site.data.keyword.discoveryshort}} Query Language.
+1.  On the **Build your own query** screen, click **Search for Documents**, then **Use the {{site.data.keyword.discoveryshort}} Query Language**. Enter `enriched_text.concepts.text:Cloud computing` into the **Enter query here** field. The delimiter in this query is `.` and the operator is `:`, see [Operators](/docs/services/discovery/query-reference.html#operators) to learn about other operators available in the {{site.data.keyword.discoveryshort}} Query Language.
 
 1.  Click **Run query**. There should be one match (`"matching_results": 1`). Copy the **Query URL** at the top of the **JSON** tab to use in your application.
 
@@ -110,21 +114,19 @@ Not sure when to query on an entity, concept, or keyword? See [Understanding the
 
 **Note:** When using the query builder, query highlighting is turned on by default. This will add a `highlight` field to your query results. Within the `highlight` field, the words that match your query will be wrapped in HTML `<em>` (emphasis) tags. See the [Query building reference](/docs/services/discovery/query-reference.html) for details.
 
-Under **Customize display options**, you have the option to turn on passage retrieval with the **Include relevant passages** radio button. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. A maximum of three passages of no more than 2,000 characters each will be returned per relevant document, and no more than 10 passages total will be returned (the number of passages returned cannot be changed). The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See the [Query building reference](/docs/services/discovery/query-reference.html) for details.
+Under **More options**, you have the option to turn on passage retrieval with the **Include relevant passages** radio button. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. A maximum of three passages of no more than 2,000 characters each will be returned per relevant document, and no more than 10 passages total will be returned (the number of passages returned cannot be changed). The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See the [Query building reference](/docs/services/discovery/query-reference.html) for details.
 
 ## Building combined queries
 
 You can combine query parameters together to build more targeted queries. This example uses both the `filter` and `query` parameters to return documents about {{site.data.keyword.IBM_notm}} acquisitions. In this example, the filter parameter will narrow down the results to only documents that mention `IBM`, and then the query parameter will return all results about `acquisitions`,in order of relevance. For more information about filtering vs. querying, see [Parameter descriptions and examples](/docs/services/discovery/query-reference.html#parameter-descriptions).
 
-1.  On the **Your data** screen, choose the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases.
+1.  Click on the magnifying glass icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
 
-1.  Click **Query this collection**, then **Build your own query**.
-
-1.  Under **Limit which documents you query**, enter `enriched_text.entities.text:IBM` into the **Write a filter to narrow down your document set using the {{site.data.keyword.discoveryshort}} Query Language** field. This will narrow down the documents to only those that mention the entity `IBM`.
+1.  Under **Filter which documents you query**, enter `enriched_text.entities.text:IBM` into the **Write a filter to narrow down your document set using the {{site.data.keyword.discoveryshort}} Query Language** field. This will narrow down the documents to only those that mention the entity `IBM`.
 
 1.  Under **Search for Documents** click **Use the {{site.data.keyword.discoveryshort}} Query Language**. Enter `enriched_text.concepts.text:world wide web` into the **Enter query here** field. This will return all documents that include the concept of `world wide web`, and those documents will be ranked in order of relevance.
 
-1.  Click **Customize display options**, then **Fields to return** and choose **Specify**. Select `text`. This will limit the response to the text of the relevant articles and exclude everything else.
+1.  Click **More options**, then **Fields to return** and choose **Specify**. Select `text`. This will limit the response to the text of the relevant articles and exclude everything else.
 
 1.  Click **Run query**. There will be one matching document: `"matching_results": 1`
 
@@ -138,7 +140,7 @@ When used in tandem with queries, filters execute first to narrow down the docum
 
 ## Building aggregations
 
-Aggregation queries return a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see the [Aggregations table](/docs/services/discovery/query-reference.html#aggregations).
+Aggregations return a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see the [Aggregations table](/docs/services/discovery/query-reference.html#aggregations).
 
 If you'd like to check out a few pre-built aggregations, all of the queries on the insight cards are aggregation queries. Click the **More options** icon on the top right of any card to view the query.
 {: tip}
@@ -152,13 +154,11 @@ The delimiter in this query is `.` and the operator is `()`, see [Operators](/do
 
 This example aggregation query will return the top 10 concepts in the collection of {{site.data.keyword.IBM_notm}} press releases.
 
-1.  On the **Your data** screen, choose the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases.
-
-1.  Click **Query this collection**, then **Build your own query**.
+1.  Click on the magnifying glass icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
 
 1.  Under **Include analysis of your results**, enter `term(enriched_text.concepts.text,count:10)` into the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field. `Term` will return the most common values for the `concepts` `text` field. `Count` specifies the number of results that you want returned.
 
-1.  Click **Customize display options**, then enter `0` in the `Number of documents to return` field.
+1.  Click **More options**, then enter `0` in the `Number of documents to return` field.
 
 1.  Click **Run query**. The top 10 concepts will be displayed.
 
@@ -227,10 +227,12 @@ You can query this collection using natural language queries, for example "IBM W
 
 The following example query returns the top 10 articles in {{site.data.keyword.discoverynewsfull}} about the Pittsburgh Steelers that have a positive sentiment.
 
-1.  On the **Your data** screen, choose the {{site.data.keyword.discoverynewsshort}} collection.
-1.  Click **Query this collection**, then **Build your own query**.
+1.  Click on the magnifying glass icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the {{site.data.keyword.discoverynewsshort}} collection and click **Get started**.
+
 1.  Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then enter `text:Pittsburgh Steelers, enriched_text.sentiment.document.label:positive` into the **Enter query here** field.
-1.  Click **Customize display options**, then enter `10` (this is the default) in the `Number of documents to return` field.
+
+1.  Click **More options**, then enter `10` (this is the default) in the `Number of documents to return` field.
+
 1.  Click **Run query**. The top 10 articles about the Pittsburgh Steelers with a positive sentiment will be displayed.
 
 **Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
@@ -243,10 +245,12 @@ The following example query returns the top 10 articles in {{site.data.keyword.d
 
 The following example aggregation returns the number of articles found in {{site.data.keyword.discoverynewsshort}} about the Pittsburgh Steelers by sentiment.
 
-1.  On the **Your data** screen, choose the {{site.data.keyword.discoverynewsshort}} collection.
-1.  Click **Query this collection**, then **Build your own query**.
+1.  Click on the magnifying glass icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the {{site.data.keyword.discoverynewsshort}} collection and click **Get started**.
+
 1.  Under **Include analysis of your results**, enter `filter(text:"Pittsburgh Steelers").term(enriched_text.sentiment.document.label,count:3)` in the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field.
-1.  Click **Customize display options**, then enter `0` in the **Number of documents to return** field.
+
+1.  Click **More options**, then enter `0` in the **Number of documents to return** field.
+
 1.  Click **Run query**. The results will show the number of documents about the Pittsburgh Steelers and how many of those results have a `positive`, `negative`, or `neutral` sentiment.
 
 ### Additional example Watson Discovery News aggregation
@@ -258,6 +262,6 @@ filter(enriched_text.entities.text:twitter).term(enriched_text.sentiment.documen
 
 If you enter this aggregation in the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field, it will first narrow down (filter) the set of articles to only the ones that include the entities text of twitter, then divide those articles by the document sentiment types. Only the top 3 document sentiment types (`positive`, `negative`, `neutral`) will be returned.
 
-Adding `nested` before an aggregation query restricts the aggregation to the area of the results specified. For example: `nested(text.entities)` means that only the `text.entities` components of any result are used to aggregate against. This effect can be seen easily by looking at the differences between the following two queries: `filter(text.entities.type::City)` - the aggregation counts the number of *Results* that contain one or more `entity` with the type `City` and `nested(text.entities).filter(text.entities.type::City)` - the aggregation counts the number of instances of an `entity` with the type `City` in the results.  Additionally, any subsequent operation will further restrict the result set that can be aggregated against. For example `nested(text.entities).filter(text.entities.type::City)` means that any only entities of `type::City` will be aggregated. For example: `nested(text.entities).filter(text.entities.type::City).term(text.entities.text,count:3)` will aggregate the top 3 entities of type `City`, Where as: `filter(text.entities.type::City).term(text.entities.text,count:3)` will return the top 3 entities where the result contains at least one entity of type `City`.
+Adding `nested` before an aggregation restricts the aggregation to the area of the results specified. For example: `nested(text.entities)` means that only the `text.entities` components of any result are used to aggregate against. This effect can be seen easily by looking at the differences between the following two queries: `filter(text.entities.type::City)` - the aggregation counts the number of *Results* that contain one or more `entity` with the type `City` and `nested(text.entities).filter(text.entities.type::City)` - the aggregation counts the number of instances of an `entity` with the type `City` in the results.  Additionally, any subsequent operation will further restrict the result set that can be aggregated against. For example `nested(text.entities).filter(text.entities.type::City)` means that any only entities of `type::City` will be aggregated. For example: `nested(text.entities).filter(text.entities.type::City).term(text.entities.text,count:3)` will aggregate the top 3 entities of type `City`, Where as: `filter(text.entities.type::City).term(text.entities.text,count:3)` will return the top 3 entities where the result contains at least one entity of type `City`.
 
 You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.mybluemix.net/){: new_window}.
