@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-25"
+lastupdated: "2017-09-12"
 
 ---
 
@@ -32,6 +32,8 @@ The {{site.data.keyword.discoveryfull}} service offers three plans that provide 
 | Up to 1 {{site.data.keyword.knowledgestudiofull}} Custom Model     |Up to 1 {{site.data.keyword.knowledgestudioshort}} Custom Model | Unlimited {{site.data.keyword.knowledgestudioshort}} Custom Models<br/>1 {{site.data.keyword.knowledgestudioshort}} Custom Model included <br/>Additional $800 per {{site.data.keyword.knowledgestudioshort}} model per month|
 
 **Note:** In all plans, the first 1,000 {{site.data.keyword.discoverynewsshort}} queries per month are free. {{site.data.keyword.discoverynewsshort}} queries are charged at $0.10 per query after the first 1,000.
+
+**Note:** Lite plan services are deleted after 30 days of inactivity. One free environment is allotted per organization on Lite plans.
 
 For more detailed information on pricing see [Discovery pricing plans](/docs/services/discovery/pricing-details.html).
 
