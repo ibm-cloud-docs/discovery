@@ -54,6 +54,7 @@ Discovery
         entity-types.md
 
     query-reference.md
+    language-support.md
     discovery-auxiliary.md
 
     {: .topicgroup}

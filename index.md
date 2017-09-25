@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-09-22"
 
 ---
 
@@ -36,6 +36,8 @@ How does {{site.data.keyword.discoveryshort}} do it? By using data analysis comb
 - Securely explore your proprietary content as well as free and licensed public content.
 - Apply additional enrichments such as concepts, relations, and sentiment through natural language processing.
 - Simplify development while still providing direct access to APIs.
+
+For information about language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/services/discovery/language-support.html).
 
 ## Watson Discovery News
 

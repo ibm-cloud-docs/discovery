@@ -162,6 +162,8 @@ The JSON that is returned will be of the following format:
 
 -  `deduplicate=true`: A beta capability that excludes duplicate documents from {{site.data.keyword.discoverynewsfull}} collection query results based on the `title` field. See [Excluding duplicate documents from query results](/docs/services/discovery/query-reference.html#deduplication).
 
+-  `collection_ids={id1},{id2}`: A comma-separated list of collections to query, only valid when querying multiple collections. This parameter is required when querying multiple collections using any of the multiple collection query methods (`/environments/{environment_id}/query?` , `/environments/{environment_id}/notices?` , or `/environments/{environment_id}/fields?`). See [querying multiple collections](/docs/services/discovery/using.html#multiple-collections) for more information.
+
 ## Operators
 {: #operators}
 
