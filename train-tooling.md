@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-09-22"
 
 ---
 
@@ -35,6 +35,12 @@ Training must meet the following **minimum** requirements for {{site.data.keywor
 
   - You must train a minimum of 49 queries, and possibly more. Watson will give you feedback if it needs more queries in order to train.
   - You should apply both available ratings to your results: `Relevant` and `Not relevant`. Only rating the `Relevant` documents will not provide the data needed.
+
+**Note:** Relevance training needs certain training-data requirements before it takes effect. The service checks the training data periodically to determine if these requirements are met, and automatically updates itself based on any changes.
+
+**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see ["Building queries and delivering content"](/docs/services/discovery/using.html).
+
+**Note:** There is a maximum of 4 trained collections per environment.  
 
 ## Adding queries and rating the relevancy of results
 

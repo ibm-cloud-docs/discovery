@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-14"
+lastupdated: "2017-09-25"
 
 ---
 
@@ -41,6 +41,18 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+### 25 September 2017
+
+- A Premium pricing plan is now available. For more information, see [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery/pricing-details.html).
+- The ability to query, list fields, and query notices across collections within the same environment has been added. See [Querying multiple collections](/docs/services/discovery/using.html#multiple-collections) for details.
+- Language support information for {{site.data.keyword.discoveryshort}} is available at [Supported languages](/docs/services/discovery/language-support.html)
+
+{{site.data.keyword.discoveryshort}} tooling:
+- The Visual Query Builder moved from beta status to GA status. Filter, Timeslice, and Histogram aggregations are not currently supported with the Visual Query Builder. Click **Edit in Query Language** on the **Build your own query** screen to write those aggregations.
+- Added the beta capability to deduplicate on {{site.data.keyword.discoverynewsfull}} queries.
+- In addition to English, German, and Spanish language collections, you can now create Arabic, French, Italian, Japanese, Korean, and Brazilian Portuguese collections.
+- Known issue: {{site.data.keyword.discoveryshort}} Tooling does not support syndicated environments.
 
 ### 14 September 2017
 
@@ -136,14 +148,6 @@ Both features are query building enhancements and can be found on the **Build yo
  - The version string for all API calls has been changed to `2017-07-19` from `2017-06-25`. This version enables a NLU default config on collection creation. You should still be able to enrich with {{site.data.keyword.alchemylanguageshort}} in previous versions.
 
     The default configuration has been updated to use {{site.data.keyword.nlushort}}. You should update the version string as soon as possible to avoid conflicts and possible errors.
-
-    {{site.data.keyword.discoveryshort}} supports English, German, and Spanish language collections, however, several enrichments are not supported in German and Spanish. The supported enrichments for each language are:
-
-|  | Sentiment Analysis | Semantic Role Extraction | Keyword Extraction | Entity Extraction | Emotion Analysis | Concept Tagging | Category Classification |
-|--|--------------------|--------------------------|--------------------|--------------------|-----------------|-----------------|-------------------------|
-| English    | X                        | X                  | X                  | X               | X               | X              | X              |
-| German     | X                        |                    | X                  | X               |                 |                |                |
-| Spanish    | X                        | X                  | X                  | X               |                 | X              | X             |
 
  - Discovery Tooling:
 

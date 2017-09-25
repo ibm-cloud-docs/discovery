@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-09-22"
 
 ---
 
@@ -34,7 +34,7 @@ The following differences are of note when moving from AlchemyData News to {{sit
 - {{site.data.keyword.discoverynewsfull}} doesn't rank in the same way that AlchemyData News does. There is currently no field for ranking.
 - The query structure and the structure of data returned is different between {{site.data.keyword.discoverynewsshort}} and AlchemyData News. A good way to understand the JSON structure is to query for a single result in {{site.data.keyword.discoverynewsshort}} and inspect the result.
 - {{site.data.keyword.discoverynewsshort}} does not support XML output.
-- De-duplication is not yet supported with {{site.data.keyword.discoverynewsshort}}.
+- Deduplication is a beta feature in {{site.data.keyword.discoverynewsshort}}.
 
 ## Authentication differences
 

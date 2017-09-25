@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-09-22"
 
 ---
 
@@ -59,7 +59,7 @@ To create an environment and private data collection with the {{site.data.keywor
 
 1.  Once your environment is ready, click the **Create a data collection** button, then you can **Name your new collection**.
 
-    By default, the configuration file will be **Default Configuration**. If you have another configuration file available, you can choose it, or you can create a new one later and apply it to this collection. You can also select the language of the documents you will add to this collection: English, Spanish, or German. There should be only one language in each of your collections. After you click **Create**, your data collection will appear as a tile.
+    By default, the configuration file will be **Default Configuration**. If you have another configuration file available, you can choose it, or you can create a new one later and apply it to this collection. You can also select the language of the documents you will add to this collection: English, German, Spanish, Arabic, French, Italian, Japanese, Korean, or Brazilian Portuguese. There should be only one language in each of your collections. After you click **Create**, your data collection will appear as a tile.
 
 Your environment and data collection are ready! If you wish to use the default configuration file, you can start [Adding content](/docs/services/discovery/adding-content.html) immediately. But if you want to customize your {{site.data.keyword.discoveryshort}} configuration with additional enrichments and conversion settings, you should not begin adding documents right now, you should start creating your custom configuration file. See [Configuring your service](/docs/services/discovery/building.html#custom-configuration).
 
@@ -546,15 +546,11 @@ After making any changes, click **Apply and Save**.
 
 Enrichment pricing information is available on [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}.
 
+**Note:** Emotion Analysis is supported in English only.
+
 #### Enrichment language support
 
-{{site.data.keyword.discoveryshort}} supports English, German, and Spanish language collections, however, several enrichments are not supported in German and Spanish. The supported enrichments for each language are:
-
-|  | Sentiment Analysis | Semantic Role Extraction | Keyword Extraction | Entity Extraction | Emotion Analysis | Concept Tagging | Category Classification |
-|--|--------------------|--------------------------|--------------------|--------------------|-----------------|-----------------|-------------------------|
-| English    | X                        | X                  | X                  | X               | X               | X              | X              |
-| German     | X                        |                    | X                  | X               |                 |                |                |       
-| Spanish    | X                        | X                  | X                  | X               |                 | X              | X             |
+For information about enrichment language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/services/discovery/language-support.html).
 
 ### Understanding the difference between Entities, Concepts, and Keywords
 {: #udbeck}
