@@ -50,7 +50,7 @@ With a simple query, especially on a small data set, `filter` and `query` often 
 ### Structure parameters
 
 -  `count`: The number of documents that you want returned in the response. The default is `10`. The maximum for the `count` and `offset` values together in any one query is `10000`.
--  `offset`: The number of query results to skip at the beginning. For example, if the total number of results that are returned is 10, and the offset is 8, it returns the last two results. The default is `0`. The maximum for the `count` and `offset` values together in any one query is `10000`.
+-  `offset`: The number of query results to skip at the beginning. For example, if the query identifies 100 total results and the offset is set to 98, only the last 2 results from the query are returned. The default is `0`. The maximum for the `count` and `offset` values together in any one query is `10000`.
 -  `return`: A comma-separated list of the portion of the document hierarchy to return. Any of the document hierarchy are valid values.
 -  `sort`: A comma-separated list of fields in the document to sort on. You can optionally specify a sort direction by prefixing the field with `-` for descending order or `+` for ascending order. Ascending order is the default sort direction.
 

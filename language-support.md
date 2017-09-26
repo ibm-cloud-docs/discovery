@@ -52,7 +52,6 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 Full support includes basic support, plus:
 
 - Passage retrieval
-- Watson Knowledge Graph and Disambiguation
 - Translated {{site.data.keyword.knowledgestudiofull}} interface
 - All {{site.data.keyword.nlushort}} (NLU) enrichments, plus metadata extraction. NLU enrichments are:
     - Entity Extraction

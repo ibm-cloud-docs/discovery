@@ -120,7 +120,7 @@ The following object shows a populated training-data query.
 The following command example adds the previous training-data query to a collection named `99040100-fe6a-4782-a4f5-28f9eee30850` in an environment named `a56dd9b4-040b-4ea3-a736-c1e7a467e191`:
 
 ```bash
-curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -d
+curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Content-Type: application/json" -d
 '{
   "natural_language_query": "why is the sky blue",
   "filter": "text:meteorology",
@@ -186,7 +186,7 @@ Perform the following steps to add an example to a training-data query.
 1. Add the new example by using the same syntax you use to define examples when creating a new training-data query. The following command example does not include a cross reference.
 
    ```bash
-    curl -u -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -d
+    curl -u -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Content-Type: application/json" -d
     '{
       "document_id": "46b52fdc-3a72-4700-9849-ac217532b373",
       "relevance": 3

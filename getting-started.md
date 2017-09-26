@@ -45,6 +45,19 @@ Before beginning with the {{site.data.keyword.discoveryshort}} service, you will
 
       ![Create the service instance](images/bm-create-dsvc.gif)
 
+  Before using the service, you will need to know your credentials `username`, `password`, and what the endpoint (`url`) is for your instance of the {{site.data.keyword.discoveryshort}} service. Click on **Service credentials** and then **View credentials**. Your service credentials are displayed as follows:
+
+  ```json
+  {
+  "url": "https://gateway.watsonplatform.net/discovery/api",
+  "username": "c61c9111-5f1b-22ba-94a1-01010dce4c2f",
+  "password": "ZwkAbErGKwbx"
+  }
+  ```
+  {: codeblock}
+
+  **Note:** You must use the endpoint specified in the `url` field. The examples given in this topic use a default and might need to be changed. For more information see [Service credentials for Watson services](https://console.bluemix.net/docs/services/watson/getting-started-credentials.html).
+
 ## Step 1: Create an environment
 
 In a bash shell or equivalent environment such as Cygwin, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
@@ -54,7 +67,7 @@ The following example creates an environment that is called `my-first-environmen
 Replace `{username}` and `{password}` with your service credentials.
 
 ```bash
-curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-09-01"
+curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-09-01"
 ```
 {: pre}
 
