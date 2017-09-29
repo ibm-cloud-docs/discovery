@@ -42,6 +42,11 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+### 29 September 2017
+
+- {{site.data.keyword.discoveryshort}} launched in the `Germany` region 29 September, 2017. In order to comply with EU data regulations, AlchemyLanguage enrichments are not supported in this region.
+- Known issue: Query fields cannot contain whitespaces.  When writing a query in {{site.data.keyword.discoveryshort}}, if any query field contains whitespace (for example, `body.additional reading`), you will receive a `400: Invalid query syntax error`.
+
 ### 25 September 2017
 
 - A Premium pricing plan is now available. For more information, see [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery/pricing-details.html).
