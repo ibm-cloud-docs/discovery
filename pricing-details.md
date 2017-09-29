@@ -55,6 +55,8 @@ The {{site.data.keyword.discoveryfull}} service offers three plans that provide 
 
 **Note:** There is no additional charge for enrichments.
 
+For information about IBM Bluemix security, see the [IBM Bluemix Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")(http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+
 ## Converting from previous pricing plans
 
 Customers who subcribed to a plan prior to **1, August 2017** were migrated to one of the new plans.
