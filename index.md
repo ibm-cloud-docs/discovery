@@ -39,7 +39,7 @@ How does {{site.data.keyword.discoveryshort}} do it? By using data analysis comb
 
 For information about language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/services/discovery/language-support.html).
 
-For information about IBM Bluemix security, see the [IBM Bluemix Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")(http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+For information about IBM Bluemix security, see the [IBM Bluemix Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
 
 ## Watson Discovery News
 
