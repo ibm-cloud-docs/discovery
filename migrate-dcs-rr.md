@@ -26,7 +26,7 @@ lastupdated: "2017-10-03"
 
 **Feature Comparison**
 
-| Feature | {{site.data.keyword.retrieveandrankshort}}? | {{site.data.keyword.discoveryshort}} |
+| Feature | {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
 | Natural language search | Yes | Yes |
 | Machine learning relevancy training | Yes | Yes |
@@ -47,6 +47,7 @@ lastupdated: "2017-10-03"
 | Custom Stopwords | Yes | Pre-configured |
 | Custom language dictionaries | Yes | Pre-configured |
 | Custom Synonyms | Yes |  |
+**Note:** This table will be updated as new {{site.data.keyword.discoveryshort}} capabilities are added.
 
 Before you begin the action of migrating, you must first [evaluate](#evaluate) the data stored in your {{site.data.keyword.retrieveandrankshort}} service and understand how you will move the different components that make up your current solution.
 
