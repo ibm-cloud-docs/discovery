@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-25"
+lastupdated: "2017-10-03"
 
 ---
 
@@ -41,6 +41,10 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+### 3 October 2017
+
+- Document segmentation is now available. See [Splitting documents with document segmentation](/docs/services/discovery/building.html#doc-segmentation).
 
 ### 29 September 2017
 
@@ -264,7 +268,8 @@ Enhancements have been added to the query API (`GET /v1/environments/{environmen
 
   - Only one wildcard worked in any given query. For example, `query-month:*ctober` worked, but `query-month:*ctobe*` generated a parsing error.
   - Wildcards did not work with queries that contained capital letters. For example, given the key/field pair ``{"borrower": "GOVERNMENT OF INDIA"}``, `query-borrower:*ndia` returned results but `query-borrower:*NDIA` did not.
-  - Wildcards did not work in the middle of phrases in queries. For example, given the key/field pair `{"borrower": "GOVERNMENT OF TIMOR"}`, `query-borrower:"GOVERNMENT OF TIMOR"` returned results but `query-borrower:"GOVERNMENT OF TI*OR"` did not.
+
+**Note:** Wildcards are not necessary within phrases in queries. For example, given the key/field pair `{"borrower": "GOVERNMENT OF TIMOR"}`, `query-borrower:"GOVERNMENT OF TIMOR"` returns results but `query-borrower:"GOVERNMENT OF TI*OR"` will not. Using a wildcard is not applicable within phrases because all of the characters within the quotation marks (`"`) of a phrase are escaped.
 
 ### 24 March 2017
 

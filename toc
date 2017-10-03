@@ -41,6 +41,8 @@ Discovery
         migrate-adn.md
         migrate-nlu.md
         migrate-bwdn.md
+        migrate-dcs-rr.md
+        migrate-rnr-tut.md
 
     upgrading.md
     {: .navgroup-end}

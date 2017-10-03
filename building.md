@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-22"
+lastupdated: "2017-10-03"
 
 ---
 
@@ -830,3 +830,121 @@ Some common CSS selectors include the following:
   - `#id` — Matches the value of `id`
   - `[attribute]` — Matches any tag with the specified `attribute`, regardless of value
   - `[attribute=value]` or `[attribute="value"]` — Matches the specified `attribute` and `value`
+
+## Splitting documents with document segmentation
+{: #doc-segmentation}
+
+You can split your Word, PDF, and HTML documents into segments based on HTML heading tags. Once split, each segment is a separate document that will be converted to JSON, then indexed and enriched separately. Since queries will return these segments as separate documents, document segmentation can be used to:
+
+  - Perform aggregations on individual segments of a document. For example, your aggregation would count each time a segment mentions a specific entity, instead of only counting it once for the entire document.
+  - Perform relevancy training on segments instead of documents, which will improve result reranking.
+
+The segments are created when the documents are converted to HTML (Word and PDF documents are converted to HTML before they are converted to JSON). Documents can be split based on the following HTML tags: `h1` `h2` `h3` `h4` `h5` and `h6`.
+
+Considerations:
+
+  - The number of segments per document is limited to `50`. Any document content remaining after `49` segments will be stored within segment `50`.
+
+  - Each segment counts towards the document limit of your plan.
+
+  - You can not normalize data (see [Normalizing data](/docs/services/discovery/building.html#normalizing-data)) or use CSS selectors to extract fields (see [Using CSS selectors to extract fields](/docs/services/discovery/building.html#using-css)) when using document segmentation.
+
+  - If a document has been updated and needs to be ingested again, deleted segments will remain behind after reingestion and must be deleted manually using the API (see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/?curl#delete-doc){: new_window}:). Additionally, if your document update has added content that will create new segments, or deleted content that will remove segments, each section will be assigned a new `document_id`. If those segments had already been ranked with relevancy training, the training will need to be performed again. In this case, instead of adding content to an existing document, consider creating a new document containing the new content and ingest it separately. Instead of deleting segments from an existing document and reingesting, delete those segments using the API.
+
+  - Documents will segment each time the specified HTML tag is detected. Consequently, segmentation could lead to malformed HTML because the documents could be split before closing tags and after opening tags.
+
+  - HTML, PDF, and Word metadata is not extracted and will not be included in the index. In addition, custom metadata passed in with the document upload will not be included in the index.
+
+### Performing segmentation
+
+Segmentation is setup via the API in the `conversions` section.
+
+```json
+{
+  "configuration_id": "a23c467d-1212-4b3a-5555-93e788a3622a",
+  "name": "Example configuration",
+  "conversions": {
+    "segment": {
+      "enabled": true,
+      "selector_tags": ["h1", "h2", "h3", "h4", "h5", "h6"]
+    }
+  }
+}
+```
+{: codeblock}
+
+`enabled` = `true` turns on document segmentation.
+
+`selector_tags` is an array that specifies the heading tags documents can be segmented on.
+
+#### Example
+
+Configuration:
+
+```json
+"conversions": {
+  "segment": {
+    "enabled": true,
+    "selector_tags": ["h1", "h2"]
+```
+{: codeblock}
+
+Original HTML document:
+
+```
+<html>
+ <head>
+ </head>
+ <body>
+  first line
+   <div name="section 1">
+    <h1>heading 1</h1>
+     <div name="section 2">This is the text that falls under <b>heading 1</b> and should be therefore split into its own segment.
+      <h2>heading 2</h2>
+      line under heading 2
+     </div>
+       <h3>heading 3</h3>
+       line under heading 3
+   </div>
+  last line
+ </body>
+</html>
+```
+{: codeblock}
+
+The first document segment will look like this:
+
+```json
+{
+  "id": "94c686c3-a790-4d8d-ba42-2bddf01b311c",
+  "segment_metadata": {
+    "parent_id": "94c686c3-a790-4d8d-ba42-2bddf01b311c",
+    "segment": 1,
+    "total_segments": 3
+  },
+  "extracted_metadata": {
+    "title": "Heading 1",
+    "sha1": "45ede479df67d78f2205ea7e714843375d3029c0",
+    "filename": "doc-with-different-heading-levels.html",
+    "file_type": "html"
+  },
+  "text": "This is the text that falls under heading 1 and should be therefore split into its own segment.",
+  "html": "<div name=\"section 2\">This is the text that falls under <b>heading 1</b> and should be therefore split into its own segment."
+}
+```
+{: codeblock}
+
+All segments will include an:
+
+  - `id` - The `id` of this segment.
+  - `segment_metadata` section which contains:
+    - `parent_id` - The `parent_id` is the id of the original document. For the first segment, the `id` and `parent_id` will be identical.
+    - `segment` - The number of this segment.
+    - `total_segments` - The total number of segments the document was split into.
+  - `extracted_metadata` section which contains:
+    - `title` - The `title` field of the segment will correspond to the heading, except for the first segment, which inherits the title that was extracted from the entire document.
+    - `sha1` - Corresponds to the original document.
+    - `filename` - Corresponds to the original document.
+    - `file_type`- Corresponds to the original document.
+  - `text` field
+  - `html` field
