@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-10-09"
 
 ---
 
@@ -23,6 +23,7 @@ In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} AP
 {: shortdesc}
 
 ## Before you begin
+{: #before-you-begin}
 
 Before beginning with the {{site.data.keyword.discoveryshort}} service, you will need:
 
@@ -35,7 +36,7 @@ Before beginning with the {{site.data.keyword.discoveryshort}} service, you will
 
 - To create an instance of the {{site.data.keyword.discoveryshort}} service:
 
-  You create your {{site.data.keyword.watson}} services through {{site.data.keyword.Bluemix}}, so you need a free {{site.data.keyword.Bluemix_notm}} account to get started. ({{site.data.keyword.Bluemix_notm}} is IBM's cloud platform. For details, see [What is Bluemix?](https://console.ng.bluemix.net/docs/overview/whatisbluemix.html){: new_window})
+  You create your {{site.data.keyword.watson}} services through {{site.data.keyword.Bluemix}}, so you need a free {{site.data.keyword.Bluemix_notm}} account to get started. (For information about the {{site.data.keyword.Bluemix_notm}}, see [What is {{site.data.keyword.Bluemix_notm}}?](https://console.ng.bluemix.net/docs/overview/whatisbluemix.html){: new_window})
 
   1.  Go to the [{{site.data.keyword.discoveryshort}} service ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} on {{site.data.keyword.Bluemix_notm}} and either sign up for a free account or log into your {{site.data.keyword.Bluemix_notm}} account.
 
@@ -59,6 +60,7 @@ Before beginning with the {{site.data.keyword.discoveryshort}} service, you will
   **Note:** You must use the endpoint specified in the `url` field. The examples given in this topic use a default and might need to be changed. For more information see [Service credentials for Watson services](https://console.bluemix.net/docs/services/watson/getting-started-credentials.html).
 
 ## Step 1: Create an environment
+{: #create-an-environment}
 
 In a bash shell or equivalent environment such as Cygwin, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
 
@@ -79,6 +81,7 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 {: pre}
 
 ## Step 2: Create a collection
+{: #create-a-collection}
 
 Next, use the `POST /v1/environments/{environment_id}/collections` method to create a collection. Think of a collection as a box where you will store your documents in your environment. This example creates a collection that is called **my-first-collection** in the environment that you created in the previous step, and uses the following default configuration:
 
@@ -109,10 +112,12 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 {: pre}
 
 ## Step 3: Download the sample documents
+{: #download-sample-documents}
 
 Download these documents: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>.
 
 ## Step 4: Upload the documents
+{: #upload-the-documents}
 
 Now, use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method to add the example documents to your collection. This example uploads the document **test-doc1.html** to your collection:
 
@@ -191,6 +196,7 @@ Alternatively, use one of the SDKs listed in the [API Reference ![External link 
 Repeat this process for each of the example files.
 
 ## Step 5: Query your collection
+{: #query-your-collection}
 
 Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_id}/query` method to search your collection of documents. The following example returns all entities that are called **IBM**:
 
@@ -204,5 +210,6 @@ curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/
 {: pre}
 
 ## Next steps
+{: #next-steps}
 
 You have now successfully queried documents in the environment and collection you created. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings. For more information about the API, see the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}.

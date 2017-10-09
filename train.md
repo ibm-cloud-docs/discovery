@@ -28,11 +28,11 @@ If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to t
 
 **Note:** Relevance training needs certain training-data requirements before it takes effect. The service checks the training data periodically to determine if these requirements are met, and automatically updates itself based on any changes.
 
-**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see ["Building queries and delivering content"](/docs/services/discovery/using.html).
+**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery/using.html).
 
 **Note:** There is a maximum of 4 trained collections per environment.
 
-<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Building queries and delivering content](/docs/services/discovery/using.html) and the [Query building reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
+<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
 
 The components needed to train a Discovery instance include the following:
 
@@ -80,7 +80,7 @@ The values in this object are as follows:
 
 - `query_id`: A unique ID for the query. If you do not specify this field, the service automatically generates an ID.
 - `natural_language_query`: A Discovery natural-language query that applies to the training set. <!-- The `natural_language_query` parameter is preferred. -->
-- `filter`: An optional filter for the query, as described in the [Query building reference](/docs/services/discovery/query-reference.html).
+- `filter`: An optional filter for the query, as described in the [Query reference](/docs/services/discovery/query-reference.html#parameter-descriptions).
 
     **Note:** If you include filters in your training-data queries, be sure to use the same filters when you use natural language queries in your trained collection. If you train the collection with filtered data but do not use the same types of filters when you query the collection, the results can be unpredictable.
 

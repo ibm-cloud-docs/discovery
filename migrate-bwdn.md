@@ -94,7 +94,7 @@ You can query {{site.data.keyword.discoverynewsshort}} by using the API or one o
 1. Click on the {{site.data.keyword.discoverynewsshort}} tile to open the {{site.data.keyword.discoverynewsshort}} overview page.
 1. Click **Query this collection** to open the **My Data Insights** screen. Click **Build your own query** to open the query builder.
 
-  Queries in {{site.data.keyword.discoverynewsshort}} are structured the same way as queries written for private data collections. See [Building Queries and Delivering Content](/docs/services/discovery/using.html) and [Query Building Reference](/docs/services/discovery/query-reference.html).
+  Queries in {{site.data.keyword.discoverynewsshort}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery/using.html) and [Query Reference](/docs/services/discovery/query-reference.html).
   {: tip}
 
 **Note:** Do not expect identical results to be returned for similar queries in {{site.data.keyword.discoverynewsshort}} Original and {{site.data.keyword.discoverynewsshort}}. Crawl time, sources, and enrichments all combine to return different results.

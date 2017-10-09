@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-03"
+lastupdated: "2017-10-09"
 
 ---
 
@@ -42,6 +42,16 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 9 October 2017
+
+- A new aggregation metric `unique_count` is available in the API. It will return a count of the unique instances of the specified field in a collection. See [unique_count](/docs/services/discovery/query-aggregations.html#unique_count) for more information.
+
+{{site.data.keyword.discoveryshort}} tooling:
+
+- Histogram and Timeslice aggregations are now supported in the **Visual Query Builder**. You also have the option to turn on anomaly detection for Timeslice queries.
+- The **Data schema explorer** displays sample queries for the enrichment chosen. It also now has a **Show more values" link that will display additional example values for that enrichment.
+- A hamburger menu has been added to make it faster to navigate the **Manage data**, **View data schema**, and **Build queries** screens.
+
 ### 3 October 2017
 
 - Document segmentation is now available. See [Splitting documents with document segmentation](/docs/services/discovery/building.html#doc-segmentation).
@@ -71,7 +81,7 @@ The following new features and changes to the service are available.
 
 ### 6 September 2017
 
-- Added the beta ability to deduplicate documents returned from your query. This beta feature works for both private and Watson Discovery News collections. See [Excluding duplicate documents from query results](/docs/services/discovery/query-reference.html#deduplication) for details.
+- Added the beta ability to deduplicate documents returned from your query. This beta feature works for both private and Watson Discovery News collections. See [Excluding duplicate documents from query results](/docs/services/discovery/query-parameters.html#deduplication) for details.
 
 Document deduplication is currently supported only as a beta capability. See the statement regarding betas at the top of this document for more information.
 
@@ -174,7 +184,7 @@ Both features are query building enhancements and can be found on the **Build yo
 
     If you do not use enrichments in non-English languages, you can continue to use the `2016-12-01` version string. However, you should update the version string as soon as possible to avoid potential future conflicts.
 
- - Anomaly detection is now available as part of `timeslice` aggregations as a GA capability. See the [Query building reference](/docs/services/discovery/query-reference.html#anomaly-detection) for details.
+ - Anomaly detection is now available as part of `timeslice` aggregations as a GA capability. See [Timeslice anomaly detection](/docs/services/discovery/query-aggregations.html#anomaly-detection) for details.
 
  - Discovery Tooling:
 
@@ -216,7 +226,7 @@ Both features are query building enhancements and can be found on the **Build yo
 
 ### 10 May 2017
 
- - The `query` and `notices` methods now support the `highlight` parameter. The parameter is a boolean. When you run a query and specified `highlight` as `true`, the service returns output that includes a new `highlight` field in which words that match the query are wrapped in HTML `*` (emphasis) tags. See the [Query building reference](/docs/services/discovery/query-reference.html) for details.
+ - The `query` and `notices` methods now support the `highlight` parameter. The parameter is a boolean. When you run a query and specified `highlight` as `true`, the service returns output that includes a new `highlight` field in which words that match the query are wrapped in HTML `*` (emphasis) tags. See the [Query parameters](/docs/services/discovery/query-parameters.html#highlight) for details.
 
  - It is possible for the deletion of an environment to complete only partially, resulting in a situation in which a new environment cannot be created because only a single environment per service instance is permitted. If you attempt to delete and then create an environment but see either operation stuck in the `pending` state, it is likely you have encountered this problem. To work around it, re-run the deletion operation to complete it, then create the new environment.
 
@@ -238,17 +248,17 @@ Both features are query building enhancements and can be found on the **Build yo
 
 ### 25 April 2017
 
-  - The service now enables you to provide *training data* to improve the accuracy of your query results. When you provide a Discovery instance with training data, the service uses advanced Watson algorithms to determine the most relevant results. As you add more training data, the service instance becomes more accurate and sophisticated in the results it returns. See ["Improving the relevance of your query results"](/docs/services/discovery/train.html) and the [API Reference ](http://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data) for information.
+  - The service now enables you to provide *training data* to improve the accuracy of your query results. When you provide a Discovery instance with training data, the service uses advanced Watson algorithms to determine the most relevant results. As you add more training data, the service instance becomes more accurate and sophisticated in the results it returns. See [Improving the relevance of your query results](/docs/services/discovery/train.html) and the [API Reference ](http://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data) for information.
 
-  - The API now supports the `natural_language_query` parameter as a beta release. This parameter enables you to specify a query in natural language instead of in the Discovery service's query language. See the ["Query your collection"](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
+  - The API now supports the `natural_language_query` parameter as a beta release. This parameter enables you to specify a query in natural language instead of in the Discovery service's query language. See the [Query your collection](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
 
   - Documentation updates and errata corrections.
 
 ### 14 April 2017
 
-Enhancements have been added to the query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). See the ["Query your collection"](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
+Enhancements have been added to the query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). See the [Query your collection](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
 
-  - The query API now supports the `passages` parameter. If the parameter is set to `true`, the query returns a set of the most relevant passages from the documents in your collection. The passages are generated by sophisticated Watson algorithms to determine the best passages of text from all of the documents returned by the query. This enables you to find information and context more precisely. See the ["Query your collection"](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
+  - The query API now supports the `passages` parameter. If the parameter is set to `true`, the query returns a set of the most relevant passages from the documents in your collection. The passages are generated by sophisticated Watson algorithms to determine the best passages of text from all of the documents returned by the query. This enables you to find information and context more precisely. See the [Query your collection](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
 
     - Specifying `passages=true` in your query can reduce performance as a result of increased processing to extract passages. With larger environments, the performance impact can be lessened.
 
@@ -260,8 +270,8 @@ Enhancements have been added to the query API (`GET /v1/environments/{environmen
 
 ### 7 April 2017
 
-- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `sort` parameter, which enables you to specify a comma-separated list of fields in the document to sort on. See the ["Query your collection"](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
-- The `timeslice` parameter for query aggregations now correctly handles dates in UNIX epoch format. See the ["Query building reference"](/docs/services/discovery/query-reference.html#aggregations) for information about aggregations and the `timeslice` parameter.
+- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `sort` parameter, which enables you to specify a comma-separated list of fields in the document to sort on. See the [Query your collection](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
+- The `timeslice` parameter for query aggregations now correctly handles dates in UNIX epoch format. See [Query reference](/docs/services/discovery/query-reference.html#aggregations) for information about aggregations and the `timeslice` parameter.
 - Improvements to error messages.
 - Updates to the service's Java SDK. See the [API Reference](http://www.ibm.com/watson/developercloud/discovery/api/v1/?java) for details.
 - The following limitations to the use of wildcards in queries are now fixed and work correctly:
@@ -499,14 +509,14 @@ The following notes apply to the General Availability (GA) release of the {{site
 
 ### Known issues
 
--   You cannot delete a document by using the tooling. If you need to delete a document, you must use the API's ["Delete a document"](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc) method as described in the API reference.
+-   You cannot delete a document by using the tooling. If you need to delete a document, you must use the API's [Delete a document](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc) method as described in the API reference.
 
 -   The API does not currently support getting a list of notices (warnings and error) that are generated during document ingestion. The tooling is therefore unable to show a list of ingestion notices, and there is no easy way to determine which, if any, documents crawled by the Data Crawler failed to be ingested.
 -   Document status information is not always accurate.
     -   If an ingestion operation takes longer than the configured timeout of 10 minutes, the service reports that the document is not known to the service until the ingestion operation completes. After the operation completes, the document status is available and accurate.
     -   Documents that are successfully indexed but generated errors can have a status of **failed** for a short period of time until the document has been fully committed to the index. After the document has been committed to the index, the listed status is accurate.
--   You cannot use the tooling to replace a specific document. If you attempt to do so, the second document is uploaded as a separate document. If you are using the API and know the ID of the document you want to replace, you can do so; see ["Update a document"](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc) in the API reference. If you are using the Data Crawler, uploading an updated document from the same URL as a previous document replaces the original document.
--   If you are using the tooling to edit the enrichments in your configuration, you can edit only enrichments used for extraction. If you want to add or edit other enrichments (for example, custom enrichments from a {{site.data.keyword.knowledgestudiofull}} model), you must use the API. See the ["Update a configuration"](http://www.ibm.com/watson/developercloud/discovery/api/v1/#replace_configuration) method in the API reference for information.
+-   You cannot use the tooling to replace a specific document. If you attempt to do so, the second document is uploaded as a separate document. If you are using the API and know the ID of the document you want to replace, you can do so; see [Update a document](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc) in the API reference. If you are using the Data Crawler, uploading an updated document from the same URL as a previous document replaces the original document.
+-   If you are using the tooling to edit the enrichments in your configuration, you can edit only enrichments used for extraction. If you want to add or edit other enrichments (for example, custom enrichments from a {{site.data.keyword.knowledgestudiofull}} model), you must use the API. See the [Update a configuration](http://www.ibm.com/watson/developercloud/discovery/api/v1/#replace_configuration) method in the API reference for information.
 -   The following notes apply specifically to the Data Crawler.
     -   The Data Crawler retries uploads if it encounters an upload failure.
     -   The Data Crawler is unable to retry documents that uploaded successfully but failed to be converted or indexed.
