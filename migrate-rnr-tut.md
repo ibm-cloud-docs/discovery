@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-03"
+lastupdated: "2017-10-09"
 
 ---
 
@@ -49,7 +49,7 @@ The following pre-requisites are necessary before beginning this tutorial:
 -  This tutorial assumes you have already created a {{site.data.keyword.discoveryshort}} instance, if you need directions on how to create a {{site.data.keyword.discoveryshort}} instance, please refer to the [following tutorial](/docs/services/discovery/getting-started.html).
 
 -  This tutorial assumes that you have your service credentials.
-   -  When in the Watson {{site.data.keyword.discoveryshort}} service on Bluemix, click **Service credentials**.
+   -  When in the Watson {{site.data.keyword.discoveryshort}} service on {{site.data.keyword.Bluemix_notm}}, click **Service credentials**.
    -  Click **View credentials** under Actions.
    -  Copy the `username` and `password` values and make sure that the `url` value matches the one in the examples below, if it doesn't, replace it as well.
 

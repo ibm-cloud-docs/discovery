@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-10-09"
 
 ---
 
@@ -24,6 +24,7 @@ The following tables list the possible entity types and subtypes that are return
 
 
 ## Entity types
+{: #entity-types}
 
 | Entity type       |
 |-------------------|
@@ -46,6 +47,8 @@ The following tables list the possible entity types and subtypes that are return
 | NaturalEvent      |
 | Organization      |
 | Person            |
+| PrintMedia        |
+| Quantity          |
 | Sport             |
 | SportingEvent     |
 | TelevisionShow    |
@@ -53,6 +56,7 @@ The following tables list the possible entity types and subtypes that are return
 | Vehicle           |
 
 ## Entity subtypes
+{: #entity-subtypes}
 
 | Entity subtype                      |
 |-------------------------------------|

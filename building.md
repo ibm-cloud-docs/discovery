@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-03"
+lastupdated: "2017-10-09"
 
 ---
 
@@ -53,7 +53,7 @@ In the {{site.data.keyword.discoveryshort}} service, the content that you upload
 
 To create an environment and private data collection with the {{site.data.keyword.discoveryshort}} tooling do the following:
 
-1.  On the **Your Data** screen, click the icon on the upper right ![Cog](images/icon_settings.png) and choose **Create environment**. The environment is created based on the Bluemix plan you selected earlier. The status of your environment is always available from this drop-down.
+1.  On the **Your Data** screen, click the icon on the upper right ![Cog](images/icon_settings.png) and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
 
 1.  Once your environment is ready, click the **Create a data collection** button, then you can **Name your new collection**.
 
@@ -214,6 +214,7 @@ The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/
 You can further augment your documents by adding more enrichments to the `text` field, or enriching other fields. To do so using the {{site.data.keyword.discoveryshort}} tooling, [create a custom configuration](/docs/services/discovery/building.html#custom-configuration), choose the field(s) you'd like to enrich and select from the list of available {{site.data.keyword.nlushort}} enrichments:
 
 ### Entity extraction
+{: #entity-extraction}
 
 Returns items such as persons, places, and organizations that are present in the input text. Entity extraction adds semantic knowledge to content to help understand the subject and context of the text that is being analyzed. The entity extraction techniques are based on sophisticated statistical algorithms and natural language processing technology, and are unique in the industry with their support for multilingual analysis, context-sensitive disambiguation, and quotation extraction. View the complete list of entity types and subtypes [here](/docs/services/discovery/entity-types.html)
 
@@ -277,6 +278,7 @@ In the preceding example, you could query the entity type by accessing `enriched
 The `relevance` score ranges from `0.0` to `1.0`. The higher the score, the more relevant the entity. The `disambiguation` field contains the disambiguation information for the entity, which includes the entity `subtype` information and links to the resource(s), if applicable. The `count` is the number of times the entity is mentioned in the document.
 
 ### Keyword extraction
+{: #keyword-extraction}
 
 Important topics in your content that are typically used when indexing data, generating tag clouds, or when searching. The {{site.data.keyword.discoveryshort}} service automatically identifies supported languages in your input content, and then identifies and ranks keywords in that content.
 
@@ -373,6 +375,7 @@ In the preceding example, you could query the category label by accessing `enric
 The `label` is the detected category. The hierarchy levels are separated by forward slashes. The `score` for that category will range from `0.0` to `1.0`. The higher the score, the greater the confidence in that category.
 
 ### Concept tagging
+{: #concept-tagging}
 
 Identifies concepts with which the input text is associated, based on other concepts and entities that are present in that text. Concept tagging understands how concepts relate, and can identify concepts that are not directly referenced in the text. For example, if an article mentions CERN and the Higgs boson, the Concepts API functions will identify Large Hadron Collider as a concept even if that term is not mentioned explicitly in the page. Concept tagging enables higher level analysis of input content than just basic keyword identification.
 
@@ -490,6 +493,7 @@ In the preceding example, you could query the relation subject text by accessing
 The `subject`, `action`, and `object` are extracted for every sentence that contains a relation.
 
 ### Sentiment analysis
+{: #sentiment-analysis}
 
 Identifies attitude, opinions, or feelings in the content that is being analyzed. The {{site.data.keyword.discoveryshort}} service can calculate overall sentiment within a document, sentiment for user-specified targets, entity-level sentiment, quotation-level sentiment, directional-sentiment, and keyword-level sentiment. The combination of these capabilities supports a variety of use cases ranging from social media monitoring to trend analysis.
 
@@ -513,6 +517,7 @@ In the preceding example, you could query the sentiment label by accessing `enri
 The `label` is the overall sentiment of the document (`positive`, `negative`, or `neutral`). The sentiment `label` is based on the `score`; a score of `0.0` would indicate that the document is `neutral`, a positive number would indicate the document is `positive`, a negative number would indicate the document is `negative`.
 
 ### Emotion analysis
+{: #emotion-analysis}
 
 Detects anger, disgust, fear, joy, and sadness implied in English text. Emotion Analysis can detect emotions that are associated with targeted phrases, entities, or keywords, or it can analyze the overall emotional tone of your content.
 
@@ -547,6 +552,7 @@ Enrichment pricing information is available on [{{site.data.keyword.Bluemix_notm
 **Note:** Emotion Analysis is supported in English only.
 
 #### Enrichment language support
+{: #enrichment-language-support}
 
 For information about enrichment language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/services/discovery/language-support.html).
 
@@ -856,6 +862,7 @@ Considerations:
   - HTML, PDF, and Word metadata is not extracted and will not be included in the index. In addition, custom metadata passed in with the document upload will not be included in the index.
 
 ### Performing segmentation
+{: #performing-segmentation}
 
 Segmentation is setup via the API in the `conversions` section.
 
@@ -942,7 +949,7 @@ All segments will include an:
     - `segment` - The number of this segment.
     - `total_segments` - The total number of segments the document was split into.
   - `extracted_metadata` section which contains:
-    - `title` - The `title` field of the segment will correspond to the heading, except for the first segment, which inherits the title that was extracted from the entire document.
+    - `title` - The `title` field is extracted from the content of the heading tag in that segment (for example, `Chapter 1`). If the first segment does not include a heading tag, the `title` will be `no-title`.
     - `sha1` - Corresponds to the original document.
     - `filename` - Corresponds to the original document.
     - `file_type`- Corresponds to the original document.

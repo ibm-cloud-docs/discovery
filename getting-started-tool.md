@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-14"
+lastupdated: "2017-10-09"
 
 ---
 
@@ -23,6 +23,7 @@ In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} to
 {: shortdesc}
 
 ## Before you begin
+{: #before-you-begin}
 
 Before beginning with the {{site.data.keyword.discoveryshort}} service, you will need:
 
@@ -37,7 +38,7 @@ Before beginning with the {{site.data.keyword.discoveryshort}} service, you will
 
 - To create an instance of the {{site.data.keyword.discoveryshort}} service:
 
-  You create your {{site.data.keyword.watson}} services through {{site.data.keyword.Bluemix}}, so you need a free {{site.data.keyword.Bluemix_notm}} account to get started. ({{site.data.keyword.Bluemix_notm}} is IBM's cloud platform. For details, see [What is Bluemix?](https://console.ng.bluemix.net/docs/overview/whatisbluemix.html){: new_window})
+  You create your {{site.data.keyword.watson}} services through {{site.data.keyword.Bluemix}}, so you need a free {{site.data.keyword.Bluemix_notm}} account to get started. (For information about the {{site.data.keyword.Bluemix_notm}}, see [What is {{site.data.keyword.Bluemix_notm}}?](https://console.ng.bluemix.net/docs/overview/whatisbluemix.html){: new_window})
 
   1.  Go to the [{{site.data.keyword.discoveryshort}} service ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} on {{site.data.keyword.Bluemix_notm}} and either sign up for a free account or log into your {{site.data.keyword.Bluemix_notm}} account.
 
@@ -46,6 +47,7 @@ Before beginning with the {{site.data.keyword.discoveryshort}} service, you will
   1.  Type `discovery-tutorial` in the **Service name** field, click **Create**.      
 
 ## Step 1: Launch the tooling
+{: #launch-the-tooling}
 
 After you create the service instance, you'll land on the dashboard for the instance. Launch the {{site.data.keyword.discoveryshort}} tooling from here.
 
@@ -54,6 +56,8 @@ Click **Manage**, then **Launch Tool**.
 ![Launch the tooling](images/bm-launch-tool.png)
 
 ## Step 2: Create a collection
+{: #create-a-collection}
+
 Your first step in the {{site.data.keyword.discoveryshort}} tool is to create a data collection.
 
 A collection is a set of your documents. *Why would I want more than one collection?* There are a few reasons, including:
@@ -63,7 +67,7 @@ A collection is a set of your documents. *Why would I want more than one collect
 
 The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready-to-query and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
 
-1.  Click the icon on the upper right ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**. The environment is created based on the Bluemix plan you selected earlier. The status of your environment is always available from this drop-down.
+1.  Click the icon on the upper right ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
 
 1.  Once your environment is ready, the **Name your new collection** dialog appears. Name your collection and choose **Default Configuration** from the **Select a configuration to apply** drop-down (we can change the configuration later).
 
@@ -82,6 +86,7 @@ The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collectio
     Repeat this process to customize the conversion to your exact requirements.
 
 ## Step 4: Upload your documents
+{: #upload-your-documents}
 
 Once you are happy with the custom conversion of your sample document it's time to actually ingest the real content into your collection.
 
@@ -98,6 +103,7 @@ Once you are happy with the custom conversion of your sample document it's time 
     The API information for this collection is listed on the left. You can use it to quickly build an application using the {{site.data.keyword.discoveryshort}} API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1){: new_window}.
 
 ## Step 5: Build a query
+{: #build-a-query}
 
 1.  Once you have uploaded all your documents, you are ready to begin searching them. Click on the magnifying glass icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select your collection and click **Get started**.
 
@@ -113,21 +119,22 @@ Once you are happy with the custom conversion of your sample document it's time 
        - Click the **Field** drop-down and choose `enriched_text.entities.text`, for the **Operator** choose `contains`, then enter the **Value** of `watson`. Click **Add rule**, then repeat your selections, but enter the **Value** of `Slack`. The query `enriched_text.entities.text:watson,enriched_text.entities.text:Slack` will display under the **Visual Query Builder**.  
        - Click **Run Query**. - The query will return 1 results.
 
-    Click **Edit in query language** to build queries using the {{site.data.keyword.discoveryshort}} Query Language. To learn more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query building](/docs/services/discovery/query-reference.html) and [Building queries and delivering content](/docs/services/discovery/using.html).
+    Click **Edit in query language** to build queries using the {{site.data.keyword.discoveryshort}} Query Language. To learn more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query reference](/docs/services/discovery/query-reference.html) and [Query concepts](/docs/services/discovery/using.html).
 
 1.  The results of your query will display in the **Results** section on the right. This section has two tabs - the **Summary** tab provides an overview of the query results; while the **JSON** tab displays the full JSON results. For the queries listed, the **Summary** will display the document passages (in order of relevance) first, followed by the names of the documents found, then the results by enrichment. **Passages** are short, relevant excerpts extracted from the full documents returned by your query.
 
     The **Query URL** link provided under the **JSON** tab is ready-to-use in your application.
 
-    You can also click on the **Use natural language** button and write a natural language query, such as "IBM Watson partnerships". To learn more about natural language queries, see [Search parameters](/docs/services/discovery/query-reference.html#search-parameters).
+    You can also click on the **Use natural language** button and write a natural language query, such as "IBM Watson partnerships". To learn more about natural language queries, see [Natural language query](/docs/services/discovery/query-parameters.html#nlq).
 
     Watson can be trained to improve the results of natural language queries, see [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html).
 
     Additional resources:
 
-    -  To learn more about the data schema of your documents, click the **View Data Schema** icon on the left or click on the **JSON** tab on the right. See [Building a basic query](/docs/services/discovery/using.html#building-a-basic-query) for details.
+    -  To learn more about the data schema of your documents, click the **View Data Schema** icon on the left or click on the **JSON** tab on the right. See [The Discovery data schema](/docs/services/discovery/using.html#discovery-schema) for details.
     -  If editing in the {{site.data.keyword.discoveryshort}} Query Language, click on the **?** icons next to any of the **Enter query here** fields for more examples.
 
 ## Next steps
+{: #next-steps}
 
 Now you have a functioning and populated {{site.data.keyword.discoveryshort}} service instance. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings.

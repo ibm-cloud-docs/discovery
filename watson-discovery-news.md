@@ -29,7 +29,7 @@ Use cases for Watson Discovery News:
 
 - Trending topics in the news -  Identify popular topics and monitor increases and decreases in how frequently they (or related topics) are mentioned.
 
-For information about writing queries for {{site.data.keyword.discoverynewsfull}}, see [Building Queries and Delivering Content](using.html) and [Query Building Reference](query-reference.html).
+For information about writing queries for {{site.data.keyword.discoverynewsfull}}, see [Query concepts](/docs/services/discovery/using.html) and [Query reference](/docs/services/discovery/query-reference.html).
 
 You cannot adjust the {{site.data.keyword.discoverynewsfull}} configuration, train, or add documents to the {{site.data.keyword.discoverynewsfull}} collection.
 

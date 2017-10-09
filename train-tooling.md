@@ -38,7 +38,7 @@ Training must meet the following **minimum** requirements for {{site.data.keywor
 
 **Note:** Relevance training needs certain training-data requirements before it takes effect. The service checks the training data periodically to determine if these requirements are met, and automatically updates itself based on any changes.
 
-**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see ["Building queries and delivering content"](/docs/services/discovery/using.html).
+**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery/using.html).
 
 **Note:** There is a maximum of 4 trained collections per environment.  
 

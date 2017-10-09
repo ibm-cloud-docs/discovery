@@ -65,7 +65,7 @@ To launch the {{site.data.keyword.discoveryshort}} tooling and query {{site.data
 1. Click on the {{site.data.keyword.discoverynewsfull}} tile to open the {{site.data.keyword.discoverynewsfull}} overview page.
 1. Click **Query this collection**. The **My Data Insights** screen will open. Click **Build your own query** to open the query builder.
 
-  Queries in {{site.data.keyword.discoverynewsfull}} are structured the same way as queries written for private data collections. See [Building Queries and Delivering Content](using.html) and [Query Building Reference](query-reference.html).
+  Queries in {{site.data.keyword.discoverynewsfull}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery/using.html) and [Query reference](/docs/services/discovery/query-reference.html).
   {: tip}
 
 **Note**: Do not expect identical results to be returned for similar queries in AlchemyData News and {{site.data.keyword.discoverynewsfull}}. Crawl time, sources, and enrichments all combine to return different results.

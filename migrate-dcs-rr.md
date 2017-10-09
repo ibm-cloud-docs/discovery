@@ -261,7 +261,7 @@ The {{site.data.keyword.discoveryfull}} query language is different to the Solr 
 | `*` | `*` | Wildcard |
 | `~`(0 to 1) | [~n] | String variation |
 
-Consult the [building a query](/docs/services/discovery/using.html) and [query reference](/docs/services/discovery/query-reference.html) documentation for detailed information about the {{site.data.keyword.discoveryfull}} query language.
+Consult the [Query concepts](/docs/services/discovery/using.html) and [Query reference](/docs/services/discovery/query-reference.html) documentation for detailed information about the {{site.data.keyword.discoveryfull}} query language.
 
 
 ## Standalone Watson Document Conversion service migration
