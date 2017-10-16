@@ -1,8 +1,8 @@
----
+2017-10-16---
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-10-16"
 
 ---
 
@@ -31,14 +31,14 @@ Use the bash POST /v1/environments method to create an environment. Think of an 
 Replace `{username}` and `{password}` with your service credentials.
 
 ```bash
-curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-09-01"
+curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-10-16"
 ```
 {: pre}
 
 The API returns a response that includes information such as your environment ID, environment status, and how much storage your environment is using. Do not go on to the next step until your environment status is `ready`. When you create the environment, if the status returns `status:pending`, use the `GET /v1/environments/{environment_id}` method to check the status until it is ready. In this example, replace `{username}` and `{password}` with your service credentials, and replace `{environment_id}` with the environment ID that was returned when you created the environment.
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-09-01
+curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-10-16
 ```
 {: pre}
 
@@ -52,21 +52,21 @@ Next, use the `POST /v1/environments/{environment_id}/collections` method to cre
 Before creating a collection you must get the ID of your default configuration. To find your default `configuration_id`, use the `GET /v1/environments/{environment_id}/configurations` method:
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-09-01
+curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-10-16
 ```
 {: pre}
 
 Once you have the default configuration ID, use it to create your collection. Replace `{configuration_id}` with the default configuration ID for your environment.
 
 ```bash
-curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-09-01
+curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-10-16
 ```
 {: pre}
 
 The API returns a response that includes information such as your collection ID, collection status, and how much storage your collection is using. Do not go on to the next step until your collection status is `online`. When you create the collection, if the status returns `status:pending`, use the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to check the status until it is ready. In this example, replace `{username}` and `{password}` with your service credentials, replace `{environment_id}` with your environment ID, and replace `{collection_id}` with the collection ID that was returned earlier in this step.
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-09-01
+curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-10-16
 ```
 {: pre}
 
@@ -160,7 +160,7 @@ Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_
 -   Replace `{collection_id}` with the collection ID of the collection that you created in step 2.
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-09-01&query-enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-10-16&query-enriched_text.entities.text:IBM'
 ```
 {: pre}
 

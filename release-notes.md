@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-10-16"
 
 ---
 
@@ -29,7 +29,7 @@ API requests require a version parameter that takes a date in the format `versio
 
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
-The current version is `2017-09-01`.
+The current version is `2017-10-16`.
 
 ## Beta features
 {: #beta-features}
@@ -41,6 +41,17 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 16 October 2017
+
+- The version string for all API calls has changed to `2017-10-16` from `2017-09-01`. This version deprecates support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. Existing collections enriched with {{site.data.keyword.alchemylanguageshort}} should be migrated to {{site.data.keyword.nlushort}} enrichments as soon as possible. See [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrating-enrichments-to-natural-language-understanding) for details. The {{site.data.keyword.discoveryshort}} tooling also uses the `2017-10-16` version, see below for more information.
+
+{{site.data.keyword.discoveryshort}} tooling:
+
+- The {{site.data.keyword.discoveryshort}} tooling uses the `2017-10-16` API version string, so if you are using the tooling, you will no longer be able to upload documents into existing {{site.data.keyword.alchemylanguageshort}} collections or create new collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments after `2017-10-16`.  If you want to continue using the {{site.data.keyword.discoveryshort}} tooling for enriching collections, migrate your collections to {{site.data.keyword.nlushort}} first. See [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrating-enrichments-to-natural-language-understanding) for details. 
+- The **Data schema explorer** displays sample queries for several enrichments in the {{site.data.keyword.discoverynewsfull}} collection. It also now has a **Show more values" link that will display additional example values for that enrichment in {{site.data.keyword.discoverynewsfull}}.
+- Multiple productivity enhancements, including combining the collection statistics, errors and warnings, and data insights on the **Manage data** screen.
+- A message was added that displays an alert when documents are finished processing.
 
 ## 9 October 2017
 

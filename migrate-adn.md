@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-22"
+lastupdated: "2017-10-16"
 
 ---
 
@@ -60,10 +60,9 @@ You can query {{site.data.keyword.discoverynewsfull}} by using the API or one of
 
 To launch the {{site.data.keyword.discoveryshort}} tooling and query {{site.data.keyword.discoverynewsshort}}:
 
-1. Navigate to the **Manage** tab of your {{site.data.keyword.discoveryshort}} service instance.
-1. Click the **Launch Tooling** button.
-1. Click on the {{site.data.keyword.discoverynewsfull}} tile to open the {{site.data.keyword.discoverynewsfull}} overview page.
-1. Click **Query this collection**. The **My Data Insights** screen will open. Click **Build your own query** to open the query builder.
+1. Click **Launch Tool** for {{site.data.keyword.discoveryshort}} under **Services**.
+1. Click on the {{site.data.keyword.discoverynewsshort}} tile to open the **Manage data** screen.
+1. Click **View data schema**, then **Build queries** to open the query builder.
 
   Queries in {{site.data.keyword.discoverynewsfull}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery/using.html) and [Query reference](/docs/services/discovery/query-reference.html).
   {: tip}
@@ -79,14 +78,14 @@ In all of the following examples, replace `{username}` and `{password}` with the
 ### Using direct calls to the API
 
 ```bash
-curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-09-01&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-10-16&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 
 ### Using the Java SDK
 
 ```java
-Discovery discovery = new Discovery("2017-09-01");
+Discovery discovery = new Discovery("2017-10-16");
 discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
 discovery.setUsernameAndPassword("{username}", "{password}");  
 String environmentId = "system";
@@ -107,7 +106,7 @@ var watson = require('watson-developer-cloud');
 var discovery = new DiscoveryV1({  
   username: '{username}',  
   password: '{password}',  
-  version_date: '2017-09-01'  
+  version_date: '2017-10-16'  
 });  
 
 discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),  
@@ -127,7 +126,7 @@ from watson_developer_cloud import DiscoveryV1
 discovery = DiscoveryV1(
   username="{username}",
   password="{password}",
-  version="2017-09-01"
+  version="2017-10-16"
 )
 
 qopts = {'query': 'enriched_text.entities.text:IBM'}

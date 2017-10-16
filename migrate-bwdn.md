@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-31"
+lastupdated: "2017-10-16"
 
 ---
 
@@ -77,11 +77,11 @@ To move your queries from {{site.data.keyword.discoverynewsshort}} Original to t
 
 - Modify the query to use the new JSON path structure for the new {{site.data.keyword.discoverynewsshort}}. Most fields have changed paths, multiple fields have been added, and a selected group of low-value fields have been removed. See the field migration spreadsheet for full details <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>HERE <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>). For example, the following query:
 
-  `discovery/api/v1/environments/ae5790c2-592f-432a-804a-ee16de7154d7/collections/3edcd8f1-e25a-4f44-a069-58332ad17651/query?version=2017-09-01&query=entities.type:"Company"`
+  `discovery/api/v1/environments/ae5790c2-592f-432a-804a-ee16de7154d7/collections/3edcd8f1-e25a-4f44-a069-58332ad17651/query?version=2017-10-16&query=entities.type:"Company"`
 
   Should be changed to:
 
-  `discovery/api/v1/environments/system/collections/news/query?version=2017-09-01&query=enriched_text.entities.type:"Company"`  
+  `discovery/api/v1/environments/system/collections/news/query?version=2017-10-16&query=enriched_text.entities.type:"Company"`  
 
 ## Querying Watson Discovery News
 
@@ -89,10 +89,9 @@ You can query {{site.data.keyword.discoverynewsshort}} by using the API or one o
 
 **To launch the {{site.data.keyword.discoveryshort}} tooling and query {{site.data.keyword.discoverynewsshort}}:**
 
-1. Navigate to the **Manage** tab of your {{site.data.keyword.discoveryshort}} service instance.
-1. Click the **Launch Tooling** button.
-1. Click on the {{site.data.keyword.discoverynewsshort}} tile to open the {{site.data.keyword.discoverynewsshort}} overview page.
-1. Click **Query this collection** to open the **My Data Insights** screen. Click **Build your own query** to open the query builder.
+1. Click **Launch Tool** for {{site.data.keyword.discoveryshort}} under **Services**.
+1. Click on the {{site.data.keyword.discoverynewsshort}} tile to open the **Manage data** screen.
+1. Click **View data schema**, then **Build queries** to open the query builder.
 
   Queries in {{site.data.keyword.discoverynewsshort}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery/using.html) and [Query Reference](/docs/services/discovery/query-reference.html).
   {: tip}
@@ -108,14 +107,14 @@ In all of the following examples, replace `{username}` and `{password}` with the
 ### Using direct calls to the API
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-09-01&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-10-16&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 
 ### Using the Watson Java SDK
 
 ```java
-Discovery discovery = new Discovery("2017-09-01");  
+Discovery discovery = new Discovery("2017-10-16");  
 discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
 discovery.setUsernameAndPassword("{username}", "{password}");  
 String environmentId = "system";
@@ -135,7 +134,7 @@ var watson = require('watson-developer-cloud');
 var discovery = new DiscoveryV1({  
   username: '{username}',  
   password: '{password}',  
-  version_date: '2017-09-01'  
+  version_date: '2017-10-16'  
 });  
 
 discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),  
@@ -157,7 +156,7 @@ from watson_developer_cloud import DiscoveryV1
 discovery = DiscoveryV1(  
   username="{username}",  
   password="{password}",  
-  version="2017-09-01"  
+  version="2017-10-16"  
 )  
 
 qopts = {'query': 'enriched_text.entities.text:IBM'}  
