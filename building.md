@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-10-16"
 
 ---
 
@@ -53,7 +53,7 @@ In the {{site.data.keyword.discoveryshort}} service, the content that you upload
 
 To create an environment and private data collection with the {{site.data.keyword.discoveryshort}} tooling do the following:
 
-1.  On the **Your Data** screen, click the icon on the upper right ![Cog](images/icon_settings.png) and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
+1.  On the **Manage Data** screen, click the ![Cog](images/icon_settings.png) icon and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
 
 1.  Once your environment is ready, click the **Create a data collection** button, then you can **Name your new collection**.
 

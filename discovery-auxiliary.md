@@ -25,11 +25,13 @@ This topic contains information about {{site.data.keyword.discoveryshort}} featu
 ## AlchemyLanguage enrichments
 {: #AlchemyLanguage-enrichments}
 
-Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}}.  These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments, named {{site.data.keyword.alchemylanguageshort}} enrichments, will be deprecated.
+Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}}.  These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments, named {{site.data.keyword.alchemylanguageshort}} enrichments, will be deprecated and support will end on **15 January, 2018**.
 
-{{site.data.keyword.alchemylanguageshort}} enrichment support will end on **15 January, 2018**.
+The `2017-10-16` API version string deprecates support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}}, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. Use an earlier API version string to continue using {{site.data.keyword.alchemylanguageshort}} until support ends on **15 January, 2018**.
 
-**Note:** New collections should be enriched with {{site.data.keyword.nlushort}} and any existing collections with {{site.data.keyword.alchemylanguageshort}} configuration files migrated as soon as possible. {{site.data.keyword.alchemylanguageshort}} enrichment ingestion support ends **15 January, 2018**. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
+Existing collections enriched with AlchemyLanguage should be migrated to Natural Language Understanding enrichments as soon as possible. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
+
+**Note:** The {{site.data.keyword.discoveryshort}} tooling always uses the latest API version string, so beginning with the `2017-10-16` API version string, you will no longer be able to upload documents into existing {{site.data.keyword.alchemylanguageshort}} collections or create new collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments with the {{site.data.keyword.discoveryshort}} tooling.  If you want to continue using the Discovery tooling for enriching collections, migrate your collections to Natural Language Understanding first. See [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html) for details. 
 
 ### Entity extraction (AlchemyLanguage)
 {: #entity-extraction-al}

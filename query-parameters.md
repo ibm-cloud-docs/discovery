@@ -23,8 +23,7 @@ lastupdated: "2017-10-09"
 The {{site.data.keyword.discoveryfull}} service offers powerful content search capabilities through queries. After your content is uploaded and enriched by the {{site.data.keyword.discoveryshort}} service, you can build queries, integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder. To get started with queries, see [Query concepts](/docs/services/discovery/using.html). For the complete list of parameters, see the [Query reference](/docs/services/discovery/query-reference.html#parameter-descriptions).
 {: shortdesc}
 
-## Search parameters
-{: #parameter-descriptions}
+**Search parameters**
 
 Search parameters enable you to search your collection, identify a result set, and perform analysis on the result set.
 
@@ -64,8 +63,7 @@ Aggregation queries return a count of documents matching a set of data values; f
 
 A natural language query enables you to perform queries expressed in natural language, as might be received from an end user in a conversational or free-text interface - for example: "IBM Watson in healthcare". The parameter uses the entire input as the query text. It does **not** recognize operators. The `natural_language_query` parameter enables capabilities such as passage search and relevancy training.
 
-## Structure parameters
-{: #structure_parameters}
+**Structure parameters**
 
 Structure parameters define the content and organization of the documents in the returned JSON. This includes the number of results retuned, where in the results set to start returning documents, how the result set is sorted, which fields to return for each documents, if duplicate documents should be removed, and if relevant passages should be extracted from the results set. Structure parameters don't affect which documents are part of the entire results set.
 

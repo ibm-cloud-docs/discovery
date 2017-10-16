@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-10-16"
 
 ---
 
@@ -41,11 +41,11 @@ For more information about writing queries, see:
 
 Start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To understand how to build a query using the {{site.data.keyword.discoveryshort}} Query Language, you need to be familiar with the JSON produced by {{site.data.keyword.discoveryshort}} after it enriches the documents in your collection. Once you are familiar with the data schema of your documents, it will be easier to write queries in the {{site.data.keyword.discoveryshort}} Query Language. There are three ways to do this.
 
-  1. In the {{site.data.keyword.discoveryshort}} Tooling, open the **Your data** screen, choose the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases. Click the **View Data Schema** button. The **View data schema** screen displays the fields and values in your transformed documents two ways: by document (**Document view**), or by field (**Collection view**). A maximum of 50 documents will display in **Document view**. **Collection view** will display the fields in the entire collection.
+  1. In the {{site.data.keyword.discoveryshort}} Tooling, open the **Manage data** screen, choose the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases. Click the **View Data Schema** button. The **View data schema** screen displays the fields and values in your transformed documents two ways: by document (**Document view**), or by field (**Collection view**). A maximum of 50 documents will display in **Document view**. **Collection view** will display the fields in the entire collection.
 
     In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied with the **Default Configuration** file. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
 
-  1. Run an "empty" query to view the JSON. On the **View data schema** screen, click the **Build your own query** button, then **Run Query**. The results display on the right, under two tabs, **Summary** (an overview of the query results) and **JSON**. Start by opening the **JSON** tab.
+  1. Run an "empty" query to view the JSON. On the **View data schema** screen, click the **Build queries** button, then **Run Query**. The results display on the right, under two tabs, **Summary** (an overview of the query results) and **JSON**. Start by opening the **JSON** tab.
 
      -  Each of the four documents will be proceeded by an `id` number.
      -  Scroll down to the `enriched_text` field. Examine each enrichment to learn about the JSON fields you can query on.
@@ -59,7 +59,7 @@ Start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To u
 
      After you have examined the insights in the first document, you can look at the other three documents if you wish.
 
-  1. View the available fields in the **Visual Query Builder**. On the **View data schema** screen, click **Search for documents**. Click the **Field** drop-down to view the fields available in your data. Click **Edit in query language** to build queries manually using the {{site.data.keyword.discoveryshort}} Query Language.      
+  1. View the available fields in the **Visual Query Builder**. On the **Build queries** screen, click **Search for documents**, then **Use the {{site.data.keyword.discoveryshort}} Query Language**. Click the **Field** drop-down to view the fields available in your data. Click **Edit in query language** to build queries manually using the {{site.data.keyword.discoveryshort}} Query Language.      
 
 ### How to structure a basic query
 {: #structure-basic-query}
@@ -102,9 +102,6 @@ Aggregations return a set of data values; for example, top keywords, overall sen
 
 This example aggregation will find all of the `concepts` in your collection.
 The delimiter in this query is `.` and the operator is `()`, see [Query operators](/docs/services/discovery/query-operators.html) to learn about other operators available in the {{site.data.keyword.discoveryshort}} Query Language.
-
-If you'd like to check out a few pre-built aggregations, all of the queries on the {{site.data.keyword.discoveryshort}} Tooling insight cards are aggregation queries. Click the **More options** icon on the top right of any card to view the query.
-{: tip}
 
 ### Example aggregation queries
 {: #example-aggregations}

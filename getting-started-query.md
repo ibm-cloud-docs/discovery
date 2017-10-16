@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-10-16"
 
 ---
 
@@ -39,21 +39,21 @@ You can also write natural language queries (such as "IBM Watson partnerships") 
 
 Let's start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To understand how to build a query using the {{site.data.keyword.discoveryshort}} Query Language, it helps to be familiar with the JSON produced by {{site.data.keyword.discoveryshort}} after it enriches the documents in your collection.
 
-1.  [Launch the {{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery/getting-started-tool.html#launch-the-tooling). On the **Your data** screen, choose the {{site.data.keyword.IBM_notm}} Press Releases collection.
+1.  [Launch the {{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery/getting-started-tool.html#launch-the-tooling). On the **Manage data** screen, choose the {{site.data.keyword.IBM_notm}} Press Releases collection.
 
-1.  Click **View insights about your data**. The **My data insights** screen displays some of the insights Watson discovered in your enriched documents. You can review them to get an overview of the insights in this collection.
+1.  Review the insights Watson discovered in your enriched documents.
 
     -  **General sentiments** displays the percentage breakdown of documents tagged as positive, neutral, and negative discovered by the Sentiment Analysis enrichment.
     -  **Top entities** displays persons, places, and organizations discovered in your documents by the Entity Extraction enrichment.
     -  **Content hierarchy** displays the hierarchical taxonomies discovered in your documents by the Category Classification enrichment.
     -  **Related concepts** displays the concepts discovered in your documents by the Concept Tagging enrichment.
 
-         Click the **More options** icon on the top right of any card to see the query that returned those results.
+         Click **View in schema** on any card to see the enrichments that comprise those results.
          {: tip}
 
 1.  To get familiar with the data schema of your documents, let's look at the **View data schema** screen. It displays the fields and values in your transformed documents two ways: by document (**Document view**), or by field (**Collection view**). **Collection view** will display all fields in your collection.
 
-    Click the **View Data Schema** button. In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied with the **Default Configuration** file. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
+    Click the **View data schema** button. In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied with the **Default Configuration** file. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
 
 If your query does not return any matching results, and you think it should, try swapping out the field/value your query is using for one that you can verify in the data schema.
 {: tip}    
@@ -62,7 +62,8 @@ If your query does not return any matching results, and you think it should, try
 
 Let's start out by writing a query that will find the concept `Cloud computing` in your collection:
 
-1.  On the **Build your own query** screen, click **Search for Documents**, then:
+1.  Click on the magnifying glass icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
+1.  On the **Build queries** screen, click **Search for Documents**, **Use the {{site.data.keyword.discoveryshort}} Query Language** then:
     - Click the **Field** drop-down and choose `enriched_text.concepts.text`, for the **Operator** choose `contains`, then enter the **Value** of `Cloud computing`.
       The query `enriched_text.concepts.text:Cloud computing` will display under the **Visual Query Builder**.
 
@@ -72,21 +73,24 @@ Let's start out by writing a query that will find the concept `Cloud computing` 
 
 **Bonus:** Under **More options**, you have the option to turn on passage retrieval with the **Include relevant passages** radio button. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. See [Passages](/docs/services/discovery/query-parameters.html#passages) for more information. Passage retrieval is not available for the {{site.data.keyword.discoveryshort}} News collection.
 
+If you'd like to check out a few pre-built queries, click the **Use a sample query** button.
+{: tip}
+
 ## Step 3: Experiment with different queries
 
 Try out these queries:
 
-To return all documents that have a `positive` sentiment: Click **Search for Documents**, then:
+To return all documents that have a `positive` sentiment: Click **Search for Documents**, **Use the {{site.data.keyword.discoveryshort}} Query Language** then:
 -  Click the **Field** drop-down and choose `enriched_text.sentiment.document.label`, for the **Operator** choose `contains`, then enter the **Value** of `positive`.  
 
    The query `enriched_text.sentiment.document.label:positive` will display under the **Visual Query Builder**.
 
-To return all documents in the `health and fitness` category: Click **Search for Documents**, then:
+To return all documents in the `health and fitness` category: Click **Search for Documents**, **Use the {{site.data.keyword.discoveryshort}} Query Language** then:
 -  Click the **Field** drop-down and choose `enriched_text.categories.label`, for the **Operator** choose `is`, then enter the **Value** of `"health and fitness"`.
 
    The query `enriched_text.categories.label::"health and fitness"` will display under the **Visual Query Builder**. The operator `::` specifies an exact match.
 
-To return all documents that contain the entity `IBM`, but not the entity `Watson`: Click **Search for Documents**, then:
+To return all documents that contain the entity `IBM`, but not the entity `Watson`: Click **Search for Documents**, **Use the {{site.data.keyword.discoveryshort}} Query Language** then:
 -  Click the **Field** drop-down and choose `enriched_text.entities.text`, for the **Operator** choose `contains`, then enter the **Value** of `IBM`. Click **Add rule**, then for the **Field** choose `enriched_text.entities.text`, for the **Operator** choose `does not contain`, then enter the **Value** of `Watson`.
 
    The query `enriched_text.entities.text:IBM,enriched_text.entities.text:!Watson` will display under the **Visual Query Builder**. The operator `:!` specifies "does not contain".
@@ -102,7 +106,7 @@ You can combine query parameters together to build more targeted queries. Let's 
 
        The query `enriched_text.entities.text:IBM` will narrow down the documents to only those that mention the entity `IBM`.
 
-1.  Under **Search for Documents**:
+1.  Under **Search for Documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then:
     -  Click the **Field** drop-down and choose `enriched_text.concepts.text`, for the **Operator** choose `contains`, then enter the **Value** of `world wide web`.
 
        The query `enriched_text.concepts.text:world wide web` will return all documents that include the concept of `world wide web`, and those documents will be ranked in order of relevance.
@@ -114,9 +118,6 @@ You can combine query parameters together to build more targeted queries. Let's 
 ## Step 5: Building an aggregation
 
 Aggregations return a set of data values; for example, top keywords, overall sentiment of entities, and more.
-
-If you'd like to check out a few pre-built aggregations, all of the queries on the insight cards are aggregation queries. Click the **More options** icon on the top right of any card to view the query.
-{: tip}
 
 Try building this aggregation - it will return the top 10 concepts in the {{site.data.keyword.IBM_notm}} press releases collection.
 
@@ -141,7 +142,7 @@ The following example query returns the top 10 articles in {{site.data.keyword.d
 
 1.  Click on the magnifying glass icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the {{site.data.keyword.discoverynewsshort}} collection and click **Get started**.
 
-1.  Under **Search for documents**:
+1.  Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then:
     -  Click the **Field** drop-down and choose `text`, for the **Operator** choose `contains`, then enter the **Value** of `Pittsburgh Steelers`. Click **Add rule**, then click the **Field** drop-down and choose `enriched_text.sentiment.document.label`, for the **Operator** choose `contains`, then enter the **Value** of `positive.`
 
        The query `text:Pittsburgh Steelers, enriched_text.sentiment.document.label:positive` will display under the **Visual Query Builder**.
