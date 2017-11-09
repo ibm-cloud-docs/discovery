@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-16"
+lastupdated: "2017-11-08"
 
 ---
 
@@ -658,6 +658,8 @@ Specify values for the new fields as follows:
 -   `field_type` — Either `array` or `string`. If the field type is not specified, it defaults to `array`. Note that type `string` can be enriched, but information stored in an `array` cannot be enriched unless the array's items are first extracted into text fields.
 
 **Warning:** If a CSS selector matches both a parent node and one or more of its children, the text content of the nodes will be duplicated in the JSON output.
+
+**Note:** Field names must meet the restrictions defined in [Field Name Requirements](docs/services/discovery/custom-config.md#field_reqs).
 
 The following JSON passage shows the relevant section of the Default Configuration to which you add CSS selector information.
 

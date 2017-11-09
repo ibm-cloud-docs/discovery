@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-22"
+lastupdated: "2017-11-08"
 
 ---
 
@@ -46,16 +46,16 @@ Training must meet the following **minimum** requirements for {{site.data.keywor
 
 Training consists of three parts: a natural language query, the results of the query, and the ratings you apply to those results.
 
-1.  In the {{site.data.keyword.discoveryshort}} tooling, you can reach the training page for a collection from the **Build your own query** screen. Click **Train Watson to improve results** on the upper right. You don't need to enter a query on the **Build your own query** screen to start training.
+1.  In the {{site.data.keyword.discoveryshort}} tooling, you can reach the training page for a collection from the **Build queries** screen. Click **Train Watson to improve results** on the upper right. You don't need to enter a query on the **Build queries** screen to start training.
 1.  On the **Train Watson** screen, click **Add a natural language query**, for example: "IBM Watson in healthcare" and add it. Make sure your queries are written the way your users would ask them. Also, training queries should be written with some term overlap between the query and the desired answer. This will improve initial results when the natural language query is run. Relevance training only uses natural language queries, do not enter queries written in the {{site.data.keyword.discoveryshort}} Query Language.
-1.  To view the results of your query, click the **Rate Results** button next to it. If you don't think there are enough results, you could try rewriting the query, or adding more documents to this collection via the **Your data** screen.
+1.  To view the results of your query, click the **Rate Results** button next to it. If you don't think there are enough results, you could try rewriting the query, or adding more documents to this collection via the **Manage data** screen.
 1.  Begin rating results as either `Relevant` or `Not relevant`. When you are done, click **Back to queries**. In the {{site.data.keyword.discoveryshort}} tooling, `Relevant` has a score of `10` and `Not relevant`has a score of `0`. If you have already starting rating results for this collection using the API, and used a different scoring scale, a warning will be displayed, with options to fix the issue.
     At the top of the screen, Watson keeps track of the training status for you, and provides tips about what you can do to improve results. "Add more variety to your ratings" means that you should use both the `Relevant` and `Not relevant` ratings. Once you meet the requirements, training will start updating periodically. It will take less than 30 minutes to complete after it begins, and you can continue working as Watson updates.
 1.  Continue adding queries and rating results.
 
-To return to the main **Build your own query** screen at any time, click **Build your own query** on the upper left.
+To return to the main **Build queries** screen at any time, click **Build queries** on the upper left.
 {: tip}
-To return to the **Your data** screen, click the name of the collection on the upper right.
+To return to the **Manage data** screen, click the name of the collection on the upper right.
 {: tip}
 
 If you would like to delete all of the training data in your collection at one time, you must do so via the API. See [Delete all training data for a collection](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-all-training-data) for more information. For more information about training via the API, see [Improving the relevance of your query results with the API](/docs/services/discovery/train.html).
@@ -68,3 +68,22 @@ If you would like to further improve results after testing, you could:
 - Add more documents to your collection.
 - Add more training queries.
 - Rate more results, making sure to use both the `Relevant` and `Not relevant` ratings.
+
+## Confidence scores
+{: #confidence}
+
+Trained collections will return a `confidence` score in the result of a natural language query. This `confidence` number is calculated based on how relevant the result is compared to the trained model. The `confidence` score is **not** the same as the  `score`. For more information about using confidence scores, see [How to select a threshold for acting using confidence scores](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/).
+
+`confidence` can range from 0.0 to 1.0. The higher the number, the more relevant the document.
+
+The `confidence` score can be found in the query results, under the `result_metadata` for each document, for example:
+
+```json
+    "results": [
+        {
+            "id": "eea16dfd5fe6139a25324e7481a32f89_13",
+            "result_metadata": {
+                "confidence": 0.5893963975910735,
+                "score": 0.5006834
+            },
+```

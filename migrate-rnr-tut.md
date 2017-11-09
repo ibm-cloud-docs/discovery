@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-16"
+lastupdated: "2017-11-08"
 
 ---
 
@@ -58,7 +58,7 @@ The following pre-requisites are necessary before beginning this tutorial:
 1.  Create an Environment.
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-10-16"
+    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
@@ -67,7 +67,7 @@ The following pre-requisites are necessary before beginning this tutorial:
 1. Create a Collection.
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-10-16"
+    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07"
     ```
     {: pre}
 
@@ -89,7 +89,7 @@ The following pre-requisites are necessary before beginning this tutorial:
 1.  Once the upload process has completed, you can check that the documents are there by issuing the following command to view the collection details:
 
     ```bash
-    curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-10-16"
+    curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
     ```
     {: pre}
 
@@ -161,14 +161,14 @@ The {{site.data.keyword.discoveryshort}} service will automatically use a traine
 1.  You can search for documents in your collection by using a cURL command. Perform a query using the query API call to see unranked results. Replace `{username}`, `{password}`, `{environment_id}`, `{collection_id}`, with your own values.  The results returned will be unranked results, and will use the default {{site.data.keyword.discoveryshort}} ranking formulas. You can try other queries by opening the training data `csv` file and copying the value of the first column into the query parameter.
 
     ```bash
-    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-10-16&query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
 1.  Now perform a search using the model by setting the `natural_language_query` parameter. Before you do so, make sure you check that you have a trained model as described in the previous section.  Paste the following code in your console, replacing the `{username}`, `{password}`, `{environment_id}`, `{collection_id}` with your values.
 
     ```bash
-    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-10-16&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
