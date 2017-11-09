@@ -109,7 +109,7 @@ When you're happy with the custom conversion of your sample document it's time t
 {: #build-a-query}
 
 1.  Click ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select your collection and click **Get started**.
-1.  Build your query under **Search for Documents** in the **Build your own query** screen:
+1.  Build your query under **Search for Documents** in the **Build queries** screen:
     - To search for results with entities named "IBM":
         1.  Click **Field** and select `enriched_text.entities.text`. Select `contains` for **Operator** and `IBM` for **Value**. The query `enriched_text.entities.text:IBM` is displayed in **Visual Query Builder**.
         1.  Click **Run Query**. The query returns 4 results.

@@ -62,6 +62,7 @@ Discovery
         entity-types.md
 
     query-reference.md
+    custom-config.md
     language-support.md
     discovery-auxiliary.md
 

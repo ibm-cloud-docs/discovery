@@ -31,7 +31,7 @@ The `2017-10-16` API version string deprecates support for uploading new documen
 
 Existing collections enriched with AlchemyLanguage should be migrated to Natural Language Understanding enrichments as soon as possible. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
 
-**Note:** The {{site.data.keyword.discoveryshort}} tooling always uses the latest API version string, so beginning with the `2017-10-16` API version string, you will no longer be able to upload documents into existing {{site.data.keyword.alchemylanguageshort}} collections or create new collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments with the {{site.data.keyword.discoveryshort}} tooling.  If you want to continue using the Discovery tooling for enriching collections, migrate your collections to Natural Language Understanding first. See [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html) for details. 
+**Note:** The {{site.data.keyword.discoveryshort}} tooling always uses the latest API version string, so beginning with the `2017-10-16` API version string, you will no longer be able to upload documents into existing {{site.data.keyword.alchemylanguageshort}} collections or create new collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments with the {{site.data.keyword.discoveryshort}} tooling.  If you want to continue using the Discovery tooling for enriching collections, migrate your collections to Natural Language Understanding first. See [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html) for details.
 
 ### Entity extraction (AlchemyLanguage)
 {: #entity-extraction-al}
@@ -348,10 +348,10 @@ A new version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2
 
 The following example query returns the top 10 articles in {{site.data.keyword.discoverynewsfull}} Original about the Pittsburgh Steelers that have a positive sentiment.
 
-1.  On the **Your data** screen, choose the {{site.data.keyword.discoverynewsfull}} collection.
-1.  Click **Query this collection**, then **Build your own query**.
+1.  On the **Manage data** screen, choose the {{site.data.keyword.discoverynewsfull}} collection.
+1.  Click **View data schema**, then **Build queries**.
 1.  Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then enter `text:Pittsburgh Steelers, docSentiment.type:positive` into the **Enter query here** field.
-1.  Click **Customize display options**, then enter `10` (this is the default) in the `Number of documents to return` field.
+1.  Click **More options**, then enter `10` (this is the default) in the `Number of documents to return` field.
 1.  Click **Run query**. The top 10 articles about the Pittsburgh Steelers with a positive sentiment are displayed.
 
 **Additional example {{site.data.keyword.discoverynewsfull}} Original queries**
@@ -364,10 +364,10 @@ The following example query returns the top 10 articles in {{site.data.keyword.d
 
 The following example aggregation returns the number of articles found in {{site.data.keyword.discoverynewsfull}} Original about the Pittsburgh Steelers by sentiment.
 
-1.  On the **Your data** screen, choose the {{site.data.keyword.discoverynewsfull}} Original collection.
-1.  Click **Query this collection**, then **Build your own query**.
+1.  On the **Manage data** screen, choose the {{site.data.keyword.discoverynewsfull}} Original collection.
+1.  Click **View data schema**, then **Build queries**.
 1.  Under **Include analysis of your results**, enter `filter(text:"Pittsburgh Steelers").term(docSentiment.type,count:3)` in the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field.
-1.  Click **Customize display options**, then enter `0` in the **Number of documents to return** field.
+1.  Click **More options**, then enter `0` in the **Number of documents to return** field.
 1.  Click **Run query**. The results show the number of documents about the Pittsburgh Steelers and how many of those results have a `positive`, `negative`, or `neutral` docSentiment.
 
 **Additional example {{site.data.keyword.discoverynewsfull}} Original aggregation**

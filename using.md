@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-16"
+lastupdated: "2017-11-08"
 
 ---
 
@@ -31,6 +31,8 @@ You also have the option to turn on passage retrieval. Passages are short, relev
 
   You can write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling or the API.
   {: tip}
+
+Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.  
 
 For more information about writing queries, see:
 - [Getting started with querying tutorial](/docs/services/discovery/getting-started-query.html)
@@ -113,7 +115,7 @@ There are several types of ways you can aggregate results with {{site.data.keywo
 
 This example aggregation returns the number of articles found in {{site.data.keyword.discoverynewsshort}} about the Pittsburgh Steelers and how many of those results have a `positive`, `negative`, or `neutral` sentiment.
 
-- `filter(text:"Pittsburgh Steelers").term(enriched_text.sentiment.document.label,count:3)`
+- `filter(enriched_text.entities.text:"Pittsburgh Steelers").term(enriched_text.sentiment.document.label,count:3)`
 
 
 This example aggregation will first narrow down (filter) a set of articles in {{site.data.keyword.discoverynewsshort}} to only the ones that include the entities text of twitter, then divide those articles by the document sentiment types. Only the top 3 document sentiment types (`positive`, `negative`, `neutral`) will be returned.
@@ -123,17 +125,17 @@ This example aggregation will first narrow down (filter) a set of articles in {{
 #### Nested aggregations
 {: #nested-aggregations}
 
-Adding `nested` before an aggregation restricts the aggregation to the area of the results specified. For example: `nested(text.entities)` means that only the `text.entities` components of any result are used to aggregate against.
+Adding `nested` before an aggregation restricts the aggregation to the area of the results specified. For example: `nested(enriched_text.entities)` means that only the `enriched_text.entities` components of any result are used to aggregate against.
 
 This can be seen easily by looking at the differences between the following two queries:
-- `filter(text.entities.type::City)` - the aggregation counts the number of *Results* that contain one or more `entity` with the type `City`
-- `nested(text.entities).filter(text.entities.type::City)` - the aggregation counts the number of instances of an `entity` with the type `City` in the results.  
+- `filter(enriched_text.entities.disambiguation.subtype::City)` - the aggregation counts the number of *Results* that contain one or more `entity` with the type `City`
+- `nested(enriched_text.entities).filter(enriched_text.entities.disambiguation.subtype::City)` - the aggregation counts the number of instances of an `entity` with the type `City` in the results.  
 
 Additionally, any subsequent operation will further restrict the result set that can be aggregated against. For example:
 
-- `nested(text.entities).filter(text.entities.type::City)` means that only entities of `type::City` will be aggregated.
-- `nested(text.entities).filter(text.entities.type::City).term(text.entities.text,count:3)` will aggregate the top 3 entities of type `City`
-- `filter(text.entities.type::City).term(text.entities.text,count:3)` will return the top 3 entities where the result contains at least one entity of type `City`.
+- `nested(enriched_text.entities).filter(enriched_text.entities.disambiguation.subtype::City)` means that only entities of `subtype::City` will be aggregated.
+- `nested(enriched_text.entities).filter(enriched_text.entities.disambiguation.subtype::City).term(enriched_text.entities.text,count:3)` will aggregate the top 3 entities of subtype `City`
+- `filter(enriched_text.entities.disambiguation.subtype::City).term(enriched_text.entities.text,count:3)` will return the top 3 entities where the result contains at least one entity of subtype `City`.
 
 ## Querying Watson Discovery News
 {: #querying-news}
@@ -145,6 +147,8 @@ You can query this collection using natural language queries, for example "IBM W
 You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.mybluemix.net/){: new_window}.
 
 **Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
+
+If using the {{site.data.keyword.discoveryshort}} Query Language, you can include a relative date range in your {{site.data.keyword.discoverynewsshort}} queries, for example: `crawl_date>=now-1month`. Valid date interval values are `second/seconds` `minute/minutes`, `hour/hours`, `day/days`, `week/weeks`, `month/months`, and `year/years`. `now` is not affected by the `time_zone` parameter; the `UTC` time zone is the default.
 
 News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. You can manage this using deduplication. To learn more about this beta capability, see [Excluding duplicate documents from query results](/docs/services/discovery/query-parameters.html#deduplication).
 

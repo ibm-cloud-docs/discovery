@@ -17,7 +17,7 @@ lastupdated: "2017-09-22"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Supported languages
+# Language support
 
 The {{site.data.keyword.discoveryfull}} service offers two levels of language support, **Basic** and **Full**.
 {: shortdesc}

@@ -64,3 +64,7 @@ For more information about the API, see the [API reference ![External link icon]
 
 1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection.
 1.  Then use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method to add documents to your collection.
+
+## Crawling URLs
+
+You can crawl URLs and index them using the {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} Service [Indexing plugin for Apache Nutch]( https://github.com/IBM-Watson/nutch-indexer-discovery). The crawl does not update automatically, so the procedure will need to be repeated periodically to keep the index up-to-date.

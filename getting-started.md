@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-16"
+lastupdated: "2017-11-08"
 
 ---
 
@@ -55,7 +55,7 @@ In a bash shell or equivalent environment such as Cygwin, use the `POST /v1/envi
 1.  Issue the following command to create an environment that is called `my-first-environment`. Replace `{username}` and `{password}` with the service credentials you copied earlier:
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-10-16"
+    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
@@ -65,7 +65,7 @@ In a bash shell or equivalent environment such as Cygwin, use the `POST /v1/envi
     - Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{username}`, `{password}`, and `{environment_id}` with your information:
 
     ```bash
-    curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-10-16
+    curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-11-07
     ```
     {: pre}
 
@@ -79,13 +79,13 @@ Now that the environment is ready, you can create a collection. Think of a colle
 1.  You need the ID of your default configuration first. To find your default `configuration_id`, use the `GET /v1/environments/{environment_id}/configurations` method. Replace `{username}`, `{password}`, and `{environment_id}` with your information:
 
     ```bash
-      curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-10-16
+      curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07
     ```
     {: pre}
 1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection called **my-first-collection**. Replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information:
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-10-16
+    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07
     ```
     {: pre}
 
@@ -94,7 +94,7 @@ Now that the environment is ready, you can create a collection. Think of a colle
     - Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information:
 
     ```bash
-    curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-10-16
+    curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07
     ```
     {: pre}
 
@@ -110,7 +110,7 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
     - Use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method:
 
         ```bash
-        curl -X POST -u "{username}":"{password}" -F "file=@test-doc1.html" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2017-10-16
+        curl -X POST -u "{username}":"{password}" -F "file=@test-doc1.html" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2017-11-07
         ```
         {: pre}
 
@@ -118,7 +118,7 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
     - Java:
 
       ```java
-      Discovery discovery = new Discovery("2017-10-16");
+      Discovery discovery = new Discovery("2017-11-07");
       discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
       discovery.setUsernameAndPassword("{username}", "{password}");
       String environmentId = "{environment_id}";
@@ -143,7 +143,7 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
       discovery = DiscoveryV1(
         username="{username}",
         password="{password}",
-        version="2017-10-16"
+        version="2017-11-07"
       )
 
       with open((os.path.join(os.getcwd(), '{path_element}', '{filename}' as fileinfo:
@@ -161,7 +161,7 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
       var discovery = new DiscoveryV1({
         username: '{username}',
         password: '{password}',
-        version_date: '2017-10-16'
+        version_date: '2017-11-07'
       });
 
       var file = fs.readFileSync('{/path/to/file}');
@@ -184,7 +184,7 @@ Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_
 The following example returns all entities that are called **IBM**. Replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information:
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}*/query?version=2017-10-16&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}*/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 

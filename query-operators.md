@@ -106,7 +106,7 @@ Logical groupings can be formed to specify more specific information.
 
 For example:
 ```bash
-filter-entities:(text:IBM,type:Company)
+enriched_text.entities:(text:IBM,type:Company)
 ```
 {: codeblock}
 
@@ -117,7 +117,7 @@ Boolean operator for "or".
 
 For example:
 ```bash
-query-enriched.entities.text:Google|IBM
+enriched_text.entities.text:Google|IBM
 ```
 {: codeblock}
 
@@ -128,7 +128,7 @@ Boolean operator for "and".
 
 For example:
 ```bash
-query-enriched.entities.text:Google,IBM
+enriched_text.entities.text:Google,IBM
 ```
 {: codeblock}
 
@@ -139,7 +139,7 @@ Creates numerical comparisons of less than or equal to, greater than or equal to
 
 For example:
 ```bash
-`enriched_text.sentiment.document.score>0.679`
+enriched_text.sentiment.document.score>0.679
 ```
 {: codeblock}
 
@@ -150,7 +150,7 @@ Increases the score value of a search term.
 
 For example:
 ```bash
-query-enriched_text.concepts.text:IBM^3
+enriched_text.concepts.text:IBM^3
 ```
 {: codeblock}
 
@@ -161,7 +161,7 @@ Matches unknown characters in a search expression.
 
 For example:
 ```bash
-query-enriched_text.concepts.text:IBM*
+enriched_text.concepts.text:IBM*
 ```
 {: codeblock}
 
@@ -172,6 +172,6 @@ The number of one character changes that need to be made to one string to make i
 
 For example:
 ```bash
-query-enriched_text.concepts.text:Watson~3
+enriched_text.concepts.text:Watson~3
 ```
 {: codeblock}
