@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-11-10"
 
 ---
 
@@ -47,21 +47,14 @@ Consider the following when you are ready to add documents to your collection:
 
 1.  Create a collection. See [Preparing the service for your documents](/docs/services/discovery/building.html#preparing-the-service-for-your-documents).
 1.  Click on the collection to open it.
-1.  Go to **Add data to this collection** at the right of the screen and start uploading your documents via drag and drop or browse.
+1.  Click the **Upload documents** button and start uploading your documents via drag and drop or browse.
 
-Your documents are now enqueued to be converted and enriched. The time this takes will depend on the size of your collection. After it is indexed and enriched, the details of the Collection will be displayed.
+Your documents are now enqueued to be converted and enriched. The time this takes will depend on the size of your collection. After it is indexed and enriched, the details of the Collection will be displayed in the **Overview** section.
 
-### Collection status:
-
--   **Created** and **Last updated** dates
+-   **Created** and **Last updated** dates (Click **Use this collection in API** to see the `collection_id`, `configuration_id`, and `environment_id`.)
 -   **Number of documents** in your collection
 -   **Configuration** — The name of the configuration file used to convert this collection
-
-### API information:
-
--   `collection_id`
--   `configuration_id`
--   `environment_id`
+-   **Errors and Warnings**
 
 ## Uploading documents with the API
 
@@ -71,3 +64,7 @@ For more information about the API, see the [API reference ![External link icon]
 
 1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection.
 1.  Then use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method to add documents to your collection.
+
+## Crawling URLs
+
+You can crawl URLs and index them using the {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} Service [Indexing plugin for Apache Nutch ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Watson/nutch-indexer-discovery). The crawl does not update automatically, so the procedure will need to be repeated periodically to keep the index up-to-date.

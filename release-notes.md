@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-11-10"
 
 ---
 
@@ -29,7 +29,7 @@ API requests require a version parameter that takes a date in the format `versio
 
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
-The current version is `2017-09-01`.
+The current version is `2017-11-07`.
 
 ## Beta features
 {: #beta-features}
@@ -41,6 +41,31 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 10 November 2017
+
+{{site.data.keyword.discoveryshort}} tooling:
+
+- Added additional options for Passage retrieval to the {{site.data.keyword.discoveryshort}} tooling. When querying, you can now specify the fields you would like the passages to be returned from, the number of passages to return, and the maximum character count for each passage. See [Passages](/docs/services/discovery/query-parameters.html#passages) for limits, minimums, and maximums.
+
+## 8 November 2017
+
+The version string for all API calls has changed to `2017-11-07` from `2017-10-16`. This version:
+- Moved the `score` in each query result to a new object named `results_metadata`.
+- If the collection queried was trained, and the query is a natural language query, `results_metadata` will include a `confidence` field that displays the confidence score for that result. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
+- Fields that include whitespaces (for example: `body.additional reading`) will be filtered out during ingestion. The `notices` description will read `The field 'additional reading' is invalid: whitespace, '.', '#' and ',' are invalid in a field name`.
+- The field `result_metadata` will be filtered out during ingestion.
+
+## 16 October 2017
+
+- The version string for all API calls has changed to `2017-10-16` from `2017-09-01`. This version deprecates support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. Existing collections enriched with {{site.data.keyword.alchemylanguageshort}} should be migrated to {{site.data.keyword.nlushort}} enrichments as soon as possible. See [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrating-enrichments-to-natural-language-understanding) for details. The {{site.data.keyword.discoveryshort}} tooling also uses the `2017-10-16` version, see below for more information.
+
+{{site.data.keyword.discoveryshort}} tooling:
+
+- The {{site.data.keyword.discoveryshort}} tooling uses the `2017-10-16` API version string, so if you are using the tooling, you will no longer be able to upload documents into existing {{site.data.keyword.alchemylanguageshort}} collections or create new collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments after `2017-10-16`.  If you want to continue using the {{site.data.keyword.discoveryshort}} tooling for enriching collections, migrate your collections to {{site.data.keyword.nlushort}} first. See [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrating-enrichments-to-natural-language-understanding) for details.
+- The **Data schema explorer** displays sample queries for several enrichments in the {{site.data.keyword.discoverynewsfull}} collection. It also now has a **Show more values" link that will display additional example values for that enrichment in {{site.data.keyword.discoverynewsfull}}.
+- Multiple productivity enhancements, including combining the collection statistics, errors and warnings, and data insights on the **Manage data** screen.
+- A message was added that displays an alert when documents are finished processing.
 
 ## 9 October 2017
 
@@ -65,10 +90,10 @@ The following new features and changes to the service are available.
 
 - A Premium pricing plan is now available. For more information, see [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery/pricing-details.html).
 - The ability to query, list fields, and query notices across collections within the same environment has been added. See [Querying multiple collections](/docs/services/discovery/using.html#multiple-collections) for details.
-- Language support information for {{site.data.keyword.discoveryshort}} is available at [Supported languages](/docs/services/discovery/language-support.html)
+- Language support information for {{site.data.keyword.discoveryshort}} is available at [Language support](/docs/services/discovery/language-support.html)
 
 {{site.data.keyword.discoveryshort}} tooling:
-- The Visual Query Builder moved from beta status to GA status. Filter, Timeslice, and Histogram aggregations are not currently supported with the Visual Query Builder. Click **Edit in Query Language** on the **Build your own query** screen to write those aggregations.
+- The Visual Query Builder moved from beta status to GA status. Filter, Timeslice, and Histogram aggregations are not currently supported with the Visual Query Builder. Click **Include analysis of your results**, then **Edit in Query Language** on the **Build queries** screen to write those aggregations.
 - Added the beta capability to deduplicate on {{site.data.keyword.discoverynewsfull}} queries.
 - In addition to English, German, and Spanish language collections, you can now create Arabic, French, Italian, Japanese, Korean, and Brazilian Portuguese collections.
 - Known issue: {{site.data.keyword.discoveryshort}} Tooling does not support syndicated environments.
@@ -109,7 +134,7 @@ Document deduplication is currently supported only as a beta capability. See the
 - The `passages` array now includes `field`, `start_offset`, and `end _offset`. `field` is the name of the field the passage was extracted from. `start_offset` is the starting character of the passage text within the field. `end_offset` is the ending character of the passage text within the field.
 
 {{site.data.keyword.discoveryshort}} tooling:
-This query building enhancement can be found on the **Build your own query** screen.
+This query building enhancement can be found on the **Build queries** screen.
 
 -  Added the beta ability to write queries in the {{site.data.keyword.discoveryshort}} Query Language with a visual builder. Click **Build in visual mode** in the **Search for documents** and **Limit which documents you query** sections to try it out.  As you build your query visually, it will display in the **{{site.data.keyword.discoveryshort}} Query Language** below it.
 
@@ -128,7 +153,7 @@ This query building enhancement can be found on the **Build your own query** scr
 
 {{site.data.keyword.discoveryshort}} tooling:
 
-Both features are query building enhancements and can be found on the **Build your own query** screen.
+Both features are query building enhancements and can be found on the **Build queries** screen.
 
 - Added the option to select a query from a set of pre-built sample queries and aggregations. Click **Use a sample query** at the top right to access the list. If you are querying a private data collection, the samples use `top entities`, `categories`, etc. found in your collection. These queries can be used as a starting point for writing your own queries. Sample queries are available for both {{site.data.keyword.discoverynewsfull}} and private collections.
 
@@ -196,11 +221,11 @@ Both features are query building enhancements and can be found on the **Build yo
 
     - Added option to specify the language of the documents in a new collection as English, Spanish, or German. To use it, choose **Select the language of your documents** on the **Name your new collection** dialog.
 
-    - Added a **Summary** tab to the **Build your own query** screen. The **Summary** tab displays an overview of the full query results provided in the existing **JSON** tab. The **Summary** display will vary based on your query and enrichments. Information that may be displayed includes: document name or ID, aggregation statistics, document passages in order of relevance, and results by enrichment.
+    - Added a **Summary** tab to the **Build queries** screen. The **Summary** tab displays an overview of the full query results provided in the existing **JSON** tab. The **Summary** display will vary based on your query and enrichments. Information that may be displayed includes: document name or ID, aggregation statistics, document passages in order of relevance, and results by enrichment.
 
-    - Added a Natural Language Query option to the **Build your own query** screen. To use it, click **Ask a question in plain language** in the **Search for documents** section and a field will appear where you can enter your question. The original query field (formerly titled **Enter a query or keyword**) can now be accessed by clicking the **Use the Discovery Query Language** button.
+    - Added a Natural Language Query option to the **Build queries** screen. To use it, click **Ask a question in plain language** in the **Search for documents** section and a field will appear where you can enter your question. The original query field (formerly titled **Enter a query or keyword**) can now be accessed by clicking the **Use the Discovery Query Language** button.
 
-    - The **Build your own query** screen was redesigned, but all fields and options remain. Following are the old and new names for the fields.
+    - The **Build queries** screen was redesigned, but all fields and options remain. Following are the old and new names for the fields.
 
 | **Old field name**                                           | **New field or section name**                                                                                             |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|

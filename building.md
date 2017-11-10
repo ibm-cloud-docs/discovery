@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-11-08"
 
 ---
 
@@ -53,7 +53,7 @@ In the {{site.data.keyword.discoveryshort}} service, the content that you upload
 
 To create an environment and private data collection with the {{site.data.keyword.discoveryshort}} tooling do the following:
 
-1.  On the **Your Data** screen, click the icon on the upper right ![Cog](images/icon_settings.png) and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
+1.  On the **Manage Data** screen, click the ![Cog](images/icon_settings.png) icon and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
 
 1.  Once your environment is ready, click the **Create a data collection** button, then you can **Name your new collection**.
 
@@ -658,6 +658,8 @@ Specify values for the new fields as follows:
 -   `field_type` — Either `array` or `string`. If the field type is not specified, it defaults to `array`. Note that type `string` can be enriched, but information stored in an `array` cannot be enriched unless the array's items are first extracted into text fields.
 
 **Warning:** If a CSS selector matches both a parent node and one or more of its children, the text content of the nodes will be duplicated in the JSON output.
+
+**Note:** Field names must meet the restrictions defined in [Field Name Requirements](docs/services/discovery/custom-config.html#field_reqs).
 
 The following JSON passage shows the relevant section of the Default Configuration to which you add CSS selector information.
 
