@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-08"
+lastupdated: "2017-11-10"
 
 ---
 
@@ -41,6 +41,12 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 10 November 2017
+
+{{site.data.keyword.discoveryshort}} tooling:
+
+- Added additional options for Passage retrieval to the {{site.data.keyword.discoveryshort}} tooling. When querying, you can now specify the fields you would like the passages to be returned from, the number of passages to return, and the maximum character count for each passage. See [Passages](/docs/services/discovery/query-parameters.html#passages) for limits, minimums, and maximums.
 
 ## 8 November 2017
 
