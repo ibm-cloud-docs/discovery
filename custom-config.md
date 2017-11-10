@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-22"
+lastupdated: "2017-11-10"
 
 ---
 
@@ -16,8 +16,8 @@ lastupdated: "2017-09-22"
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
-a_
-# Configuration Reference
+
+# Configuration reference
 
 You can create your own {{site.data.keyword.discoveryshort}} ingestion configuration in JSON if your data has special [conversion](#conversion), [enrichment](#enrichment), or [normalization](#normalization) needs.
 {: shortdesc}
@@ -494,7 +494,7 @@ The `relations` enrichment extracts known relationships between identified entit
 
 The `operation` object options are listed [here](#operations)
 
-## Field Name Requirements
+## Field name requirements
 {: #field_reqs}
 
 Field names cannot contain spaces. The following characters and strings are reserved and cannot be used in field names:

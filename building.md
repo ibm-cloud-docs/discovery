@@ -659,7 +659,7 @@ Specify values for the new fields as follows:
 
 **Warning:** If a CSS selector matches both a parent node and one or more of its children, the text content of the nodes will be duplicated in the JSON output.
 
-**Note:** Field names must meet the restrictions defined in [Field Name Requirements](docs/services/discovery/custom-config.md#field_reqs).
+**Note:** Field names must meet the restrictions defined in [Field Name Requirements](docs/services/discovery/custom-config.html#field_reqs).
 
 The following JSON passage shows the relevant section of the Default Configuration to which you add CSS selector information.
 
