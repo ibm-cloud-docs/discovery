@@ -36,6 +36,7 @@ Discovery
     Improving relevance of results
         train-tooling.md
         train.md
+        train-tips.md
 
     {: topicgroup}
     Discovery and Knowledge Studio
@@ -60,6 +61,7 @@ Discovery
     Enrichment
         categories.md
         entity-types.md
+        relation-types.md
 
     query-reference.md
     custom-config.md

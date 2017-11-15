@@ -22,6 +22,8 @@ lastupdated: "2017-11-08"
 You can train the {{site.data.keyword.discoveryshort}} service to improve the relevance of query results for your particular organization or subject area. When you provide a {{site.data.keyword.discoveryshort}} instance with *training data*, the service uses machine-learning Watson techniques to find signals in your content and questions. The service then reorders query results to display the most relevant results at the top. As you add more training data, the service instance becomes more accurate and sophisticated in the ordering of results it returns.
 {: shortdesc}
 
+Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For an overview of building use cases for training, see the blog post [How to get the most out of Relevancy Training ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}.
+
 For comprehensive information about the training APIs, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}.
 
 If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to train {{site.data.keyword.discoveryshort}}, see [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html).
@@ -280,7 +282,10 @@ Perform the following steps to add an example to a training-data query.
 
    If the relevance of your results has not improved, add more training queries until the results meet your requirements.
 
+For additional training guidance, see [Relevancy training tips](/docs/services/discovery/train-tips.html#relevancy-tips).   
+
 ## Performing other training-data query operations
+{: #training-data-operations}
 
 You can administer and maintain training-data queries by using other API methods as described in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}:
 

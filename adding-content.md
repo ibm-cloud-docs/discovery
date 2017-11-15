@@ -35,7 +35,7 @@ Consider the following when you are ready to add documents to your collection:
 
 -   The sample documents are not automatically added to the collection. You must add them if you want them as part of your collection.
 
--   When creating a collection, you select the document language: English, Spanish, or German (English is the default). Your documents will be enriched in the selected language. Do not mix languages within the same collection.
+-   When creating a collection, you select the document language (English is the default). See [Language support](/docs/services/discovery/language-support.html) for the list of languages. Your documents will be enriched in the selected language. Do not mix languages within the same collection.
 
 -   You can add Microsoft Word, PDF, HTML, and JSON documents to your collection.
 

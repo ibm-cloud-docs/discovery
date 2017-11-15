@@ -22,7 +22,7 @@ lastupdated: "2017-11-08"
 The relevance of natural language query results can be improved in the {{site.data.keyword.discoveryfull}} service with training. You can train your private collections using either the {{site.data.keyword.discoveryshort}} tooling, or the {{site.data.keyword.discoveryshort}} APIs. See [Improving the relevance of your query results with the API](/docs/services/discovery/train.html) if you would prefer to use the APIs.
 {: shortdesc}
 
-Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary.
+Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For an overview of building use cases for training, see the blog post [How to get the most out of Relevancy Training ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}.
 
 In order to train Watson, you'll need to:
 
@@ -69,10 +69,12 @@ If you would like to further improve results after testing, you could:
 - Add more training queries.
 - Rate more results, making sure to use both the `Relevant` and `Not relevant` ratings.
 
+For additional training guidance, see [Relevancy training tips](/docs/services/discovery/train-tips.html#relevancy-tips).
+
 ## Confidence scores
 {: #confidence}
 
-Trained collections will return a `confidence` score in the result of a natural language query. This `confidence` number is calculated based on how relevant the result is compared to the trained model. The `confidence` score is **not** the same as the  `score`. For more information about using confidence scores, see [How to select a threshold for acting using confidence scores](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/).
+Trained collections will return a `confidence` score in the result of a natural language query. This `confidence` number is calculated based on how relevant the result is compared to the trained model. The `confidence` score is **not** the same as the  `score`. For more information about determining thresholds for confidence scores, see [How to select a threshold for acting using confidence scores ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/).
 
 `confidence` can range from 0.0 to 1.0. The higher the number, the more relevant the document.
 

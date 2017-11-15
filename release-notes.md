@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-10"
+lastupdated: "2017-11-15"
 
 ---
 
@@ -41,6 +41,14 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 15 November 2017
+
+{{site.data.keyword.discoveryshort}} tooling:
+
+- Added the [Relation Extraction](/docs/services/discovery/building.html#relation-extraction) enrichment, which includes the option to incorporate a custom relation model created with {{site.data.keyword.knowledgestudiofull}}.
+- The [Entity Extraction](/docs/services/discovery/building.html#entity-extraction) enrichment {{site.data.keyword.discoveryshort}} tooling now includes the option to incorporate a custom entity model created with {{site.data.keyword.knowledgestudiofull}}.
+- The option to create a Japanese collection was removed from the {{site.data.keyword.discoveryshort}} tooling, however, the option to create a Japanese collection using the {{site.data.keyword.discoveryshort}} API remains.
 
 ## 10 November 2017
 
@@ -95,7 +103,7 @@ The version string for all API calls has changed to `2017-11-07` from `2017-10-1
 {{site.data.keyword.discoveryshort}} tooling:
 - The Visual Query Builder moved from beta status to GA status. Filter, Timeslice, and Histogram aggregations are not currently supported with the Visual Query Builder. Click **Include analysis of your results**, then **Edit in Query Language** on the **Build queries** screen to write those aggregations.
 - Added the beta capability to deduplicate on {{site.data.keyword.discoverynewsfull}} queries.
-- In addition to English, German, and Spanish language collections, you can now create Arabic, French, Italian, Japanese, Korean, and Brazilian Portuguese collections.
+- In addition to English, German, and Spanish language collections, you can now create Arabic, French, Italian, Korean, and Brazilian Portuguese collections.
 - Known issue: {{site.data.keyword.discoveryshort}} Tooling does not support syndicated environments.
 
 ### 14 September 2017

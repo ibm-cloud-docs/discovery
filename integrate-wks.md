@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-08"
+lastupdated: "2017-11-15"
 
 ---
 
@@ -24,13 +24,13 @@ You can integrate a custom model from {{site.data.keyword.knowledgestudiofull}} 
 
 This gives you the flexibility to apply the {{site.data.keyword.discoveryshort}} service's document-enhancing capabilities with information specific to areas of particular focus, such as industry or scientific discipline. You can use both public data and your own proprietary data in your enrichment model.
 
-You must use the service API to integrate a {{site.data.keyword.knowledgestudioshort}} model with the {{site.data.keyword.discoveryshort}} service. You cannot use the {{site.data.keyword.discoveryshort}} tooling to integrate a custom model.
+You can use the service API or the {{site.data.keyword.discoveryshort}} tooling to integrate a {{site.data.keyword.knowledgestudioshort}} model with the {{site.data.keyword.discoveryshort}} service.
 
 ## Before you begin
 
-Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with the {{site.data.keyword.discoveryshort}} service, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the {{site.data.keyword.knowledgestudioshort}} documentation for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with the {{site.data.keyword.discoveryshort}} service.
+Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with the {{site.data.keyword.discoveryshort}} service, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with the {{site.data.keyword.discoveryshort}} service.
 
-## Integrating your custom model
+## Integrating your custom model with the API
 
 1.  Get the ID of your {{site.data.keyword.discoveryshort}} environment as described at [List environments ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#list_environments){: new_window}. Note the environment ID.
 1.  List the IDs of your current {{site.data.keyword.discoveryshort}} configuration or configurations as described at [List configurations ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#list_configurations){: new_window} Note the ID of the configuration that you want to integrate with your {{site.data.keyword.knowledgestudiofull}} custom model.
@@ -125,6 +125,19 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
     {: pre}
 
     The command returns the contents of the updated configuration file.
+
+## Integrating your custom model with the Discovery tooling
+
+You can integrate a {{site.data.keyword.knowledgestudioshort}} custom model into the [Entity Extraction](/docs/services/discovery/building.html#entity-extraction) or [Relation Extraction](/docs/services/discovery/building.html#relation-extraction) enrichments with the {{site.data.keyword.discoveryshort}} tooling.
+
+1. Get the `Model ID` of your {{site.data.keyword.knowledgestudioshort}} model.
+1. In the {{site.data.keyword.discoveryshort}} tooling, open the **Manage data** screen, create or open a collection, and create a new configuration.
+1. Click **Add enrichments** and select either the **Entity Extraction** or **Relation Extraction** enrichments.
+1. Enter the `Model ID` in the `Custom Model ID` box of the selected enrichment. The custom {{site.data.keyword.knowledgestudiofull}} model will override the default for that enrichment. Click **Apply**, then **Done**.
+
+When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you switch an existing collection to a new configuration file after documents have been uploaded, those uploaded documents will remain converted by the original configuration file. Any documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents.
+
+**Note:** Only one {{site.data.keyword.knowledgestudiofull}} model can be assigned to an enrichment.
 
 ## Next Steps
 
