@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-08"
+lastupdated: "2017-11-15"
 
 ---
 
@@ -57,7 +57,7 @@ To create an environment and private data collection with the {{site.data.keywor
 
 1.  Once your environment is ready, click the **Create a data collection** button, then you can **Name your new collection**.
 
-    By default, the configuration file will be **Default Configuration**. If you have another configuration file available, you can choose it, or you can create a new one later and apply it to this collection. You can also select the language of the documents you will add to this collection: English, German, Spanish, Arabic, French, Italian, Japanese, Korean, or Brazilian Portuguese. There should be only one language in each of your collections. After you click **Create**, your data collection will appear as a tile.
+    By default, the configuration file will be **Default Configuration**. If you have another configuration file available, you can choose it, or you can create a new one later and apply it to this collection. You can also select the language of the documents you will add to this collection: English, German, Spanish, Arabic, French, Italian, Korean, or Brazilian Portuguese. There should be only one language in each of your collections. After you click **Create**, your data collection will appear as a tile.
 
 Your environment and data collection are ready! If you wish to use the default configuration file, you can start [Adding content](/docs/services/discovery/adding-content.html) immediately. But if you want to customize your {{site.data.keyword.discoveryshort}} configuration with additional enrichments and conversion settings, you should not begin adding documents right now, you should start creating your custom configuration file. See [Configuring your service](/docs/services/discovery/building.html#custom-configuration).
 
@@ -95,7 +95,7 @@ Getting the right information out of your content and returning it to your users
 ## Custom configuration
 {: #custom-configuration}
 
-To create a custom configuration in the {{site.data.keyword.discoveryshort}} tooling, open a Private data collection, and on the **Your Data** screen, click **Switch** next to the name of your **Configuration**. On the **Switch configuration** dialog, click **Create a new configuration**.
+To create a custom configuration in the {{site.data.keyword.discoveryshort}} tooling, open a Private data collection, and on the **Manage Data** screen, click **Switch** next to the name of your **Configuration**. On the **Switch configuration** dialog, click **Create a new configuration**.
 
 After you have named your new configuration file, that name will be displayed at the top of the configuration screen. This new configuration file will automatically contain the settings and enrichments of the [Default configuration](/docs/services/discovery/building.html#the-default-configuration) file to give you a place to begin.
 
@@ -207,7 +207,7 @@ After making any changes, click **Apply and Save**.
 
 **Note:** Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU).  These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments, named {{site.data.keyword.alchemylanguageshort}} enrichments, will be deprecated. {{site.data.keyword.alchemylanguageshort}} Enrichment support will end on **15 January, 2018**. New collections should be enriched with {{site.data.keyword.nlushort}} and any existing collections with {{site.data.keyword.alchemylanguageshort}} configuration files migrated as soon as possible. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
 
-The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/discovery/building.html#the-default-configuration) will enrich (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of seven {{site.data.keyword.watson}} enrichments available; the others are - Keyword Extraction, Emotion Analysis, and Semantic Role Extraction.)
+The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/discovery/building.html#the-default-configuration) will enrich (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of eight {{site.data.keyword.watson}} enrichments available; the others are Keyword Extraction, Relation Extraction, Emotion Analysis, and Semantic Role Extraction.)
 
 **Important:** Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 
@@ -216,7 +216,7 @@ You can further augment your documents by adding more enrichments to the `text` 
 ### Entity extraction
 {: #entity-extraction}
 
-Returns items such as persons, places, and organizations that are present in the input text. Entity extraction adds semantic knowledge to content to help understand the subject and context of the text that is being analyzed. The entity extraction techniques are based on sophisticated statistical algorithms and natural language processing technology, and are unique in the industry with their support for multilingual analysis, context-sensitive disambiguation, and quotation extraction. View the complete list of entity types and subtypes [here](/docs/services/discovery/entity-types.html)
+Returns items such as persons, places, and organizations that are present in the input text. Entity extraction adds semantic knowledge to content to help understand the subject and context of the text that is being analyzed. The entity extraction techniques are based on sophisticated statistical algorithms and natural language processing technology, and are unique in the industry with their support for multilingual analysis, context-sensitive disambiguation, and quotation extraction. View the complete list of entity types and subtypes [here](/docs/services/discovery/entity-types.html). You can also create and add a [custom entity model](/docs/services/discovery/building.html#custom-entity-model) with {{site.data.keyword.knowledgestudiofull}}.
 
 Example portion of a document enriched with Entity Extraction:
 
@@ -276,6 +276,79 @@ In the preceding example, you could query the entity type by accessing `enriched
 `sentiment` is calculated for entity types even if the **sentiment** enrichment is not selected. To learn more about sentiment scoring, see [Sentiment analysis](/docs/services/discovery/building.html#sentiment-analysis).
 
 The `relevance` score ranges from `0.0` to `1.0`. The higher the score, the more relevant the entity. The `disambiguation` field contains the disambiguation information for the entity, which includes the entity `subtype` information and links to the resource(s), if applicable. The `count` is the number of times the entity is mentioned in the document.
+
+#### Using a custom entity model
+{: #custom-entity-model}
+
+If you wish to create a custom enrichment model, you can do so in {{site.data.keyword.knowledgestudiofull}} and import the model into {{site.data.keyword.discoveryshort}} by adding the ID in the `Custom Model ID` box of the {{site.data.keyword.discoveryshort}} tooling. For more information on integrating with {{site.data.keyword.knowledgestudiofull}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). The custom {{site.data.keyword.knowledgestudiofull}} model will override the default Entity Extraction enrichment.
+
+**Note:** Only one {{site.data.keyword.knowledgestudiofull}} model can be assigned to an enrichment.
+
+### Relation extraction
+{: #relation-extraction}
+
+Recognizes when two entities are related and identifies the type of relation. You can also create and add a [custom relation model](/docs/services/discovery/building.html#custom-relation-model) with {{site.data.keyword.knowledgestudiofull}}.
+
+View the complete list of relationship types [here](/docs/services/discovery/relation-types.html).
+
+Example portion of a document enriched with Relation Extraction:
+
+```json
+{
+  "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
+  "enriched_text": {
+    "relations": [
+      {
+        "type": "locatedAt",
+        "sentence": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
+        "score": 0.989245,
+        "arguments": [
+         {
+            "text": "Atlanta",
+            "location": [
+             94,
+             101
+            ],
+            "entities": [
+              {
+                "type": "GeopoliticalEntity",
+                "text": "Atlanta"
+              }
+            ]
+         },
+          {
+            "text": "Georgia",
+            "location": [
+             103,
+             110
+            ],
+            "entities": [
+              {
+                "type": "GeopoliticalEntity",
+                "text": "Georgia"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+{: codeblock}
+
+In the preceding example, you could query the relation type by accessing `enriched_text.relations.type`.
+
+The related entities are listed in the `arguments`. The entity types that can be identified by the Relation Extraction enrichment can be found [here](/docs/services/discovery/relation-types.html#specific-entity-types).
+
+The `score` ranges from `0.0` to `1.0`. The higher the score, the more relevant the relation.
+
+#### Using a custom relation model
+{: #custom-relation-model}
+
+If you wish to create a custom enrichment model, you can do so in {{site.data.keyword.knowledgestudiofull}} and import the model into {{site.data.keyword.discoveryshort}} by adding the ID in the `Custom Model ID` box of the {{site.data.keyword.discoveryshort}} tooling. For more information on integrating with {{site.data.keyword.knowledgestudiofull}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). The custom {{site.data.keyword.knowledgestudiofull}} model will override the default Relation extraction enrichment.
+
+**Note:** Only one {{site.data.keyword.knowledgestudiofull}} model can be assigned to an enrichment.
 
 ### Keyword extraction
 {: #keyword-extraction}
@@ -659,7 +732,7 @@ Specify values for the new fields as follows:
 
 **Warning:** If a CSS selector matches both a parent node and one or more of its children, the text content of the nodes will be duplicated in the JSON output.
 
-**Note:** Field names must meet the restrictions defined in [Field Name Requirements](docs/services/discovery/custom-config.html#field_reqs).
+**Note:** Field names must meet the restrictions defined in [Field name requirements](/docs/services/discovery/custom-config.html#field_reqs).
 
 The following JSON passage shows the relevant section of the Default Configuration to which you add CSS selector information.
 
