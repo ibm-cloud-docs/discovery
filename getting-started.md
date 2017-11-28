@@ -155,7 +155,7 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
     - Node.js:
 
       ```javascript
-      var watson = require('watson-developer-cloud');
+      var DiscoveryV1 = require('watson-developer-cloud/discovery/v1');
       var fs = require('fs');
 
       var discovery = new DiscoveryV1({
