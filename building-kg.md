@@ -19,7 +19,7 @@ lastupdated: "2017-11-27"
 
 # Watson Discovery Knowledge Graph
 
-Knowledge graphs go beyond just data retrieval by making connections within your data across documents. It does that by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and  ranking the results using relevance algorithms. Knowledge Graphs have a wide variety of applications in domains ranging from financial, technology, security, intelligence, and healthcare and are designed to be used be used in applications with enterprise searches, summarization, fraud waste and abuse detection and decision making.
+Knowledge graphs go beyond just data and information by making connections within your data across documents and generating new knowledge. We provide the AI technology that automatically creates custom knowledge graphs from unstructured data by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and ranking the results using relevance algorithms. Knowledge Graphs can function as the "knowledge hub" for your company and can be used for enterprise search, summarization, recommendation engines, other decision making processes - for example, detecting fraud, waste, or abuse. The use of a custom model (created in {{site.data.keyword.wksshort}}) in the Knowledge Graph creation process, can help build domain specific KGs with applicability in domains such as financial, technology, security, intelligence, healthcare and many others.
 
 Two new end-points have been added to {{site.data.keyword.discoveryfull}} – providing the ability to search for disambiguated entities and enriched relations across-documents in unstructured document collections. Search results can be rank ordered by relevance or popularity. In addition to a search token, the APIs can use optional context word(s) or passages that finds more relevant entities and relations within the large automatically created knowledge graph.
 
@@ -156,8 +156,8 @@ Knowledge Graph relations queries supports finding most relevant relationships b
 {
   "entities": [
     {
-      "text": "Barack",
-      "type": "Person",
+      "text": "Steve Jobs",
+      "type": "PERSON",
       "exact": true
     }
   ],
@@ -167,14 +167,14 @@ Knowledge Graph relations queries supports finding most relevant relationships b
   "sort": "score",
   "filter": {
     "relation_types": {
-      "exclude": [ "comention" ],
-      "include": [ "locatedAt" "employedBy", "locatedAt", "colocation"]
+      "exclude": ["colocation"],
+      "include": ["locatedAt", "employedBy", "managerOf", "founderOf"]
     },
     "entity_types": {
-      "exclude": [ "EVENT" ],
-      "include": [ "PERSON", "GPE"]
+      "exclude": ["EVENT"],
+      "include": ["PERSON", "GPE", "ORGANIZATION"]
     },
-    "document_ids":["1","2"]
+    "document_ids": ["b95df4c1-d00f-4771-abb2-a52baea0444a", "ad340635-bf3e-47a5-bea5-5e778f600c32"]
   },
   "count": 10
 }
@@ -186,7 +186,7 @@ Knowledge Graph relations queries supports finding most relevant relationships b
    -  `"type": string` _optional_ - the optional entity type. This field is required if `"exact"` is `true`.
    -  `"exact": boolean` _optional_ - If `false`, implicit disambiguation is performed. Implicit disambiguation will use the top one disambiguated entity for each input entity object. The default is `false`.
 -  `"context": {}` _optional_ - an optional object that includes contextual requirements.
-   -  `"text": string` _optional_ - Entity text to provide context for the queried entity and rank based on that association. For example, if you wanted to query the city of London in England your query would look for `London` with the context of `England`. Input can be partial names or large passages containing relevant entity terms. Multiple terms can be passed together.
+   -  `"text": string` _optional_ - Entity text to provide context for the queried entity and rank based on that association. For example, if you wanted to query the city of London in England your query would look for `London` with the context of `England`. Input can be partial names or large passages containing relevant entity terms. Multiple terms can be   passed together.
 -  `"sort": string` _optional_ - the sorting method for the relationships, can be `score` or `frequency`. The default is `score`. `score` is based on relevance of relations and neighbors to the input entity and relevance to context if context is provided. `frequency` is the number of unique times each relation is identified.
 -  `"filter": {}` _optional_ - an object containing the relation types, entity types, and specific documents to filter by for this query. By default nothing is excluded.
    -  `"relation_types": {}` _optional_ a list of relation types to filter.
@@ -204,22 +204,22 @@ The query returns results in the following form:
 {
   "relations": [
     {
-      "type": "EMPLOYEDBY",
-      "frequency":7,
+      "type": "FOUNDEROF",
+      "frequency": 7,
       "arguments": [
         {
           "entities": [
             {
               "type": "PERSON",
-              "text": "Barack Obama"
+              "text": "Steve Jobs"
             }
           ]
         },
         {
           "entities": [
             {
-              "type": "GEOPOLITICALENTITY",
-              "text": "United States"
+              "type": "ORGANIZATION",
+              "text": "Apple"
             }
           ]
         }
