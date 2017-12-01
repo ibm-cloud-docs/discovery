@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2017-11-30"
 
 ---
 
@@ -34,12 +34,16 @@ How does {{site.data.keyword.discoveryshort}} do it? By using data analysis comb
 
 - Crawl, convert, enrich and normalize data.
 - Securely explore your proprietary content as well as free and licensed public content.
-- Apply additional enrichments such as concepts, relations, and sentiment through natural language processing.
+- Apply additional enrichments such as concepts, relations, and sentiment through {{site.data.keyword.nlushort}} (NLU).
 - Simplify development while still providing direct access to APIs.
 
 For information about language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/services/discovery/language-support.html).
 
 For information about {{site.data.keyword.Bluemix_notm}} security, see the [{{site.data.keyword.Bluemix_notm}} Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+
+{{site.data.keyword.discoveryfull}} Visual Insights is an experimental feature that you can use to visually explore connections identified by {{site.data.keyword.discoveryshort}}'s understanding of semantic elements, relations, concepts, and more. For more information, see [{{site.data.keyword.discoveryfull}} Visual Insights](/docs/services/discovery/visual-insights.html).
+
+{{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.
 
 ## Watson Discovery News
 {: #watson-discovery-news}

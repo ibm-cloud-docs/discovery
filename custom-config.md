@@ -372,6 +372,9 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
           "sentiment": true,
           "emotion": false,
           "limit": 50,
+          "mentions": true,
+          "mention_types": true,
+          "sentence_locations": true,        
           "model": "WKS-model-id"
         },
         "sentiment": {
@@ -441,6 +444,9 @@ The `entities` enrichment extracts instances of known entities such as people, p
 - `"sentiment" : boolean` - _optional_ - When `true`, sentiment analysis is performed on the extracted entity in the context of the surrounding content.
 - `"emotion" : boolean` - _optional_ - When `true`, emotional tone analysis is performed on the extracted entity in the context of the surrounding content.
 - `"limit" : INT` - _optional_ - The maximum number of entities to extract from the ingested document. The default is `50`.
+- `"mentions": boolean` - _optional_ - When `true`, the number of times that this entity is mentioned is recorded. The default is `false`.
+- `"mention_types": boolean` - _optional_ - When `true`, the mention type for each mention of this entity is stored. The default is `false`.
+- `"sentence_location": boolean` - _optional_ - When `true`, the sentence location of each entity mention is stored. The default is `false`.
 - `"model" : string` - _optional_ - When specified, the custom model is used to extract entities instead of the public model. This option requires a {{site.data.keyword.wksshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) for more information.
 
 ### keywords

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-16"
+lastupdated: "2017-11-30"
 
 ---
 
@@ -108,8 +108,8 @@ When you're happy with the custom conversion of your sample document it's time t
 ## Step 5: Build a query
 {: #build-a-query}
 
-1.  Click ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select your collection and click **Get started**.
-1.  Build your query under **Search for Documents** in the **Build queries** screen:
+1.  Click ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select your collection and click **Get started**.
+1.  On the **Build queries** screen, click **Search for documents**, then **Use the {{site.data.keyword.discoveryshort}} Query Language**:
     - To search for results with entities named "IBM":
         1.  Click **Field** and select `enriched_text.entities.text`. Select `contains` for **Operator** and `IBM` for **Value**. The query `enriched_text.entities.text:IBM` is displayed in **Visual Query Builder**.
         1.  Click **Run Query**. The query returns 4 results.
