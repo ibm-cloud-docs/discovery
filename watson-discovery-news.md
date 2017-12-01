@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-25"
+lastupdated: "2017-11-30"
 
 ---
 
@@ -19,9 +19,11 @@ lastupdated: "2017-08-25"
 
 # Watson Discovery News
 
-{{site.data.keyword.discoverynewsfull}} is included with {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoverynewsfull}} is a dataset of English-language news sources that is updated continuously, with approximately 300,000 new articles and blogs added daily. This indexed dataset is pre-enriched with the following cognitive insights: **Keyword Extraction**, **Entity Extraction**, **Semantic Role Extraction**, **Sentiment Analysis**, **Relations**, and **Category Classification**. (To learn more about enrichments, see [Adding enrichments](building.html#adding-enrichments).) The following additional metadata is also added: crawl date and publication date. Historical search is available for the past 60 days of news data. See a demo of what you can build with {{site.data.keyword.discoverynewsfull}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.mybluemix.net/){: new_window}.
+{{site.data.keyword.discoverynewsfull}} is included with {{site.data.keyword.discoveryshort}}. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is an indexed dataset that is pre-enriched with the following cognitive insights: **Keyword Extraction**, **Entity Extraction**, **Semantic Role Extraction**, **Sentiment Analysis**, **Relation Extraction**, and **Category Classification**. (To learn more about enrichments, see [Adding enrichments](building.html#adding-enrichments).) The following additional metadata is also added: crawl date and publication date. Historical search is available for the past 60 days of news data. See a demo of what you can build with {{site.data.keyword.discoverynewsfull}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.mybluemix.net/){: new_window}.
 
-Use cases for Watson Discovery News:
+{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is updated continuously with new articles. {{site.data.keyword.discoverynewsshort}} English is updated with approximately 300,000 new articles daily. {{site.data.keyword.discoverynewsshort}} Spanish is updated with approximately 60,000 new articles daily; {{site.data.keyword.discoverynewsshort}} Korean with 10,000 new articles daily.
+
+Use cases for {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}}:
 
 - News alerting - Create news alerts by taking advantage of the support for entities, keywords, categories, and sentiment analysis to watch for both news and how it is perceived.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-08"
+lastupdated: "2017-11-30"
 
 ---
 
@@ -32,7 +32,11 @@ You also have the option to turn on passage retrieval. Passages are short, relev
   You can write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling or the API.
   {: tip}
 
-Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.  
+Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
+
+{{site.data.keyword.discoveryfull}} Visual Insights is an experimental feature that you can use to visually explore connections identified by {{site.data.keyword.discoveryshort}}'s understanding of semantic elements, relations, concepts, and more. For more information, see [{{site.data.keyword.discoveryfull}} Visual Insights](/docs/services/discovery/visual-insights.html).
+
+{{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.
 
 For more information about writing queries, see:
 - [Getting started with querying tutorial](/docs/services/discovery/getting-started-query.html)
@@ -145,6 +149,8 @@ Additionally, any subsequent operation will further restrict the result set that
 You can query this collection using natural language queries, for example "IBM Watson partnerships", or the {{site.data.keyword.discoveryshort}} Query Language. To learn more about natural language queries, see the [Natural language query](/docs/services/discovery/query-parameters.html#nlq).
 
 You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.mybluemix.net/){: new_window}.
+
+The English language version of Watson {{site.data.keyword.discoverynewsshort}} is available via the {{site.data.keyword.discoveryshort}} tooling and the API. Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`) language versions are available for use via the API-only. For information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
 
 **Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
 
