@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-08"
+lastupdated: "2017-12-05"
 
 ---
 
@@ -74,7 +74,7 @@ For additional training guidance, see [Relevancy training tips](/docs/services/d
 ## Confidence scores
 {: #confidence}
 
-Trained collections will return a `confidence` score in the result of a natural language query. This `confidence` number is calculated based on how relevant the result is compared to the trained model. The `confidence` score is **not** the same as the  `score`. For more information about determining thresholds for confidence scores, see [How to select a threshold for acting using confidence scores ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/).
+Trained collections will return a `confidence` score in the result of a natural language query. This `confidence` number is calculated based on how relevant the result is estimated to be, compared to the trained model. The `confidence` score is **not** the same as the  `score`. For more information about determining thresholds for confidence scores, see [How to select a threshold for acting using confidence scores ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/). The `score` should not be used to set absolute thresholds as it is a relative calculation.
 
 `confidence` can range from 0.0 to 1.0. The higher the number, the more relevant the document.
 

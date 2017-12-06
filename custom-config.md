@@ -439,7 +439,7 @@ The `emotion` enrichment evaluates the overall emotional tone (for example `ange
 
 ### entities
 
-The `entities` enrichment extracts instances of known entities such as people, places, and organizations. Optionally, a {{site.data.keyword.wksshort}} custom model can be specified to extract custom entities.
+The `entities` enrichment extracts instances of known entities such as people, places, and organizations. Optionally, a {{site.data.keyword.knowledgestudioshort}} custom model can be specified to extract custom entities.
 
 - `"sentiment" : boolean` - _optional_ - When `true`, sentiment analysis is performed on the extracted entity in the context of the surrounding content.
 - `"emotion" : boolean` - _optional_ - When `true`, emotional tone analysis is performed on the extracted entity in the context of the surrounding content.
@@ -447,7 +447,7 @@ The `entities` enrichment extracts instances of known entities such as people, p
 - `"mentions": boolean` - _optional_ - When `true`, the number of times that this entity is mentioned is recorded. The default is `false`.
 - `"mention_types": boolean` - _optional_ - When `true`, the mention type for each mention of this entity is stored. The default is `false`.
 - `"sentence_location": boolean` - _optional_ - When `true`, the sentence location of each entity mention is stored. The default is `false`.
-- `"model" : string` - _optional_ - When specified, the custom model is used to extract entities instead of the public model. This option requires a {{site.data.keyword.wksshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) for more information.
+- `"model" : string` - _optional_ - When specified, the custom model is used to extract entities instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) for more information.
 
 ### keywords
 
@@ -474,9 +474,9 @@ The `sentiment` enrichment evaluates the overall sentiment level of entire docum
 
 ### relations
 
-The `relations` enrichment extracts known relationships between identified entities within the document. Optionally, a {{site.data.keyword.wksshort}} custom model can be specified to extract custom relationships.
+The `relations` enrichment extracts known relationships between identified entities within the document. Optionally, a {{site.data.keyword.knowledgestudioshort}} custom model can be specified to extract custom relationships.
 
-- `"model" : string` - _optional_ - When specified, the custom model is used to extract relations instead of the public model. This option requires a {{site.data.keyword.wksshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) for more information.
+- `"model" : string` - _optional_ - When specified, the custom model is used to extract relations instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) for more information.
 
 ## Normalization
 {: #normalization}

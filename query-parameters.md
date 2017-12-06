@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-08"
+lastupdated: "2017-12-05"
 
 ---
 
@@ -97,6 +97,10 @@ A boolean that specifies whether the service returns a set of the most relevant 
 The `passages` parameter can only be used on private collections. It cannot be used on the {{site.data.keyword.discoverynewsfull}} collection.
 {: tip}
 
+{{site.data.keyword.discoveryshort}} attempts to return passages that start at the beginning of a sentence and stop at the end using sentence boundary detection. To do so, it first searches for passages approximately the length specified in the [`passages.characters` parameter](/docs/services/discovery/query-parameters.html#passages_characters) (default `400`). It then expands each passage to the limit of twice the specified length in order to return full sentences. If your `passages.characters` parameter is short and/or the sentences in your documents are very long there may be no sentence boundaries close enough to return the full sentence without going over twice the requested length. In that case, {{site.data.keyword.discoveryshort}} stays within the limit of twice the `passages.characters` parameter, so the passage returned will not include the entire sentence and omit the beginning, end, or both.
+
+Since sentence boundary adjustments expand passage size, you will see a substantial increase in average passage length. If your application has limited screen space, you may want to set a smaller value for `passages.characters` and/or truncate the passages that are returned by {{site.data.keyword.discoveryshort}}. Sentence boundary detection works for all supported languages and uses language-specific logic.
+
 The `passages` parameter returns matching passages (`passage_text`), as well as the `score`, `document_id`, the name of the field the passage was extracted from (`field`), and the starting and ending characters of the passage text within the field (`start_offset` and `end_offset`), as shown in the following example. The query is shown at the top of the example.
 
 ```bash
@@ -143,7 +147,7 @@ The maximum number of passages to return. The search will return fewer if that i
 ### passages.characters
 {: #passages_characters}
 
-The approximate number of characters that any one passage should have. The default is `400`. The minimum is `50`. The maximum is `2000`.
+The approximate number of characters that any one passage should have. The default is `400`. The minimum is `50`. The maximum is `2000`. Passages returned may be up to twice the requested length (if necessary) to get them to begin and end at sentence boundaries.
 
 ## highlight
 {: #highlight}
