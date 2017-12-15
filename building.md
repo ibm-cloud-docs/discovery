@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-15"
+lastupdated: "2017-12-15"
 
 ---
 
@@ -207,7 +207,7 @@ After making any changes, click **Apply and Save**.
 
 **Note:** Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU).  These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments, named {{site.data.keyword.alchemylanguageshort}} enrichments, will be deprecated. {{site.data.keyword.alchemylanguageshort}} Enrichment support will end on **15 January, 2018**. New collections should be enriched with {{site.data.keyword.nlushort}} and any existing collections with {{site.data.keyword.alchemylanguageshort}} configuration files migrated as soon as possible. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
 
-The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/discovery/building.html#the-default-configuration) will enrich (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of eight {{site.data.keyword.watson}} enrichments available; the others are Keyword Extraction, Relation Extraction, Emotion Analysis, and Semantic Role Extraction.)
+The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/discovery/building.html#the-default-configuration) will enrich (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of nine {{site.data.keyword.watson}} enrichments available; the others are Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.)
 
 **Important:** Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 
@@ -618,11 +618,18 @@ In the preceding example, you could query the `joy` Emotion by accessing `enrich
 
 Emotion Analysis analyzes your text and calculates a score for each emotion (anger, disgust, fear, joy, sadness) on a scale of `0.0` to `1.0`. If the score of any emotion is `0.5` or higher, then that emotion has been detected (the higher the score above `0.5`, the higher the relevance). In the snippet shown, `joy` has a score above 0.5, so {{site.data.keyword.watson}} detected joy.
 
-After making any changes, click **Apply and Save**.
+**Note:** Emotion Analysis is supported in English only.
+
+### Element classification
+{: #elements}
+
+Parses elements (sentences, lists, tables) in governing documents to classify important types and categories
+For more information, see [Element classification](/docs/services/discovery/element-classification.html).
+
+#### Enrichment pricing
+{: #enrichment-pricing}
 
 Enrichment pricing information is available on [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}.
-
-**Note:** Emotion Analysis is supported in English only.
 
 #### Enrichment language support
 {: #enrichment-language-support}
@@ -684,7 +691,7 @@ In the **Normalize** section of the {{site.data.keyword.discoveryshort}} tooling
 -   You can move, merge, copy or remove fields.
 -   Empty fields (fields that contain no information) will be deleted by default. You can change that using the **Remove empty fields** toggle.
 
-After making any changes, click **Apply and Save**, then **Done**. You will be returned to the **Your Data** screen, where you can apply this configuration to the collection of your choice.
+After making any changes, click **Apply and Save**, then **Done**. You will be returned to the **Manage Data** screen, where you can apply this configuration to the collection of your choice.
 
 ## Normalizing entities
 {: #normalizing-entities}
