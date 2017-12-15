@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-15"
+lastupdated: "2017-11-27"
 
 ---
 
@@ -90,16 +90,12 @@ Create a custom configuration as follows, after creating a {{site.data.keyword.d
    ```
    {: pre}
 
-1. After the custom configuration has been uploaded it can be used in any collection that you create, any method to upload documents can be used as long as the custom configuration is specified. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery/getting-started-tool.html). When you get to [step 3](/docs/services/discovery/getting-started-tool.html#create-custom-configuration) select `Knowledge Graph Configuration` instead of creating a new configuration.
+1. After the custom configuration has been uploaded it can be used in any collection that you create, any method to upload documents can be used as long as the custom configuration is specified. If you are unfamiliar with creating collections and uploading documents, see [getting started with the tooling](/docs/services/discovery/getting-started-tool.html). When you get to step 3 [step 3](/docs/services/discovery/getting-started-tool.html#create-custom-configuration) select `Knowledge Graph Configuration` instead of creating a new configuration.
 
 ## Entities queries
 {: #entities}
 
-In the beta release of the Knowledge Graph entity queries supports context-based entity disambiguation. Based on the entity text provided and optional context text, disambiguation identifies unique entities and returns a list of the entities ranked based on the context information. A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the `v1/environments/{environment_id}/collections/{collection_id}/query_entities` endpoint.
-
-You can query entities using the API, or with the {{site.data.keyword.discoveryshort}} tooling. See [Querying Knowledge Graph using the Discovery tooling](/docs/services/discovery/building-kg.html#querying-kg) for tooling information.
-
-The Knowledge Graph entity query JSON object takes the following form:
+In the beta release of the Knowledge Graph entity queries supports context-based entity disambiguation. Based on the entity text provided and optional context text, disambiguation identifies unique entities and returns a list of the entities ranked based on the context information. A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the `v1/environments/{environment_id}/collections/{collection_id}/query_entities` endpoint. The Knowledge Graph entity query JSON object takes the following form:
 
 ```json
 {
@@ -154,11 +150,7 @@ If no match is found, the following JSON object is returned:
 ## Relations queries
 {: #relations}
 
-Knowledge Graph relations queries supports finding most relevant relationships based on input entities using implicit entity disambiguation, context based relationships, sorting by relevance score and mention count, and filtering by types and document ids.
-
-You can query relations using the API, or with the {{site.data.keyword.discoveryshort}} tooling. See [Querying Knowledge Graph using the Discovery tooling](/docs/services/discovery/building-kg.html#querying-kg) for tooling information.
-
-A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the  `v1/environments/{environment_id}/collections/{collection_id}/query_relations` endpoint. The Knowledge Graph relations query JSON object takes the following form:
+Knowledge Graph relations queries supports finding most relevant relationships based on input entities using implicit entity disambiguation, context based relationships, sorting by relevance score and mention count, and filtering by types and document ids. A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the  `v1/environments/{environment_id}/collections/{collection_id}/query_relations` endpoint. The Knowledge Graph relations query JSON object takes the following form:
 
 ```json
 {
@@ -248,14 +240,3 @@ If no match is found, the following JSON object is returned:
 }
 ```
 {: codeblock}
-
-## Querying Knowledge Graph using the Discovery tooling
-{: #querying-kg}
-
-Those with service instances subscribed to the [**Advanced**](/docs/services/discovery/building-kg.html#service-requirements) plan can query private collections with Knowledge Graph using the {{site.data.keyword.discoveryshort}} tooling.  
-
-To access Knowledge Graph querying in the {{site.data.keyword.discoveryshort}} tooling:
-
-1.  Click ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page.
-1.  Select your collection and click **Get started**.
-1.  On the **Build queries** screen, choose the **Knowledge graph** tab, then **Entities** or **Relationships**.

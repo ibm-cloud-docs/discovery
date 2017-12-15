@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-15"
+lastupdated: "2017-11-30"
 
 ---
 
@@ -44,10 +44,6 @@ For information about {{site.data.keyword.Bluemix_notm}} security, see the [{{si
 {{site.data.keyword.discoveryfull}} Visual Insights is an experimental feature that you can use to visually explore connections identified by {{site.data.keyword.discoveryshort}}'s understanding of semantic elements, relations, concepts, and more. For more information, see [{{site.data.keyword.discoveryfull}} Visual Insights](/docs/services/discovery/visual-insights.html).
 
 {{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.
-
-## Browser support and prerequisites
-
-For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/overview/prereqs.html#prereqs){: new_window}.
 
 ## Watson Discovery News
 {: #watson-discovery-news}

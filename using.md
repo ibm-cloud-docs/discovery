@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-15"
+lastupdated: "2017-11-30"
 
 ---
 
@@ -51,7 +51,7 @@ Start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To u
 
     In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied with the **Default Configuration** file. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
 
-  1. Run an "empty" query to view the JSON. On the **View data schema** screen, click the **Build queries** button, then click **Run Query**. The results display on the right, under two tabs, **Summary** (an overview of the query results) and **JSON**. Start by opening the **JSON** tab.
+  1. Run an "empty" query to view the JSON. On the **View data schema** screen, click the **Build queries** button, then **Run Query**. The results display on the right, under two tabs, **Summary** (an overview of the query results) and **JSON**. Start by opening the **JSON** tab.
 
      -  Each of the four documents will be proceeded by an `id` number.
      -  Scroll down to the `enriched_text` field. Examine each enrichment to learn about the JSON fields you can query on.
