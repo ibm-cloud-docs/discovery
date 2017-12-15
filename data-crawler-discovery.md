@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-12-15"
 
 ---
 
@@ -113,6 +113,8 @@ The options that can be set in this file are:
 
 -   **`bootstrap_logging`** - Writes connector framework startup log; useful for advanced debugging only. Possible values are `true` or `false`. Log file will be written to `crawler_temp_dir`
 
+-   **`read-timeout`** - Sets the time (in seconds) that the crawler will wait for a response from the connector framework. The default value is 5 seconds.
+
 ### Output adapter
 {: #output-adapter}
 
@@ -186,9 +188,16 @@ output_directory - "/tmp/crawler-test-output"`
 
 -   **`full_node_debugging`** - Activates debugging mode; possible values are `true` or `false`.
 
-    **Important:** This will put the full data of every document crawled into the logs.   **`logging.log4j.configuration_file`*** - The configuration file to use for logging. In the sample `crawler.conf` file, this option is defined in `logging.log4j` and its default value is `log4j_custom.properties`. This option must be similarly defined whether using a `.properties` or `.conf` file.   **`shutdown_timeout`** - Specifies the timeout value, in minutes, before shutting down the application. Default value is `10`.   **`output_limit`** - The highest number of indexable items that the Crawler will try to send simultaneously to the output adapter. This can be further limited by the number of cores available to do the work. It says that at any given point there will be no more than "x" indexable items sent to the output adapter waiting to return. Default value is `10`.   **`input_limit`** - Limits the number of URLs that can be requested from the input adapter at one time. Default value is `3`.   **`output_timeout`** - The amount of time, in seconds, before the Data Crawler gives up on a request to the output adapter, and then removes the item from the output adapter queue to allow more processing. Default value is `1200`.
+    **Important:** This will put the full data of every document crawled into the logs.   
 
-    Consideration should be given to the constraints imposed by the output adapter, as those constraints may relate to the limits defined here. The defined `output_limit` only relates to how many indexable objects can be sent to the output adapter at once. Once an indexable object is sent to the output adapter, it is "on the clock," as defined by the `output_timeout` variable. It is possible that the output adapter itself has a throttle preventing it from being able to process as many inputs as it receives. For instance, the orchestration output adapter may have a connection pool, configurable for HTTP connections to the service. If it defaults to 8, for example, and if you set the `output_limit` to a number greater than 8, then you will have processes, on the clock, waiting for a turn to execute. You may then experience timeouts.   **`num_threads`** - The number of parallel threads that can be run at one time. This value can be either an integer, which specifies the number of parallel threads directly, or it can be a string, with the format `"xNUM"`, specifying the multiplication factor of the number of available processors, for example, `"x1.5"`. The default value is `"30"`
+-   **`logging.log4j.configuration_file`*** - The configuration file to use for logging. In the sample `crawler.conf` file, this option is defined in `logging.log4j` and its default value is `log4j_custom.properties`. This option must be similarly defined whether using a `.properties` or `.conf` file.   
+-   **`shutdown_timeout`** - Specifies the timeout value, in minutes, before shutting down the application. Default value is `10`.   
+-   **`output_limit`** - The highest number of indexable items that the Crawler will try to send simultaneously to the output adapter. This can be further limited by the number of cores available to do the work. It says that at any given point there will be no more than "x" indexable items sent to the output adapter waiting to return. Default value is `10`.   
+-   **`input_limit`** - Limits the number of URLs that can be requested from the input adapter at one time. Default value is `3`.   
+-   **`output_timeout`** - The amount of time, in seconds, before the Data Crawler gives up on a request to the output adapter, and then removes the item from the output adapter queue to allow more processing. Default value is `1200`.
+
+    Consideration should be given to the constraints imposed by the output adapter, as those constraints may relate to the limits defined here. The defined `output_limit` only relates to how many indexable objects can be sent to the output adapter at once. Once an indexable object is sent to the output adapter, it is "on the clock," as defined by the `output_timeout` variable. It is possible that the output adapter itself has a throttle preventing it from being able to process as many inputs as it receives. For instance, the orchestration output adapter may have a connection pool, configurable for HTTP connections to the service. If it defaults to 8, for example, and if you set the `output_limit` to a number greater than 8, then you will have processes, on the clock, waiting for a turn to execute. You may then experience timeouts.   
+-   **`num_threads`** - The number of parallel threads that can be run at one time. This value can be either an integer, which specifies the number of parallel threads directly, or it can be a string, with the format `"xNUM"`, specifying the multiplication factor of the number of available processors, for example, `"x1.5"`. The default value is `"30"`
 
 ## Configuring service options
 {: #configuring-service-options}
@@ -206,9 +215,18 @@ To access the in-product manual for the `discovery-service.conf` file, with the 
 Default options can be changed directly by opening the `config/discovery/discovery_service.conf` file, and specifying the following values specific to your use case:
 
 -   **`http_timeout`** - The timeout, in seconds, for the document read/index operation; the default is `125`.
+-   **`proxy_host_port`** - (optional) When running the data crawler behind a firewall, you might need to set the proxy hostname and proxy port number in order for the data crawler to talk to the {{site.data.keyword.discoveryshort}} service. The default value for this option is an empty string and if you need to change it the value should be of the form `"<host>:<port>"`.
 -   **`concurrent_upload_connection_limit`** - The number of simultaneous connections allowed for uploading documents. The default is `2`.
 
-    **Note:** When using the Orchestration Service Output Adapter, this number should be greater than, or equal to, the `output_limit` set when configuring crawl options.   **`base_url`** - The URL to which your crawled documents will be sent. For the current release of the {{site.data.keyword.discoveryshort}} service, the value is `https://gateway.watsonplatform.net/discovery/api`.   **`environment_id`** - The location of your crawled document collection at the base URL.   **`collection_id`** - Name of the document collection that you set up in the {{site.data.keyword.discoveryshort}} service.   **`api_version`** - Internal use only. Date of the last API version change.   **`configuration_id`** - The filename of the configuration file that the {{site.data.keyword.discoveryshort}} service uses.   **`username`** - Username to authenticate to the location of your crawled document collection.   **`password`** - Password to authenticate to the location of your crawled document collection.
+    **Note:** When using the Orchestration Service Output Adapter, this number should be greater than, or equal to, the `output_limit` set when configuring crawl options.   
+
+-   **`base_url`** - The URL to which your crawled documents will be sent. For the current release of the {{site.data.keyword.discoveryshort}} service, the value is `https://gateway.watsonplatform.net/discovery/api`.   
+-   **`environment_id`** - The location of your crawled document collection at the base URL.   
+-   **`collection_id`** - Name of the document collection that you set up in the {{site.data.keyword.discoveryshort}} service.
+-   **`api_version`** - Internal use only. Date of the last API version change.   
+-   **`configuration_id`** - The filename of the configuration file that the {{site.data.keyword.discoveryshort}} service uses.
+-   **`username`** - Username to authenticate to the location of your crawled document collection.   
+-   **`password`** - Password to authenticate to the location of your crawled document collection.
 
 The {{site.data.keyword.discoveryshort}} Service Output Adapter can send statistics in order for {{site.data.keyword.IBM}} to better understand and serve its users. The following options can be set for the `send_stats` variable:
 
