@@ -348,8 +348,7 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
   - `merge` - the contents of the `source_field` and the `destination_field` are merged into the `destination_field`.
   - `remove_nulls` - fields with `null` content are removed.
 - `"source_field": string` - _optional_ - the field that the operation will be performed on.
-- `"destination_field": string` - _optional_ - the destination field the the operation will output to.  
-
+- `"destination_field": string` - _optional_ - the destination field the the operation will output to.   
   **Note:** Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
 
 
@@ -358,14 +357,6 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
 
 ```json
 "enrichments": [
-  {
-    "enrichment": "elements",
-    "source_field": "html",
-    "destination_field": "enriched_html",
-    "options": {
-      "model": "contract"
-    }
-  },
   {
     "enrichment": "natural_language_understanding",
     "source_field": "title",
@@ -420,28 +411,14 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
 ```
 {: codeblock}
 
-{{site.data.keyword.discoveryshort}} supports adding {{site.data.keyword.nlushort}} and Element Classification enrichments. Each field that you want to enrich is defined by an object in the `enrichments` array. Each enrichment object requires a `source_field`, a `destination_field` and enrichments to specified.
+{{site.data.keyword.discoveryshort}} supports adding {{site.data.keyword.nlushort}} enrichments. Each field that you want to enrich is defined by an object in the `enrichments` array. Each enrichment object requires a `source_field`, a `destination_field` and enrichments to specified.
 
-- `"enrichment" : string` - *required* - The type of enrichment to use on this field. To extract {{site.data.keyword.nlushort}} enrichments use `natural_language_understanding`, to perform Element Classification use `elements`.
-
-  **Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery/element-classification.html) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
-  
+- `"enrichment" : "natural_language_understanding"` - *required* - The type of enrichment to use on this field. Must be set to `natural_language_understanding`.
 - `"source_field" : string` - *required* - The source field that will be enriched. This field must exist in your source after the `json_normalizations` operation has completed.
 - `"destination_field" : string` - *required* - The name of the container object where enrichments will be created.
-
   **Note:** Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
 
-### Element Classification enrichments
-
-When using Element Classification, each `elements` enrichment object must contain an `"options": {}` object with the following parameters specified:
-
-- `"model" : string` - *required* - The element extraction model to be used with on this document. Currently supported models are: `contract`
-
-**Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery/element-classification.html) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
-
-### Natural Language Understanding Enrichments
-
-When using {{site.data.keyword.nlushort}}, each object within the `enrichments` array must also contain an `"options": { "features": { } }` object that contains one or more of the following enrichments:
+Each object within the `enrichments` array must also contain an `"options": { "features": { } }` object that contains one or more of the following enrichments:
 
 ### categories
 

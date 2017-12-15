@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-15"
+lastupdated: "2017-12-05"
 
 ---
 
@@ -42,17 +42,6 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
-## 15 December 2017
-
-- Released the **Element Classification** enrichment, which parses elements (sentences, lists, tables) in governing documents to classify important categories and types. See [Element classification](/docs/services/discovery/element-classification.html) for more information. Element Classification is not available for service instances that are subscribed to the **Premium** plan.
-- Added Basic language support for Simplified Chinese and Dutch. See [Language Support](/docs/services/discovery/language-support.html) for more information. Currently, Simplified Chinese and Dutch collections must be created with the API.
-- Added Full language support for Korean. See [Language Support](/docs/services/discovery/language-support.html) for more information.
-- Added two new parameters for the Data Crawler: `proxy_host_port` and `read-timeout`. See [Configuring the Data Crawler](/docs/services/discovery/data-crawler-discovery.html) for details.
-
-{{site.data.keyword.discoveryshort}} tooling:
-
-- Added a visual query builder for the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph. See [Querying Knowledge Graph using the {{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery/building-kg.html#querying-kg)
-
 ## 30 November 2017
 
 - Released the experimental version of {{site.data.keyword.discoveryfull}} Visual Insights. With Visual Insights you can visually explore connections identified by {{site.data.keyword.discoveryshort}}'s understanding of semantic elements, relations, concepts, and more. See [Visual Insights](/docs/services/discovery/visual-insights.html) for more information. A statement explaining experimental/beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
@@ -69,7 +58,6 @@ The following new features and changes to the service are available.
 - Added the [Relation Extraction](/docs/services/discovery/building.html#relation-extraction) enrichment, which includes the option to incorporate a custom relation model created with {{site.data.keyword.knowledgestudiofull}}.
 - The [Entity Extraction](/docs/services/discovery/building.html#entity-extraction) enrichment {{site.data.keyword.discoveryshort}} tooling now includes the option to incorporate a custom entity model created with {{site.data.keyword.knowledgestudiofull}}.
 - The option to create a Japanese collection was removed from the {{site.data.keyword.discoveryshort}} tooling, however, the option to create a Japanese collection using the {{site.data.keyword.discoveryshort}} API remains.
-- {{site.data.keyword.discoveryshort}} Tooling now supports syndicated environments.
 
 ## 10 November 2017
 
