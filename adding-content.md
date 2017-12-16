@@ -37,7 +37,7 @@ Consider the following when you are ready to add documents to your collection:
 
 -   When creating a collection, you select the document language (English is the default). See [Language support](/docs/services/discovery/language-support.html) for the list of languages. Your documents will be enriched in the selected language. Do not mix languages within the same collection.
 
--   You can add Microsoft Word, PDF, HTML, and JSON documents to your collection.
+-   You can add Microsoft Word, PDF, HTML, and JSON documents to your collection. **Note:** PDFs that are scanned image files can not be converted and enriched. 
 
 -   The documents in your collection will be converted using the configuration file provided, which is named Default Configuration, unless you choose a different configuration file. For information about creating a configuration file, see [Custom configuration](/docs/services/discovery/building.html#custom-configuration).
 
