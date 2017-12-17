@@ -48,6 +48,10 @@ The following new features and changes to the service are available.
 - Added Basic language support for Simplified Chinese and Dutch. See [Language Support](/docs/services/discovery/language-support.html) for more information. Currently, Simplified Chinese and Dutch collections must be created with the API.
 - Added Full language support for Korean. See [Language Support](/docs/services/discovery/language-support.html) for more information.
 - Added two new parameters for the Data Crawler: `proxy_host_port` and `read-timeout`. See [Configuring the Data Crawler](/docs/services/discovery/data-crawler-discovery.html) for details.
+- The following issues may be seen when ingesting PDF documents:
+  - When ingestion notices are queried, the field `file_type` for pdf documents is returned as `html`.
+  - The field `file_type` in the `extracted_metadata` object of results for pdf documents is set to `html`.
+  - The document details API also returns the field `file_type` for pdf documents as `html`.
 
 {{site.data.keyword.discoveryshort}} tooling:
 
