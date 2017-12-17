@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-22"
+lastupdated: "2017-12-15"
 
 ---
 
@@ -26,11 +26,13 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 |---------------------------------|------------------------|
 | English (en)                    |  Full         |
 | Arabic (ar)                     |  Basic         |
+| Chinese, simplified (zh-CN)     |  Basic         |
+| Dutch (nl)                     |  Basic         |
 | French (fr)                     |  Basic         |
 | German (de)                     |  Basic         |
 | Italian (it)                    |  Basic         |
 | Japanese (ja)                  |  Basic         |
-| Korean (ko)                    |  Basic         |
+| Korean (ko)                    |  Full         |
 | Portuguese, Brazilian (pt-br)   |  Basic         |
 | Spanish (es)                    |  Full         |
 
@@ -61,3 +63,9 @@ Full support includes basic support, plus:
     - Semantic Role Extraction
     - Sentiment Analysis
     - Emotion Analysis (English only)
+
+The following features are currently supported in English only:
+
+- Element Classification enrichment
+- {{site.data.keyword.discoveryfull}} Visual Insights (experimental)
+- {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)   
