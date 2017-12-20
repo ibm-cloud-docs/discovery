@@ -32,7 +32,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 | German (de)                     |  Basic         |
 | Italian (it)                    |  Basic         |
 | Japanese (ja)                  |  Basic         |
-| Korean (ko)                    |  Full         |
+| Korean (ko)                    |  Basic         |
 | Portuguese, Brazilian (pt-br)   |  Basic         |
 | Spanish (es)                    |  Full         |
 

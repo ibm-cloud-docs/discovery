@@ -124,7 +124,14 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
     ```
     {: pre}
 
-    The command returns the contents of the updated configuration file.
+    **Note:** If you are creating a new configuration, or modifying the default configuration, you will need to create a new custom configuration instead of updating an existing configuration. Before creating a new configuration, make sure that the `"configuration_id":` field is removed from your `my_config.json` file and then run the following command:
+
+    ```bash
+    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
+    ```
+    {: pre}
+
+    Both commands return the contents of the updated configuration file.
 
 ## Integrating your custom model with the Discovery tooling
 
