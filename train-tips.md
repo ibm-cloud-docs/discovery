@@ -40,7 +40,7 @@ Example response:
 
 ```json
 {
-  "training": {
+  "training_status": {
     "total_examples": 54,
     "available": true,
     "processing": false,
