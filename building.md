@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-01-05"
 
 ---
 
@@ -49,7 +49,7 @@ In the {{site.data.keyword.discoveryshort}} service, the content that you upload
 
     Collections are comprised of your private data, but {{site.data.keyword.discoveryshort}} also includes {{site.data.keyword.discoverynewsshort}}, a pre-enriched, public dataset. You can use it to query for insights; for example: news alerts, event detecting, and trending topics in the news; that you can integrate into your applications.
 
-    {{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) for more information. You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration or add documents to this collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.mybluemix.net/){: new_window}.
+    {{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) for more information. You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration or add documents to this collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
 To create an environment and private data collection with the {{site.data.keyword.discoveryshort}} tooling do the following:
 
