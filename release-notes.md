@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-01-11"
 
 ---
 
@@ -42,6 +42,10 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 11 January 2018
+
+- Added full support for Korean. For more information, see [Language support](/docs/services/discovery/language-support.html).
+
 ## 15 December 2017
 
 - Released the **Element Classification** enrichment, which parses elements (sentences, lists, tables) in governing documents to classify important categories and types. See [Element classification](/docs/services/discovery/element-classification.html) for more information. Element Classification is not available for service instances that are subscribed to the **Premium** plan.
@@ -51,6 +55,7 @@ The following new features and changes to the service are available.
   - When ingestion notices are queried, the field `file_type` for pdf documents is returned as `html`.
   - The field `file_type` in the `extracted_metadata` object of results for pdf documents is set to `html`.
   - The document details API also returns the field `file_type` for pdf documents as `html`.
+- If you are ingesting JSON, mixed-type arrays are not supported.  
 
 {{site.data.keyword.discoveryshort}} tooling:
 

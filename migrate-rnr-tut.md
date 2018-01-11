@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-03"
 
 ---
 
@@ -99,12 +99,12 @@ The following pre-requisites are necessary before beginning this tutorial:
     {
       "collection_id": "f1360220-ea2d-4271-9d62-89a910b13c37",
       "name": "democollection",
-      "description": "this is a demo collection",
-      "created": "2015-08-24T18:42:25.324Z",
-      "updated": "2015-08-24T18:42:25.324Z",
-      "status": "available",
       "configuration_id": "6963be41-2dea-4f79-8f52-127c63c479b0",
       "language": "en",
+      "status": "available",
+      "description": "this is a demo collection",
+      "created": "2015-08-24T18:42:25.324Z",
+      "updated": "2015-08-24T18:42:25.324Z",      
       "document_counts": {
         "available": 1000,
         "processing": 20,
@@ -113,16 +113,16 @@ The following pre-requisites are necessary before beginning this tutorial:
       "disk_usage": {
         "used_bytes": 260
       },
-      "training": {
+      "training_status": {
+        "data_updated": null,
         "total_examples": 0,
-        "available": false,
-        "processing": false,
-        "minimum_queries_added": false,
-        "minimum_examples_added": true,
         "sufficient_label_diversity": false,
-        "notices": 0,
+        "processing": false,
+        "minimum_examples_added": true,
         "successfully_trained": null,
-        "data_updated": null
+        "available": false,
+        "notices": 0,
+        "minimum_queries_added": false        
       }
     }
     ```
