@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2017-01-09"
 
 ---
 
@@ -45,7 +45,7 @@ To classify documents using Element Classification your configuration and source
 - Secure PDFs (with a password to open) and editing restricted PDFs (with a password to edit) cannot be parsed.
 - A custom {{site.data.keyword.discoveryshort}} configuration must be created that includes the `elements` enrichment. This configuration can only be used to ingest PDF documents.
 - **Lite** and **Standard** plans can process a maximum of 500 pages per month.
-- Not available for service instances that are subscribed to the **Premium** plan.
+- Not available for service instances that are subscribed to a **Premium** plan, or in **Dedicated** environments.
 
 ## Collection requirements
 
@@ -93,7 +93,7 @@ Each object in the `elements` array describes an element of the contract that El
    "types" : [ {
      "label" : {
        "nature" : "Obligation",
-       "party" : "Supplier"
+       "party" : "Buyer"
      },
      "assurance" : "High"
    } ],
@@ -105,7 +105,7 @@ Each object in the `elements` array describes an element of the contract that El
 }
 ```
 
-There are three four important sections to the element:
+There are four important sections to the element:
 
 - `sentence_text` – the text that was analyzed.
 - `sentence` – this object describes where the element was found in the converted HTML, it contains a start character value and an end character value.
@@ -128,7 +128,7 @@ Additionally, any identified parties are also defined in the parties array:
 There are two important sections to each element of the parties array:
 
 - `party` – the text that was identified as a party within the document.
-- `role` – the role of the party that has been identified. Roles change based on sub-domain, see the information on the specified sub-domain for a list of possible roles. Parties that cannot be identified to a specific role are labeled as
+- `role` – the role of the party that has been identified. Roles change based on sub-domain, see the information on the specified sub-domain for a list of possible roles. Parties that cannot be identified to a specific role are labeled as `Unknown`.
 
 
 ## Understanding Contract Elements
@@ -139,9 +139,9 @@ The following sections describe how the returned JSON describes the analysis.
 
 ### Type
 
-The element `types` information is an array of objects, each object contains a nature and party that has been identified as a couplet for this element. The following tables describe the possible `natures` and `parties` that can be identified.
+The element `types` information is an array of objects, each object contains a nature and party that has been identified as a couplet for this element. The following tables describe the `nature` and `party` values that can be identified.
 
-Natures are the types of action the sentence requires.
+Nature is the type of action the sentence requires.
 
 | **Nature** | **Description** |
 | --- | --- |

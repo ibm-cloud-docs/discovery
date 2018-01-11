@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-14"
+  years: 2015, 2018
+lastupdated: "2018-01-03"
 
 ---
 
@@ -41,15 +41,15 @@ Example response:
 ```json
 {
   "training_status": {
+    "data_updated": "2017-02-10T14:18:22.786Z",
     "total_examples": 54,
-    "available": true,
-    "processing": false,
-    "minimum_queries_added": true,
-    "minimum_examples_added": true,
     "sufficient_label_diversity": false,
-    "notices": 13,
+    "processing": false,
+    "minimum_examples_added": true,
     "successfully_trained": "2017-02-08T14:18:22.786Z",
-    "data_updated": "2017-02-10T14:18:22.786Z"
+    "available": true,
+    "notices": 13,
+    "minimum_queries_added": true    
     }
 }
 ```
@@ -100,7 +100,7 @@ This warning is caused by the `document_ids` in your training data not matching 
 
 ### Error: `Invalid training data found: The query string provided exceeds the maximum length, please provide a shorter one`
 
-- The maximum query string length is `X`. You’ll need to shorten the specific query. Including a filter in your query is one way to work around this.  
+- The maximum query string length is `2048`. You’ll need to shorten the specific query. Including a filter in your query is one way to work around this.  
 
 ### Error: `This collection cannot be trained: your plan does not support training on this many top-level text fields.`
 

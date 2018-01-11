@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-01-11"
 
 ---
 
@@ -32,7 +32,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 | German (de)                     |  Basic         |
 | Italian (it)                    |  Basic         |
 | Japanese (ja)                  |  Basic         |
-| Korean (ko)                    |  Basic         |
+| Korean (ko)                    |  Full         |
 | Portuguese, Brazilian (pt-br)   |  Basic         |
 | Spanish (es)                    |  Full         |
 

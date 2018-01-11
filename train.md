@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-03"
 
 ---
 
@@ -248,27 +248,30 @@ Perform the following steps to add an example to a training-data query.
     {
       "collection_id": "99040100-fe6a-4782-a4f5-28f9eee30850",
       "name": "democollection",
+      "configuration_id": "def9bd08-8472-470f-ab5a-e377f77e9300",
+      "language": "en_us",
+      "status": "available",
       "description": "this is a demo collection",
       "created": "2015-08-24T18:42:25.324Z",
       "updated": "2015-08-24T18:42:25.324Z",
-      "status": "available",
-      "configuration_id": "def9bd08-8472-470f-ab5a-e377f77e9300",
-      "language": "en_us",
       "document_counts": {
         "available": 1000,
         "processing": 20,
         "failed": 180
       },
-      "training": {
+      "disk_usage": {
+        "used_bytes": 895111
+      },
+      "training_status": {
+        "data_updated": "2017-02-10T14:18:22.786Z",
         "total_examples": 54,
-        "available": true,
-        "processing": false,
-        "minimum_queries_added": true,
-        "minimum_examples_added": true,
         "sufficient_label_diversity": false,
-        "notices": 13,
+        "processing": false,
+        "minimum_examples_added": true,
         "successfully_trained": "2017-02-08T14:18:22.786Z",
-        "data_updated": "2017-02-10T14:18:22.786Z"
+        "available": true,
+        "notices": 13,
+        "minimum_queries_added": true
       }
     }
    ```
