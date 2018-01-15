@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-10"
+lastupdated: "2018-01-15"
 
 ---
 
@@ -37,4 +37,4 @@ You cannot adjust the {{site.data.keyword.discoverynewsfull}} configuration, tra
 
 **Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
 
-**Note:** This version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. The original version has been renamed {{site.data.keyword.discoverynewsfull}} Original and has been retired with a removal from service date of **15, January 2018**. For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
+**Note:** This version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. {{site.data.keyword.discoverynewsfull}} Original was retired from service **15, January 2018**. For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-15"
 
 ---
 
@@ -19,12 +19,12 @@ lastupdated: "2017-11-08"
 
 # Migrating from Watson Discovery News Original
 
-A new version of {{site.data.keyword.discoverynewsshort}} debuted on **31, July 2017**. The original version has been renamed {{site.data.keyword.discoverynewsshort}} Original and has been retired with a removal from service date of **15, January 2018**.  
+A new version of {{site.data.keyword.discoverynewsshort}} debuted on **31, July 2017**. The original version was renamed {{site.data.keyword.discoverynewsshort}} Original and was retired from service **15, January 2018**.
 {: shortdesc}
 
 To migrate from {{site.data.keyword.discoverynewsshort}} Original to the new version, you need to make several changes, including updating any queries created for {{site.data.keyword.discoverynewsshort}} Original.
 
-  **Note:** If you have created a new instance of {{site.data.keyword.discoveryshort}}, you will only have access to the new version of {{site.data.keyword.discoverynewsshort}}. Access to both new {{site.data.keyword.discoverynewsshort}} and {{site.data.keyword.discoverynewsshort}} Original is only available in instances of {{site.data.keyword.discoveryshort}} created before **31, July 2017**.
+  **Note:** {{site.data.keyword.discoverynewsshort}} Original was only available in instances of {{site.data.keyword.discoveryshort}} created before **31, July 2017** and was retired from service **15, January 2018**.
 
 See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) for a description of this collection.
 
@@ -34,9 +34,9 @@ For a description and information about querying {{site.data.keyword.discoveryne
 
 | {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
-| **{{site.data.keyword.discoverynewsshort}} Original** is pre-enriched with the following Alchemy Language enrichments: Keyword Extraction, Entity Extraction, Concept Tagging, Relation Extraction, Sentiment Analysis, and Taxonomy Classification. The following additional metadata is also added: crawl date, publication date, URL ranking, host rank, and anchor text.     | **{{site.data.keyword.discoverynewsshort}}** is pre-enriched with the following {{site.data.keyword.nlushort}}  (NLU) enrichments: Keyword Extraction, Entity Extraction, Semantic Role Extraction, Sentiment Analysis, Relations, and Category Classification. The following additional metadata is also added: crawl date and publication date. To learn more about NLU enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments).                         |
+| **{{site.data.keyword.discoverynewsshort}} Original** was pre-enriched with the following Alchemy Language enrichments: Keyword Extraction, Entity Extraction, Concept Tagging, Relation Extraction, Sentiment Analysis, and Taxonomy Classification. The following additional metadata was also added: crawl date, publication date, URL ranking, host rank, and anchor text.     | **{{site.data.keyword.discoverynewsshort}}** is pre-enriched with the following {{site.data.keyword.nlushort}}  (NLU) enrichments: Keyword Extraction, Entity Extraction, Semantic Role Extraction, Sentiment Analysis, Relations, and Category Classification. The following additional metadata is also added: crawl date and publication date. To learn more about NLU enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments).                         |
 | **{{site.data.keyword.discoverynewsshort}} Original** was accessible through an environment that was unique to your service instance.                       | When using **{{site.data.keyword.discoverynewsshort}}**, all users query the same environment and collection. This means that all references to your environment and collection need to be changed.      |
-| In **{{site.data.keyword.discoverynewsshort}} Original**, you receive information such as collection size, number of documents, etc. when retrieving the environment via the API.  | **{{site.data.keyword.discoverynewsshort}}** API does not return this information.                          |
+| In **{{site.data.keyword.discoverynewsshort}} Original**, you received information such as collection size, number of documents, etc. when retrieving the environment via the API.  | **{{site.data.keyword.discoverynewsshort}}** API does not return this information.                          |
 
 The following new fields are available in **{{site.data.keyword.discoverynewsshort}}**:
 

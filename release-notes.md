@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-11"
+lastupdated: "2018-01-15"
 
 ---
 
@@ -41,6 +41,10 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 15 January 2018
+
+- {{site.data.keyword.discoverynewsfull}} Original was retired from service. It was replaced 31 July 2017 with a new version, named {{site.data.keyword.discoverynewsfull}}. For instructions on migrating from {{site.data.keyword.discoverynewsfull}} Original to the new version, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
 
 ## 11 January 2018
 
