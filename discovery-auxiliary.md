@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-31"
+  years: 2015, 2018
+lastupdated: "2018-01-15"
 
 ---
 
@@ -328,55 +328,12 @@ Emotion Analysis analyzes your text and calculates a score for each emotion (ang
 
 ## Watson Discovery News Original
 
-A new version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. {{site.data.keyword.discoverynewsfull}} Original was retired with a removal from service date of **15, January 2018**. See [Watson Discovery News](watson-discovery-news.html) for information on this new version.
-
-{{site.data.keyword.discoverynewsfull}} Original is a dataset of primarily English-language news sources that is updated continuously, with approximately 300,000 new articles and blogs added daily. This indexed dataset is pre-enriched with the following {{site.data.keyword.alchemylanguageshort}} enrichments: **Keyword Extraction**, **Entity Extraction**, **Concept Tagging**, **Relation Extraction**, **Sentiment Analysis**, and **Taxonomy Classification**. The following additional metadata is also added: crawl date, publication date, URL ranking, host rank, and anchor text. Historical search is available for the past 60 days of news data.
-
-{{site.data.keyword.discoverynewsfull}} Original is enriched with {{site.data.keyword.alchemylanguageshort}} enrichments. For more information about these enrichments, see [{{site.data.keyword.alchemylanguageshort}} enrichments](discovery-auxiliary.html#AlchemyLanguage-enrichments).
+{{site.data.keyword.discoverynewsfull}} Original was retired from service **15, January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](watson-discovery-news.html) for more information.
+For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
 
 ### Querying Watson Discovery News Original
 
-A new version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. {{site.data.keyword.discoverynewsfull}} Original was retired with a removal from service date of **15, January 2018**. See [Watson Discovery News](watson-discovery-news.html) for information on this new version.
-
-**Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
-
-{{site.data.keyword.discoverynewsfull}} Original uses a similar, but slightly different JSON schema from the one used for private collections. You do not need to include `enriched_text` in your queries, for example:
-
-**How to structure a {{site.data.keyword.discoverynewsfull}} Original query**
-
-![Example Watson Discovery News Original query structure](images/news_query_structure.png)
-
-The following example query returns the top 10 articles in {{site.data.keyword.discoverynewsfull}} Original about the Pittsburgh Steelers that have a positive sentiment.
-
-1.  On the **Manage data** screen, choose the {{site.data.keyword.discoverynewsfull}} collection.
-1.  Click **View data schema**, then **Build queries**.
-1.  Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then enter `text:Pittsburgh Steelers, docSentiment.type:positive` into the **Enter query here** field.
-1.  Click **More options**, then enter `10` (this is the default) in the `Number of documents to return` field.
-1.  Click **Run query**. The top 10 articles about the Pittsburgh Steelers with a positive sentiment are displayed.
-
-**Additional example {{site.data.keyword.discoverynewsfull}} Original queries**
-
--  `concepts.text:"Health care"` - Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then enter this query. It returns all articles that include the concept of `health care`. If you specify a count, such as 50, in the **Number of documents to return** field you receive only the top 50 most relevant articles.
-
-**How to structure a {{site.data.keyword.discoverynewsfull}} Original aggregation**
-
-![Example Watson Discovery News Original aggregation query structure](images/news_aggregation_structure.png)
-
-The following example aggregation returns the number of articles found in {{site.data.keyword.discoverynewsfull}} Original about the Pittsburgh Steelers by sentiment.
-
-1.  On the **Manage data** screen, choose the {{site.data.keyword.discoverynewsfull}} Original collection.
-1.  Click **View data schema**, then **Build queries**.
-1.  Under **Include analysis of your results**, enter `filter(text:"Pittsburgh Steelers").term(docSentiment.type,count:3)` in the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field.
-1.  Click **More options**, then enter `0` in the **Number of documents to return** field.
-1.  Click **Run query**. The results show the number of documents about the Pittsburgh Steelers and how many of those results have a `positive`, `negative`, or `neutral` docSentiment.
-
-**Additional example {{site.data.keyword.discoverynewsfull}} Original aggregation**
-
--  `filter(entities.text:twitter).term(docSentiment.type,count:3)` - If you enter this aggregation query in the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field, it will first narrow down (filter) the set of articles to only the ones that include the entities text of twitter, then divides those articles by the document sentiment types. Only the top three document sentiment types (`positive`, `negative`, `neutral`) are returned.
-
-Adding `nested` before an aggregation query restricts the aggregation to the area of the results specified. For example: `nested(text.entities)` means that only the `text.entities` components of any result are used to aggregate against. This affect can be seen easily by looking at the differences between the following two queries: `filter(text.entities.type::City)` - the aggregation counts the number of *Results* that contain one or more `entity` with the type `City` and `nested(text.entities).filter(text.entities.type::City)` - the aggregation counts the number of instances of an `entity` with the type `City` in the results.  Additionally, any subsequent operation will further restrict the result set that can be aggregated against. For example `nested(text.entities).filter(text.entities.type::City)` means that any only entities of `type::City` will be aggregated. For example: `nested(text.entities).filter(text.entities.type::City).term(text.entities.text,count:3)` will aggregate the top three entities of type `City`, Where as: `filter(text.entities.type::City).term(text.entities.text,count:3)` will return the top three entities whereas the result contains at least one entity of type `City`.
-
-**Note**: You cannot adjust the {{site.data.keyword.discoverynewsfull}} Original configuration, train, or add documents to this collection.
+{{site.data.keyword.discoverynewsfull}} Original was retired from service **15, January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](watson-discovery-news.html) for more information. For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
 
 ## Integrating with Watson Knowledge Studio using AlchemyLanguage Enrichments
 

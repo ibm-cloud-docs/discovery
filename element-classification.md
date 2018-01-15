@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-01-09"
+lastupdated: "2018-01-09"
 
 ---
 
@@ -24,7 +24,7 @@ Element Classification makes it possible to rapidly parse through governing docu
 
 Element Classification is designed to provide:
 
-- Natural Language Understanding of Contracts with emphasis on Software Procurement Contracts and Regulatory documents
+- Natural Language Understanding of Contracts with emphasis on Software Procurement Contracts
 - The ability to convert programmatic PDF to annotated JSON
 - Identification of legal Entities and Categories that align with subject matter expertise
 
@@ -89,16 +89,16 @@ Each object in the `elements` array describes an element of the contract that El
      "begin" : 34941,
      "end" : 35307
    },
-   "sentence_text" : "A buyer must buy from the supplier.",
+   "sentence_text" : "Buyer may, upon written notice to Supplier, terminate a SOW or WA.",
    "types" : [ {
      "label" : {
-       "nature" : "Obligation",
+       "nature" : "Right",
        "party" : "Buyer"
      },
      "assurance" : "High"
    } ],
    "categories" : [ {
-     "label : "Responsibilities",
+     "label : "Term & Termination",
      "assurance : "High"
      }
    ]
@@ -110,7 +110,7 @@ There are four important sections to the element:
 - `sentence_text` – the text that was analyzed.
 - `sentence` – this object describes where the element was found in the converted HTML, it contains a start character value and an end character value.
 - `types` – this array describes what the element is and who it affects it consists of one or more sets of `party` (who is being affected by the sentence) and `nature` (the effect of the sentence on the identified party)
-- `categories` – this array lists the functional categories that the identified sentence falls into. The subject matter of the sentence.
+- `categories` – this array lists the functional categories (the subject matter) of the identified sentence.
 
 **Note**: Some sentences do not fall under any type or category and in that case the `types` and `categories` arrays are returned empty.
 
