@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-03"
+lastupdated: "2018-01-16"
 
 ---
 
@@ -82,7 +82,7 @@ The following pre-requisites are necessary before beginning this tutorial:
     1.  Issue the following command to upload the `cranfield-data-json` data to the `cranfield_collection` collection. Replace `{username}`, `{password}`, `{path_to_file}`,  `{environment_id}`, `{collection_id}` with your information.  Note that there are additional options, -d for debug and –v for verbose output from curl.
 
         ```bash
-        python ./disco-upload.py -u {username}:{password} -i {path_to_file}/cranfield-data.json –e {environment_id} -c {collection_id}
+        python ./disco-upload.py -u {username}:{password} -i {path_to_file}/cranfield-data.json -e {environment_id} -c {collection_id}
         ```
         {: pre}
 
