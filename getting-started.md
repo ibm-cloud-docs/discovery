@@ -50,22 +50,22 @@ If you use {{site.data.keyword.Bluemix_dedicated_notm}}, create your service ins
 ## Step 1: Create an environment
 {: #create-an-environment}
 
-In a bash shell or equivalent environment such as Cygwin, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
+In a bash shell or equivalent environment such as Cygwin with the `curl` application installed, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
 
 1.  Issue the following command to create an environment that is called `my-first-environment`. Replace `{username}` and `{password}` with the service credentials you copied earlier:
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-11-07"
+    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
     The API returns information such as your environment ID, environment status, and how much storage your environment is using.
 
-1.  Check the environnment status periodically until you see a status of `ready`.
+1.  Check the environment status periodically until you see a status of `ready`.
     - Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{username}`, `{password}`, and `{environment_id}` with your information:
 
     ```bash
-    curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-11-07
+    curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-11-07"
     ```
     {: pre}
 
@@ -90,7 +90,7 @@ Now that the environment is ready, you can create a collection. Think of a colle
     {: pre}
 
     The API returns information such as your collection ID, collection status, and how much storage your collection is using.
-1.  Check the collection status periodically until you see a status of `online`.
+1.  Check the collection status periodically until you see a status of `active`.
     - Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information:
 
     ```bash
@@ -102,6 +102,8 @@ Now that the environment is ready, you can create a collection. Think of a colle
 {: #download-sample-documents}
 
 Download these sample documents: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>, and <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>.
+
+**Note:** In some browsers, the preceding links will open in a new window instead of saving locally. If this occurs, select `Save As` in your browser's `File` menu to save a copy of the file.
 
 ## Step 4: Upload the documents
 {: #upload-the-documents}
@@ -184,7 +186,7 @@ Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_
 The following example returns all entities that are called **IBM**. Replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information:
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}*/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 

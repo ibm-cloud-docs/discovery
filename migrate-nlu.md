@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-16"
+  years: 2015, 2018
+lastupdated: "2018-01-18"
 
 ---
 
@@ -22,9 +22,9 @@ lastupdated: "2017-10-16"
 Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU).  These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments, named {{site.data.keyword.alchemylanguageshort}} enrichments, will be deprecated.
 {: shortdesc}
 
-{{site.data.keyword.alchemylanguageshort}} enrichment support will end on **15 January, 2018**. The `2017-10-16` API version string deprecated support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}}, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. Use an earlier API version string to continue using {{site.data.keyword.alchemylanguageshort}} until support ends on **15 January, 2018**.
+{{site.data.keyword.alchemylanguageshort}} enrichment support is scheduled to end on **15 January, 2018**. The `2017-10-16` API version string deprecated support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}}, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. Use an earlier API version string to continue using {{site.data.keyword.alchemylanguageshort}} until support ends (scheduled for **15 January, 2018**).
 
-New collections should be enriched with {{site.data.keyword.nlushort}} and any existing collections with {{site.data.keyword.alchemylanguageshort}} configuration files migrated as soon as possible. {{site.data.keyword.alchemylanguageshort}} enrichment ingestion support ends **15 January, 2018**. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Enrichment comparison](/docs/services/discovery/migrate-nlu.html#enrichment-comparison).
+New collections should be enriched with {{site.data.keyword.nlushort}} and any existing collections with {{site.data.keyword.alchemylanguageshort}} configuration files migrated as soon as possible. {{site.data.keyword.alchemylanguageshort}} enrichment ingestion support is scheduled to end **15 January, 2018**. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Enrichment comparison](/docs/services/discovery/migrate-nlu.html#enrichment-comparison).
 
 **Note:** For information about integrating with {{site.data.keyword.knowledgestudioshort}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
 

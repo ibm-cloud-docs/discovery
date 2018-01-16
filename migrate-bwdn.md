@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-15"
+lastupdated: "2018-01-16"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-01-15"
 
 # Migrating from Watson Discovery News Original
 
-A new version of {{site.data.keyword.discoverynewsshort}} debuted on **31, July 2017**. The original version was renamed {{site.data.keyword.discoverynewsshort}} Original and was retired from service **15, January 2018**.
+A new version of {{site.data.keyword.discoverynewsshort}} debuted on **31, July 2017**. The original version was renamed {{site.data.keyword.discoverynewsshort}} Original and was retired from service **15, January 2018**. If you attempt to access {{site.data.keyword.discoverynewsshort}} Original, you will receive the message `410 GONE`.
 {: shortdesc}
 
 To migrate from {{site.data.keyword.discoverynewsshort}} Original to the new version, you need to make several changes, including updating any queries created for {{site.data.keyword.discoverynewsshort}} Original.

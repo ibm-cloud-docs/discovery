@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-15"
+lastupdated: "2018-01-16"
 
 ---
 
@@ -25,9 +25,9 @@ This topic contains information about {{site.data.keyword.discoveryshort}} featu
 ## AlchemyLanguage enrichments
 {: #AlchemyLanguage-enrichments}
 
-Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}}.  These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments, named {{site.data.keyword.alchemylanguageshort}} enrichments, will be deprecated and support will end on **15 January, 2018**.
+Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}}. These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments are named {{site.data.keyword.alchemylanguageshort}} enrichments. {{site.data.keyword.alchemylanguageshort}} enrichment support is scheduled to end on **15 January, 2018**.
 
-The `2017-10-16` API version string deprecates support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}}, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. Use an earlier API version string to continue using {{site.data.keyword.alchemylanguageshort}} until support ends on **15 January, 2018**.
+The `2017-10-16` API version string deprecates support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}}, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. Use an earlier API version string to continue using {{site.data.keyword.alchemylanguageshort}} until support ends ({{site.data.keyword.alchemylanguageshort}} enrichment support is scheduled to end on **15 January, 2018**.).
 
 Existing collections enriched with AlchemyLanguage should be migrated to Natural Language Understanding enrichments as soon as possible. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
 
@@ -337,7 +337,7 @@ For information on migrating, see [Migrating from Watson Discovery News Original
 
 ## Integrating with Watson Knowledge Studio using AlchemyLanguage Enrichments
 
-You can integrate a custom model from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom enrichments.
+You can integrate a custom model from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom enrichments. ({{site.data.keyword.alchemylanguageshort}} enrichment support is scheduled to end on **15 January, 2018**.)
 {: shortdesc}
 
 ### Before you begin
