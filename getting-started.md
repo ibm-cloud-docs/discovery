@@ -168,7 +168,7 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
 
       var file = fs.readFileSync('{/path/to/file}');
 
-      discovery.addDocument(('{environment_id}', '{collection_id}', file),
+      discovery.addDocument({ environment_id: '{environment_id}', collection_id: '{collection_id}', file: file },
       function(error, data) {
         console.log(JSON.stringify(data, null, 2));
         }
