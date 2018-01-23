@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-05"
+lastupdated: "2018-01-23"
 
 ---
 
@@ -179,3 +179,63 @@ You can view notices across multiple collections in the same environment by usin
 See the [multiple collection notices API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#collections-notices){: new_window} for more information.
 
 You can view the fields available across collections in the same environment by using the `environments/{environment_id}/fields` API method. See the [multiple collection field query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#multi-list-fields){: new_window} for more information.
+
+## Query expansion
+{: #query-expansion}
+
+You can expand the scope of a query beyond exact matches - for example, you can expand a query for "car" to include "automobile" and "motor vehicle" - by uploading a list of query expansion terms using the {{site.data.keyword.discoveryshort}} API. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
+
+You can define two types of expansions:
+- **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR (motor AND vehicle`).
+- **unidirectional** - `input_terms` in the query will be replaced by `expanded_terms`. For example, a query for `sea biscuit` or `seabizcut` would expand to `seabiscuit`.
+
+This file can be used as a starting point when building a query expansion list:
+<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>. You can modify this file to create your custom query expansion list.
+
+Bidirectional example:
+```JSON
+ {
+   "expansions": [
+     {
+       "expanded_terms": [
+         "car",
+         "automobile",
+         "motor vehicle"
+       ]
+     }
+   ]
+ }
+```
+{: codeblock}
+
+Unidirectional example:
+```JSON
+ {
+   "expansions": [
+      "input_terms": [
+         “sea biscuit”,
+         “seabizcut”
+       ],
+      "expanded_terms": [
+         "seabiscuit"
+       ]
+     }
+   ]
+ }
+```
+{: codeblock}
+
+Notes about query expansion:
+
+- Query expansion is only available for private collections.
+- Only one query expansion list can be uploaded per collection; if a second expansion list is uploaded, it will replace the first.
+- Each query expansion list is limited to 500 `expanded_terms`.
+- The query expansion list must be written in JSON.
+- To disable query expansion, delete the query expansion list.
+- You cannot currently upload or delete a query expansion list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
+- Query expansion is performed on the `query` and `multiple collection query` methods. Query expansion is not performed on Knowledge Graph queries.
+- Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is expanded individually.
+- Query expansions are applied at query time, not during indexing, so the query expansion list can be updated without the need to re-ingest your documents.
+- Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
+
+See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-expansion){: new_window} for the API commands to upload and delete query expansion files.

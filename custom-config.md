@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-10"
+  years: 2015, 2018
+lastupdated: "2018-01-23"
 
 ---
 
@@ -252,11 +252,11 @@ Each item in the `styles` array specifies a heading level from the Microsoft Wor
 
 #### exclude_tag_attributes
 
-`"exclude_tag_attributes" : array` - An array of HTML attribute names that are removed by the conversion regardless of which HTML tag they are present in.
+`"exclude_tag_attributes" : array` - An array of HTML attribute names that are removed by the conversion regardless of which HTML tag they are present in. **Note:** You will receive an error message if you specify both `exclude_tag_attributes` and `keep_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `keep_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
 
 #### keep_tag_attributes
 
-`"keep_tag_attributes" : array` - An array of HTML attribute names that are retained by the conversion.
+`"keep_tag_attributes" : array` - An array of HTML attribute names that are retained by the conversion. **Note:** You will receive an error message if you specify both `keep_tag_attributes` and `exclude_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `exclude_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
 
 #### extracted_fields
 
@@ -425,7 +425,7 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
 - `"enrichment" : string` - *required* - The type of enrichment to use on this field. To extract {{site.data.keyword.nlushort}} enrichments use `natural_language_understanding`, to perform Element Classification use `elements`.
 
   **Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery/element-classification.html) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
-  
+
 - `"source_field" : string` - *required* - The source field that will be enriched. This field must exist in your source after the `json_normalizations` operation has completed.
 - `"destination_field" : string` - *required* - The name of the container object where enrichments will be created.
 
