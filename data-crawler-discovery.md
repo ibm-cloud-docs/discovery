@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2017-01-22"
 
 ---
 
@@ -193,7 +193,7 @@ output_directory - "/tmp/crawler-test-output"`
 -   **`logging.log4j.configuration_file`*** - The configuration file to use for logging. In the sample `crawler.conf` file, this option is defined in `logging.log4j` and its default value is `log4j_custom.properties`. This option must be similarly defined whether using a `.properties` or `.conf` file.   
 -   **`shutdown_timeout`** - Specifies the timeout value, in minutes, before shutting down the application. Default value is `10`.   
 -   **`output_limit`** - The highest number of indexable items that the Crawler will try to send simultaneously to the output adapter. This can be further limited by the number of cores available to do the work. It says that at any given point there will be no more than "x" indexable items sent to the output adapter waiting to return. Default value is `10`.   
--   **`input_limit`** - Limits the number of URLs that can be requested from the input adapter at one time. Default value is `3`.   
+-   **`input_limit`** - Limits the number of URLs that can be requested from the input adapter at one time. Default value is `30`.   
 -   **`output_timeout`** - The amount of time, in seconds, before the Data Crawler gives up on a request to the output adapter, and then removes the item from the output adapter queue to allow more processing. Default value is `1200`.
 
     Consideration should be given to the constraints imposed by the output adapter, as those constraints may relate to the limits defined here. The defined `output_limit` only relates to how many indexable objects can be sent to the output adapter at once. Once an indexable object is sent to the output adapter, it is "on the clock," as defined by the `output_timeout` variable. It is possible that the output adapter itself has a throttle preventing it from being able to process as many inputs as it receives. For instance, the orchestration output adapter may have a connection pool, configurable for HTTP connections to the service. If it defaults to 8, for example, and if you set the `output_limit` to a number greater than 8, then you will have processes, on the clock, waiting for a turn to execute. You may then experience timeouts.   

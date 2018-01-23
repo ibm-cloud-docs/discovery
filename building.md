@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-16"
+lastupdated: "2018-01-23"
 
 ---
 
@@ -104,6 +104,8 @@ The three steps of customizing a configuration file are: **Convert**, **Enrich**
 1.  [Converting sample documents](/docs/services/discovery/building.html#converting-sample-documents)
 1.  [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments)
 1.  [Normalizing data](/docs/services/discovery/building.html#normalizing-data)
+
+For detailed information about configurations, see the [Configuration reference](/docs/services/discovery/custom-config.html).
 
 ### Uploading sample documents
 {: #uploading-sample-documents}
@@ -223,51 +225,54 @@ Example portion of a document enriched with Entity Extraction:
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-      "entities": [
-         {
-           "count": 1,
-           "sentiment": {
-             "score": 0
-           },
-           "text": "Acme Corporation",
-           "relevance": 0.98389,
-           "type": "Company"
-           },
-           {
-           "count": 1,
-           "sentiment": {
-             "score": 0
-           },
-           "text": "Atlanta",
-           "relevance": 0.532754,
-           "type": "Location",
-           "disambiguation": {
-             "subtype": [
-               "AdministrativeDivision",
-               "GovernmentalJurisdiction",
-               "OlympicHostCity",
-               "PlaceWithNeighborhoods",
-               "City"
-           ],
-               "name": "Atlanta",
-               "dbpedia_resource": "http://dbpedia.org/resource/Atlanta"
-           }
-           },
-           {
-           "count": 1,
-           "sentiment": {
-             "score": 0
-           },
-           "text": "Georgia",
-           "relevance": 0.469643,
-           "type": "Location",
-           "disambiguation": {
-             "subtype": [
-               "StateOrCounty"
-           ]
-    }
+  "enriched_text": {
+    "entities": [
+      {
+        "count": 1,
+        "sentiment": {
+          "score": 0
+        },
+        "text": "Acme Corporation",
+        "relevance": 0.98389,
+        "type": "Company"
+      },
+      {
+        "count": 1,
+        "sentiment": {
+          "score": 0
+        },
+        "text": "Atlanta",
+        "relevance": 0.532754,
+        "type": "Location",
+        "disambiguation": {
+          "subtype": [
+            "AdministrativeDivision",
+            "GovernmentalJurisdiction",
+            "OlympicHostCity",
+            "PlaceWithNeighborhoods",
+            "City"
+          ],
+          "name": "Atlanta",
+          "dbpedia_resource": "http://dbpedia.org/resource/Atlanta"
+        }
+      },
+      {
+        "count": 1,
+        "sentiment": {
+          "score": 0
+        },
+        "text": "Georgia",
+        "relevance": 0.469643,
+        "type": "Location",
+        "disambiguation": {
+          "subtype": [
+            "StateOrCounty"
+          ]
+        }
+      }
+    ]
   }
+}
 ```
 {: codeblock}
 
