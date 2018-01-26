@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-23"
+lastupdated: "2018-01-26"
 
 ---
 
@@ -41,6 +41,13 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 26 January 2018
+
+{{site.data.keyword.discoveryshort}} tooling:
+
+- Added the ability to access Korean and Spanish collections to the [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) tile in the tooling. Previously, these collections could only be queried via the API.
+
 
 ## 23 January 2018
 
