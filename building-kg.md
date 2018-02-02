@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-23"
+lastupdated: "2018-01-31"
 
 ---
 
@@ -81,12 +81,19 @@ Create a custom configuration as follows, after creating a {{site.data.keyword.d
 
    The API returns information such as your environment ID, environment status, and how much storage your environment is using.
 
-   You will need the `{environment_id}` that is returned.
+   You will need the `{environment_id}` that is returned; make sure to save that ID for later use.
 
-1. Next, create the custom configuration. This procedure assumes that you are uploading the one found [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json). If you want to build your own custom configuration, see the  [configuration reference](/docs/services/discovery/custom-config.html).
+1. Next, create the custom configuration. This procedure assumes that you are uploading the one found [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json). If you want to build your own custom configuration, see the [configuration reference](/docs/services/discovery/custom-config.html).
 
    ```bash
-   curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
+   curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
+   ```
+   {: pre}
+
+   **If you already have a custom configuration, and would like to update it and use it**, use the {configuration ID} of your custom configuration in this command.
+
+   ```bash
+   curl -X PUT -u "{username}":"{password}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration ID}?version=2017-11-07"
    ```
    {: pre}
 

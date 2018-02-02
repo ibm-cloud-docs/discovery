@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-26"
+lastupdated: "2018-01-31"
 
 ---
 
@@ -152,7 +152,7 @@ You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, tr
 
 The English, Korean, and Spanish language {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} collections are available from both the {{site.data.keyword.discoveryshort}} tooling and the API.
 
-The default language of {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} in the tooling is English. To switch the language, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down. 
+The default language of {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} in the tooling is English. To switch the language, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down.
 
 For information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects. The `collection_id` of the Korean collection is `news-ko`; the Spanish `collection_id` is `news-es`.
 
@@ -191,7 +191,7 @@ You can expand the scope of a query beyond exact matches - for example, you can 
 
 You can define two types of expansions:
 - **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR (motor AND vehicle`).
-- **unidirectional** - `input_terms` in the query will be replaced by `expanded_terms`. For example, a query for `sea biscuit` or `seabizcut` would expand to `seabiscuit`.
+- **unidirectional** - the `input_terms` in the query will be replaced by the `expanded_terms`. For example, a query for `ibm` could expand to `international business machines` and `big blue`. `input_terms` are not used as part of the resulting query. In the previous `ibm` example, the query `IBM` would be converted to `international business machines` OR `big blue` and not contain the original term.
 
 This file can be used as a starting point when building a query expansion list:
 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>. You can modify this file to create your custom query expansion list.
@@ -217,11 +217,12 @@ Unidirectional example:
  {
    "expansions": [
       "input_terms": [
-         “sea biscuit”,
-         “seabizcut”
+         “ibm”
        ],
       "expanded_terms": [
-         "seabiscuit"
+         “ibm”,
+         “international business machines”,
+         “big blue”
        ]
      }
    ]
