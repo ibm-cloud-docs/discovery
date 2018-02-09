@@ -147,7 +147,7 @@ The version string for all API calls has changed to `2017-11-07` from `2017-10-1
 {{site.data.keyword.discoveryshort}} tooling:
 - The Visual Query Builder moved from beta status to GA status. Filter, Timeslice, and Histogram aggregations are not currently supported with the Visual Query Builder. Click **Include analysis of your results**, then **Edit in Query Language** on the **Build queries** screen to write those aggregations.
 - Added the beta capability to deduplicate on {{site.data.keyword.discoverynewsfull}} queries.
-- In addition to English, German, and Spanish language collections, you can now create Arabic, French, Italian, Korean, and Brazilian Portuguese collections.
+- In addition to English, German, and Spanish language collections, you can now create Arabic, French, Italian, Korean, Japanese, and Brazilian Portuguese collections.
 - Known issue: {{site.data.keyword.discoveryshort}} Tooling does not support syndicated environments.
 
 ### 14 September 2017

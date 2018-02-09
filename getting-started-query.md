@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-26"
+lastupdated: "2018-02-07"
 
 ---
 
@@ -66,7 +66,7 @@ Let's start out by writing a query that will find the concept `Cloud computing` 
 1.  On the **Build queries** screen, click **Search for Documents**, then **Use the {{site.data.keyword.discoveryshort}} Query Language** then:
     - Click the **Field** drop-down and choose `enriched_text.concepts.text`, for the **Operator** choose `contains`, then enter the **Value** of `Cloud computing`. The query `enriched_text.concepts.text:Cloud computing` will display under the **Visual Query Builder**.
 
-    - Alternately, you could click **Edit in query language**, then **Use the {{site.data.keyword.discoveryshort}} Query Language**. Enter `enriched_text.concepts.text:Cloud computing` into the **Enter query here** field.
+    - Alternately, you could click **Edit in query language**, then **Use the {{site.data.keyword.discoveryshort}} Query Language**. Enter `enriched_text.concepts.text:"Cloud computing"` into the **Enter query here** field.
 
 1.  Click **Run query**. There should be one match (`"matching_results": 1`). Copy the **Query URL** at the top of the **Summary** or **JSON** tab to use in your application.
 
@@ -108,7 +108,7 @@ You can combine query parameters together to build more targeted queries. Let's 
 1.  Under **Search for Documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then:
     -  Click the **Field** drop-down and choose `enriched_text.concepts.text`, for the **Operator** choose `contains`, then enter the **Value** of `world wide web`.
 
-       The query `enriched_text.concepts.text:world wide web` will return all documents that include the concept of `world wide web`, and those documents will be ranked in order of relevance.
+       The query `enriched_text.concepts.text:"world wide web"` will return all documents that include the concept of `world wide web`, and those documents will be ranked in order of relevance.
 
 1.  Click **More options**, then **Fields to return** and choose **Specify**. Select `text`. This will limit the response to the text of the relevant articles and exclude everything else.
 
@@ -144,7 +144,7 @@ The following example query returns the top 10 articles in {{site.data.keyword.d
 1.  Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then:
     -  Click the **Field** drop-down and choose `text`, for the **Operator** choose `contains`, then enter the **Value** of `Pittsburgh Steelers`. Click **Add rule**, then click the **Field** drop-down and choose `enriched_text.sentiment.document.label`, for the **Operator** choose `contains`, then enter the **Value** of `positive.`
 
-       The query `text:Pittsburgh Steelers, enriched_text.sentiment.document.label:positive` will display under the **Visual Query Builder**.
+       The query `text:"Pittsburgh Steelers",enriched_text.sentiment.document.label:"positive"` will display under the **Visual Query Builder**.
 
 1.  Click **More options**, then enter `10` (this is the default) in the **Number of documents to return** field.
 

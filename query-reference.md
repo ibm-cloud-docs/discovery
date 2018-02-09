@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-02-07"
 
 ---
 
@@ -52,6 +52,13 @@ Query parameters enable you to search your collection, identify a result set, an
 | [deduplicate.field](/docs/services/discovery/query-parameters.html#deduplicated_field) | Deduplicate returned results based on field | `deduplicate.field=title` |
 | [collection_ids](/docs/services/discovery/query-parameters.html#collection_ids) | Query multiple collections | `collection_ids={1},{2},{3}` |
 
+### Query limitations
+
+You cannot query on field names that contain the following:
+- Numerical characters (`0 - 9`) in the suffix of the field name (for example `extracted-content2`).
+- The characters `_`, `+`, and `-` in the prefix of the `field_name` (for example `+extracted-content`).
+- The characters `.`, `,`, and `:` in the `field_name` (for example `new:extracted-content`)
+
 ## Operators
 {: #operators}
 
@@ -61,10 +68,10 @@ Operators are the separators between different parts of a query. These are the a
 |:-------------------:|------------------------------------------------------------|--------------------------------|
 | [.](/docs/services/discovery/query-operators.html#delimiter) | JSON delimiter | `enriched_text.concepts.text` |
 | [:](/docs/services/discovery/query-operators.html#includes) | Includes | `text:computer` |
-| [::](/docs/services/discovery/query-operators.html#match) | Exact match | `title::Query building` |
+| [::](/docs/services/discovery/query-operators.html#match) | Exact match | `title::"Query building"` |
 | [:!](/docs/services/discovery/query-operators.html#notinclude) | Does not include | `text:!computer` |
-| [::!](/docs/services/discovery/query-operators.html#notamatch) | Not an exact match | `title::!Query building` |
-| [\\](/docs/services/discovery/query-operators.html#escape) | Escape character | `enriched_text.entitle.text:Trinidad \& Tobago` |
+| [::!](/docs/services/discovery/query-operators.html#notamatch) | Not an exact match | `text::!winter` |
+| [\\](/docs/services/discovery/query-operators.html#escape) | Escape character | `title::"Dorothy said: \"There's no place like home"\"` |
 | [""](/docs/services/discovery/query-operators.html#phrase) | Phrase query | `enriched_text.concepts.text:"IBM Watson"` |
 | [(), \[\]](/docs/services/discovery/query-operators.html#nestedquery) | Nested grouping | `filter-entities:(text:Turkey,type:Location)` |
 | [<code>&#124;</code>](/docs/services/discovery/query-operators.html#or) | or | <code>query-enriched.entities.text:Google&#124;IBM</code> |

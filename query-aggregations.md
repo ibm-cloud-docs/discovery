@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-02-07"
 
 ---
 
@@ -40,7 +40,7 @@ A modifier that will narrow down the document set of the aggregation query it pr
 
 For example:
 ```bash
-filter(enriched_text.concepts.text:cloud computing)
+filter(enriched_text.concepts.text:"cloud computing")
 ```
 {: codeblock}
 
