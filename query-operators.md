@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-02-07"
 
 ---
 
@@ -40,7 +40,7 @@ This operator specifies a match for the query term.
 
 For example:
 ```bash
-enriched_text.concepts.text:cloud computing
+enriched_text.concepts.text:"cloud computing"
 ```
 {: codeblock}
 
@@ -51,9 +51,11 @@ This operator specifies an exact match for the query term.
 
 For example:
 ```bash
-enriched_text.concepts.text::cloud computing
+enriched_text.concepts.text::"Cloud computing"
 ```
 {: codeblock}
+
+Exact matches are case-sensitive.
 
 ## :! \[Does not include\]
 {: #notinclude}
@@ -62,7 +64,7 @@ This operator specifies that the results do not contain a match for the query te
 
 For example:
 ```bash
-enriched_text.concepts.text:!cloud computing
+enriched_text.concepts.text:!"cloud computing"
 ```
 {: codeblock}
 
@@ -73,9 +75,11 @@ This operator specifies that the results do not exactly match the query term
 
 For example:
 ```bash
-enriched_text.concepts.text::!cloud computing
+enriched_text.concepts.text::!"Cloud computing"
 ```
 {: codeblock}
+
+Exact matches are case-sensitive.
 
 ## \\ \[Escape character\]
 {: #escape}
@@ -84,7 +88,7 @@ Escape character for queries that require the ability to query terms by using st
 
 For example:
 ```bash
-enriched_text.concepts.text:\!cloud computing
+title::"Dorothy said: \"There's no place like home"\"
 ```
 {: codeblock}
 
@@ -95,7 +99,7 @@ All contents of a phrase query are processed as escaped. So no special character
 
 For example:
 ```bash
-enriched_text.concepts.text:"IBM watson"
+enriched_text.entities.text:"IBM watson"
 ```
 {: codeblock}
 
@@ -161,7 +165,7 @@ Matches unknown characters in a search expression.
 
 For example:
 ```bash
-enriched_text.concepts.text:IBM*
+enriched_text.entities.text:"IBM*"
 ```
 {: codeblock}
 

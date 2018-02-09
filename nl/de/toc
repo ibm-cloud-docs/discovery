@@ -1,0 +1,99 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="discovery" audience="service" href="/docs/services/discovery/index.html"}
+Discovery
+
+    {: .navgroup id="learn"}
+    getting-started.md
+    getting-started-tool.md
+    getting-started-query.md
+    index.md
+    watson-discovery-news.md
+    element-classification.md
+    visual-insights.md
+    building-kg.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    building.md
+    adding-content.md
+
+    {: topicgroup}
+    Data Crawler verwenden
+        data-crawler.md
+        data-crawler-qs.md
+        data-crawler-install.md
+        data-crawler-seeds.md
+        data-crawler-discovery.md
+        data-crawler-run.md
+
+    {: topicgroup}
+    Abfragen erstellen
+        using.md
+        query-parameters.md
+        query-operators.md
+        query-aggregations.md
+
+    {: topicgroup}
+    Ergebnisrelevanz verbessern
+        train-tooling.md
+        train.md
+        train-tips.md
+
+    {: topicgroup}
+    Discovery und Knowledge Studio
+        integrate-wks.md
+        normalize-entities.md
+
+    {: topicgroup}
+    Features migrieren
+        migrate-adn.md
+        migrate-nlu.md
+        migrate-bwdn.md
+        migrate-dcs-rr.md
+        migrate-rnr-tut.md
+
+    upgrading.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [API-Referenz](https://www.ibm.com/watson/developercloud/discovery/api)
+
+    {: topicgroup}
+    Aufbereitung
+        categories.md
+        entity-types.md
+        relation-types.md
+
+    query-reference.md
+    custom-config.md
+    language-support.md
+    discovery-auxiliary.md
+
+    {: .topicgroup}
+    Watson-SDKs
+        [Android SDK](https://github.com/watson-developer-cloud/android-sdk)
+        [Java SDK](https://github.com/watson-developer-cloud/java-sdk)
+        [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
+        [Python SDK](https://github.com/watson-developer-cloud/python-sdk)
+        [.NET SDK](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
+        [OpenWhisk SDK](https://github.com/watson-developer-cloud/openwhisk-sdk/)
+        [Salesforce SDK](https://github.com/watson-developer-cloud/salesforce-sdk)
+        [Swift SDK](https://github.com/watson-developer-cloud/swift-sdk)
+        [Unity SDK](https://github.com/watson-developer-cloud/unity-sdk)
+
+    [Watson-GitHub-Repository](https://github.com/watson-developer-cloud/)
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    release-notes.md
+    troubleshooting.md
+    pricing-details.md
+
+    {: .topicgroup}
+    Entwicklercommunity
+        [StackOverflow](http://stackoverflow.com/questions/tagged/watson-discovery)
+        [developerWorks Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
+        [WDC Slack channel](http://wdc-slack-inviter.mybluemix.net/)
+    {: .navgroup-end}
