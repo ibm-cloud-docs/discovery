@@ -61,7 +61,7 @@ In a bash shell or equivalent environment such as Cygwin with the `curl` applica
 
     The API returns information such as your environment ID, environment status, and how much storage your environment is using.
 
-1.  Check the environment status periodically until you see a status of `ready`.
+1.  Check the environment status periodically until you see a status of `active`.
     - Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{username}`, `{password}`, and `{environment_id}` with your information:
 
     ```bash
@@ -69,7 +69,7 @@ In a bash shell or equivalent environment such as Cygwin with the `curl` applica
     ```
     {: pre}
 
-    The status must be `ready` before you can create a collection.
+    The status must be `active` before you can create a collection.
 
 ## Step 2: Create a collection
 {: #create-a-collection}
