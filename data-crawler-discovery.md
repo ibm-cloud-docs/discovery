@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-01-22"
+lastupdated: "2018-02-12"
 
 ---
 
@@ -98,13 +98,15 @@ The options that can be set in this file are:
 
     You can leave this value empty (i.e., empty string "") when using other connectors.
 
--   **`urls_to_filter`** - Whitelist of URLs to crawl, in regular expression form. The Data Crawler only crawls URLs which match one of the regular expressions provided.
+-   **`urls_to_filter`** - Blacklist of URLs that should not be crawled, in regular expression form. The Data Crawler will not crawl URLs that match any of the regular expressions provided.
 
-    The domain list contains the most common top-level domains; add to it if necessary.
+    The `domain list` contains the domains that cannot be crawled. Add to it if necessary.
 
-    The file extension-type list contains the file extensions that the Orchestration Service supports, as of this release of the Data Crawler.
+    The `filetype list` contains the file extensions that the Orchestration Service does not support.
 
-    Ensure that your seed URL domain is allowed by the filter. For example, if the seed URL looks like `http://testdomain.test.in`, add "`in`" to the domain filter.
+    Remove any supported filetypes from the regular expressions.
+
+    Ensure that your seed URL domain is allowed by the filter. Use an empty filter for `allow everything` behavior.
 
     Ensure that your seed URL will not be excluded by a filter, or the Crawler may hang.
 
