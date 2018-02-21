@@ -168,30 +168,19 @@ Categories define the subject matter of the sentence. The following categories c
 
 | **Categories** | **Description** |
 | --- | --- |
-| `Amendments` | A modification of the original contract which stipulates the conditions for changing the terms. |
-| `Asset Use` | Details of any assets in the agreement which will be used by either party. |
 | `Assignments` | Encompasses the transfer of rights held by one party to another.  |
-| `Audits` | This clause allows for the buyer to examine or inspect the supplier of the services being provided. |
-| `Communication` | Describes acceptable communication methods and contact information. |
 | `Confidentiality` | Describes how confidential or private information will be handled such as who can share what, and how. |
-| `Business Continuity` | Describes how an organization will continue delivery of work at predefined levels, in the event of a disruptive incident. |
-| `Definitions` | A section which defines a term used in the document.  |
 | `Deliverables` | The items or services to be delivered at the end of a piece of work. |
-| `Delivery` | The specific schedule or process to complete a project. |
 | `Dispute Resolution` | Provides for any dispute arising between contracting parties, and how it will be handled. |
 | `Force Majeure` | A clause that frees both parties from liability in case of a disruptive event. |
 | `Indemnification` | Describes the remedies or consequences if terms are breached. |
 | `Insurance` | Describes the level of insurance coverage a supplier must carry. |
 | `Intellectual Property` | A clause that relates to patents, copyrights and trademarks. More generally may relate to invention, authorship or know-how.  |
 | `Liability` | Describes obligations and limitations on the responsibility of each party. |
-| `Miscellaneous` | Sections of interest that don't fit into other categories. |
 | `Payment Terms & Billing` | Describes what payments are due and what the schedule for payment is.  |
 | `Pricing & Taxes` | Describes how the prices are made up and how the taxes are to be applied |
 | `Privacy` | Describes the privacy regulations which apply. |
 | `Responsibilities` | Describes what the responsibilities of each party are. |
-| `Safety and Security` | Describes how to prevent injury to a party. Includes both personnel and physical asset safety. |
-| `Scope of Work` | Describes what it is that will be achieved by the parties detailed in the statement of work. |
-| `Subcontracts` | Relates to any third parties involved to fulfill a requirement. |
 | `Term & Termination` | The time over which something will happen, and the conditions under which it may end.  |
 | `Warranties` | Guarantee by a supplier of how a product will work. |
 
