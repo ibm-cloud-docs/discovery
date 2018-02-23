@@ -164,7 +164,7 @@ For each identified clause, affected parties are identified by name. Each identi
 
 ### Categories
 
-Categories define the subject matter of the sentence. The following categories can be identified.
+Categories define the subject matter of the sentence. The following currently supported categories can be identified:
 
 | **Categories** | **Description** |
 | --- | --- |

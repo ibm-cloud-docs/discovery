@@ -42,6 +42,12 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 23 February 2018
+
+- Added the ability to query by document similarity. You can query for similar documents by  document ids, and optionally further refine the similarity by specifying fields. See [Document similarity](/docs/services/discovery/using.html#doc-similarity) for more information.
+
+- The [`highlight` parameter](docs/services/discovery/query-parameters.html#highlight) in query results has been enhanced. Query results will return complete sentences, ordered by their `score`.
+
 ## 21 February 2018
 
 - Previously, when ingesting PDF documents, the `file_type` returned when ingestion notices were queried, in the `extracted_metadata` object, and from the document details API was `html`. This is no longer the case. The `file_type` returned will now be `pdf`.
