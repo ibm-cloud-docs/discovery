@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-03"
+lastupdated: "2018-02-21"
 
 ---
 
@@ -34,7 +34,7 @@ If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to t
 
 Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
 
-**Note:** There is a maximum of 4 trained collections per environment.
+**Note:** There is a maximum of 25 trained collections per environment.
 
 <!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
 
