@@ -51,6 +51,9 @@ Query parameters enable you to search your collection, identify a result set, an
 | [deduplicate](/docs/services/discovery/query-parameters.html#deduplicate) | Deduplicate {{site.data.keyword.discoverynewsfull}} returned results | `deduplicate=true` |
 | [deduplicate.field](/docs/services/discovery/query-parameters.html#deduplicated_field) | Deduplicate returned results based on field | `deduplicate.field=title` |
 | [collection_ids](/docs/services/discovery/query-parameters.html#collection_ids) | Query multiple collections | `collection_ids={1},{2},{3}` |
+| [similar](/docs/services/discovery/query-parameters.html#similar) | Enables the similar document finding | `similar=true` |
+| [similar.document_ids](/docs/services/discovery/query-parameters.html#similar_document_ids) | Which documents to find similar documents to | `similar.document_ids={id1},{id2}` |
+| [similar.fields](/docs/services/discovery/query-parameters.html#similar_fields) | Which fields to compare when finding similar documents | `similar.fields=text,title` |
 
 ### Query limitations
 

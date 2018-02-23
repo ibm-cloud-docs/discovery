@@ -257,3 +257,33 @@ A comma-separated list of collections in the same environment that will be queri
 &collection_ids={id1},{id2}
 ```
 {: codeblock}
+
+## similar
+{: #similar}
+
+Document similarity identifies documents that are similar to the documents listed in the `similar.document_ids` parameters. This can be further refined by specifing which fields will be considered for comparison using the `similar.fields` parameters. The default is `false`.
+
+```bash
+&similar=true
+```
+{: codeblock}
+
+### similar.document_ids
+{: #similar_document_ids}
+
+A comma-separated list of document IDs that will be used as a basis for finding similar documents as results. This parameter is required if the `similar` parameter is set to `true`.
+
+```bash
+&similar.document_ids={id1},{id2}
+```
+{: codeblock}
+
+### similar.fields
+{: #similar_fields}
+
+An optional, comma-separated list of fields that will be used to compare documents to find similar documents. This parameter can only be used in conjunction with the `similar.document_ids` parameter.
+
+```bash
+&similar.fields={field1},{field2}
+```
+{: codeblock}

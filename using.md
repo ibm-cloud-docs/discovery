@@ -249,3 +249,18 @@ Notes about query expansion:
 - Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
 
 See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-expansion){: new_window} for the API commands to upload and delete query expansion files.
+
+## Document similarity
+{: #doc-similarity}
+
+A document similarity query will find other documents similar to the currently viewed document, for example, a call center operator could be viewing the manuals for a product and use document similarity to find other documents with similar characteristics. You can query for similar documents by `document_ids`, and can optionally refine the similarity by specifying additional `similar.fields`. 
+
+Example query by `document_ids`:
+
+`curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1,6057k6d1-7d7k-4bea-bbcf-fb05bbf960b1"`
+
+Example query with `similar.fields` added:
+
+`curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
+
+See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window} and [query parameters](/docs/services/discovery/query-parameters.html#similar) for more information.
