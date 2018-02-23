@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-11"
+lastupdated: "2018-02-21"
 
 ---
 
@@ -45,6 +45,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
     - Front-end API (excluding Front-end Query API)
     - Language-optimized index
     - Relevancy training
+    - Documentation in 9 languages: English, French, German, Japanese, Korean, Brazilian Portuguese, Spanish, Chinese Simplified, and Chinese Traditional. Scroll to the bottom of the {{site.data.keyword.Bluemix_notm}} documentation to select the language.
 - Enrichments
     - Integration with {{site.data.keyword.knowledgestudiofull}} custom models
     - Language detection

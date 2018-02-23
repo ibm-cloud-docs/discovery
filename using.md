@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-02-21"
 
 ---
 
@@ -239,7 +239,7 @@ Notes about query expansion:
 
 - Query expansion is only available for private collections.
 - Only one query expansion list can be uploaded per collection; if a second expansion list is uploaded, it will replace the first.
-- Each query expansion list is limited to 500 `expanded_terms`.
+- Each query expansion list is limited to 500 `expanded_terms`. All terms should be lowercase. Lowercase terms will expand to uppercase.
 - The query expansion list must be written in JSON.
 - To disable query expansion, delete the query expansion list.
 - You cannot currently upload or delete a query expansion list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.

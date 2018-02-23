@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-05"
+  years: 2015, 2018
+lastupdated: "2018-02-22"
 
 ---
 
@@ -40,7 +40,7 @@ Training must meet the following **minimum** requirements for {{site.data.keywor
 
 **Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery/using.html).
 
-**Note:** There is a maximum of 4 trained collections per environment.  
+**Note:** There is a maximum of 25 trained collections per environment.  
 
 ## Adding queries and rating the relevancy of results
 
@@ -89,3 +89,5 @@ The `confidence` score can be found in the query results, under the `result_meta
                 "score": 0.5006834
             },
 ```
+
+**Note:** The `confidence` field is only returned when relevancy training has been successfully completed. There may also be cases where the trained model is not available and the `confidence` field will not be returned. Applications using `confidence` as a threshold should ensure they can handle these scenarios. Since `score` is relative to the query, it is not recommended for use as a fixed threshold. Instead, we recommend that applications always perform the same behavior for all results that do not include the `confidence` field. For example, an application may show all results without the `confidence` field or hide all results without the `confidence` field, but should not use the value of `score` to show some and hide others.
