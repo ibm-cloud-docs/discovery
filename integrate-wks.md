@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-15"
+  years: 2015, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -114,7 +114,6 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
         ```
         {: codeblock}
 
-1.  Optionally enable entity normalization as described in [Creating a custom configuration to normalize entities](/docs/services/discovery/normalize-entities.html).
 1.  Save the `my_config.json` file.
 1.  Use a JSON validator, such as [JSLint ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://jslint.com){: new_window} to validate and, if necessary, correct your edited JSON before you perform the next steps.
 1.  Update the configuration as follows. You again need the `{environment_id}` and `{configuration_id}` IDs you collected at the start of this procedure.

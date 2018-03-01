@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-17"
+lastupdated: "2018-03-01"
 
 ---
 
@@ -31,6 +31,7 @@ The {{site.data.keyword.discoveryfull}} service offers four plans that provide d
 | Up to 2 Collections      |Up to 4 Collections | Up to 100 Collections| - |
 | Up to 1 Custom Model     |Up to 1 Custom Model | 1 Custom Model included<br/> Additional Custom Models $800 per model per month |-|
 | 500 Element Classification pages per month      |500 Element Classification pages per month | 500 Element Classification pages per month<br/> Additional Element Classification pages $0.40 USD/Page |-|
+| 500 query expansions with 1,000 total terms     |500 query expansions with 1,000 total terms | 5,000 query expansions with 25,000 total terms  |-|
 
 **Note:** In all plans, the first 1,000 {{site.data.keyword.discoverynewsshort}} queries per month are free. {{site.data.keyword.discoverynewsshort}} queries are charged at $0.10 per query after the first 1,000. Lite plans are limited to a maximum of 1,000 {{site.data.keyword.discoverynewsshort}} queries per month.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-05"
+  years: 2015, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -251,7 +251,7 @@ If you prefer to deduplicate on a field other than `title`, use the following sy
 ## collection_ids
 {: #collection_ids}
 
-A comma-separated list of collections in the same environment that will be queried. This parameter is only valid when using the `environments/{environment_id}/query?` method. See [Querying multiple collections](/docs/services/discovery/using.html#multiple-collections) for more informaiton.
+A comma-separated list of collections in the same environment that will be queried. This parameter is only valid when using the `environments/{environment_id}/query?` method. See [Querying multiple collections](/docs/services/discovery/using.html#multiple-collections) for more information.
 
 ```bash
 &collection_ids={id1},{id2}
@@ -261,7 +261,7 @@ A comma-separated list of collections in the same environment that will be queri
 ## similar
 {: #similar}
 
-Document similarity identifies documents that are similar to the documents listed in the `similar.document_ids` parameters. This can be further refined by specifing which fields will be considered for comparison using the `similar.fields` parameters. The default is `false`.
+Document similarity identifies documents that are similar to the documents listed in the `similar.document_ids` parameters. This can be further refined by specifing which fields will be considered for comparison using the `similar.fields` parameters. The default is `false`. See [Document similarity](/docs/services/discovery/using.html#doc-similarity) for more information.
 
 ```bash
 &similar=true
