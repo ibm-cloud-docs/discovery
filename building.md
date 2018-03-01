@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-23"
+lastupdated: "2018-02-28"
 
 ---
 
@@ -71,8 +71,6 @@ The {{site.data.keyword.discoveryshort}} service includes a standard configurati
 This default configuration file is named **Default Configuration**. It contains enrichments, plus standard document conversions based on font styles and sizes.
 
 First the default enrichments. {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the text field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)).
-
-**Note:** Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU). See [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments) for details. If you applied the **Default Configuration** to a collection prior to this date, that collection was enriched with the {{site.data.keyword.alchemylanguageshort}} enrichments. ({{site.data.keyword.alchemylanguageshort}} enrichment support is scheduled to end on **15 January, 2018**.) If you apply the **Default Configuration** to a collection after this date, the {{site.data.keyword.nlushort}} Enrichments will be used.
 
 -   [Microsoft Word conversion](/docs/services/discovery/building.html#microsoft-word-conversion)
 -   [PDF conversion](/docs/services/discovery/building.html#pdf-conversion)
@@ -207,11 +205,11 @@ After making any changes, click **Apply and Save**.
 ## Adding enrichments
 {: #adding-enrichments}
 
-**Note:** Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU).  These enrichments are the same as your existing enrichments but require a slightly different configuration and schema. The original enrichments, named {{site.data.keyword.alchemylanguageshort}} enrichments, will be deprecated. {{site.data.keyword.alchemylanguageshort}} Enrichment support will end on **15 January, 2018**. New collections should be enriched with {{site.data.keyword.nlushort}} and any existing collections with {{site.data.keyword.alchemylanguageshort}} configuration files migrated as soon as possible. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
-
 The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/discovery/building.html#the-default-configuration) will enrich (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of nine {{site.data.keyword.watson}} enrichments available; the others are Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.)
 
 **Important:** Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
+
+**Note:** {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated 1 March 2018. If you have any existing collections that are using {{site.data.keyword.alchemylanguageshort}} enrichments, you must migrate to {site.data.keyword.nlushort}} enrichments. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html). 
 
 You can further augment your documents by adding more enrichments to the `text` field, or enriching other fields. To do so using the {{site.data.keyword.discoveryshort}} tooling, [create a custom configuration](/docs/services/discovery/building.html#custom-configuration), choose the field(s) you'd like to enrich and select from the list of available {{site.data.keyword.nlushort}} enrichments:
 

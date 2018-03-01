@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-16"
+lastupdated: "2018-02-28"
 
 ---
 
@@ -20,7 +20,5 @@ lastupdated: "2018-01-16"
 # Creating a custom configuration to add canonical names
 {: #normalizing-entities}
 
-You can configure {{site.data.keyword.discoveryshort}} service to include *normalized entities*, also known as *canonical names*, in the output of your queries.
+This feature is not currently supported with {{site.data.keyword.nlushort}} enrichments. {site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**.
 {: shortdesc}
-
-**Note:** This feature is not currently supported with {{site.data.keyword.nlushort}} enrichments. It is supported if you are using {{site.data.keyword.alchemylanguageshort}} enrichments. ({{site.data.keyword.alchemylanguageshort}} enrichment support is scheduled to end on **15 January, 2018**.) Details on configuring this feature with {{site.data.keyword.alchemylanguageshort}} enrichments can be found in [Creating a custom configuration to normalize {{site.data.keyword.alchemylanguageshort}} entities](/docs/services/discovery/discovery-auxiliary.html#normalizing-entities).

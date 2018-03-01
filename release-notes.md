@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-02-28"
 
 ---
 
@@ -41,6 +41,10 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 28 February 2018
+
+- {{site.data.keyword.alchemylanguageshort}} enrichments have been deprecated effective **1 March 2018**. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
 
 ## 23 February 2018
 

@@ -44,8 +44,7 @@ Discovery
     {: topicgroup}
     Discovery and Knowledge Studio
         integrate-wks.md
-        normalize-entities.md
-
+        
     {: topicgroup}
     Migrating features
         migrate-adn.md
