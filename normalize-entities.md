@@ -20,5 +20,5 @@ lastupdated: "2018-02-28"
 # Creating a custom configuration to add canonical names
 {: #normalizing-entities}
 
-This feature is not currently supported with {{site.data.keyword.nlushort}} enrichments. {site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**.
+This feature is not currently supported with {{site.data.keyword.nlushort}} enrichments. {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**.
 {: shortdesc}

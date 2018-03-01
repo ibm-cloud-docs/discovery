@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-26"
+lastupdated: "2018-03-01"
 
 ---
 
@@ -221,13 +221,14 @@ Unidirectional example:
 ```JSON
  {
    "expansions": [
+     {
       "input_terms": [
-         “ibm”
+        "ibm"
        ],
       "expanded_terms": [
-         “ibm”,
-         “international business machines”,
-         “big blue”
+        "ibm",
+        "international business machines",
+        "big blue"
        ]
      }
    ]
@@ -237,9 +238,38 @@ Unidirectional example:
 
 Notes about query expansion:
 
-- Query expansion is only available for private collections.
+- Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery/pricing-details.html) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and eight term strings.
+
+```JSON
+ {
+   "expansions": [
+     {
+      "input_terms": [
+         "ibm"
+       ],
+      "expanded_terms": [
+         "ibm",
+         "international business machines",
+         "big blue"
+       ]
+     },
+     {
+      "input_terms": [
+         "banana"
+       ],
+      "expanded_terms": [
+         "banana",
+         "plantain",
+         "fruit"
+       ]
+     }
+   ]
+ }
+```
+{: codeblock}
+
 - Only one query expansion list can be uploaded per collection; if a second expansion list is uploaded, it will replace the first.
-- Each query expansion list is limited to 500 `expanded_terms`. All terms should be lowercase. Lowercase terms will expand to uppercase.
+- All `input_terms` and `expanded_terms` should be lowercase. Lowercase terms will expand to uppercase.
 - The query expansion list must be written in JSON.
 - To disable query expansion, delete the query expansion list.
 - You cannot currently upload or delete a query expansion list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
@@ -254,6 +284,8 @@ See the [query expansion API reference ![External link icon](../../icons/launch-
 {: #doc-similarity}
 
 A document similarity query will find other documents similar to the currently viewed document, for example, a call center operator could be viewing the manuals for a product and use document similarity to find other documents with similar characteristics. You can query for similar documents by `similar.document_ids`, and can optionally refine the similarity by specifying additional `similar.fields`. 
+
+Document similarity is determined by extracting the 25 most relevant terms from the original document and then searching for documents with similar relevant terms.
 
 Example query by `similar.document_ids` (there should be no space after the comma if specifying multiple `similar.document_ids`):
 
