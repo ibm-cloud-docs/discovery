@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-31"
+lastupdated: "2018-03-07"
 
 ---
 
@@ -62,9 +62,9 @@ To use Knowledge Graph, your collection must be configured to meet specific requ
      "mention_types": true,
      "sentence_locations": true,
      "model": "en-news"
-    }
-    ```
-    {: codeblock}
+   }
+   ```
+   {: codeblock}
 
    Other optional `enrichments` options such as `"sentiment": true` can also be specified if desired.
 
@@ -102,7 +102,7 @@ Create a custom configuration as follows, after creating a {{site.data.keyword.d
 ## Entities queries
 {: #entities}
 
-In the beta release of the Knowledge Graph entity queries supports context-based entity disambiguation. Based on the entity text provided and optional context text, disambiguation identifies unique entities and returns a list of the entities ranked based on the context information. A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the `v1/environments/{environment_id}/collections/{collection_id}/query_entities` endpoint.
+The beta release of the Knowledge Graph entities query supports context-based entity [disambiguation](/docs/services/discovery/building-kg.html#disambiguation) and [similarity](/docs/services/discovery/building-kg.html#similarity) queries. A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the `v1/environments/{environment_id}/collections/{collection_id}/query_entities` endpoint.
 
 You can query entities using the API, or with the {{site.data.keyword.discoveryshort}} tooling. See [Querying Knowledge Graph using the Discovery tooling](/docs/services/discovery/building-kg.html#querying-kg) for tooling information.
 
@@ -113,23 +113,27 @@ The Knowledge Graph entity query JSON object takes the following form:
   "feature": "disambiguate",
   "entity": {
     "text": "Steve",
-    "type": "Person"
+    "type": "Person",
+    "exact": "false"
   },
   "context": {
     "text": "iphone"
   },
-  "count": 10
+  "count": 10,
+  "evidence_count": 0
 }
 ```
 {: codeblock}
 
--  `"feature": string` _required_ - the entity query feature to be used, must be `disambiguate`.
+-  `"feature": string` _required_ - the entity query feature to be used. Supported features are: [disambiguate](/docs/services/discovery/building-kg.html#disambiguation) and [similar_entities](/docs/services/discovery/building-kg.html#similarity).
 -  `"entity": {}` _required_ - an object that contains the entity information to disambiguate.
    -  `"text": string` _required_ - the entity text that will be disambiguated
    -  `"type": string` _optional_ - the optional entity type to disambiguate against, if not specified, all types are included.
+   -  `"exact": boolean` _optional_ - If `false`, implicit disambiguation is performed. Implicit disambiguation will use the top one disambiguated entity for each input entity object. Should be set to `false` for `"feature": "disambiguate"`. The default is `false`.
 -  `"context": {}` _optional_ - an optional object that includes contextual requirements for the disambiguation.
    -  `"text": string` _optional_ - entity text to provide context for the queried entity and rank based on that association. For example, if you wanted to query the city of London in England your query would look for `London` with the context of `England`. Input can be partial names or large passages containing relevant entity terms. Multiple terms can be passed together.
 -  `"count": INT` _optional_ - The number of disambiguated entities to return. The default is `10`. The maximum is `1000`
+-  `"evidence_count": INT` _optional_ The number of evidence instances to return for each identified entity. The default is `0`. The maximum value for the `evidence_count` field is 10,000 divided by the number specified in the `count` field. See the [Evidence](/docs/services/discovery/building-kg.html#evidence) section of this page for a detailed description and examples.
 
 The query returns results of the following form:
 
@@ -157,6 +161,25 @@ If no match is found, the following JSON object is returned:
 }
 ```
 {: codeblock}
+
+### Entity disambiguation
+{: #disambiguation}
+
+Knowledge Graph entities query supports context-based entity disambiguation. Based on the entity text provided and optional context text, `disambiguation` identifies unique entities and returns a list of the entities ranked based on the context information.
+
+An entity disambiguation query is requested by specifying `"disambiguation"` as the value for the `"feature" :` field in the knowledge graph query object.
+
+For example, disambiguating the entity text `Steve` in the context of `iphone` could result in `Steve Jobs` and `Steve Wozniak` being returned.
+
+
+### Entity similarity
+{: #similarity}
+
+Knowledge Graph entities query supports context-based entity similarity detection. Based on the entity text provided and optional context text, `similar_entities` identifies unique entities and returns a list of the entities ranked based on the context information.
+
+An entity similarity query is requested by specifying `"similar_entities"` as the value for the `"feature" :` field in the knowledge graph query object.
+
+For example, if you looked for similar entities to `Ford` in the context `car`, similar entity results could include `GM`, `Toyota`, and `Nissan`.
 
 ## Relations queries
 {: #relations}
@@ -191,7 +214,8 @@ A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the 
     },
     "document_ids": ["b95df4c1-d00f-4771-abb2-a52baea0444a", "ad340635-bf3e-47a5-bea5-5e778f600c32"]
   },
-  "count": 10
+  "count": 10,
+  "evidence_count": 0
 }
 ```
 {: codeblock}
@@ -212,6 +236,7 @@ A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the 
       -  `"include": []` _optional_ a comma separated list of entity types explicitly include in the query. If specified, all other types are considered excluded.
    -  `"document_ids": []` _optional_ a comma separated list of documents on which to perform the relationship query on.
 -  `"count": INT` _optional_ The number of relations to return. The default is `10`. The maximum is `1000`.
+-  `"evidence_count": INT` _optional_ The number of evidence instances to return for each identified relation. The default is `0`. The maximum value for the `evidence_count` field is 10,000 divided by the number specified in the `count` field. See the [Evidence](/docs/services/discovery/building-kg.html#evidence) section of this page for a detailed description and examples.
 
 The query returns results in the following form:
 
@@ -253,6 +278,100 @@ If no match is found, the following JSON object is returned:
 {
   "relations": []
 }
+```
+{: codeblock}
+
+
+## Canonicalization and filtering
+{: #canonicalization}
+
+Beginning with collections created after `03-05-2018`, each entity in Knowledge Graph will be automatically be normalized with canonical names derived from a public dictionary. In addition, any pronouns included in entities or relations for example: `he`, `she`, `they`, or `it` will automatically be filtered out before ingestion into Knowledge Graph. Collections created on or before `03-05-2018` will not include this level of canonicalization and filtering; you should create new collections and reingest your documents to utilize this feature.
+
+This feature replaces the canonical names feature in {{site.data.keyword.discoveryshort}} that required a custom configuration.
+
+When building an entities query or a relations query in Knowledge Graph, you can enter either the canonical name or original text of the entity into the `text` field of the `query_entities` or `query_relations` method.
+
+## Evidence
+{: #evidence}
+
+For some entity or relationship queries it may be valuable to understand where the connections were identified. Evidence of the connections will let you reference the original document, clarify the results, or further disambiguate as appropriate. Beginning with collections created after `03-05-2018`, both the `query_entities` and `query_relationship` methods allow the return of evidence to support the returned results.
+
+Evidence is returned by adding the `"evidence_count": INT` field to the query object. This number represents the number of evidence items that will be retuned per response item. For example, if you specify a `"count":` of `5` response items, and `"evidence_count": 2`, the response would contain a total of `10` evidence items (2 per response).  The maximum number of evidence items returned in total for a single query is 10,000.
+
+In `query_entities` responses, each object in the `entities` array will contain the specified number of `evidence` objects. These objects include the `document_id` of the document where the evidence was found, which `field` it was located in, the location of the evidence within that field, and the exact location of the identified entity.
+
+```json
+    {
+      "text": "Steve Jobs",
+      "type": "Person",
+      "evidence": [
+        {
+          "document_id": "cb77ce6b-bb93-42a0-8643-dfb523e14da8",
+          "field": "description",
+          "start_offset": 305,
+          "end_offset": 392,
+          "entities": [
+            {
+              "type": "Person",
+              "text": "Steve Jobs",
+              "start_offset": 311,
+              "end_offset": 321
+            }
+          ]
+        }
+      ]
+    }
+
+```
+{: codeblock}
+
+In `query_relations` each object in the `relations` array will contain the specified number of `evidence` objects. The returned `evidence` is structured the same as in `query_relations` with the locations of all related entities specified:
+
+```json
+    {
+      "type": "founderOf",
+      "frequency": 7,
+      "arguments": [
+        {
+          "entities": [
+            {
+              "type": "Person",
+              "text": "Steve Jobs"
+            }
+          ]
+        },
+        {
+          "entities": [
+            {
+              "type": "Organization",
+              "text": "Apple"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "document_id": "b95df4c1-d00f-4771-abb2-a52baea0444a",
+          "field": "text",
+          "start_offset": 243,
+          "end_offset": 303,
+          "entities": [
+            {
+              "type": "Organization",
+              "text": "Apple",
+              "start_offset": 293,
+              "end_offset": 298
+            },
+            {
+              "type": "Person",
+              "text": "Steve Jobs",
+              "start_offset": 243,
+              "end_offset": 253
+            }
+          ]
+        }
+      ]
+    }
 ```
 {: codeblock}
 

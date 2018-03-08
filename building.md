@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-28"
+lastupdated: "2018-03-07"
 
 ---
 
@@ -216,7 +216,7 @@ You can further augment your documents by adding more enrichments to the `text` 
 ### Entity extraction
 {: #entity-extraction}
 
-Returns items such as persons, places, and organizations that are present in the input text. Entity extraction adds semantic knowledge to content to help understand the subject and context of the text that is being analyzed. The entity extraction techniques are based on sophisticated statistical algorithms and natural language processing technology, and are unique in the industry with their support for multilingual analysis, context-sensitive disambiguation, and quotation extraction. View the complete list of entity types and subtypes [here](/docs/services/discovery/entity-types.html). You can also create and add a [custom entity model](/docs/services/discovery/building.html#custom-entity-model) with {{site.data.keyword.knowledgestudiofull}}.
+Returns items such as persons, places, and organizations that are present in the input text. Entity extraction adds semantic knowledge to content to help understand the subject and context of the text that is being analyzed. The entity extraction techniques are based on sophisticated statistical algorithms and natural language processing technology, and are unique in the industry with their support for multilingual analysis and context-sensitive disambiguation. View the complete list of entity types and subtypes [here](/docs/services/discovery/entity-types.html). You can also create and add a [custom entity model](/docs/services/discovery/building.html#custom-entity-model) with {{site.data.keyword.knowledgestudiofull}}.
 
 Example portion of a document enriched with Entity Extraction:
 
