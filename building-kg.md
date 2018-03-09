@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-03-08"
 
 ---
 
@@ -285,7 +285,7 @@ If no match is found, the following JSON object is returned:
 ## Canonicalization and filtering
 {: #canonicalization}
 
-Beginning with collections created after `03-05-2018`, each entity in Knowledge Graph will be automatically be normalized with canonical names derived from a public dictionary. In addition, any pronouns included in entities or relations for example: `he`, `she`, `they`, or `it` will automatically be filtered out before ingestion into Knowledge Graph. Collections created on or before `03-05-2018` will not include this level of canonicalization and filtering; you should create new collections and reingest your documents to utilize this feature.
+All entities in documents ingested on or after `5 March 2018` will be automatically be normalized with canonical names derived from a public dictionary. In addition, any pronouns included in entities or relations for example: `he`, `she`, `they`, or `it` will automatically be filtered out before ingestion into Knowledge Graph. Documents ingested before `5 March 2018` will not include this level of canonicalization and filtering; you should create new collections and reingest your documents to utilize this feature.
 
 This feature replaces the canonical names feature in {{site.data.keyword.discoveryshort}} that required a custom configuration.
 

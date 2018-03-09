@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-03-08"
 
 ---
 
@@ -42,15 +42,16 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
-## 7 March 2018
+## 8 March 2018
 
 - The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to the **Advanced** plan. The new features are:
   - [Entity similarity](/docs/services/discovery/building-kg.html#similarity) 
   - [Evidence](/docs/services/discovery/building-kg.html#evidence) 
   - [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) 
 
-- The following ingestion known issue has been fixed: Between 28 February and 6 March, a small percentage of documents were indexed with only the `id` and `extracted_metadata` fields (other document content was not indexed). The underlying problem has been fixed, however, you will need to resubmit any affected documents for ingestion. There is no simple way to identify the affected documents.
+## 7 March 2018
 
+- The following ingestion known issue has been fixed: Between 28 February and 6 March, a small percentage of documents were indexed with only the `id` and `extracted_metadata` fields (other document content was not indexed). The underlying problem has been fixed, however, you will need to resubmit any affected documents for ingestion. There is no simple way to identify the affected documents.
 
 ## 5 March 2018
 
