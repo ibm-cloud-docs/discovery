@@ -50,7 +50,7 @@ If you use {{site.data.keyword.Bluemix_dedicated_notm}}, create your service ins
 
 After you create a project that includes the {{site.data.keyword.discoveryshort}} service, you'll land on the project details page. Launch the {{site.data.keyword.discoveryshort}} tooling from here.
 
-Click **Launch Tool** for {{site.data.keyword.discoveryshort}} under **Services**.
+Click **Launch Tool** for {{site.data.keyword.discoveryshort}} under **Resources**.
 
 <!-- To do: Add screenshot for developer console -->
 
