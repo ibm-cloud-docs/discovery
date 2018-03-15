@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-15"
+lastupdated: "2018-03-14"
 
 ---
 
@@ -54,7 +54,7 @@ To use Element Classification, your collection must be configured to meet specif
 - `PDF` conversion settings are ignored if specified.
 - `WORD` conversion settings can be omitted as Microsoft Word files cannot be ingested when Element Classification is specified.
 - `html` normalization settings are ignored if specified.
-- Document splitting is not supported when the `elements` enrichment is specified.
+- Document segmentation is not supported when the `elements` enrichment is specified.
 - In the {{site.data.keyword.discoveryshort}} configuration, the `html` field must be enriched by the `elements` enrichment and the `model` specified as `contract`. In the following example, the `destination_field` is `enriched_html`, but any valid name can be used:
 
 ```json

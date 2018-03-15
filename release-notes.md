@@ -44,7 +44,7 @@ The following new features and changes to the service are available.
 
 ## 8 March 2018
 
-- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to the **Advanced** plan. The new features are:
+- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments. The new features are:
   - [Entity similarity](/docs/services/discovery/building-kg.html#similarity) 
   - [Evidence](/docs/services/discovery/building-kg.html#evidence) 
   - [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) 

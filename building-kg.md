@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-08"
+lastupdated: "2018-03-14"
 
 ---
 
@@ -19,15 +19,16 @@ lastupdated: "2018-03-08"
 
 # Watson Discovery Knowledge Graph
 
-Knowledge graphs go beyond just data and information by making connections within your data across documents and generating new knowledge. We provide the AI technology that automatically creates custom knowledge graphs from unstructured data by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and ranking the results using relevance algorithms. Knowledge Graphs can function as the "knowledge hub" for your company and can be used for enterprise search, summarization, recommendation engines, other decision making processes - for example, detecting fraud, waste, or abuse. The use of a custom model (created in {{site.data.keyword.knowledgestudioshort}}) in the Knowledge Graph creation process, can help build domain specific KGs with applicability in domains such as financial, technology, security, intelligence, healthcare and many others.
+Knowledge graphs go beyond just data and information by making connections within your data across documents and generating new knowledge. We provide the AI technology that automatically creates custom knowledge graphs from unstructured data by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and ranking the results using relevance algorithms. Knowledge Graphs can function as the "knowledge hub" for your company and can be used for enterprise search, summarization, recommendation engines, other decision making processes - for example, detecting fraud, waste, or abuse. The use of a custom model (created in {{site.data.keyword.knowledgestudioshort}}) in the Knowledge Graph creation process, can help build domain specific KGs with applicability in domains such as financial, technology, security, intelligence, healthcare and many others. See [Integrating with {{site.data.keyword.knowledgestudiofull}}](docs/services/discovery/integrate-wks.html) for more information about integrating {{site.data.keyword.discoveryshort}} with {{site.data.keyword.knowledgestudioshort}}.
 
-Two new end-points have been added to {{site.data.keyword.discoveryfull}} – providing the ability to search for disambiguated entities and enriched relations across-documents in unstructured document collections. Search results can be rank ordered by relevance or popularity. In addition to a search token, the APIs can use optional context word(s) or passages that finds more relevant entities and relations within the large automatically created knowledge graph.
 
- The following figure shows how Knowledge Graph fits in the current {{site.data.keyword.discoveryfull}} pipeline. {{site.data.keyword.nlushort}} enriches documents with entities and documents at the individual document level. During Knowledge Graph creation, implicit (automatic) entity resolution and graph expansion techniques are used to automatically create a connected graph of entities and relations across documents. In addition to the Knowledge Graph being created, the Knowledge Graph analytics service adds relevance-ranking techniques to return results.
+Two new RESTful end-points have been added to {{site.data.keyword.discoveryfull}} – providing the ability to search for disambiguated, enriched entities and relations across documents in unstructured document collections. Search results can be rank ordered by relevance or popularity. In addition to a search token, the APIs can use optional context word(s) or passages that finds more relevant entities and relations within the large automatically created knowledge graph.
+
+ The following figure shows how Knowledge Graph fits in the current {{site.data.keyword.discoveryfull}} pipeline. {{site.data.keyword.nlushort}} enrichments use a custom {{site.data.keyword.knowledgestudioshort}} model (`en-news`) to extract entities and relations at the individual document level. During Knowledge Graph creation, implicit (automatic) entity resolution and graph expansion techniques are used to automatically create a connected graph of entities and relations across documents. In addition to the Knowledge Graph being created, the Knowledge Graph analytics service adds relevance-ranking techniques to return results. 
 
 ![Knowledge Graph Process](images/knowledge-graph.png)
 
-This connected graph of knowledge and ranking techniques provides:
+This connected graph of knowledge and ranking techniques facilitates the following use cases:
 
 -  Disambiguated entities by using a fuzzy search token, type information (optional) and context (optional). Example: Searching for `Steve` in context of `Apple` returns `Steve Jobs` on top while searching for `Steve` in context of `Microsoft` returns `Steve Ballmer` on top.
 -  Relevance ranked relationships by inputting fuzzy search token and context (optional). Relevance-ranking utilizes the global properties of the graph to surface more specific information. Example: Searching for relationships of `Obama` in context of `health` returns `Affordable Care Act` and other related entities.
@@ -35,17 +36,19 @@ This connected graph of knowledge and ranking techniques provides:
 
 ## Service requirements
 
-During the beta release, Knowledge Graph functionality and the methods associated with it are only available for service instances that are subscribed to the **Advanced** plan.
+During the beta release, Knowledge Graph functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments.
 
 ## Collection requirements
 
 {{site.data.keyword.discoveryshort}} uses Entities and Relationships extracted from ingested documents to form the Knowledge Graph and allow entity and relationship queries.
 
+**Note:** [Entity similarity](/docs/services/discovery/building-kg.html#similarity), [Evidence](/docs/services/discovery/building-kg.html#evidence), and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are available in new collections created after `03-05-2018`. Create a new collection and reingest your documents to use these features.
+
 **Note:** Knowledge Graph can be used on private data collections only, it is not designed for use with {{site.data.keyword.discoverynewsshort}}.
 
 To use Knowledge Graph, your collection must be configured to meet specific requirements as follows:
 
--  Both the `entities` and `relations` enrichments must be specified for the fields which will utilize Knowledge Graph and each enrichment must use the same custom model. If the public model is required, it must be specified in the form of a custom model `model="en-news"`.
+-  Both the `entities` and `relations` enrichments must be specified for the fields which will utilize Knowledge Graph and each enrichment must use the same custom model. If the public model is used (available without the use of {{site.data.keyword.knowledgestudioshort}}) it must be specified in the form of a custom model `model="en-news"`.
 
 -  The `relations` enrichments must be specified as follows:
    ```json
@@ -66,9 +69,9 @@ To use Knowledge Graph, your collection must be configured to meet specific requ
    ```
    {: codeblock}
 
-   Other optional `enrichments` options such as `"sentiment": true` can also be specified if desired.
+   Other optional `enrichments` options such as `"sentiment": true` can also be specified if desired. They will be stored in the discovery index as enrichments, but will not be used as nodes in the knowledge graph itself.
 
-These options cannot be added using the {{site.data.keyword.discoveryshort}} tooling, a custom configuration must be uploaded using the API. A copy of the default configuration modified to enrich the `text` field so that the collection can be used with knowledge graph with the public model is available [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json).
+These options **cannot be added** using the {{site.data.keyword.discoveryshort}} tooling, a custom configuration must be uploaded using the API. A copy of the default configuration modified to enrich the `text` field so that the collection can be used with knowledge graph with the public model is available [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json).
 
 Create a custom configuration as follows, after creating a {{site.data.keyword.discoveryshort}} service instance:
 
@@ -98,6 +101,14 @@ Create a custom configuration as follows, after creating a {{site.data.keyword.d
    {: pre}
 
 1. After the custom configuration has been uploaded it can be used in any collection that you create, any method to upload documents can be used as long as the custom configuration is specified. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery/getting-started-tool.html). When you get to [step 3](/docs/services/discovery/getting-started-tool.html#create-custom-configuration) select `Knowledge Graph Configuration` instead of creating a new configuration.
+
+## Canonicalization and filtering
+{: #canonicalization}
+
+All entities in documents ingested on or after `5 March 2018` will be automatically be normalized with canonical names derived from a public dictionary. In addition, any pronouns included in entities or relations for example: `he`, `she`, `they`, or `it` will automatically be filtered out before ingestion into Knowledge Graph. Documents ingested before `5 March 2018` will not include this level of canonicalization and filtering; you should create new collections and reingest your documents to utilize this feature.
+
+When building an entities query or a relations query in Knowledge Graph, you can enter either the canonical name or original text of the entity into the `text` field of the `query_entities` or `query_relations` method.
+
 
 ## Entities queries
 {: #entities}
@@ -165,7 +176,7 @@ If no match is found, the following JSON object is returned:
 ### Entity disambiguation
 {: #disambiguation}
 
-Knowledge Graph entities query supports context-based entity disambiguation. Based on the entity text provided and optional context text, `disambiguation` identifies unique entities and returns a list of the entities ranked based on the context information.
+Knowledge Graph entities query provides context-based entity disambiguation. Based on the entity text provided and optional context text, `disambiguation` identifies unique entities and returns a list of the entities ranked based on the context information.
 
 An entity disambiguation query is requested by specifying `"disambiguation"` as the value for the `"feature" :` field in the knowledge graph query object.
 
@@ -175,7 +186,7 @@ For example, disambiguating the entity text `Steve` in the context of `iphone` c
 ### Entity similarity
 {: #similarity}
 
-Knowledge Graph entities query supports context-based entity similarity detection. Based on the entity text provided and optional context text, `similar_entities` identifies unique entities and returns a list of the entities ranked based on the context information.
+Knowledge Graph entities query provides context-based entity similarity detection. Based on the entity text provided and optional context text, `similar_entities` identifies unique entities and returns a list of the entities ranked based on the context information.
 
 An entity similarity query is requested by specifying `"similar_entities"` as the value for the `"feature" :` field in the knowledge graph query object.
 
@@ -281,20 +292,10 @@ If no match is found, the following JSON object is returned:
 ```
 {: codeblock}
 
-
-## Canonicalization and filtering
-{: #canonicalization}
-
-All entities in documents ingested on or after `5 March 2018` will be automatically be normalized with canonical names derived from a public dictionary. In addition, any pronouns included in entities or relations for example: `he`, `she`, `they`, or `it` will automatically be filtered out before ingestion into Knowledge Graph. Documents ingested before `5 March 2018` will not include this level of canonicalization and filtering; you should create new collections and reingest your documents to utilize this feature.
-
-This feature replaces the canonical names feature in {{site.data.keyword.discoveryshort}} that required a custom configuration.
-
-When building an entities query or a relations query in Knowledge Graph, you can enter either the canonical name or original text of the entity into the `text` field of the `query_entities` or `query_relations` method.
-
 ## Evidence
 {: #evidence}
 
-For some entity or relationship queries it may be valuable to understand where the connections were identified. Evidence of the connections will let you reference the original document, clarify the results, or further disambiguate as appropriate. Beginning with collections created after `03-05-2018`, both the `query_entities` and `query_relationship` methods allow the return of evidence to support the returned results.
+For some entity or relationship queries it may be valuable to understand where the connections were identified. Evidence of the connections will let you reference the original document, clarify the results, or further disambiguate as appropriate. Beginning with collections created after `03-05-2018`, both the `query_entities` and `query_relations` endpoints have the option of providing evidence in the returned results.
 
 Evidence is returned by adding the `"evidence_count": INT` field to the query object. This number represents the number of evidence items that will be retuned per response item. For example, if you specify a `"count":` of `5` response items, and `"evidence_count": 2`, the response would contain a total of `10` evidence items (2 per response).  The maximum number of evidence items returned in total for a single query is 10,000.
 
@@ -385,3 +386,5 @@ To access Knowledge Graph querying in the {{site.data.keyword.discoveryshort}} t
 1.  Click ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page.
 1.  Select your collection and click **Get started**.
 1.  On the **Build queries** screen, choose the **Knowledge graph** tab, then **Entities** or **Relationships**.
+
+**Note:** Not all Knowledge Graph features are available when using the {{site.data.keyword.discoveryshort}} tooling.
