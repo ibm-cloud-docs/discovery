@@ -42,6 +42,19 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 16 March 2018
+
+- Added full support for German. For more information, see [Language support](/docs/services/discovery/language-support.html).
+
+{{site.data.keyword.discoveryshort}} tooling:
+- A new configuration named **Default Contract Configuration** has been added to support Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
+
+Updated to general availability:
+- Documentation segmentation has moved from beta status to GA status. The segmentation limit has been increased to 250 segments. It is no longer limited to 50 segments per document. See [Documentation segmentation](/docs/services/discovery/building.html#doc-segmentation) for details.
+
+Known issue:
+- Wildcards do not work with queries that contain capital letters. For example, given the key/field pair ``{"borrower": "GOVERNMENT OF INDIA"}``, `query-borrower:*ndia` will return results but `query-borrower:*NDIA` will not.
+
 ## 8 March 2018
 
 - The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments. The new features are:

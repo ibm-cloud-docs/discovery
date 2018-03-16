@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-14"
+lastupdated: "2018-03-16"
 
 ---
 
@@ -33,11 +33,12 @@ Element Classification brings together a functionally rich set of integrated, au
 Element Classification securely transmits your data performing encryption in flight and at rest. For information about IBM Cloud security, see the [IBM Cloud Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
 
 ## Classification requirements
+{: #element-class}
 
 To classify documents using Element Classification your configuration and source documents must meet the following requirements:
 
 - Files to be analyzed are in PDF format.
-- The PDF contents are in text form (documents that have been scanned, but not OCRed cannot be parsed)
+- The PDF contents are in text form. Documents that have been scanned cannot be parsed, even if they have been OCRed.
 
   **Note:** You can identify a PDF that is in text by opening the document in a PDF viewer and using the  **Text select**  tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
 
@@ -46,10 +47,33 @@ To classify documents using Element Classification your configuration and source
 - A custom {{site.data.keyword.discoveryshort}} configuration must be created that includes the `elements` enrichment. This configuration can only be used to ingest PDF documents.
 - **Lite** and **Standard** plans can process a maximum of 500 pages per month.
 - Not available for service instances that are subscribed to a **Premium** plan, or in **Dedicated** environments.
+- Post-enrichment normalization cannot be performed when using Element Classification.
 
 ## Collection requirements
+{: #element-collection}
 
-To use Element Classification, your collection must be configured to meet specific requirements as follows:
+To use Element Classification, your collection must be configured to meet specific requirements.
+
+The {{site.data.keyword.discoveryshort}} tooling includes a configuration named **Default Contract Configuration** that has been pre-configured to enrich PDF documents with the **Element Classification** enrichment and other required options. You can choose this configuration when you create your collection. The JSON for this configuration is: 
+
+```json
+{
+  "description": "Extract party, nature, and category from elements in PDFs.",
+  "enrichments": [
+    {
+      "source_field": "html",
+      "destination_field": "enriched_html_elements",
+      "enrichment": "elements",
+      "options": {
+        "model": "contract"
+      }
+    }
+  ]
+} 
+```
+{: codeblock}
+
+If you wish to create a custom configuration file, configure your collection to meet the following requirements:  
 
 - `PDF` conversion settings are ignored if specified.
 - `WORD` conversion settings can be omitted as Microsoft Word files cannot be ingested when Element Classification is specified.
@@ -71,11 +95,7 @@ To use Element Classification, your collection must be configured to meet specif
 ```
 {: codeblock}
 
-These options can be added using the {{site.data.keyword.discoveryshort}} tooling, create a custom configuration and add the **Element Classification** enrichment to the `html` field.
-
-**Note:** When adding **Element Classification** using the tooling, the `destination_field` is set to `enriched_html_elements`.
-
-After the custom configuration has been created it can be used in any collection, any method to upload documents can be used as long as the custom configuration is specified. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery/getting-started-tool.html).
+After selecting the `Default Contract Configuration` in the tooling, you can upload your documents. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery/getting-started-tool.html).
 
 ## Classified Elements
 
@@ -171,6 +191,7 @@ Categories define the subject matter of the sentence. The following currently su
 | `Assignments` | Encompasses the transfer of rights held by one party to another.  |
 | `Confidentiality` | Describes how confidential or private information will be handled such as who can share what, and how. |
 | `Deliverables` | The items or services to be delivered at the end of a piece of work. |
+| `Delivery` | Details of the specific schedule or process needed to complete a project. |
 | `Dispute Resolution` | Provides for any dispute arising between contracting parties, and how it will be handled. |
 | `Force Majeure` | A clause that frees both parties from liability in case of a disruptive event. |
 | `Indemnification` | Describes the remedies or consequences if terms are breached. |
@@ -181,6 +202,8 @@ Categories define the subject matter of the sentence. The following currently su
 | `Pricing & Taxes` | Describes how the prices are made up and how the taxes are to be applied |
 | `Privacy` | Describes the privacy regulations which apply. |
 | `Responsibilities` | Describes what the responsibilities of each party are. |
+| `Scope of Work` | A description of what is to be achieved by the parties, as detailed in the statement of work. |
+| `Subcontracts` | Information related to any third parties involved to fulfill a requirement. |
 | `Term & Termination` | The time over which something will happen, and the conditions under which it may end.  |
 | `Warranties` | Guarantee by a supplier of how a product will work. |
 
