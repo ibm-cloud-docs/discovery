@@ -29,7 +29,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 | Chinese, simplified (zh-CN)     |  Basic         |
 | Dutch (nl)                     |  Basic         |
 | French (fr)                     |  Basic         |
-| German (de)                     |  Basic         |
+| German (de)                     |  Full         |
 | Italian (it)                    |  Basic         |
 | Japanese (ja)                  |  Basic         |
 | Korean (ko)                    |  Full         |

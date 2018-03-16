@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-30"
+  years: 2015, 2018
+lastupdated: "2018-03-16"
 
 ---
 
@@ -79,6 +79,8 @@ The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collectio
 
 1.  Click ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
 1.  When your environment is ready, the **Name your new collection** dialog appears. Name your collection and choose **Default Configuration** from **Select a configuration to apply** (you can change the configuration later).
+
+There is another configuration available named **Default Contract Configuration** that supports Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
 
 ## Step 3: Create a custom configuration
 {: create-custom-configuration}
