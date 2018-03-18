@@ -209,7 +209,7 @@ The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/
 
 **Important:** Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 
-**Note:** {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated 1 March 2018. If you have any existing collections that are using {{site.data.keyword.alchemylanguageshort}} enrichments, you must migrate to {site.data.keyword.nlushort}} enrichments. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
+**Note:** {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated 1 March 2018. If you have any existing collections that are using {{site.data.keyword.alchemylanguageshort}} enrichments, you must migrate to {site.data.keyword.nlushort}} enrichments. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html). 
 
 You can further augment your documents by adding more enrichments to the `text` field, or enriching other fields. To do so using the {{site.data.keyword.discoveryshort}} tooling, [create a custom configuration](/docs/services/discovery/building.html#custom-configuration), choose the field(s) you'd like to enrich and select from the list of available {{site.data.keyword.nlushort}} enrichments:
 
@@ -945,7 +945,7 @@ Considerations:
   - Documents will segment each time the specified HTML tag is detected. Consequently, segmentation could lead to malformed HTML because the documents could be split before closing tags and after opening tags.
 
   - HTML, PDF, and Word metadata, as well as any custom metadata, is extracted and included in the index with each segment. Every segment of a document will include identical metadata.
-
+  
   - Document segmentation is not supported when the **Element Classification** (`elements`) enrichment is specified.
 
   - Re-ingesting a segmented document has additional considerations, see [Updating a segmented document](/docs/services/discovery/building.html#update-seg).
@@ -1048,12 +1048,12 @@ All segments will include an:
 ### Updating a segmented document
 {: #update-seg}
 
-If a segmented document has been updated and needs to be ingested again, it can be replaced using the [/documents/{document_id} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window}:) method.
+If a segmented document has been updated and needs to be ingested again, it can be replaced using the [Update document ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} method.
 
-When updating a segmented document, the document should be uploaded using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable.
+When updating a segmented document, the document should be uploaded using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable.
 
-When updating, all segments will be overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments will remain in the index and may be individually deleted using the API (see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window}:). You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that comprises of the `{parent_id}`, followed by an underscore `_`, followed by the segment number.
+When updating, all segments will be overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments will remain in the index and may be individually deleted using the API. See the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} for details. You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that is comprised of the `{parent_id}`, followed by an underscore, followed by the segment number.
 
-If any of the segments of the document that you intend to update have been ranked for relevancy training you must first delete all the segments of that document and then ingest the updated document as a new document. This will result in a new `document_id` for each segment and any trained segments will need to be retrained. The trained index will become inaccurate if you don't delete the old content first.
+If any of the segments of the document that you intend to update have been ranked for relevancy training, you must first delete all the segments of that document and then ingest the updated document as a new document. This will result in a new `document_id` for each segment and any trained segments will need to be retrained. The trained index will become inaccurate if you don't delete the old content first.
 
-Alternately, consider creating a new document that contains only the new content and ingest it separately.
+Alternately, consider creating a new document that contains only the new content and ingest it separately. 
