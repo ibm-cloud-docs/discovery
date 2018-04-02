@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-03-30"
 
 ---
 
@@ -30,10 +30,10 @@ You'll need a service instance to start.
 
 <!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
 
-You created your service instance. Click **Manage**, then **Launch Tool**. Go to [Step 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection).
+You created your service instance. Click **Manage**, then **Launch Tool**. Go to [Step 2](/docs/services/discovery/getting-started-tool.html#create-a-collection).
 {: download tip}
 
-If you created a project with the {{site.data.keyword.discoveryshort}} service, you're all set with these prerequisites. Go to [Step 1](/docs/services/discovery/getting-started-tooling.html#launch-the-tooling).
+If you created a project with the {{site.data.keyword.discoveryshort}} service, you're all set with these prerequisites. Go to [Step 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling).
 
 1.  Go to the {{site.data.keyword.watson}} Developer Console [Services ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/developer/watson/services){: new_window} page.
 1.  Select {{site.data.keyword.discoveryshort}}, click **Add Services**, and either sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.

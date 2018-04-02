@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-14"
+lastupdated: "2018-04-02"
 
 ---
 
@@ -37,6 +37,8 @@ This connected graph of knowledge and ranking techniques facilitates the followi
 ## Service requirements
 
 During the beta release, Knowledge Graph functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments.
+
+This beta feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details. 
 
 ## Collection requirements
 
