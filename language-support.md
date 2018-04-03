@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-04-02"
 
 ---
 
@@ -65,8 +65,12 @@ Full support includes basic support, plus:
     - Sentiment Analysis
     - Emotion Analysis (English only)
 
+## English-only support
+{: #feature-support}
+
 The following features are currently supported in English only:
 
 - Element Classification enrichment
 - {{site.data.keyword.discoveryfull}} Visual Insights (experimental)
-- {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)   
+- {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)
+- Document deduplication (beta)   

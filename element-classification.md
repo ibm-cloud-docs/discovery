@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-19"
+lastupdated: "2018-04-02"
 
 ---
 
@@ -31,6 +31,8 @@ Element Classification is designed to provide:
 Element Classification brings together a functionally rich set of integrated, automated Watson APIs to input a programmatic PDF to identify: sections, lists (numbered and bulleted), footnotes, and tables converting these items into a structured HTML format. Furthermore, classification of this structured format is annotated and output as JSON with labeled elements, types and categories.
 
 Element Classification securely transmits your data performing encryption in flight and at rest. For information about IBM Cloud security, see the [IBM Cloud Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+
+This feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details. 
 
 ## Classification requirements
 {: #element-class}
@@ -188,7 +190,10 @@ Categories define the subject matter of the sentence. The following currently su
 
 | **Categories** | **Description** |
 | --- | --- |
-| `Assignments` | Encompasses the transfer of rights held by one party to another.  |
+| `Amendments` | A modification of the original contract that stipulates the conditions for changing the terms.|
+| `Assignments` | Encompasses the transfer of rights held by one party to another. |
+| `Audits` | This clause allows for the buyer to examine or inspect the supplier of the services being provided.|
+| `Business Continuity` | Describes how an organization will continue delivery of work at predefined levels, in the event of a disruptive incident.|
 | `Confidentiality` | Describes how confidential or private information will be handled such as who can share what, and how. |
 | `Deliverables` | The items or services to be delivered at the end of a piece of work. |
 | `Delivery` | Details of the specific schedule or process needed to complete a project. |

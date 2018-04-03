@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-28"
+lastupdated: "2018-04-02"
 
 ---
 
@@ -211,7 +211,7 @@ A beta capability that excludes duplicate documents from your query results base
 
 If you are querying the {{site.data.keyword.discoverynewsfull}} collection, or your private data collection contains multiple identical (or near-identical) documents, you can exclude most of them from your query results using document deduplication.
 
-**Note:** Document deduplication is currently supported only as a beta capability. See [Beta features](/docs/services/discovery/release-notes.html#beta-features) in the Release notes for more information.
+**Note:** Document deduplication is currently supported only as a beta capability. See [Beta features](/docs/services/discovery/release-notes.html#beta-features) in the Release notes for more information. This beta feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details. 
 
 **Note:**  Each query is deduplicated independently, so deduplication across offsets is not supported.
 
