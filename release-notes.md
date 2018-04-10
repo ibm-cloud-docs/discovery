@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-08"
+lastupdated: "2018-04-11"
 
 ---
 
@@ -41,6 +41,10 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 11 April 2018
+
+- Two additional categories are now supported in Element Classification: `Asset Use` and `Communication`. See [Understanding Contract Elements](/docs/services/discovery/element-classification.html#contract-elements) for details.
 
 ## 16 March 2018
 
