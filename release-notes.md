@@ -42,6 +42,10 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 12 April 2018
+
+- Knowledge Graph: [Evidence](/docs/services/discovery/building-kg.html#evidence) and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are now available in all collections. In any collections created before `03-05-2018`, you need to reingest your documents to use these features. Previously, you needed to create a new collection and reingest your documents. 
+
 ## 11 April 2018
 
 - Two additional categories are now supported in Element Classification: `Asset Use` and `Communication`. See [Understanding Contract Elements](/docs/services/discovery/element-classification.html#contract-elements) for details.

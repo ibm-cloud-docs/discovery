@@ -44,7 +44,7 @@ This beta feature is currently supported in English only, see [Language support]
 
 {{site.data.keyword.discoveryshort}} uses Entities and Relationships extracted from ingested documents to form the Knowledge Graph and allow entity and relationship queries.
 
-**Note:** [Entity similarity](/docs/services/discovery/building-kg.html#similarity), [Evidence](/docs/services/discovery/building-kg.html#evidence), and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are available in new collections created after `03-05-2018`. Create a new collection and reingest your documents to use these features.
+**Note:** [Entity similarity](/docs/services/discovery/building-kg.html#similarity), [Evidence](/docs/services/discovery/building-kg.html#evidence), and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are available in all collections. For collections created before `03-05-2018`, you need to reingest your documents to use these features. 
 
 **Note:** Knowledge Graph can be used on private data collections only, it is not designed for use with {{site.data.keyword.discoverynewsshort}}.
 
@@ -297,7 +297,7 @@ If no match is found, the following JSON object is returned:
 ## Evidence
 {: #evidence}
 
-For some entity or relationship queries it may be valuable to understand where the connections were identified. Evidence of the connections will let you reference the original document, clarify the results, or further disambiguate as appropriate. Beginning with collections created after `03-05-2018`, both the `query_entities` and `query_relations` endpoints have the option of providing evidence in the returned results.
+For some entity or relationship queries it may be valuable to understand where the connections were identified. Evidence of the connections will let you reference the original document, clarify the results, or further disambiguate as appropriate. Beginning with collections created after `03-05-2018`, both the `query_entities` and `query_relations` endpoints have the option of providing evidence in the returned results. This feature is available for collections created before `03-05-2018`, but documents will need to be reingested to use this feature on those older collections. 
 
 Evidence is returned by adding the `"evidence_count": INT` field to the query object. This number represents the number of evidence items that will be retuned per response item. For example, if you specify a `"count":` of `5` response items, and `"evidence_count": 2`, the response would contain a total of `10` evidence items (2 per response).  The maximum number of evidence items returned in total for a single query is 10,000.
 
