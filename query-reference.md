@@ -74,7 +74,7 @@ Operators are the separators between different parts of a query. These are the a
 | [::](/docs/services/discovery/query-operators.html#match) | Exact match | `title::"Query building"` |
 | [:!](/docs/services/discovery/query-operators.html#notinclude) | Does not include | `text:!computer` |
 | [::!](/docs/services/discovery/query-operators.html#notamatch) | Not an exact match | `text::!winter` |
-| [\\](/docs/services/discovery/query-operators.html#escape) | Escape character | `title::"Dorothy said: \"There's no place like home"\"` |
+| [\\](/docs/services/discovery/query-operators.html#escape) | Escape character | `title::"Dorothy said: \"There's no place like home\""` |
 | [""](/docs/services/discovery/query-operators.html#phrase) | Phrase query | `enriched_text.concepts.text:"IBM Watson"` |
 | [(), \[\]](/docs/services/discovery/query-operators.html#nestedquery) | Nested grouping | `filter-entities:(text:Turkey,type:Location)` |
 | [<code>&#124;</code>](/docs/services/discovery/query-operators.html#or) | or | <code>query-enriched.entities.text:Google&#124;IBM</code> |
