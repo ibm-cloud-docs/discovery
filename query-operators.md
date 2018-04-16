@@ -88,7 +88,7 @@ Escape character for queries that require the ability to query terms by using st
 
 For example:
 ```bash
-title::"Dorothy said: \"There's no place like home"\"
+title::"Dorothy said: \"There's no place like home\""
 ```
 {: codeblock}
 
