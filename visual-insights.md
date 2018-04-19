@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-02"
+lastupdated: "2018-04-17"
 
 ---
 
@@ -84,6 +84,7 @@ You can use Visual Insights to query {{site.data.keyword.discoverynewsfull}} wit
 
 - An {{site.data.keyword.Bluemix_notm}} account that contains a {{site.data.keyword.discoveryshort}} instance.
 - One or more collections in that {{site.data.keyword.discoveryshort}} instance that have been enriched with the [Entity extraction](/docs/services/discovery/building.html#entity-extraction) enrichment, plus optionally any of the [Concept tagging](/docs/services/discovery/building.html#concept-tagging), [Keyword extraction](/docs/services/discovery/building.html#keyword-extraction), [Relation extraction](/docs/services/discovery/building.html#relation-extraction), and [Category classification](/docs/services/discovery/building.html#category-classification) enrichments. Other enrichments may be included, but will not be represented by Visual Insights.
+- Visual Insights can visualize collections consisting of any combination of PDF, HTML, Word, and JSON documents with an enriched `text` field.
 
 More information about {{site.data.keyword.discoveryshort}} and how to get started for free, see [Watson {{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/services/discovery/){: new_window}.
 
