@@ -30,7 +30,8 @@ You'll need a service instance to start.
 
 <!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
 
-You created your service instance. Click **Manage**, then **Launch Tool**. Go to [Step 2](/docs/services/discovery/getting-started-tool.html#create-a-collection).
+
+You created your service instance. Click **Manage**, then **Open tool**. Go to [Step 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection).
 {: download tip}
 
 If you created a project with the {{site.data.keyword.discoveryshort}} service, you're all set with these prerequisites. Go to [Step 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling).
@@ -50,7 +51,7 @@ If you use {{site.data.keyword.Bluemix_dedicated_notm}}, create your service ins
 
 After you create a project that includes the {{site.data.keyword.discoveryshort}} service, you'll land on the project details page. Launch the {{site.data.keyword.discoveryshort}} tooling from here.
 
-Click **Launch Tool** for {{site.data.keyword.discoveryshort}} under **Resources**.
+On the **Manage** page, click **Open tool**.
 
 <!-- To do: Add screenshot for developer console -->
 
