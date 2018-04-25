@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-08"
+lastupdated: "2018-04-11"
 
 ---
 
@@ -42,9 +42,30 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 12 April 2018
+
+- Knowledge Graph: [Evidence](/docs/services/discovery/building-kg.html#evidence) and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are now available in all collections. In any collections created before `03-05-2018`, you need to reingest your documents to use these features. Previously, you needed to create a new collection and reingest your documents. 
+
+## 11 April 2018
+
+- Two additional categories are now supported in Element Classification: `Asset Use` and `Communication`. See [Understanding Contract Elements](/docs/services/discovery/element-classification.html#contract-elements) for details.
+
+## 16 March 2018
+
+- Added full support for German. For more information, see [Language support](/docs/services/discovery/language-support.html).
+
+{{site.data.keyword.discoveryshort}} tooling:
+- A new configuration named **Default Contract Configuration** has been added to support Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
+
+Updated to general availability:
+- Documentation segmentation has moved from beta status to GA status. The segmentation limit has been increased to 250 segments. It is no longer limited to 50 segments per document. See [Documentation segmentation](/docs/services/discovery/building.html#doc-segmentation) for details.
+
+Known issue:
+- Wildcards do not work with queries that contain capital letters. For example, given the key/field pair ``{"borrower": "GOVERNMENT OF INDIA"}``, `query-borrower:*ndia` will return results but `query-borrower:*NDIA` will not.
+
 ## 8 March 2018
 
-- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to the **Advanced** plan. The new features are:
+- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments. The new features are:
   - [Entity similarity](/docs/services/discovery/building-kg.html#similarity) 
   - [Evidence](/docs/services/discovery/building-kg.html#evidence) 
   - [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) 

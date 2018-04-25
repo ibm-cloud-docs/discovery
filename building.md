@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-04-02"
 
 ---
 
@@ -66,16 +66,16 @@ Your environment and data collection are ready! If you wish to use the default c
 ### The default configuration
 {: #the-default-configuration}
 
-The {{site.data.keyword.discoveryshort}} service includes a standard configuration file that will convert, enrich and normalize your data without requiring you to manually configure these options.
+The {{site.data.keyword.discoveryshort}} service includes a standard configuration that will convert, enrich and normalize your data without requiring you to manually configure these options.
 
-This default configuration file is named **Default Configuration**. It contains enrichments, plus standard document conversions based on font styles and sizes.
-
-First the default enrichments. {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the text field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)).
+The default configuration named **Default Configuration** contains enrichments, plus standard document conversions based on font styles and sizes. {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the text field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)).
 
 -   [Microsoft Word conversion](/docs/services/discovery/building.html#microsoft-word-conversion)
 -   [PDF conversion](/docs/services/discovery/building.html#pdf-conversion)
 -   [HTML conversion](/docs/services/discovery/building.html#html-conversion)
 -   [JSON conversion](/docs/services/discovery/building.html#json-conversion)
+
+A second default configuration named **Default Contract Configuration** is available in the {{site.data.keyword.discoveryshort}} tooling. It is configured to enrich with Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
 
 If you would like to create a custom configuration, see [Custom configuration](/docs/services/discovery/building.html#custom-configuration).
 
@@ -117,11 +117,11 @@ When creating a new configuration file in the {{site.data.keyword.discoveryshort
 -   All of your documents are converted to JSON before they are enriched and indexed.
 -   Microsoft Word and PDF documents are converted to HTML first, then JSON.
 -   HTML documents are converted directly to JSON.
--   The maximum file size for a sample document is 5MB. Sample documents are automatically deleted after 1 month, but you can upload the same documents again if you would like to make additional changes to your configuration.
+-   The maximum file size for a sample document is 5MB. Sample documents are automatically deleted after 24 hours, but you can upload the same documents again if you would like to make additional changes to your configuration.
 
 #### Guidelines for choosing good sample documents:
 
--   You should have (at minimum), one sample document for each file type you intend to ingest - Microsoft Word, PDF, HTML, and JSON.
+-   You should have (at minimum), one sample document for each file type you intend to ingest - Microsoft Word, PDF, HTML, and JSON. (You cannot preview PDF documents enriched with the **Element Classification** enrichment.)
 -   If you have any unique document types (such as financial reports or press releases), include one of each in your set of sample documents.
 -   For HTML documents, you should choose documents that include HTML tags you would like to exclude, as well as tag attributes you would like to include or exclude.
 -   JSON documents should include any fields you would like to remove or merge together (for example, zipCode and postalCode).
@@ -696,6 +696,8 @@ In the **Normalize** section of the {{site.data.keyword.discoveryshort}} tooling
 
 After making any changes, click **Apply and Save**, then **Done**. You will be returned to the **Manage Data** screen, where you can apply this configuration to the collection of your choice.
 
+If using the **Element Classification** enrichment, you cannot perform post-enrichment normalization.
+
 ## Normalizing entities
 {: #normalizing-entities}
 
@@ -925,7 +927,7 @@ Some common CSS selectors include the following:
 ## Splitting documents with document segmentation
 {: #doc-segmentation}
 
-You can split your Word, PDF, and HTML documents into segments based on HTML heading tags. Once split, each segment is a separate document that will be converted to JSON, then indexed and enriched separately. Since queries will return these segments as separate documents, document segmentation can be used to:
+You can split your Word, PDF, and HTML documents into segments based on HTML heading tags. Once split, each segment is a separate document that will be enriched and indexed separately. Since queries will return these segments as separate documents, document segmentation can be used to:
 
   - Perform aggregations on individual segments of a document. For example, your aggregation would count each time a segment mentions a specific entity, instead of only counting it once for the entire document.
   - Perform relevancy training on segments instead of documents, which will improve result reranking.
@@ -934,17 +936,19 @@ The segments are created when the documents are converted to HTML (Word and PDF 
 
 Considerations:
 
-  - The number of segments per document is limited to `50`. Any document content remaining after `49` segments will be stored within segment `50`.
+  - The number of segments per document is limited to `250`. Any document content remaining after `249` segments will be stored within segment `250`.
 
-  - Each segment counts towards the document limit of your plan.
+  - Each segment counts towards the document limit of your plan. {{site.data.keyword.discoveryshort}} will index segments until the plan limit is reached. See [Discovery pricing plans](/docs/services/discovery/pricing-details.html) for document limits.
 
   - You can not normalize data (see [Normalizing data](/docs/services/discovery/building.html#normalizing-data)) or use CSS selectors to extract fields (see [Using CSS selectors to extract fields](/docs/services/discovery/building.html#using-css)) when using document segmentation.
 
-  - If a document has been updated and needs to be ingested again, deleted segments will remain behind after reingestion and must be deleted manually using the API (see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/?curl#delete-doc){: new_window}:). Additionally, if your document update has added content that will create new segments, or deleted content that will remove segments, each section will be assigned a new `document_id`. If those segments had already been ranked with relevancy training, the training will need to be performed again. In this case, instead of adding content to an existing document, consider creating a new document containing the new content and ingest it separately. Instead of deleting segments from an existing document and reingesting, delete those segments using the API.
-
   - Documents will segment each time the specified HTML tag is detected. Consequently, segmentation could lead to malformed HTML because the documents could be split before closing tags and after opening tags.
 
-  - HTML, PDF, and Word metadata is not extracted and will not be included in the index. In addition, custom metadata passed in with the document upload will not be included in the index.
+  - HTML, PDF, and Word metadata, as well as any custom metadata, is extracted and included in the index with each segment. Every segment of a document will include identical metadata.
+  
+  - Document segmentation is not supported when the **Element Classification** (`elements`) enrichment is specified.
+
+  - Re-ingesting a segmented document has additional considerations, see [Updating a segmented document](/docs/services/discovery/building.html#update-seg).
 
 ### Performing segmentation
 {: #performing-segmentation}
@@ -1040,3 +1044,16 @@ All segments will include an:
     - `file_type`- Corresponds to the original document.
   - `text` field
   - `html` field
+
+### Updating a segmented document
+{: #update-seg}
+
+If a segmented document has been updated and needs to be ingested again, it can be replaced using the [Update document ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} method.
+
+When updating a segmented document, the document should be uploaded using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable.
+
+When updating, all segments will be overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments will remain in the index and may be individually deleted using the API. See the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} for details. You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that is comprised of the `{parent_id}`, followed by an underscore, followed by the segment number.
+
+If any of the segments of the document that you intend to update have been ranked for relevancy training, you must first delete all the segments of that document and then ingest the updated document as a new document. This will result in a new `document_id` for each segment and any trained segments will need to be retrained. The trained index will become inaccurate if you don't delete the old content first.
+
+Alternately, consider creating a new document that contains only the new content and ingest it separately. 

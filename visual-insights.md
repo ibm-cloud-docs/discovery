@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-30"
+  years: 2015, 2018
+lastupdated: "2018-04-17"
 
 ---
 
@@ -27,6 +27,8 @@ You can use {{site.data.keyword.discoveryfull}} Visual Insights to learn more ab
 During the experimental release, Visual Insights is only available in public environments.
 
 **Disclaimer:** Visual Insights is an experimental feature, which means it can be unstable, can change frequently, and can be discontinued with short notice. It is provided so you can evaluate its functionality. It may not provide the same level of performance or compatibility that generally released capabilities provide. It is not designed for use in a production environment, and any such use is at your own risk. See [Beta/Experimental features](/docs/services/discovery/release-notes.html#beta-features) for details.
+
+This feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details.
 
 ## A quick tour of Visual Insights
 {: #quick-tour-visual-insights}
@@ -82,6 +84,7 @@ You can use Visual Insights to query {{site.data.keyword.discoverynewsfull}} wit
 
 - An {{site.data.keyword.Bluemix_notm}} account that contains a {{site.data.keyword.discoveryshort}} instance.
 - One or more collections in that {{site.data.keyword.discoveryshort}} instance that have been enriched with the [Entity extraction](/docs/services/discovery/building.html#entity-extraction) enrichment, plus optionally any of the [Concept tagging](/docs/services/discovery/building.html#concept-tagging), [Keyword extraction](/docs/services/discovery/building.html#keyword-extraction), [Relation extraction](/docs/services/discovery/building.html#relation-extraction), and [Category classification](/docs/services/discovery/building.html#category-classification) enrichments. Other enrichments may be included, but will not be represented by Visual Insights.
+- Visual Insights can visualize collections consisting of any combination of PDF, HTML, Word, and JSON documents with an enriched `text` field.
 
 More information about {{site.data.keyword.discoveryshort}} and how to get started for free, see [Watson {{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/services/discovery/){: new_window}.
 
@@ -89,7 +92,12 @@ Once you have an {{site.data.keyword.Bluemix_notm}} account, a {{site.data.keywo
 
 Logging into Visual Insights
 
-1. Open [{{site.data.keyword.discoveryshort}} Visual Insights ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://visual-insights.bluemix.net){: new_window}.
+1. Open {{site.data.keyword.discoveryshort}} Visual Insights. Choose the region your collections are stored in:
+   - [US South ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://visual-insights.bluemix.net){: new_window}.
+   - [Germany ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://visual-insights.eu-de.bluemix.net/){: new_window}.
+   - [Sydney, Australia ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://visual-insights.au-syd.bluemix.net/){: new_window}.
+   - [United Kingdom ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://visual-insights.eu-gb.bluemix.net/){: new_window}.
+
 1. Click on the ![Profile icon](images/discovery-profile-icon.png) icon in the Search bar.
 1. Enter your {{site.data.keyword.Bluemix_notm}} id and password. In a few moments your collections will be available for selection in the Search bar.
 

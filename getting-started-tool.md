@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-30"
+  years: 2015, 2018
+lastupdated: "2018-03-30"
 
 ---
 
@@ -30,10 +30,11 @@ You'll need a service instance to start.
 
 <!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
 
+
 You created your service instance. Click **Manage**, then **Open tool**. Go to [Step 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection).
 {: download tip}
 
-If you created a project with the {{site.data.keyword.discoveryshort}} service, you're all set with these prerequisites. Go to [Step 1](/docs/services/discovery/getting-started-tooling.html#launch-the-tooling).
+If you created a project with the {{site.data.keyword.discoveryshort}} service, you're all set with these prerequisites. Go to [Step 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling).
 
 1.  Go to the {{site.data.keyword.watson}} Developer Console [Services ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/developer/watson/services){: new_window} page.
 1.  Select {{site.data.keyword.discoveryshort}}, click **Add Services**, and either sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
@@ -50,7 +51,7 @@ If you use {{site.data.keyword.Bluemix_dedicated_notm}}, create your service ins
 
 After you create a project that includes the {{site.data.keyword.discoveryshort}} service, you'll land on the project details page. Launch the {{site.data.keyword.discoveryshort}} tooling from here.
 
-Click **Launch Tool** for {{site.data.keyword.discoveryshort}} under **Services**.
+On the **Manage** page, click **Open tool**.
 
 <!-- To do: Add screenshot for developer console -->
 
@@ -79,6 +80,8 @@ The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collectio
 
 1.  Click ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
 1.  When your environment is ready, the **Name your new collection** dialog appears. Name your collection and choose **Default Configuration** from **Select a configuration to apply** (you can change the configuration later).
+
+There is another configuration available named **Default Contract Configuration** that supports Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
 
 ## Step 3: Create a custom configuration
 {: create-custom-configuration}
