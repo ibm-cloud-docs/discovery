@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-11"
+lastupdated: "2018-04-26"
 
 ---
 
@@ -42,6 +42,11 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 26 April 2018
+
+- The following ingestion issue has been fixed: In some cases where post-enrichment `json_normalizations` and/or `normalizations` were specified, the normalizations may have been applied in the wrong order. This could result in documents being indexed with unexpected field values. This is no longer the case.
+- The maximum file size for a sample document is now 1MB. The maximum file size was previously 5MB. 
+
 ## 12 April 2018
 
 - Knowledge Graph: [Evidence](/docs/services/discovery/building-kg.html#evidence) and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are now available in all collections. In any collections created before `03-05-2018`, you need to reingest your documents to use these features. Previously, you needed to create a new collection and reingest your documents. 
@@ -49,6 +54,10 @@ The following new features and changes to the service are available.
 ## 11 April 2018
 
 - Two additional categories are now supported in Element Classification: `Asset Use` and `Communication`. See [Understanding Contract Elements](/docs/services/discovery/element-classification.html#contract-elements) for details.
+
+## 2 April 2018
+
+- Sample documents are now automatically deleted after 24 hours, instead of 1 month.
 
 ## 16 March 2018
 
