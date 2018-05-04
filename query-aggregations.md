@@ -33,6 +33,8 @@ term(enriched_text.concepts.text,count:10)
 ```
 {: codeblock}
 
+**Note:** The `count` parameter has a default value of 10.
+
 ## filter
 {: #filter}
 
