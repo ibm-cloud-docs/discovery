@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-17"
+lastupdated: "2018-05-04"
 
 ---
 
@@ -127,12 +127,13 @@ Each object in the `elements` array describes an element of the contract that El
 }
 ```
 
-There are four important sections to the element:
+There are five important sections to the element:
 
 - `sentence_text` – the text that was analyzed.
 - `sentence` – this object describes where the element was found in the converted HTML, it contains a start character value and an end character value.
 - `types` – this array describes what the element is and who it affects it consists of one or more sets of `party` (who is being affected by the sentence) and `nature` (the effect of the sentence on the identified party)
-- `categories` – this array lists the functional categories (the subject matter) of the identified sentence.
+- `categories` – this array lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
+- `attributes` – this array lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). 
 
 **Note**: Some sentences do not fall under any type or category and in that case the `types` and `categories` arrays are returned empty.
 
@@ -215,6 +216,17 @@ Categories define the subject matter of the sentence. The following currently su
 |`Term & Termination`|Elements referring to duration of the contract, the schedule and terms of contract termination, and any consequences of termination, including any obligations that apply at or after termination.|
 |`Warranties`      |Elements that refer specifically to background, underlying assumptions that the parties can rely on. Consequences of breaching warranties also fall under this category.|
 
+### Attributes
+{: #attributes}
+
+The `attributes` array specifies any attributes identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `attribute` (the start and end points of the attribute in the document). Currently supported attributes include:
+
+| **Attributes** | **Description** |
+| --- | --- |
+|`Location`   |A geographical location or region.           |
+|`DateTime`   |A date, time, date range, or time range.     |
+|`Currency`   |Monetary value and units.                    |
+
 ### Assurance
 
 Every item (type or category) identified by Element Classification is given a `assurance` rating. The possible assurance values are described below:
@@ -223,3 +235,8 @@ Every item (type or category) identified by Element Classification is given a `a
 | --- | --- |
 | `High` | There is significant evidence that the classification given is representative of the content. |
 | `Low` | There is some evidence to support the classification, but it may need further review to confirm. |
+
+### Provenance
+{: #provenance}
+ 
+Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
