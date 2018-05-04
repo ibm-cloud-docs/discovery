@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-26"
+lastupdated: "2018-05-04"
 
 ---
 
@@ -46,6 +46,10 @@ The following new features and changes to the service are available.
 
 - The following ingestion issue has been fixed: In some cases where post-enrichment `json_normalizations` and/or `normalizations` were specified, the normalizations may have been applied in the wrong order. This could result in documents being indexed with unexpected field values. This is no longer the case.
 - The maximum file size for a sample document is now 1MB. The maximum file size was previously 5MB. 
+
+## 4 May 2018
+
+- Two additional contract elements are now supported in Element Classification: Attributes and Provenance. See [Understanding Contract Elements](/docs/services/discovery/element-classification.html#contract-elements) for details.
 
 ## 12 April 2018
 
