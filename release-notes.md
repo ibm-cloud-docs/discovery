@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-04"
+lastupdated: "2018-05-09"
 
 ---
 
@@ -41,6 +41,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 9 May 2018
+
+- Sample documents are now stored locally, in your browser's local roaming data folder. For more information about sample documents, see [Uploading sample documents](/docs/services/discovery/building.html#uploading-sample-documents).
+
 
 ## 26 April 2018
 
