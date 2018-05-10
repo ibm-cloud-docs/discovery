@@ -46,15 +46,14 @@ The following new features and changes to the service are available.
 
 - Sample documents are now stored locally, in your browser's local roaming data folder. For more information about sample documents, see [Uploading sample documents](/docs/services/discovery/building.html#uploading-sample-documents).
 
+## 4 May 2018
+
+- Two additional contract elements are now supported in Element Classification: Attributes and Provenance. See [Understanding Contract Elements](/docs/services/discovery/element-classification.html#contract-elements) for details.
 
 ## 26 April 2018
 
 - The following ingestion issue has been fixed: In some cases where post-enrichment `json_normalizations` and/or `normalizations` were specified, the normalizations may have been applied in the wrong order. This could result in documents being indexed with unexpected field values. This is no longer the case.
 - The maximum file size for a sample document is now 1MB. The maximum file size was previously 5MB. 
-
-## 4 May 2018
-
-- Two additional contract elements are now supported in Element Classification: Attributes and Provenance. See [Understanding Contract Elements](/docs/services/discovery/element-classification.html#contract-elements) for details.
 
 ## 12 April 2018
 
