@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-09"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -41,6 +41,12 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 11 May 2018
+
+- Details about information security can be found here: [Information security](/docs/services/discovery/information-security.html).
+- The following {{site.data.keyword.discoveryfull}} Knowledge Graph `query_entities` known issue has been fixed with the `2018-05-04` API version update. This fix only applies if entities are ingested or replaced after `2018-05-04`. Entities can be replaced by re-ingesting old documents or by ingesting new documents containing those entities. If old entities are not replaced, then `query_entities` will return all upper case with `2018-05-04` API version.
+  - All entity names were previously converted to camel case in `query_entities`. For example, the entity name "IBM Corporation" was converted to "Ibm Corporation". This is no longer the case.
 
 ## 9 May 2018
 

@@ -25,15 +25,13 @@ Aggregations return a set of data values. For the complete list of available agg
 ## term
 {: #term}
 
-Returns the top values (by score and by frequency) for the selected enrichments. All enrichments are valid values. You can optionally use `count` to specify the number of terms to return. This example returns the full text and enrichments of the top values with the concept enrichment, and specifies to return 10 terms.
+Returns the top values (by score and by frequency) for the selected enrichments. All enrichments are valid values. You can optionally use `count` to specify the number of terms to return. The `count` parameter has a default value of 10. This example returns the full text and enrichments of the top values with the concept enrichment, and specifies to return 10 terms.
 
 For example:
 ```bash
 term(enriched_text.concepts.text,count:10)
 ```
 {: codeblock}
-
-**Note:** The `count` parameter has a default value of 10.
 
 ## filter
 {: #filter}
