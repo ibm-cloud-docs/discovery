@@ -68,6 +68,7 @@ Discovery
     query-reference.md
     custom-config.md
     language-support.md
+    information-security.md
     discovery-auxiliary.md
 
     {: .topicgroup}

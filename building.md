@@ -117,7 +117,7 @@ When creating a new configuration file in the {{site.data.keyword.discoveryshort
 -   All of your documents are converted to JSON before they are enriched and indexed.
 -   Microsoft Word and PDF documents are converted to HTML first, then JSON.
 -   HTML documents are converted directly to JSON.
--   The maximum file size for a sample document is 1MB. Sample documents are stored in your browser's local roaming data folder. To delete the sample documents, click the **Delete** icon.
+-   The maximum file size for a sample document is 1MB. Sample documents are stored in your browser's local roaming data folder. To delete your sample documents, click the **Delete** icon.
 
 #### Guidelines for choosing good sample documents:
 
