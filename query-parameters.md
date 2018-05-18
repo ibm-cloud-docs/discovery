@@ -140,7 +140,7 @@ The JSON that is returned will be of the following format:
 A comma-separated list of fields in the index that passages will be drawn from. If this parameter not specified then all top level field are included.
 
 ### passages.count
-{: #passages_fields}
+{: #passages_count}
 
 The maximum number of passages to return. The search will return fewer if that is the total number found. The default is `10`. The maximum is `100`.
 
@@ -197,7 +197,7 @@ The JSON that is returned will be of the following format:
 {: codeblock}
 
 ## deduplicate
-{: #deduplicate_field}
+{: #deduplicate}
 
  A beta capability that excludes duplicate documents from {{site.data.keyword.discoverynewsfull}} collection query results based on the `title` field. See [Excluding duplicate documents from query results](/docs/services/discovery/query-parameters.html#deduplication).
 

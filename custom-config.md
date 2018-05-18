@@ -278,7 +278,7 @@ Each field that you want to create is defined by an object as follows:
 
 - `"css_selector" : string` *required* - a CSS selector expression that defines the area of content to be stored in a field.
 - `"type" : string` *required* - The type of field to be created, can be `string`, `date`
-For detailed information, see [Using CSS selectors to extract fields](docs/services/discovery/building.md#using-css).
+For detailed information, see [Using CSS selectors to extract fields](/docs/services/discovery/building.md#using-css).
 
 ### Segment
 {: #segment}
