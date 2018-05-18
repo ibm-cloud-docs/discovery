@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -41,6 +41,10 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 17 May 2018
+
+- {{site.data.keyword.discoverynewsfull}} queries now display only the first 20 words of each article in the `text` JSON field.
 
 ## 11 May 2018
 
@@ -114,7 +118,7 @@ Known issue:
 
 - Added the ability to query by document similarity. You can query for similar documents by  document ids, and optionally further refine the similarity by specifying fields. See [Document similarity](/docs/services/discovery/using.html#doc-similarity) for more information.
 
-- The [`highlight` parameter](docs/services/discovery/query-parameters.html#highlight) in query results has been enhanced. Query results will return complete sentences, ordered by their `score`.
+- The [`highlight` parameter](/docs/services/discovery/query-parameters.html#highlight) in query results has been enhanced. Query results will return complete sentences, ordered by their `score`.
 
 ## 21 February 2018
 

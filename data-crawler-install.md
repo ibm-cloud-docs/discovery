@@ -32,7 +32,7 @@ The Data Crawler collects the raw data that is eventually used to form search re
 
 -   Minimum 2 GB RAM on the Linux system
 
-## Downloading and installing the Data Crawler
+## Download and install the Data Crawler
 
 1.  Open a browser and log into your [{{site.data.keyword.Bluemix}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net){: new_window}.
 
