@@ -33,7 +33,7 @@ lastupdated: "2017-11-30"
 サービス・インスタンスは作成済みです。**「管理 (Manage)」**をクリックし、次に**「ツールの起動 (Launch Tool)」**をクリックします。[ステップ 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection) に進みます。
 {: download tip}
 
-{{site.data.keyword.discoveryshort}} サービスでプロジェクトを作成した場合、これらの前提条件はすべて設定されています。[ステップ 1](/docs/services/discovery/getting-started-tooling.html#launch-the-tooling) に進んでください。
+{{site.data.keyword.discoveryshort}} サービスでプロジェクトを作成した場合、これらの前提条件はすべて設定されています。[ステップ 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling) に進んでください。
 
 1.  {{site.data.keyword.watson}} Developer Console の「[サービス ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.{DomainName}/developer/watson/services){: new_window}」ページに移動します。
 1.  「{{site.data.keyword.discoveryshort}}」を選択し、**「サービスの追加」**をクリックし、無料の {{site.data.keyword.Bluemix_notm}} アカウントに登録するか、ログインします。
