@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-01"
+lastupdated: "2018-05-21"
 
 ---
 
@@ -152,7 +152,7 @@ You can query this collection using natural language queries, for example "IBM W
 
 You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
-The English, Korean, and Spanish language {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} collections are available from both the {{site.data.keyword.discoveryshort}} tooling and the API.
+The English, Korean, German, and Spanish language {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} collections are available from both the {{site.data.keyword.discoveryshort}} tooling and the API.
 
 The default language of {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} in the tooling is English. To switch the language, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down.
 
