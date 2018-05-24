@@ -56,7 +56,7 @@ Cygwin などの bash シェルまたは同等の環境で、`POST /v1/environme
 1.  以下のコマンドを発行して、`my-first-environment` と呼ばれる環境を作成します。`{username}` と `{password}` は、前にコピーしたサービス資格情報に置き換えてください。
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-11-07"
+    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
@@ -187,7 +187,7 @@ Cygwin などの bash シェルまたは同等の環境で、`POST /v1/environme
 以下の例は、**IBM** と呼ばれるすべてのエンティティーを返します。`{username}`、`{password}`、`{environment_id}`、および `{configuration_id}` は、ご自身の情報に置き換えてください。
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}*/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 
