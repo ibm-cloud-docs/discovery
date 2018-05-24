@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-26"
+lastupdated: "2018-05-21"
 
 ---
 
@@ -21,7 +21,7 @@ lastupdated: "2018-01-26"
 
 {{site.data.keyword.discoverynewsfull}} is included with {{site.data.keyword.discoveryshort}}. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is an indexed dataset that is pre-enriched with the following cognitive insights: **Keyword Extraction**, **Entity Extraction**, **Semantic Role Extraction**, **Sentiment Analysis**, **Relation Extraction**, and **Category Classification**. (To learn more about enrichments, see [Adding enrichments](building.html#adding-enrichments).) The following additional metadata is also added: crawl date and publication date. Historical search is available for the past 60 days of news data. See a demo of what you can build with {{site.data.keyword.discoverynewsfull}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
-{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is updated continuously with new articles. {{site.data.keyword.discoverynewsshort}} English is updated with approximately 300,000 new articles daily. {{site.data.keyword.discoverynewsshort}} Spanish is updated with approximately 60,000 new articles daily; {{site.data.keyword.discoverynewsshort}} Korean with 10,000 new articles daily. The news sources vary by language, so the query results for each collection will not be identical.
+{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is updated continuously with new articles. {{site.data.keyword.discoverynewsshort}} English is updated with approximately 300,000 new articles daily. {{site.data.keyword.discoverynewsshort}} Spanish is updated with approximately 60,000 new articles daily; {{site.data.keyword.discoverynewsshort}} German is updated with approximately 40,000 new articles daily; {{site.data.keyword.discoverynewsshort}} Korean with 10,000 new articles daily. The news sources vary by language, so the query results for each collection will not be identical.
 
 Use cases for {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}}:
 
@@ -35,6 +35,6 @@ For information about writing queries for {{site.data.keyword.discoverynewsfull}
 
 You cannot adjust the {{site.data.keyword.discoverynewsfull}} configuration, train, or add documents to the {{site.data.keyword.discoverynewsfull}} collection.
 
-**Note:** The maximum number of results returned for a Watson Discovery News query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
+**Note:** The maximum number of results returned for a {{site.data.keyword.discoverynewsfull}} query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
 
 **Note:** This version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. {{site.data.keyword.discoverynewsfull}} Original was retired from service **15, January 2018**. For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).

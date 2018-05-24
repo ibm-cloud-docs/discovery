@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-05-21"
 
 ---
 
@@ -41,6 +41,10 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 21 May 2018
+
+- Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) in one additional language: German (`collection_id`: `news-de`). {{site.data.keyword.discoverynewsfull}} is also available in English, Spanish, and Korean.
 
 ## 17 May 2018
 
