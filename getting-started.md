@@ -36,6 +36,10 @@ In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} AP
     1.  On the **Manage** page, click **Show** to view your credentials.
     1.  Copy the `username`, `password`, and `url` values.
 
+    **Important:** The tutorial uses service instance credentials to authenticate to the {{site.data.keyword.discoveryshort}} service. In some regions, new service instances instead use {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) tokens for authentication. Authenticate by using the approach that is right for your region and service instance.
+
+    For more information about where the service uses IAM access tokens and how to use them for authentication, see the {date) service update in the [Release notes](/docs/services/discovery/release-notes.html).
+
 
 ## Step 1: Create an environment
 {: #create-an-environment}

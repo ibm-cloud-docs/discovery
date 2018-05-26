@@ -50,6 +50,53 @@ The following new features and changes to the service are available.
 
 - {{site.data.keyword.discoverynewsfull}} queries now display only the first 20 words of each article in the `text` JSON field.
 
+-   The service now supports a new API authentication process for service instances for applications that are hosted in Sydney (**au-syd**) as of May 15, 2018. They will be enabled for applications that are hosted in other regions soon. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
+
+   In the Sydney region, you use IAM access tokens with the {{site.data.keyword.discoveryshort}} service for
+
+    -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
+    -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](/docs/account/instance_migration.html).
+
+    All new and existing service instances in other regions continue to use service credentials (`{username}:{password}`) for authentication.
+
+### Using an IAM access token to authenticate
+
+When you use IAM access tokens, you authenticate before you send a request to the {{site.data.keyword.discoveryshort}} service.
+
+1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key](/docs/services/watson/getting-started-iam.html#iamtoken).
+1.  Pass the IAM access token to the {{site.data.keyword.discoveryshort}} service by using the `Authorization` header. In the header, indicate that the access token is a `Bearer` token by specifying `Authorization: Bearer {access_token}`.
+
+    The following simple cURL example using an access token:
+
+    ```bash
+    curl -X GET
+    --header "Authorization: Bearer eyJhbGciOiJIUz......sgrKIi8hdFs"
+    "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    ```
+    {: pre}
+
+    For more information, see [Using a token to authenticate](/docs/services/watson/getting-started-iam.html#use_token).
+
+### Refreshing an IAM access token
+
+IAM access tokens that you generate have the following structure. You use the value of the `access_token` field to make an authenticated request to the service.
+
+```javascript
+{
+  "access_token": "eyJhbGciOiJIUz......sgrKIi8hdFs",
+  "refresh_token": "SPrXw5tBE3......KBQ+luWQVY=",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "expiration": 1473188353
+}
+```
+{: codeblock}
+
+Access tokens have a limited time to live. The `expires_in` field indicates how long the token lasts, in this case one hour. The `expiration` field shows when the token expires as a UNIX timestamp that specifies the number of seconds since January 1, 1970 (midnight UTC/GMT).
+
+In your application, check the access token's expiration time before you use it to make an authenticated request. If it is expired, you must refresh the access token before you can use it. You use the value of the `refresh_token` field to refresh the access token. For more information, see [Refreshing a token](/docs/services/watson/getting-started-iam.html#refresh_token).
+
+
 ## 11 May 2018
 
 - Details about information security can be found here: [Information security](/docs/services/discovery/information-security.html).
