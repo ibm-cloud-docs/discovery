@@ -66,7 +66,7 @@ When you use IAM access tokens, you authenticate before you send a request to th
 1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key](/docs/services/watson/getting-started-iam.html#iamtoken).
 1.  Pass the IAM access token to the {{site.data.keyword.discoveryshort}} service by using the `Authorization` header. In the header, indicate that the access token is a `Bearer` token by specifying `Authorization: Bearer {access_token}`.
 
-    The following simple cURL example using an access token:
+    The following simple cURL example uses an access token:
 
     ```bash
     curl -X GET
