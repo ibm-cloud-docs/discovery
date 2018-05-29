@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-05-29"
 
 ---
 
@@ -90,7 +90,7 @@ Download these documents:
 
 1.  Open a browser and log into your [{{site.data.keyword.Bluemix_notm}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net){: new_window}.
 1.  From your {{site.data.keyword.Bluemix_notm}} Dashboard, select the {{site.data.keyword.discoveryshort}} service you previously created.
-1.  Under **Intended Use**, select the appropriate download link for your system (DEB, RPM, or ZIP) to download the Data Crawler.
+1.  Under **Automate the upload of content to the Discovery service**, select the appropriate download link for your system (DEB, RPM, or ZIP) to download the Data Crawler.
 1.  As an administrator, use the appropriate commands to install the archive file that you downloaded:
 
     -   On systems such as Red Hat and CentOS that use rpm packages, use a command such as the following: `rpm -i /full/path/to/rpm/package/rpm-file-name`
