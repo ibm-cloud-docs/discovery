@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-02"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -28,7 +28,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 | Arabic (ar)                     |  Basic         |
 | Chinese, simplified (zh-CN)     |  Basic         |
 | Dutch (nl)                     |  Basic         |
-| French (fr)                     |  Basic         |
+| French (fr)                     |  Full         |
 | German (de)                     |  Full         |
 | Italian (it)                    |  Basic         |
 | Japanese (ja)                  |  Basic         |
@@ -71,6 +71,5 @@ Full support includes basic support, plus:
 The following features are currently supported in English only:
 
 - Element Classification enrichment
-- {{site.data.keyword.discoveryfull}} Visual Insights (experimental)
 - {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)
 - Document deduplication (beta)   
