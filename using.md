@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-21"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -33,8 +33,6 @@ You also have the option to turn on passage retrieval. Passages are short, relev
   {: tip}
 
 Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
-
-{{site.data.keyword.discoveryfull}} Visual Insights is an experimental feature that you can use to visually explore connections identified by {{site.data.keyword.discoveryshort}}'s understanding of semantic elements, relations, concepts, and more. For more information, see [{{site.data.keyword.discoveryfull}} Visual Insights](/docs/services/discovery/visual-insights.html).
 
 {{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.
 
