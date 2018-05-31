@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-21"
+lastupdated: "2018-05-30"
 
 ---
 
@@ -41,6 +41,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 30 May 2018
+
+- Fixed a known issue in {{site.data.keyword.discoverynewsfull}}. Previously, when querying {{site.data.keyword.discoverynewsshort}} it was possible to receive an incorrect document count because documents in other languages would be counted along with the language you requested. This is no longer the case.
+- Beginning with collections created on `22 May 2018` and after {{site.data.keyword.discoveryshort}} now returns query results that include special characters. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>. 
 
 ## 21 May 2018
 
