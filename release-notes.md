@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-31"
+lastupdated: "2018-06-05"
 
 ---
 
@@ -41,6 +41,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 5 June 2018
+
+- Element Classification is now available to those subscribed to Premium plans.
+- The `assurance` rating of `Low` is no longer available for Element Classification.
 
 ## 31 May 2018
 
