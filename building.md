@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-06-05"
 
 ---
 
@@ -206,6 +206,8 @@ After making any changes, click **Apply and Save**.
 {: #adding-enrichments}
 
 The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/discovery/building.html#the-default-configuration) will enrich (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of nine {{site.data.keyword.watson}} enrichments available; the others are Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.)
+
+Some {{site.data.keyword.watson}} enrichments may not be available in certain plans or environments.
 
 **Important:** Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 
