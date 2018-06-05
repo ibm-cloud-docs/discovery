@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-06-06"
 
 ---
 
@@ -41,6 +41,10 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 6 June 2018
+
+- {{site.data.keyword.discoverynewsfull}} queries now display the first 50 words of each article in the `text` JSON field.
 
 ## 5 June 2018
 
