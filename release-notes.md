@@ -42,6 +42,11 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 11 June 2018
+
+-  For applications that are hosted in Washington, DC (US East), the service now supports token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service. For more information about using IAM tokens with existing and new applications, see the [17 May 2018](#17May2018) release update.
+-  An additional contract element is now supported in Element Classification: `Safety and Security`. See [Understanding Contract Elements](/docs/services/discovery/element-classification.html#contract-elements) for details.
+
 ## 6 June 2018
 
 - {{site.data.keyword.discoverynewsfull}} queries now display the first 50 words of each article in the `text` JSON field.
@@ -58,13 +63,14 @@ The following new features and changes to the service are available.
 ## 30 May 2018
 
 - Fixed a known issue in {{site.data.keyword.discoverynewsfull}}. Previously, when querying {{site.data.keyword.discoverynewsshort}} it was possible to receive an incorrect document count because documents in other languages would be counted along with the language you requested. This is no longer the case.
-- Beginning with collections created on `22 May 2018` and after {{site.data.keyword.discoveryshort}} now returns query results that include special characters. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>. 
+- Beginning with collections created on `22 May 2018` and after {{site.data.keyword.discoveryshort}} now returns query results that include special characters. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
 ## 21 May 2018
 
 - Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) in one additional language: German (`collection_id`: `news-de`). {{site.data.keyword.discoverynewsfull}} is also available in English, Spanish, and Korean.
 
 ## 17 May 2018
+{: #17May2018}
 
 - {{site.data.keyword.discoverynewsfull}} queries now display only the first 20 words of each article in the `text` JSON field.
 
@@ -132,11 +138,11 @@ In your application, check the access token's expiration time before you use it 
 ## 26 April 2018
 
 - The following ingestion issue has been fixed: In some cases where post-enrichment `json_normalizations` and/or `normalizations` were specified, the normalizations may have been applied in the wrong order. This could result in documents being indexed with unexpected field values. This is no longer the case.
-- The maximum file size for a sample document is now 1MB. The maximum file size was previously 5MB. 
+- The maximum file size for a sample document is now 1MB. The maximum file size was previously 5MB.
 
 ## 12 April 2018
 
-- Knowledge Graph: [Evidence](/docs/services/discovery/building-kg.html#evidence) and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are now available in all collections. In any collections created before `03-05-2018`, you need to reingest your documents to use these features. Previously, you needed to create a new collection and reingest your documents. 
+- Knowledge Graph: [Evidence](/docs/services/discovery/building-kg.html#evidence) and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are now available in all collections. In any collections created before `03-05-2018`, you need to reingest your documents to use these features. Previously, you needed to create a new collection and reingest your documents.
 
 ## 11 April 2018
 
@@ -162,9 +168,9 @@ Known issue:
 ## 8 March 2018
 
 - The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments. The new features are:
-  - [Entity similarity](/docs/services/discovery/building-kg.html#similarity) 
-  - [Evidence](/docs/services/discovery/building-kg.html#evidence) 
-  - [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) 
+  - [Entity similarity](/docs/services/discovery/building-kg.html#similarity)
+  - [Evidence](/docs/services/discovery/building-kg.html#evidence)
+  - [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization)
 
 ## 7 March 2018
 
