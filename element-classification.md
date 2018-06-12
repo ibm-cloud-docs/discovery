@@ -129,11 +129,11 @@ Each object in the `elements` array describes an element of the contract that El
 
 There are five important sections to the element:
 
-- `sentence_text` – the text that was analyzed.
-- `sentence` – this object describes where the element was found in the converted HTML, it contains a start character value and an end character value.
-- `types` – this array describes what the element is and who it affects it consists of one or more sets of `party` (who is being affected by the sentence) and `nature` (the effect of the sentence on the identified party)
-- `categories` – this array lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
-- `attributes` – this array lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units).
+- `sentence_text` – The text that was analyzed.
+- `attributes` – An array that lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units).
+- `categories` – An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
+- `types`– An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
+- `sentence`– An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
 
 **Note**: Some sentences do not fall under any type or category and in that case the `types` and `categories` arrays are returned empty.
 
