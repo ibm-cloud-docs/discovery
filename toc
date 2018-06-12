@@ -11,7 +11,6 @@ Discovery
     index.md
     watson-discovery-news.md
     element-classification.md
-    visual-insights.md
     building-kg.md
     {: .navgroup-end}
 
