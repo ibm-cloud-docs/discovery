@@ -32,7 +32,7 @@ Element Classification brings together a functionally rich set of integrated, au
 
 Element Classification securely transmits your data performing encryption in flight and at rest. For information about IBM Cloud security, see the [IBM Cloud Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
 
-This feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details. 
+This feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details.
 
 ## Classification requirements
 {: #element-class}
@@ -56,7 +56,7 @@ To classify documents using Element Classification your configuration and source
 
 To use Element Classification, your collection must be configured to meet specific requirements.
 
-The {{site.data.keyword.discoveryshort}} tooling includes a configuration named **Default Contract Configuration** that has been pre-configured to enrich PDF documents with the **Element Classification** enrichment and other required options. You can choose this configuration when you create your collection. The JSON for this configuration is: 
+The {{site.data.keyword.discoveryshort}} tooling includes a configuration named **Default Contract Configuration** that has been pre-configured to enrich PDF documents with the **Element Classification** enrichment and other required options. You can choose this configuration when you create your collection. The JSON for this configuration is:
 
 ```json
 {
@@ -71,7 +71,7 @@ The {{site.data.keyword.discoveryshort}} tooling includes a configuration named 
       }
     }
   ]
-} 
+}
 ```
 {: codeblock}
 
@@ -133,7 +133,7 @@ There are five important sections to the element:
 - `sentence` – this object describes where the element was found in the converted HTML, it contains a start character value and an end character value.
 - `types` – this array describes what the element is and who it affects it consists of one or more sets of `party` (who is being affected by the sentence) and `nature` (the effect of the sentence on the identified party)
 - `categories` – this array lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
-- `attributes` – this array lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). 
+- `attributes` – this array lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units).
 
 **Note**: Some sentences do not fall under any type or category and in that case the `types` and `categories` arrays are returned empty.
 
@@ -211,6 +211,7 @@ Categories define the subject matter of the sentence. The following currently su
 |`Pricing & Taxes` |This category includes elements that describe what a party pays or gets paid. The category includes elements that refer to taxes and specific amounts associated with individual deliverables that are exchanged, including details about the costs of a particular element, and elements that describe specific figures or methods for calculating prices.|
 |`Privacy`         | Elements that specify the treatment of personal information; that is, private information about a specific individual or individuals that needs to be protected. The category is a very specific subset of the broader `Confidentiality` category.|
 |`Responsibilities`|Tasks ancillary to the agreement, over which only one of the parties has oversight and control. The types of elements that fall into this category differ depending on the nature of the contract.|
+|`Safety and Security`|Elements referring to physical safety or cybersecurity protections for data and systems, as well as elements referring to enhancing safety of the workplace or workplaces.|
 |`Scope of Work`   |This category defines what is in the contract versus what is not in the contract. Typically, elements that tell the parties how a particular order is to be defined fall into this category. Examples include discussions of "statements of work" or descriptions of applicable communications standards.|
 |`Subcontracts`    |Elements referring to the hiring of third parties to perform certain duties under the contract, and the permissions, rights, restrictions, and consequences thereto and arising therefrom.|
 |`Term & Termination`|Elements referring to duration of the contract, the schedule and terms of contract termination, and any consequences of termination, including any obligations that apply at or after termination.|
@@ -238,5 +239,5 @@ Every item (type or category) identified by Element Classification is given a `a
 
 ### Provenance
 {: #provenance}
- 
+
 Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
