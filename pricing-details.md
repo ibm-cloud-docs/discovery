@@ -33,6 +33,10 @@ The {{site.data.keyword.discoveryfull}} service offers four plans that provide d
 | 500 Element Classification pages per month      |500 Element Classification pages per month | 500 Element Classification pages per month<br/> Additional Element Classification pages $0.40 USD/Page |-|
 | 500 query expansions with 1,000 total terms     |500 query expansions with 1,000 total terms | 5,000 query expansions with 25,000 total terms  |-|
 
+**Note:** You cannot ingest any more documents if you exceed your plan limit. If you reach your plan limit, either delete documents from a collection or upgrade your plan to ingest more documents.
+
+**Note:** Document ingestion limits will be enforced as of 20th June 2018. Instances that are over the limit will remain active, but additional documents cannot be ingested until you either delete documents from a collection or upgrade your plan.
+
 **Note:** In all plans, the first 1,000 {{site.data.keyword.discoverynewsshort}} queries per month are free. {{site.data.keyword.discoverynewsshort}} queries are charged at $0.10 per query after the first 1,000. Lite plans are limited to a maximum of 1,000 {{site.data.keyword.discoverynewsshort}} queries per month.
 
 **Note:** Lite plan instances are deleted after 30 days of inactivity. One free environment is allotted per organization on Lite plans.
