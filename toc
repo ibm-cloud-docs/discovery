@@ -16,6 +16,7 @@ Discovery
 
     {: .navgroup id="howto"}
     building.md
+    connect.md
     adding-content.md
 
     {: topicgroup}
@@ -44,7 +45,7 @@ Discovery
     {: topicgroup}
     Discovery and Knowledge Studio
         integrate-wks.md
-        
+
     {: topicgroup}
     Migrating features
         migrate-adn.md

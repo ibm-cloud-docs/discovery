@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-14"
+lastupdated: "2018-06-26"
 
 ---
 
@@ -23,10 +23,15 @@ lastupdated: "2018-05-14"
 IBM is committed to providing our clients and partners with innovative data privacy, security and governance solutions.
 {: shortdesc}
 
-**Notice:** 
+**Notice:**
 Clients are responsible for ensuring their own compliance with various laws and regulations, including the European Union General Data Protection Regulation. Clients are solely responsible for obtaining advice of competent legal counsel as to the identification and interpretation of any relevant laws and regulations that may affect the clients’ business and any actions the clients may need to take to comply with such laws and regulations.
 
 The products, services, and other capabilities described herein are not suitable for all client situations and may have restricted availability. IBM does not provide legal, accounting or auditing advice or represent or warrant that its services or products will ensure that clients are in compliance with any law or regulation.
+
+If you need to request GDPR support for {{site.data.keyword.cloud}} {{site.data.keyword.watson}} resources that are created
+
+-   In the European Union (EU), see [Requesting support for IBM Cloud Watson resources created in the European Union](/docs/services/watson/getting-started-gdpr-sar.html#request-EU).
+-   Outside of the EU, see [Requesting support for resources outside the European Union](/docs/services/watson/getting-started-gdpr-sar.html#request-non-EU).
 
 ## European Union General Data Protection Regulation (GDPR)
 {: #gdpr}
@@ -58,6 +63,8 @@ On any REST call, an optional header `X-Watson-Metadata` can be sent with semico
 
 The following stored information can be deleted using a `customer_id` if the `customer_id` was specified when the information was originally added using the associated method:
 
+- queries (`/v1/environments/{environment_id}/collections/{collection_id}/query`) Only when used with the `passages` or `natural_language_query` parameters
+- events (`/v1/events`)
 - documents (`/v1/environments/{environment_id}/collections/{collection_id}/documents`)
 - notices (`/v1/environments/{environment_id}/collections/{collection_id}/notices`) Only ingestion `notices` are labeled.
 - Knowledge Graph entities (`/v1/environments/{environment_id}/collections/{collection_id}/query_entities`)
@@ -76,7 +83,7 @@ Any string fields (including but not limited to `name` and `description`) of the
 
 When ingesting documents, include the `X-Watson-Metadata` header using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` or `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/ID` operations. The `customer_id` field is added to the `extracted_metadata` of the documents. Your application should be configured to provide a `customer_id` in the `X-Watson-Metadata` header when performing any operation.
 
-Optionally, you can include the `customer_id` field with the `metadata` multi-part form part instead of using the `X-Watson-Metadata` header. 
+Optionally, you can include the `customer_id` field with the `metadata` multi-part form part instead of using the `X-Watson-Metadata` header.
 
 **Note:** If your documents have already been ingested, you will need to reingest them to add the `X-Watson-Metadata` header and `customer_id`.
 
@@ -97,7 +104,7 @@ Data can be labeled with the `customer_id` field when using the {{site.data.keyw
 
 Adding a `customer_id` with the **GDPR Data Label** field will label the documents, notices, Knowledge Graph entities, Knowledge Graph relations, and training data within that URL domain from that point forward, including each instance under that domain. Any actions (including document uploads) that occurred in the {{site.data.keyword.discoveryshort}} tooling before adding the **GDPR Data Label** field will not be labeled.
 
-**Note:** If you switch domains, browsers, empty the browser cache, or start an incognito session after you specify your `customer_id` using the **GDPR Data Label** field of the {{site.data.keyword.discoveryshort}} tooling, the `customer_id` will not be retained and your data will not be labeled. If you must switch domains or browsers, re-enter the `customer_id` in the **GDPR Data Label** field. 
+**Note:** If you switch domains, browsers, empty the browser cache, or start an incognito session after you specify your `customer_id` using the **GDPR Data Label** field of the {{site.data.keyword.discoveryshort}} tooling, the `customer_id` will not be retained and your data will not be labeled. If you must switch domains or browsers, re-enter the `customer_id` in the **GDPR Data Label** field.
 
 ### Labeling documents using the Data Crawler
 {: #labelingdc}
@@ -108,17 +115,16 @@ If any documents have already been crawled with the Data Crawler, you will need 
 1. Schedule a crawl. The documents are submitted to {{site.data.keyword.discoveryshort}} using the `X-Watson-Metadata` header and the documents will be labeled with the configured `customer_id`.
 
 ## Deleting labeled data
-{: #deletingdata} 
+{: #deletingdata}
 
 Data must be labeled with a `customer_id` in order to delete it later.
 
-1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery/information-security.html#pi_methods). Also see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html#delete-user-data){: new_window} 
+1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery/information-security.html#pi_methods). Also see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html#delete-user-data){: new_window}
 
-Deletions are performed asynchronously. You cannot track the progress of deletions. 
+Deletions are performed asynchronously. You cannot track the progress of deletions.
 
 If a non-existent `customer_id` is provided, nothing will be deleted, but a `200 - OK` response will be returned.
 
 Environments and Collections are not labeled with a `customer_id`, even if a `X-Watson-Metadata` header is included in the request to create the environment or collection. Only the individual documents within a collection within an environment are labeled. Therefore when data is deleted, individual environments and collections are NOT deleted.
 
 You cannot delete labeled data using the {{site.data.keyword.discoveryshort}} tooling.
-
