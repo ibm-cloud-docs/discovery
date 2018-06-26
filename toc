@@ -37,6 +37,7 @@ Discovery
     {: topicgroup}
     Improving relevance of results
         train-tooling.md
+        dashboard.md
         train.md
         train-tips.md
 
