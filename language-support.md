@@ -31,7 +31,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 | French (fr)                     |  Full         |
 | German (de)                     |  Full         |
 | Italian (it)                    |  Basic         |
-| Japanese (ja)                  |  Basic         |
+| Japanese (ja)                  |  Full         |
 | Korean (ko)                    |  Full         |
 | Portuguese, Brazilian (pt-br)   |  Basic         |
 | Spanish (es)                    |  Full         |
@@ -72,4 +72,5 @@ The following features are currently supported in English only:
 
 - Element Classification enrichment
 - {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)
-- Document deduplication (beta)   
+- Document deduplication (beta)
+- Connecting and syncing to Salesforce, Microsoft SharePoint Online, and Box collections. 

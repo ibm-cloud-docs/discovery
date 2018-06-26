@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-22"
+lastupdated: "2018-06-25"
 
 ---
 
@@ -43,10 +43,13 @@ Training must meet the following **minimum** requirements for {{site.data.keywor
 **Note:** There is a maximum of 25 trained collections per environment.  
 
 ## Adding queries and rating the relevancy of results
+{: #results}
 
 Training consists of three parts: a natural language query, the results of the query, and the ratings you apply to those results.
 
-1.  In the {{site.data.keyword.discoveryshort}} tooling, you can reach the training page for a collection from the **Build queries** screen. Click **Train Watson to improve results** on the upper right. You don't need to enter a query on the **Build queries** screen to start training.
+1.  There are two ways to access the training page in the {{site.data.keyword.discoveryshort}} tooling:
+    - For an individual collection, on the **Build queries** screen, click **Train Watson to improve results** on the upper right. You don't need to enter a query on the **Build queries** screen to start training. 
+    - From the Performance dashboard. Click on the **View data metrics** icon on the left to open the dashboard. You will be prompted to choose a collection to train.
 1.  On the **Train Watson** screen, click **Add a natural language query**, for example: "IBM Watson in healthcare" and add it. Make sure your queries are written the way your users would ask them. Also, training queries should be written with some term overlap between the query and the desired answer. This will improve initial results when the natural language query is run. Relevance training only uses natural language queries, do not enter queries written in the {{site.data.keyword.discoveryshort}} Query Language.
 1.  To view the results of your query, click the **Rate Results** button next to it. If you don't think there are enough results, you could try rewriting the query, or adding more documents to this collection via the **Manage data** screen.
 1.  Begin rating results as either `Relevant` or `Not relevant`. When you are done, click **Back to queries**. In the {{site.data.keyword.discoveryshort}} tooling, `Relevant` has a score of `10` and `Not relevant`has a score of `0`. If you have already starting rating results for this collection using the API, and used a different scoring scale, a warning will be displayed, with options to fix the issue.

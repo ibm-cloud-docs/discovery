@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-06"
+lastupdated: "2018-06-09"
 
 ---
 
@@ -41,6 +41,16 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 25 June 2018
+
+- Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. Released the [Source Credential ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#credentials-api){: new_window} and [Configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window} APIs for these data sources. 
+- Added a new Performance Dashboard in Discovery Tooling. See [Viewing metrics and improving query results with the Performance dashboard](/docs/services/discovery/dashboard.html). The new dashboard is not available in Premium or Dedicated environments.
+- Added full support for Japanese. For more information, see [Language support](/docs/services/discovery/language-support.html).
+
+## 22 June 2018
+
+- Released the Events and Feedback API. See the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} for more information.
 
 ## 11 June 2018
 
