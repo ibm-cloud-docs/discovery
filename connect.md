@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-06-28"
 
 ---
 
@@ -45,6 +45,8 @@ Connecting to a data source can be performed using the {{site.data.keyword.disco
 
 The following general requirements apply to all data sources:
 
+-  {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online.
+-  The individual document file size limit for Box, Salesforce, and SharePoint Online is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring a source using the {{site.data.keyword.discoveryshort}} tooling.
 -  Crawling a data source will use resources (API calls) of the data source. The number of calls depends on the number of documents crawled. An appropriate level of service (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
@@ -176,4 +178,4 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
        {: codeblock}
 3.  The next scheduled crawl will add the `customer_id` field to all documents. If you want to have a crawl start immediately, modify the source configuration (**Sync settings** in the tooling).
 
-See [Information security ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/information-security.html) for more information and information about deleting based on `customer_id`.{: new_window}.
+See [Information security ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/information-security.html){: new_window} for more information and information about deleting based on `customer_id`.
