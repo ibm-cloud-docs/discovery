@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-17"
+lastupdated: "2018-07-03"
 
 ---
 
@@ -25,6 +25,7 @@ How do I decide which document upload method to use?
 -   Use the [API](/docs/services/discovery/getting-started.html) if you are integrating the upload of content with an existing application or creating your own custom upload mechanism.
 -   Use the [{{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery/getting-started-tool.html) if you want to quickly upload locally accessible files.
     When uploading documents using the {{site.data.keyword.discoveryshort}} tooling, all documents should have a unique file name. If two files have the same name, the original will be overwritten when the newer version is uploaded. If you would prefer that documents with the same file name coexist in your collection, the Document ID needs to be specified. You can specify the Document ID if you upload documents using the API or the Data Crawler.
+-   Use the {{site.data.keyword.discoveryshort}} tooling or API to connect to Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.    
 -   Use the [Data Crawler](/docs/services/discovery/data-crawler.html) if you want to have a managed upload of a significant number of files, or you want to extract content from a supported repository (such as a DB2 database).
 
 ## Adding content with the API or tooling
@@ -61,6 +62,9 @@ Your documents are now enqueued to be converted and enriched. The time this take
 -   **Number of documents** in your collection
 -   **Configuration** — The name of the configuration file used to convert this collection
 -   **Errors and Warnings**
+
+For information on how to connect to Box, Salesforce, and Microsoft SharePoint Online data sources with the {{site.data.keyword.discoveryshort}} tooling, see [Connecting to data sources](/docs/services/discovery/connect.html).
+
 
 ## Uploading documents with the API
 
