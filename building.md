@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-07-03"
 
 ---
 
@@ -55,13 +55,16 @@ To create an environment and private data collection with the {{site.data.keywor
 
 1.  On the **Manage Data** screen, click the ![Cog](images/icon_settings.png) icon and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
 
-1.  Once your environment is ready, click the **Create a data collection** button, then you can **Name your new collection**.
+1.  Once your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**.
 
     By default, the configuration file will be **Default Configuration**. If you have another configuration file available, you can choose it, or you can create a new one later and apply it to this collection. You can also select the language of the documents you will add to this collection: English, German, Spanish, Arabic, French, Italian, Korean, or Brazilian Portuguese. There should be only one language in each of your collections. After you click **Create**, your data collection will appear as a tile.
 
 Your environment and data collection are ready! If you wish to use the default configuration file, you can start [Adding content](/docs/services/discovery/adding-content.html) immediately. But if you want to customize your {{site.data.keyword.discoveryshort}} configuration with additional enrichments and conversion settings, you should not begin adding documents right now, you should start creating your custom configuration file. See [Configuring your service](/docs/services/discovery/building.html#custom-configuration).
 
 **Note:** When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you decide later that you would like to switch a collection to a different configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration file. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. The {{site.data.keyword.discoveryshort}} service stores the converted text of the documents that you upload, embedded images in **PDF** and **Microsoft Word** files are not stored and will not be returned in results.
+
+You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+{: tip}
 
 ### The default configuration
 {: #the-default-configuration}
