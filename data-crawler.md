@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-07-03"
 
 ---
 
@@ -24,7 +24,10 @@ The data crawler lets you automate the upload of content to the {{site.data.keyw
 
 ## Crawling data with the Data Crawler
 
-The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases, Microsoft SharePoint&reg; ) and push them to the cloud, to be used by the {{site.data.keyword.discoveryshort}} Service.
+The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases, Microsoft SharePoint) and push them to the cloud, to be used by the {{site.data.keyword.discoveryshort}} Service.
+
+You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+{: tip}
 
 ## When to use the Data Crawler
 

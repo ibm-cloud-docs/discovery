@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-07-03"
 
 ---
 
@@ -74,9 +74,12 @@ A collection is a set of your documents. *Why would I want more than one collect
 The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready-to-query and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
 
 1.  Click ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
-1.  When your environment is ready, the **Name your new collection** dialog appears. Name your collection and choose **Default Configuration** from **Select a configuration to apply** (you can change the configuration later).
+1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection and choose **Default Configuration** from **Select a configuration to apply** (you can change the configuration later).
 
 There is another configuration available named **Default Contract Configuration** that supports Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
+
+You can also crawl Box, Salesforce, and Microsoft SharePoint Online data sources with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+{: tip}
 
 ## Step 3: Create a custom configuration
 {: create-custom-configuration}

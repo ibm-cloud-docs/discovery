@@ -45,9 +45,9 @@ The following new features and changes to the service are available.
 ## 25 June 2018
 
 - Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. Released the [Source Credential ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#credentials-api){: new_window} and [Configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window} APIs for these data sources. 
-  - {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online. 
+  - {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. 
   - The individual document file size limit for Box, Salesforce, and SharePoint Online is 10MB.
-- Added a new Performance Dashboard in Discovery Tooling. See [Viewing metrics and improving query results with the Performance dashboard](/docs/services/discovery/dashboard.html). The new dashboard is not available in Premium or Dedicated environments.
+- Added a new Performance Dashboard in {{site.data.keyword.discoveryshort}} tooling. See [Viewing metrics and improving query results with the Performance dashboard](/docs/services/discovery/dashboard.html). The new dashboard is not available in Premium or Dedicated environments.
 - Added full support for Japanese. For more information, see [Language support](/docs/services/discovery/language-support.html).
 
 ## 22 June 2018

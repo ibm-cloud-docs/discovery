@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-07-03"
 
 ---
 
@@ -21,6 +21,9 @@ lastupdated: "2018-02-12"
 
 To set up the Data Crawler to crawl your repository, you must specify the appropriate input adapter in the `crawler.conf` file, and then configure repository-specific information in the input adapter configuration files.
 {: shortdesc}
+
+You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+{: tip}
 
 Before making the changes listed in these steps, make sure that you have created your  working directory by copying the contents of the `{installation_directory}/share/examples/config` directory to a working directory on your system, for example `/home/config`.
 

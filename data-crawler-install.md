@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-07-03"
 
 ---
 
@@ -21,6 +21,9 @@ lastupdated: "2018-05-29"
 
 The Data Crawler collects the raw data that is eventually used to form search results for the {{site.data.keyword.discoveryshort}} service. When crawling data repositories, the crawler downloads documents and metadata, starting from a user-specified seed URL. The crawler discovers documents in a hierarchy, or otherwise linked from the seed URL, and enqueues these for retrieval.
 {: shortdesc}
+
+You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+{: tip}
 
 ## Prerequisites
 
