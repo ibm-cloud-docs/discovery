@@ -5,16 +5,22 @@
 Discovery
 
     {: .navgroup id="learn"}
-    getting-started.md
     getting-started-tool.md
-    getting-started-query.md
     index.md
     watson-discovery-news.md
     element-classification.md
     building-kg.md
+    sample-apps.md
+    [Videos](https://ibm.biz/wds_videos)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+
+    {: topicgroup}
+    Tutorials
+        getting-started.md
+        getting-started-query.md
+
     building.md
     connect.md
     adding-content.md
@@ -61,6 +67,11 @@ Discovery
     [API reference](https://www.ibm.com/watson/developercloud/discovery/api)
 
     {: topicgroup}
+    Whitepapers
+        [Discovery Cloud architecture](http://ibm.biz/discovery_advantage_paper)
+        [Discovery Whitepaper](https://www.ibm.com/watson/whitepaper/discovery/)
+
+    {: topicgroup}
     Enrichment
         categories.md
         entity-types.md
@@ -70,6 +81,7 @@ Discovery
     custom-config.md
     language-support.md
     information-security.md
+    additional-resources.md
     discovery-auxiliary.md
 
     {: .topicgroup}
