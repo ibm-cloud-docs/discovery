@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-07-18"
 
 ---
 
@@ -23,6 +23,9 @@ lastupdated: "2018-04-27"
 
 In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} API and go through the process of creating a private data collection and searching it.
 {: shortdesc}
+
+If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started](/docs/services/discovery/getting-started-tool.html).
+{: tip}
 
 ## Before you begin
 {: #before-you-begin}

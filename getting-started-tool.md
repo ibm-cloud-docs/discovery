@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-07-18"
 
 ---
 
@@ -18,10 +18,13 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 {:download: .download}
 
-# Getting started with the tooling
+# Getting started
 
 In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} tooling and go through the process of creating a private data collection and searching it.
 {: shortdesc}
+
+If you prefer to work in the API, see [Getting started with the API](/docs/services/discovery/getting-started.html).
+{: tip}
 
 ## Before you begin
 {: #before-you-begin}

@@ -98,7 +98,7 @@ Aggregations return a set of data values. These are the available aggregations:
 | [timeslice](/docs/services/discovery/query-aggregations.html#timeslice) | Time base distribution | `timeslice(last_modified,2day,America/New York)` |
 | [top_hits](/docs/services/discovery/query-aggregations.html#top_hits) | Top ranked results documents for the current aggregation | `term(enriched_text.concepts.text).top_hits(10)` |
 | [unique_count](/docs/services/discovery/query-aggregations.html#unique_count) | Count of unique values for a field within an aggregation | `unique_count(enriched_text.entities.type)` |
-| [max](/docs/services/discovery/query-aggregations.html#min) | Maximum value for the specified field in the results set. | `max(product.price)` |
-| [min](/docs/services/discovery/query-aggregations.html#max) | Minimum value for the specified field in the results set. | `min(product.price)` |
+| [max](/docs/services/discovery/query-aggregations.html#max) | Maximum value for the specified field in the results set. | `max(product.price)` |
+| [min](/docs/services/discovery/query-aggregations.html#min) | Minimum value for the specified field in the results set. | `min(product.price)` |
 | [average](/docs/services/discovery/query-aggregations.html#average) |Mean value for the specified field in the results set. | `average(product.price)` |
 | [sum](/docs/services/discovery/query-aggregations.html#sum) | Sum of all fields in the results set. | `sum(product.price)` |
