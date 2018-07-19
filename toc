@@ -15,7 +15,6 @@ Discovery
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-
     {: topicgroup}
     Tutorials
         getting-started.md
