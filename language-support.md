@@ -73,4 +73,4 @@ The following features are currently supported in English only:
 - Element Classification enrichment
 - {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)
 - Document deduplication (beta)
-- Connecting and syncing to Salesforce, Microsoft SharePoint Online, and Box collections. 
+- Connecting and syncing to Salesforce, Microsoft SharePoint Online, and Box collections with the {{site.data.keyword.discoveryshort}} tooling. 
