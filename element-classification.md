@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-07-30"
 
 ---
 
@@ -105,13 +105,23 @@ Once a document has been indexed with Element Classification, it will be returne
 
 Each object in the `elements` array describes an element of the contract that Element Classification has identified. The following code represents a typical element:
 
-```
+```javascript
 {
    "sentence" : {
      "begin" : 34941,
      "end" : 35307
    },
-   "sentence_text" : "Buyer may, upon written notice to Supplier, terminate a SOW or WA.",
+   "sentence_text" : "Buyer, if in New York state may, upon written notice to Supplier, terminate a SOW or WA.",
+   "attributes" : [
+     {
+       "type": "Location",
+       "text": "New York",
+       "attribute": {
+         "begin": 34954,
+         "end": 34962
+         }
+     }
+   ],
    "types" : [ {
      "label" : {
        "nature" : "Right",
@@ -127,10 +137,10 @@ Each object in the `elements` array describes an element of the contract that El
 }
 ```
 
-There are five important sections to the element:
+There are multiple important sections to the element:
 
-- `sentence_text` – The text that was analyzed.
-- `attributes` – An array that lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units).
+- `sentence_text` – the text that was analyzed.
+- `attributes` – this array lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units).
 - `categories` – An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
 - `types`– An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
 - `sentence`– An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
@@ -138,21 +148,6 @@ There are five important sections to the element:
 **Note**: Some sentences do not fall under any type or category and in that case the `types` and `categories` arrays are returned empty.
 
 **Note:**  Some sentences cover multiple topics and will therefore be returned with multiple `types` and `categories` items listed.
-
-Additionally, any identified parties are also defined in the parties array:
-
-```
-  "parties" : [ {
-    "party" : "Customer",
-    "role" : "Buyer"
-  } ]
-```
-
-There are two important sections to each element of the parties array:
-
-- `party` – the text that was identified as a party within the document.
-- `role` – the role of the party that has been identified. Roles change based on sub-domain, see the information on the specified sub-domain for a list of possible roles. Parties that cannot be identified to a specific role are labeled as `Unknown`.
-
 
 ## Understanding Contract Elements
 {: #contract-elements}
@@ -236,3 +231,175 @@ The `attributes` array specifies any attributes identified in the sentence. Each
 {: #provenance}
 
 Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
+
+## Parties identified
+{: #parties_identified}
+
+Any identified parties are also defined in the parties array:
+
+```json
+  "parties" : [ {
+    "party" : "Customer",
+    "role" : "Buyer"
+  } ]
+```
+{: codeblock}
+
+There are two important sections to each element of the parties array:
+
+- `party` – the text that was identified as a party within the document.
+- `role` – the role of the party that has been identified. Roles change based on sub-domain, see the information on the specified sub-domain for a list of possible roles. Parties that cannot be identified to a specific role are labeled as `Unknown`.
+
+## Tables identified
+{: #tables_identified}
+
+After a document has been enriched using Element Classification, any identified tables are parsed into the `tables` array of the stored document. Each object in the array describes a table identified in the input document.
+
+The following is an example table from an input document.
+ ![Example table](images/example-table.png)
+
+The table is composed as follows:
+ ![Table composition](images/table-comp.png)
+ 
+where:
+
+<ul>
+  <li><strong><em>Bold italic text</em></strong> indicates a table header</li>
+  <li><strong>Bold text</strong> indicates a column header</li>
+  <li><em>Italic text</em> indicates a row header</li>
+  <li>Unstyled text indicates a body cell</li>
+</ul>
+
+The following code snippet is a JSON respesentation of the above example's first body cell (that is, the first cell in row 3 with a value of `35.0%`).
+
+```json
+  "tables": [
+    {
+      "table": {
+        "begin": 872,
+        "end": 5879
+      },
+      "table_text": "...",
+      "row_headers": [
+        {
+          "id": "rowHeader-2244-2262",
+          "cell": {
+            "begin": 2244,
+            "end": 2263
+          },
+          "cell_text": "Statutory tax rate",
+          "row_index_min": 2,
+          "row_index_max": 2,
+          "column_index_min": 0,
+          "column_index_max": 0
+        }
+      ],
+      "column_headers": [
+        {
+          "id": "colHeader-1050-1082",
+          "cell": {
+            "begin": 1050,
+            "end": 1083
+          },
+          "cell_text": "Three months ended September 30,",
+          "row_index_min": 0,
+          "row_index_max": 0,
+          "column_index_min": 1,
+          "column_index_max": 2
+        },
+        {
+          "id": "colHeader-1544-1548",
+          "cell": {
+            "begin": 1544,
+            "end": 1549
+          },
+          "cell_text": "2005",
+          "row_index_min": 1,
+          "row_index_max": 1,
+          "column_index_min": 1,
+          "column_index_max": 1
+        }
+      ],
+      "body_cells": [
+        {
+          "id": "bodyCell-2450-2455",
+          "cell": {
+            "begin": 2450,
+            "end": 2456
+          },
+          "cell_text": "35.0%",
+          "row_index_min": 2,
+          "row_index_max": 2,
+          "column_index_min": 1,
+          "column_index_max": 1,
+          "row_header_ids": [
+            "rowHeader-2244-2262"
+          ],
+          "row_header_texts": [
+            "Statutory tax rate"
+          ],
+          "column_header_ids": [
+            "colHeader-1050-1082",
+            "colHeader-1544-1548"
+          ],
+          "column_header_texts": [
+            "Three months ended September 30,",
+            "2005"
+          ]
+        }
+      ],
+      "section_title": {},
+      "section_title_text": "",
+      "table_headers": []
+    }
+  ]
+```
+
+The {{site.data.keyword.discoveryshort}} service uses the following fields to represent tables:
+
+  - `tables`: An array defining the tables identified by the service.
+  - `table`: The location of the current table as defined by its begin and end offsets in the input document.
+  - `table_text`: The textual contents of the current table from the input document without associated markup content.
+  - `section_title`: If identified, the location of a section title containing the current table, as defined by its begin and end offsets in the  input document. If not identified, empty.
+  - `section_title_text`: If identified, the textual contents of the section title containing the current table, without associated markup content.
+  - `table_headers `: An array of table-level cells applicable as headers to all other cells of the current table. Each table header is defined as a collection of the following elements:
+    - `id`: A string value in the format `tableHeader-x-y`,where `x` and `y` are the begin and end offsets of the cell value in the original input document.
+    - `cell`: The location of the table header cell in the current table as defined by its begin and end offsets in the input document.
+    - `cell_text`: The textual contents of this cell from the input document without associated markup content.
+    - `row_index_min`: The begin index of this cell's `row` location in the current table.
+    - `row_index_max`: The end index of this cell's `row` location in the current table.
+    - `column_index_min`: The begin index of this cell's `column` location in the current table.
+    - `column_index_max`: The end index of this cell's `column` location in the current table.
+  - `column_headers`: An array of column-level cells in the current table. Each cell is applicable as a header to other cells in the same column as itself. Each `column` header is defined as a collection of the following elements:
+    - `id`: A string value in the format `columnHeader-x-y`, where `x` and `y` are the begin and end offsets of this column header cell in the input document.
+    - `cell`: The location of the table header cell in the current table as defined by its begin and end offsets in the input document.
+    - `cell_text`: The textual contents of this cell from the input document without associated markup content.
+    - `row_index_min`: The begin index of this cell's `row` location in the current table.
+    - `row_index_max`: The end index of this cell's `row` location in the current table.
+    - `column_index_min`: The begin index of this cell's `column` location in the current table.
+    - `column_index_max`: The end index of this cell's `column` location in the current table.
+  - `row_headers`: An array of row-level cells in the current table. Each cell is applicable as a header to other cells in the same row as itself. Each row header is defined as a collection of the following elements:
+    - `id`: A string value in the format `rowHeader-x-y`, where `x` and `y` are the begin and end offsets of this row header cell in the input document.
+    - `cell`: The location of the table header cell in the current table as defined by its begin and end offsets in the input document.
+    - `cell_text`: The textual contents of this cell from the input document without associated markup content.
+    - `row_index_min`: The begin index of this cell's `row` location in the current table.
+    - `row_index_max`: The end index of this cell's `row` location in the current table.
+    - `column_index_min`: The begin index of this cell's `column` location in the current table.
+    - `column_index_max`: The end index of this cell's `column` location in the current table.
+  - `body_cells`: An array of cells in the current table. The cells are not table header, column header, or row header cells, and have corresponding row and column header associations. Each body cell is defined as a collection of the following elements:
+    - `id`: A string value in the format `bodyCell-x-y`, where `x` and `y` are the begin and end offsets of this body cell in the input document.
+    - `cell`: The location of the cell in the current table as defined by its begin and end offsets in the input document.
+    - `cell_text`: The textual contents of this cell from the input document without associated markup content.
+    - `row_index_min`: The begin index of this cell's `row` location in the current table.
+    - `row_index_max`: The end index of this cell's `row` location in the current table.
+    - `column_index_min`: The begin index of this cell's `column` location in the current table.
+    - `column_index_max`: The end index of this cell's `column` location in the current table.
+    - `row_header_ids`: An array of values, each being the `id` value of a `row` header that is applicable to this body cell.
+    - `row_header_texts`: An array of values, each being the `cell_text` value of a `row` header that is applicable to this body cell.
+    - `column_header_ids`: An array of values, each being the `id` value of a `column` header that is applicable to this body cell.
+    - `column_header_texts`: An array of values, each being the `cell_text` value of a `column` header that is applicable to this body cell.
+
+**Note:**
+  - Row and column index values per cell are zero-based and so begin with `0`.
+  - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a hierarchy of `row` headers.
+  - Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a hierarchy of `column` headers.
