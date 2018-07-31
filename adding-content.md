@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-07-31"
 
 ---
 
@@ -42,13 +42,13 @@ Consider the following when you are ready to add documents to your collection:
 
 The following limits apply when uploading documents:
 
--   21 in-flight documents in **Lite** and **Standard** plans 
--   105 in-flight documents in **Advanced** plans
--   210 in-flight documents in **Premium** plans
+- **Lite** plans: 21 in-flight documents
+- **Advanced** plans: 105 in-flight documents (except for X-Small Advanced plans, which have a limit of 50 in-flight documents)
+- **Premium** plans: 210 in-flight documents
 
-**Note:** These limits are subject to change. 
+These limits are subject to change. 
 
-If you reach your in-flight limit, you should slow down the rate of your ingestion. One option would be to add an automated back-off mechanism with retries.
+When using the Discovery service, uploading in-flight represents the document being uploaded and processed before it is added to the collection. If you reach your in-flight limit, you should slow down the rate of your ingestion. One option would be to add an automated back-off mechanism with retries.
 
 ## Uploading documents with the Discovery tooling
 
