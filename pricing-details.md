@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-01"
+lastupdated: "2018-07-31"
 
 ---
 
@@ -19,62 +19,102 @@ lastupdated: "2018-03-01"
 
 # Discovery pricing plans
 
-The {{site.data.keyword.discoveryfull}} service offers four plans that provide different levels of resources and capabilities to suit your needs.
+The {{site.data.keyword.discoveryfull}} service offers three plans -- **Lite**, **Advanced**, and **Premium** -- that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
 
-**Private data use cases** have the following limits and prices:
+**Private data use cases** have the following features, limits, and prices:
 
-| Lite                     |  Standard         | Advanced          | Premium          |
-|--------------------------|-------------------|-------------------|-------------------|
-| Up to 2,000 concurrent documents per month\*   |Up to 100,000 concurrent documents per month\*<br/> $10 per 1,000 concurrent documents per month ($0.0139USD/1000Doc/Hr)\*\*\*<br/> 2,000 documents per month free\*\*\*\*  | **Reserved environment**</br>$1,000/month base rate<br/> Up to 1,000,000 documents per month\*<br/> $5 per 1,000 concurrent documents per month ($0.00694 USD/1000Doc/Hr)\*\*\*<br/> 100,000 documents per month included\*\*\*\*</br> Additional plans up to 100M documents/6.4 TB are available.</br> For larger environments, contact [Sales ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/marketing/iwm/dre/signup?source=MAIL-watson){: new_window}.| **Premium Plans** offer developers and organizations a single tenant instance of one or more Watson services for better isolation and security. These plans offer compute-level isolation on the existing shared platform, as well as end-to-end encrypted data while in transit and at rest. For more information, or to purchase a premium plan, contact [Sales ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://ibm.biz/contact-wdc-premium){: new_window} |
-| 200MB\*\*                  |10GB\*\*  | 80GB\*\* |-|
-| Up to 2 Collections      |Up to 4 Collections | Up to 100 Collections|-|
-| Up to 1 Custom Model     |Up to 1 Custom Model | 1 Custom Model included<br/> Additional Custom Models $800 per model per month |-|
-| 500 Element Classification pages per month      |500 Element Classification pages per month | 500 Element Classification pages per month<br/> Additional Element Classification pages $0.40 USD/Page |-|
-| 500 query expansions with 1,000 total terms     |500 query expansions with 1,000 total terms | 5,000 query expansions with 25,000 total terms  |-|
+## Lite
 
-**Note:** You cannot ingest any more documents if you exceed your plan limit. If you reach your plan limit, either delete documents from a collection or upgrade your plan to ingest more documents.
+Plan | Size | Doc Storage Limit | Number of Docs\* | Price 
+----------------- | ------ | ------ | ------ | ------ | 
+**Lite** | N/A | 50 MB | 1,000 per month | Free | 
 
-**Note:** Document ingestion limits will be enforced as of 20th June 2018. Instances that are over the limit will remain active, but additional documents cannot be ingested until you either delete documents from a collection or upgrade your plan.
+The Lite plan is a starter plan and should not be used for production. When you upgrade to a paid plan, you can keep all ingested documents.  Lite plan instances are deleted after 30 days of inactivity. 
 
-**Note:** In all plans, the first 1,000 {{site.data.keyword.discoverynewsshort}} queries per month are free. {{site.data.keyword.discoverynewsshort}} queries are charged at $0.10 per query after the first 1,000. Lite plans are limited to a maximum of 1,000 {{site.data.keyword.discoverynewsshort}} queries per month.
+Attributes:
+- 1 environment
+- Up to 2 collections
+- Free NLU enrichments\*\*
+- 20 in-flight documents\*\*\*\* 
 
-**Note:** Lite plan instances are deleted after 30 days of inactivity. One free environment is allotted per organization on Lite plans.
+Additional options:<br> [Custom Models](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
+One Watson Knowledge Studio model included. Additional models: Not available<br>[Element Classification](/docs/services/discovery/element-classification.html)\*\*\*:
+500 pages included. Additional pages: Not available <br>[News Queries](/docs/services/discovery/watson-discovery-news.html): 
+200 News queries included. Additional queries:  Not available<br>[Query Expansions](/docs/services/discovery/using.html#query-expansion):
+500 query expansions with 1,000 total terms per month. Additional expansions: Not available
 
- \* Document limit assumes an average document size of 100KB on disk. This is the size of a document in a collection after it has gone through conversion and enrichment, so the size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the `environments` or `collections` API, or by using the tooling.
+## Advanced
 
- \*\* If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the max document limit.
+Plan | Size | Doc Storage Limit | Number of Docs\* | Price 
+----------------- | ------ | ------ | ------ | ------ | 
+**Advanced** | X-Small\*\*\*\*\* | 40 GB | Up to 50,000 docs per month | Starting at $500 per month  | 
+- | Small | 160 GB | Up to 1M docs per month | Starting at $1,500 per month |  
+- | Medium-Small | 320 GB | Up to 2M docs per month | Starting at $3,000 per month | 
+- | Medium| 640 GB | Up to 4M docs per month | Starting at $5,000 per month | 
+- | Medium-Large | 1.2 TB | Up to 8M docs per month | Starting at $10,000 per month |
+- | Large| 2.4 TB | Up to 16M docs per month | Starting at $15,000 per month | 
+- | X-Large| 4 TB | Up to 32M docs per month | Starting at $20,000 per month | 
+- | XX-Large | 5.5 TB | Up to 64M docs per month | Starting at $35,000 per month |
+- | XXX-Large | 12 TB | Up to 100M docs per month | Starting at $45,000 per month | 
 
- \*\*\* Price is based on the number of hours that a batch of 1,000 documents is stored in the service (referred to as a Thousand Document-Hour). For the pricing calculator, this is the number that should be entered (`number of documents * number of hours those documents are stored in a month / 1000`).
+X-Small is the smallest environment available, and is recommended for development and testing only.\*\*\*\*\*
 
- \*\*\*\* Free amounts are based on the equivalent of documents stored for a month. For example, in the Standard plan, the free amount is equivalent to 2,000 documents * 720 hours / 1000 document batch  = 1440 Thousand Document-Hours.
+Moving from one level of Advanced to another does not require the creation of new instances. New instances will be required if switching from an Advanced to a Premium plan.
 
-**Example:** A user on the Standard plan stores 4,000 documents for the entire month. They would be charged as follows:
+\*\*\*\*\*Attributes of X-Small plans: 
+- 1 environment
+- Up to 4 collections
+- Free NLU enrichments\*\*
+- 50 in-flight documents\*\*\*\*
 
-- `4000 documents * 720 hours (in a month) / 1000 = 2,880` Thousand Document-hours consumed
+Attributes of all other Advanced plans:
+- 1 environment
+- Up to 100 collections
+- Free NLU enrichments\*\*
+- 105 in-flight documents\*\*\*\*
 
-- `2,880 - 1,440 (free document hours) = 1,440` Billable Thousand Document Hours
+Additional options:<br> [Custom Models](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
+One Watson Knowledge Studio model included. Additional models: $800 each<br>[Element Classification](/docs/services/discovery/element-classification.html)\*\*\*:
+500 pages included. Additional pages: $0.40 each<br>[News Queries](/docs/services/discovery/watson-discovery-news.html): 
+200 News queries included  
+10,000 additional queries: $0.10 per query<br>
+10,001 - 100,000 additional queries: $0.05 per query<br>
+Over 100,000 queries: $0.03 per query<br>
+[Query Expansions](/docs/services/discovery/using.html#query-expansion):
+5,000 query expansions with 25,000 total terms per month
 
-- `1,440 * $0.0139` (price per Thousand Document Hour) = `$20.00` for the month
+## Premium
 
-**Note:** When calculating the billed amount each hour, the total number of documents stored is rounded up to the nearest 1,000 as part of the calculation. For example, if you have 4,678 documents stored for 1 hour it would be rounded up to 5,000 and result in 5 Thousand document-hours being billed to the account.
+Plan |   |   |   |   
+----------------- | ------ | ------ | ------ | ------ | 
+**Premium** |   |   |   |   
+Premium Plans offer developers and organizations a single tenant instance of one or more Watson services for better isolation and security. These plans offer compute-level isolation on the existing shared platform, as well as end-to-end encrypted data while in transit and at rest. 
 
-For information about calculating costs, see the [{{site.data.keyword.Bluemix_notm}} Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/pricing/platform/watson){: new_window}.
+For more information, or to purchase a premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium). 
+<br>
+<br> 
 
-**Note:** There is no additional charge for enrichments.
+**Note:** The version date of the API has been updated to `2018-08-01`. If you want to take advantage of the new environment sizing options, you must use this version date when creating environments with the API.
 
-For information about {{site.data.keyword.Bluemix_notm}} security, see the [{{site.data.keyword.Bluemix_notm}} Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+\* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api) or [Collections](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#collections-api) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmention](https://console.bluemix.net/docs/services/discovery/building.html#doc-segmentation) on your documents, each segment counts as a separate document.
 
-## Converting from previous pricing plans
+\*\* The [Natural Language Understanding (NLU) enrichments](https://console.bluemix.net/docs/services/discovery/building.html#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched. 
 
-Customers who subcribed to a plan prior to **1, August 2017** were migrated to one of the new plans.
+\*\*\* Element Classification is an enrichment that parses through governing documents to convert, identify, and classify elements of importance. It uses Natural Language Processing to extract the following elements from PDF documents: party (who it refers to), nature (type of element), and category (specific class).
 
-- Customers that were previously on the 30-day free trial plan have been migrated to the **Lite** plan.
-  As a result of this transition, existing users may have met or exceeded the lite plan limit on documents _(2000)_, storage _(200Mb)_, or number of collections _(2)_. If you have exceeded the limit of the **Lite** plan, you will not be able to add any additional content into the service but you can still query collections. You can view the current status of all these limits by using the {{site.data.keyword.discoveryshort}} tooling or API. To be able to resume adding content to the {{site.data.keyword.discoveryshort}} instance, you must do one of the following:
-  - remove collections and/or documents so that limits of the **Lite** plan are not exceeded.
-    Documents can be deleted either individually through the API using the [delete-doc ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} method, or whole collections can be deleted using the Tooling or API using the [delete-collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-collection){: new_window} method
-  - upgrade your plan to a level that meets your storage needs.
-- Customers with size **`1`** **`2`** or **`3`** environments have been automatically migrated to the **Advanced** plan.
-  If you have been moved to the Advanced tier and have fewer than 100,000 documents and 4 collections, you can to move to the Standard tier to reduce costs. This requires creating a new Discovery instance in the Standard plan and reingesting data to the new instance. Ingestion can be done through the tooling, APIs, or Data Crawler.
+\*\*\*\* If you reach your in-flight limit, you should slow down the rate of your ingestion.  When using the Discovery service, a document is "in-flight" while being uploaded, enriched, and processed prior to being added to a collection.
 
-See the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} for additional pricing information.
+For information about calculating costs, see the [IBM Cloud Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/pricing/platform/watson){: new_window}.
+
+For information about IBM Cloud security, see [Cloud Services data security and privacy ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument){: new_window}.
+
+For additional pricing information, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/catalog/services/discovery){: new_window}.
+
+## Notes for Customers with Existing Plans
+
+- Beginning **August 1, 2018**, your billing and usage will be based on this pricing plan.
+- The Lite plan has been reduced from 2,000 documents/400 {{site.data.keyword.discoverynewsshort}} queries per month to 1,000 documents/200 {{site.data.keyword.discoverynewsshort}} queries per month.  If you have already exceeded the new Lite plan limits, you can't add any more documents. However, you can continue using it or upgrade to an Advanced or Premium plan.
+- The Standard plan has been retired and will no longer be available to new users. If you are currently on an existing Standard plan, you can continue using it or upgrade to an Advanced or Premium plan.
+- The Advanced and Premium plans are now based on document tiers, they are no longer based on document hours. Your monthly bill will not fluctuate based on the number of documents unless you switch between tiers.
+- Premium customers, contact [Sales](https://ibm.biz/contact-wdc-premium) for details on billing changes.	
