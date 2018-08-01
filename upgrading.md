@@ -31,4 +31,4 @@ To upgrade your plan, complete these steps:
 1.  From the {{site.data.keyword.Bluemix_notm}} menu, select **Dashboard**.
 1.  Select the service instance that you want to upgrade.
 1.  Click **Plan** from the navigation pane. From here, you can view your current plan and other available plan options before you upgrade.
-1.  Choose your new plan and click **Save*.
+1.  Choose your new plan and click **Save**.
