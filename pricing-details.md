@@ -95,7 +95,7 @@ For more information, or to purchase a premium plan, contact [Sales](https://ibm
 <br>
 <br> 
 
-**Note:** The version date of the API has been updated to `2018-08-01`. If you want to take advantage of the new environment sizing options, you must use this version date when creating environments with the API.
+***Note:** The version date of the API has been updated to `2018-08-01`. To take advantage of the new environment sizing options (`XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
 
 \* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api) or [Collections](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#collections-api) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmention](https://console.bluemix.net/docs/services/discovery/building.html#doc-segmentation) on your documents, each segment counts as a separate document.
 
