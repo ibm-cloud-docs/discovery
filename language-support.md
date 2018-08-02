@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-31"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -73,4 +73,3 @@ The following features are currently supported in English only:
 - Element Classification enrichment
 - {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)
 - Document deduplication (beta)
-- Connecting and syncing to Salesforce, Microsoft SharePoint Online, and Box collections with the {{site.data.keyword.discoveryshort}} tooling. 
