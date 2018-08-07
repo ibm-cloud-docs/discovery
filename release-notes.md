@@ -50,7 +50,7 @@ The following new features and changes to the service are available.
  
  - Beginning **August 1, 2018**, {{site.data.keyword.discoveryfull}} has a new pricing structure. It features a simpler pricing model (document hours are no longer part of the calculation) and tiered pricing for {{site.data.keyword.discoverynewsfull}} queries. In addition, the Standard plan has been retired, and the Lite plan has reduced document and {{site.data.keyword.discoverynewsshort}} query limits. The pricing changes will require no action by current {{site.data.keyword.discoverynewsshort}} users. See [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) for details.
  
-**Note:** The version date of the API has been updated to `2018-08-01`. To take advantage of the new environment sizing options (`XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
+**Note:** The version date of the API has been updated to `2018-08-01`. To take advantage of the new environment sizing options (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
 
 ## 30 July 2018
 
