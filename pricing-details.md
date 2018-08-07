@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-31"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -25,10 +25,11 @@ The {{site.data.keyword.discoveryfull}} service offers three plans -- **Lite**, 
 **Private data use cases** have the following features, limits, and prices:
 
 ## Lite
+{: #lite}
 
-Plan | Size | Doc Storage Limit | Number of Docs\* | Price 
------------------ | ------ | ------ | ------ | ------ | 
-**Lite** | N/A | 50 MB | 1,000 per month | Free | 
+Size | Doc Storage Limit | Number of Docs\* | Price 
+------ | ------ | ------ | ------  
+N/A | 50 MB | 1,000 per month | Free 
 
 The Lite plan is a starter plan and should not be used for production. When you upgrade to a paid plan, you can keep all ingested documents.  Lite plan instances are deleted after 30 days of inactivity. 
 
@@ -45,18 +46,19 @@ One Watson Knowledge Studio model included. Additional models: Not available<br>
 500 query expansions with 1,000 total terms per month. Additional expansions: Not available
 
 ## Advanced
+{: #advanced}
 
-Plan | Size | Doc Storage Limit | Number of Docs\* | Price 
------------------ | ------ | ------ | ------ | ------ | 
-**Advanced** | X-Small\*\*\*\*\* | 40 GB | Up to 50,000 docs per month | Starting at $500 per month  | 
-- | Small | 160 GB | Up to 1M docs per month | Starting at $1,500 per month |  
-- | Medium-Small | 320 GB | Up to 2M docs per month | Starting at $3,000 per month | 
-- | Medium| 640 GB | Up to 4M docs per month | Starting at $5,000 per month | 
-- | Medium-Large | 1.2 TB | Up to 8M docs per month | Starting at $10,000 per month |
-- | Large| 2.4 TB | Up to 16M docs per month | Starting at $15,000 per month | 
-- | X-Large| 4 TB | Up to 32M docs per month | Starting at $20,000 per month | 
-- | XX-Large | 5.5 TB | Up to 64M docs per month | Starting at $35,000 per month |
-- | XXX-Large | 12 TB | Up to 100M docs per month | Starting at $45,000 per month | 
+Size | Doc Storage Limit | Number of Docs\* | Price 
+------ | ------ | ------ | ------ 
+X-Small\*\*\*\*\* | 40 GB | Up to 50,000 docs per month | Starting at $500 per month  
+Small | 160 GB | Up to 1M docs per month | Starting at $1,500 per month  
+Medium-Small | 320 GB | Up to 2M docs per month | Starting at $3,000 per month 
+Medium| 640 GB | Up to 4M docs per month | Starting at $5,000 per month 
+Medium-Large | 1.2 TB | Up to 8M docs per month | Starting at $10,000 per month 
+Large| 2.4 TB | Up to 16M docs per month | Starting at $15,000 per month 
+X-Large| 4 TB | Up to 32M docs per month | Starting at $20,000 per month 
+XX-Large | 5.5 TB | Up to 64M docs per month | Starting at $35,000 per month 
+XXX-Large | 12 TB | Up to 100M docs per month | Starting at $45,000 per month 
 
 X-Small is the smallest environment available, and is recommended for development and testing only.\*\*\*\*\*
 
@@ -86,16 +88,13 @@ Over 100,000 queries: $0.03 per query<br>
 
 ## Premium
 
-Plan |   |   |   |   
------------------ | ------ | ------ | ------ | ------ | 
-**Premium** |   |   |   |   
 Premium Plans offer developers and organizations a single tenant instance of one or more Watson services for better isolation and security. These plans offer compute-level isolation on the existing shared platform, as well as end-to-end encrypted data while in transit and at rest. 
 
 For more information, or to purchase a premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium). 
 <br>
 <br> 
 
-***Note:** The version date of the API has been updated to `2018-08-01`. To take advantage of the new environment sizing options (`XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
+**Note:** The version date of the API has been updated to `2018-08-01`. To take advantage of the new environment sizing options (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
 
 \* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api) or [Collections](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#collections-api) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmention](https://console.bluemix.net/docs/services/discovery/building.html#doc-segmentation) on your documents, each segment counts as a separate document.
 

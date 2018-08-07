@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-17"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -67,3 +67,8 @@ To learn more about using Watson Discovery to identify patterns and trends and g
 - [Whitepaper: Discovery Cloud architecture ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/discovery_advantage_paper){: new_window}
 
 - [Whitepaper: Unearth the value deep in your data to deliver rock-solid code with the Watson Discovery Service  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/whitepaper/discovery/){: new_window}
+
+## Tutorials
+{: #tutorial}
+
+- [Discovery Platform Tutorial  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/garage/tutorials/ibm-watson-ilab-demos/discovery-platform-tutorial/){: new_window}
