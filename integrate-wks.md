@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-28"
+lastupdated: "2018-08-08"
 
 ---
 
@@ -137,9 +137,11 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 You can integrate a {{site.data.keyword.knowledgestudioshort}} custom model into the [Entity Extraction](/docs/services/discovery/building.html#entity-extraction) or [Relation Extraction](/docs/services/discovery/building.html#relation-extraction) enrichments with the {{site.data.keyword.discoveryshort}} tooling.
 
 1. Get the `Model ID` of your {{site.data.keyword.knowledgestudioshort}} model.
-1. In the {{site.data.keyword.discoveryshort}} tooling, open the **Manage data** screen, create or open a collection, and create a new configuration.
+1. In the {{site.data.keyword.discoveryshort}} tooling, click the **Manage Data** icon on the upper left to open the **Manage data** screen, then create or open a collection. **Note:** If you choose an existing collection, it should be empty. If not, you should reingest those documents after creating your new configuration file.
+1. In the **Configuration** section of the **Manage Data** screen for your collection, click **Switch**, then **Create a New Configuration**. Name the configuration. 
 1. Click **Add enrichments** and select either the **Entity Extraction** or **Relation Extraction** enrichments.
-1. Enter the `Model ID` in the `Custom Model ID` box of the selected enrichment. The custom {{site.data.keyword.knowledgestudiofull}} model will override the default for that enrichment. Click **Apply**, then **Done**.
+1. Enter the `Model ID` in the `Custom Model ID` box of the selected enrichment. The custom {{site.data.keyword.knowledgestudiofull}} model will override the default for that enrichment. 
+1. Click **Apply**, then **Done**.
 
 When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you switch an existing collection to a new configuration file after documents have been uploaded, those uploaded documents will remain converted by the original configuration file. Any documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents.
 
