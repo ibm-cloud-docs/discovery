@@ -1,10 +1,8 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" audience="service" href="/docs/services/discovery/index.html"}
+{: .toc subcollection="discovery" audience="service" arm=“1680411” href="/docs/services/discovery/index.html"}
 Discovery
-
-{: .toc subcollection=“overview” audience=“platform” arm=“1680411” href=“/docs/overview/ibm-cloud.html”}
 
     {: .navgroup id="learn"}
     getting-started-tool.md
