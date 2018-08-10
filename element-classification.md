@@ -47,7 +47,7 @@ To classify documents using Element Classification your configuration and source
 - Files are no larger than 50Mb in size.
 - Secure PDFs (with a password to open) and editing restricted PDFs (with a password to edit) cannot be parsed.
 - The {{site.data.keyword.discoveryshort}} tooling includes a configuration named **Default Contract Configuration** that can be used to enrich your collection of PDF documents. You also have the option of creating a custom configuration that includes the `elements` enrichment. See [Collection requirements](/docs/services/discovery/element-classification.html#element-collection) for details.
-- **Lite** and **Standard** plans can process a maximum of 500 pages per month.
+- **Lite** plans can process a maximum of 500 pages per month.
 - Not available in **Dedicated** environments.
 - Post-enrichment normalization cannot be performed when using Element Classification.
 

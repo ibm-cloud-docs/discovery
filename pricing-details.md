@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-08-09"
 
 ---
 
@@ -45,6 +45,8 @@ One Watson Knowledge Studio model included. Additional models: Not available<br>
 200 News queries included. Additional queries:  Not available<br>[Query Expansions](/docs/services/discovery/using.html#query-expansion):
 500 query expansions with 1,000 total terms per month. Additional expansions: Not available
 
+For information about upgrading from Lite to Advanced, see [Upgrading your service](/docs/services/discovery/upgrading.html#service)
+
 ## Advanced
 {: #advanced}
 
@@ -62,7 +64,7 @@ XXX-Large | 12 TB | Up to 100M docs per month | Starting at $45,000 per month
 
 X-Small is the smallest environment available, and is recommended for development and testing only.\*\*\*\*\*
 
-Moving from one level of Advanced to another does not require the creation of new instances. New instances will be required if switching from an Advanced to a Premium plan.
+Moving from one level of Advanced to another does not require the creation of new instances. New instances will be required if switching from an Advanced to a Premium plan. For information about upgrading from one tier of Advanced to another, see [Moving from one Advanced tier to another](/docs/services/discovery/upgrading.html#advanced).
 
 \*\*\*\*\*Attributes of X-Small plans: 
 - 1 environment
@@ -88,9 +90,9 @@ Over 100,000 queries: $0.03 per query<br>
 
 ## Premium
 
-Premium Plans offer developers and organizations a single tenant instance of one or more Watson services for better isolation and security. These plans offer compute-level isolation on the existing shared platform, as well as end-to-end encrypted data while in transit and at rest. 
+Premium plans offer developers and organizations a single tenant instance of one or more Watson services for better isolation and security. These plans offer compute-level isolation on the existing shared platform, as well as end-to-end encrypted data while in transit and at rest. 
 
-For more information, or to purchase a premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium). 
+For more information, or to purchase a Premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium). 
 <br>
 <br> 
 
