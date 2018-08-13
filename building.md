@@ -701,6 +701,8 @@ In the **Normalize** section of the {{site.data.keyword.discoveryshort}} tooling
 
 After making any changes, click **Apply and Save**, then **Done**. You will be returned to the **Manage Data** screen, where you can apply this configuration to the collection of your choice.
 
+**Note:** You cannot specify the `data type` (For example: `text` or `date`) of fields. During document ingestion, if a field is detected that does not yet exist in the index, {{site.data.keyword.discoveryshort}} will automatically detect the `data type` of that field based on the value of the field for the first document indexed.
+
 If using the **Element Classification** enrichment, you cannot perform post-enrichment normalization.
 
 ## Normalizing entities
