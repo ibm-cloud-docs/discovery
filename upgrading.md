@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-09"
+lastupdated: "2018-08-14"
 
 ---
 
@@ -39,7 +39,7 @@ To upgrade your plan from Lite to Advanced:
 ## Switching from one Advanced tier to another
 {: #advanced} 
 
-If you already have an Advanced plan, and would like to upgrade it to another tier, contact [Sales](https://ibm.biz/contact-wdc-premium).  
+If you already have an Advanced plan, and would like to upgrade it to another tier, contact [Support](https://console.bluemix.net/unifiedsupport/tickets/add). When creating a Support ticket, choose the **ticket type** of `Technical` and the **resource context** of `Cloud Foundry`.
 
 ## Upgrading to a Premium plan
 {: #premium}
