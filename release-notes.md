@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-08-14"
 
 ---
 
@@ -41,6 +41,10 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 14 August 2018
+
+- Known issue: When you create an **Advanced** environment using the {{site.data.keyword.discoveryshort}} tooling, the environment size created when you select any option from the **Small/Medium** tab (X-Small/Small/Medium-Small/Medium/Medium-large), will be `Small`, even if one of the other sizes is chosen. To avoid this issue, create your environment using the [Environments ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api){: new_window} API.
 
 ## 2 August 2018
 
