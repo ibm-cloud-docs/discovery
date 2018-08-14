@@ -71,4 +71,4 @@ To learn more about using Watson Discovery to identify patterns and trends and g
 ## Tutorials
 {: #tutorial}
 
-- [Discovery Platform Tutorial  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/garage/tutorials/ibm-watson-ilab-demos/discovery-platform-tutorial/){: new_window}
+- The [Discovery Platform Tutorial  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/garage/tutorials/ibm-watson-ilab-demos/discovery-platform-tutorial/){: new_window} can be used to create a proof of concept or demo for {{site.data.keyword.discoveryshort}}.
