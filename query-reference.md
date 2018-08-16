@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-13"
+lastupdated: "2018-08-15"
 
 ---
 
@@ -83,6 +83,8 @@ Operators are the separators between different parts of a query. These are the a
 | [^x](/docs/services/discovery/query-operators.html#multiplier) | Score multiplier | `text:IBM^3` |
 | [*](/docs/services/discovery/query-operators.html#wildcard) | Wildcard | `query-enriched_text.concepts.text:pre*` |
 | [~n](/docs/services/discovery/query-operators.html#variation) | String variation | `query-enriched_text.entities.text:cat~1` |
+| [:*](/docs/services/discovery/query-operators.html#exists) | Exists | `title:*` |
+| [!*](/docs/services/discovery/query-operators.html#dnexist) | Does not exist | `title!*` |
 
 ## Aggregations
 {: #aggregations}
