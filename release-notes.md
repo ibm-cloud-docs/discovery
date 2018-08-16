@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-14"
+lastupdated: "2018-08-15"
 
 ---
 
@@ -42,11 +42,16 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 15 August 2018
+
+- Two new query operators are available. `Exists` (`:*`) can be used to return all results where the specified `field` exists. `Does not exist` (`!*`) can be used to return all results that do not include the specified `field`. See [Query operators](/docs/services/discovery/query-operators.html) for more information. 
+
 ## 14 August 2018
 
 - Known issue: When you create an **Advanced** environment using the {{site.data.keyword.discoveryshort}} tooling, the environment size created when you select any option from the **Small/Medium** tab (X-Small/Small/Medium-Small/Medium/Medium-large), will be `Small`, even if one of the other sizes is chosen. To avoid this issue, create your environment using the [Environments ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api){: new_window} API.
 
 ## 2 August 2018
+{: #2aug}
 
 - {{site.data.keyword.discoveryfull}} now supports English, Spanish, German, Italian, Portuguese, French, Arabic, Korean, and Japanese language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. 
 
@@ -63,7 +68,7 @@ The following new features and changes to the service are available.
 ## 25 June 2018
 
 - Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. Released the [Source Credential ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#credentials-api){: new_window} and [Configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window} APIs for these data sources. 
-  - {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. 
+- {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/services/discovery/release-notes.html#2aug)
   - The individual document file size limit for Box, Salesforce, and SharePoint Online is 10MB.
 - Added a new Performance Dashboard in {{site.data.keyword.discoveryshort}} tooling. See [Viewing metrics and improving query results with the Performance dashboard](/docs/services/discovery/dashboard.html). The new dashboard is not available in Premium or Dedicated environments.
 - Added full support for Japanese. For more information, see [Language support](/docs/services/discovery/language-support.html).
@@ -82,6 +87,7 @@ The following new features and changes to the service are available.
 - {{site.data.keyword.discoverynewsfull}} queries now display the first 50 words of each article in the `text` JSON field.
 
 ## 5 June 2018
+{: #5jun}
 
 - Element Classification is now available to those subscribed to Premium plans.
 - The `assurance` rating of `Low` is no longer available for Element Classification.
@@ -196,8 +202,9 @@ Known issue:
 - Wildcards do not work with queries that contain capital letters. For example, given the key/field pair ``{"borrower": "GOVERNMENT OF INDIA"}``, `query-borrower:*ndia` will return results but `query-borrower:*NDIA` will not.
 
 ## 8 March 2018
+{: #8mar}
 
-- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments. The new features are:
+- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all **Dedicated** environments. The new features are:
   - [Entity similarity](/docs/services/discovery/building-kg.html#similarity)
   - [Evidence](/docs/services/discovery/building-kg.html#evidence)
   - [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization)
@@ -207,6 +214,7 @@ Known issue:
 - The following ingestion known issue has been fixed: Between 28 February and 6 March, a small percentage of documents were indexed with only the `id` and `extracted_metadata` fields (other document content was not indexed). The underlying problem has been fixed, however, you will need to resubmit any affected documents for ingestion. There is no simple way to identify the affected documents.
 
 ## 5 March 2018
+{: #5mar}
 
 - The following {{site.data.keyword.discoveryfull}} Knowledge Graph known issue has been fixed with the `2018-03-05` API version update. This fix only applies to newly created collections that use the `2018-03-05` version update.  
   - All entity type names and relation type names were previously converted to uppercase during ingestion. For example, the entity "GeoPoliticalEntity" was converted to "GEOPOLITICALENTITY," and the relation "partOf" was converted to "PARTOF." This is no longer the case.
@@ -226,10 +234,12 @@ Known issue:
 - The [`highlight` parameter](/docs/services/discovery/query-parameters.html#highlight) in query results has been enhanced. Query results will return complete sentences, ordered by their `score`.
 
 ## 21 February 2018
+{: #21feb}
 
 - Previously, when ingesting PDF documents, the `file_type` returned when ingestion notices were queried, in the `extracted_metadata` object, and from the document details API was `html`. This is no longer the case. The `file_type` returned will now be `pdf`.
 
 ## 26 January 2018
+{: #26jan}
 
 {{site.data.keyword.discoveryshort}} tooling:
 
@@ -249,10 +259,10 @@ Known issue:
 
 ## 15 December 2017
 
-- Released the **Element Classification** enrichment, which parses elements (sentences, lists, tables) in governing documents to classify important categories and types. See [Element classification](/docs/services/discovery/element-classification.html) for more information. Element Classification is not available for service instances that are subscribed to the **Premium** plan.
+- Released the **Element Classification** enrichment, which parses elements (sentences, lists, tables) in governing documents to classify important categories and types. See [Element classification](/docs/services/discovery/element-classification.html) for more information. Element Classification is not available for service instances that are subscribed to the **Premium** plan. [Resolved](/docs/services/discovery/release-notes.html#5jun)
 - Added Basic language support for Simplified Chinese and Dutch. See [Language Support](/docs/services/discovery/language-support.html) for more information. Currently, Simplified Chinese and Dutch collections must be created with the API.
 - Added two new parameters for the Data Crawler: `proxy_host_port` and `read-timeout`. See [Configuring the Data Crawler](/docs/services/discovery/data-crawler-discovery.html) for details.
-- The following issues may be seen when ingesting PDF documents:
+- The following issues may be seen when ingesting PDF documents: [Resolved](/docs/services/discovery/release-notes.html#21feb)
   - When ingestion notices are queried, the field `file_type` for pdf documents is returned as `html`.
   - The field `file_type` in the `extracted_metadata` object of results for pdf documents is set to `html`.
   - The document details API also returns the field `file_type` for pdf documents as `html`.
@@ -264,13 +274,14 @@ Known issue:
 
 ## 30 November 2017
 
-- Released the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph, which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. This beta feature is available to **Advanced** plan users only. It is not available on **Dedicated** environments. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.  A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
-  - Known issue in {{site.data.keyword.discoveryfull}} Knowledge Graph: All entity type names and relation type names are converted to uppercase during ingestion. For example, the entity "GeoPoliticalEntity" is converted to "GEOPOLITICALENTITY," and the relation "partOf" is converted to "PARTOF."
-- Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
+- Released the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph, which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. This beta feature is available to **Advanced** plan users only. It is not available on **Dedicated** environments. [Resolved](/docs/services/discovery/release-notes.html#8mar) See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.  A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
+  - Known issue in {{site.data.keyword.discoveryfull}} Knowledge Graph: All entity type names and relation type names are converted to uppercase during ingestion. For example, the entity "GeoPoliticalEntity" is converted to "GEOPOLITICALENTITY," and the relation "partOf" is converted to "PARTOF." [Resolved](/docs/services/discovery/release-notes.html#5mar)
+- Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")] [Resolved](/docs/services/discovery/release-notes.html#26jan)(https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
 - Query results return a `score` value, which indicates the relative relevancy between query results. Starting 30 November 2017, the way that `score` is calculated changed. The `score` value should only be used to rank documents in a single search, not across searches or sessions. If you have trained a collection, a `score` value is returned in the results of a natural language query. Since the `score` indicates the relative relevancy between query results, it should not be used as a threshold. Instead, use the `confidence`, which indicates the relevance of the result as compared to the trained model, to set thresholds. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for more information on setting thresholds.
 - Beginning with this release, Passage retrieval detects sentence boundaries - it attempts to return passages that start at the beginning of a sentence and stop at the end. Previously, many passages would begin or end somewhere mid-sentence. See [Passages](/docs/services/discovery/query-parameters.html#passages) for more information about Passage retrieval.
 
 ## 15 November 2017
+{: #15nov}
 
 {{site.data.keyword.discoveryshort}} tooling:
 
@@ -286,10 +297,11 @@ Known issue:
 - Added additional options for Passage retrieval to the {{site.data.keyword.discoveryshort}} tooling. When querying, you can now specify the fields you would like the passages to be returned from, the number of passages to return, and the maximum character count for each passage. See [Passages](/docs/services/discovery/query-parameters.html#passages) for limits, minimums, and maximums.
 
 ## 8 November 2017
+{: #8nov}
 
 The version string for all API calls has changed to `2017-11-07` from `2017-10-16`. This version:
-- Moved the `score` in each query result to a new object named `results_metadata`.
-- If the collection queried was trained, and the query is a natural language query, `results_metadata` will include a `confidence` field that displays the confidence score for that result. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
+- Moved the `score` in each query result to a new object named `result_metadata`.
+- If the collection queried was trained, and the query is a natural language query, `result_metadata` will include a `confidence` field that displays the confidence score for that result. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
 - Fields that include whitespaces (for example: `body.additional reading`) will be filtered out during ingestion. The `notices` description will read `The field 'additional reading' is invalid: whitespace, '.', '#' and ',' are invalid in a field name`.
 - The field `result_metadata` will be filtered out during ingestion.
 
@@ -321,7 +333,7 @@ The version string for all API calls has changed to `2017-11-07` from `2017-10-1
 ### 29 September 2017
 
 - {{site.data.keyword.discoveryshort}} launched in the `Germany` region 29 September, 2017. In order to comply with EU data regulations, AlchemyLanguage enrichments are not supported in this region.
-- Known issue: Query fields cannot contain whitespaces.  When writing a query in {{site.data.keyword.discoveryshort}}, if any query field contains whitespace (for example, `body.additional reading`), you will receive a `400: Invalid query syntax error`.
+- Known issue: Query fields cannot contain whitespaces.  When writing a query in {{site.data.keyword.discoveryshort}}, if any query field contains whitespace (for example, `body.additional reading`), you will receive a `400: Invalid query syntax error`. [Resolved](/docs/services/discovery/release-notes.html#8nov)
 
 ### 25 September 2017
 
@@ -333,7 +345,7 @@ The version string for all API calls has changed to `2017-11-07` from `2017-10-1
 - The Visual Query Builder moved from beta status to GA status. Filter, Timeslice, and Histogram aggregations are not currently supported with the Visual Query Builder. Click **Include analysis of your results**, then **Edit in Query Language** on the **Build queries** screen to write those aggregations.
 - Added the beta capability to deduplicate on {{site.data.keyword.discoverynewsfull}} queries.
 - In addition to English, German, and Spanish language collections, you can now create Arabic, French, Italian, Korean, Japanese, and Brazilian Portuguese collections.
-- Known issue: {{site.data.keyword.discoveryshort}} Tooling does not support syndicated environments.
+- Known issue: {{site.data.keyword.discoveryshort}} Tooling does not support syndicated environments. [Resolved](/docs/services/discovery/release-notes.html#15nov)
 
 ### 14 September 2017
 
@@ -437,6 +449,7 @@ Both features are query building enhancements and can be found on the **Build qu
     If you created a collection prior to **18 July, 2017** and applied the **Default Configuration**, that collection was enriched with the {{site.data.keyword.alchemylanguageshort}} enrichments. If you apply the **Default Configuration** to a collection after this date, the {{site.data.keyword.nlushort}} enrichments will be used (the configuration name will switch to **Default Configuration with NLU** in the tooling). Since {{site.data.keyword.alchemylanguageshort}} enrichments are being deprecated, they should not be used with new collections.
 
 ### 30 June 2017
+{: #30jun}
 
  -  The entity normalization capability introduced as a beta feature on 5 May 2017 has been moved to GA status. See [Creating a custom configuration to normalize entities](/docs/services/discovery/normalize-entities.html) for details.
 
@@ -479,6 +492,7 @@ Both features are query building enhancements and can be found on the **Build qu
  - Watson Discovery News queries now display only the first 150 words of each article in the `text` and `alchemyapi_text` JSON fields. The `blekko.snippet` field will display only the first sentence of the snippet array.
 
 ### 30 May 2017
+{: #30may}
 
  - The `passages` parameter on the query API has been moved from beta to GA status.
 
@@ -500,13 +514,15 @@ Both features are query building enhancements and can be found on the **Build qu
 
  - Entity normalization is now available for use with the Discovery service that use a custom model generated by Watson Knowledge Studio. Entity normalization inserts normalized (canonical) names for different references to the same person or object in the source document. See [Creating a custom configuration to normalize entities](/docs/services/discovery/normalize-entities.html) for details.
 
-     **Note:** Entity normalization is currently supported only as a beta capability. See the statement regarding betas at the top of this document for more information.
+     **Note:** Entity normalization is currently supported only as a beta capability. See the statement regarding betas at the top of this document for more information. [Resolved](/docs/services/discovery/release-notes.html#30jun)
 
- - The Tooling error log is no longer limited to a maximum of eight (8) pages of results. The error log still displays the document ID if the document name is not available.
+{{site.data.keyword.discoveryshort}} tooling:
 
- - Configuration names are limited to 50 characters and must consist of the characters `[a-zA-Z0-9-_]`.
+ - The Tooling error log is no longer limited to a maximum of eight (8) pages of results. The error log still displays the document ID if the document name is not available. 
 
- - The `passages` parameter previously available only through the API is now available through the Tooling as well as the API.
+- Configuration names are limited to 50 characters and must consist of the characters `[a-zA-Z0-9-_]`. 
+
+- The `passages` parameter previously available only through the API is now available through the Tooling as well as the API.
 
 ### 25 April 2017
 
@@ -526,7 +542,7 @@ Enhancements have been added to the query API (`GET /v1/environments/{environmen
 
     - The `passages` parameter is supported only on private collections. It is not supported in the Watson Discovery News collection.
 
-    - The `passages` parameter currently returns a maximum of 10 results. The number of returned results cannot be changed.
+    - The `passages` parameter currently returns a maximum of 10 results. The number of returned results cannot be changed. [Update](/docs/services/discovery/query-parameters.html#passages_count)
 
     - The `passages` parameter returns a maximum of three (3) passages from any given document in the collection. If a document contains more than three additional relevant passages, the parameter does not return them.
 
@@ -551,10 +567,10 @@ Enhancements have been added to the query API (`GET /v1/environments/{environmen
 
 The following known issues have been discovered.
 
--  All fields that are ingested from HTML, PDF, and Word documents are typed as **string**. JSON fields and calculated fields, such as sentiment score, are typed as defined.
-- The `preview` operation does not currently check for nested JSON arrays within a submitted JSON document. The service does not currently support nested JSON arrays, so a document with nested arrays can successfully pass the `preview` operation but fail upon an ingestion attempt.
-- If you encounter ingestion errors with the message `unsupported text language`, update your configuration with the `"language": "english"` enrichment option to force all text to be interpreted as English, as shown in the following example.
-
+-  All fields that are ingested from HTML, PDF, and Word documents are typed as **string**. JSON fields and calculated fields, such as sentiment score, are typed as defined. [Update](/docs/services/discovery/adding-content.html#adding-content-with-the-api-or-tooling)
+- The `preview` operation does not currently check for nested JSON arrays within a submitted JSON document. The service does not currently support nested JSON arrays, so a document with nested arrays can successfully pass the `preview` operation but fail upon an ingestion attempt. See [Can I upload JSON arrays?](/docs/services/discovery/troubleshooting.html#array)
+- If you encounter ingestion errors with the message `unsupported text language`, update your configuration with the `"language": "english"` enrichment option to force all text to be interpreted as English, as shown in the following example. 
+[Update](/docs/services/discovery/migrate-nlu.html)
 ```json
 "enrichments": [
    {
@@ -579,7 +595,7 @@ The following bugs have been fixed.
 
  - Optimized the back end, including the addition of new timeouts, to improve overall performance.
  - Fixed a bug that caused the environment status of free (`0`-sized) environments to report a status of `pending` regardless of the real status.
- - The only national language currently supported by {{site.data.keyword.discoveryshort}} is U.S. English (`en_US`).
+ - The only national language currently supported by {{site.data.keyword.discoveryshort}} is U.S. English (`en_US`). [Update](/docs/services/discovery/language-support.html)
 
 ### 3 March 2017
 
@@ -605,7 +621,7 @@ The following bugs have been fixed.
 ### 16 February 2017
 
 -  You can now use CSS selectors to select JSON fields that you can then apply enrichments to. See [Using CSS selectors to extract fields](/docs/services/discovery/building.html#using-css) for information.
--  You can now increase the size of an environment by passing a new `size: X` parameter to the [update-environment method](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update_environment), where `X` is an integer between 0 and 3. See the [create-environment method](http://www.ibm.com/watson/developercloud/discovery/api/v1/#create_environment) for information about environment sizes and attributes.
+-  You can now increase the size of an environment by passing a new `size: X` parameter to the [update-environment method](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update_environment), where `X` is an integer between 0 and 3. See the [create-environment method](http://www.ibm.com/watson/developercloud/discovery/api/v1/#create_environment) for information about environment sizes and attributes. [Update](/docs/services/discovery/pricing-details.html)
 
     **Note:** You cannot reduce the size of an existing environment. If you want to reduce the size of your environment, contact {{site.data.keyword.IBM}} support for assistance.
 
@@ -619,12 +635,14 @@ The following bugs have been fixed.
 ### 1 February 2017
 
 The following notes apply specifically to the Data Crawler 1.3.0 release.
+[Update](/docs/services/discovery/data-crawler.html)
 
 -   The Data Crawler records the `document_id` values used to upload documents, and the status of the upload. Conversion notices are not persisted outside of the log. There is not presently a tool to interact with that data, but such tools are expected to be developed as time permits. The data is accessible via H2 database, which could be configured to use a remote DBMS.
 
 ### 16 January 2017
 
 The following notes apply specifically to the Data Crawler 1.2.5 release.
+[Update](/docs/services/discovery/data-crawler.html)
 
 -  The Data Crawler can optionally poll for document status immediately after uploading a file. This check is a part of the Crawler's concept of "uploading a document", so when this check is enabled, it is virtually impossible for the Crawler to upload concurrently more documents than what the {{site.data.keyword.discoveryshort}} service can process concurrently for the user.
 
@@ -634,124 +652,48 @@ The following notes apply specifically to the Data Crawler 1.2.5 release.
 
 The following notes describe issues that were identified after the GA release on 15 December 2016.
 
+[Update: API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+
 -   If you add a document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents`
     or `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the call returns a document ID and the **processing** status. If you then query the document by using the `GET /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the status remains at **processing** until ingestion is completed, at which point the status changes to **available**.
 
     If you **update** an existing document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the corresponding **GET** call returns the `available` status even if the service has not yet fully processed the updated document. The `available` status can refer to either the original document or the updated document. Unless the update operation returns an error, there is not currently a way to determine the status of the updated document.
 
     You can work around this by waiting up to 10 minutes after submitting a document update before attempting to query the updated content.
--   You cannot upload JSON arrays. To upload a JSON array, you must upload each section individually. For example, the following JSON cannot be uploaded to the service:
-
-    ```json
-    [{
-      "accepted": 1,
-      "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
-      "answerScore": "49",
-      "authorUserId": "3",
-      "authorUsername": "Butzke",
-      "downModVotes": 0,
-      "id": 2,
-      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
-      "tags": "<arduino-uno><web-server><ethernet>",
-      "title": "Is an Arduino capable of running 24 7?",
-      "upModVotes": 49,
-      "userId": "11",
-      "userReputation": 4535,
-      "username": "sachleen",
-      "views": 3234
-    }, {
-      "accepted": 0,
-      "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
-      "answerScore": "24",
-      "authorUserId": "3",
-      "authorUsername": "Butzke",
-      "downModVotes": 0,
-      "id": 3,
-      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
-      "tags": "<arduino-uno><web-server><ethernet>",
-      "title": "Is an Arduino capable of running 24 7?",
-      "upModVotes": 24,
-      "userId": "13",
-      "userReputation": 489,
-      "username": "Matthew G.",
-      "views": 3234
-    }]
-    ```
-    {: codeblock}
-
-    To upload this information to the service, break down the array and upload each section, as follows:
-
-    Section 1:
-
-    ```json
-    {
-      "accepted": 1,
-      "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
-      "answerScore": "49",
-      "authorUserId": "3",
-      "authorUsername": "Butzke",
-      "downModVotes": 0,
-      "id": 2,
-      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
-      "tags": "<arduino-uno><web-server><ethernet>",
-      "title": "Is an Arduino capable of running 24 7?",
-      "upModVotes": 49,
-      "userId": "11",
-      "userReputation": 4535,
-      "username": "sachleen",
-      "views": 3234
-    }
-    ```
-    {: codeblock}
-
-    Section 2:
-
-    ```json
-    {
-      "accepted": 0,
-      "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
-      "answerScore": "24",
-      "authorUserId": "3",
-      "authorUsername": "Butzke",
-      "downModVotes": 0,
-      "id": 3,
-      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
-      "tags": "<arduino-uno><web-server><ethernet>",
-      "title": "Is an Arduino capable of running 24 7?",
-      "upModVotes": 24,
-      "userId": "13",
-      "userReputation": 489,
-      "username": "Matthew G.",
-      "views": 3234
-    }
-    ```
-    {: codeblock}
 
 ### General Availability release, 15 December 2016
 
 The following notes apply to the General Availability (GA) release of the {{site.data.keyword.discoveryfull}} service.
 
 #### General notes
+[Update: Adding content](/docs/services/discovery/adding-content.html)
 
--   You cannot currently specify the data type of fields. All fields are indexed as text (data type **string**).
--   If you use the API to work with the service, you must specify the API version with each call. The current API version is **2016-12-01**.
+See [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window} for current API version.
+
+[Update: Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
+
+-   You cannot currently specify the data type of fields. All fields are indexed as text (data type **string**). 
+-   If you use the API to work with the service, you must specify the API version with each call. The current API version is **2016-12-01**. 
 
     **Note:** The specific version is not enforced in the GA release, but it still must be listed to enable compatibility with future releases.
 
--   You can use the service with a custom model created with {{site.data.keyword.knowledgestudiofull}}. The custom model can be used to enrich ingested documents. You must use the API to integrate the custom model with the {{site.data.keyword.discoveryshort}} service; you cannot perform the integration by using the tooling. See [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html "You can integrate a custom model from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom enrichments.") for details.
+-   You can use the service with a custom model created with {{site.data.keyword.knowledgestudiofull}}. The custom model can be used to enrich ingested documents. You must use the API to integrate the custom model with the {{site.data.keyword.discoveryshort}} service; you cannot perform the integration by using the tooling.
 
 #### Data management
+[Update](/docs/services/discovery/pricing-details.html)
 
 -   Search indexes are not encrypted.
 -   Backup and restore functions are not user controllable.
 
 #### Environments
+[Update](/docs/services/discovery/pricing-details.html)
 
 -   You can create only one environment per service instance to upload your own data.
 -   {{site.data.keyword.discoveryshort}} service is located in a single availability zone (US South).
 -   Dedicated and premium plans are not available at the current time.
 
 #### Environment sizing
+[Update](/docs/services/discovery/pricing-details.html)
 
 -   You can choose an environment size only when creating a new environment. The ability to resize an environment is not currently available to users.
 -   Choosing an environment size with more RAM increases performance.
@@ -759,27 +701,38 @@ The following notes apply to the General Availability (GA) release of the {{site
 -   Custom sizing for {{site.data.keyword.knowledgestudiofull}} models is not self-serve. Contact your {{site.data.keyword.IBM}} representative for more information.
 
 #### Ingestion limitations
+[Update](/docs/services/discovery/pricing-details.html)
 
 -   The ingestion rate is currently limited to 100 concurrent document ingestion operations. An application that submits documents to the service for ingestion needs to respect HTTP 429 errors and throttle down ingestion requests accordingly.
 -   {{site.data.keyword.alchemylanguageshort}} enrichments are limited to the first 50 kB per field.
 -   Enrichments from {{site.data.keyword.knowledgestudiofull}} custom models are not limited, but split documents into 10-kB chunks. No relationships are annotated across chunk boundaries.
 
 #### Query limitations
+[Update](/docs/services/discovery/using.html#query-concepts)
 
 -   Excessive query load can cause the search-index process to restart automatically.
 -   Applications that issue queries must enforce reasonable limits on the number of concurrent queries.
 
 ### Known issues
+[Update: API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+
+[Update: tooling](/docs/services/discovery/getting-started-tool.html)
+
+[Update: Data Crawler](/docs/services/discovery/data-crawler.html)
+
+[Update: Enrichments](/docs/services/discovery/building.html#adding-enrichments)
+
+[Update: Adding content](/docs/services/discovery/adding-content.html)
 
 -   You cannot delete a document by using the tooling. If you need to delete a document, you must use the API's [Delete a document](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc) method as described in the API reference.
 
--   The API does not currently support getting a list of notices (warnings and error) that are generated during document ingestion. The tooling is therefore unable to show a list of ingestion notices, and there is no easy way to determine which, if any, documents crawled by the Data Crawler failed to be ingested.
+-   The API does not currently support getting a list of notices (warnings and error) that are generated during document ingestion. The tooling is therefore unable to show a list of ingestion notices, and there is no easy way to determine which, if any, documents crawled by the Data Crawler failed to be ingested. 
 -   Document status information is not always accurate.
     -   If an ingestion operation takes longer than the configured timeout of 10 minutes, the service reports that the document is not known to the service until the ingestion operation completes. After the operation completes, the document status is available and accurate.
     -   Documents that are successfully indexed but generated errors can have a status of **failed** for a short period of time until the document has been fully committed to the index. After the document has been committed to the index, the listed status is accurate.
 -   You cannot use the tooling to replace a specific document. If you attempt to do so, the second document is uploaded as a separate document. If you are using the API and know the ID of the document you want to replace, you can do so; see [Update a document](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc) in the API reference. If you are using the Data Crawler, uploading an updated document from the same URL as a previous document replaces the original document.
 -   If you are using the tooling to edit the enrichments in your configuration, you can edit only enrichments used for extraction. If you want to add or edit other enrichments (for example, custom enrichments from a {{site.data.keyword.knowledgestudiofull}} model), you must use the API. See the [Update a configuration](http://www.ibm.com/watson/developercloud/discovery/api/v1/#replace_configuration) method in the API reference for information.
--   The following notes apply specifically to the Data Crawler.
+-   The following notes apply specifically to the Data Crawler. 
     -   The Data Crawler retries uploads if it encounters an upload failure.
     -   The Data Crawler is unable to retry documents that uploaded successfully but failed to be converted or indexed.
     -   The Data Crawler does not have a function to check downstream status and attempt to re-upload URLs that failed downstream.
