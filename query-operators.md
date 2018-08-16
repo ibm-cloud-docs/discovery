@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-13"
+lastupdated: "2018-08-15"
 
 ---
 
@@ -161,21 +161,43 @@ enriched_text.concepts.text:IBM^3
 ## * \[Wildcard\]
 {: #Wildcard}
 
-Matches unknown characters in a search expression.
+Matches unknown characters in a search expression. Do not use capital letters with wildcards.
 
 For example:
 ```bash
-enriched_text.entities.text:"IBM*"
+enriched_text.entities.text:ib*
 ```
 {: codeblock}
 
 ## ~n \[String variation\]
 {: #variation}
 
-The number of one character changes that need to be made to one string to make it the same as another string. For example `car~1` will match `car`,`cap`,`cat`,`can`, etc..
+The number of one character changes that need to be made to one string to make it the same as another string. For example `car~1` will match `car`,`cap`,`cat`,`can`, etc.
 
 For example:
 ```bash
 enriched_text.concepts.text:Watson~3
+```
+{: codeblock}
+
+## :* \[Exists\]
+{: #exists}
+
+Used to return all results where the specified `field` exists.
+
+For example:
+```bash
+title:*
+```
+{: codeblock}
+
+## !* \[Does not exist\]
+{: #dnexist}
+
+Used to return all results that do not include the specified `field`.
+
+For example:
+```bash
+title!*
 ```
 {: codeblock}
