@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-09"
+lastupdated: "2018-08-17"
 
 ---
 
@@ -41,9 +41,9 @@ Attributes:
 
 Additional options:<br> [Custom Models](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
 One Watson Knowledge Studio model included. Additional models: Not available<br>[Element Classification](/docs/services/discovery/element-classification.html)\*\*\*:
-500 pages included. Additional pages: Not available <br>[News Queries](/docs/services/discovery/watson-discovery-news.html): 
-200 News queries included. Additional queries:  Not available<br>[Query Expansions](/docs/services/discovery/using.html#query-expansion):
-500 query expansions with 1,000 total terms per month. Additional expansions: Not available
+500 pages included per month. Additional pages: Not available <br>[News Queries](/docs/services/discovery/watson-discovery-news.html): 
+200 News queries included per month. Additional queries:  Not available<br>[Query Expansions](/docs/services/discovery/using.html#query-expansion):
+500 query expansions with 1,000 total terms. Additional expansions: Not available
 
 For information about upgrading from Lite to Advanced, see [Upgrading your service](/docs/services/discovery/upgrading.html#service)
 
@@ -80,13 +80,13 @@ Attributes of all other Advanced plans:
 
 Additional options:<br> [Custom Models](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
 One Watson Knowledge Studio model included. Additional models: $800 each<br>[Element Classification](/docs/services/discovery/element-classification.html)\*\*\*:
-500 pages included. Additional pages: $0.40 each<br>[News Queries](/docs/services/discovery/watson-discovery-news.html): 
-200 News queries included  
-10,000 additional queries: $0.10 per query<br>
-10,001 - 100,000 additional queries: $0.05 per query<br>
-Over 100,000 queries: $0.03 per query<br>
+500 pages included per month. Additional pages: $0.40 each<br>[News Queries](/docs/services/discovery/watson-discovery-news.html): 
+200 News queries included per month  
+10,000 additional queries (per month): $0.10 per query<br>
+10,001 - 100,000 additional queries (per month): $0.05 per query<br>
+Over 100,000 queries (per month): $0.03 per query<br>
 [Query Expansions](/docs/services/discovery/using.html#query-expansion):
-5,000 query expansions with 25,000 total terms per month
+5,000 query expansions with 25,000 total terms
 
 ## Premium
 
