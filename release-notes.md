@@ -46,10 +46,6 @@ The following new features and changes to the service are available.
 
 - Two new query operators are available. `Exists` (`:*`) can be used to return all results where the specified `field` exists. `Does not exist` (`!*`) can be used to return all results that do not include the specified `field`. See [Query operators](/docs/services/discovery/query-operators.html) for more information. 
 
-## 14 August 2018
-
-- Known issue: When you create an **Advanced** environment using the {{site.data.keyword.discoveryshort}} tooling, the environment size created when you select any option from the **Small/Medium** tab (X-Small/Small/Medium-Small/Medium/Medium-large), will be `Small`, even if one of the other sizes is chosen. To avoid this issue, create your environment using the [Environments ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api){: new_window} API.
-
 ## 2 August 2018
 {: #2aug}
 
