@@ -156,7 +156,7 @@ The default language of {{site.data.keyword.watson}} {{site.data.keyword.discove
 
 For information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects. The `collection_id` of the Korean collection is `news-ko`, the Spanish `collection_id` is `news-es`, the German `collection_id` is `news-de`, the Japanese `collection_id` is `news-ja`.
 
-{{site.data.keyword.discoverynewsfull}} queries display the first 50 words of each article in the text JSON field.
+{{site.data.keyword.discoverynewsfull}} queries display the first 50 words of each article in the `text` JSON field.
 
 The maximum number of results returned for a {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
 
