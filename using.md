@@ -172,7 +172,7 @@ If you have multiple collections in your environment, you might want to view res
 
 You can query multiple collections in the same environment by using the `environments/{environment_id}/query` API method. When querying across multiple collections, take into consideration the following items.
 -  The `collection_ids` parameter must be specified when using this method. `collection_ids` is a comma-separated list of collections in the environment to query.
--  `passages` are supported when querying multiple collections. A maximum of five collections can be queried at one time.
+-  `passages` are supported when querying multiple collections.
 -  A new field, `collection_id` is returned as part of each result object. This field specifies the collection where the result was found.
 -  The {{site.data.keyword.discoverynewsshort}} is part of the `system` environment and cannot be included in multiple collection queries.
 -  Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
@@ -181,7 +181,7 @@ See the [multiple collection query API reference ![External link icon](../../ico
 
 You can view notices across multiple collections in the same environment by using the `environments/{environment_id}/notices` API method.
 -  The `collection_ids` parameter must be specified when using this method. `collection_ids` is a comma-separated list of collections in the environment to query.
--  `passages` are supported when querying multiple collections. A maximum of five collections can be queried at one time.
+-  `passages` are supported when querying multiple collections.
 
 See the [multiple collection notices API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#collections-notices){: new_window} for more information.
 
