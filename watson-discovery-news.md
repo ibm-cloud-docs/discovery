@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-09-05"
 
 ---
 
@@ -31,10 +31,15 @@ Use cases for {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshor
 
 - Trending topics in the news -  Identify popular topics and monitor increases and decreases in how frequently they (or related topics) are mentioned.
 
-For information about writing queries for {{site.data.keyword.discoverynewsfull}}, see [Query concepts](/docs/services/discovery/using.html) and [Query reference](/docs/services/discovery/query-reference.html).
+For information about writing queries for {{site.data.keyword.discoverynewsfull}}, see:
+- [Querying Watson Discovery News](/docs/services/discovery/using.html#querying-news)
+- [Query concepts](/docs/services/discovery/using.html)
+- [Query reference](/docs/services/discovery/query-reference.html).
 
 You cannot adjust the {{site.data.keyword.discoverynewsfull}} configuration, train, or add documents to the {{site.data.keyword.discoverynewsfull}} collection.
 
-**Note:** The maximum number of results returned for a {{site.data.keyword.discoverynewsfull}} query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
+{{site.data.keyword.discoverynewsfull}} queries display the first 50 words of each article in the `text` JSON field.
+
+The maximum number of results returned for a {{site.data.keyword.discoverynewsfull}} query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
 
 **Note:** This version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. {{site.data.keyword.discoverynewsfull}} Original was retired from service **15, January 2018**. For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
