@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-25"
+lastupdated: "2018-08-31"
 
 ---
 
@@ -93,4 +93,8 @@ The `confidence` score can be found in the query results, under the `result_meta
             },
 ```
 
-**Note:** The `confidence` field is only returned when relevancy training has been successfully completed. There may also be cases where the trained model is not available and the `confidence` field will not be returned. Applications using `confidence` as a threshold should ensure they can handle these scenarios. Since `score` is relative to the query, it is not recommended for use as a fixed threshold. Instead, we recommend that applications always perform the same behavior for all results that do not include the `confidence` field. For example, an application may show all results without the `confidence` field or hide all results without the `confidence` field, but should not use the value of `score` to show some and hide others.
+**Note:** The `confidence` field is only returned when relevancy training has been successfully completed. There may also be cases where the trained model is not available and the `confidence` field will not be returned. 
+
+For example, the trained model will become temporarily invalid if new top level fields are introduced, or the schema of the collection was otherwise changed because new documents with a different schema have been ingested. In that scenario, `confidence` will not be returned with results, and the results will come from the default untrained search until the model is automatically retrained and is again available. During retraining `confidence` will not be returned.
+
+Applications using `confidence` as a threshold should ensure they can handle these scenarios. Since `score` is relative to the query, it is not recommended for use as a fixed threshold. Instead, we recommend that applications always perform the same behavior for all results that do not include the `confidence` field. For example, an application may show all results without the `confidence` field or hide all results without the `confidence` field, but should not use the value of `score` to show some and hide others.
