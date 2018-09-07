@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-31"
+lastupdated: "2018-09-06"
 
 ---
 
@@ -31,16 +31,11 @@ In order to train Watson, you'll need to:
 
 Once Watson has enough training input, the information you've provided about which results are good and bad for each query will be used to learn about your collection. Watson doesn't just memorize, it learns from the specific information about individual queries and applies the patterns it has detected to all new queries. It does this with machine-learning Watson techniques that find signals in your content and questions. After training is applied, {{site.data.keyword.discoveryshort}} then reorders the query results to display the most relevant results at the top. As you add more and more training data, {{site.data.keyword.discoveryshort}} should become more accurate in the ordering of query results.
 
-Training must meet the following **minimum** requirements for {{site.data.keyword.discoveryshort}} to begin applying your ratings:
+**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries. For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery/using.html).
 
-  - You must train a minimum of 49 queries, and possibly more. Watson will give you feedback if it needs more queries in order to train.
-  - You should apply both available ratings to your results: `Relevant` and `Not relevant`. Only rating the `Relevant` documents will not provide the data needed.
+Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
 
-**Note:** Relevance training needs certain training-data requirements before it takes effect. The service checks the training data periodically to determine if these requirements are met, and automatically updates itself based on any changes.
-
-**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery/using.html).
-
-**Note:** There is a maximum of 25 trained collections per environment.  
+See [Training data requirements](/docs/services/discovery/train.html#reqs) for the minimum requirements for training, as well as the training limits.
 
 ## Adding queries and rating the relevancy of results
 {: #results}
