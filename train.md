@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-09-06"
 
 ---
 
@@ -28,13 +28,11 @@ For comprehensive information about the training APIs, see the [API reference ![
 
 If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to train {{site.data.keyword.discoveryshort}}, see [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html).
 
-**Note:** Relevance training needs certain training-data requirements before it takes effect. The service checks the training data periodically to determine if these requirements are met, and automatically updates itself based on any changes.
-
 **Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery/using.html).
 
 Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
 
-**Note:** There is a maximum of 25 trained collections per environment.
+See [Training data requirements](/docs/services/discovery/train.html#reqs) for the minimum requirements for training, as well as the training limits.
 
 <!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
 
@@ -51,14 +49,20 @@ The components needed to train a Discovery instance include the following:
    Examples can optionally specify a cross-reference query. The cross-reference query needs to return only the example document and must be independent of the unique Watson Discovery document ID. Cross-reference queries are not currently used automatically but can be used to repair training data in the event that new IDs are assigned to documents during an ingestion event.
 
 ## Training data requirements
+{: #reqs}
 
-Training data must meet the following **minimal** quality criteria to effectively improve the relevance of answers that are returned by the Discovery service. Note that **minimal** does not mean **optimal**.
+Training data must meet the following **minimal** quality criteria to effectively improve the relevance of answers that are returned by the Discovery service. Note that **minimal** does not mean **optimal**. The service checks the training data periodically to determine if these requirements are met, and automatically updates itself based on any changes.
 
-- The collection's training-data set must contain at least 49 unique training queries (that is, sets of queries and examples). Depending on the size and complexity of your collection, the number of training queries in your set might need to be higher than 49 before Watson is able to apply relevancy training to the collection.
-- The relevance score for each training query must be a non-negative integer, for example `0` to represent *not relevant*, `1` to represent *somewhat relevant*,  and `2` to represent *highly relevant*. However, for maximum flexibility, the service accepts non-negative integers between `0` and `100` for advanced users experimenting with different scoring schemes. Regardless of the range you use, the largest integer in the set of training queries indicates maximum relevance. The {{site.data.keyword.discoveryshort}} tooling uses the relevance scores of `0` to represent *not relevant*,  and `10` to represent *relevant*. If you plan to score your documents using both the {{site.data.keyword.discoveryshort}} tooling and the API, or you plan to begin with the API and move to the tooling, use the `0` and `10` relevancy scores.
+- The collection's training-data set must contain at least 49 unique training queries (that is, sets of queries and examples). Depending on the size and complexity of your collection, the number of training queries in your set might need to be higher than 49 before Watson is able to apply relevancy training to the collection. Watson will provide feedback if it needs more queries in order to train.
+- When assigning relevance scores via the API: The relevance score for each training query must be a non-negative integer, for example `0` to represent *not relevant*, `1` to represent *somewhat relevant*,  and `2` to represent *highly relevant*. However, for maximum flexibility, the service accepts non-negative integers between `0` and `100` for advanced users experimenting with different scoring schemes. Regardless of the range you use, the largest integer in the set of training queries indicates maximum relevance.
+- When assigning relevance ratings via the Tooling: The {{site.data.keyword.discoveryshort}} tooling uses the relevance scores of `0` to represent *not relevant*, and `10` to represent *relevant*. You should apply both available ratings to your results: `Relevant` and `Not relevant`. Only rating the `Relevant` documents will not provide the data needed.  If you plan to score your documents using both the {{site.data.keyword.discoveryshort}} tooling and the API, or you plan to begin with the API and move to the tooling, use the `0` and `10` relevancy scores.
 - The training queries must include some term overlap between the query and the desired answer so it can be retrieved by the Discovery service's initial search, which is broad in scope.
 
 **Note:** Watson uses training data to learn patterns and to generalize, not to memorize individual training queries. The service therefore might not always reproduce identical relevance results for any given training query.
+
+Training cannot exceed the following **maximum** requirements:
+  - You cannot exceed 24 trained collections per environment.
+  - Within a single environment, you are limited to 10,000 training queries, with a maximum of 100 examples per query. 
 
 ## Adding a query to the training-data set
 
