@@ -89,6 +89,7 @@ Discovery
         [Java SDK](https://github.com/watson-developer-cloud/java-sdk)
         [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
         [Python SDK](https://github.com/watson-developer-cloud/python-sdk)
+        [Ruby SDK](https://github.com/watson-developer-cloud/ruby-sdk)
         [.NET SDK](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
         [OpenWhisk SDK](https://github.com/watson-developer-cloud/openwhisk-sdk/)
         [Salesforce SDK](https://github.com/watson-developer-cloud/salesforce-sdk)
@@ -106,6 +107,6 @@ Discovery
     {: .topicgroup}
     Developer community
         [StackOverflow](http://stackoverflow.com/questions/tagged/watson-discovery)
-        [developerWorks Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
+        [IBM Developer Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
         [WDC Slack channel](http://wdc-slack-inviter.mybluemix.net/)
     {: .navgroup-end}
