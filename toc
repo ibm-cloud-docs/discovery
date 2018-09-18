@@ -46,6 +46,7 @@ Discovery
         dashboard.md
         train.md
         train-tips.md
+        feedback.md
 
     {: topicgroup}
     Discovery and Knowledge Studio
