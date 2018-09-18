@@ -34,6 +34,8 @@ Trained collections will return a `confidence` score in the result of a natural 
 
 See [Training data requirements](/docs/services/discovery/train.html#reqs) for the minimum requirements for training, as well as the training limits.
 
+See [Usage monitoring](/docs/services/discovery/feedback.html) for details on tracking usage and using this data to help you understand and improve your applications.
+
 <!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
 
 The components needed to train a Discovery instance include the following:
