@@ -37,6 +37,8 @@ Trained collections will return a `confidence` score in the result of a natural 
 
 See [Training data requirements](/docs/services/discovery/train.html#reqs) for the minimum requirements for training, as well as the training limits.
 
+See [Usage monitoring](/docs/services/discovery/feedback.html) for details on tracking usage and using this data to help you understand and improve your applications.
+
 ## Adding queries and rating the relevancy of results
 {: #results}
 
