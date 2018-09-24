@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -33,7 +33,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 | Italian (it)                    |  Basic         |
 | Japanese (ja)                  |  Full         |
 | Korean (ko)                    |  Full         |
-| Portuguese, Brazilian (pt-br)   |  Basic         |
+| Portuguese, Brazilian (pt-br)   |  Full         |
 | Spanish (es)                    |  Full         |
 
 ## Basic support
