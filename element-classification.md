@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -30,7 +30,7 @@ Element Classification is designed to provide:
 
 Element Classification brings together a functionally rich set of integrated, automated Watson APIs to input a programmatic PDF to identify: sections, lists (numbered and bulleted), footnotes, and tables converting these items into a structured HTML format. Furthermore, classification of this structured format is annotated and output as JSON with labeled elements, types and categories.
 
-Element Classification securely transmits your data performing encryption in flight and at rest. For information about IBM Cloud security, see the [IBM Cloud Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+Element Classification securely transmits your data performing encryption in flight and at rest. For information about IBM Cloud security, see the [IBM Cloud Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=(IBM+Cloud+Service+description){: new_window}.
 
 This feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details.
 
@@ -51,6 +51,8 @@ To classify documents using Element Classification your configuration and source
 - Not available in **Dedicated** environments.
 - Post-enrichment normalization cannot be performed when using Element Classification.
 
+**Note:** The **Default Contract Configuration** file was updated on September 25, 2018. If you applied this configuration to a collection prior to this date, see the [release notes](/docs/services/discovery/release-notes.html#25sept) for information on updating your collection.
+
 ## Collection requirements
 {: #element-collection}
 
@@ -60,7 +62,14 @@ The {{site.data.keyword.discoveryshort}} tooling includes a configuration named 
 
 ```json
 {
+  "name": "Default Contract Configuration",
   "description": "Extract party, nature, and category from elements in PDFs.",
+  "conversions": {
+    "html": {
+      "exclude_tags_completely": [],
+      "exclude_tags_keep_content": []
+    }
+  },
   "enrichments": [
     {
       "source_field": "html",
@@ -158,70 +167,72 @@ The following sections describe how the returned JSON describes the analysis.
 
 ### Type
 
-The element `types` information is an array of objects, each object contains a nature and party that has been identified as a couplet for this element. The following tables describe the `nature` and `party` values that can be identified.
+The `types` array includes a number of objects, each of which contains `nature` and `party` keys whose values identify a couplet for the element.
 
-Nature is the type of action the sentence requires.
+The following tables list the possible values of the `nature` and `party` keys.
 
-| **Nature** | **Description** |
-| --- | --- |
-| `Definition` | This element adds clarity for a term/relationship/etc. Action is not required to fulfill this element and no party is affected. |
-| `Disclaimer` | The party in the element is not obligated to fulfill the specific terms in the element, but is not barred from doing so.  |
-| `Exclusion` | The party in the element will not fulfill the specific terms laid out in the element.  |
-| `Obligation` | The party in the element is required to fulfill the terms of the element.   |
-| `Right` | The party in the element is guaranteed to receive the terms of the element.  |
+| **Nature**       |**Description**                                            |
+|:----------------:|-----------------------------------------------------------|
+|`Definition`      |This element adds clarity for a term, relationship, or similar. No action is required to fulfill the element, nor is any party affected.|
+|`Disclaimer`      |The `party` in the element is not obligated to fulfill the terms specified by the element but is not prohibited from doing so.|
+|`Exclusion`       |The `party` in the element will not fulfill the terms specified by the element.|
+|`Obligation`      |The `party` in the element is required to fulfill the terms specified by the element.|
+|`Right`           |The `party` in the element is guaranteed to receive the terms specified by the element.|
 
+Each `nature` key is paired with a `party` key, which will contain either the name or the role of the party or parties that apply to the nature (examples include, but are not limited to, `Buyer`, `IBM`, or `All Parties`). Note that for the `Definition` nature, the party is always `None`.
+ 
 ### Parties
 
-For each identified clause, affected parties are identified by name. Each identified party is then classified by `role`. Parties are the participants in the contract. The roles that can be identified for contract are as follows:
+The separate `parties` array specifies the participants listed in the contract. Each identified `party` object lists the identified party by name and is matched with a `role` that classifies the role of the `party` object. The values of `role` that can be returned for contracts include, but are not limited to:
 
-| **Role** | **Description** |
-| --- | --- |
-| `Buyer` | The party responsible for paying for the goods/services. |
-| `End User` | The party who will interact with the actual goods/services, explicitly distinguished from the Buyer. |
-| `None` | No party has been identified for this element, always paired with the Definition nature. |
-| `Supplier` | The party responsible for providing the goods/services. |
+| **Role**         |**Description**                                            |
+|:----------------:|-----------------------------------------------------------|
+|`Buyer`           |The party responsible for paying for the goods or services listed in the contract.|
+|`End User`        |The party who will interact with the provided goods or services, explicitly distinguished from the `Buyer`.|
+|`None`            |No party was identified for the element.|
+|`Supplier`        |The party responsible for providing the goods or services listed in the contract.|
 
 ### Categories
 
-Categories define the subject matter of the sentence. The following currently supported categories can be identified:
+The `categories` array defines the the subject matter of the sentence. Currently supported categories include:
 
-| **Categories** | **Description** |
-| --- | --- |
-|`Amendments`      |Elements that specify changes to the contract after it has been signed, or alterations to a standard contract. Elements referring to alterations to a contract and changes to agreements also fall into this category.|
-|`Asset Use`       |Elements that refer to situations in which one party must use the assets (licenses or equipment) of the other party in conducting their duties under the agreement, including permissions and restrictions thereon.|
+| **Categories**   |**Description**                                            |
+|:----------------:|-----------------------------------------------------------|
+|`Amendments`      |Elements that specify changes to the contract after it has been signed, or alterations to a standard contract. Includes discussions of the conditions for changing the terms of a contract.|
+|`Asset Use`       |Elements that refer to how one party may or may not use the assets of another party. This specifically applies to one party having access to or using assets such as licenses, equipment, tools, or personnel of the other party while in the process of conducting their duties under the agreement, including permissions and restrictions thereon.  This does not extend to specifications of a party's obligations or rights regarding any purchased goods, services, licenses, etc., as those are the party's own assets, rather than assets of another party.|
 |`Assignments`     |Elements that describe the transfer of rights, obligations, or both to a third party.|
-|`Audits`          |This category includes elements referring to record-keeping and the right of parties to inspect the books or records of the other party, and elements referring to either the right of a party to inspect or review compliance, or requirements that a party be available for inspection or compliance review.|
-|`Business Continuity`|A narrow category for elements that reference the effect of a sale, merger, or other substantial change to one of the parties to the agreement.|
-|`Communication`  |Elements referring to requirements to notify or provide notice, details about communication methods (the act or process of exchanging information), contact representatives, and contact information. Additionally, elements referring to acceptable means of exchanging information between parties.|
-|`Confidentiality` |This category includes elements describing how the parties can use information that they learn in the course of completing the contract; elements that discuss maintaining trade secrets; and elements describing the nondisclosure of business information.|
-|`Deliverables`    |This category includes elements specifying the item or items one party gives to the other party in exchange for money, and elements describing the preparation of deliverables.|
-|`Delivery`        |Elements that specify the means of transferring the item or items in the `Deliverables` category from one party to another. For example, if one party is selling access or cloud services, the means of getting that access falls into this category.|
-|`Dispute Resolution`|This category includes elements that discuss provisions for settling any dispute arising between contracting parties; for example, settlement by a defined procedure such as an arbitration panel. Disputes can be settled by various methods other than arbitration; for example, irreparable harm, obtaining an injunction, or a statement to the effect of "You may not pursue this as a class action". Examples of disputes include labor disputes and disputes about invoices or billing. The category also includes elements that specify the contract's governing law or choice of law, such as a particular country or jurisdiction.|
-|`Force Majeure`   |Elements that refer to disruptive events outside a party's control. It is a specific limitation of liability.|
-|`Indemnification` |Elements that specify the remediation of certain liabilities. Indemnification is when one party of the contract becomes responsible for paying for another party's liability. The fact of indemnification implies that a liability has occurred.|
-|`Insurance`       |Elements referring to any kind of insurance coverage or terms of coverage provided by one party to the other party.|
-|`Intellectual Property`|Examples tend to fall into two categories: those using formal definitions of patents, copyrights, and trademarks, typically taken from statutes; and those using broader concepts of inventions, authorship, and know-how. Definitions can also be provided for intellectual property rights, such as the right to sue and claim damages for violation of such property rights. `Intellectual Property` includes patents, rights to apply for patents, trademarks, trade names, service marks, domain names, copyrights, and all applications and registration of such worldwide, schematics, industrial models, inventions, know-how, trade secrets, computer software programs, and other intangible proprietary information. For "Third Party Code", if any part of the code belongs to someone else, IP needs to be called out.|
-|`Liability`       |Elements that describe the method for determining when and how fault attaches to any party.|
-|`Payment Terms & Billing`|A broad category that includes elements that describe how a party pays or gets paid, including the following: elements that refer to the final mode of payment under the contract or how one party is paying; elements detailing how and when the party is to be be paid or the types of items the parties will be paying or billed for; elements referring to any kind of fee payment, except those that refer to specific prices or figures; and elements referring to the party that receives the payments under the contract.|
-|`Pricing & Taxes` |This category includes elements that describe what a party pays or gets paid. The category includes elements that refer to taxes and specific amounts associated with individual deliverables that are exchanged, including details about the costs of a particular element, and elements that describe specific figures or methods for calculating prices.|
-|`Privacy`         | Elements that specify the treatment of personal information; that is, private information about a specific individual or individuals that needs to be protected. The category is a very specific subset of the broader `Confidentiality` category.|
-|`Responsibilities`|Tasks ancillary to the agreement, over which only one of the parties has oversight and control. The types of elements that fall into this category differ depending on the nature of the contract.|
-|`Safety and Security`|Elements referring to physical safety or cybersecurity protections for data and systems, as well as elements referring to enhancing safety of the workplace or workplaces.|
-|`Scope of Work`   |This category defines what is in the contract versus what is not in the contract. Typically, elements that tell the parties how a particular order is to be defined fall into this category. Examples include discussions of "statements of work" or descriptions of applicable communications standards.|
+|`Audits`          |Elements referring to either the right of a party to examine or review compliance, or requirements that a party be available for inspection or compliance review. This includes references to record keeping (primarily as it relates to the right of inspection) and the maintenance and retention of activity records that may be examined.|
+|`Business Continuity`|Elements referring to the consequences if the entire business of one of the parties is sold.|
+|`Communication`  |Elements referring to requirements to communicate, respond, notify, or provide notice; contact information; or information regarding changes to the contract. Also includes references to details about communication methods, the act or process of exchanging information, and acceptable means of exchanging information between parties (as well as others who are not necessarily direct parties to the contract).|
+|`Confidentiality` |Elements describing how parties can or cannot use information learned in the course of completing the contract and going forward. Also includes discussion of information that must be kept confidential, such as maintaining trade secrets or nondisclosure of business information.|
+|`Deliverables`    |Elements specifying the items, such as goods or services, that one party provides to another under the terms of the contract, usually in exchange for payment. Includes discussion of preparation of deliverables.|
+|`Delivery`        |Elements that specify the means or modes of transferring deliverables (things, as opposed to personal services) from one party to another. Includes discussions of characteristics of delivery, such as scheduling or location.|
+|`Dispute Resolution`|Elements discussing provisions for settling any dispute (e.g., regarding labor, invoices, or billing) arising between contracting parties.  Provision examples may include settlement by a defined procedure such as an arbitration panel, a process for obtaining an injunction, waiving a right to trial, or prohibiting the pursuit of a class action. Also includes references to the contract's governing law or choice of law, such as a particular country or jurisdiction. |
+|`Force Majeure`   |Elements that refer to unexpected or disruptive events outside a party's control that would relieve the party from performing their contractual obligation.|
+|`Indemnification` |Elements that specify the remediation of certain liabilities, when one party of the contract becomes responsible for compensating another party as a result of incurred loss or damages during the term of, or arising from the circumstances of the contract. Also includes references to any legal exemptions from loss or damages.|
+|`Insurance`       |Elements referring to insurance coverage or terms of coverage provided by one party to another party (including to third parties such as subcontractors or others). Includes a variety of insurance including, but not limited to, medical insurance.|
+|`Intellectual Property`|Elements that discuss the assignment of rights (such as copyrights, patents, and trade secrets) to parties to the contract. Includes references to patents, rights to apply for patents, trademarks, trade names, service marks, domain names, copyrights, and all applications and registration of such schematics, industrial models, inventions, authorship, know-how, trade secrets, computer software programs, and other intangible proprietary information. Also includes discussion of the consequences of violation of intellectual property rights.|
+|`Liability`       |Elements that describe the method for determining when and how fault attaches to any party. Examples may include, but are not limited to, statements regarding limitations of liability, third-party claims, and repairs, replacements, or reimbursements as required of the party at fault.|
+|`Payment Terms & Billing`|Elements that detail how and when a party is to pay or get paid, as well as the items or fees the parties will be paying or billed for. Includes references to modes of payment or payment mechanisms.|
+|`Pricing & Taxes` |Elements that refer to specific amounts or figures associated with individual deliverables that are exchanged (for example, how much something costs) as part of satisfying the terms of the contract. Includes references to specific figures or methods for calculating prices or tax amounts.|
+|`Privacy`         |Elements that are particularly concerned with the treatment of sensitive personal information, usually regarding its protection (for example, in order to satisfy regulations such as GDPR).|
+|`Responsibilities`|Elements that discuss tasks ancillary to the contract that are in only one party's control, specifically focused on discussion of employee oversight.|
+|`Safety and Security`|Elements referring to physical safety or cybersecurity protection for people, data, or systems. Examples include discussions of background checks, safety precautions, workplace security, secure access protocols, and product defects that might pose a danger.|
+|`Scope of Work`   |Elements that define what is in the contract versus is not in the contract; consequently, what is promised to be done. Examples include statements defining a particular order, or describing the goals or aims outlined in the contract.|
 |`Subcontracts`    |Elements referring to the hiring of third parties to perform certain duties under the contract, and the permissions, rights, restrictions, and consequences thereto and arising therefrom.|
 |`Term & Termination`|Elements referring to duration of the contract, the schedule and terms of contract termination, and any consequences of termination, including any obligations that apply at or after termination.|
-|`Warranties`      |Elements that refer specifically to background, underlying assumptions that the parties can rely on. Consequences of breaching warranties also fall under this category.|
+|`Warranties`      |Elements that refer to ongoing promises and obligations made in the contract that are currently true and will continue to be true in the future. Also elements discussing the consequences of such promises or obligations being broken, and the rights to remedy the situation (for example, but not limited to, seeking damages). This category does not apply to elements that are purely concerned with representation statements (statements of fact about the past or the present), or to elements that lay out assumptions regarding things that occurred in the past.|
 
 ### Attributes
 {: #attributes}
 
 The `attributes` array specifies any attributes identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `attribute` (the start and end points of the attribute in the document). Currently supported attributes include:
 
-| **Attributes** | **Description** |
-| --- | --- |
-|`Location`   |A geographical location or region.           |
-|`DateTime`   |A date, time, date range, or time range.     |
-|`Currency`   |Monetary value and units.                    |
+| **Attributes**   |**Description**                                            |
+|:----------------:|-----------------------------------------------------------|
+|`Location`        |A geographical location or region.                         |
+|`DateTime`        |A date, time, date range, or time range.                   |
+|`Currency`        |Monetary value and units.                                  |
 
 ### Assurance
 
