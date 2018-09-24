@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-03"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -104,7 +104,7 @@ This warning is caused by the `document_ids` in your training data not matching 
 
 ### Error: `This collection cannot be trained: your plan does not support training on this many top-level text fields.`
 
-- This error only occurs with `Lite` plans. The maximum number of top-level text fields that can be trained on is `X`. Top level fields are fields that are not nested underneath another field. The training only occurs on top-level fields, and there are limits to how many fields can be used in the training process.  
+- This error only occurs with `Lite` plans. Top-level fields are fields that are not nested underneath another field. The training only occurs on top-level fields, and there are limits to how many fields can be used in the training process. The more top level fields in a collection, the more training data is required. Also, in cases where there are more than `10` top level fields, training is more likely to encounter errors. 
 
 ### Error: `Training data quality standards not met: You will need additional training queries with labeled examples. (To be considered for training, each example must appear in the top 100 search results for its query.)`
 
