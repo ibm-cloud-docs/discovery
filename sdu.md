@@ -21,14 +21,14 @@ lastupdated: "2018-09-25"
 
 Smart Document Understanding (SDU) is a new way to annotate your documents within {{site.data.keyword.discoveryfull}}. 
 
-The WYSIWYG editor makes it simpler to train custom conversion models. Customizing how your documents are indexed into Discovery will improve the answers returned for your application.
+The editor makes it simpler to train custom conversion models. Customizing how your documents are indexed into Discovery will improve the answers returned for your application.
 
 SDU is in beta release. A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
 
 ## Supported document types and browsers
 {: #doctypes}
 
-For this beta, {{site.data.keyword.discoveryfull}} supports these document types: PDF, Word, HTML, JSON, Excel, PowerPoint, png, tiff, and jpeg.
+Supported document types: PDF, Word, HTML. JSON documents are supported by {{site.data.keyword.discoveryfull}}, but do not open in the SDU editor, because they are structured documents.
 
 Supported browser for this beta release: Chrome
 
@@ -65,7 +65,7 @@ See [Best practices for labeling documents and tables](/docs/services/discovery/
    - To clear a change, click the **Clear change** button on the toolbar.
 1. Click **Submit**.
    **Note:** As you annotate, Watson is learning and will start predicting annotations. Continue annotating until Watson correctly and consistently identifies fields.
-1. When you have completed annotating, click **Apply changes to collection.** The **Upload your documents** screen opens. (This will change after beta.) You need to upload your annotated documents so that the updated settings are applied to the entire collection. After uploading is complete, you will be redirected to the **Manage Data** screen.
+1. When you have completed annotating, click **Apply changes to collection.** The **Upload your documents** screen opens. (This will change after beta.) You can now upload your documents so that the updated settings are applied to the entire collection. After uploading is complete, you will be redirected to the **Manage Data** screen.
 
 
 Field | Definition  
