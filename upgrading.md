@@ -39,7 +39,7 @@ To upgrade your plan from Lite to Advanced:
 ## Switching from one Advanced tier to another
 {: #advanced} 
 
-If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#resize){: new_window}. 
+If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#update-environment){: new_window}. 
 
 For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/services/discovery/pricing-details.html#advanced).
 
@@ -50,10 +50,10 @@ For detailed information on Advanced plan storage limits and pricing, see [Advan
      X-Small | XS 
      Small | S 
      Medium-Small | MS 
-     Medium| M 
+     Medium | M 
      Medium-Large | ML 
-     Large| L
-     X-Large| XL 
+     Large | L
+     X-Large | XL 
      XX-Large | XXL 
 
 - Querying and indexing can proceed during upgrading. The time required for upgrading depends on a number of factors. You can poll your environment using the API while the upgrade completes.
