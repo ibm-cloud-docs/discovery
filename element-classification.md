@@ -194,7 +194,7 @@ The separate `parties` array specifies the participants listed in the contract. 
 
 ### Categories
 
-The `categories` array defines the the subject matter of the sentence. Currently supported categories include:
+The `categories` array defines the subject matter of the sentence. Currently supported categories include:
 
 | **Categories**   |**Description**                                            |
 |:----------------:|-----------------------------------------------------------|
