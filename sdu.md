@@ -28,7 +28,7 @@ SDU is in beta release. A statement explaining beta features can be found [here]
 ## Supported document types and browsers
 {: #doctypes}
 
-Smart Document Understanding supports these document types: PDF, Word, HTML, Excel, PowerPoint, png, tiff, and jpeg. JSON is not supported because it is a structured format. {{site.data.keyword.discoveryfull}} currently supports PDF, Word, HTML, and JSON.
+For this beta, {{site.data.keyword.discoveryfull}} supports these document types: PDF, Word, HTML, JSON, Excel, PowerPoint, png, tiff, and jpeg.
 
 Supported browser for this beta release: Chrome
 
@@ -44,7 +44,7 @@ To open the Smart Document Understanding editor:
    - **Extract fields** contains the SDU editor. This tab replaces both the **Convert** and **Normalize** tabs on your original {{site.data.keyword.discoveryshort}} screen. 
    - **Enrich fields** is identical to the **Enrich** tab on the original screen. For more information about enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments). The **Upload sample documents** option is not available on the **Enrich fields**, because it is not necessary.
 
-1. Ten documents from your collection will automatically load under the **Extract fields** tab, in the Smart Document Understanding editor.
+1. Twenty (20) documents from your collection will automatically load under the **Extract fields** tab, in the Smart Document Understanding editor.
 
 The toolbar at the top will allow you to:
 - Choose a document
@@ -64,7 +64,8 @@ See [Best practices for labeling documents and tables](/docs/services/discovery/
    - Alternately, you can select a field name on the right, and drag it to the content in the SDU editor. 
    - To clear a change, click the **Clear change** button on the toolbar.
 1. Click **Submit**.
-1. When you have completed annotating, click **Apply changes to collection.** The **Upload your documents** screen opens. (This will change after beta.) After uploading is complete, you will be redirected to the **Manage Data** screen.
+   **Note:** As you annotate, Watson is learning and will start predicting annotations. Continue annotating until Watson correctly and consistently identifies fields.
+1. When you have completed annotating, click **Apply changes to collection.** The **Upload your documents** screen opens. (This will change after beta.) You need to upload your annotated documents so that the updated settings are applied to the entire collection. After uploading is complete, you will be redirected to the **Manage Data** screen.
 
 
 Field | Definition  
