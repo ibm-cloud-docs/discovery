@@ -28,14 +28,20 @@ lastupdated: "2018-09-25"
 
 To setup Continuous Relevancy Training:
 
+- Continuous Relevancy Training can only be enabled at the environment level. Queries must use either the  `/api/v1/environment/{environment_id}/query` and `/api/v1/environments/{environment_id}/query` endpoints to query one or more collections.
 - Because {{site.data.keyword.discoveryshort}} `events` (clicks) are used to create the training data needed, first integrate event tracking. See [Usage monitoring](/docs/services/discovery/feedback.html#usage) for details.
-- A minumum of 1000 natural language queries with an associated click event are required for Continuous Relevancy Training to start. Events and logs are retained for 30 days across your instance so the 1000 clicks must be collected during that time period.
+- A minimum of 1000 natural language queries with an associated click event are required for Continuous Relevancy Training to start. Events and logs are retained for 30 days across your instance so the 1000 clicks must be collected during that time period.
+- Continuous Relevancy Training is available for Advanced plans size `Small` or larger, and Premium plans. It is not available for `Lite` plans.
+- The number of collections for Continuous Relevancy Training is limited to `5`. Since Continuous Relevancy Training works across multiple collections, both query and training times may be extended.
+- Continuous Relevancy Training only occurs on top-level fields, and there are limits to how many fields can be used in the training process. In cases where there are more than `10` top level fields, training is more likely to encounter errors. 
 
 To use Continuous Relevancy Training:
 
+Once trained, Continuous Relevancy Training is used to influence the results of a `natural_language_query` when using an environment-level query. 
+
 Continuous Relevancy Training can be used at query time by running a multi-collection `natural_language_query` across all collections in your environment. See [Querying multiple collections](/docs/services/discovery/using.html#multiple-collections) for instructions. 
 
-**Note:** Querying a single trained collection that is explicitly provided through the `/api/v1/training_data` endpoint or {{site.data.keyword.discoveryshort}} tooling is unchanged. 
+**Note:** Continuous Relevancy Training does not affect queries made to a trained or untrained collection-level (`/v1/environments/{environment_id}/collections/{collection_id}/query`) query call. 
 
 Tracking status:
 
@@ -50,8 +56,3 @@ The status of Continuous Relevancy Training can be viewed from the `/api/v1/envi
         }
     ]
 ```
-
-Continuous Relevancy Training limitations:
-
-- Since Continuous Relevancy Training works across multiple collections, both query and training times may be extended. 
-- Continuous Relevancy Training is available for Advanced plans size `Small` or larger, and Premium plans. It is not available for Lite plans.
