@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -42,7 +42,30 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 25 September 2018
+{: #25sept}
+
+- Released Continuous Relevancy Training, which uses interactions from users to learn how to surface the most relevant results. It can learn from user behavior automatically, significantly reducing the effort required to improve the relevancy ranking of results.  See [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html#crt) for details.
+
+- Added API support for performing longer queries. This increases the character limit to 10,000 characters, and makes it possible to increase the number of filters in your queries and perform more complex aggregations. See the POST Query at [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-post){: new_window} and [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query-post){: new_window} for details.
+
+- You can now upgrade your Advanced plan using the API. See [Upgrading your plan](/docs/services/discovery/upgrading.html#advanced) for details. 
+
+- The Element Classification enrichment has updated the classified elements, contract elements, and parties and tables identified. See [Element Classification](https://console.bluemix.net/docs/services/discovery/element-classification.html) for the updates.
+
+- Added full support for Brazilian Portuguese. For more information, see [Language support](/docs/services/discovery/language-support.html).
+
+- The **Default Contract Configuration** file provided to enrich collections for [Element Classification](/docs/services/discovery/element-classification.html#element-collection) was found to have an issue with HTML normalizations. A new **Default Contract Configuration** is included with this release. Follow the steps below to apply the new **Default Contract Configuration** to your collections.
+
+     1. Determine which of your collections are using either the **Default Contract Configuration** configuration file, or a custom configuration based on **Default Contract Configuration**.
+     1. Make note of the changes you made to any custom configurations based on **Default Contract Configuration**.
+     1. Since the old **Default Contract Configuration** file needs to be deleted from your environment before the new one is used, use the API [Delete configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#delete-configuration){: new_window} to delete the current **Default Contract Configuration** associated with any of your collections. Also delete any configurations based on the old **Default Contract Configuration**.
+     1. Now you can use the new **Default Contract Configuration** file. For each collection using one of those configurations, create a new collection. Apply the new **Default Contract Configuration** or create a new custom configuration based on the new **Default Contract Configuration** using the notes you made in step 2.
+     1. Upload the files previously ingested to the original collections.
+     1. Delete the old collections.
+
 ## 15 August 2018
+{: #15aug}
 
 - Two new query operators are available. `Exists` (`:*`) can be used to return all results where the specified `field` exists. `Does not exist` (`!*`) can be used to return all results that do not include the specified `field`. See [Query operators](/docs/services/discovery/query-operators.html) for more information. 
 
@@ -95,7 +118,7 @@ The following new features and changes to the service are available.
 ## 30 May 2018
 
 - Fixed a known issue in {{site.data.keyword.discoverynewsfull}}. Previously, when querying {{site.data.keyword.discoverynewsshort}} it was possible to receive an incorrect document count because documents in other languages would be counted along with the language you requested. This is no longer the case.
-- Beginning with collections created on `22 May 2018` and after {{site.data.keyword.discoveryshort}} now returns query results that include special characters. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
+- Beginning with collections created on `22 May 2018` and after {{site.data.keyword.discoveryshort}} now returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
 ## 21 May 2018
 

@@ -46,6 +46,7 @@ Discovery
         dashboard.md
         train.md
         train-tips.md
+        continuous-training.md
         feedback.md
 
     {: topicgroup}

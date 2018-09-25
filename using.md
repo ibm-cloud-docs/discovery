@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -33,6 +33,10 @@ You also have the option to turn on passage retrieval. Passages are short, relev
   {: tip}
 
 Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
+
+{{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
+
+You can use the API to perform queries up to 10,000 characters. This makes it possible to increase the number of filters in your queries, and perform more complex aggregations. See the POST Query at [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-post){: new_window} and [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query-post){: new_window} for details.
 
 {{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.
 
@@ -175,9 +179,10 @@ If you have multiple collections in your environment, you might want to view res
 You can query multiple collections in the same environment by using the `environments/{environment_id}/query` API method. When querying across multiple collections, take into consideration the following items.
 -  The `collection_ids` parameter must be specified when using this method. `collection_ids` is a comma-separated list of collections in the environment to query.
 -  `passages` are supported when querying multiple collections.
--  A new field, `collection_id` is returned as part of each result object. This field specifies the collection where the result was found.
+-  `collection_id` is returned as part of each result object. This field specifies the collection where the result was found.
 -  The {{site.data.keyword.discoverynewsshort}} is part of the `system` environment and cannot be included in multiple collection queries.
--  Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
+-  Individual collection relevancy training does not affect ranking of results when querying multiple collections. To rerank results returned when querying multiple collections implement [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html).
+- Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
 
 See the [multiple collection query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-multi-collections){: new_window} for more information.
 

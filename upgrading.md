@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-14"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -39,7 +39,26 @@ To upgrade your plan from Lite to Advanced:
 ## Switching from one Advanced tier to another
 {: #advanced} 
 
-If you already have an Advanced plan, and would like to upgrade it to another tier, contact [Support](https://console.bluemix.net/unifiedsupport/tickets/add). When creating a Support ticket, choose the **ticket type** of `Technical` and the **resource context** of `Cloud Foundry`.
+If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#update-environment){: new_window}. 
+
+For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/services/discovery/pricing-details.html#advanced).
+
+- You can upgrade your Advanced plan size, but you can't downsize to a smaller size. Available Advanced plan sizes are: 
+
+     Plan size | Label  
+     --------- | ------ 
+     X-Small | XS 
+     Small | S 
+     Medium-Small | MS 
+     Medium | M 
+     Medium-Large | ML 
+     Large | L
+     X-Large | XL 
+     XX-Large | XXL 
+
+- Querying and indexing can proceed during upgrading. The time required for upgrading depends on a number of factors. You can poll your environment using the API while the upgrade completes.
+- Moving from one level of Advanced to another does not require the creation of new instances. 
+- Once the upgrade is complete, you will be billed at the new plan rate.
 
 ## Upgrading to a Premium plan
 {: #premium}
