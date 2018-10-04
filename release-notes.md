@@ -55,7 +55,7 @@ The following new features and changes to the service are available.
 
 - Added full support for Brazilian Portuguese. For more information, see [Language support](/docs/services/discovery/language-support.html).
 
-- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `bias` parameter, which allows you to bias towards certain results, for example, documents that were published most recently. See the [Query your collection](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) method in the API reference for information.
+- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `bias` parameter, which allows you to bias towards certain results, for example, documents that were published most recently. See the [Query your collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} method in the API reference for information.
 
 - The **Default Contract Configuration** file provided to enrich collections for [Element Classification](/docs/services/discovery/element-classification.html#element-collection) was found to have an issue with HTML normalizations. A new **Default Contract Configuration** is included with this release. Follow the steps below to apply the new **Default Contract Configuration** to your collections.
 
