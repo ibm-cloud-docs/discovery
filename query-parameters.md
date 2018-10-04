@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-10-04"
 
 ---
 
@@ -88,6 +88,13 @@ A comma-separated list of the portion of the document hierarchy to return. Any o
 A comma-separated list of fields in the document to sort on. You can optionally specify a sort direction by prefixing the field with `-` for descending order or `+` for ascending order. Ascending order is the default sort direction.
 
 The `sort` parameter is currently available for use only with the API; it is not available through the tooling.
+
+# bias
+{: #bias}
+
+Adjusts search results to bias towards certain results, for example, documents that were published most recently. `bias` must be set to either a `date` type field or a `number` type field, for example `bias=publication_date` or `bias=field_1`.  When a `date` type field is specified, returned results will be biased towards field values closer to the current date. When a `number` type field is specified, returned results will be biased towards higher field values. This parameter cannot be used in the same query as the `sort` parameter.
+
+The `bias` parameter is currently available for use only with the API; it is not available through the tooling.
 
 ## passages
 {: #passages}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-10-04"
 
 ---
 
@@ -44,6 +44,7 @@ Query parameters enable you to search your collection, identify a result set, an
 | [offset](/docs/services/discovery/query-parameters.html#offset) | The number of results to ignore before returning `result` documents from the results set | `offset=100` |
 | [return](/docs/services/discovery/query-parameters.html#return) | List of fields to return | `return=title,url` |
 | [sort](/docs/services/discovery/query-parameters.html#sort) | Field to sort results set by | `sort=enriched_text.sentiment.document.score` |
+| [bias](/docs/services/discovery/query-parameters.html#bias) | Field to bias results set by | `bias=publication_date` |
 | [passages.fields](/docs/services/discovery/query-parameters.html#passages_fields) | Fields to extract passages from | `passages=true&passages.fields=text,abstract,conclusion` |
 | [passages.count](/docs/services/discovery/query-parameters.html#passages_count) | Number of passages to return | `passages=true&passages.count=6` |
 | [passages.characters](/docs/services/discovery/query-parameters.html#passages_characters) | Length of passages | `passages=true&passages.characters=144` |
