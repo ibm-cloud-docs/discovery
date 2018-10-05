@@ -36,7 +36,7 @@ Trained collections will return a `confidence` score in the result of a natural 
 
 {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
-You can use the API to perform queries up to 10,000 characters. This makes it possible to increase the number of filters in your queries, and perform more complex aggregations. See the POST Query at [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-long){: new_window} and [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query-long){: new_window} for details.
+You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available in the API-only, and will increase the character limit of a query to 10,000 characters. See [Long collection queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query){: new_window} and [Long environment queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query){: new_window} for details.
 
 {{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.
 
@@ -300,4 +300,4 @@ Example query with `similar.fields` added:
 
 `curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
 
-See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window} and [query parameters](/docs/services/discovery/query-parameters.html#similar) for more information.
+See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} and [query parameters](/docs/services/discovery/query-parameters.html#similar) for more information.
