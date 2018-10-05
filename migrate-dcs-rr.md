@@ -46,7 +46,7 @@ lastupdated: "2017-10-03"
 | Custom analyzer configuration | Yes | Pre-configured |
 | Custom Stopwords | Yes | Pre-configured |
 | Custom language dictionaries | Yes | Pre-configured |
-| Custom Synonyms | Yes |  |
+| Custom Synonyms | Yes | Yes |
 **Note:** This table will be updated as new {{site.data.keyword.discoveryshort}} capabilities are added.
 
 Before you begin the action of migrating, you must first [evaluate](#evaluate) the data stored in your {{site.data.keyword.retrieveandrankshort}} service and understand how you will move the different components that make up your current solution.
