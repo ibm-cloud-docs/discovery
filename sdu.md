@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-10-10"
 
 ---
 
@@ -30,7 +30,7 @@ SDU is in beta release. A statement explaining beta features can be found [here]
 
 Supported document types: PDF, Word, HTML. JSON documents are supported by {{site.data.keyword.discoveryfull}}, but do not open in the SDU editor, because they are structured documents.
 
-Supported browser for this beta release: Chrome
+Supported browsers for this beta release: Chrome and Firefox
 
 ## How to annotate your documents
 {: #annotate}
@@ -100,12 +100,12 @@ title | The main title of the document being annotated. Use this label only once
 
 Field | Definition  
 ------ | ------ 
-table body | Any non-deader cell containing information
+table body | Any non-header cell containing information
 column header | The heading cell (if present) for each column in the table 
 multi-column header | Any heading cell that spans more than one column
 subsection title | The column header for the column of row headings (if present)
 row header | The row label (if present) for each row in the table
-multi-row header | Any row lable that spans more than one row
+multi-row header | Any row label that spans more than one row
 
 ## Best practices for labeling documents and tables
 {: #bestpractices}
