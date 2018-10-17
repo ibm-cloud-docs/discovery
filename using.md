@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-10-17"
 
 ---
 
@@ -284,6 +284,47 @@ Notes about query expansion:
 - Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
 
 See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-expansion){: new_window} for the API commands to upload and delete query expansion files.
+
+## Custom tokenization dictionaries
+
+Tokenization breaks text into units called tokens. You can improve the search accuracy for your domain or language by uploading a tokenization dictionary using the {{site.data.keyword.discoveryshort}} API.
+
+**Note:** This feature is currently only available for Japanese collections. 
+
+In the example below, **text** is the phrase that will be tokenized when encountered and **tokens** are the words that the **text** will be split into. **Readings** list the version of the tokens represented by a different character set, and **part_of_speech** is the part of speech the tokens represent.
+
+With this custom dictionary, if you search for this text: `ネコ`, the search results will include text containing `すしネコ`, as well as text containing only `ネコ`.
+
+```
+{ "tokenization_rules":
+  [
+    {
+      "text":"すしネコ",
+      "tokens":[
+        "すし",
+        "ネコ"
+      ],
+      "readings":[
+        "寿司",
+        "ネコ"
+      ],
+      "part_of_speech":"カスタム名詞"
+    },
+    ...
+  ]
+}
+```
+
+- Tokenization occurs at both index and query time. 
+- A standard tokenization dictionary is used on all collections. If your collection has already been indexed with that dictionary, you must reingest the documents in that collection after you upload a custom tokenization dictionary.
+- Only one tokenization dictionary can be uploaded per collection; if a second tokenization dictionary is uploaded, it will replace the first. If that collection already contained documents, you must reingest them for the new custom tokenization dictionary to be applied.
+- The custom tokenization dictionary must be written in JSON, example file name: `custom_tokenization_dictionary.json`.+- To disable tokenization, delete the tokenization dictionary and reingest your documents.
+- You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
+- Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
+- Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is tokenized individually.
+- Do not upload or delete a tokenization dictionary at the same time documents are being ingested into your collection. 
+
+See the [tokenization API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#create-tokenization-dictionary){: new_window} for the API commands to upload and delete tokenization files. 
 
 ## Document similarity
 {: #doc-similarity}
