@@ -27,7 +27,7 @@ See [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discover
 ## Upgrading your service
 {: #service} 
 
-To upgrade your plan from Lite to Advanced:
+To resize your plan from Lite to Advanced:
 
 1. Open the [{{site.data.keyword.Bluemix_notm}} dashboard](https://console.{DomainName}/dashboard). 
 1. Click on your {{site.data.keyword.discoveryshort}} service instance to open the {{site.data.keyword.discoveryshort}} service dashboard.
