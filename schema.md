@@ -244,7 +244,7 @@ The schema is arranged as follows.
         - `party`: A string identifying the party to whom the sentence applies.
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `categories`: An array that lists the functional categories into which the element falls; in other words, the subject matter of the element.
-      - `label`: A string listing the identified category. You can find a list of [categories](/docs/services/discovery/parsing.html#contract_categories) in [Understanding contract parsing](/docs/services/discovery/parsing#contract_parsing).
+      - `label`: A string listing the identified category. You can find a list of [categories](/docs/services/discovery/parsing.html#contract_categories) in [Understanding contract parsing](/docs/services/discovery/parsing.html#contract_parsing).
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `attributes`: An array identifying document attributes. Each object in the array consists of three elements:
       - `type`: The type of attribute. Possible values are `Location`, `DateTime`, and `Currency`.
