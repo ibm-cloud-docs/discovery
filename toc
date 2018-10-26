@@ -11,10 +11,10 @@ Discovery
      
     {: topicgroup}
     Element Classification
-    element-classification.md
+        element-classification.md
         schema.md
         parsing.md
-    
+
     building-kg.md
     sample-apps.md
     [Videos](https://ibm.biz/wds_videos)
