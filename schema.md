@@ -233,7 +233,7 @@ The schema is arranged as follows.
     - `title`: The document title, if detected.
     - `html`: The full text of the input document in HTML format.
     - `hash`: The MD5 hash of the input document.
-  - `model_id`: The analysis model to be used by the service. For the `/v1/element_classification` and `/v1/comparison` methods, the default is `contracts`. For the `/v1/tables` method, the default is `tables`. These defaults apply to the standalone methods as well as to the methods' use in batch-processing requests.
+  - `model_id`: The analysis model to be used to classify the document. The default is `contracts`. 
   - `model_version`: The version of the analysis model specified by the value of the `model_id` parameter.
   - `elements`: An array of the document elements detected by the service.
     - `location`: The location of the element as defined by its `begin` and `end` indexes.
