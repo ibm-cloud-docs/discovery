@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-10-25"
 
 ---
 
@@ -41,6 +41,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 25 October 2018
+{: #25oct}
+
+The schema for the [Element Classification](/docs/services/discovery/element-classification.html) enrichment has changed. If you wish to use the updated schema, you must ingest your documents with the API, using the version date of `2018-10-15` or later. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so documents ingested using the {{site.data.keyword.discoveryshort}} tooling will be enriched with the original schema.
 
 ## 25 September 2018
 {: #25sept}
