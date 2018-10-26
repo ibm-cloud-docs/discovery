@@ -8,7 +8,13 @@ Discovery
     getting-started-tool.md
     index.md
     watson-discovery-news.md
+     
+    {: topicgroup}
+    Element Classification
     element-classification.md
+        schema.md
+        parsing.md
+    
     building-kg.md
     sample-apps.md
     [Videos](https://ibm.biz/wds_videos)
