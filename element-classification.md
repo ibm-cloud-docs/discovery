@@ -123,48 +123,51 @@ After selecting the `Default Contract Configuration` in the tooling, you can upl
  
 Once a document has been indexed with Element Classification, it will be returned with an `elements` array as part of the searchable document.
  
-Each object in the `elements` array describes an element of the contract that Element Classification has identified. The following code represents a typical element:
+Each object in the `elements` array describes an element of the contract that {{site.data.keyword.discoveryshort}} has identified. The following code represents a typical element:
  
- ```javascript
+ ```
  {
-    "sentence" : {
-      "begin" : 34941,
-      "end" : 35307
+    "location" : {
+     "begin" : 134323,
+     "end" : 135109
     },
-    "sentence_text" : "Buyer, if in New York state may, upon written notice to Supplier, terminate a SOW or WA.",
-    "attributes" : [
-      {
-        "type": "Location",
-        "text": "New York",
-        "attribute": {
-          "begin": 34954,
-          "end": 34962
-          }
-      }
-    ],
+    "text" : "9. In the event that the Participant's total vested account balance is determined to be less than or equal to $2,000.00 as of the date that the Order is received, the parties will be informed in writing that the QDRO determination fee may potentially liquidate the account.",
     "types" : [ {
       "label" : {
-        "nature" : "Right",
-        "party" : "Buyer"
+        "nature" : "Obligation",
+        "party" : "All Parties"
       },
-      "assurance" : "High"
+      "provenance_ids" : ["Nlu0ogWAEGms4vjhhzpMv3iXhm8b8fBqMBNtT/bXH8JI=", "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
+      ]
     } ],
     "categories" : [ {
-      "label : "Term & Termination",
-      "assurance : "High"
+      "label" : "Communication",
+      "provenance_ids" : [ "Cs38YyU6VBFtJK1/bgtEJBlqqWmX5F6OYUciRxQXf7HrN5TOCPuI7QXbkbj4LRXoxVuB3/i9H15q5TU+vFxorhUBeWFfF998OYQiPYViD2yI="
+      ]
+    } ],
+    "attributes" : [ {
+      "type" : "Currency",
+      "text" : "$2,000.00",
+      "attribute" : {
+        "begin" : 134780,
+        "end" : 134789
       }
-    ]
+    } ]
  }
  ```
+{: screen}
  
-There are multiple important sections to the element:
+Each element has five important sections:
+  - `location`: The `begin` and `end` indexes indicating the location of the element in the input document.
+  - `text`: The text of the classified element.
+  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/services/discovery/parsing.html#contract_types) in [Understanding contract parsing](/docs/services/discovery/parsing.html#contract_parsing) for additional information. 
+  - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/services/discovery/parsing.html#contract_categories) in [Understanding contract parsing](/docs/services/discovery/parsing.html#contract_parsing) for additional information. 
+  - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/discovery/parsing.html#attributes) in [Understanding contract parsing](/docs/services/discovery/parsing.html#contract_parsing) for additional information.
+  
+Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis associated with the element.
+
+**Note**: Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
  
-- `sentence_text` – the text that was analyzed.
-- `attributes` – this array lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units).
-- `categories` – An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
-- `types`– An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
-- `sentence`– An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
- 
- **Note**: Some sentences do not fall under any type or category and in that case the `types` and `categories` arrays are returned empty.
- 
- **Note:**  Some sentences cover multiple topics and will therefore be returned with multiple `types` and `categories` items listed.
+**Note:** Some sentences cover multiple topics, in which case the service returns multiple sets of `types` and `categories` objects.
+
+**Note**: Some sentences do not contain any identifiable attributes, in which case the service returns the `attributes` array as empty objects.
