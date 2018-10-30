@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-02"
+lastupdated: "2018-06-09"
 
 ---
 
@@ -24,7 +24,7 @@ Knowledge graphs go beyond just data and information by making connections withi
 
 Two RESTful end-points added to {{site.data.keyword.discoveryfull}} provide the ability to search for disambiguated, enriched entities and relations across documents in unstructured document collections. Search results can be rank ordered by relevance or popularity. In addition to a search token, the APIs can use optional context word(s) or passages that finds more relevant entities and relations within the large automatically created knowledge graph.
 
- The following figure shows how Knowledge Graph fits in the current {{site.data.keyword.discoveryfull}} pipeline. {{site.data.keyword.nlushort}} enrichments use a custom {{site.data.keyword.knowledgestudioshort}} model (`en-news`) to extract entities and relations at the individual document level. During Knowledge Graph creation, implicit (automatic) entity resolution and graph expansion techniques are used to automatically create a connected graph of entities and relations across documents. In addition to the Knowledge Graph being created, the Knowledge Graph analytics service adds relevance-ranking techniques to return results. 
+ The following figure shows how Knowledge Graph fits in the current {{site.data.keyword.discoveryfull}} pipeline. {{site.data.keyword.nlushort}} enrichments use a custom {{site.data.keyword.knowledgestudioshort}} model (`en-news`) to extract entities and relations at the individual document level. During Knowledge Graph creation, implicit (automatic) entity resolution and graph expansion techniques are used to automatically create a connected graph of entities and relations across documents. In addition to the Knowledge Graph being created, the Knowledge Graph analytics service adds relevance-ranking techniques to return results.
 
 ![Knowledge Graph Process](images/knowledge-graph.png)
 
@@ -38,13 +38,13 @@ This connected graph of knowledge and ranking techniques facilitates the followi
 
 During the beta release, Knowledge Graph functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments.
 
-This beta feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details. 
+This beta feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details.
 
 ## Collection requirements
 
 {{site.data.keyword.discoveryshort}} uses Entities and Relationships extracted from ingested documents to form the Knowledge Graph and allow entity and relationship queries.
 
-**Note:** [Entity similarity](/docs/services/discovery/building-kg.html#similarity), [Evidence](/docs/services/discovery/building-kg.html#evidence), and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are available in all collections. For collections created before `03-05-2018`, you need to reingest your documents to use these features. 
+**Note:** [Entity similarity](/docs/services/discovery/building-kg.html#similarity), [Evidence](/docs/services/discovery/building-kg.html#evidence), and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are available in all collections. For collections created before `03-05-2018`, you need to reingest your documents to use these features.
 
 **Note:** Knowledge Graph can be used on private data collections only, it is not designed for use with {{site.data.keyword.discoverynewsshort}}.
 
@@ -77,10 +77,10 @@ These options **cannot be added** using the {{site.data.keyword.discoveryshort}}
 
 Create a custom configuration as follows, after creating a {{site.data.keyword.discoveryshort}} service instance:
 
-1. Issue the following command to create an environment that is called `my-first-environment`. Replace `{username}` and `{password}` with your service credentials:
+1. Issue the following command to create an environment that is called `my-first-environment`. Replace `{apikey_value}` with the value of your service's API key :
 
    ```bash
-   curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-11-07"
+   curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-11-07"
    ```
    {: pre}
 
@@ -91,14 +91,14 @@ Create a custom configuration as follows, after creating a {{site.data.keyword.d
 1. Next, create the custom configuration. This procedure assumes that you are uploading the one found [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json). If you want to build your own custom configuration, see the [configuration reference](/docs/services/discovery/custom-config.html).
 
    ```bash
-   curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
+   curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
    ```
    {: pre}
 
    **If you already have a custom configuration, and would like to update it and use it**, use the {configuration ID} of your custom configuration in this command.
 
    ```bash
-   curl -X PUT -u "{username}":"{password}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration ID}?version=2017-11-07"
+   curl -X PUT -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration ID}?version=2017-11-07"
    ```
    {: pre}
 
@@ -297,7 +297,7 @@ If no match is found, the following JSON object is returned:
 ## Evidence
 {: #evidence}
 
-For some entity or relationship queries it may be valuable to understand where the connections were identified. Evidence of the connections will let you reference the original document, clarify the results, or further disambiguate as appropriate. Beginning with collections created after `03-05-2018`, both the `query_entities` and `query_relations` endpoints have the option of providing evidence in the returned results. This feature is available for collections created before `03-05-2018`, but documents will need to be reingested to use this feature on those older collections. 
+For some entity or relationship queries it may be valuable to understand where the connections were identified. Evidence of the connections will let you reference the original document, clarify the results, or further disambiguate as appropriate. Beginning with collections created after `03-05-2018`, both the `query_entities` and `query_relations` endpoints have the option of providing evidence in the returned results. This feature is available for collections created before `03-05-2018`, but documents will need to be reingested to use this feature on those older collections.
 
 Evidence is returned by adding the `"evidence_count": INT` field to the query object. This number represents the number of evidence items that will be retuned per response item. For example, if you specify a `"count":` of `5` response items, and `"evidence_count": 2`, the response would contain a total of `10` evidence items (2 per response).  The maximum number of evidence items returned in total for a single query is 10,000.
 

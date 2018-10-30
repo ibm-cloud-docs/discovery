@@ -87,14 +87,14 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
  
 **Note:** The version date of the API has been updated to `2018-08-01`. To take advantage of the new environment sizing options (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
 
-## 30 July 2018
+## 27 July 2018
 
 - Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) in one additional language: Japanese (`collection_id`: `news-ja`). {{site.data.keyword.discoverynewsfull}} is also available in English, Spanish, German, and Korean.
 
 ## 25 June 2018
 
 - Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. Released the [Source Credential ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#credentials-api){: new_window} and [Configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window} APIs for these data sources. 
-- {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/services/discovery/release-notes.html#2aug)
+  - {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/services/discovery/release-notes.html#2aug)
   - The individual document file size limit for Box, Salesforce, and SharePoint Online is 10MB.
 - Added a new Performance Dashboard in {{site.data.keyword.discoveryshort}} tooling. See [Viewing metrics and improving query results with the Performance dashboard](/docs/services/discovery/dashboard.html). The new dashboard is not available in Premium or Dedicated environments.
 - Added full support for Japanese. For more information, see [Language support](/docs/services/discovery/language-support.html).
@@ -143,7 +143,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
     -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
     -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](/docs/resources/instance_migration.html).
 
-    All new and existing service instances in other regions continue to use service credentials (`{username}:{password}`) for authentication.
+    All new and existing service instances in other regions continue to use service credentials (`apikey:{apikey_value}`) for authentication.
 
 ### Using an IAM access token to authenticate
 
@@ -262,7 +262,7 @@ Known issue:
 ## 21 February 2018
 {: #21feb}
 
-- Previously, when ingesting PDF documents, the `file_type` returned when ingestion notices were queried, in the `extracted_metadata` object, and from the document details API was `html`. This is no longer the case. The `file_type` returned will now be `pdf`.
+- Previously, when ingesting PDF documents, the `file_type` returned when ingestion notices were queried, in the `extracted_metadata` object, and from the document details API was `html`. This is no longer the case. The `file_type` returned will now be `pdf`. 
 
 ## 26 January 2018
 {: #26jan}
@@ -544,18 +544,18 @@ Both features are query building enhancements and can be found on the **Build qu
 
 {{site.data.keyword.discoveryshort}} tooling:
 
- - The Tooling error log is no longer limited to a maximum of eight (8) pages of results. The error log still displays the document ID if the document name is not available. 
+ - The Tooling error log is no longer limited to a maximum of eight (8) pages of results. The error log still displays the document ID if the document name is not available.
 
-- Configuration names are limited to 50 characters and must consist of the characters `[a-zA-Z0-9-_]`. 
+ - Configuration names are limited to 50 characters and must consist of the characters `[a-zA-Z0-9-_]`. 
 
-- The `passages` parameter previously available only through the API is now available through the Tooling as well as the API.
+ - The `passages` parameter previously available only through the API is now available through the Tooling as well as the API.
 
 ### 25 April 2017
 
   - The service now enables you to provide *training data* to improve the accuracy of your query results. When you provide a Discovery instance with training data, the service uses advanced Watson algorithms to determine the most relevant results. As you add more training data, the service instance becomes more accurate and sophisticated in the results it returns. See [Improving the relevance of your query results](/docs/services/discovery/train.html) and the [API Reference ](http://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data) for information.
 
   - The API now supports the `natural_language_query` parameter as a beta release. This parameter enables you to specify a query in natural language instead of in the Discovery service's query language. See the [Query your collection](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get) method in the API reference for information.
-   
+
   - Documentation updates and errata corrections.
 
 ### 14 April 2017
@@ -634,7 +634,7 @@ The following bugs have been fixed.
 -  You can submit a new configuration with an individual document by using the following command:
 
 ```bash
-curl -X POST -u {username}:{password} -F "file=@wikipedia-sample.html" -F "configuration=$(cat config.json)" "https://gateway.watsonplatform.net/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2016-12-01"
+curl -X POST -u apikey:{apikey_value} -F "file=@wikipedia-sample.html" -F "configuration=$(cat config.json)" "https://gateway.watsonplatform.net/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2016-12-01"
 ```
 {: pre}
 -  The service's PDF and Word converters create HTML as a middle step. The service can apply additional transforms and normalizations on the intermediary HTML before the final transformation to normalized JSON.

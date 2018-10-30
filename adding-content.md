@@ -25,7 +25,7 @@ How do I decide which document upload method to use?
 -   Use the [API](/docs/services/discovery/getting-started.html) if you are integrating the upload of content with an existing application or creating your own custom upload mechanism.
 -   Use the [{{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery/getting-started-tool.html) if you want to quickly upload locally accessible files.
     When uploading documents using the {{site.data.keyword.discoveryshort}} tooling, all documents should have a unique file name. If two files have the same name, the original will be overwritten when the newer version is uploaded. If you would prefer that documents with the same file name coexist in your collection, the Document ID needs to be specified. You can specify the Document ID if you upload documents using the API or the Data Crawler.
--   Use the {{site.data.keyword.discoveryshort}} tooling or API to connect to Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.    
+-   Use the {{site.data.keyword.discoveryshort}} tooling or API to connect to Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
 -   Use the [Data Crawler](/docs/services/discovery/data-crawler.html) if you want to have a managed upload of a significant number of files, or you want to extract content from a supported repository (such as a DB2 database).
 
 ## Adding content with the API or tooling
@@ -45,9 +45,9 @@ Consider the following when you are ready to add documents to your collection:
 
 The following limits apply when uploading documents:
 
-- **Lite** plans: 21 in-flight documents
-- **Advanced** plans: 105 in-flight documents (except for X-Small Advanced plans, which have a limit of 50 in-flight documents)
-- **Premium** plans: 210 in-flight documents
+-   **Lite** plans: 21 in-flight documents
+-   **Advanced** plans: 105 in-flight documents (except for X-Small Advanced plans, which have a limit of 50 in-flight documents)
+-   **Premium** plans: 210 in-flight documents
 
 These limits are subject to change. 
 

@@ -89,7 +89,7 @@ A comma-separated list of fields in the document to sort on. You can optionally 
 
 The `sort` parameter is currently available for use only with the API; it is not available through the tooling.
 
-# bias
+## bias
 {: #bias}
 
 Adjusts search results to bias towards certain results, for example, documents that were published most recently. `bias` must be set to either a `date` type field or a `number` type field, for example `bias=publication_date` or `bias=field_1`.  When a `date` type field is specified, returned results will be biased towards field values closer to the current date. When a `number` type field is specified, returned results will be biased towards higher field values. This parameter cannot be used in the same query as the `sort` parameter.
@@ -111,7 +111,7 @@ Since sentence boundary adjustments expand passage size, you will see a substant
 The `passages` parameter returns matching passages (`passage_text`), as well as the `score`, `document_id`, the name of the field the passage was extracted from (`field`), and the starting and ending characters of the passage text within the field (`start_offset` and `end_offset`), as shown in the following example. The query is shown at the top of the example.
 
 ```bash
- curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
+ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
 ```
 {: pre}
 
@@ -164,7 +164,7 @@ A boolean that specifies whether the returned output includes a `highlight` obje
 The output lists the `highlight` object after the `enriched_text` object, as shown in the following example.
 
 ```bash
-curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
+curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
 ```
 {: pre}
 
@@ -218,7 +218,7 @@ A beta capability that excludes duplicate documents from your query results base
 
 If you are querying the {{site.data.keyword.discoverynewsfull}} collection, or your private data collection contains multiple identical (or near-identical) documents, you can exclude most of them from your query results using document deduplication.
 
-**Note:** Document deduplication is currently supported only as a beta capability. See [Beta features](/docs/services/discovery/release-notes.html#beta-features) in the Release notes for more information. This beta feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details. 
+**Note:** Document deduplication is currently supported only as a beta capability. See [Beta features](/docs/services/discovery/release-notes.html#beta-features) in the Release notes for more information. This beta feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details.
 
 **Note:**  Each query is deduplicated independently, so deduplication across offsets is not supported.
 

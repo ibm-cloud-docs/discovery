@@ -1,20 +1,20 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/index.html"}
+{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/index.html" path="services/discovery"}
 Discovery
 
     {: .navgroup id="learn"}
     getting-started-tool.md
     index.md
     watson-discovery-news.md
-     
+    
     {: topicgroup}
     Element Classification
         element-classification.md
         schema.md
         parsing.md
-
+    
     building-kg.md
     sample-apps.md
     [Videos](https://ibm.biz/wds_videos)

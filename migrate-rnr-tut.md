@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-16"
+lastupdated: "2018-06-09"
 
 ---
 
@@ -51,14 +51,14 @@ The following pre-requisites are necessary before beginning this tutorial:
 -  This tutorial assumes that you have your service credentials.
    -  When in the Watson {{site.data.keyword.discoveryshort}} service on {{site.data.keyword.Bluemix_notm}}, click **Service credentials**.
    -  Click **View credentials** under Actions.
-   -  Copy the `username` and `password` values and make sure that the `url` value matches the one in the examples below, if it doesn't, replace it as well.
+   -  Copy the `apikey` value and make sure that the `url` value matches the one in the examples below, if it doesn't, replace it as well.
 
 ## Adding Cranfield data to Discovery
 
 1.  Create an Environment.
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
@@ -67,7 +67,7 @@ The following pre-requisites are necessary before beginning this tutorial:
 1. Create a Collection.
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07"
     ```
     {: pre}
 
@@ -79,17 +79,17 @@ The following pre-requisites are necessary before beginning this tutorial:
     1.  Download the Data upload script [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-upload.py){: new_window}. This script will upload the Cranfield json into {{site.data.keyword.discoveryshort}}.
         The script reads through the JSON file and sends each individual JSON document to the {{site.data.keyword.discoveryshort}} service using a default configuration in {{site.data.keyword.discoveryshort}}.
         **Note:** The default configuration in {{site.data.keyword.discoveryshort}} provides similar settings to the default Solr config in {{site.data.keyword.retrieveandrankshort}}.
-    1.  Issue the following command to upload the `cranfield-data-json` data to the `cranfield_collection` collection. Replace `{username}`, `{password}`, `{path_to_file}`,  `{environment_id}`, `{collection_id}` with your information.  Note that there are additional options, -d for debug and –v for verbose output from curl.
+    1.  Issue the following command to upload the `cranfield-data-json` data to the `cranfield_collection` collection. replace `{apikey_value}`, `{path_to_file}`,  `{environment_id}`, `{collection_id}` with your information.  Note that there are additional options, -d for debug and –v for verbose output from curl.
 
         ```bash
-        python ./disco-upload.py -u {username}:{password} -i {path_to_file}/cranfield-data.json -e {environment_id} -c {collection_id}
+        python ./disco-upload.py -u apikey:{apikey_value} -i {path_to_file}/cranfield-data.json -e {environment_id} -c {collection_id}
         ```
         {: pre}
 
 1.  Once the upload process has completed, you can check that the documents are there by issuing the following command to view the collection details:
 
     ```bash
-    curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
     ```
     {: pre}
 
@@ -144,10 +144,10 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 
 1.  Download the Training Data upload script. You will use this script to upload the training data into {{site.data.keyword.discoveryshort}}. The script transforms the `csv` file into a set of JSON queries and examples and sends them to the {{site.data.keyword.discoveryshort}} service using the [training data APIs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data){: new_window}
     **Note:** {{site.data.keyword.discoveryshort}} manages training data within the service, so when generating new examples and training queries they can be stored in {{site.data.keyword.discoveryshort}} itself rather than as part of a separate CSV file that needs to be maintained.
-1.  Execute the training upload script to upload the training data into {{site.data.keyword.discoveryshort}}. Replace `{username}`, `{password}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` with your information. Note that there are additional options, `-d` for debug and `–v` for verbose output from curl.
+1.  Execute the training upload script to upload the training data into {{site.data.keyword.discoveryshort}}. replace `{apikey_value}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` with your information. Note that there are additional options, `-d` for debug and `–v` for verbose output from curl.
 
     ```bash
-    python ./disco-train.py -u {username}:{password} -i {path_to_file}/cranfield-gt.csv –e {environment_id} -c {collection_id}
+    python ./disco-train.py -u apikey:{apikey_value} -i {path_to_file}/cranfield-gt.csv –e {environment_id} -c {collection_id}
     ```
     {: pre}
 
@@ -158,17 +158,17 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 
 The {{site.data.keyword.discoveryshort}} service will automatically use a trained model to re-rank search results if available. When [an API call ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
 
-1.  You can search for documents in your collection by using a cURL command. Perform a query using the query API call to see unranked results. Replace `{username}`, `{password}`, `{environment_id}`, `{collection_id}`, with your own values.  The results returned will be unranked results, and will use the default {{site.data.keyword.discoveryshort}} ranking formulas. You can try other queries by opening the training data `csv` file and copying the value of the first column into the query parameter.
+1.  You can search for documents in your collection by using a cURL command. Perform a query using the query API call to see unranked results. replace `{apikey_value}`, `{environment_id}`, `{collection_id}`, with your own values.  The results returned will be unranked results, and will use the default {{site.data.keyword.discoveryshort}} ranking formulas. You can try other queries by opening the training data `csv` file and copying the value of the first column into the query parameter.
 
     ```bash
-    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
-1.  Now perform a search using the model by setting the `natural_language_query` parameter. Before you do so, make sure you check that you have a trained model as described in the previous section.  Paste the following code in your console, replacing the `{username}`, `{password}`, `{environment_id}`, `{collection_id}` with your values.
+1.  Now perform a search using the model by setting the `natural_language_query` parameter. Before you do so, make sure you check that you have a trained model as described in the previous section.  Paste the following code in your console, replacing the `{apikey_value}`, `{environment_id}`, `{collection_id}` with your values.
 
     ```bash
-    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
