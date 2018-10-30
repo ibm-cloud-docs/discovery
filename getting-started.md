@@ -20,6 +20,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # Getting started with the API
+{: #gs-api}
 
 In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} API and go through the process of creating a private data collection and searching it.
 {: shortdesc}
@@ -37,32 +38,33 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
 - Copy the credentials to authenticate to your service instance:
     1. From the [{{site.data.keyword.Bluemix_notm}} dashboard](https://console.{DomainName}/dashboard/apps), click on your {{site.data.keyword.discoveryshort}} service instance to go to the {{site.data.keyword.discoveryshort}} service dashboard page.
     1.  On the **Manage** page, click **Show** to view your credentials.
-    1.  Copy the `username`, `password`, and `url` values.
+    1.  Copy the `apikey` and `url` values.
 
-    **Important:** The tutorial uses service instance credentials to authenticate to the {{site.data.keyword.discoveryshort}} service. In some regions, new service instances instead use {{site.data.keyword.Bluemix}} Identity and Access Management (IAM) tokens for authentication. Authenticate by using the approach that is right for your region and service instance.
-
-    For more information about where the service uses IAM access tokens and how to use them for authentication, see the May 17th service update in the [Release notes](/docs/services/discovery/release-notes.html).
-
+    In some instances, you authenticate by providing basic authentication. If you see `username` and `password` in the credentials, use those values instead of `"apikey":"{apikey_value}"` in the examples in this tutorial.
+{: tip}
 
 ## Step 1: Create an environment
 {: #create-an-environment}
 
 In a bash shell or equivalent environment such as Cygwin with the `curl` application installed, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
 
-1.  Issue the following command to create an environment that is called `my-first-environment`. Replace `{username}` and `{password}` with the service credentials you copied earlier:
+This tutorial uses an API key to authenticate. For production uses, make sure that you review the API key [best practices](/docs/services/watson/apikey-bp.html#api-bp).
+{: tip}
+
+1.  Issue the following command to create an environment that is called `my-first-environment`. Replace `{apikey_value}` with the API key you copied earlier:
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
     The API returns information such as your environment ID, environment status, and how much storage your environment is using.
 
 1.  Check the environment status periodically until you see a status of `active`.
-    - Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{username}`, `{password}`, and `{environment_id}` with your information:
+    - Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{apikey_value}`, and `{environment_id}` with your information:
 
     ```bash
-    curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-11-07"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-11-07"
     ```
     {: pre}
 
@@ -73,25 +75,25 @@ In a bash shell or equivalent environment such as Cygwin with the `curl` applica
 
 Now that the environment is ready, you can create a collection. Think of a collection as a box where you will store your documents in your environment.
 
-1.  You need the ID of your default configuration first. To find your default `configuration_id`, use the `GET /v1/environments/{environment_id}/configurations` method. Replace `{username}`, `{password}`, and `{environment_id}` with your information:
+1.  You need the ID of your default configuration first. To find your default `configuration_id`, use the `GET /v1/environments/{environment_id}/configurations` method. Replace `{apikey_value}`, and `{environment_id}` with your information:
 
     ```bash
-      curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07
+      curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07
     ```
     {: pre}
-1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection called **my-first-collection**. Replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information:
+1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection called **my-first-collection**. Replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information:
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07
     ```
     {: pre}
 
     The API returns information such as your collection ID, collection status, and how much storage your collection is using.
 1.  Check the collection status periodically until you see a status of `active`.
-    - Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information:
+    - Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, Replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information:
 
     ```bash
-    curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07
+    curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07
     ```
     {: pre}
 
@@ -105,11 +107,11 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
 ## Step 4: Upload the documents
 {: #upload-the-documents}
 
-1.  Now, add the example documents to your collection. This example uploads the document **test-doc1.html** to your collection. Replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information. Modify the location of the sample document to point to where you saved the `test-doc1.html` file.
+1.  Now, add the example documents to your collection. This example uploads the document **test-doc1.html** to your collection. Replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information. Modify the location of the sample document to point to where you saved the `test-doc1.html` file.
     - Use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method:
 
         ```bash
-        curl -X POST -u "{username}":"{password}" -F "file=@test-doc1.html" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2017-11-07
+        curl -X POST -u "apikey":"{apikey_value}" -F "file=@test-doc1.html" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2017-11-07
         ```
         {: pre}
 
@@ -119,7 +121,10 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
       ```java
       Discovery discovery = new Discovery("2017-11-07");
       discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
-      discovery.setUsernameAndPassword("{username}", "{password}");
+      IamOptions options = new IamOptions.Builder()
+        .apiKey("{apikey_value}")
+        .build();
+      discovery.setIamCredentials(options);
       String environmentId = "{environment_id}";
       String collectionId = "{collection_id}";
       String documentJson = "{\"field\":\"value\"}";
@@ -140,9 +145,8 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
       from watson_developer_cloud import DiscoveryV1
 
       discovery = DiscoveryV1(
-        username="{username}",
-        password="{password}",
-        version="2017-11-07"
+        version='2017-11-07',
+        api_key='{apikey_value}'
       )
 
       with open((os.path.join(os.getcwd(), '{path_element}', '{filename}' as fileinfo:
@@ -158,9 +162,8 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
       var fs = require('fs');
 
       var discovery = new DiscoveryV1({
-        username: '{username}',
-        password: '{password}',
-        version_date: '2017-11-07'
+        version_date: '2017-11-07',
+        iam_apikey: '{apikey_value}',
       });
 
       var file = fs.readFileSync('{/path/to/file}');
@@ -180,14 +183,18 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
 
 Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_id}/query` method to search your collection of documents.
 
-The following example returns all entities that are called **IBM**. Replace `{username}`, `{password}`, `{environment_id}` and `{configuration_id}` with your information:
+The following example returns all entities that are called **IBM**. Replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information:
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
+curl -u "apikey":"{apikey_value}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 
 ## Next steps
 {: #next-steps}
 
-You have successfully queried documents in the environment and collection you created. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings. For more information about the API, see the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}.
+You successfully queried documents in the environment and collection you created. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings.
+
+- Read about the API in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+- [Configure](/docs/services/discovery/building.html) your service
+- Learn about [authenticating with IAM](/docs/services/watson/getting-started-iam.html)

@@ -89,7 +89,7 @@ Over 100,000 queries (per month): $0.03 per query<br>
 5,000 query expansions with 25,000 total terms
 
 ## Premium
-
+   
 Premium plans offer developers and organizations a single tenant instance of one or more Watson services for better isolation and security. These plans offer compute-level isolation on the existing shared platform, as well as end-to-end encrypted data while in transit and at rest. 
 
 For more information, or to purchase a Premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium). 

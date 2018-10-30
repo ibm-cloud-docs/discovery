@@ -182,7 +182,7 @@ You can query multiple collections in the same environment by using the `environ
 -  `collection_id` is returned as part of each result object. This field specifies the collection where the result was found.
 -  The {{site.data.keyword.discoverynewsshort}} is part of the `system` environment and cannot be included in multiple collection queries.
 -  Individual collection relevancy training does not affect ranking of results when querying multiple collections. To rerank results returned when querying multiple collections implement [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html).
-- Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
+-  Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
 
 See the [multiple collection query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-multi-collections){: new_window} for more information.
 
@@ -340,7 +340,8 @@ You can also create rules with a single token. In this example, `ibm発見` will
 - Tokenization occurs at both index and query time. 
 - A standard tokenization dictionary is used on all collections. If your collection has already been indexed with that dictionary, you must reingest the documents in that collection after you upload a custom tokenization dictionary.
 - Only one tokenization dictionary can be uploaded per collection; if a second tokenization dictionary is uploaded, it will replace the first. If that collection already contained documents, you must reingest them for the new custom tokenization dictionary to be applied.
-- The custom tokenization dictionary must be written in JSON, example file name: `custom_tokenization_dictionary.json`.+- To disable tokenization, delete the tokenization dictionary and reingest your documents.
+- The custom tokenization dictionary must be written in JSON, example file name: `custom_tokenization_dictionary.json`.
+- To disable tokenization, delete the tokenization dictionary and reingest your documents.
 - You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
 - Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
 - Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is tokenized individually.
@@ -349,16 +350,16 @@ You can also create rules with a single token. In this example, `ibm発見` will
 ## Document similarity
 {: #doc-similarity}
 
-A document similarity query will find other documents similar to the currently viewed document, for example, a call center operator could be viewing the manuals for a product and use document similarity to find other documents with similar characteristics. You can query for similar documents by `similar.document_ids`, and can optionally refine the similarity by specifying additional `similar.fields`. 
+A document similarity query will find other documents similar to the currently viewed document, for example, a call center operator could be viewing the manuals for a product and use document similarity to find other documents with similar characteristics. You can query for similar documents by `similar.document_ids`, and can optionally refine the similarity by specifying additional `similar.fields`.
 
 Document similarity is determined by extracting the 25 most relevant terms from the original document and then searching for documents with similar relevant terms.
 
 Example query by `similar.document_ids` (there should be no space after the comma if specifying multiple `similar.document_ids`):
 
-`curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1,6057k6d1-7d7k-6aeh-cfbb-kj98ssf786c2"`
+`curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1,6057k6d1-7d7k-6aeh-cfbb-kj98ssf786c2"`
 
 Example query with `similar.fields` added:
 
-`curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
+`curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
 
 See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} and [query parameters](/docs/services/discovery/query-parameters.html#similar) for more information.
