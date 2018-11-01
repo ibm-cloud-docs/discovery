@@ -144,7 +144,7 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 
 1.  Download the Training Data upload script. You will use this script to upload the training data into {{site.data.keyword.discoveryshort}}. The script transforms the `csv` file into a set of JSON queries and examples and sends them to the {{site.data.keyword.discoveryshort}} service using the [training data APIs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data){: new_window}
     **Note:** {{site.data.keyword.discoveryshort}} manages training data within the service, so when generating new examples and training queries they can be stored in {{site.data.keyword.discoveryshort}} itself rather than as part of a separate CSV file that needs to be maintained.
-1.  Execute the training upload script to upload the training data into {{site.data.keyword.discoveryshort}}. replace `{apikey_value}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` with your information. Note that there are additional options, `-d` for debug and `–v` for verbose output from curl.
+1.  Execute the training upload script to upload the training data into {{site.data.keyword.discoveryshort}}. Replace `{apikey_value}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` with your information. Note that there are additional options, `-d` for debug and `–v` for verbose output from curl.
 
     ```bash
     python ./disco-train.py -u apikey:{apikey_value} -i {path_to_file}/cranfield-gt.csv –e {environment_id} -c {collection_id}
@@ -158,17 +158,17 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 
 The {{site.data.keyword.discoveryshort}} service will automatically use a trained model to re-rank search results if available. When [an API call ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
 
-1.  You can search for documents in your collection by using a cURL command. Perform a query using the query API call to see unranked results. replace `{apikey_value}`, `{environment_id}`, `{collection_id}`, with your own values.  The results returned will be unranked results, and will use the default {{site.data.keyword.discoveryshort}} ranking formulas. You can try other queries by opening the training data `csv` file and copying the value of the first column into the query parameter.
+1.  You can search for documents in your collection by using a cURL command. Perform a query using the query API call to see unranked results. Replace `{apikey_value}`, `{environment_id}`, `{collection_id}`, with your own values.  The results returned will be unranked results, and will use the default {{site.data.keyword.discoveryshort}} ranking formulas. You can try other queries by opening the training data `csv` file and copying the value of the first column into the query parameter.
 
     ```bash
-    curl -u "apikey":"{apikey_value}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
 1.  Now perform a search using the model by setting the `natural_language_query` parameter. Before you do so, make sure you check that you have a trained model as described in the previous section.  Paste the following code in your console, replacing the `{apikey_value}`, `{environment_id}`, `{collection_id}` with your values.
 
     ```bash
-    curl -u "apikey":"{apikey_value}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 

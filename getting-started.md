@@ -90,7 +90,7 @@ Now that the environment is ready, you can create a collection. Think of a colle
 
     The API returns information such as your collection ID, collection status, and how much storage your collection is using.
 1.  Check the collection status periodically until you see a status of `active`.
-    - Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, Replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information:
+    - Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information:
 
     ```bash
     curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07
