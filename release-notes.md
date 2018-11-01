@@ -29,7 +29,7 @@ API requests require a version parameter that takes a date in the format `versio
 
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
-The current version is `2018-08-01`.
+The current version is `2018-10-15`.
 
 ## Beta features
 {: #beta-features}
