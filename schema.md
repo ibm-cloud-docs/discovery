@@ -223,6 +223,13 @@ After a document has been ingested using Element Classification, the service pro
       "location": { "begin": int, "end": int }
     },
     ...
+  ],
+  "termination_dates": [
+    {
+      "text": string,
+      "location": { "begin": int, "end": int }
+    },
+    ...
   ]
 }
 ```
@@ -321,6 +328,9 @@ The schema is arranged as follows.
   - `contract_amounts`: An array identifying the monetary amounts identified in the document.
     - `text`: The contract amounts, listed as a string.
     - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
+  - `termination_dates`: An array identifying the document's termination dates.
+    - `text`: The termination date, listed as a string.
+    - `location`: The location of the date as defined by its `begin` and `end` indexes.    
 
 **\*Notes on tables:**
   - Row and column index values per cell are zero-based and so begin with `0`.
