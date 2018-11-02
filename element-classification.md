@@ -40,7 +40,7 @@ Element Classification returns a JSON object that contains:
 -  A `tables` array that breaks down the tables identified in the input document.
 -  A `document_structure` object that lists section titles and leading sentences identified in the input document.
 -  A `parties` array that lists the parties, roles, addresses, and contacts of parties identified in the input document.
--  Arrays defining `effective_dates` and `contract_amounts`.
+-  Arrays defining `effective_dates`,`contract_amounts`, and `termination_dates`.
 
 This feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details.
 
