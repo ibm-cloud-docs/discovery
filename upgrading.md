@@ -39,7 +39,7 @@ To resize your plan from Lite to Advanced:
 ## Switching from one Advanced tier to another
 {: #advanced} 
 
-If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#update-environment){: new_window}. 
+If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#update-an-environment){: new_window}. 
 
 For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/services/discovery/pricing-details.html#advanced).
 

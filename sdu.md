@@ -67,7 +67,6 @@ See [Best practices for labeling documents and tables](/docs/services/discovery/
    **Note:** As you annotate, Watson is learning and will start predicting annotations. Continue annotating until Watson correctly and consistently identifies fields.
 1. When you have completed annotating, click **Apply changes to collection.** The **Upload your documents** screen opens. (This will change after beta.) You can now upload your documents so that the updated settings are applied to the entire collection. After uploading is complete, you will be redirected to the **Manage Data** screen.
 
-
 Field | Definition  
 ------ | ------ 
 answer | In a Q/A pair (often in an FAQ), the answer to the question.

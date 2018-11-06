@@ -93,7 +93,7 @@ You should migrate from the indexed content in {{site.data.keyword.retrieveandra
 
 Documents are extracted from the service using the [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} method using a blank query `q=*:*`. The number of documents returned might be more than the practical maximum return count (`200` for most collections). If this is the case, multiple calls should be made with appropriate [paging ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} to collect all the documents.
 
-Documents with specified **ID's** are uploaded to the {{site.data.keyword.discoveryshort}} service using the [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} method. Each document upload is a separate API call.
+Documents with specified **ID's** are uploaded to the {{site.data.keyword.discoveryshort}} service using the [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#update-a-document){: new_window} method. Each document upload is a separate API call.
 
 ## Migrating training data
 

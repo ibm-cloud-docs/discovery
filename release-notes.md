@@ -52,7 +52,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 
 - Released Continuous Relevancy Training, which uses interactions from users to learn how to surface the most relevant results. It can learn from user behavior automatically, significantly reducing the effort required to improve the relevancy ranking of results.  See [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html#crt) for details.
 
-- Added API support for performing longer queries. This increases the character limit to 10,000 characters, and makes it possible to increase the number of filters in your queries and perform more complex aggregations. See the POST Query at [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query){: new_window} and [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query){: new_window} for details.
+- Added API support for performing longer queries. This increases the character limit to 10,000 characters, and makes it possible to increase the number of filters in your queries and perform more complex aggregations. See the POST Query at [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#long-collection-queries){: new_window} and [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#long-environment-queries){: new_window} for details.
 
 - You can now upgrade your Advanced plan using the API. See [Upgrading your plan](/docs/services/discovery/upgrading.html#advanced) for details. 
 
@@ -60,13 +60,13 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 
 - Added full support for Brazilian Portuguese. For more information, see [Language support](/docs/services/discovery/language-support.html).
 
-- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `bias` parameter, which allows you to bias towards certain results, for example, documents that were published most recently. See the [Query your collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} method in the API reference for information.
+- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `bias` parameter, which allows you to bias towards certain results, for example, documents that were published most recently. See the [Query your collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-your-collection){: new_window} method in the API reference for information.
 
 - The **Default Contract Configuration** file provided to enrich collections for [Element Classification](/docs/services/discovery/element-classification.html#element-collection) was found to have an issue with HTML normalizations. A new **Default Contract Configuration** is included with this release. Follow the steps below to apply the new **Default Contract Configuration** to your collections.
 
      1. Determine which of your collections are using either the **Default Contract Configuration** configuration file, or a custom configuration based on **Default Contract Configuration**.
      1. Make note of the changes you made to any custom configurations based on **Default Contract Configuration**.
-     1. Since the old **Default Contract Configuration** file needs to be deleted from your environment before the new one is used, use the API [Delete configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#delete-configuration){: new_window} to delete the current **Default Contract Configuration** associated with any of your collections. Also delete any configurations based on the old **Default Contract Configuration**.
+     1. Since the old **Default Contract Configuration** file needs to be deleted from your environment before the new one is used, use the API [Delete configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#delete-a-configuration){: new_window} to delete the current **Default Contract Configuration** associated with any of your collections. Also delete any configurations based on the old **Default Contract Configuration**.
      1. Now you can use the new **Default Contract Configuration** file. For each collection using one of those configurations, create a new collection. Apply the new **Default Contract Configuration** or create a new custom configuration based on the new **Default Contract Configuration** using the notes you made in step 2.
      1. Upload the files previously ingested to the original collections.
      1. Delete the old collections.
@@ -93,7 +93,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 
 ## 25 June 2018
 
-- Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. Released the [Source Credential ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#credentials-api){: new_window} and [Configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window} APIs for these data sources. 
+- Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. Released the [Source Credential ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#list-credentials){: new_window} and [Configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#add-configuration){: new_window} APIs for these data sources. 
   - {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/services/discovery/release-notes.html#2aug)
   - The individual document file size limit for Box, Salesforce, and SharePoint Online is 10MB.
 - Added a new Performance Dashboard in {{site.data.keyword.discoveryshort}} tooling. See [Viewing metrics and improving query results with the Performance dashboard](/docs/services/discovery/dashboard.html). The new dashboard is not available in Premium or Dedicated environments.
@@ -101,7 +101,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 
 ## 22 June 2018
 
-- Released the Events and Feedback API. See the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} for more information.
+- Released the Events and Feedback API. See the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#create-event){: new_window} for more information.
 
 ## 11 June 2018
 
@@ -302,7 +302,7 @@ Known issue:
 
 - Released the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph, which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. This beta feature is available to **Advanced** plan users only. It is not available on **Dedicated** environments. [Resolved](/docs/services/discovery/release-notes.html#8mar) See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.  A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
   - Known issue in {{site.data.keyword.discoveryfull}} Knowledge Graph: All entity type names and relation type names are converted to uppercase during ingestion. For example, the entity "GeoPoliticalEntity" is converted to "GEOPOLITICALENTITY," and the relation "partOf" is converted to "PARTOF." [Resolved](/docs/services/discovery/release-notes.html#5mar)
-- Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")] [Resolved](/docs/services/discovery/release-notes.html#26jan)(https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
+- Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")] [Resolved](/docs/services/discovery/release-notes.html#26jan)(https://console.bluemix.net/apidocs/discovery#query-your-collection){: new_window}. {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
 - Query results return a `score` value, which indicates the relative relevancy between query results. Starting 30 November 2017, the way that `score` is calculated changed. The `score` value should only be used to rank documents in a single search, not across searches or sessions. If you have trained a collection, a `score` value is returned in the results of a natural language query. Since the `score` indicates the relative relevancy between query results, it should not be used as a threshold. Instead, use the `confidence`, which indicates the relevance of the result as compared to the trained model, to set thresholds. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for more information on setting thresholds.
 - Beginning with this release, Passage retrieval detects sentence boundaries - it attempts to return passages that start at the beginning of a sentence and stop at the end. Previously, many passages would begin or end somewhere mid-sentence. See [Passages](/docs/services/discovery/query-parameters.html#passages) for more information about Passage retrieval.
 
@@ -389,7 +389,7 @@ Document deduplication is currently supported only as a beta capability. See the
 
 - The version string for all API calls has changed to `2017-09-01` from `2017-08-01`. This version includes updates that will filter out the following invalid JSON fields during preview and ingestion so that only valid JSON fields are ingested. Update your version string to `2017-09-01` to avoid conflicts and possible errors.
 
-   - `id`, `score`, and `highlight` at the top level (You can continue to add documents to your collection using document IDs with the `add a document` function. See the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#add-doc){: new_window} for details.
+   - `id`, `score`, and `highlight` at the top level (You can continue to add documents to your collection using document IDs with the `add a document` function. See the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#add-a-document){: new_window} for details.
    - `_` prefixed field names at the top level (as a result, when querying for a document by ID, you can query for `id` instead of `_id`.)
    - `#` and `,` in the field name
    - `+` and `-` prefixed field names
@@ -449,7 +449,7 @@ Both features are query building enhancements and can be found on the **Build qu
 
  - As part of the pricing change that has been announced for August 1st 2017, users that are currently on the deprecated **30 day free trial** plan will be automatically migrated to the **Lite** plan. As a result of this transition, existing users may have met or exceeded the lite plan limit on documents _(2000)_, storage _(200Mb)_, or number of collections _(2)_. If you have exceeded the limit of the **Lite** plan, you will not be able to add any additional content into the service but you can still query collections. You can view the current status of all these limits by using the {{site.data.keyword.discoveryshort}} tooling or API. To be able to resume adding content to the {{site.data.keyword.discoveryshort}} instance, you must do one of the following:
    - remove collections and/or documents so that limits of the **Lite** plan are not exceeded.
-     Documents can be deleted either individually through the API using the [delete-doc](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc) method, or whole collections can be deleted using the Tooling or API using the [delete-collection](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-collection) method
+     Documents can be deleted either individually through the API using the [delete-doc](https://console.bluemix.net/apidocs/discovery#delete-a-document) method, or whole collections can be deleted using the Tooling or API using the [delete-collection](https://console.bluemix.net/apidocs/discovery#delete-a-collection) method
    - upgrade your plan to a level that meets your storage needs.
  - Customers with size **`1`** **`2`** or **`3`** environments will be automatically migrated to the **Advanced** plan.
 
@@ -552,17 +552,17 @@ Both features are query building enhancements and can be found on the **Build qu
 
 ### 25 April 2017
 
-  - The service now enables you to provide *training data* to improve the accuracy of your query results. When you provide a Discovery instance with training data, the service uses advanced Watson algorithms to determine the most relevant results. As you add more training data, the service instance becomes more accurate and sophisticated in the results it returns. See [Improving the relevance of your query results](/docs/services/discovery/train.html) and the [API Reference ](http://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data) for information.
+  - The service now enables you to provide *training data* to improve the accuracy of your query results. When you provide a Discovery instance with training data, the service uses advanced Watson algorithms to determine the most relevant results. As you add more training data, the service instance becomes more accurate and sophisticated in the results it returns. See [Improving the relevance of your query results](/docs/services/discovery/train.html) and the [API Reference ](https://console.bluemix.net/apidocs/discovery#list-training-data) for information.
 
-  - The API now supports the `natural_language_query` parameter as a beta release. This parameter enables you to specify a query in natural language instead of in the Discovery service's query language. See the [Query your collection](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get) method in the API reference for information.
+  - The API now supports the `natural_language_query` parameter as a beta release. This parameter enables you to specify a query in natural language instead of in the Discovery service's query language. See the [Query your collection](https://console.bluemix.net/apidocs/discovery#query-your-collection) method in the API reference for information.
 
   - Documentation updates and errata corrections.
 
 ### 14 April 2017
 
-Enhancements have been added to the query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). See the [Query your collection](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get) method in the API reference for information.
+Enhancements have been added to the query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). See the [Query your collection](https://console.bluemix.net/apidocs/discovery#query-your-collection) method in the API reference for information.
 
-  - The query API now supports the `passages` parameter. If the parameter is set to `true`, the query returns a set of the most relevant passages from the documents in your collection. The passages are generated by sophisticated Watson algorithms to determine the best passages of text from all of the documents returned by the query. This enables you to find information and context more precisely. See the [Query your collection](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get) method in the API reference for information.
+  - The query API now supports the `passages` parameter. If the parameter is set to `true`, the query returns a set of the most relevant passages from the documents in your collection. The passages are generated by sophisticated Watson algorithms to determine the best passages of text from all of the documents returned by the query. This enables you to find information and context more precisely. See the [Query your collection](https://console.bluemix.net/apidocs/discovery#query-your-collection) method in the API reference for information.
 
     - Specifying `passages=true` in your query can reduce performance as a result of increased processing to extract passages. With larger environments, the performance impact can be lessened.
 
@@ -574,10 +574,10 @@ Enhancements have been added to the query API (`GET /v1/environments/{environmen
 
 ### 7 April 2017
 
-- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `sort` parameter, which enables you to specify a comma-separated list of fields in the document to sort on. See the [Query your collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} method in the API reference for information.
+- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `sort` parameter, which enables you to specify a comma-separated list of fields in the document to sort on. See the [Query your collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-your-collection){: new_window} method in the API reference for information.
 - The `timeslice` parameter for query aggregations now correctly handles dates in UNIX epoch format. See [Query reference](/docs/services/discovery/query-reference.html#aggregations) for information about aggregations and the `timeslice` parameter.
 - Improvements to error messages.
-- Updates to the service's Java SDK. See the [API Reference](http://www.ibm.com/watson/developercloud/discovery/api/v1/?java) for details.
+- Updates to the service's Java SDK. See the [API Reference](https://console.bluemix.net/apidocs/discovery?language=java) for details.
 - The following limitations to the use of wildcards in queries are now fixed and work correctly:
 
   - Only one wildcard worked in any given query. For example, `query-month:*ctober` worked, but `query-month:*ctobe*` generated a parsing error.
@@ -647,7 +647,7 @@ The following bugs have been fixed.
 ### 16 February 2017
 
 -  You can now use CSS selectors to select JSON fields that you can then apply enrichments to. See [Using CSS selectors to extract fields](/docs/services/discovery/building.html#using-css) for information.
--  You can now increase the size of an environment by passing a new `size: X` parameter to the [update-environment method](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update_environment), where `X` is an integer between 0 and 3. See the [create-environment method](http://www.ibm.com/watson/developercloud/discovery/api/v1/#create_environment) for information about environment sizes and attributes. [Update](/docs/services/discovery/pricing-details.html)
+-  You can now increase the size of an environment by passing a new `size: X` parameter to the [update-environment method](https://console.bluemix.net/apidocs/discovery#update-an-environment), where `X` is an integer between 0 and 3. See the [create-environment method](https://console.bluemix.net/apidocs/discovery#create-an-environment) for information about environment sizes and attributes. [Update](/docs/services/discovery/pricing-details.html)
 
     **Note:** You cannot reduce the size of an existing environment. If you want to reduce the size of your environment, contact {{site.data.keyword.IBM}} support for assistance.
 
@@ -678,7 +678,7 @@ The following notes apply specifically to the Data Crawler 1.2.5 release.
 
 The following notes describe issues that were identified after the GA release on 15 December 2016.
 
-[Update: API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+[Update: API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery){: new_window}
 
 -   If you add a document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents`
     or `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the call returns a document ID and the **processing** status. If you then query the document by using the `GET /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the status remains at **processing** until ingestion is completed, at which point the status changes to **available**.
@@ -694,7 +694,7 @@ The following notes apply to the General Availability (GA) release of the {{site
 #### General notes
 [Update: Adding content](/docs/services/discovery/adding-content.html)
 
-See [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window} for current API version.
+See [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery){: new_window} for current API version.
 
 [Update: Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
 
@@ -740,7 +740,7 @@ See [API reference ![External link icon](../../icons/launch-glyph.svg "External 
 -   Applications that issue queries must enforce reasonable limits on the number of concurrent queries.
 
 ### Known issues
-[Update: API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+[Update: API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery){: new_window}
 
 [Update: tooling](/docs/services/discovery/getting-started-tool.html)
 
@@ -750,14 +750,14 @@ See [API reference ![External link icon](../../icons/launch-glyph.svg "External 
 
 [Update: Adding content](/docs/services/discovery/adding-content.html)
 
--   You cannot delete a document by using the tooling. If you need to delete a document, you must use the API's [Delete a document](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc) method as described in the API reference.
+-   You cannot delete a document by using the tooling. If you need to delete a document, you must use the API's [Delete a document](https://console.bluemix.net/apidocs/discovery#delete-a-document) method as described in the API reference.
 
 -   The API does not currently support getting a list of notices (warnings and error) that are generated during document ingestion. The tooling is therefore unable to show a list of ingestion notices, and there is no easy way to determine which, if any, documents crawled by the Data Crawler failed to be ingested. 
 -   Document status information is not always accurate.
     -   If an ingestion operation takes longer than the configured timeout of 10 minutes, the service reports that the document is not known to the service until the ingestion operation completes. After the operation completes, the document status is available and accurate.
     -   Documents that are successfully indexed but generated errors can have a status of **failed** for a short period of time until the document has been fully committed to the index. After the document has been committed to the index, the listed status is accurate.
--   You cannot use the tooling to replace a specific document. If you attempt to do so, the second document is uploaded as a separate document. If you are using the API and know the ID of the document you want to replace, you can do so; see [Update a document](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc) in the API reference. If you are using the Data Crawler, uploading an updated document from the same URL as a previous document replaces the original document.
--   If you are using the tooling to edit the enrichments in your configuration, you can edit only enrichments used for extraction. If you want to add or edit other enrichments (for example, custom enrichments from a {{site.data.keyword.knowledgestudiofull}} model), you must use the API. See the [Update a configuration](http://www.ibm.com/watson/developercloud/discovery/api/v1/#replace_configuration) method in the API reference for information.
+-   You cannot use the tooling to replace a specific document. If you attempt to do so, the second document is uploaded as a separate document. If you are using the API and know the ID of the document you want to replace, you can do so; see [Update a document](https://console.bluemix.net/apidocs/discovery#update-a-document) in the API reference. If you are using the Data Crawler, uploading an updated document from the same URL as a previous document replaces the original document.
+-   If you are using the tooling to edit the enrichments in your configuration, you can edit only enrichments used for extraction. If you want to add or edit other enrichments (for example, custom enrichments from a {{site.data.keyword.knowledgestudiofull}} model), you must use the API. See the [Update a configuration](https://console.bluemix.net/apidocs/discovery#update-a-configuration) method in the API reference for information.
 -   The following notes apply specifically to the Data Crawler. 
     -   The Data Crawler retries uploads if it encounters an upload failure.
     -   The Data Crawler is unable to retry documents that uploaded successfully but failed to be converted or indexed.

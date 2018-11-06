@@ -150,8 +150,8 @@ The crawl will sync the data initially and then on frequency that you specified.
 {: #source_api}
 
 Use the following process to create a collection connected to a data source using the API.
-1.  Create credentials for the source that you are connecting to using the [Source Credentials API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#credentials-api){: new_window}. Record the returned **credential_id** of the newly created credentials.
-2.  Create a new configuration using the [Configuration API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window}. This configuration must contain a **source** object which defines what should be crawled. The **source** object must contain the **credential_id** that you recorded earlier.
+1.  Create credentials for the source that you are connecting to using the [Source Credentials API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#create-credentials){: new_window}. Record the returned **credential_id** of the newly created credentials.
+2.  Create a new configuration using the [Configuration API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#add-configuration){: new_window}. This configuration must contain a **source** object which defines what should be crawled. The **source** object must contain the **credential_id** that you recorded earlier.
     ```json
     "source" : {
       "type" : "salesforce",
@@ -171,7 +171,7 @@ Use the following process to create a collection connected to a data source usin
     ```
     {: codeblock}
     Record the returned **configuration_id** of the newly created configuration.
-3.  Create a new collection using the [Collections API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window}. The object defining the collection must contain the **configuration_id** that your recorded earlier.
+3.  Create a new collection using the [Collections API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#create-a-collection){: new_window}. The object defining the collection must contain the **configuration_id** that your recorded earlier.
 
 The source crawl begins as soon as the collection is created, and then again on the frequency that you specified.
 **Note:** If you modify anything in the **source** object of the configuration a new crawl will be started (or restarted if one is already running) at that time.

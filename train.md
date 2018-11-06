@@ -24,7 +24,7 @@ You can train the {{site.data.keyword.discoveryshort}} service to improve the re
 
 Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For an overview of building use cases for training, see the blog post [How to get the most out of Relevancy Training ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}.
 
-For comprehensive information about the training APIs, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}.
+For comprehensive information about the training APIs, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery){: new_window}.
 
 If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to train {{site.data.keyword.discoveryshort}}, see [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html).
 
@@ -160,7 +160,7 @@ After you create a training-data query, you can continue to add examples to it t
 
 Perform the following steps to add an example to a training-data query.
 
-1. Get the query ID of the training-data query to which you want to add a new example by [listing the collection's training-data queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}:
+1. Get the query ID of the training-data query to which you want to add a new example by [listing the collection's training-data queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#list-training-data){: new_window}:
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2016-12-01"
@@ -204,7 +204,7 @@ Perform the following steps to add an example to a training-data query.
    ```
    {: pre}
 
-1. Verify that the new example has been added to the training-data query by again [listing the collection's training-data queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}:
+1. Verify that the new example has been added to the training-data query by again [listing the collection's training-data queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#list-training-data){: new_window}:
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2016-12-01"
@@ -241,7 +241,7 @@ Perform the following steps to add an example to a training-data query.
    ```
    {: codeblock}
 
-1. Check the status of the training by using the [List collection details ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#list-collection-details){: new_window} method and looking at the value of the `"training"`/`"available"` field. When you have added enough queries and examples to meet the training requirements, the value of the field returns as `true` and the service automatically begins to use the training data.
+1. Check the status of the training by using the [List collection details ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#get-collection-details){: new_window} method and looking at the value of the `"training"`/`"available"` field. When you have added enough queries and examples to meet the training requirements, the value of the field returns as `true` and the service automatically begins to use the training data.
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2016-12-01"
@@ -296,14 +296,14 @@ For additional training guidance, see [Relevancy training tips](/docs/services/d
 ## Performing other training-data query operations
 {: #training-data-operations}
 
-You can administer and maintain training-data queries by using other API methods as described in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}:
+You can administer and maintain training-data queries by using other API methods as described in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery){: new_window}:
 
- - [List the training data for a collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}
- - [Delete all training data for a collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-all-training-data){: new_window}
- - [Display the contents of a specified training-data query ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#show-td-query){: new_window}
- - [Delete a training-data query from the collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-td-query-example){: new_window}
- - [Change a training-data query example's relevance label or cross reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-example){: new_window}
- - [Delete an example document from a training-data query ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-example){: new_window}
+ - [List the training data for a collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#list-training-data){: new_window}
+ - [Delete all training data for a collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#delete-all-training-data){: new_window}
+ - [Display the contents of a specified training-data query ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#get-details-about-a-query){: new_window}
+ - [Delete a training-data query from the collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-example-for-training-data-query){: new_window}
+ - [Change a training-data query example's relevance label or cross reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#change-label-or-cross-reference-for-example){: new_window}
+ - [Delete an example document from a training-data query ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#list-training-data){: new_window}
 
- **Error monitoring:** Training-data errors appear in the notices, which you can monitor using the [query notices API ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window}
+ **Error monitoring:** Training-data errors appear in the notices, which you can monitor using the [query notices API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-system-notices){: new_window}
  (`GET /v1/environments/{environment_id}/collections/{collection_id}/notices`).

@@ -36,7 +36,7 @@ Trained collections will return a `confidence` score in the result of a natural 
 
 {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
-You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available in the API-only, and will increase the character limit of a query to 10,000 characters. See [Long collection queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query){: new_window} and [Long environment queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query){: new_window} for details.
+You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available in the API-only, and will increase the character limit of a query to 10,000 characters. See [Long collection queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#long-collection-queries){: new_window} and [Long environment queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#long-environment-queries){: new_window} for details.
 
 {{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.
 
@@ -158,7 +158,7 @@ The English, Korean, German, Spanish, and Japanese language {{site.data.keyword.
 
 The default language of {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} in the tooling is English. To switch the language, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down.
 
-For information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects. The `collection_id` of the Korean collection is `news-ko`, the Spanish `collection_id` is `news-es`, the German `collection_id` is `news-de`, the Japanese `collection_id` is `news-ja`.
+For information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-your-collection){: new_window}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects. The `collection_id` of the Korean collection is `news-ko`, the Spanish `collection_id` is `news-es`, the German `collection_id` is `news-de`, the Japanese `collection_id` is `news-ja`.
 
 {{site.data.keyword.discoverynewsfull}} queries display the first 50 words of each article in the `text` JSON field.
 
@@ -184,15 +184,15 @@ You can query multiple collections in the same environment by using the `environ
 -  Individual collection relevancy training does not affect ranking of results when querying multiple collections. To rerank results returned when querying multiple collections implement [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html).
 -  Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
 
-See the [multiple collection query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-multi-collections){: new_window} for more information.
+See the [multiple collection query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-documents-in-multiple-collections){: new_window} for more information.
 
 You can view notices across multiple collections in the same environment by using the `environments/{environment_id}/notices` API method.
 -  The `collection_ids` parameter must be specified when using this method. `collection_ids` is a comma-separated list of collections in the environment to query.
 -  `passages` are supported when querying multiple collections.
 
-See the [multiple collection notices API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#collections-notices){: new_window} for more information.
+See the [multiple collection notices API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#get-collection-details){: new_window} for more information.
 
-You can view the fields available across collections in the same environment by using the `environments/{environment_id}/fields` API method. See the [multiple collection field query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#multi-list-fields){: new_window} for more information.
+You can view the fields available across collections in the same environment by using the `environments/{environment_id}/fields` API method. See the [multiple collection field query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#list-fields-across-collections){: new_window} for more information.
 
 ## Query expansion
 {: #query-expansion}
@@ -283,13 +283,13 @@ Notes about query expansion:
 - Query expansions are applied at query time, not during indexing, so the query expansion list can be updated without the need to re-ingest your documents.
 - Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
 
-See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-expansion){: new_window} for the API commands to upload and delete query expansion files.
+See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#get-the-expansion-list){: new_window} for the API commands to upload and delete query expansion files.
 
 ## Custom tokenization dictionaries
 
 Tokenization breaks text into units called tokens. A standard tokenization dictionary is applied to your collections, but you can improve the search accuracy for your domain or language by uploading a custom tokenization dictionary. Your custom dictionary will override the standard dictionary. You can upload your dictionary using the {{site.data.keyword.discoveryshort}} API. 
 
-See the [tokenization API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#create-tokenization-dictionary){: new_window} for the API commands to upload and delete tokenization files. 
+See the [tokenization API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discoverycurl.html?curl#create-tokenization-dictionary){: new_window} for the API commands to upload and delete tokenization files. 
 
 **Note:** This feature is currently only available for Japanese collections. 
 
@@ -362,4 +362,4 @@ Example query with `similar.fields` added:
 
 `curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
 
-See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} and [query parameters](/docs/services/discovery/query-parameters.html#similar) for more information.
+See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-your-collection){: new_window} and [query parameters](/docs/services/discovery/query-parameters.html#similar) for more information.

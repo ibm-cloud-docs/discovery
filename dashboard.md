@@ -51,4 +51,4 @@ The Query overview section displays:
 - The percentage of queries with no results returned
 - A graph that displays these results over time, so that you can track how adding more data and relevancy training are improving performance
 
-These results are gathered using the Events and Feedback API. See the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api) for more information.
+These results are gathered using the Events and Feedback API. See the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#create-event) for more information.
