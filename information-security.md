@@ -119,7 +119,7 @@ If any documents have already been crawled with the Data Crawler, you will need 
 
 Data must be labeled with a `customer_id` in order to delete it later.
 
-1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery/information-security.html#pi_methods). Also see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html#delete-user-data){: new_window}
+1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery/information-security.html#pi_methods). Also see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#delete-labeled-data){: new_window}
 
 Deletions are performed asynchronously. You cannot track the progress of deletions.
 

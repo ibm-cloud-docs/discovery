@@ -58,7 +58,7 @@ To return to the main **Build queries** screen at any time, click **Build querie
 To return to the **Manage data** screen, click the name of the collection on the upper right.
 {: tip}
 
-If you would like to delete all of the training data in your collection at one time, you must do so via the API. See [Delete all training data for a collection](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-all-training-data) for more information. For more information about training via the API, see [Improving the relevance of your query results with the API](/docs/services/discovery/train.html).
+If you would like to delete all of the training data in your collection at one time, you must do so via the API. See [Delete all training data for a collection](https://console.bluemix.net/apidocs/discovery#delete-all-training-data) for more information. For more information about training via the API, see [Improving the relevance of your query results with the API](/docs/services/discovery/train.html).
 
 ## Testing and iterating on the relevancy of results
 

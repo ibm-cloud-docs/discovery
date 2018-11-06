@@ -16,6 +16,7 @@ lastupdated: "2018-08-15"
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
+{:faq: data-hd-content-type='faq'}
 
 # FAQs
 {: #faqs}
@@ -23,7 +24,8 @@ lastupdated: "2018-08-15"
 Frequently asked questions about the {{site.data.keyword.discoveryshort}} service.
 
 ## Can I upload JSON arrays?
-{: #array} 
+{: #array}
+{: faq}
 
 You can upload a JSON array, but each section must be uploaded individually. For example, the following JSON cannot be uploaded to the service:
 

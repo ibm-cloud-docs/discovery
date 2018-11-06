@@ -128,7 +128,7 @@ The following pre-requisites are necessary before beginning this tutorial:
     ```
     {: codeblock}
 
-Look at the section `document_counts` to see how many documents were uploaded successfully. We aren't expecting any document failures with this sample data set. However, with other data sets, you may see failed document counts. If you have any failed document counts, then you can view the notices API to see the error messages. Look at the section [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window} to review the notices API command.
+Look at the section `document_counts` to see how many documents were uploaded successfully. We aren't expecting any document failures with this sample data set. However, with other data sets, you may see failed document counts. If you have any failed document counts, then you can view the notices API to see the error messages. Look at the section [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-system-notices){: new_window} to review the notices API command.
 
 The `training` section of the return gives you information about your training. We'll review that section after you upload your training data.
 
@@ -142,7 +142,7 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 
    For each question, there is at least one identifier to an answer (the document ID). Each document ID includes a number to indicate how relevant the answer is to the question. The document ID points to the answer in the `cranfield-data.json` file that you uploaded to {{site.data.keyword.discoveryshort}} in the previous step.
 
-1.  Download the Training Data upload script. You will use this script to upload the training data into {{site.data.keyword.discoveryshort}}. The script transforms the `csv` file into a set of JSON queries and examples and sends them to the {{site.data.keyword.discoveryshort}} service using the [training data APIs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data){: new_window}
+1.  Download the Training Data upload script. You will use this script to upload the training data into {{site.data.keyword.discoveryshort}}. The script transforms the `csv` file into a set of JSON queries and examples and sends them to the {{site.data.keyword.discoveryshort}} service using the [training data APIs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#list-training-data){: new_window}
     **Note:** {{site.data.keyword.discoveryshort}} manages training data within the service, so when generating new examples and training queries they can be stored in {{site.data.keyword.discoveryshort}} itself rather than as part of a separate CSV file that needs to be maintained.
 1.  Execute the training upload script to upload the training data into {{site.data.keyword.discoveryshort}}. Replace `{apikey_value}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` with your information. Note that there are additional options, `-d` for debug and `–v` for verbose output from curl.
 
@@ -156,7 +156,7 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 ## Search for documents
 {: search}
 
-The {{site.data.keyword.discoveryshort}} service will automatically use a trained model to re-rank search results if available. When [an API call ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
+The {{site.data.keyword.discoveryshort}} service will automatically use a trained model to re-rank search results if available. When [an API call ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-your-collection){: new_window} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
 
 1.  You can search for documents in your collection by using a cURL command. Perform a query using the query API call to see unranked results. Replace `{apikey_value}`, `{environment_id}`, `{collection_id}`, with your own values.  The results returned will be unranked results, and will use the default {{site.data.keyword.discoveryshort}} ranking formulas. You can try other queries by opening the training data `csv` file and copying the value of the first column into the query parameter.
 

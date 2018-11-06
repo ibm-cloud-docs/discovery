@@ -20,7 +20,7 @@ lastupdated: "2018-09-17"
 # Usage monitoring
 {: #usage}
 
-You can monitor and track usage of your {{site.data.keyword.discoveryshort}} instance and use this data to help you understand and improve your applications. The [Events API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} can be used to create log entries that are associated with specific natural language queries and actions. For example, you can record which documents in a results set were "clicked" by a user, and when that click occurred.
+You can monitor and track usage of your {{site.data.keyword.discoveryshort}} instance and use this data to help you understand and improve your applications. The [Events API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#create-event){: new_window} can be used to create log entries that are associated with specific natural language queries and actions. For example, you can record which documents in a results set were "clicked" by a user, and when that click occurred.
 
 **Note:** Logs and events are monitored only for natural language queries on private data collections. No logs are gathered on {{site.data.keyword.discoverynewsfull}}.
 
@@ -104,6 +104,6 @@ You can add this API wherever users interact with your results. For example, in 
 `"session_token": "1_LKczxWGEWx59fYD0_VV8HFUpb6"`
 
 To record an event, make a POST to the `/api/v1/events` endpoint. See the 
-[Events API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} for details.
+[Events API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#create-event){: new_window} for details.
 
 Once an event is recorded, it can be read back out using the `/api/v1/logs` endpoint. Join events to the associated query using the `session_token`.
