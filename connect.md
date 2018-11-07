@@ -171,7 +171,7 @@ Use the following process to create a collection connected to a data source usin
     ```
     {: codeblock}
     Record the returned **configuration_id** of the newly created configuration.
-3.  Create a new collection using the [Collections API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#create-a-collection){: new_window}. The object defining the collection must contain the **configuration_id** that your recorded earlier.
+3.  Create a new collection using the [Collections API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#create-a-collection){: new_window}. The object defining the collection must contain the **configuration_id** that you recorded earlier.
 
 The source crawl begins as soon as the collection is created, and then again on the frequency that you specified.
 **Note:** If you modify anything in the **source** object of the configuration a new crawl will be started (or restarted if one is already running) at that time.

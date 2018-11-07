@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-25"
+lastupdated: "2018-11-06"
 
 ---
 
@@ -42,10 +42,21 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+
+## 30 October 2018
+{: #30oct}
+
+- The {{site.data.keyword.discoveryshort}} service now supports token-based Identity and Access Management (IAM) authentication in all regions. IAM uses access tokens rather than service credentials for authentication with a service. For more information about using IAM tokens with existing and new applications, see the [17 May 2018](#17May2018) release update.
+
 ## 25 October 2018
 {: #25oct}
 
 The schema for the [Element Classification](/docs/services/discovery/element-classification.html) enrichment has changed. If you wish to use the updated schema, you must ingest your documents with the API, using the version date of `2018-10-15` or later. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so documents ingested using the {{site.data.keyword.discoveryshort}} tooling will be enriched with the original schema.
+
+## 24 October 2018
+{: #24oct2018}
+
+- {{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. These words will now be extracted from the highlights, rather than simply displaying the first 50 words of the article. See [highlight](https://console.bluemix.net/docs/services/discovery/query-parameters.html#highlight) for an explanation of highlights. Highlights do not need to be explicitly included in your query to enable this behavior.
 
 ## 25 September 2018
 {: #25sept}
@@ -110,7 +121,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 
 ## 6 June 2018
 
-- {{site.data.keyword.discoverynewsfull}} queries now display the first 50 words of each article in the `text` JSON field.
+- {{site.data.keyword.discoverynewsfull}} queries now display the first 50 words of each article in the `text` JSON field. [Update](#24oct2018)
 
 ## 5 June 2018
 {: #5jun}
