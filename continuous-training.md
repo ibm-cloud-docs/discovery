@@ -45,7 +45,7 @@ Continuous Relevancy Training can be used at query time by running a multi-colle
 
 Tracking status:
 
-The status of Continuous Relevancy Training can be viewed from the `/api/v1/environments` endpoint. See the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#get-environment-info){: new_window}. `status` will provide information on the state of the training operations and will inform you if Continuous Relevancy Training is active:
+The status of Continuous Relevancy Training can be viewed from the `/api/v1/environments` endpoint. See the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#get-environment-info){: new_window}. The `status` will provide information on the state of the training operations and will inform you if Continuous Relevancy Training is active:
 
 ```
 "search_status" : [
