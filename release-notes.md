@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-06"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -42,6 +42,9 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 8 November 2018
+
+- {{site.data.keyword.discoveryshort}} launched in the `Tokyo` location 8 November, 2018. Premium and Dedicated environments are not currently available in `Tokyo`.
 
 ## 30 October 2018
 {: #30oct}
@@ -149,7 +152,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 
 -   The service now supports a new API authentication process for service instances for applications that are hosted in Sydney (**au-syd**) as of May 15, 2018. They will be enabled for applications that are hosted in other regions soon. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
 
-   In the Sydney region, you use IAM access tokens with the {{site.data.keyword.discoveryshort}} service for
+   In the Sydney location, you use IAM access tokens with the {{site.data.keyword.discoveryshort}} service for
 
     -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
     -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](/docs/resources/instance_migration.html).
@@ -369,7 +372,7 @@ The version string for all API calls has changed to `2017-11-07` from `2017-10-1
 
 ### 29 September 2017
 
-- {{site.data.keyword.discoveryshort}} launched in the `Germany` region 29 September, 2017. In order to comply with EU data regulations, AlchemyLanguage enrichments are not supported in this region.
+- {{site.data.keyword.discoveryshort}} launched in the `Germany` location 29 September, 2017. In order to comply with EU data regulations, AlchemyLanguage enrichments are not supported in this location.
 - Known issue: Query fields cannot contain whitespaces.  When writing a query in {{site.data.keyword.discoveryshort}}, if any query field contains whitespace (for example, `body.additional reading`), you will receive a `400: Invalid query syntax error`. [Resolved](/docs/services/discovery/release-notes.html#8nov)
 
 ### 25 September 2017
