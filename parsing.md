@@ -92,7 +92,7 @@ The `attributes` array specifies any attributes identified in the sentence. Each
 
 | `attributes`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
-|`Location`        |A geographical location or region.                         |
+|`Location`        |A geographical location.                         |
 |`DateTime`        |A date, time, date range, or time range.                   |
 |`Currency`        |Monetary value and units.                                  |
 

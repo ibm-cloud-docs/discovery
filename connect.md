@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-14"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -59,37 +59,82 @@ The following general requirements apply to all data sources:
 ## Box
 {: #connectbox}
 
-When connecting to a Box source, ensure that the instance you plan to connect to is an Enterprise plan or higher.
+You'll need to create a new Box custom application to connect to {{site.data.keyword.discoveryfull}}. The Box application you create requires either Enterprise level or Application level access.
 
-Setting up a Box account to work with {{site.data.keyword.discoveryshort}}:
+-  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery/connect.html#applevelbox) is recommended. You will need an administrator to approve your application.
 
-1.  Create a new Box custom application at `https://app.box.com/developers/console` (use your company's Box URL).
-1.  Then do one of the following:
-    - Select **Application access** of `Enterprise`, then continue by using existing managed users.
-      OR
-    - Select **Application access** of `Application` and then create an `Application User` with the newly created application using the [Box API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/reference#create-app-user){: new_window}.
-1.  Enable the following **Application Scopes**:
-    - `Read and Write All Folders Stored In Box`
+-  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/services/discovery/connect.html#entlevelbox) is recommended.
+
+**Note:** The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/){: new_window} for updates.
+
+### Setting up Application level access
+{: #applevelbox}
+
+1.   Navigate to `https://app.box.com/developers/console` (use your company's Box URL) and click **Create New App**.
+1.   From the **Create a New App** screen, select **Enterprise Integration** and click **Next**.
+1.   On the **Authentication Method** screen, select **OAuth 2.0 with JWT (Server Authentication)** and click **Next**.
+1.   Name your app and click the **Create App** button. Once your Box app has been created, click **View Your App**.
+1.   While viewing your app, select **Application access** of **Application**. You can use your existing managed users as you continue; you are not required to create new ones.
+1.   Scroll down to the **Application Scopes** section of the page and enable the following checkboxes: 
+     - `Read and write all folders stored in Box`
+     - `Manage Users`
+1.   Scroll down to the **Advanced Features** section and enable the following toggles:
+     - `Perform Actions as Users`
+     - `Generate User Access Tokens` 
+1.  Click the **Save Changes** button.
+
+The next few steps will require assistance from the Administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
+
+1.  [Administrator step] Authorize your application client id at `https://app.box.com/master/settings/openbox` by clicking the **Authorize New App** button.
+1.  [Administrator step] Type the **client ID** from `https://app.box.com/developers/console` into the **API key** field and then click the **Authorize** button.
+1.  [Administrator step] Retrieve a developer token for the application. To do this, navigate to `https://app.box.com/developers/console`, scroll to the **Developer Token** section and generate your token.
+1.  Now that the application has been authorized by the Administrator, navigate to `https://developer.box.com/reference#page-create-an-enterprise-user` and create the Box user using the API reference page.
+
+   Sample curl command [from the box API](https://api.box.com/2.0/users):
+
+   ```bash
+    curl -X POST -H "Authorization: Bearer <YOUR_DEVELOPER_TOKEN_GOES_HERE>" -d '{"login": "<YOUR_APP_USER_EMAIL>@<YOUR_COMPANY_DOMAIN>", "name": "<YOUR_APP_USER_NAME>"}' 
+   ```
+   {: pre}
+
+1.  Copy the newly generated **id** field contents and provide them to the non-administrator connecting the Box application to {{site.data.keyword.discoveryfull}}.
+1.  Return to the Box developer console `https://app.box.com/developers/console` and scroll to the **Add and Manage Public Keys** section. Click the **Generate the public/private keypair** and download your keypair file. Open the file.
+1.  From the keypair file, cut and paste the following fields into the {{site.data.keyword.discoveryshort}} tooling.
+    -  `client_id`
+    -  `enterprise_id`
+    -  `client_secret` 
+    -  `public_key_id` 
+    -  `private_key` 
+    -  `passphrase` 
+
+### Setting up Enterprise level access
+{: #entlevelbox}
+
+1.  Navigate to `https://app.box.com/developers/console` (use your company's Box URL) and click **Create New App**.
+1.  From the **Create a New App** screen, select **Enterprise Integration** and click **Next**.
+1.  On the **Authentication Method** screen, select **OAuth 2.0 with JWT (Server Authentication)** and click **Next**.
+1.  Name your app and click the **Create App** button. Once your Box app has been created, click **View Your App**.
+1.  While viewing your app, select **Application access** of **Application**. You can use your existing managed users as you continue; you are not required to create new ones.
+1.  Scroll down to the **Application Scopes** section of the page and enable the following checkboxes: 
+    - `Read and write all folders stored in Box`
     - `Manage Users`
-1.  Enable the following **Advanced Features**
+1.  Scroll down to the **Advanced Features** section and enable the following toggles:
     - `Perform Actions as Users`
-    - `Generate User Access Tokens`
-1.  Have the administrator authorize your application client id `https://app.box.com/master/settings/openbox` by typing the `Client ID` from `https://app.box.com/developers/console` into the `API Key` field.
-1.  Generate the `public/private keypair` (will download to your computer).
-1.  Open the downloaded file and copy/paste the fields into {{site.data.keyword.discoveryshort}}. Remove the trailing newline `\n` at the end of the `privateKey` when copying into  {{site.data.keyword.discoveryshort}}.
+    - `Generate User Access Tokens` 
+1.  Click the **Save Changes** button.
 
-**Note:** {{site.data.keyword.discoveryshort}} does not support the custom application crawling as itself (you cannot impersonate yourself). 
+The next few steps will require assistance from the Administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
 
-The following credentials are required to connect to a Box source, they should be obtained from your Box administrator (unless you have already obtained them by setting up a Box custom application using the previous steps):
-
--  `client_id` - The `client_id` of the source that these credentials connect to.    
--  `enterprise_id` - The `enterprise_id` of the Box site that these credentials connect to.
--  `client_secret` - The `client_secret` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
--  `public_key_id` - The `public_key_id` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
--  `private_key` - The `private_key` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
--  `passphrase` - The `passphrase` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
-
-When identifying the credentials, it might be useful to consult the [Box developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/){: new_window}.
+1.  [Administrator step] Authorize your application client id at `https://app.box.com/master/settings/openbox` by clicking the **Authorize New App** button.
+1.  [Administrator step] Type the **client ID** from `https://app.box.com/developers/console` into the **API key** field and then click the **Authorize** button.
+1.  Return to the Box developer console `https://app.box.com/developers/console` and scroll to the **Add and Manage Public Keys** section. Click the **Generate the public/private keypair** and download your keypair file. Open the file.
+1.  From the keypair file, cut and paste the following fields into the {{site.data.keyword.discoveryshort}} tooling.
+    -  `client_id`
+    -  `enterprise_id`
+    -  `client_secret` 
+    -  `public_key_id` 
+    -  `private_key` 
+    -  `passphrase` 
 
 Other items to consider when crawling Box:
 
