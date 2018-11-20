@@ -75,9 +75,3 @@ Create a web UI chatbot using the IBM Watson Node.js SDK to include conversation
   - [View the Demo  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=Jxi7U7VOMYg&cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-View-the-Demo){: new_window}
   - [Try the App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://create-a-cognitive-banking-chatbot-hnike.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
   - [Build from a Starter Kit  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-   
-[Discovery Lab  ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/watsondiscoverylab){: new_window}
-In this lab, you will create a private collection in the Discovery service and learn how to query the collection.
-
-[Discovery News Lab  ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/discoverynewslab){: new_window}
-In this lab, you will work with the Watson Discovery News insights engine by building queries.
