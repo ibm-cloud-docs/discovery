@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-08"
+lastupdated: "2018-11-25"
 
 ---
 
@@ -78,6 +78,7 @@ You'll need to create a new Box custom application to connect to {{site.data.key
 1.   Scroll down to the **Application Scopes** section of the page and enable the following checkboxes: 
      - `Read and write all folders stored in Box`
      - `Manage Users`
+     - `Manage Enterprise Properties` 
 1.   Scroll down to the **Advanced Features** section and enable the following toggles:
      - `Perform Actions as Users`
      - `Generate User Access Tokens` 
