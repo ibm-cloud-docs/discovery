@@ -55,7 +55,7 @@ Start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To u
 
   1. Run an "empty" query to view the JSON. On the **View data schema** screen, click the **Build queries** button, then click **Run Query**. The results display on the right, under two tabs, **Summary** (an overview of the query results) and **JSON**. Start by opening the **JSON** tab.
 
-     -  Each of the four documents will be proceeded by an `id` number.
+     -  Each of the four documents will be preceded by an `id` number.
      -  Scroll down to the `enriched_text` field. Examine each enrichment to learn about the JSON fields you can query on.
 
         ![Default configuration fields](images/JSON.png)
