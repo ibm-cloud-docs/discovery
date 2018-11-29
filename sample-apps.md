@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-11-29"
 
 ---
 
@@ -32,8 +32,7 @@ Easily extract insights from raw text review data. It walks you through a workin
 Uses publicly available reviews on Airbnb listings to demonstrate how to use individual UI components to visualize insights. You can then easily switch out the dataset to adapt it to your own use cases.
   - [Get the Code  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/watson-discovery-ui?cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-Get-the-Code){: new_window}
   - [View the Demo  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=5EEmQwcjUa4&cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-View-the-Video){: new_window}
-  - [Try the App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-discovery-ui-demo.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  
+    
 [Mine Enterprise Data for Insights  ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/minedatapattern){: new_window}
 Use the Watson Node.js SDK to import and enrich your data using the Watson Discovery Service. You can then explore the data to find patterns, trends, and actionable insights.
   - [Get the Code  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/watson-discovery-analyze-data-breaches?cm_sp=IBMCode-_-import-enrich-and-gain-insight-from-data-_-Get-the-Code){: new_window}

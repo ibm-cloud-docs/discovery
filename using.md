@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-23"
+lastupdated: "2018-11-29"
 
 ---
 
@@ -197,11 +197,11 @@ You can view the fields available across collections in the same environment by 
 ## Query expansion
 {: #query-expansion}
 
-You can expand the scope of a query beyond exact matches - for example, you can expand a query for "car" to include "automobile" and "motor vehicle" - by uploading a list of query expansion terms using the {{site.data.keyword.discoveryshort}} API. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
+You can expand the scope of a query beyond exact matches - for example, you can expand a query for "car" to include "automobile" and "vehicle" - by uploading a list of query expansion terms using the {{site.data.keyword.discoveryshort}} API. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
 
 You can define two types of expansions:
-- **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR (motor AND vehicle`).
-- **unidirectional** - the `input_terms` in the query will be replaced by the `expanded_terms`. For example, a query for `ibm` could expand to `international business machines` and `big blue`. `input_terms` are not used as part of the resulting query. In the previous `ibm` example, the query `IBM` would be converted to `international business machines` OR `big blue` and not contain the original term.
+- **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR vehicle`).
+- **unidirectional** - the `input_terms` in the query will be replaced by the `expanded_terms`. For example, a query for `banana` could expand to `plaintain` and `fruit`. `input_terms` are not used as part of the resulting query. In the previous `banana` example, the query `banana` would be converted to `plantain` OR `fruit` and not contain the original term.
 
 This file can be used as a starting point when building a query expansion list:
 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>. You can modify this file to create your custom query expansion list.
@@ -214,7 +214,7 @@ Bidirectional example:
        "expanded_terms": [
          "car",
          "automobile",
-         "motor vehicle"
+         "vehicle"
        ]
      }
    ]
@@ -228,12 +228,12 @@ Unidirectional example:
    "expansions": [
      {
       "input_terms": [
-        "ibm"
+        "banana"
        ],
       "expanded_terms": [
-        "ibm",
-        "international business machines",
-        "big blue"
+        "banana",
+        "plantain",
+        "fruit"
        ]
      }
    ]
@@ -243,7 +243,8 @@ Unidirectional example:
 
 Notes about query expansion:
 
-- Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery/pricing-details.html) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and eight term strings.
+- Multi-token query expansion is not supported.
+- Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery/pricing-details.html) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and seven term strings.
 
 ```JSON
  {
@@ -254,8 +255,7 @@ Notes about query expansion:
        ],
       "expanded_terms": [
          "ibm",
-         "international business machines",
-         "big blue"
+         "watson"
        ]
      },
      {
@@ -341,6 +341,7 @@ You can also create rules with a single token. In this example, `ibm発見` will
 - A standard tokenization dictionary is used on all collections. If your collection has already been indexed with that dictionary, you must reingest the documents in that collection after you upload a custom tokenization dictionary.
 - Only one tokenization dictionary can be uploaded per collection; if a second tokenization dictionary is uploaded, it will replace the first. If that collection already contained documents, you must reingest them for the new custom tokenization dictionary to be applied.
 - The custom tokenization dictionary must be written in JSON, example file name: `custom_tokenization_dictionary.json`.
+- All custom tokenization dictionary terms should be lowercase.
 - To disable tokenization, delete the tokenization dictionary and reingest your documents.
 - You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
 - Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
