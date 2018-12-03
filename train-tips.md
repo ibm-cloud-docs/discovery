@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-12-03"
 
 ---
 
@@ -78,7 +78,7 @@ Other API operations are listed in [Performing other training-data query operati
 
 ### How do I interpret the `confidence` score that appears in natural language query results after training?
 
-Trained collections will return a `confidence` score in the result of a natural language query. This `confidence` number is calculated based on how relevant the result is compared to the trained model. The `confidence` score is **not** the same as the  `score`. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for more information.  
+See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for more information.  
 
 ## Interpreting Errors and Warnings
 

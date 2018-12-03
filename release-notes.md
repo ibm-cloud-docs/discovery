@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-08"
+lastupdated: "2018-12-03"
 
 ---
 
@@ -29,7 +29,7 @@ API requests require a version parameter that takes a date in the format `versio
 
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
-The current version is `2018-10-15`.
+The current version is `2018-12-03`.
 
 ## Beta features
 {: #beta-features}
@@ -41,6 +41,13 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 3 December 2018
+{: #3dec}
+
+- For all queries (with the exception of filter-only queries) written using the API version of `2018-12-03` or above, {{site.data.keyword.discoveryshort}} will now return a `confidence` score in the query results set, even if the collection was not trained using a supervised training method, such as [Relevancy training](/docs/services/discovery/train-tooling.html#improving-result-relevance-with-the-tooling) or [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html#crt). In addition, {{site.data.keyword.discoveryshort}} will return a `document_retrieval_strategy` field that indicates the source of the `confidence` score of `untrained`, `relevancy_training`, or `continuous_relevancy_training`. For more information, see [Confidence scores](/docs/services/discovery/train-tooling.html#confidence).
+
+- The version string for all API calls has changed to `2018-12-03` from `2018-10-15`. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so queries written using the {{site.data.keyword.discoveryshort}} tooling will not return a `confidence` score for untrained collections.
 
 ## 8 November 2018
 
