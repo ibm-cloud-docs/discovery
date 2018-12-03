@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-12-03"
 
 ---
 
@@ -33,7 +33,7 @@ Once Watson has enough training input, the information you've provided about whi
 
 **Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries. For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery/using.html).
 
-Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
+All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
 
 See [Training data requirements](/docs/services/discovery/train.html#reqs) for the minimum requirements for training, as well as the training limits.
 
@@ -74,24 +74,45 @@ For additional training guidance, see [Relevancy training tips](/docs/services/d
 ## Confidence scores
 {: #confidence}
 
-Trained collections will return a `confidence` score in the result of a natural language query. This `confidence` number is calculated based on how relevant the result is estimated to be, compared to the trained model. The `confidence` score is **not** the same as the  `score`. For more information about determining thresholds for confidence scores, see [How to select a threshold for acting using confidence scores ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/). The `score` should not be used to set absolute thresholds as it is a relative calculation.
+{{site.data.keyword.discoveryshort}} returns a `confidence` score for both natural language queries and those written in the {{site.data.keyword.discoveryshort}} Query Language.
+
+The `confidence` score will be returned for both trained and untrained private collections (with the exception of filter-only queries of untrained collections). In addition, {{site.data.keyword.discoveryshort}} returns a `document_retrieval_strategy` field that indicates the source of the `confidence` score: 
+    -  `untrained`
+    -  `relevancy_training`, or
+    -  `continuous_relevancy_training`
+
+The `document_retrieval_strategy` can be used along with the `confidence` score to determine how the results provided should be used. In cases where load is high, the `document_retrieval_strategy` returned may be `untrained`, even if the collection has been trained.
 
 `confidence` can range from 0.0 to 1.0. The higher the number, the more relevant the document.
 
-The `confidence` score can be found in the query results, under the `result_metadata` for each document, for example:
+The `confidence` score can be found in the query results, under the `result_metadata` for each document. The `document_retrieval_strategy` will be listed under the `retrieval_details`.
 
 ```json
-    "results": [
-        {
-            "id": "eea16dfd5fe6139a25324e7481a32f89_13",
-            "result_metadata": {
-                "confidence": 0.5893963975910735,
-                "score": 0.5006834
-            },
+{
+  "matching_results": 4,
+  "session_token": "1_2gYuWJyaWx792Ni4_DQ4C5cbnW",
+  "retrieval_details" : {
+    "document_retrieval_strategy" : "relevancy_training",
+  },
+  "results": [
+    {
+      "id": "eea16dfd5fe6139a25324e7481a32f89_13",
+      "result_metadata": {
+        "confidence": 0.5893963975910735,
+        "score": 0.5006834
+      }
+    }
+  ]
+}
 ```
+{: codeblock}
 
-**Note:** The `confidence` field is only returned when relevancy training has been successfully completed. There may also be cases where the trained model is not available and the `confidence` field will not be returned. 
+For trained collections, the `confidence` number is calculated based on how relevant the result is estimated to be, compared to the trained model. Trained collections calculate `confidence` scores only for natural language queries. If you query a trained collection using the {{site.data.keyword.discoveryshort}} Query Language, or the trained model is temporarily unavailable, the `confidence` number returned will have a `document_retrieval_strategy` of `untrained`. The `confidence` score for a result with the `document_retrieval_strategy` of `untrained` is an unsupervised estimate of how relevant the document results are to the query; it is not interchangeable with the the score returned for trained collections. A trained collection can provide better answers to natural language queries than untrained collections.
 
-For example, the trained model will become temporarily invalid if new top level fields are introduced, or the schema of the collection was otherwise changed because new documents with a different schema have been ingested. In that scenario, `confidence` will not be returned with results, and the results will come from the default untrained search until the model is automatically retrained and is again available. During retraining `confidence` will not be returned.
+Note that the `confidence` score is **not** the same as the `score`. For more information about determining thresholds for confidence scores, see [How to select a threshold for acting using confidence scores ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/). The `score` should not be used to set absolute thresholds as it is a relative calculation. Instead, we recommend that applications always perform the same behavior for all results that do not include the `confidence` field. For example, an application may show all results without the `confidence` field or hide all results without the `confidence` field, but should not use the value of `score` to show some and hide others. Since the way `confidence` is calculated varies between the different retrieval methods, you should consider the `document_retrieval_strategy` when setting a threshold, and review the values before and after training.
 
-Applications using `confidence` as a threshold should ensure they can handle these scenarios. Since `score` is relative to the query, it is not recommended for use as a fixed threshold. Instead, we recommend that applications always perform the same behavior for all results that do not include the `confidence` field. For example, an application may show all results without the `confidence` field or hide all results without the `confidence` field, but should not use the value of `score` to show some and hide others.
+For more information on querying, see [Getting started with querying](/docs/services/discovery/getting-started-query.html).
+
+For more on supervised training methods, see
+-  [Relevancy training](/docs/services/discovery/train-tooling.html#improving-result-relevance-with-the-tooling) and
+-  [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html#crt)

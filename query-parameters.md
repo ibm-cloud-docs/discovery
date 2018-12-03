@@ -61,7 +61,7 @@ Aggregation queries return a count of documents matching a set of data values; f
 ## natural_language_query
 {: #nlq}
 
-A natural language query enables you to perform queries expressed in natural language, as might be received from an end user in a conversational or free-text interface - for example: "IBM Watson in healthcare". The parameter uses the entire input as the query text. It does **not** recognize operators. The `natural_language_query` parameter enables capabilities such as passage search and relevancy training. Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details. The maximum query string length for a natural language query is `2048`.
+A natural language query enables you to perform queries expressed in natural language, as might be received from an end user in a conversational or free-text interface - for example: "IBM Watson in healthcare". The parameter uses the entire input as the query text. It does **not** recognize operators. The `natural_language_query` parameter enables capabilities such as passage search and relevancy training. All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details. The maximum query string length for a natural language query is `2048`.
 
 **Structure parameters**
 

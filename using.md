@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-29"
+lastupdated: "2018-12-03"
 
 ---
 
@@ -32,7 +32,7 @@ You also have the option to turn on passage retrieval. Passages are short, relev
   You can write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling or the API.
   {: tip}
 
-Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
+All private collections will return a `confidence` score in the query results. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
 
 {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
