@@ -77,9 +77,9 @@ For additional training guidance, see [Relevancy training tips](/docs/services/d
 {{site.data.keyword.discoveryshort}} returns a `confidence` score for both natural language queries and those written in the {{site.data.keyword.discoveryshort}} Query Language.
 
 The `confidence` score will be returned for both trained and untrained private collections (with the exception of filter-only queries of untrained collections). In addition, {{site.data.keyword.discoveryshort}} returns a `document_retrieval_strategy` field that indicates the source of the `confidence` score: 
-    -  `untrained`
-    -  `relevancy_training`, or
-    -  `continuous_relevancy_training`
+-  `untrained`
+-  `relevancy_training`, or
+-  `continuous_relevancy_training`
 
 The `document_retrieval_strategy` can be used along with the `confidence` score to determine how the results provided should be used. In cases where load is high, the `document_retrieval_strategy` returned may be `untrained`, even if the collection has been trained.
 
