@@ -9,6 +9,7 @@ lastupdated: "2017-11-08"
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
@@ -76,7 +77,8 @@ To launch the {{site.data.keyword.discoveryshort}} tooling and query {{site.data
   Queries in {{site.data.keyword.discoverynewsfull}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery/using.html) and [Query reference](/docs/services/discovery/query-reference.html).
   {: tip}
 
-**Note**: Do not expect identical results to be returned for similar queries in AlchemyData News and {{site.data.keyword.discoverynewsfull}}. Crawl time, sources, and enrichments all combine to return different results.
+Do not expect identical results to be returned for similar queries in AlchemyData News and {{site.data.keyword.discoverynewsfull}}. Crawl time, sources, and enrichments all combine to return different results.
+{: note}
 
 ## Adding Watson Discovery News queries to your application
 

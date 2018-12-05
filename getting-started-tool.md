@@ -9,6 +9,7 @@ lastupdated: "2018-07-18"
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
@@ -43,7 +44,6 @@ You'll need a service instance to start.
 
 
 You created your service instance. Click **Manage**, then **Open tool**. Go to [Step 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection).
-{: download tip}
 
 If you created a {{site.data.keyword.discoveryshort}} service instance, you're all set with these prerequisites. Go to [Step 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling).
 
