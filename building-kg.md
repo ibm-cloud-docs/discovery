@@ -9,6 +9,7 @@ lastupdated: "2018-06-09"
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
@@ -41,7 +42,7 @@ This connected graph of knowledge and ranking techniques facilitates the followi
 
 -  Disambiguated entities by using a fuzzy search token, type information (optional) and context (optional). Example: Searching for `Steve` in context of `Apple` returns `Steve Jobs` on top while searching for `Steve` in context of `Microsoft` returns `Steve Ballmer` on top.
 -  Relevance ranked relationships by inputting fuzzy search token and context (optional). Relevance-ranking utilizes the global properties of the graph to surface more specific information. Example: Searching for relationships of `Obama` in context of `health` returns `Affordable Care Act` and other related entities.
--  Inferences and aggregations across documents by querying for entities and relationships in a connected graph of knowledge. Some examples of such queries are: How is person X connected to person Y? How different are the data access patterns of employee X from the norm? What is the sphere of influence of person X?
+-  Inferences and aggregations across documents by querying for entities and relationships in a connected graph of knowledge. Some examples of such queries are: How is person X connected to person Y? What is the sphere of influence of person X?
 
 ## Service requirements
 

@@ -9,6 +9,7 @@ lastupdated: "2018-08-15"
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
@@ -104,7 +105,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[Phrase query\]
 {: #phrase}
 
-All contents of a phrase query are processed as escaped. So no special characters within a phrase query are parsed, except for double quotes (`"`) inside a phrase query, which must be escaped (`\"`). Use phrase queries with full-text, rank-based queries, and not with boolean filter operations. Do not use wildcards (`*`) in phrase queries. **Note**: single quotes (`'`) are not supported.)
+All contents of a phrase query are processed as escaped. So no special characters within a phrase query are parsed, except for double quotes (`"`) inside a phrase query, which must be escaped (`\"`). Use phrase queries with full-text, rank-based queries, and not with boolean filter operations. Do not use wildcards (`*`) in phrase queries. 
+
+Single quotes (`'`) are not supported.
+{: note}
 
 For example:
 ```bash
