@@ -71,7 +71,7 @@ Discovery
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [API reference](https://console.bluemix.net/apidocs/discovery)
+    [API reference](https://cloud.ibm.com/apidocs/discovery)
 
     {: topicgroup}
     Whitepapers
