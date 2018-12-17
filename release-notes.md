@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-12"
+lastupdated: "2018-12-14"
 
 ---
 
@@ -51,6 +51,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 14 December 2018
+{: #14dec}
+
+You can now create {{site.data.keyword.discoveryshort}} service instances that are hosted in the London data center without syndication. Like all locations, the {{site.data.keyword.cloud}} London location (eu-gb) uses token-based Identity and Access Management (IAM) authentication. All new services instances that you create in this location use IAM authentication.
 
 ## 12 December 2018
 {: #12dec}
