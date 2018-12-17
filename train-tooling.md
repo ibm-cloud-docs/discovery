@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-03"
+lastupdated: "2018-12-11"
 
 ---
 
@@ -44,6 +44,8 @@ Once Watson has enough training input, the information you've provided about whi
 **Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries. For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery/using.html).
 
 All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
+
+Adding a custom stopwords list can improve the relevance of results for natural language queries. See [Defining stopwords](/docs/services/discovery/using.html#stopwords) for more information.
 
 See [Training data requirements](/docs/services/discovery/train.html#reqs) for the minimum requirements for training, as well as the training limits.
 

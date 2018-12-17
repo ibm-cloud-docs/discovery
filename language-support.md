@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-12-11"
 
 ---
 
@@ -56,6 +56,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
     - Language-optimized index
     - Relevancy training
     - Query expansion
+    - Stopwords
     - Documentation in 9 languages: English, French, German, Japanese, Korean, Brazilian Portuguese, Spanish, Chinese Simplified, and Chinese Traditional. Scroll to the bottom of the {{site.data.keyword.Bluemix_notm}} documentation to select the language.
 - Enrichments
     - Integration with {{site.data.keyword.knowledgestudiofull}} custom models
@@ -84,3 +85,10 @@ The following features are currently supported in English only:
 - Element Classification enrichment
 - {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)
 - Document deduplication (beta)
+
+## Japanese-only support
+{: #japanese-support}
+
+The following feature is currently supported in Japanese only:
+
+- Custom tokenization dictionaries

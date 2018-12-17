@@ -71,7 +71,7 @@ The following new fields are available in **{{site.data.keyword.discoverynewssho
 `forum_title`  
 `main_image_url`
 
-Many fields have been removed as well, for example `blekko.hostrank`, `duplicate_url`, `domain`, and more. See <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>HERE <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> for a complete list.
+Many fields have been removed as well, for example `blekko.hostrank`, `duplicate_url`, `domain`, and more. See <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>HERE <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> for a complete list.
 
 ## Moving Queries to the new Watson Discovery News
 
@@ -85,7 +85,7 @@ To move your queries from {{site.data.keyword.discoverynewsshort}} Original to t
 
   `news`
 
-- Modify the query to use the new JSON path structure for the new {{site.data.keyword.discoverynewsshort}}. Most fields have changed paths, multiple fields have been added, and a selected group of low-value fields have been removed. See the field migration spreadsheet for full details <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>HERE <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>). For example, the following query:
+- Modify the query to use the new JSON path structure for the new {{site.data.keyword.discoverynewsshort}}. Most fields have changed paths, multiple fields have been added, and a selected group of low-value fields have been removed. See the field migration spreadsheet for full details <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>HERE <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>). For example, the following query:
 
   `discovery/api/v1/environments/ae5790c2-592f-432a-804a-ee16de7154d7/collections/3edcd8f1-e25a-4f44-a069-58332ad17651/query?version=2017-11-07&query=entities.type:"Company"`
 

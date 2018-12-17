@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-03"
+lastupdated: "2018-12-12"
 
 ---
 
@@ -51,6 +51,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 12 December 2018
+{: #12dec}
+
+- Added the ability to define and upload a custom stopwords list. Custom stopwords are implemented with the {{site.data.keyword.discoveryshort}} API. See [Defining stopwords](/docs/services/discovery/using.html#stopwords) for details. 
 
 ## 3 December 2018
 {: #3dec}

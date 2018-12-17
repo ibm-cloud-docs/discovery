@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-03"
+lastupdated: "2018-12-11"
 
 ---
 
@@ -210,11 +210,11 @@ You can view the fields available across collections in the same environment by 
 You can expand the scope of a query beyond exact matches - for example, you can expand a query for "car" to include "automobile" and "vehicle" - by uploading a list of query expansion terms using the {{site.data.keyword.discoveryshort}} API. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
 
 You can define two types of expansions:
-- **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR vehicle`).
-- **unidirectional** - the `input_terms` in the query will be replaced by the `expanded_terms`. For example, a query for `banana` could expand to `plaintain` and `fruit`. `input_terms` are not used as part of the resulting query. In the previous `banana` example, the query `banana` would be converted to `plantain` OR `fruit` and not contain the original term.
+-  **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR vehicle`).
+-  **unidirectional** - the `input_terms` in the query will be replaced by the `expanded_terms`. For example, a query for `banana` could expand to `plaintain` and `fruit`. `input_terms` are not used as part of the resulting query. In the previous `banana` example, the query `banana` would be converted to `plantain` OR `fruit` and not contain the original term.
 
 This file can be used as a starting point when building a query expansion list:
-<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>. You can modify this file to create your custom query expansion list.
+<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. You can modify this file to create your custom query expansion list.
 
 Bidirectional example:
 ```JSON
@@ -253,8 +253,8 @@ Unidirectional example:
 
 Notes about query expansion:
 
-- Multi-token query expansion is not supported.
-- Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery/pricing-details.html) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and seven term strings.
+-  Multi-token query expansion is not supported.
+-  Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery/pricing-details.html) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and seven term strings.
 
 ```JSON
  {
@@ -283,19 +283,69 @@ Notes about query expansion:
 ```
 {: codeblock}
 
-- Only one query expansion list can be uploaded per collection; if a second expansion list is uploaded, it will replace the first.
-- All `input_terms` and `expanded_terms` should be lowercase. Lowercase terms will expand to uppercase.
-- The query expansion list must be written in JSON.
-- To disable query expansion, delete the query expansion list.
-- You cannot currently upload or delete a query expansion list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
-- Query expansion is performed on the `query` and `multiple collection query` methods. Query expansion is not performed on Knowledge Graph queries.
-- Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is expanded individually.
-- Query expansions are applied at query time, not during indexing, so the query expansion list can be updated without the need to re-ingest your documents.
-- Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
+-  Only one query expansion list can be uploaded per collection; if a second expansion list is uploaded, it will replace the first.
+-  All `input_terms` and `expanded_terms` should be lowercase. Lowercase terms will expand to uppercase.
+-  The query expansion list must be written in JSON.
+-  To disable query expansion, delete the query expansion list.
+-  You cannot currently upload or delete a query expansion list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
+-  Query expansion is performed on the `query` and `multiple collection query` methods. Query expansion is not performed on Knowledge Graph queries.
+-  Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is expanded individually.
+-  Query expansions are applied at query time, not during indexing, so the query expansion list can be updated without the need to re-ingest your documents.
+-  Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
 
 See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#get-the-expansion-list){: new_window} for the API commands to upload and delete query expansion files.
 
-## Custom tokenization dictionaries
+## Defining Stopwords
+{: #stopwords}
+
+Stopwords are words that are filtered out of queries because they add little value, for example: `a, an, the`. Adding common words to a stopwords list can also improve the relevance of results for natural language queries. 
+
+{{site.data.keyword.discoveryshort}} applies a default list of stopwords for several languages at query time. However, you can define and upload a custom list of stopwords that will override the default list. {{site.data.keyword.discoveryshort}} will apply the appropriate default or custom stopword list to your private collections based on the language specified for that collection. 
+
+Your custom stopword list must be a newline separated `txt` file. Example custom stopword list:
+
+```
+ibm
+watson
+a
+an
+the
+what
+how
+when
+can
+should
+```
+This list contains all the default English stopwords <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_en.txt" download>custom_stopwords_en.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. It can be used as a starting point when building a custom stopword list in English. Creating a custom stopword list that does not include very common terms like `a` and `the` can lead to reduced query performance, so it is recommended that you keep these words in your custom stopword list. Following are stopword lists for several other supported languages. They all include the default stopwords for that language:
+
+-  Dutch: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_nl.txt" download>custom_stopwords_nl.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
+-  French: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_fr.txt" download>custom_stopwords_fr.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
+-  German: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_de.txt" download>custom_stopwords_de.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. 
+-  Italian: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_it.txt" download>custom_stopwords_it.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
+-  Japanese: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_ja.txt" download>custom_stopwords_ja.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
+-  Spanish: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_es.txt" download>custom_stopwords_es.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. 
+
+See [Language support](/docs/services/discovery/language-support.html#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. Several supported languages do not have a default stopwords list.
+
+See the [stopwords API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discoverycurl.html?curl#create-stopword-list){: new_window} for the API commands to upload and delete custom stopword lists.
+
+Notes about stopwords:
+
+-  You cannot currently upload or delete a custom stopword list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API. See the [stopwords API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discoverycurl.html?curl#create-stopword-list){: new_window}.
+-  Uploading a custom stopword list is only available for private collections on `Advanced` and `Premium` plans.
+-  The size limit for a custom stopword list `txt` file is one million characters. However, if you upload a custom stopwords list with a large number of terms, you may negatively affect search accuracy. The number of words is dependent on the language, the document contents, and the words chosen. A good best practice would be to keep your list of stopwords under `200` total words. 
+-  Only one custom stopword list can be uploaded per collection; if a second custom stopword list is uploaded, it will replace the first.
+-  All stopwords should be lowercase. 
+-  To disable the custom stopword list, delete the custom stopword list.
+-  Do not upload or delete a custom stopword list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
+-  Stopwords are removed at both index and query time. A good best practice is to upload your custom stopword list before uploading documents.
+   - If your documents have already been indexed with the default stopwords, and you then add a custom stopword list, the new stopwords will still be included in the index. In that case, queries that contain these new stopword will filter them out at query time.
+   - If a user searches for a word that was a stopword at one point in time, but has since been removed from the custom stopword list, they will not find documents that match the original stopword because the term was removed at index time. To fix this issue, delete the documents in your collection and re-upload all the documents so that they are indexed with the updated custom stopword list.
+-  Each set of stopwords is associated with a collection. When querying across multiple collections, each collection will use the custom stopword list associated with that collection.
+- If you make significant changes to your custom stopword list, you should delete the documents in your collection and re-upload all the documents so that they are indexed with the updated custom stopword list.
+
+## Creating custom tokenization dictionaries
+{: #tokenization}
 
 Tokenization breaks text into units called tokens. A standard tokenization dictionary is applied to your collections, but you can improve the search accuracy for your domain or language by uploading a custom tokenization dictionary. Your custom dictionary will override the standard dictionary. You can upload your dictionary using the {{site.data.keyword.discoveryshort}} API. 
 
@@ -347,16 +397,17 @@ You can also create rules with a single token. In this example, `ibm発見` will
 }
 ```
 
-- Tokenization occurs at both index and query time. 
-- A standard tokenization dictionary is used on all collections. If your collection has already been indexed with that dictionary, you must reingest the documents in that collection after you upload a custom tokenization dictionary.
-- Only one tokenization dictionary can be uploaded per collection; if a second tokenization dictionary is uploaded, it will replace the first. If that collection already contained documents, you must reingest them for the new custom tokenization dictionary to be applied.
-- The custom tokenization dictionary must be written in JSON, example file name: `custom_tokenization_dictionary.json`.
-- All custom tokenization dictionary terms should be lowercase.
-- To disable tokenization, delete the tokenization dictionary and reingest your documents.
-- You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
-- Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
-- Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is tokenized individually.
-- Do not upload or delete a tokenization dictionary at the same time documents are being ingested into your collection. 
+-  Tokenization occurs at both index and query time. 
+-  A standard tokenization dictionary is used on all collections. If your collection has already been indexed with that dictionary, you must reingest the documents in that collection after you upload a custom tokenization dictionary.
+-  Uploading a tokenization dictionary is only available for private collections on `Advanced` and `Premium` plans. 
+-  Only one tokenization dictionary can be uploaded per collection; if a second tokenization dictionary is uploaded, it will replace the first. If that collection already contained documents, you must reingest them for the new custom tokenization dictionary to be applied.
+-  The custom tokenization dictionary must be written in JSON, example file name: `custom_tokenization_dictionary.json`.
+-  All custom tokenization dictionary terms should be lowercase.
+-  To disable tokenization, delete the tokenization dictionary and reingest your documents.
+-  You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
+-  Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
+-  Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is tokenized individually.
+-  Do not upload or delete a tokenization dictionary at the same time documents are being ingested into your collection. 
 
 ## Document similarity
 {: #doc-similarity}
