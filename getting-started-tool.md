@@ -44,7 +44,7 @@ You need a service instance to start.
 
 1.  {: hide-dashboard} Go to the [{{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery) page in the {{site.data.keyword.cloud_notm}} catalog.
 
-    The service instance will be created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
+    The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
 
     If you're creating an instance for more robust use, then learn more about [resource groups ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/resources/bestpractice_rgs.html#bp_resourcegroups){: new_window}.
 1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
@@ -53,18 +53,13 @@ You need a service instance to start.
 ## Step 1: Launch the tooling
 {: #launch-the-tooling}
 
-After you create an instance of the {{site.data.keyword.discoveryshort}} service, you'll land in the **Getting started** page of the service dashboard.
+After you create an instance of the {{site.data.keyword.discoveryshort}} service, you're taken to your list of services.
 {: hide-dashboard}
 
-1.  Click **Manage**, and then click **Launch tool**. If you're prompted to log in to the tool, provide your {{site.data.keyword.cloud_notm}} credentials.
+1.  {: hide-dashboard} Click the {{site.data.keyword.discoveryshort}} service instance you created to go to the service dashboard.
+1.  On the **Manage** page, click **Launch tool**. If you're prompted to log in to the tooling, provide your {{site.data.keyword.cloud_notm}} credentials.
 
 <!-- To do: Add screenshot for developer console -->
-
-<!-- Remove this text after dedicated instances have the Developer Console: begin -->
-
-{{site.data.keyword.Bluemix_dedicated_notm}}: Select your service instance from the Dashboard to launch the tooling.
-
-<!-- Remove this text after dedicated instances have the Developer Console: end -->
 
 ## Step 2: Create a collection
 {: #create-a-collection}
