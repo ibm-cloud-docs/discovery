@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-14"
+lastupdated: "2018-12-17"
 
 ---
 
@@ -51,6 +51,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 17 December 2018
+{: #17dec}
+
+- Added full support for Italian. For more information, see [Language support](/docs/services/discovery/language-support.html).
 
 ## 14 December 2018
 {: #14dec}

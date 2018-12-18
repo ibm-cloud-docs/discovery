@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-17"
+lastupdated: "2018-12-18"
 
 ---
 
@@ -115,6 +115,11 @@ For more information, or to purchase a Premium plan, contact [Sales](https://ibm
 \*\*\* Element Classification is an enrichment that parses through governing documents to convert, identify, and classify elements of importance. It uses Natural Language Processing to extract the following elements from PDF documents: party (who it refers to), nature (type of element), and category (specific class).
 
 \*\*\*\* If you reach your in-flight limit, you should slow down the rate of your ingestion.  When using the Discovery service, a document is "in-flight" while being uploaded, enriched, and processed prior to being added to a collection.
+
+For query performance information, see [Query performance](/docs/services/discovery/qp.html#qp). Queries are limited based on plan. Estimated Average Query rates per plan:
+
+- **Lite** and **Standard** plans: 1 QPS for reranked queries with two top-level text fields.
+- **Advanced** (S, MS) plans: 10 QPS for reranked queries with two top-level text fields.
 
 For information about calculating costs, see the [IBM Cloud Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/pricing/platform/watson){: new_window}.
 

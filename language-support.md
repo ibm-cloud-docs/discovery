@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-11"
+lastupdated: "2018-12-18"
 
 ---
 
@@ -40,7 +40,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 | Dutch (nl)                     |  Basic         |
 | French (fr)                     |  Full         |
 | German (de)                     |  Full         |
-| Italian (it)                    |  Basic         |
+| Italian (it)                    |  Full        |
 | Japanese (ja)                  |  Full         |
 | Korean (ko)                    |  Full         |
 | Portuguese, Brazilian (pt-br)   |  Full         |
