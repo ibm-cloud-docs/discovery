@@ -39,7 +39,7 @@ Answers to common questions about training a collection.
 
 ### How do I know if my system is trained?
 
-Use the [List collection details ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#get-collection-details){: new_window} API command to verify that your system has been trained.  
+Use the [List collection details ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#get-collection-details){: new_window} API command to verify that your system has been trained.  
 
 ```bash
 curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
@@ -77,7 +77,7 @@ In the response:
 
 ### How do I check errors and warnings?
 
-You can use the [Query notices API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-system-notices){: new_window} to view errors or warnings.  
+You can use the [Query notices API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-system-notices){: new_window} to view errors or warnings.  
 
 ```bash
 curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2017-11-07"

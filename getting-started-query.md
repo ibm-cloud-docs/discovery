@@ -36,7 +36,7 @@ For more information about writing queries, see:
 - [Query concepts](/docs/services/discovery/using.html)
 - [Query reference](/docs/services/discovery/query-reference.html) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
 
-These example queries are built using the {{site.data.keyword.discoveryshort}} tooling. If you'd like to use the API instead, add the query parameters to your API call. For more information and examples, see the Queries section of the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#query-your-collection){: new_window}.
+These example queries are built using the {{site.data.keyword.discoveryshort}} tooling. If you'd like to use the API instead, add the query parameters to your API call. For more information and examples, see the Queries section of the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window}.
 
 You can also write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling. This tutorial primarily focuses on how to write queries with {{site.data.keyword.discoveryshort}} Query Language because your requirements may necessitate a structured query, and filters and aggregations must be written in the {{site.data.keyword.discoveryshort}} Query Language.
 {: tip}

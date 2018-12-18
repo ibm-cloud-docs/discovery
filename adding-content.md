@@ -83,7 +83,7 @@ For information on how to connect to Box, Salesforce, and Microsoft SharePoint O
 
 See [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/services/discovery/getting-started.html) for a step-by-step tutorial.
 
-For more information about the API, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery){: new_window}.
+For more information about the API, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
 
 1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection.
 1.  Then use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method to add documents to your collection.
