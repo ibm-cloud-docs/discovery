@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-12-18"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2018-07-18"
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
-{:apikey: data-credential-placeholder='apikey'} 
+{:apikey: data-credential-placeholder='apikey'}
 {:url: data-credential-placeholder='url'}
 {:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -37,40 +37,29 @@ If you prefer to work in the API, see [Getting started with the API](/docs/servi
 
 ## Before you begin
 {: #before-you-begin}
+{: hide-dashboard}
 
-You'll need a service instance to start.
+You need a service instance to start.
+{: hide-dashboard}
 
-<!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
+1.  {: hide-dashboard} Go to the [{{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery) page in the {{site.data.keyword.cloud_notm}} catalog.
 
+    The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
 
-You created your service instance. Click **Manage**, then **Open tool**. Go to [Step 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection).
-
-If you created a {{site.data.keyword.discoveryshort}} service instance, you're all set with these prerequisites. Go to [Step 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling).
-
-1.  Go to the [{{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/catalog/services/discovery){: new_window} page in the {{site.data.keyword.Bluemix_notm}} Catalog.
-1.  Sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
-1.  Click **Create**.
-
+    If you're creating an instance for more robust use, then learn more about [resource groups ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/resources/bestpractice_rgs.html#bp_resourcegroups){: new_window}.
+1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
+1.  {: hide-dashboard} Click **Create**.
 
 ## Step 1: Launch the tooling
 {: #launch-the-tooling}
 
-After you create an instance of the {{site.data.keyword.discoveryshort}} service, you'll land in the [{{site.data.keyword.Bluemix_notm}} dashboard](https://console.{DomainName}/dashboard). Click on your {{site.data.keyword.discoveryshort}} service instance to go to the {{site.data.keyword.discoveryshort}} service dashboard.
+After you create an instance of the {{site.data.keyword.discoveryshort}} service, you're taken to your list of services.
+{: hide-dashboard}
 
-On the **Manage** page, click **Open tool**.
+1.  {: hide-dashboard} Click the {{site.data.keyword.discoveryshort}} service instance you created to go to the service dashboard.
+1.  On the **Manage** page, click **Launch tool**. If you're prompted to log in to the tooling, provide your {{site.data.keyword.cloud_notm}} credentials.
 
 <!-- To do: Add screenshot for developer console -->
-
-If you're prompted to log into the tooling, provide your {{site.data.keyword.Bluemix_notm}} credentials.
-
-If you're not at a project details page for the {{site.data.keyword.discoveryshort}} service, go to the {{site.data.keyword.watson}} Developer Console [Projects ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/developer/watson/projects) page and select the project.
-{: tip}
-
-<!-- Remove this text after dedicated instances have the Developer Console: begin -->
-
-{{site.data.keyword.Bluemix_dedicated_notm}}: Select your service instance from the Dashboard to launch the tooling.
-
-<!-- Remove this text after dedicated instances have the Developer Console: end -->
 
 ## Step 2: Create a collection
 {: #create-a-collection}
@@ -82,12 +71,12 @@ A collection is a set of your documents. *Why would I want more than one collect
 - You might want multiple collections in order to separate results for different audiences.
 - The data might be so different that it doesn't make sense for it all to be queried at the same time.
 
-The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready-to-query and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
+The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready to query, and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
 
 1.  Click ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
 1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection and choose **Default Configuration** from **Select a configuration to apply** (you can change the configuration later).
 
-There is another configuration available named **Default Contract Configuration** that supports Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
+    There is another configuration available named **Default Contract Configuration** that supports Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
 
 You can also crawl Box, Salesforce, and Microsoft SharePoint Online data sources with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
 {: tip}
@@ -99,7 +88,7 @@ After your collection is created, you could immediately start uploading content 
 
 1.  Click **Switch** next to the collection name and choose **Create a new configuration**. Name your configuration and click **Create**.
 1.  After you create your configuration, you can customize it:
-    1.  Download the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> sample document.
+    1.  Download the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> sample document.
     1.  Use the **Upload Sample Documents** panel to upload the sample document. After it uploads, you can click the document name link to view the transformation.
 1.  Now it's time to adjust the configuration. For this task, you change the enrichments that are applied to each document:
     1.  Click on the **Enrich** section of the configuration. Look at the generated JSON to the right of the screen. Scroll down to the *enriched_text* section and notice that it contains many *concepts*.
@@ -111,7 +100,7 @@ After your collection is created, you could immediately start uploading content 
 
 When you're happy with the custom conversion of your sample document it's time to ingest the real content into your collection.
 
-1. Download these three sample documents: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a>.
+1.  Download these three sample documents: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 1.  Click ![File icon](images/icon_yourData.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and select your collection.
 1.  Make sure the custom configuration you created is listed under **Configuration**. If it isn't, click **Switch** next to the configuration name and select it.
 1.  Click the **Upload documents** button and start uploading the four sample documents: test-doc1.html, test-doc2.html, test-doc3.html, test-doc4.html.
