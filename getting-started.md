@@ -123,7 +123,7 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
         ```
         {: pre}
 
-    Alternatively, use one of the SDKs listed in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery){: new_window}:
+    Alternatively, use one of the SDKs listed in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}:
     - Java:
 
       ```java
@@ -203,6 +203,6 @@ curl -u "apikey":"{apikey_value}" 'https://gateway.watsonplatform.net/discovery/
 
 You successfully queried documents in the environment and collection you created. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings.
 
-- Read about the API in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery){: new_window}
+- Read about the API in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}
 - [Configure](/docs/services/discovery/building.html) your service
 - Learn about [authenticating with IAM](/docs/services/watson/getting-started-iam.html)

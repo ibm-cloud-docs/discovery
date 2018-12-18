@@ -1065,11 +1065,11 @@ All segments will include an:
 ### Updating a segmented document
 {: #update-seg}
 
-If a segmented document has been updated and needs to be ingested again, it can be replaced using the [Update document ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#update-a-document){: new_window} method.
+If a segmented document has been updated and needs to be ingested again, it can be replaced using the [Update document ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} method.
 
 When updating a segmented document, the document should be uploaded using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable.
 
-When updating, all segments will be overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments will remain in the index and may be individually deleted using the API. See the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/apidocs/discovery#delete-a-document){: new_window} for details. You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that is comprised of the `{parent_id}`, followed by an underscore, followed by the segment number.
+When updating, all segments will be overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments will remain in the index and may be individually deleted using the API. See the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#delete-a-document){: new_window} for details. You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that is comprised of the `{parent_id}`, followed by an underscore, followed by the segment number.
 
 If any of the segments of the document that you intend to update have been ranked for relevancy training, you must first delete all the segments of that document and then ingest the updated document as a new document. This will result in a new `document_id` for each segment and any trained segments will need to be retrained. The trained index will become inaccurate if you don't delete the old content first.
 
