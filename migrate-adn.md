@@ -56,7 +56,7 @@ Your service credentials can be managed by viewing the **Service Credentials** t
 
 A {{site.data.keyword.discoveryshort}} service instance is created in the same way that you created your AlchemyData News instance.
 
-1. Navigate to [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}, login, and select {{site.data.keyword.discoveryshort}} from the service catalog.
+1. Navigate to [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}, login, and select {{site.data.keyword.discoveryshort}} from the service catalog.
 1. Select the appropriate plan for your needs and click **Create**.
 
   The {{site.data.keyword.discoveryshort}} service offers a Lite plan with 1000 available news queries per month. You can use an instance of this plan to identify equivalent queries without having to pay for them.

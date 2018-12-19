@@ -62,7 +62,7 @@ For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browse
 
 {{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) for more information. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
-The {{site.data.keyword.discoveryshort}} service is available on [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}
+The {{site.data.keyword.discoveryshort}} service is available on [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}
 
 ## Discovery tooling
 {: #discovery-tooling}

@@ -53,7 +53,7 @@ In the {{site.data.keyword.discoveryshort}} service, the content that you upload
 
 -   **Environment** — The environment defines the amount of storage space that you have for content in the {{site.data.keyword.discoveryshort}} service. A maximum of one environment can be created for each instance of the {{site.data.keyword.discoveryshort}} service.
 
-    You have several plans (Lite, Advanced, Premium) to choose from, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}  and [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) for details. Your source files do not count against your file size limit, only the size of the converted JSON that is indexed counts towards your size limit.
+    You have several plans (Lite, Advanced, Premium) to choose from, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}  and [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) for details. Your source files do not count against your file size limit, only the size of the converted JSON that is indexed counts towards your size limit.
 
 -   **Collection** — A collection is a grouping of your content within the environment. You must create at least one collection to be able to upload your content.
 
@@ -647,7 +647,7 @@ For more information, see [Element classification](/docs/services/discovery/elem
 #### Enrichment pricing
 {: #enrichment-pricing}
 
-Enrichment pricing information is available on [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}.
+Enrichment pricing information is available on [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}.
 
 #### Enrichment language support
 {: #enrichment-language-support}
