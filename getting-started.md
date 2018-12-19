@@ -1,9 +1,7 @@
 ---
-
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-18"
-
+lastupdated: "2018-12-19"
 ---
 
 {:shortdesc: .shortdesc}
@@ -17,7 +15,7 @@ lastupdated: "2018-07-18"
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
-{:apikey: data-credential-placeholder='apikey'} 
+{:apikey: data-credential-placeholder='apikey'}
 {:url: data-credential-placeholder='url'}
 {:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -40,39 +38,42 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
 {: #before-you-begin}
 
 - Create an instance of the service:
-    1.  Go to the [{{site.data.keyword.discoveryshort}} page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.{DomainName}/catalog/services/discovery){: new_window} in the {{site.data.keyword.Bluemix_notm}} Catalog.
-    1.  Sign up for a free {{site.data.keyword.Bluemix_notm}} account or log in.
-    1.  Click **Create**.
+    1.  Go to the [{{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery) page in the {{site.data.keyword.cloud_notm}} catalog.
+        The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
+        If you're creating an instance for more robust use, then learn more about [resource groups ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/resources/bestpractice_rgs.html#bp_resourcegroups){: new_window}.
+    1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
+    1.  Click **Create**. After you create an instance of the {{site.data.keyword.discoveryshort}} service, you're taken to your list of services.
 - Copy the credentials to authenticate to your service instance:
-    1. From the [{{site.data.keyword.Bluemix_notm}} dashboard](https://console.{DomainName}/dashboard/apps), click on your {{site.data.keyword.discoveryshort}} service instance to go to the {{site.data.keyword.discoveryshort}} service dashboard page.
-    1.  On the **Manage** page, click **Show** to view your credentials.
-    1.  Copy the `apikey` and `url` values.
+    1.  From the [resource list](https://{DomainName}/dashboard/), click on your {{site.data.keyword.discoveryshort}} service instance to go to the {{site.data.keyword.discoveryshort}} service dashboard page.
+    1.  On the **Manage** page, click **Show Credentials** to view your credentials.
+    1.  Copy the `API Key` and `URL` values.
 
-    In some instances, you authenticate by providing basic authentication. If you see `username` and `password` in the credentials, use those values instead of `"apikey":"{apikey_value}"` in the examples in this tutorial.
-{: tip}
+        In some instances, you authenticate by providing basic authentication. If you see `username` and `password` in the credentials, use those values instead of `"apikey:{apikey}"` in the examples in this tutorial.
+        {: tip}
 
 ## Step 1: Create an environment
 {: #create-an-environment}
 
-In a bash shell or equivalent environment such as Cygwin with the `curl` application installed, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
+In a bash shell or equivalent environment, such as Cygwin with the `curl` application installed, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
 
 This tutorial uses an API key to authenticate. For production uses, make sure that you review the API key [best practices](/docs/services/watson/apikey-bp.html#api-bp).
-{: tip}
+{: important}
 
-1.  Issue the following command to create an environment that is called `my-first-environment`. Replace `{apikey_value}` with the API key you copied earlier:
+1.  Issue the following command to create an environment that is called `my-first-environment`. Replace `{apikey}` and `{url}` with the API key and URL you copied earlier:
 
     ```bash
-    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{\"name\":\"my-first-environment\", \"description\":\"exploring environments\"}" "{url}/v1/environments?version=2018-12-03"
     ```
     {: pre}
 
     The API returns information such as your environment ID, environment status, and how much storage your environment is using.
 
 1.  Check the environment status periodically until you see a status of `active`.
-    - Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{apikey_value}`, and `{environment_id}` with your information:
+
+    Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{apikey}`, `{url}`, and `{environment_id}` with your information:
 
     ```bash
-    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-11-07"
+    curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}?version=2018-12-03"
     ```
     {: pre}
 
@@ -83,25 +84,23 @@ This tutorial uses an API key to authenticate. For production uses, make sure th
 
 Now that the environment is ready, you can create a collection. Think of a collection as a box where you will store your documents in your environment.
 
-1.  You need the ID of your default configuration first. To find your default `configuration_id`, use the `GET /v1/environments/{environment_id}/configurations` method. Replace `{apikey_value}`, and `{environment_id}` with your information:
-
+1.  You need the ID of your default configuration first. To find your default `configuration_id`, use the `GET /v1/environments/{environment_id}/configurations` method. Replace `{apikey}`, `{url}`, and `{environment_id}` with your information:
     ```bash
-      curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07
+      curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/configurations?version=2018-12-03"
     ```
     {: pre}
-1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection called **my-first-collection**. Replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information:
-
+1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection called **my-first-collection**. Replace `{apikey}`, `{url}`, `{environment_id}` and `{configuration_id}` with your information:
     ```bash
-    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07
+    curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{\"name\": \"my-first-collection\", \"description\": \"exploring collections\", \"configuration_id\":\"{configuration_id}\" , \"language": \"en_us\"}" "{url}/v1/environments/{environment_id}/collections?version=2018-12-03"
     ```
     {: pre}
-
     The API returns information such as your collection ID, collection status, and how much storage your collection is using.
 1.  Check the collection status periodically until you see a status of `active`.
-    - Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information:
+
+    Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, replace `{apikey}`, `{url}`, `{environment_id}` and `{configuration_id}` with your information:
 
     ```bash
-    curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07
+    curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{collection_id}?version=2018-12-03"
     ```
     {: pre}
 
@@ -110,29 +109,31 @@ Now that the environment is ready, you can create a collection. Think of a colle
 
 Download these sample documents: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, and <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 
-**Note:** In some browsers, the preceding links will open in a new window instead of saving locally. If this occurs, select `Save As` in your browser's `File` menu to save a copy of the file.
+In some browsers, the preceding links will open in a new window instead of saving locally. If this occurs, select `Save As` in your browser's `File` menu to save a copy of the file.
+{: tip}
 
 ## Step 4: Upload the documents
 {: #upload-the-documents}
 
-1.  Now, add the example documents to your collection. This example uploads the document **test-doc1.html** to your collection. Replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information. Modify the location of the sample document to point to where you saved the `test-doc1.html` file.
+1.  Now, add the example documents to your collection. This example uploads the document **test-doc1.html** to your collection. Replace `{apikey}`, `{url}`, `{environment_id}` and `{collection_id}` with your information. Modify the location of the sample document to point to where you saved the `test-doc1.html` file.
     - Use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method:
 
         ```bash
-        curl -X POST -u "apikey":"{apikey_value}" -F "file=@test-doc1.html" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2017-11-07
+        curl -X POST -u "apikey:{apikey}" -F "file=@test-doc1.html" "{url}/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2018-12-03"
         ```
         {: pre}
 
-    Alternatively, use one of the SDKs listed in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}:
+        Alternatively, use one of the SDKs listed in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}:
     - Java:
-
       ```java
-      Discovery discovery = new Discovery("2017-11-07");
-      discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
+      Discovery discovery = new Discovery("2018-12-03");
+      discovery.setEndPoint("{url}");
+
       IamOptions options = new IamOptions.Builder()
-        .apiKey("{apikey_value}")
+        .apiKey("{apikey}")
         .build();
       discovery.setIamCredentials(options);
+
       String environmentId = "{environment_id}";
       String collectionId = "{collection_id}";
       String documentJson = "{\"field\":\"value\"}";
@@ -143,9 +144,7 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
       CreateDocumentResponse createResponse = discovery.createDocument(builder.build()).execute();
       ```
       {: codeblock}
-
     - Python:
-
       ```python
       import sys
       import os
@@ -153,25 +152,25 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
       from watson_developer_cloud import DiscoveryV1
 
       discovery = DiscoveryV1(
-        version='2017-11-07',
-        api_key='{apikey_value}'
+          version='2018-12-03',
+          iam_apikey='{apikey}',
+          url='{url}'
       )
-
       with open((os.path.join(os.getcwd(), '{path_element}', '{filename}' as fileinfo:
-        add_doc = discovery.add_document('{environment_id}', '{collection_id}', file_info=fileinfo)
+          add_doc = discovery.add_document('{environment_id}', '{collection_id}', file_info=fileinfo)
       print(json.dumps(add_doc, indent=2))
       ```
       {: codeblock}
 
     - Node.js:
-
       ```javascript
       var DiscoveryV1 = require('watson-developer-cloud/discovery/v1');
       var fs = require('fs');
 
       var discovery = new DiscoveryV1({
-        version_date: '2017-11-07',
-        iam_apikey: '{apikey_value}',
+        version_date: '2018-12-03',
+        iam_apikey: '{apikey}',
+        url: '{url}'
       });
 
       var file = fs.readFileSync('{/path/to/file}');
@@ -191,10 +190,10 @@ Download these sample documents: <a target="_blank" href="https://watson-develop
 
 Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_id}/query` method to search your collection of documents.
 
-The following example returns all entities that are called **IBM**. Replace `{apikey_value}`, `{environment_id}` and `{configuration_id}` with your information:
+The following example returns all entities that are called **IBM**. Replace `{apikey}`, `{environment_id}` and `{collection_id}` with your information:
 
 ```bash
-curl -u "apikey":"{apikey_value}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
+curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{collection_id}/query?version=2018-12-03&query=enriched_text.entities.text:IBM"
 ```
 {: pre}
 
@@ -205,4 +204,4 @@ You successfully queried documents in the environment and collection you created
 
 - Read about the API in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}
 - [Configure](/docs/services/discovery/building.html) your service
-- Learn about [authenticating with IAM](/docs/services/watson/getting-started-iam.html)
+- Learn about [authenticating with IAM ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/services/watson/getting-started-iam.html#iam){: new_window}

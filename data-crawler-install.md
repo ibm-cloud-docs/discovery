@@ -47,7 +47,7 @@ You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box
 
 ## Download and install the Data Crawler
 
-1.  Open a browser and log into your [{{site.data.keyword.Bluemix}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net){: new_window}.
+1.  Open a browser and log into your [{{site.data.keyword.Bluemix}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){: new_window}.
 
 1.  From your {{site.data.keyword.Bluemix_notm}} Dashboard, select the {{site.data.keyword.discoveryshort}} service you previously created.
 
