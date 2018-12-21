@@ -25,6 +25,7 @@ lastupdated: "2018-12-19"
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
+
 # Getting started with the API
 {: #gs-api}
 
@@ -47,7 +48,7 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
     1.  From the [resource list](https://{DomainName}/dashboard/), click on your {{site.data.keyword.discoveryshort}} service instance to go to the {{site.data.keyword.discoveryshort}} service dashboard page.
     1.  On the **Manage** page, click **Show Credentials** to view your credentials.
     1.  Copy the `API Key` and `URL` values.
-
+        
         In some instances, you authenticate by providing basic authentication. If you see `username` and `password` in the credentials, use those values instead of `"apikey:{apikey}"` in the examples in this tutorial.
         {: tip}
 
@@ -57,26 +58,25 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
 In a bash shell or equivalent environment, such as Cygwin with the `curl` application installed, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
 
 This tutorial uses an API key to authenticate. For production uses, make sure that you review the API key [best practices](/docs/services/watson/apikey-bp.html#api-bp).
-{: important}
+{: tip}
 
 1.  Issue the following command to create an environment that is called `my-first-environment`. Replace `{apikey}` and `{url}` with the API key and URL you copied earlier:
-
+ 
     ```bash
     curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{\"name\":\"my-first-environment\", \"description\":\"exploring environments\"}" "{url}/v1/environments?version=2018-12-03"
     ```
     {: pre}
-
+    
     The API returns information such as your environment ID, environment status, and how much storage your environment is using.
 
 1.  Check the environment status periodically until you see a status of `active`.
-
-    Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{apikey}`, `{url}`, and `{environment_id}` with your information:
-
+    - Issue a call to the `GET /v1/environments/{environment_id}` method to retrieve the status of your environment. Replace `{apikey}`, `{url}`, and `{environment_id}` with your information:
+    
     ```bash
     curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}?version=2018-12-03"
     ```
     {: pre}
-
+    
     The status must be `active` before you can create a collection.
 
 ## Step 2: Create a collection
@@ -96,9 +96,7 @@ Now that the environment is ready, you can create a collection. Think of a colle
     {: pre}
     The API returns information such as your collection ID, collection status, and how much storage your collection is using.
 1.  Check the collection status periodically until you see a status of `active`.
-
-    Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, replace `{apikey}`, `{url}`, `{environment_id}` and `{configuration_id}` with your information:
-
+    - Issue a call to the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to retrieve the status of your collection.  Again, replace `{apikey}`, `{url}`, `{environment_id}` and `{configuration_id}` with your information:
     ```bash
     curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{collection_id}?version=2018-12-03"
     ```
@@ -117,28 +115,25 @@ In some browsers, the preceding links will open in a new window instead of savin
 
 1.  Now, add the example documents to your collection. This example uploads the document **test-doc1.html** to your collection. Replace `{apikey}`, `{url}`, `{environment_id}` and `{collection_id}` with your information. Modify the location of the sample document to point to where you saved the `test-doc1.html` file.
     - Use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method:
-
+        
         ```bash
         curl -X POST -u "apikey:{apikey}" -F "file=@test-doc1.html" "{url}/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2018-12-03"
         ```
         {: pre}
-
-        Alternatively, use one of the SDKs listed in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}:
+    
+    Alternatively, use one of the SDKs listed in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}:
     - Java:
       ```java
       Discovery discovery = new Discovery("2018-12-03");
       discovery.setEndPoint("{url}");
-
       IamOptions options = new IamOptions.Builder()
         .apiKey("{apikey}")
         .build();
       discovery.setIamCredentials(options);
-
       String environmentId = "{environment_id}";
       String collectionId = "{collection_id}";
       String documentJson = "{\"field\":\"value\"}";
       InputStream documentStream = new ByteArrayInputStream(documentJson.getBytes());
-
       CreateDocumentRequest.Builder builder = new CreateDocumentRequest.Builder(environmentId, collectionId);
       builder.inputStream(documentStream, HttpMediaType.APPLICATION_JSON);
       CreateDocumentResponse createResponse = discovery.createDocument(builder.build()).execute();
@@ -150,31 +145,27 @@ In some browsers, the preceding links will open in a new window instead of savin
       import os
       import json
       from watson_developer_cloud import DiscoveryV1
-
       discovery = DiscoveryV1(
-          version='2018-12-03',
-          iam_apikey='{apikey}',
-          url='{url}'
+        version='2018-12-03',
+        iam_apikey='{apikey}',
+        url='{url}'
       )
       with open((os.path.join(os.getcwd(), '{path_element}', '{filename}' as fileinfo:
-          add_doc = discovery.add_document('{environment_id}', '{collection_id}', file_info=fileinfo)
+        add_doc = discovery.add_document('{environment_id}', '{collection_id}', file_info=fileinfo)
       print(json.dumps(add_doc, indent=2))
       ```
       {: codeblock}
-
+    
     - Node.js:
       ```javascript
       var DiscoveryV1 = require('watson-developer-cloud/discovery/v1');
       var fs = require('fs');
-
       var discovery = new DiscoveryV1({
         version_date: '2018-12-03',
         iam_apikey: '{apikey}',
         url: '{url}'
       });
-
       var file = fs.readFileSync('{/path/to/file}');
-
       discovery.addDocument({ environment_id: '{environment_id}', collection_id: '{collection_id}', file: file },
       function(error, data) {
         console.log(JSON.stringify(data, null, 2));
@@ -184,14 +175,11 @@ In some browsers, the preceding links will open in a new window instead of savin
       {: codeblock}
 
 1.  Repeat this process for each of the other 3 sample files.
-
 ## Step 5: Query your collection
 {: #query-your-collection}
 
 Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_id}/query` method to search your collection of documents.
-
 The following example returns all entities that are called **IBM**. Replace `{apikey}`, `{environment_id}` and `{collection_id}` with your information:
-
 ```bash
 curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{collection_id}/query?version=2018-12-03&query=enriched_text.entities.text:IBM"
 ```
@@ -204,4 +192,4 @@ You successfully queried documents in the environment and collection you created
 
 - Read about the API in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}
 - [Configure](/docs/services/discovery/building.html) your service
-- Learn about [authenticating with IAM ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/services/watson/getting-started-iam.html#iam){: new_window}
+- Learn about [authenticating with IAM ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/watson/getting-started-iam.html#iam){: new_window}
