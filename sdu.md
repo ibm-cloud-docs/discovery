@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-10"
+lastupdated: "2018-12-21"
 
 ---
 
@@ -48,13 +48,14 @@ Supported browsers for this beta release: Chrome and Firefox
 To open the Smart Document Understanding editor:
 
 1. Open {{site.data.keyword.discoveryfull}} using the beta link.
-1. Open a Private data collection, and on the **Manage Data** screen, click **Go to Data Settings**. 
-1. On the **Data Settings** screen, there will be two tabs: **Extract fields** and **Enrich fields**.
+1. Open a Private data collection, and on the **Manage Data** screen, click **Data Settings**. 
+1. On the **Data Settings** screen, there will be three tabs: **Identify fields**, **Manage fields**, and **Enrich fields**.
 
-   - **Extract fields** contains the SDU editor. This tab replaces both the **Convert** and **Normalize** tabs on your original {{site.data.keyword.discoveryshort}} screen. 
-   - **Enrich fields** is identical to the **Enrich** tab on the original screen. For more information about enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments). The **Upload sample documents** option is not available on the **Enrich fields**, because it is not necessary.
+   - **Identify fields** contains the SDU editor. This tab replaces both the **Convert** and **Normalize** tabs on your original {{site.data.keyword.discoveryshort}} screen. 
+   - **Manage fields** lists all indexed fields (all fields are indexed by default). Switch off any fields you do not want to index. For example, your PDFs may contain a running header or footer that does not contain useful information, so you can exclude those fields from the index.
+   - **Enrich fields** is identical to the **Enrich** tab on the original screen. For more information about enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments). The **Upload sample documents** option is not available on the **Enrich fields** screen, because it is not necessary.
 
-1. Twenty (20) documents from your collection will automatically load under the **Extract fields** tab, in the Smart Document Understanding editor.
+1. Twenty (20) documents from your collection will automatically load under the **Identify fields** tab, in the Smart Document Understanding editor.
 
 The toolbar at the top will allow you to:
 - Choose a document
@@ -68,10 +69,10 @@ The toolbar at the top will allow you to:
 
 See [Best practices for labeling documents and tables](/docs/services/discovery/sdu.html#bestpractices) before you begin annotating.
 
-1. A default set of fields will appear to the right of your document. (For the beta, you cannot create custom fields, but this feature will be available in the future.) The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`.
-1. Click on a field name on the right to activate it.
+1. A default set of fields will appear to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`. If you would like to create one or more new field labels, click **Create new**.
+1. Click on a field label on the right to activate it.
 1. Click on the content representing that field in the SDU editor. It will highlight. 
-   - Alternately, you can select a field name on the right, and drag it to the content in the SDU editor. 
+   - Alternately, you can select a field label on the right, and drag it to the content in the SDU editor. 
    - To clear a change, click the **Clear change** button on the toolbar.
 1. Click **Submit**.
    **Note:** As you annotate, Watson is learning and will start predicting annotations. Continue annotating until Watson correctly and consistently identifies fields.
@@ -129,7 +130,7 @@ multi-row header | Any row label that spans more than one row
 - Do not use the zoom function on your browser when labeling documents.
 - Documents and tables that appear to have text overlaying other text are considered “double overlaid” and cannot be annotated. Report these documents to your administrator.
 - Documents and tables that contain multiple columns of text on a single page cannot be annotated. Report these documents to your administrator.
-- Footnotes should be marked as only when they appear at the bottom of the page and are referenced in the main body of text in the document.
+- Footnotes should be labeled only when they appear at the bottom of the page and are referenced in the main body of text in the document.
 - Notes appearing within sections or lists (e.g., explicitly called out as “Notes”) should be labeled as `text`.
 - If you are unsure that the table has been labeled correctly and the preview pane has become unresponsive, the page should be reloaded in your browser and the table re-labeled in order to ensure correctness.
 

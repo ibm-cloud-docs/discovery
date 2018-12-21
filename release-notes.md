@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-17"
+lastupdated: "2018-12-21"
 
 ---
 
@@ -51,6 +51,15 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 21 December 2018
+{: #21dec}
+
+- Added the option to connect to and sync with Microsoft SharePoint 2016 On-Premise. This data source is not available in Dedicated environments. See [SharePoint 2016 On-Premise](/docs/services/discovery/connect.html#connectsp_op) for more information.
+
+- Added the beta version of the Web crawl connector, which can be used connect to, crawl, and sync with websites. This data source is not available in Dedicated environments. See [Web crawl](/docs/services/discovery/connect.html#connectwebcrawl) for more information. A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
+
+- The Microsoft SharePoint Online, Salesforce, and Box data sources are now available in Premium environments. They are not available in Dedicated environments.
 
 ## 17 December 2018
 {: #17dec}
