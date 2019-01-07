@@ -38,7 +38,7 @@ You can use the service API or the {{site.data.keyword.discoveryshort}} tooling 
 
 ## Before you begin
 
-Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with the {{site.data.keyword.discoveryshort}} service, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with the {{site.data.keyword.discoveryshort}} service.
+Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with the {{site.data.keyword.discoveryshort}} service, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with the {{site.data.keyword.discoveryshort}} service.
 
 ## Integrating your custom model with the API
 

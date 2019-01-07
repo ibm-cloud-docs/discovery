@@ -100,7 +100,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 ## 24 October 2018
 {: #24oct2018}
 
-- {{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. These words will now be extracted from the highlights, rather than simply displaying the first 50 words of the article. See [highlight](https://console.bluemix.net/docs/services/discovery/query-parameters.html#highlight) for an explanation of highlights. Highlights do not need to be explicitly included in your query to enable this behavior.
+- {{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. These words will now be extracted from the highlights, rather than simply displaying the first 50 words of the article. See [highlight](https://cloud.ibm.com/docs/services/discovery/query-parameters.html#highlight) for an explanation of highlights. Highlights do not need to be explicitly included in your query to enable this behavior.
 
 ## 25 September 2018
 {: #25sept}
@@ -111,7 +111,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 
 - You can now upgrade your Advanced plan using the API. See [Upgrading your plan](/docs/services/discovery/upgrading.html#advanced) for details. 
 
-- The Element Classification enrichment has updated the classified elements, contract elements, and parties and tables identified. See [Element Classification](https://console.bluemix.net/docs/services/discovery/element-classification.html) for the updates.
+- The Element Classification enrichment has updated the classified elements, contract elements, and parties and tables identified. See [Element Classification](https://cloud.ibm.com/docs/services/discovery/element-classification.html) for the updates.
 
 - Added full support for Brazilian Portuguese. For more information, see [Language support](/docs/services/discovery/language-support.html).
 

@@ -136,7 +136,7 @@ This example aggregation returns the number of articles found in {{site.data.key
 - `filter(enriched_text.entities.text:"Pittsburgh Steelers").term(enriched_text.sentiment.document.label,count:3)`
 
 
-This example aggregation will first narrow down (filter) a set of articles in {{site.data.keyword.discoverynewsshort}} to only the ones that include the entities text of twitter, then divide those articles by the document sentiment types. Only the top 3 document sentiment types (`positive`, `negative`, `neutral`) will be returned.
+This example aggregation will first narrow down (filter) a set of articles in {{site.data.keyword.discoverynewsshort}} to only the ones that include the entities text of `twitter`, then divide those articles by the document sentiment types. Only the top 3 document sentiment types (`positive`, `negative`, `neutral`) will be returned.
 
 - `filter(enriched_text.entities.text:twitter).term(enriched_text.sentiment.document.label,count:3)`
 

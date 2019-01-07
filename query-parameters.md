@@ -159,7 +159,7 @@ A comma-separated list of fields in the index that passages will be drawn from. 
 ### passages.count
 {: #passages_count}
 
-The maximum number of passages to return. The search will return fewer if that is the total number found. The default is `10`. The maximum is `100`.
+The maximum number of passages to return. The search will return fewer passages if that is the total number found. The default is `10`. The maximum is `100`.
 
 ### passages.characters
 {: #passages_characters}

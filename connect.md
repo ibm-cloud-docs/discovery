@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-21"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-02"
 
 ---
 
@@ -217,9 +217,9 @@ To connect to an on-premise data source, you first need to download, install, an
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
 1.  Select the data source that you want to connect to. When you select an on-premise data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
 1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of IBM Secure Gateway.
-1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/SecureGateway/securegateway_install.html#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
+1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/SecureGateway/securegateway_install.html#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
 1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
-1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `appconnmssharep` and port: `80`.
+1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `mycompany.sharepoint.com` and port: `80`.
 1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful you will see the `Connection successful` message. If the connection was not successful, open the Secure Gateway dashboard and verify that the endpoints on the **Allow access** list are correct.
 
 After the connection is successful you can begin entering the credentials for your on-premise data source.
@@ -299,7 +299,7 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
 2.  Modify the configuration. You will need to add a **Normalization** section in order to create the `customer_id` field.
     -  In the tooling, navigate to your collection and click the **edit** link in the configuration section. Next, click the **Normalization** tab and add in a **copy** normalization to create the `customer_id` field. Then click **Apply & save**.
     ![Copy normalization](images/norm_copy.png)
-    -  When using the API, add the following object to the **noramizations** array"
+    -  When using the API, add the following object to the **normalizations** array:
        ```json
        {
          "operation" : "copy",
@@ -310,4 +310,4 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
        {: codeblock}
 3.  The next scheduled crawl will add the `customer_id` field to all documents. If you want to have a crawl start immediately, modify the source configuration (**Sync settings** in the tooling).
 
-See [Information security ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/discovery/information-security.html){: new_window} for more information and information about deleting based on `customer_id`.
+See [Information security ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/information-security.html){: new_window} for more information and information about deleting based on `customer_id`.
