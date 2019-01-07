@@ -108,9 +108,9 @@ For more information, or to purchase a Premium plan, contact [Sales](https://ibm
 
 **Note:** The version date of the API has been updated to `2018-08-01`. To take advantage of the new environment sizing options (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
 
-\* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://{DomainName}/apidocs/discovery#get-environment-info) or [Collections](https://{DomainName}/apidocs/discovery#get-collection-details) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmentation](https://console.bluemix.net/docs/services/discovery/building.html#doc-segmentation) on your documents, each segment counts as a separate document.
+\* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://{DomainName}/apidocs/discovery#get-environment-info) or [Collections](https://{DomainName}/apidocs/discovery#get-collection-details) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmentation](https://cloud.ibm.com/docs/services/discovery/building.html#doc-segmentation) on your documents, each segment counts as a separate document.
 
-\*\* The [Natural Language Understanding (NLU) enrichments](https://console.bluemix.net/docs/services/discovery/building.html#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched. 
+\*\* The [Natural Language Understanding (NLU) enrichments](https://cloud.ibm.com/docs/services/discovery/building.html#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched. 
 
 \*\*\* Element Classification is an enrichment that parses through governing documents to convert, identify, and classify elements of importance. It uses Natural Language Processing to extract the following elements from PDF documents: party (who it refers to), nature (type of element), and category (specific class).
 
@@ -121,11 +121,11 @@ For query performance information, see [Query performance](/docs/services/discov
 - **Lite** and **Standard** plans: 1 QPS for reranked queries with two top-level text fields.
 - **Advanced** (S, MS) plans: 10 QPS for reranked queries with two top-level text fields.
 
-For information about calculating costs, see the [IBM Cloud Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/pricing/platform/watson){: new_window}.
+For information about calculating costs, see the [IBM Cloud Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/pricing/platform/watson){: new_window}.
 
 For information about IBM Cloud security, see [Cloud Services data security and privacy ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument){: new_window}.
 
-For additional pricing information, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/catalog/services/discovery){: new_window}.
+For additional pricing information, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window}.
 
 ## Notes for Customers with Existing Plans
 

@@ -105,7 +105,7 @@ If you specify `anomaly:true` with the `timeslice` aggregation, the output inclu
   - An `anomaly` field in the points that are anomalous in the output's results array. The anomaly field has a value of the `float` data type indicating the magnitude of the anomalous behavior. The closer the value of the anomaly field is to `1`, the more likely the result is anomalous.
 
   - The `key` and `key_as_string` in each of the objects in the `results` array corresponds to a UNIX timestamp in seconds.
-  - The anomaly score is relative to a query, not across queries.
+  - The anomaly score is relative to the original query only.
 
 ```json
 "type": "timeslice",
