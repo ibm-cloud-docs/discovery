@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-08"
 
 ---
 
@@ -221,6 +221,8 @@ After making any changes, click **Apply and Save**.
 The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/discovery/building.html#the-default-configuration) will enrich (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of nine {{site.data.keyword.watson}} enrichments available; the others are Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.)
 
 Some {{site.data.keyword.watson}} enrichments may not be available in certain plans or environments.
+
+You can also integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom entity and relations enrichments. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate_wks.html).
 
 **Important:** Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 

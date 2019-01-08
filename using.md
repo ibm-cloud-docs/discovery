@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-08"
 
 ---
 
@@ -353,31 +353,36 @@ See the [tokenization API reference ![External link icon](../../icons/launch-gly
 
 **Note:** This feature is currently only available for Japanese collections. 
 
-In the example below, **text** is the phrase that will be tokenized when encountered and **tokens** are the words that the **text** will be split into. **Readings** list the version of the tokens represented by a different character set, and **part_of_speech** is the part of speech the tokens represent.
+In the example below, **text** is the phrase that will be tokenized when encountered and **tokens** are the words that the **text** will be split into (they must be defined individually). **Readings** list the version of the tokens represented by a different character set, and **part_of_speech** is the part of speech the tokens represent.
 
 With this custom dictionary, if you search for this text: `ネコ`, the search results will include text containing `すしネコ`, as well as text containing only `ネコ`.
 
 ```
 { "tokenization_rules":
   [
-    {
-      "text":"すしネコ",
+     {
+      "text":"すし",
       "tokens":[
-        "すし",
-        "ネコ"
+        "すし"
       ],
       "readings":[
-        "寿司",
-        "ネコ"
+        "寿司"
       ],
       "part_of_speech":"カスタム名詞"
     },
-    ...
-  ]
-}
+    {
+      "text":"ネコ",
+      "tokens":[
+        "ネコ"
+      ],
+      "readings":[
+        "ネコ"
+      ],
+      "part_of_speech":"カスタム名詞"
+    }
 ```
 
-You can also create rules with a single token. In this example, `ibm発見` will be tokenized as a single token, so it will not be broken up into smaller units.
+With this custom dictionary, you can create rules with a single token. In this example, `ibm発見` will be tokenized as a single token, so it will not be broken up into smaller units.
 
 ```
 { "tokenization_rules":
@@ -397,7 +402,8 @@ You can also create rules with a single token. In this example, `ibm発見` will
 }
 ```
 
--  Tokenization occurs at both index and query time. 
+-  Tokenization occurs at both index and query time.
+-  Tokens must be defined individually.
 -  A standard tokenization dictionary is used on all collections. If your collection has already been indexed with that dictionary, you must reingest the documents in that collection after you upload a custom tokenization dictionary.
 -  Uploading a tokenization dictionary is only available for private collections on `Advanced` and `Premium` plans. 
 -  Only one tokenization dictionary can be uploaded per collection; if a second tokenization dictionary is uploaded, it will replace the first. If that collection already contained documents, you must reingest them for the new custom tokenization dictionary to be applied.
