@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-08-08"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-08"
 
 ---
 
@@ -29,7 +29,7 @@ lastupdated: "2018-08-08"
 
 # Integrating with Watson Knowledge Studio
 
-You can integrate a custom model from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom entity and relations enrichments.
+You can integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom entity and relations enrichments.
 {: shortdesc}
 
 This gives you the flexibility to apply the {{site.data.keyword.discoveryshort}} service's document-enhancing capabilities with information specific to areas of particular focus, such as industry or scientific discipline. You can use both public data and your own proprietary data in your enrichment model.
@@ -41,6 +41,7 @@ You can use the service API or the {{site.data.keyword.discoveryshort}} tooling 
 Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with the {{site.data.keyword.discoveryshort}} service, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with the {{site.data.keyword.discoveryshort}} service.
 
 ## Integrating your custom model with the API
+{: #integrate-customAPI}
 
 1.  Get the ID of your {{site.data.keyword.discoveryshort}} environment as described at [List environments ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list_environments){: new_window}. Note the environment ID.
 1.  List the IDs of your current {{site.data.keyword.discoveryshort}} configuration or configurations as described at [List configurations ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list_configurations){: new_window} Note the ID of the configuration that you want to integrate with your {{site.data.keyword.knowledgestudiofull}} custom model.
@@ -94,6 +95,9 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 
     1.  Update the file as follows, substituting the unique ID of the {{site.data.keyword.knowledgestudioshort}} model described in "Before you begin" for `{watson_knowledge_studio_model_ID}`.
 
+        It is possible to apply more than one custom model to identical fields using the API. See the example in [Integrating multiple custom models](/docs/services/discovery/integrate-wks.html#integrate-multiplecustom). If you are also incorporating [Watson {{site.data.keyword.discoveryshort}} Knowledge Graph](/docs/services/discovery/building-ks.html), you must use the same model for enriching both entities and relationships in a single enrichment object.
+        {: note}
+
         ```json
         "enrichments": [
         {
@@ -116,7 +120,7 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
                         "limit": 8
                     },
                     "relations": {
-                      "model": "{watson_knowledge_studio_model_ID}"
+                        "model": "{watson_knowledge_studio_model_ID}"
                     }
                 }
             }
@@ -142,9 +146,58 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 
     Both commands return the contents of the updated configuration file.
 
+### Integrating multiple custom models 
+{: #integrate-multiplecustom}
+
+You can apply more than one custom model to identical fields using the API. Follow the steps in [Integrating your custom model with the API](/docs/services/discovery/integrate_wks.html#integrate-customAPI) and use the example here as a guide. If you are also incorporating [Watson {{site.data.keyword.discoveryshort}} Knowledge Graph](/docs/services/discovery/building-ks.html), you must use the same model for enriching both entities and relationships in a single enrichment object. See the example for `"destination_field": "enriched_text"` as a guide.
+
+You cannot apply multiple custom models using the {{site.data.keyword.discoveryshort}} tooling. Only the entity and relations enrichments may be customized.
+
+You must specify a different `destination_field` for each identical `source_field`. In addition, each `source_field` must be enriched by a unique model. For example, if you want to apply multiple custom models to the `source_field` of `text`, and you apply the `model` `{watson_knowledge_studio_model_ID}` to the `entities` enrichment, you should not use that model again for the `entities` enrichment.
+{: tip}
+
+
+```json
+   "enrichments": [
+   {
+        "source_field": "text",
+        "destination_field": "enriched_text",
+        "enrichment": "natural_language_understanding",
+        "options": {
+            "features": {
+                "entities": {
+                    "model": "{watson_knowledge_studio_model_ID}"
+                },
+                "relations": {
+                    "model": "{watson_knowledge_studio_model_ID}"
+            }
+        }
+    }
+},
+   {
+        "source_field": "text",
+        "destination_field": "enriched_text_2",
+        "enrichment": "natural_language_understanding",
+        "options": {
+            "features": {
+                "entities": {
+                    "model": "{watson_knowledge_studio_model_ID_b}"
+            },
+                "relations": {
+                    "model": "{watson_knowledge_studio_model_ID_c}"
+            }
+        }
+    }
+}]
+```
+{: codeblock}    
+
 ## Integrating your custom model with the Discovery tooling
+{: #integrate-customtooling}
 
 You can integrate a {{site.data.keyword.knowledgestudioshort}} custom model into the [Entity Extraction](/docs/services/discovery/building.html#entity-extraction) or [Relation Extraction](/docs/services/discovery/building.html#relation-extraction) enrichments with the {{site.data.keyword.discoveryshort}} tooling.
+
+You cannot apply multiple custom models to the same field using the {{site.data.keyword.discoveryshort}} tooling. It is possible to apply more than one custom model to identical fields using the API. See [Integrating your custom model with the API](/docs/services/discovery/integrate_wks.html#integrate-customAPI).
 
 1. Get the `Model ID` of your {{site.data.keyword.knowledgestudioshort}} model.
 1. In the {{site.data.keyword.discoveryshort}} tooling, click the **Manage Data** icon on the upper left to open the **Manage data** screen, then create or open a collection. **Note:** If you choose an existing collection, it should be empty. If not, you should reingest those documents after creating your new configuration file.
@@ -154,8 +207,6 @@ You can integrate a {{site.data.keyword.knowledgestudioshort}} custom model into
 1. Click **Apply**, then **Done**.
 
 When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you switch an existing collection to a new configuration file after documents have been uploaded, those uploaded documents will remain converted by the original configuration file. Any documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents.
-
-**Note:** Only one {{site.data.keyword.knowledgestudiofull}} model can be assigned to an enrichment.
 
 ## Next Steps
 
