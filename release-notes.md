@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-21"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-09"
 
 ---
 
@@ -39,7 +39,7 @@ API requests require a version parameter that takes a date in the format `versio
 
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
-The current version is `2018-12-03`.
+The current version is `2019-01-01`.
 
 ## Beta features
 {: #beta-features}
@@ -51,6 +51,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 1 January 2019
+{: #1jan19}
+
+- The version string for all API calls has changed to `2019-01-01` from `2018-12-03`. This version introduces a new document ingestion status: `pending`. The `pending` status will be returned for documents that have been accepted, but have not yet started processing. Previously, these documents would have the status of `processing`. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so when you check document status in the {{site.data.keyword.discoveryshort}} tooling, the `pending` status will not be returned.
 
 ## 21 December 2018
 {: #21dec}
