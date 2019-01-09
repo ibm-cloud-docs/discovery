@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-18"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-09"
 
 ---
 
@@ -47,7 +47,6 @@ Attributes:
 - 1 environment
 - Up to 2 collections
 - Free NLU enrichments\*\*
-- 20 in-flight documents\*\*\*\* 
 
 Additional options:<br> [Custom Models](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
 One Watson Knowledge Studio model included. Additional models: Not available<br>[Element Classification](/docs/services/discovery/element-classification.html)\*\*\*:
@@ -80,13 +79,11 @@ Moving from one level of Advanced to another does not require the creation of ne
 - 1 environment
 - Up to 4 collections
 - Free NLU enrichments\*\*
-- 50 in-flight documents\*\*\*\*
 
 Attributes of all other Advanced plans:
 - 1 environment
 - Up to 100 collections
 - Free NLU enrichments\*\*
-- 105 in-flight documents\*\*\*\*
 
 Additional options:<br> [Custom Models](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
 One Watson Knowledge Studio model included. Additional models: $800 each<br>[Element Classification](/docs/services/discovery/element-classification.html)\*\*\*:
@@ -113,8 +110,6 @@ For more information, or to purchase a Premium plan, contact [Sales](https://ibm
 \*\* The [Natural Language Understanding (NLU) enrichments](https://cloud.ibm.com/docs/services/discovery/building.html#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched. 
 
 \*\*\* Element Classification is an enrichment that parses through governing documents to convert, identify, and classify elements of importance. It uses Natural Language Processing to extract the following elements from PDF documents: party (who it refers to), nature (type of element), and category (specific class).
-
-\*\*\*\* If you reach your in-flight limit, you should slow down the rate of your ingestion.  When using the Discovery service, a document is "in-flight" while being uploaded, enriched, and processed prior to being added to a collection.
 
 For query performance information, see [Query performance](/docs/services/discovery/qp.html#qp). Queries are limited based on plan. Estimated Average Query rates per plan:
 
