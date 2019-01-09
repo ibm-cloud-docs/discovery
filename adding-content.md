@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-08-15"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-09"
 
 ---
 
@@ -52,16 +52,6 @@ Consider the following when you are ready to add documents to your collection:
 -   You cannot specify the `data type` (For example: `text` or `date`) of fields. During document ingestion, if a field is detected that does not yet exist in the index, {{site.data.keyword.discoveryshort}} will automatically detect the `data type` of that field based on the value of the field for the first document indexed.
 -   A document can fail to be ingested because of a type mismatch between data in the current document and similar data in a previously ingested document. For example, a field might be typed as a `date` in one document and a `string` in a subsequent document, preventing the subsequent document from being indexed correctly.
 -   If you plan to use custom tokenization (currently only available for Japanese collections when using the {{site.data.keyword.discoveryshort}} API), the tokenization dictionary for your collection must be added before uploading documents.
-
-The following limits apply when uploading documents:
-
--   **Lite** plans: 21 in-flight documents
--   **Advanced** plans: 105 in-flight documents (except for X-Small Advanced plans, which have a limit of 50 in-flight documents)
--   **Premium** plans: 210 in-flight documents
-
-These limits are subject to change. 
-
-When using the Discovery service, uploading in-flight represents the document being uploaded and processed before it is added to the collection. If you reach your in-flight limit, you should slow down the rate of your ingestion. One option would be to add an automated back-off mechanism with retries.
 
 ## Uploading documents with the Discovery tooling
 
