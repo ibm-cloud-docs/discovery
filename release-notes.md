@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-09"
+lastupdated: "2019-01-10"
 
 ---
 
@@ -51,6 +51,13 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 10 January 2019
+{: #10jan19}
+
+Known issue:
+
+-  If you specify a `customer-id` using the normalization method described in [Specifying a `customer_id`](/docs/services/discovery/connect.html#source_customer_id) and subsequently attempt to delete documents containing that `customer_id` using the method described here: [Deleting labeled data](/docs/services/discovery/information-security.html#deletingdata), the associated source document will not be deleted.
 
 ## 1 January 2019
 {: #1jan19}

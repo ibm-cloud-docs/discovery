@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-26"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-10"
 
 ---
 
@@ -132,6 +132,8 @@ Data must be labeled with a `customer_id` in order to delete it later.
 1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery/information-security.html#pi_methods). Also see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}
 
 Deletions are performed asynchronously. You cannot track the progress of deletions.
+
+To ensure all labeled content is correctly removed, `user_delete` should be run after the `processing` and `pending` counts for all collections in your environment return `0`.
 
 If a non-existent `customer_id` is provided, nothing will be deleted, but a `200 - OK` response will be returned.
 
