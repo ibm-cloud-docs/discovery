@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -76,7 +76,7 @@ Training data must meet the following **minimal** quality criteria to effectivel
 
 Training cannot exceed the following **maximum** requirements:
   - You cannot exceed 24 trained collections per environment.
-  - Within a single environment, you are limited to 10,000 training queries, with a maximum of 100 examples per query. 
+  - Within a single collection, you are limited to 10,000 training queries, with a maximum of 100 examples per query. 
 
 ## Adding a query to the training-data set
 
