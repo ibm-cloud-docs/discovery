@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-23"
+  years: 2017, 2018, 2019
+lastupdated: "2019-01-15"
 
 ---
 
@@ -54,19 +54,35 @@ Each `nature` key is paired with a `party` key, which will contain either the na
 ## Parties
 {: #contract_parties}
 
-The separate `parties` array specifies the participants listed in the contract. Each identified `party` object lists the identified party by name and is matched with a `role` that classifies the role of the `party` object. The values of `role` that can be returned for contracts include, but are not limited to:
+The `parties` array specifies the participants that are listed in the contract. Each `party` object is associated with other objects that provide details about the party, including:
+
+  - `role`: The party's role. Values are listed in the table that follows this list.
+  - `importance`: The importance of the party. Possible values are `Primary` for a primary party and `Unknown` for a non-primary party.
+  - `addresses`: An array that identifies addresses.
+    - `text`: An address.
+    - `location`: The location of the address as defined by its `begin` and `end` indexes.
+  - `contacts`: An array that defines the names and roles of contacts that are identified in the input document.
+    - `name`: The name of a contact.
+    - `role`: The role of the contact.
+
+The values of `role` that can be returned for contracts include, but are not limited to:
 
 | `role`           |Description                                                |
 |:----------------:|-----------------------------------------------------------|
-|`Buyer`           |The party responsible for paying for the goods or services listed in the contract.|
-|`End User`        |The party who will interact with the provided goods or services, explicitly distinguished from the `Buyer`.|
+|`Buyer`           |The party responsible for paying for the goods or services that are listed in the contract.|
+|`End User`        |The party who interacts with the provided goods or services, explicitly distinguished from the `Buyer`.|
 |`None`            |No party was identified for the element.|
-|`Supplier`        |The party responsible for providing the goods or services listed in the contract.|
+|`Supplier`        |The party responsible for providing the goods or services that are listed in the contract.|
 
 ## Categories
 {: #contract_categories}
 
-The `categories` array defines the the subject matter of the sentence. Currently supported categories include:
+The `categories` array defines the the subject matter of the sentence. 
+
+The categories and descriptions in this table are based on United States law and might not apply in jurisdictions outside the United States.
+{: important}
+
+Currently supported categories include:
 
 | `categories`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
@@ -98,16 +114,51 @@ The `categories` array defines the the subject matter of the sentence. Currently
 ## Attributes
 {: #attributes}
 
-The `attributes` array specifies any attributes identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `location` (the `begin` and `end` indexes of the attribute in the input document). Currently supported attributes include:
+The `attributes` array specifies any attributes that are identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `location` (the `begin` and `end` indexes of the attribute in the input document). Currently supported attributes include:
 
 | `attributes`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
-|`Location`        |A geographical location.                         |
-|`DateTime`        |A date, time, date range, or time range.                   |
+|`Address`         |A postal address.                                          |
 |`Currency`        |Monetary value and units.                                  |
+|`DateTime`        |A date, time, date range, or time range.                   |
+|`Location`        |A geographical location or region.                         |
+|`Organization`    |An organization.                                           |
+|`Person`          |A person.                                                  |
+
+## Effective dates
+{: #effective_dates}
+
+The `effective_dates` array identifies the dates during which the document is in effect.
+
+| `effective_dates`|Description                                                |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |An effective date, listed as a string.                     |
+|`confidence_level`|The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.|
+|`location`        |The location of the date as defined by its `begin` and `end` indexes.|
+
+## Contract amounts
+{: #contract_amounts}
+
+The `contract_amounts` array identifies the monetary amounts specified in the document.
+
+| `contract_amounts`|Description                                               |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |A contract amount, listed as a string.                  |
+|`confidence_level`|The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.|
+|`location`        |The location of the contract amount as defined by its `begin` and `end` indexes.|
+
+## Termination dates
+{: #termination_dates}
+
+The `termination_dates` array identifies the document's termination dates.
+
+| `contract_amounts`|Description                                               |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |The termination date, listed as a string.                  |
+|`confidence_level`|The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.|
+|`location`        |The location of the termination date as defined by its `begin` and `end` indexes.|
 
 ## Provenance
 {: #provenance}
 
 Each object in the `types` and `categories` arrays includes a `provenance_ids` array. The `provenance_ids` array has one or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-

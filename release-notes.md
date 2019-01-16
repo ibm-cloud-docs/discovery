@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-10"
+lastupdated: "2019-01-15"
 
 ---
 
@@ -51,6 +51,19 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 15 January 2019
+{: #15jan19}
+
+Element Classification updates:
+-  The Element Classification enrichment has updated parties, categories, and attributes in API version `2018-10-15` or later. See [Parsing contracts](/docs/services/discovery/parsing.html) for the updates.
+
+- The output of the `/v1/element_classification` method now includes the following:
+    - The `parties` array now includes an `importance` field that indicates whether the party is a `Primary` party or an `Unknown` (non-primary) party.
+    - The `effective_dates`, `contract_amounts`, and `termination_dates` arrays now each include a `confidence_level` field that indicates a value of `High`, `Medium`, or `Low`.
+    For more information, see [Classifying elements](/docs/services/discovery/schema.html#output_schema) and [Parsing contracts](/docs/services/discovery/parsing.html#contract_parsing).
+
+    The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-01-01` (it currently uses `2018-08-01`), so you will not see these new fields in the Element Classification output in the {{site.data.keyword.discoveryshort}} tooling.
 
 ## 10 January 2019
 {: #10jan19}
@@ -123,7 +136,7 @@ The schema for the [Element Classification](/docs/services/discovery/element-cla
 
 - You can now upgrade your Advanced plan using the API. See [Upgrading your plan](/docs/services/discovery/upgrading.html#advanced) for details. 
 
-- The Element Classification enrichment has updated the classified elements, contract elements, and parties and tables identified. See [Element Classification](https://cloud.ibm.com/docs/services/discovery/element-classification.html) for the updates.
+- The Element Classification enrichment has updated the classified elements, contract elements, and parties and tables identified. See [Element Classification](/docs/services/discovery/element-classification.html) for the updates.
 
 - Added full support for Brazilian Portuguese. For more information, see [Language support](/docs/services/discovery/language-support.html).
 

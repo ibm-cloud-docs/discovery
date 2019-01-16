@@ -48,7 +48,7 @@ For information about writing queries for {{site.data.keyword.discoverynewsfull}
 
 You cannot adjust the {{site.data.keyword.discoverynewsfull}} configuration, train, or add documents to the {{site.data.keyword.discoverynewsfull}} collection.
 
-{{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. These words are extracted from the highlights. See [highlight](https://cloud.ibm.com/docs/services/discovery/query-parameters.html#highlight) for an explanation of highlights. Highlights do not need to be explicitly included in your query to enable this behavior.
+{{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. These words are extracted from the highlights. See [highlight](/docs/services/discovery/query-parameters.html#highlight) for an explanation of highlights. Highlights do not need to be explicitly included in your query to enable this behavior.
 
 The maximum number of results returned for a {{site.data.keyword.discoverynewsfull}} query is `50`. Use additional queries and the `offset` parameter to return more than `50` results.
 
