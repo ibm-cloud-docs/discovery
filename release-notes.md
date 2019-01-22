@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-15"
+lastupdated: "2019-01-22"
 
 ---
 
@@ -51,6 +51,17 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 22 January 2019
+{: #22jan19}
+
+- Released the beta version of [Smart Document Understanding (SDU)](/docs/services/discovery/sdu.html), a new way to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. With Smart Document Understanding, you annotate fields within your documents to train custom conversion models. A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
+
+The beta SDU editor is only available for new collections that contain supported document types and do not have the Element Classification enrichment applied. Existing Private collections will use the original configuration method.
+
+If you were part of the closed beta for Smart Document Understanding, do not import models created in that beta into this version. Smart Document Understanding is currently not available in Dedicated environments.
+
+The SDU editor functions are only available in the {{site.data.keyword.discoveryshort}} tooling, they are not available in the API.
 
 ## 15 January 2019
 {: #15jan19}

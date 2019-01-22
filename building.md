@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-01-22"
 
 ---
 
@@ -53,27 +53,33 @@ In the {{site.data.keyword.discoveryshort}} service, the content that you upload
 
 -   **Environment** — The environment defines the amount of storage space that you have for content in the {{site.data.keyword.discoveryshort}} service. A maximum of one environment can be created for each instance of the {{site.data.keyword.discoveryshort}} service.
 
-    You have several plans (Lite, Advanced, Premium) to choose from, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}  and [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) for details. Your source files do not count against your file size limit, only the size of the converted JSON that is indexed counts towards your size limit.
+    You have several plans (Lite, Advanced, Premium) to choose from, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}  and [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) for details. Your source files do not count against your plan size limit, only the size of the converted JSON that is indexed counts towards your size limit.
 
 -   **Collection** — A collection is a grouping of your content within the environment. You must create at least one collection to be able to upload your content.
 
-    Collections are comprised of your private data, but {{site.data.keyword.discoveryshort}} also includes {{site.data.keyword.discoverynewsshort}}, a pre-enriched, public dataset. You can use it to query for insights; for example: news alerts, event detecting, and trending topics in the news; that you can integrate into your applications.
+    Collections are comprised of your private data, but {{site.data.keyword.discoveryshort}} also includes {{site.data.keyword.discoverynewsshort}}, a pre-enriched, public dataset. 
 
-    {{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) for more information. You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration or add documents to this collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
+    {{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use it to query for insights; for example: news alerts, event detecting, and trending topics in the news; that you can integrate into your applications. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) for more information. You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration or add documents to this collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
 To create an environment and private data collection with the {{site.data.keyword.discoveryshort}} tooling do the following:
 
-1.  On the **Manage Data** screen, click the ![Cog](images/icon_settings.png) icon and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
+1.  On the **Manage Data** screen, click the ![Environment](images/icon_settings.png) icon on the upper right and choose **Create environment**. The environment is created based on the {{site.data.keyword.Bluemix_notm}} plan you selected earlier. The status of your environment is always available from this drop-down.
 
 1.  Once your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**.
 
-    By default, the configuration file will be **Default Configuration**. If you have another configuration file available, you can choose it, or you can create a new one later and apply it to this collection. You can also select the language of the documents you will add to this collection: English, German, Spanish, Arabic, Japanese, French, Italian, Korean, or Brazilian Portuguese. There should be only one language in each of your collections. After you click **Create**, your data collection will appear as a tile.
+     You can select the language of the documents you will add to this collection: English, German, Spanish, Arabic, Japanese, French, Italian, Korean, or Brazilian Portuguese. There should be only one language in each of your collections. After you click **Create**, your data collection will appear as a tile.
 
-Your environment and data collection are ready! If you wish to use the default configuration file, you can start [Adding content](/docs/services/discovery/adding-content.html) immediately. But if you want to customize your {{site.data.keyword.discoveryshort}} configuration with additional enrichments and conversion settings, you should not begin adding documents right now, you should start creating your custom configuration file. See [Configuring your service](/docs/services/discovery/building.html#custom-configuration).
+Your environment and data collection are ready! You can start [Adding content](/docs/services/discovery/adding-content.html) immediately. 
 
-**Note:** When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you decide later that you would like to switch a collection to a different configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration file. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. The {{site.data.keyword.discoveryshort}} service stores the converted text of the documents that you upload, embedded images in **PDF** and **Microsoft Word** files are not stored and will not be returned in results.
+However, if you want to customize your {{site.data.keyword.discoveryshort}} configuration with additional enrichments and conversion settings, you should not begin adding documents right now, you should start creating your custom configuration file. See [Configuring your service](/docs/services/discovery/building.html#custom-configuration).
 
-You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), you may prefer to adjust your enrichments using the {{site.data.keyword.discoveryshort}} tooling.
+{: note}
+
+For collections created before the release of Smart Document Understanding: when documents are uploaded to a data collection, they are converted and enriched using the configuration file selected for that collection. If you decide later that you would like to change the configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. The {{site.data.keyword.discoveryshort}} service stores the converted text of the documents that you upload, embedded images in **PDF** and **Microsoft Word** files are not stored and will not be returned in results. If your collection is using [Smart Document Understanding](/docs/services/discovery/sdu.html), any changes made to enrichments and conversion in the {{site.data.keyword.discoveryshort}} will be applied to the entire collection when you click the **Apply changes to collection** button. If you collection is large, applying the changes may take some time.  
+{: important}
+
+You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
 {: tip}
 
 ### The default configuration
@@ -81,19 +87,27 @@ You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box
 
 The {{site.data.keyword.discoveryshort}} service includes a standard configuration that will convert, enrich and normalize your data without requiring you to manually configure these options.
 
-The default configuration named **Default Configuration** contains enrichments, plus standard document conversions based on font styles and sizes. {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the text field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)).
+The **Default Configuration** file is only available in collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html). However, when using Smart Document Understanding the same enrichments, and HTML and JSON conversions will be used by default in your collections.
+{: note}
+
+When you create a collection, {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the `text` field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)). Standard document conversions based on font styles and sizes will also be applied. You can adjust the enrichments later, using the **Overview** tab. (This configuration is named **Default Configuration** in collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)
+
+The default conversions:
 
 -   [Microsoft Word conversion](/docs/services/discovery/building.html#microsoft-word-conversion)
 -   [PDF conversion](/docs/services/discovery/building.html#pdf-conversion)
 -   [HTML conversion](/docs/services/discovery/building.html#html-conversion)
 -   [JSON conversion](/docs/services/discovery/building.html#json-conversion)
 
-A second default configuration named **Default Contract Configuration** is available in the {{site.data.keyword.discoveryshort}} tooling. It is configured to enrich with Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
+A configuration named **Default Contract Configuration** is available when you create a collection with the {{site.data.keyword.discoveryshort}} tooling. It is configured to enrich with Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details. Smart Document Understanding will not be available if this configuration file is used.
 
-If you would like to create a custom configuration, see [Custom configuration](/docs/services/discovery/building.html#custom-configuration).
+If you would like to create a custom configuration for collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html), see [Custom configuration](/docs/services/discovery/building.html#custom-configuration).
 
 ### When you need a custom configuration
 {: #when-you-need-a-custom-configuration}
+
+This information applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).
+{: note}
 
 Getting the right information out of your content and returning it to your users is the goal of the {{site.data.keyword.discoveryshort}} service. Identifying what that information is, and how it is stored in your content is defined by the configuration that you use to ingest the content. The content types that the {{site.data.keyword.discoveryshort}} service can ingest are flexible, meaning that even though your unstructured content is saved in a specific format, it is not required that the structure of that content match the structure of other content of the same type.
 
@@ -106,6 +120,9 @@ Getting the right information out of your content and returning it to your users
 ## Custom configuration
 {: #custom-configuration}
 
+This information applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).
+{: note}
+
 To create a custom configuration in the {{site.data.keyword.discoveryshort}} tooling, open a Private data collection, and on the **Manage Data** screen, click **Switch** next to the name of your **Configuration**. On the **Switch configuration** dialog, click **Create a new configuration**.
 
 After you have named your new configuration file, that name will be displayed at the top of the configuration screen. This new configuration file will automatically contain the settings and enrichments of the [Default configuration](/docs/services/discovery/building.html#the-default-configuration) file to give you a place to begin.
@@ -113,13 +130,16 @@ After you have named your new configuration file, that name will be displayed at
 The three steps of customizing a configuration file are: **Convert**, **Enrich**, and **Normalize**.
 
 1.  [Converting sample documents](/docs/services/discovery/building.html#converting-sample-documents)
-1.  [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments)
+1.  [Adding enrichments] (/docs/services/discovery/building.html#adding-enrichments) (This tab is available when using Smart Document Configuration.)
 1.  [Normalizing data](/docs/services/discovery/building.html#normalizing-data)
 
 For detailed information about configurations, see the [Configuration reference](/docs/services/discovery/custom-config.html).
 
 ### Uploading sample documents
 {: #uploading-sample-documents}
+
+This information applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).
+{: note}
 
 To make the configuration process more efficient, you can upload up to ten Microsoft Word, HTML, JSON, or PDF files that are representative of your document set. These are called **sample documents**. Sample documents are not added to your collection — they are only used to identify fields that are common to your documents and customize those fields to your requirements.
 
@@ -141,6 +161,9 @@ When creating a new configuration file in the {{site.data.keyword.discoveryshort
 
 ### Converting sample documents
 {: #converting-sample-documents}
+
+This information applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).
+{: note}
 
 Converting your sample documents is the process that will let you define how each input type is handled. The file type of content that you upload dictates the number of conversion steps that you will have to consider.
 
@@ -224,11 +247,12 @@ Some {{site.data.keyword.watson}} enrichments may not be available in certain pl
 
 You can also integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom entity and relations enrichments. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate_wks.html).
 
-**Important:** Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
+Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
+{: important}
 
 **Note:** {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated 1 March 2018. If you have any existing collections that are using {{site.data.keyword.alchemylanguageshort}} enrichments, you must migrate to {{site.data.keyword.nlushort}} enrichments. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
 
-You can further augment your documents by adding more enrichments to the `text` field, or enriching other fields. To do so using the {{site.data.keyword.discoveryshort}} tooling, [create a custom configuration](/docs/services/discovery/building.html#custom-configuration), choose the field(s) you'd like to enrich and select from the list of available {{site.data.keyword.nlushort}} enrichments:
+You can further augment your documents by adding more enrichments to the `text` field, or enriching other fields. To do so using Smart Document Understanding in the {{site.data.keyword.discoveryshort}} tooling, open the **Enrich Fields** tab. To do so for collections created before Smart Document Understanding, [create a custom configuration](/docs/services/discovery/building.html#custom-configuration), choose the field(s) you'd like to enrich and select from the list of available {{site.data.keyword.nlushort}} enrichments:
 
 ### Entity extraction
 {: #entity-extraction}
@@ -646,6 +670,8 @@ Emotion Analysis analyzes your text and calculates a score for each emotion (ang
 Parses elements (sentences, lists, tables) in governing documents to classify important types and categories
 For more information, see [Element classification](/docs/services/discovery/element-classification.html).
 
+[Smart Document Understanding](/docs/services/discovery/sdu.html) will not be available if this enrichment is used.
+
 #### Enrichment pricing
 {: #enrichment-pricing}
 
@@ -703,6 +729,9 @@ These enrichments work together to help you build better queries.
 
 ## Normalizing data
 {: #normalizing-data}
+
+This information applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).
+{: note}
 
 The last step in customizing your configuration file is doing a final cleanup, also known as normalization.
 
@@ -946,6 +975,9 @@ Some common CSS selectors include the following:
 ## Splitting documents with document segmentation
 {: #doc-segmentation}
 
+If using Smart Document Understanding, do not use document segmentation, use [document splitting](/docs/services/discovery/sdu.html#splitting).
+{: note}
+
 You can split your Word, PDF, and HTML documents into segments based on HTML heading tags. Once split, each segment is a separate document that will be enriched and indexed separately. Since queries will return these segments as separate documents, document segmentation can be used to:
 
   - Perform aggregations on individual segments of a document. For example, your aggregation would count each time a segment mentions a specific entity, instead of only counting it once for the entire document.
@@ -971,6 +1003,9 @@ Considerations:
 
 ### Performing segmentation
 {: #performing-segmentation}
+
+If using Smart Document Understanding, do not use document segmentation, use [document splitting](/docs/services/discovery/sdu.html#splitting).
+{: note}
 
 Segmentation is setup via the API in the `conversions` section.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-01-22"
 
 ---
 
@@ -61,7 +61,7 @@ Start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To u
 
   1. In the {{site.data.keyword.discoveryshort}} Tooling, open the **Manage data** screen, choose the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases. Click the **View Data Schema** button. The **View data schema** screen displays the fields and values in your transformed documents two ways: by document (**Document view**), or by field (**Collection view**). A maximum of 50 documents will display in **Document view**. **Collection view** will display the fields in the entire collection.
 
-    In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied with the **Default Configuration** file. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
+    In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied to your collection. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
 
   1. Run an "empty" query to view the JSON. On the **View data schema** screen, click the **Build queries** button, then click **Run Query**. The results display on the right, under two tabs, **Summary** (an overview of the query results) and **JSON**. Start by opening the **JSON** tab.
 

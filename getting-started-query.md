@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-05-21"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
 
 ---
 
@@ -43,7 +43,7 @@ You can also write natural language queries (such as "IBM Watson partnerships") 
 
 ## Before you begin
 
-**Complete the steps in [Getting started](/docs/services/discovery/getting-started-tool.html).** If you haven't completed the **Getting started**, go to the **Manage data** screen, create a new collection named {{site.data.keyword.IBM_notm}} Press Releases, and add these four documents to it (use the **Default Configuration**): <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
+**Complete the steps in [Getting started](/docs/services/discovery/getting-started-tool.html).** If you haven't completed the **Getting started**, go to the **Manage data** screen, create a new collection named {{site.data.keyword.IBM_notm}} Press Releases, and add these four documents to it: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
 
 ## Step 1: Quick tour of the Discovery data schema
 
@@ -53,17 +53,14 @@ Let's start out by getting to know the {{site.data.keyword.discoveryshort}} JSON
 
 1.  Review the insights Watson discovered in your enriched documents.
 
-    -  **General sentiments** displays the percentage breakdown of documents tagged as positive, neutral, and negative discovered by the Sentiment Analysis enrichment.
-    -  **Top entities** displays persons, places, and organizations discovered in your documents by the Entity Extraction enrichment.
-    -  **Content hierarchy** displays the hierarchical taxonomies discovered in your documents by the Category Classification enrichment.
-    -  **Related concepts** displays the concepts discovered in your documents by the Concept Tagging enrichment.
-
-         Click **View in schema** on any card to see the enrichments that comprise those results.
-         {: tip}
+    -  **Sentiment Analysis** displays the percentage breakdown of documents tagged as positive, neutral, and negative discovered by the Sentiment Analysis enrichment.
+    -  **Entity Extraction** displays persons, places, and organizations discovered in your documents by the Entity Extraction enrichment.
+    -  **Category Classification** displays the hierarchical taxonomies discovered in your documents by the Category Classification enrichment.
+    -  **Concept Tagging** displays the concepts discovered in your documents by the Concept Tagging enrichment.
 
 1.  To get familiar with the data schema of your documents, let's look at the **View data schema** screen. It displays the fields and values in your transformed documents two ways: by document (**Document view**), or by field (**Collection view**). **Collection view** will display all fields in your collection.
 
-    Click the **View data schema** button. In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied with the **Default Configuration** file. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
+    Click the **View data schema** icon on the left. In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied to your collection. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
 
 If your query does not return any matching results, and you think it should, try swapping out the field/value your query is using for one that you can verify in the data schema.
 {: tip}    
@@ -72,7 +69,7 @@ If your query does not return any matching results, and you think it should, try
 
 Let's start out by writing a query that will find the concept `Cloud computing` in your collection:
 
-1.  Click on the build queries icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
+1.  Click on the **Build queries** icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
 1.  On the **Build queries** screen, click **Search for Documents**, then **Use the {{site.data.keyword.discoveryshort}} Query Language** then:
     - Click the **Field** drop-down and choose `enriched_text.concepts.text`, for the **Operator** choose `contains`, then enter the **Value** of `Cloud computing`. The query `enriched_text.concepts.text:Cloud computing` will display under the **Visual Query Builder**.
 
@@ -130,7 +127,7 @@ Aggregations return a set of data values; for example, top keywords, overall sen
 
 Try building this aggregation - it will return the top 10 concepts in the {{site.data.keyword.IBM_notm}} press releases collection.
 
-1.  Click on the build queries icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
+1.  Click on the **Build queries** icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
 
 1.  Under **Include analysis of your results**:
     -  Click the **Output** drop-down and choose `Top values`, for the **Field** choose `enriched_text.concepts.text`, then enter the **Count** of `10`.
@@ -149,7 +146,7 @@ You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, tr
 
 The following example query returns the top 10 articles in {{site.data.keyword.discoverynewsfull}} about the Pittsburgh Steelers that have a positive sentiment.
 
-1.  Click on the build queries icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the {{site.data.keyword.discoverynewsshort}} collection and click **Get started**. (To query the Spanish, German, or Korean {{site.data.keyword.discoverynewsshort}} collections, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down.)
+1.  Click on the **Build queries** icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the {{site.data.keyword.discoverynewsshort}} collection and click **Get started**. (To query the Spanish, German, or Korean {{site.data.keyword.discoverynewsshort}} collections, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down.)
 
 1.  Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then:
     -  Click the **Field** drop-down and choose `text`, for the **Operator** choose `contains`, then enter the **Value** of `Pittsburgh Steelers`. Click **Add rule**, then click the **Field** drop-down and choose `enriched_text.sentiment.document.label`, for the **Operator** choose `contains`, then enter the **Value** of `positive.`

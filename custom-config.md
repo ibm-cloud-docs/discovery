@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
 
 ---
 
@@ -32,7 +32,10 @@ lastupdated: "2018-01-23"
 You can create your own {{site.data.keyword.discoveryshort}} ingestion configuration in JSON if your data has special [conversion](#conversion), [enrichment](#enrichment), or [normalization](#normalization) needs.
 {: shortdesc}
 
- The following sections detail the structure of this JSON and the object that can be defined in it.
+The following sections detail the structure of this JSON and the object that can be defined in it.
+
+If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+{: note}
 
 ## Configuration structure
 {: #structure}
@@ -91,10 +94,16 @@ Converting documents takes the original source format and using one or more step
 
 - **JSON** files are converted using the `json` options.
 
+If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+{: note}
+
 These options are described in the following sections. After conversion has completed, [enrichment](#enrichment) and [normalization](#normalization) are performed before the content is stored.
 
 ### PDF
 {: #pdf}
+
+If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+{: note}
 
 The `pdf` conversion object defines how PDF documents should be converted into HTML and has the following structure:
 
@@ -138,6 +147,9 @@ For an area of text to be identified as a heading it must match all of the param
 
 ### Word
 {: #word}
+
+If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+{: note}
 
 The `word` conversion object defines how PDF documents should be converted into HTML and has the following structure:
 
