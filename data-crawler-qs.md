@@ -34,7 +34,7 @@ This topic explains how to use the data crawler to ingest files from your local 
 
 Before attempting this task, create an instance of the {{site.data.keyword.discoveryshort}} service in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
 
-You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
 {: tip}
 
 ## Create an environment

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-18"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
 
 ---
 
@@ -73,12 +73,14 @@ A collection is a set of your documents. *Why would I want more than one collect
 
 The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready to query, and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
 
-1.  Click ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
-1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection and choose **Default Configuration** from **Select a configuration to apply** (you can change the configuration later).
+1.  Click ![Env](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
+1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection. 
 
-    There is another configuration available named **Default Contract Configuration** that supports Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
+    {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the `text` field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)). Standard document conversions based on font styles and sizes will also be applied. You can adjust the enrichments later, using the **Overview** tab. (This configuration is named **Default Configuration** in collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)
 
-You can also crawl Box, Salesforce, and Microsoft SharePoint Online data sources with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+    There is a configuration file available named **Default Contract Configuration** that supports Element Classification, which can be used to extract party, nature, and category from elements in PDFs. Choose it only if you wish to use this enrichment. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
+
+You can also crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
 {: tip}
 
 ## Step 3: Create a custom configuration
@@ -136,9 +138,9 @@ When you're happy with the custom conversion of your sample document it's time t
 
     Additional resources:
     - To learn more about the data schema of your documents, click the **View Data Schema** icon or click on the **JSON** tab. See [The Discovery data schema](/docs/services/discovery/using.html#discovery-schema) for details.
-    - If editing in the {{site.data.keyword.discoveryshort}} Query Language, click on the **?** icons next to any of the **Enter query here** fields for more examples.
+    - If editing in the {{site.data.keyword.discoveryshort}} Query Language, click the **Use a sample query** for example queries.
 
 ## Next steps
 {: #next-steps}
 
-Now you have a functioning and populated {{site.data.keyword.discoveryshort}} service instance. You can now begin customizing your collection by adding more documents and enrichments and customizing conversion settings.
+Now you have a functioning and populated {{site.data.keyword.discoveryshort}} service instance. You can now begin customizing your collection by adding more documents and enrichments, customizing conversion settings, or using [Smart Document Understanding](/docs/services/discovery/sdu.html).

@@ -27,8 +27,9 @@ Discovery
         getting-started-query.md
 
     building.md
-    connect.md
+    sdu.md
     adding-content.md
+    connect.md
 
     {: topicgroup}
     Using the Data Crawler
