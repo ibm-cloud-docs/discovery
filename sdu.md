@@ -47,7 +47,7 @@ Supported document types for Smart Document Understanding:
 
 Image files (PNG, TIFF, JPG) are scanned and any text is extracted. The image is stored for Advanced and Premium plans only.
 
-JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited SDU editor, because they are structured documents. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
 
 Supported browsers for the beta release: Chrome and Firefox
 
