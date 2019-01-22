@@ -174,7 +174,7 @@ Once you have defined a model with the SDU editor, you can save it and reuse it 
 
 You can import or export your completed SDU model using the toolbar at the top of the editor. Click the last icon and choose `Import model` or `Export model`.
 
-Exported models have the file extension of `.ccsmodel`. 
+Exported models have the file extension of `.sdumodel`. 
 
 An imported model is intended to be used without any further annotations. The model will be completely overwritten if you continue annotating after importing it. If you plan to import a model into a new collection, it is a good best practice to create a new collection that contains only 1 document, import the model, then upload the remainder of your documents.
 
@@ -185,7 +185,7 @@ An imported model is intended to be used without any further annotations. The mo
 - Do not label whitespace
 - Use the `image` labels on images and diagrams
 - Do not treat **bold**, _italic_, or underlined text differently. Label based on the context, not the style. 
-- When labeling a document, work from the first page to the last. Each page must be submitted, even if nothing has been labeled. 
+- When labeling a document, work from the first page to the last.
 - If you incorrectly label an item, choose another label for the item to overwrite the first.
 - Pages can be submitted at any time. Ensure that all appropriate labeling is complete before submitting.
 - Documents and tables that appear to have text overlaying other text are considered “double overlaid” and cannot be annotated. Report these documents to your administrator.
