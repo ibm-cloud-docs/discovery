@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-22"
+lastupdated: "2019-01-24"
 
 ---
 
@@ -34,7 +34,7 @@ lastupdated: "2019-01-22"
 Smart Document Understanding is in beta release. A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
 {: important}
 
-Smart Document Understanding (SDU) is a a new way to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. Customizing how your documents are indexed into {{site.data.keyword.discoveryshort}} will improve the answers returned by your application.
+Smart Document Understanding (SDU) is a new way to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. Customizing how your documents are indexed into {{site.data.keyword.discoveryshort}} will improve the answers returned by your application.
 
 With SDU, you annotate fields within your documents to train custom conversion models. As you annotate, Watson is learning and will start predicting annotations. SDU models can be exported and used on other collections. 
 
@@ -45,7 +45,7 @@ Supported document types for Smart Document Understanding:
 -  Lite plans: PDF, Word, PowerPoint, Excel
 -  Advanced plans: PDF, Word, PowerPoint, Excel, PNG, TIFF, JPG
 
-Image files (PNG, TIFF, JPG) are scanned and any text is extracted. The image is stored for Advanced and Premium plans only.
+Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
 
 JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
 
@@ -65,7 +65,7 @@ Navigating the Smart Document Understanding editor:
 If you have not yet created a {{site.data.keyword.discoveryshort}} instance and environment, see [Getting started](/docs/services/discovery/getting-started-tool.html#getting-started) for instructions.
 {: tip}
 
-1. On the **Manage Data** screen, click the **Upload your own data** button and create a new Private collection in {{site.data.keyword.discoveryshort}} and upload at least one document. Do not choose a configuration file. 
+1. On the **Manage Data** screen, click the **Upload your own data** button and create a new Private collection in {{site.data.keyword.discoveryshort}} and upload at least one document.
 After the upload is complete, this information displays:
    -  The fields identified from your documents.
    -  Enrichments applied to your documents. The Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging enrichments are automatically applied to the `text` field by {{site.data.keyword.discoveryshort}} (unless you are importing documents using a connector). You can add (or remove) additional enrichments to the `text` field.
@@ -124,6 +124,8 @@ title | The main title of the document being annotated. Use this label only once
 
 See [Best practices for annotating documents and tables](/docs/services/discovery/sdu.html#bestpractices) before you begin annotating.
 
+Also see this [video ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/images/SDU_table_demo.gif){: new_window} for guidance.
+
 1. Select the `table` field from the right side of the SDU editor, then select the table in the document. 
 1. Hover over the table to display the **Annotate table** button. Click the button to open the table editor.
 1. First, outline the table:
@@ -138,8 +140,6 @@ See [Best practices for annotating documents and tables](/docs/services/discover
 1. Second, label the content within the table.
 1. When you have completed annotating the table, click **Done annotating**.
 1. Click **Apply changes to collection.** The **Upload your documents** screen opens. Re-upload the documents in your collection. After uploading is complete, you will be redirected to the **Manage Data** screen.
-
-Use this video as a guide: ![tablevideo](images/SDU_table_demo.gif){: gif}
 
 Field | Definition  
 ------ | ------ 
