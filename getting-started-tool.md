@@ -73,7 +73,7 @@ A collection is a set of your documents. *Why would I want more than one collect
 
 The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready to query, and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
 
-1.  Click ![Env](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
+1.  Click ![Environment details](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
 1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection. 
 
     {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the `text` field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)). Standard document conversions based on font styles and sizes will also be applied. You can adjust the enrichments later, using the **Overview** tab. (This configuration is named **Default Configuration** in collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)

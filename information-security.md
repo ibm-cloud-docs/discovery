@@ -110,7 +110,7 @@ Restrictions:
 ### Labeling data with the Discovery tooling
 {: #labelingtooling}
 
-Data can be labeled with the `customer_id` field when using the {{site.data.keyword.discoveryshort}} tooling. Click the ![Env](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and enter the `customer_id` in the **GDPR Data Label** field. Once this field is set all data uploaded using this browser session will be labeled with the specified `customer_id`, this field must be manually changed if the associated customer ID changes.
+Data can be labeled with the `customer_id` field when using the {{site.data.keyword.discoveryshort}} tooling. Click the ![Environment details](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and enter the `customer_id` in the **GDPR Data Label** field. Once this field is set all data uploaded using this browser session will be labeled with the specified `customer_id`, this field must be manually changed if the associated customer ID changes.
 
 Adding a `customer_id` with the **GDPR Data Label** field will label the documents, notices, Knowledge Graph entities, Knowledge Graph relations, and training data within that URL domain from that point forward, including each instance under that domain. Any actions (including document uploads) that occurred in the {{site.data.keyword.discoveryshort}} tooling before adding the **GDPR Data Label** field will not be labeled.
 
