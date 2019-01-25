@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-24"
+lastupdated: "2019-01-25"
 
 ---
 
@@ -124,8 +124,6 @@ title | The main title of the document being annotated. Use this label only once
 
 See [Best practices for annotating documents and tables](/docs/services/discovery/sdu.html#bestpractices) before you begin annotating.
 
-Also see this [video ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/images/SDU_table_demo.gif){: new_window} for guidance.
-
 1. Select the `table` field from the right side of the SDU editor, then select the table in the document. 
 1. Hover over the table to display the **Annotate table** button. Click the button to open the table editor.
 1. First, outline the table:
@@ -140,6 +138,8 @@ Also see this [video ![External link icon](../../icons/launch-glyph.svg "Externa
 1. Second, label the content within the table.
 1. When you have completed annotating the table, click **Done annotating**.
 1. Click **Apply changes to collection.** The **Upload your documents** screen opens. Re-upload the documents in your collection. After uploading is complete, you will be redirected to the **Manage Data** screen.
+
+Use this video as a guide ![table annotation video](images/SDU_table_demo.gif){: gif}
 
 Field | Definition  
 ------ | ------ 
