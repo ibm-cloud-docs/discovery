@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-09"
+lastupdated: "2019-01-29"
 
 ---
 
@@ -58,6 +58,14 @@ For information about upgrading from Lite to Advanced, see [Upgrading your servi
 
 ## Advanced
 {: #advanced}
+
+When choosing an Advanced Plan size, note that resources are required for both document storage and querying. Therefore, you may require a larger environment if you are close to the maximum document limit for a plan size and also have the following requirements: 
+
+-  Higher query performance requirements (for example, using relevancy training)
+-  You anticipate a large number of concurrent users
+-  Complex query needs 
+
+For additional details on factors that influence query performance, see [Query performance](/docs/services/discovery/qp.html).
 
 Size | Doc Storage Limit | Number of Docs\* | Price 
 ------ | ------ | ------ | ------ 

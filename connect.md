@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-29"
 
 ---
 
@@ -90,11 +90,10 @@ You'll need to create a new Box custom application to connect to {{site.data.key
 1.   From the **Create a New App** screen, select **Enterprise Integration** and click **Next**.
 1.   On the **Authentication Method** screen, select **OAuth 2.0 with JWT (Server Authentication)** and click **Next**.
 1.   Name your app and click the **Create App** button. Once your Box app has been created, click **View Your App**.
-1.   While viewing your app, select **Application access** of **Application**. You can use your existing managed users as you continue; you are not required to create new ones.
+1.   While viewing your app, select **Application access** as **Application**. You can use your existing managed users as you continue; you are not required to create new ones.
 1.   Scroll down to the **Application Scopes** section of the page and enable the following checkboxes: 
      - `Read and write all folders stored in Box`
      - `Manage Users`
-     - `Manage Enterprise Properties` 
 1.   Scroll down to the **Advanced Features** section and enable the following toggles:
      - `Perform Actions as Users`
      - `Generate User Access Tokens` 
@@ -105,16 +104,17 @@ The next few steps will require assistance from the Administrator of your organi
 1.  [Administrator step] Authorize your application client id at `https://app.box.com/master/settings/openbox` by clicking the **Authorize New App** button.
 1.  [Administrator step] Type the **client ID** from `https://app.box.com/developers/console` into the **API key** field and then click the **Authorize** button.
 1.  [Administrator step] Retrieve a developer token for the application. To do this, navigate to `https://app.box.com/developers/console`, scroll to the **Developer Token** section and generate your token.
-1.  Now that the application has been authorized by the Administrator, navigate to `https://developer.box.com/reference#page-create-an-enterprise-user` and create the Box user using the API reference page.
+1.  Now that the application has been authorized by the Administrator, navigate to `https://developer.box.com/reference#page-create-an-enterprise-user` and create an App User using the API reference page.
 
-   Sample curl command [from the box API](https://api.box.com/2.0/users):
+   Curl example to create an App User:
 
    ```bash
-    curl -X POST -H "Authorization: Bearer <YOUR_DEVELOPER_TOKEN_GOES_HERE>" -d '{"login": "<YOUR_APP_USER_EMAIL>@<YOUR_COMPANY_DOMAIN>", "name": "<YOUR_APP_USER_NAME>"}' 
+    curl https://api.box.com/2.0/users -H "Authorization: Bearer ACCESS_TOKEN" -d '{"name": "NedStark", "is_platform_access_only": true}' -X POST
    ```
    {: pre}
 
 1.  Copy the newly generated **id** field contents and provide them to the non-administrator connecting the Box application to {{site.data.keyword.discoveryfull}}.
+1.  Once the App User is created, the folders you want to crawl need to be shared with the App User, and the App User must be given `Viewer` permissions on those folders. This requires the App User login name from the above curl command response. Example:`"login":"AppUser_737729_jmUo@boxdevedition.com"`.
 1.  Return to the Box developer console `https://app.box.com/developers/console` and scroll to the **Add and Manage Public Keys** section. Click the **Generate the public/private keypair** and download your keypair file. Open the file.
 1.  From the keypair file, cut and paste the following fields into the {{site.data.keyword.discoveryshort}} tooling.
     -  `client_id`
@@ -131,18 +131,22 @@ The next few steps will require assistance from the Administrator of your organi
 1.  From the **Create a New App** screen, select **Enterprise Integration** and click **Next**.
 1.  On the **Authentication Method** screen, select **OAuth 2.0 with JWT (Server Authentication)** and click **Next**.
 1.  Name your app and click the **Create App** button. Once your Box app has been created, click **View Your App**.
-1.  While viewing your app, select **Application access** of **Application**. You can use your existing managed users as you continue; you are not required to create new ones.
+1.  While viewing your app, select **Application access** as **Enterprise**. You can use your existing managed users as you continue; you are not required to create new ones.
 1.  Scroll down to the **Application Scopes** section of the page and enable the following checkboxes: 
     - `Read and write all folders stored in Box`
     - `Manage Users`
+    - `Manage Enterprise Properties`
 1.  Scroll down to the **Advanced Features** section and enable the following toggles:
     - `Perform Actions as Users`
     - `Generate User Access Tokens` 
 1.  Click the **Save Changes** button.
 
+Refresh is only supported with Enterprise level access.
+{: note}
+
 The next few steps will require assistance from the Administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
 
-1.  [Administrator step] Authorize your application client id at `https://app.box.com/master/settings/openbox` by clicking the **Authorize New App** button.
+1.  [Administrator step] Authorize your application client id by navigating to **Admin console** > **Enterprise settings** > **Apps** and scrolling to `Custom applications`. Example URL:`https://app.box.com/master/settings/openbox`.
 1.  [Administrator step] Type the **client ID** from `https://app.box.com/developers/console` into the **API key** field and then click the **Authorize** button.
 1.  Return to the Box developer console `https://app.box.com/developers/console` and scroll to the **Add and Manage Public Keys** section. Click the **Generate the public/private keypair** and download your keypair file. Open the file.
 1.  From the keypair file, cut and paste the following fields into the {{site.data.keyword.discoveryshort}} tooling.
