@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-07-03"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
 
 ---
 
@@ -32,19 +32,22 @@ lastupdated: "2017-07-03"
 The data crawler lets you automate the upload of content to the {{site.data.keyword.discoveryshort}} Service.
 {: shortdesc}
 
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+{: important}
+
 ## Crawling data with the Data Crawler
 
-The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases, Microsoft SharePoint) and push them to the cloud, to be used by the {{site.data.keyword.discoveryshort}} Service.
+The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases) and push them to the cloud, to be used by the {{site.data.keyword.discoveryshort}} service.
 
-You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, and Microsoft SharePoint Online data sources. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
-{: tip}
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector for Box, SharePoint, Salesforce or web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+{: important}
 
 ## When to use the Data Crawler
 
 The Data Crawler should be used if you want to have a managed upload of a significant number of files from a remote system, or you want to extract content from a supported repository (such as a DB2 database).
 
-The Data Crawler is not intended to be a solution for uploading files from your local drive. Uploading files from a local drive should be done using the tooling or by using direct API calls.
-{: tip}
+The Data Crawler is not intended to be a solution for uploading files from your local drive. Uploading files from a local drive should be done using the tooling or by using direct API calls. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/discovery-files){: new_window} on GitHub.
+{: note}
 
 ## Using the Data Crawler
 

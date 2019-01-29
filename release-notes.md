@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-22"
+lastupdated: "2019-01-28"
 
 ---
 
@@ -51,6 +51,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 28 January 2019
+{: #28jan19}
+
+Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors. The {{site.data.keyword.discoveryshort}} connectors support crawling Box, SharePoint, Salesforce, and more. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. The Data Crawler should only be used to crawl file shares or databases, in all other cases, use the {{site.data.keyword.discoveryshort}} connector. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/discovery-files){: new_window} on GitHub.
 
 ## 22 January 2019
 {: #22jan19}

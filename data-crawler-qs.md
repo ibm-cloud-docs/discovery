@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-28"
 
 ---
 
@@ -32,10 +32,10 @@ lastupdated: "2018-07-03"
 This topic explains how to use the data crawler to ingest files from your local filesystem, to use with the {{site.data.keyword.discoveryfull}} service.
 {: shortdesc}
 
-Before attempting this task, create an instance of the {{site.data.keyword.discoveryshort}} service in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+{: important}
 
-You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
-{: tip}
+Before attempting this task, create an instance of the {{site.data.keyword.discoveryshort}} service in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
 
 ## Create an environment
 

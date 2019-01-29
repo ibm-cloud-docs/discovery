@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-28"
 
 ---
 
@@ -32,8 +32,8 @@ lastupdated: "2018-07-03"
 To set up the Data Crawler to crawl your repository, you must specify the appropriate input adapter in the `crawler.conf` file, and then configure repository-specific information in the input adapter configuration files.
 {: shortdesc}
 
-You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
-{: tip}
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+{: important}
 
 Before making the changes listed in these steps, make sure that you have created your  working directory by copying the contents of the `{installation_directory}/share/examples/config` directory to a working directory on your system, for example `/home/config`.
 
@@ -106,7 +106,6 @@ The options that can be set in this file are:
 
     **Note:** Relative to the connector framework `lib/java` directory.
 
-    -   This value must be `oakland` when using the SharePoint connector.
     -   This value must be `database` when using the Database connector.
 
     You can leave this value empty (i.e., empty string "") when using other connectors.
