@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
 
 ---
 
@@ -32,6 +32,9 @@ lastupdated: "2017-08-25"
 When crawling data, the Crawler first identifies the type of data repository (connector) and the user-specified starting location (seed) to begin downloading information.
 {: shortdesc}
 
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+{: important}
+
 **Important:** When using the Data Crawler, data repository security settings are ignored.
 
 Seeds are the starting points of a crawl, and are used by the Data Crawler to retrieve data from the resource that is identified by the connector. Typically, seeds configure URLs to access protocol-based resources such as fileshares, SMB shares, databases, and other data repositories that are accessible by various protocols. Moreover, different seed URLs have different capabilities. Seeds can also be repository-specific, to enable crawling of specific third-party applications such as customer relationship management (CRM) systems, product life cycle (PLC) systems, content management systems (CMS), cloud-based applications, and web database applications.
@@ -42,8 +45,6 @@ To crawl your data correctly, you must ensure that the Crawler is properly confi
 -   [Databases, via JDBC](/docs/services/discovery/data-crawler-seeds.html#configuring-database-crawl-options)
 -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#configuring-cmis-crawl-options)
 -   [SMB (Server Message Block), CIFS (Common Internet Filesystem), or Samba fileshares](/docs/services/discovery/data-crawler-seeds.html#configuring-smbcifssamba-crawl-options)
--   [SharePoint and SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#configuring-sharepoint-crawl-options)
--   [Box](/docs/services/discovery/data-crawler-seeds.html#configuring-box-crawl-options)
 
 A connector configuration template is also provided, which allows you to customize a connector.
 
@@ -57,8 +58,6 @@ To configure your connector do the following:
     -   [Databases, via JDBC](/docs/services/discovery/data-crawler-seeds.html#database-crawl-seed)
     -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#cmis-crawl-options)
     -   [SMB (Server Message Block), CIFS (Common Internet Filesystem), or Samba fileshares](/docs/services/discovery/data-crawler-seeds.html#smb-cifs-samba-crawl-options)
-    -   [SharePoint and SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#sharepoint-crawl-options)
-    -   [Box](/docs/services/discovery/data-crawler-seeds.html#box-crawl-options)
 1.  Save and close the file.
 1.  Repeat for the `-seed.conf` file in the `connectors/seeds` directory that corresponds to the repository you are connecting to (for example `filesystem-seed.conf` is the seed (where to connect to) configuration file for the filesystem connector) in a text editor.
 1.  Proceed to [configuring the Data Crawler to connect to {{site.data.keyword.discoveryshort}}](/docs/services/discovery/data-crawler-discovery.html).
@@ -80,6 +79,9 @@ To access the in-product manual for the connector and seed configuration files, 
 {: #filesystem-crawl-options}
 
 The filesystem connector allows you to crawl files local to the Data Crawler installation.
+
+Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/discovery-files){: new_window} on GitHub.
+{: note}
 
 ### Configuring the filesystem connector
 
@@ -178,10 +180,7 @@ Following are the basic configuration options that are required to use the CMIS 
 -   **`dns`** - Unused option.
 -   **`classname`** - Java class name for the connector. Use `plugin:cmis-v1.1.plugin@connector` for this connector.
 -   **`logging-config`** - Specifies the file used for configuring logging options; it must be formatted as a `log4j` XML string.
--   **`endpoint`** - The service endpoint URL of a CMIS-compliant repository. For example, the URL structures for SharePoint are:
-
-    -   For AtomPub binding: `http://yourserver/_vti_bin/cmis/rest?getRepositories`
-    -   For WebServices binding: `http://yourserver/_vti_bin/cmissoapwsdl.aspx`
+-   **`endpoint`** - The service endpoint URL of a CMIS-compliant repository. 
 -   **`username`** - The user name of the CMIS repository user used to access the content. This user must have access to all the target folders and documents to be crawled and indexed.
 -   **`password`** - Password of the CMIS repository used to access the content. Password must NOT be encrypted; it should be given in plain text.
 -   **`repositoryid`** - The ID of the CMIS repository used to access the content for that specific repository.
@@ -254,125 +253,3 @@ The following values can be configured for the Samba crawl seed file. To set the
 
 -   **`hops`** - Internal use only.
 -   **`default-allow`** - Internal use only.
-
-## Configuring SharePoint crawl options
-{: #sharepoint-crawl-options}
-
-**Important:** The SharePoint connector requires Microsoft SharePoint Server 2007 (MOSS 2007), SharePoint Server 2010, SharePoint Server 2013, or SharePoint Online.
-
-The SharePoint connector allows you to crawl SharePoint objects and index the information that they contain. An object such as a document, user profile, site collection, blog, list item, membership list, directory page, and more, can be indexed with its associated metadata. For list items and documents, indexes can include attachments.
-
-The SharePoint connector respects the `noindex` attribute on all SharePoint objects, regardless of their specific type (blogs, documents, user profiles, and more). A single document is returned for each result.
-{: tip}
-
-**Important:** The SharePoint account that you use to crawl your SharePoint sites must at least have full read-access privileges.
-
-### Configuring the SharePoint Connector
-
-Following are the basic configuration options that are required to use the SharePoint connector. To set these values, open the file `config/connectors/sharepoint.conf` and modify the following values specific to your use cases:
-
--   **`protocol`** - The name of the connector protocol used for the crawl. The value to use this connector is `io-sp`.
--   **`collection`** - This attribute is used to unpack temporary files.
--   **`classname`** - Java class name for the connector. Use `plugin:io-sharepoint.plugin@connector` for this connector.
--   **`logging-config`** - Specifies the file used for configuring logging options; it must be formatted as a `log4j` XML string.
--   **`seed-url-type`** - Identifies what type of SharePoint object the provided seed URLs point to: site collections or web applications (also known as virtual servers).
-
-    -   `Site Collections` - If the Seed URL Type is set to Site Collections, then only the children of the site collection referenced by the URL are crawled.
-    -   `Web Applications` - If the Seed URL Type is set to Web Applications, then all of the site collections (and their children) belonging to the web applications referenced by each URL are crawled.
--   **`auth-type`** - The authentication mechanism to use when contacting the SharePoint server: `BASIC`, `NTLM2`, `KERBEROS`, or `CBA`. The default authentication type is `NTLM2`.
--   **`spUser`** - User name of the SharePoint user used to access the content. This user must have access to all the target sites and lists to be crawled and indexed, and must be able to retrieve and resolve the associated permissions. It is better to enter it with the domain name, like: `MYDOMAIN\\Administrator`.
--   **`spPassword`** - Password of the SharePoint user used to access the content. Password must be encrypted using the vcrypt program shipped with the Data Crawler.
--   **`cba-sts`** - The URL for the Security Token Service (STS) endpoint to attempt to authenticate the crawl user against. For SharePoint on-premise with ADFS, this should be your ADFS endpoint. If the Authentication Type is set to CBA (Claims Based Authentication), then this field is required.
--   **`cba-realm`** - The relaying party trust identifier to use when requesting a security token from the STS. This is sometimes known as the "AppliesTo" value, or the "Realm". For SharePoint Online, this should be the URL to the root of the SharePoint Online instance (for example, `https://mycompany.sharepoint.com`). For ADFS, this is the ID value for the Relying Party Trust between SharePoint and ADFS (for example, `"urn:SHAREPOINT:adfs"`).
--   **`everyone-group`** - When specified, this group name is used in the ACLs when access should be given to everyone. This field is required when crawling user profiles is enabled.
-
-    **Note:** Security is not respected by the Retrieve and Rank service.
-
--   **`user-profile-master-url`** - The base URL that the connector uses to build links to user profiles. This should be configured to point to the display form for user profiles. If the token `%FIRST_SEED%` is encountered, it is replaced with the first seed URL. Required when crawling user profiles is enabled.
--   **`urls`** - Newline-separated list of HTTP URLs of SharePoint web applications or site collections to crawl.
--   **`ehcache-config`** - Unused option.
--   **`method`** - The method (`GET` or `POST`) by which parameters will be passed.
--   **`cache-types`** - Unused option.
--   **`cache-size`** - Unused option.
--   **`enable-acl`** - Enables crawling of SharePoint user profiles; values are `true` or `false`; default value is `false`.
-
-### Configuring the SharePoint Crawl Seed
-
-The following additional values can be configured for the SharePoint crawl seed file. To set these values, open the file `config/seeds/sharepoint-seed.conf` and specify the following values specific to your use cases:
-
--   **`url`** - Newline-separated list of URLs of SharePoint web applications or site collections to crawl. For example:
-
-    ```
-    io-sp://a.com
-    io-sp://b.com:83/site
-    io-sp://c.com/site2
-    ```
-    {: codeblock}
-
-    The sub-sites of these sites will also be crawled (unless they are excluded by other crawling rules).
-
--   **`filter-url`** - Newline-separated list of URLs of SharePoint web applications or site collections to crawl. For example:
-
-    ```
-    http://a.com
-    http://b.com:83/site
-    http://c.com/site2
-    ```
-    {: codeblock}
-
--   **`hops`** - Internal use only.
--   **`n-concurrent-requests`** - Internal use only.
--   **`delay`** - Internal use only.
--   **`default-allow`** - Internal use only.
--   **`seed-protocol`** - Sets the seed protocol for children of the site collection. Necessary when the site collection's protocol is SSL, HTTP, or HTTPS. This value must be set the same as the site collection's protocol.
-
-## Configuring Box crawl options
-
-The Box Connector allows you to crawl your Enterprise Box instance, and index the information it contains.
-
-### Configuring the Box Connector
-
-Following are the basic configuration options that are required to use the Box connector. To set these values, open the file `config/connectors/box.conf` and modify the following values specific to your use cases:
-
--   **`protocol`** - The name of the connector protocol used for the crawl. The value to use this connector is `box`.
--   **`classname`** - Java class name for the connector. Use `plugin:box.plugin@connector` for this connector.
--   **`logging-config`** - Specifies the file used for configuring logging options; it must be formatted as a `log4j` XML string.
--   **`box-crawl-seed-url`** - The base URL for Box. The value for this connector is `box://app.box.com/`.
-
-    You can crawl different types of URLs, for example:
-
-    -   To crawl an entire enterprise: `box://app.box.com/`
-    -   To crawl a specific Folder: `box://app.box.com/user/USER_ID/folder/FOLDER_ID/FolderName`
-    -   To crawl a specific User: `box://app.box.com/user/USER_ID/`
--   **`client-id`** - Enter the Client ID provided by Box when you created your Box application.
--   **`client-secret`** - Enter the Client secret provided by Box when you created your Box application.
--   **`path-to-private-key`** - This is the location, on your local file system, of the Private Key that is part of the private-public key pair generated for communication with Box.
--   **`kid`** - Specify the Public Key ID. This is the other half of the private-public key pair generated for communication with Box..
--   **`enterprise-id`** - The Enterprise in which your application was authorized. The Enterprise ID is listed in the main page of the Box Administrator Console.
--   **`enable-acl`** - Internal use only. Enables retrieving ACLs for crawled data.
--   **`user-agent`** - A header sent to the server when crawling documents.
--   **`method`** - The method (`GET` or `POST`) by which parameters will be passed.
--   **`url-logging`** - The extent to which crawled URLs are logged. Possible values are:
-
-    -   `full-logging` - Log all information about the URL.
-    -   `refined-logging` - Only log the information necessary to browse the crawler log and for the connector to function correctly; this is the default value.
-    -   `minimal-logging` - Only log the minimum amount of information necessary for the connector to function correctly.
-
-    Setting this option to `minimal-logging` will reduce the size of the logs and gain a slight performance increase due to the smaller I/O associated with minimizing the amount of data that is being logged.
--   **`ssl-version`** - Specifies a version of SSL to use for HTTPS connections. By default the strongest protocol available is used.
-
-### Configuring the Box Crawl Seed
-{: #box-crawl-options}
-
-The following additional values can be configured for the Box crawl seed file. To set these values, open the file `config/seeds/box-seed.conf` and specify the following values specific to your use cases:
-
--   **`url`** - The URL to be used as the starting point of the crawl. The default value is `box://app.box.com/`.
--   **`default-allow`** - Internal use only.
-
-## Limitations
-
-The Box Connector does have some limitations:
-
--   Comments or Tasks on files are not retrieved.
--   Notes content body is retrieved as JSON. Additional conversion of Notes data may be needed.
--   Individual documents cannot be retrieved via Test-It. Only seed URLs, Folder URLs, and User URLs can be retrieved via Test-It.

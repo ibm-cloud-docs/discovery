@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
 
 ---
 
@@ -31,6 +31,9 @@ lastupdated: "2017-08-18"
 
 After the crawler options have all been properly configured, you can run a crawl against your data repository.
 {: shortdesc}
+
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+{: important}
 
 Never run the crawler as `root`, unless you need access to files only `root` can read.
 {: tip}
