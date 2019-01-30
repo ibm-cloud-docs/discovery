@@ -32,14 +32,14 @@ lastupdated: "2018-09-25"
 The {{site.data.keyword.discoveryfull}} service offers three plans that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
 
-See [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) and [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} for details.
+See [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) and [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window} for details.
 
 ## Upgrading your service
 {: #service} 
 
 To resize your plan from Lite to Advanced:
 
-1. Open the [{{site.data.keyword.Bluemix_notm}} dashboard](https://console.{DomainName}/dashboard). 
+1. Open the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}/dashboard). 
 1. Click on your {{site.data.keyword.discoveryshort}} service instance to open the {{site.data.keyword.discoveryshort}} service dashboard.
 1. From the **Manage** page of your {{site.data.keyword.discoveryshort}} service, click **Upgrade** to choose the Advanced plan. This will open the **Plan** page. Follow the steps to complete your upgrade. 
 1. Return to the **Manage** page and click **Launch Tool** to open the {{site.data.keyword.discoveryshort}} tooling.
