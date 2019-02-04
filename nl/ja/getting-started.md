@@ -56,13 +56,13 @@ Cygwin などの bash シェルまたは同等の環境で、`POST /v1/environme
 1.  以下のコマンドを発行して、`my-first-environment` と呼ばれる環境を作成します。`{username}` と `{password}` は、前にコピーしたサービス資格情報に置き換えてください。
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-11-07"
+    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
     この API は、環境 ID、環境の状況、および環境で使用されているストレージの量などの情報を返します。
 
-1.  `ready` の状況が表示されるまで、環境の状況を定期的に確認します。
+1.  `Active` の状況が表示されるまで、環境の状況を定期的に確認します。
     - `GET /v1/environments/{environment_id}` メソッドへの呼び出しを発行して、環境の状況を取得します。`{username}`、`{password}`、および `{environment_id}` は、ご自身の情報に置き換えてください。
 
     ```bash
@@ -70,7 +70,7 @@ Cygwin などの bash シェルまたは同等の環境で、`POST /v1/environme
     ```
     {: pre}
 
-    コレクション作成する前に、状況が `ready` になっている必要があります。
+    コレクション作成する前に、状況が `Active` になっている必要があります。
 
 ## ステップ 2: コレクションの作成
 {: #create-a-collection}
@@ -187,7 +187,7 @@ Cygwin などの bash シェルまたは同等の環境で、`POST /v1/environme
 以下の例は、**IBM** と呼ばれるすべてのエンティティーを返します。`{username}`、`{password}`、`{environment_id}`、および `{configuration_id}` は、ご自身の情報に置き換えてください。
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}*/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 
