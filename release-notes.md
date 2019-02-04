@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-28"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -52,6 +52,18 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 4 February 2019
+{: #4feb19}
+
+Updated to general availability:
+
+-  [Smart Document Understanding (SDU)](/docs/services/discovery/sdu.html) has moved from beta status to GA status.
+   -  Table annotation remains in beta status. A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
+   -  The `Data settings` button on the upper right has been renamed `Configure data`.
+   -  Uploading a document is no longer required to access the `Configure data` (formerly `Data settings`) button.
+
+The beta of SDU was announced [January 22, 2019](/docs/services/discovery/release-notes.html#22jan19).   
+    
 ## 28 January 2019
 {: #28jan19}
 
