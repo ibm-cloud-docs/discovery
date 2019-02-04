@@ -211,6 +211,6 @@ Used to return all results that do not include the specified `field`.
 
 For example:
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

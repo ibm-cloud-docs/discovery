@@ -30,7 +30,7 @@ lastupdated: "2017-11-30"
 
 <!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
 
-サービス・インスタンスは作成済みです。**「管理 (Manage)」**をクリックし、次に**「ツールの起動 (Launch Tool)」**をクリックします。[ステップ 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection) に進みます。
+サービス・インスタンスは作成済みです。**「管理 (Manage)」**をクリックし、次に**「ツールの起動 (Launch Tool)」**をクリックします。[ステップ 2](/docs/services/discovery/getting-started-tool.html#create-a-collection) に進みます。
 {: download tip}
 
 {{site.data.keyword.discoveryshort}} サービスでプロジェクトを作成した場合、これらの前提条件はすべて設定されています。[ステップ 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling) に進んでください。

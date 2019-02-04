@@ -97,7 +97,7 @@ With query logs you can investigate the type of results returned to your end use
 - relevancy training, see [Improving result relevance with the API](/docs/services/discovery/train.html) and [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html)
 - [query operators](/docs/services/discovery/query-operators.html)
 - [query expansion](/docs/services/discovery/using.html#query-expansion)
-- custom configurations, see the [Configuration reference](/docs/services/discovery/custom-config.html)
+- custom configurations, see the [Configuration reference](/docs/services/discovery/custom-config.html#configref)
 
 ## Creating event logs
 {: #eventlogs}

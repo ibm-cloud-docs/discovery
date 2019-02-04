@@ -51,7 +51,7 @@ The Data Crawler is not intended to be a solution for uploading files from your 
 
 ## Using the Data Crawler
 
-1. [Configure the {{site.data.keyword.discoveryshort}} service](/docs/services/discovery/building.html#configuring-your-service)
+1. [Configure the {{site.data.keyword.discoveryshort}} service](/docs/services/discovery/building.html#configservice)
 1. [Download and install the Data Crawler](/docs/services/discovery/data-crawler-install.html) on a supported Linux system that has access to the content that you want to crawl.
 1. [Connect the Data Crawler](/docs/services/discovery/data-crawler-seeds.html) to your content.
 1. [Configure the Data Crawler](/docs/services/discovery/data-crawler-discovery.html) to connect to the {{site.data.keyword.discoveryshort}} Service.

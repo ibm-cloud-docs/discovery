@@ -28,13 +28,14 @@ lastupdated: "2019-01-22"
 {:go: .ph data-hd-programlang='go'}
 
 # Configuring your service
+{: #configservice}
 
 Building a {{site.data.keyword.discoveryshort}} service will make it possible to gain useful insights by enriching your own data and then delivering it in a query-able form.
 {: shortdesc}
 
 Before you add your own content to the {{site.data.keyword.discoveryshort}} service, you should configure the service to process the content the way that you want.
 
-The first step is to configure the basic parameters of the service ([Preparing the service for your documents](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)), this includes creating an environment and creating one or more collections within that environment. When a collection is created, a set of defaults ([The default configuration](/docs/services/discovery/building.html#the-default-configuration)) are automatically provided. If you are happy with these defaults, you can proceed to uploading your content ([Adding content](/docs/services/discovery/adding-content.html)).
+The first step is to configure the basic parameters of the service ([Preparing the service for your documents](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)), this includes creating an environment and creating one or more collections within that environment. When a collection is created, a set of defaults ([The default configuration](/docs/services/discovery/building.html#the-default-configuration)) are automatically provided. If you are happy with these defaults, you can proceed to uploading your content ([Adding content](/docs/services/discovery/adding-content.html#addcontent)).
 
 However, you will most likely want to specify one or more custom configurations (see [When you need a custom configuration](/docs/services/discovery/building.html#when-you-need-a-custom-configuration)). If this is the case, you will need to do the following:
 
@@ -44,7 +45,7 @@ However, you will most likely want to specify one or more custom configurations 
 -   define enrichments ([Adding enrichments](/docs/services/discovery/building.html#adding-enrichments))
 -   normalize the results ([Normalizing data](/docs/services/discovery/building.html#normalizing-data))
 
-    After you have created your custom configuration, you can upload your documents ([Adding content](/docs/services/discovery/adding-content.html)).
+    After you have created your custom configuration, you can upload your documents ([Adding content](/docs/services/discovery/adding-content.html#addcontent)).
 
 ## Preparing the service for your documents
 {: #preparing-the-service-for-your-documents}
@@ -69,7 +70,7 @@ To create an environment and private data collection with the {{site.data.keywor
 
      You can select the language of the documents you will add to this collection: English, German, Spanish, Arabic, Japanese, French, Italian, Korean, or Brazilian Portuguese. There should be only one language in each of your collections. After you click **Create**, your data collection will appear as a tile.
 
-Your environment and data collection are ready! You can start [Adding content](/docs/services/discovery/adding-content.html) immediately. 
+Your environment and data collection are ready! You can start [Adding content](/docs/services/discovery/adding-content.html#addcontent) immediately. 
 
 However, if you want to customize your {{site.data.keyword.discoveryshort}} configuration with additional enrichments and conversion settings, you should not begin adding documents right now, you should start creating your custom configuration file. See [Configuring your service](/docs/services/discovery/building.html#custom-configuration).
 
@@ -133,7 +134,7 @@ The three steps of customizing a configuration file are: **Convert**, **Enrich**
 1.  [Adding enrichments] (/docs/services/discovery/building.html#adding-enrichments) (This tab is available when using Smart Document Configuration.)
 1.  [Normalizing data](/docs/services/discovery/building.html#normalizing-data)
 
-For detailed information about configurations, see the [Configuration reference](/docs/services/discovery/custom-config.html).
+For detailed information about configurations, see the [Configuration reference](/docs/services/discovery/custom-config.html#configref).
 
 ### Uploading sample documents
 {: #uploading-sample-documents}
@@ -462,7 +463,7 @@ The `relevance` score ranges from `0.0` to `1.0`. The higher the score, the more
 
 ### Category classification
 
-Categorizes input text, HTML, or web-based content into a hierarchical taxonomy up to five levels deep. Deeper levels allow you to classify content into more accurate and useful subsegments. View the complete list of categories [here](/docs/services/discovery/categories.html).
+Categorizes input text, HTML, or web-based content into a hierarchical taxonomy up to five levels deep. Deeper levels allow you to classify content into more accurate and useful subsegments. View the complete list of categories [here](/docs/services/discovery/categories.html#cathierarchy).
 
 Example portion of a document enriched with Category Classification:
 

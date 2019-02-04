@@ -28,6 +28,7 @@ lastupdated: "2019-01-24"
 {:go: .ph data-hd-programlang='go'}
 
 # Adding content
+{: #addcontent}
 
 How do I decide which document upload method to use?
 {: shortdesc}

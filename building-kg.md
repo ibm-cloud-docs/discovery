@@ -28,6 +28,7 @@ lastupdated: "2018-06-09"
 {:go: .ph data-hd-programlang='go'}
 
 # Watson Discovery Knowledge Graph
+{: #kg}
 
 Knowledge graphs go beyond just data and information by making connections within your data across documents and generating new knowledge. We provide the AI technology that automatically creates custom knowledge graphs from unstructured data by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and ranking the results using relevance algorithms. Knowledge Graphs can function as the "knowledge hub" for your company and can be used for enterprise search, summarization, recommendation engines, other decision making processes - for example, detecting fraud, waste, or abuse. The use of a custom model (created in {{site.data.keyword.knowledgestudioshort}}) in the Knowledge Graph creation process, can help build domain specific KGs with applicability in domains such as financial, technology, security, intelligence, healthcare and many others. See [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html) for more information about integrating {{site.data.keyword.discoveryshort}} with {{site.data.keyword.knowledgestudioshort}}.
 
@@ -98,7 +99,7 @@ Create a custom configuration as follows, after creating a {{site.data.keyword.d
 
    You will need the `{environment_id}` that is returned; make sure to save that ID for later use.
 
-1. Next, create the custom configuration. This procedure assumes that you are uploading the one found [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json). If you want to build your own custom configuration, see the [configuration reference](/docs/services/discovery/custom-config.html).
+1. Next, create the custom configuration. This procedure assumes that you are uploading the one found [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json). If you want to build your own custom configuration, see the [configuration reference](/docs/services/discovery/custom-config.html#configref).
 
    ```bash
    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
