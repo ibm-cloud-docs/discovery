@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-25"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -31,9 +31,6 @@ lastupdated: "2019-01-25"
 # Smart Document Understanding
 {: #sdu}
 
-Smart Document Understanding is in beta release. A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
-{: important}
-
 Smart Document Understanding (SDU) is a new way to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. Customizing how your documents are indexed into {{site.data.keyword.discoveryshort}} will improve the answers returned by your application.
 
 With SDU, you annotate fields within your documents to train custom conversion models. As you annotate, Watson is learning and will start predicting annotations. SDU models can be exported and used on other collections. 
@@ -49,12 +46,12 @@ Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is ext
 
 JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
 
-Supported browsers for the beta release: Chrome and Firefox
+Supported browsers: Chrome and Firefox.
 
 ## Using the Smart Document Understanding editor
 {: #annotate}
 
-The beta SDU editor is only available for new collections that contain supported document types and do not have the Element Classification enrichment applied. Existing Private collections will use the original configuration method. If you would like to use the SDU editor on an existing collection, you will need to create a new collection and upload those documents to it. If you do not want to use the SDU editor, you can set up your configuration using the API, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+The SDU editor is only available for new collections that contain supported document types and do not have the Element Classification enrichment applied. Existing Private collections will use the original configuration method. If you would like to use the SDU editor on an existing collection, you will need to create a new collection and upload those documents to it. If you do not want to use the SDU editor, you can set up your configuration using the API, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
 {: important}
 
 The SDU editor functions are only available in the {{site.data.keyword.discoveryshort}} tooling, they are not available in the API.
@@ -65,18 +62,20 @@ Navigating the Smart Document Understanding editor:
 If you have not yet created a {{site.data.keyword.discoveryshort}} instance and environment, see [Getting started](/docs/services/discovery/getting-started-tool.html#getting-started) for instructions.
 {: tip}
 
-1. On the **Manage Data** screen, click the **Upload your own data** button and create a new Private collection in {{site.data.keyword.discoveryshort}} and upload at least one document.
-After the upload is complete, this information displays:
+1. On the **Manage Data** screen, click the **Upload your own data** button and create a new Private collection in {{site.data.keyword.discoveryshort}}.
+1. If you wish, drag and drop documents into your collection, or click **browse from computer** to upload documents. After the upload is complete, this information displays:
    -  The fields identified from your documents.
    -  Enrichments applied to your documents. The Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging enrichments are automatically applied to the `text` field by {{site.data.keyword.discoveryshort}} (unless you are importing documents using a connector). You can add (or remove) additional enrichments to the `text` field.
    -  Pre-built queries you can run immediately.
-   If you wish, you can click the **Upload documents** button to upload additional documents.
-1. Click **Data Settings** on the upper right. 
-1. On the **Data Settings** screen, there will be three tabs: **Identify fields**, **Manage fields**, and **Enrich fields**.
+1. Click **Configure data** on the upper right. 
+1. On the **Configure data** screen, there will be three tabs: **Identify fields**, **Manage fields**, and **Enrich fields**.
 
    - **Identify fields** contains the SDU editor. This tab replaces both the **Convert** and **Normalize** tabs on the original {{site.data.keyword.discoveryshort}} screen. 
    - **Manage fields** lists all indexed fields (all fields are indexed by default). Switch off any fields you do not want to index. For example, your PDFs may contain a running header or footer that does not contain useful information, so you can exclude those fields from the index. You can also split documents here, based on fields, see [Splitting documents](/docs/services/discovery/sdu.html#splitting).
    - **Enrich fields** is identical to the **Enrich** tab on the original screen. For more information about enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments). The **Upload sample documents** option is not available with SDU collections.
+
+   If you did not upload any documents earlier, return to the **Overview** screen by clicking the name of your collection in the upper left, or click the ![Manage Data](/images/icon_yourData.png) icon and choose your collection. Drag and drop documents into your collection, or click **browse from computer**. After you have done an initial upload, the **Upload documents** button will appear on the upper right.
+   {: important}
 
    When using Smart Document Understanding, only the `text` field can be enriched. Do not attempt to enrich any other field.
    {: important}
@@ -98,7 +97,7 @@ You can also crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft S
 
 See [Best practices for annotating documents and tables](/docs/services/discovery/sdu.html#bestpractices) before you begin annotating.
 
-1. A default set of fields will appear to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`. If you would like to create one or more new custom field labels, click **Create new**. You are limited to the following number of custom labels: Lite plans - `0`, Advanced plans - `5`, Premium plans - `100`.
+1. A default set of fields will appear to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`. If you would like to create one or more new custom field labels, click **Create new**. You are limited to the following number of custom labels: Lite plans - `0`, Advanced plans - `5`, Premium plans - `20`.
 1. Click on a field label on the right to activate it.
 1. Click on the content representing that field in the SDU editor. It will highlight. 
    - Alternately, you can select a field label on the right, and drag it to the content in the SDU editor. 
@@ -121,6 +120,9 @@ title | The main title of the document being annotated. Use this label only once
 
 ## How to annotate a table
 {: #tables}
+
+Table annotation is in beta release. A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
+{: important}
 
 See [Best practices for annotating documents and tables](/docs/services/discovery/sdu.html#bestpractices) before you begin annotating.
 
@@ -153,7 +155,7 @@ multi-row header | Any row label that spans more than one row
 ## Splitting documents
 {: #splitting}
 
-The **Manage fields** tab contains the beta option to **Improve query results by splitting your documents**. This option allows you to split your documents into segments based on a field name. Once split, each segment is a separate document that will be enriched, indexed, and returned as a separate query result. 
+The **Manage fields** tab contains the option to **Improve query results by splitting your documents**. This option allows you to split your documents into segments based on a field name. Once split, each segment is a separate document that will be enriched, indexed, and returned as a separate query result. 
 
 Documents are split based on a single field name, for example: `title`, `author`, `question`. 
 
@@ -180,6 +182,9 @@ An imported model is intended to be used without any further annotations. The mo
 
 ## Best practices for annotating documents and tables
 {: #bestpractices}
+
+Table annotation is in beta release. A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
+{: important}
 
 - Follow all guidelines and use consistent labeling on all documents
 - Do not label whitespace

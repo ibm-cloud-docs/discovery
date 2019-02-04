@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-29"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -65,7 +65,7 @@ The following general requirements apply to all data sources:
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring a source using the {{site.data.keyword.discoveryshort}} tooling.
 -  Crawling a data source will use resources (API calls) of the data source. The number of calls depends on the number of documents crawled. An appropriate level of service (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
--  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other types of document are ignored:
+-  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html). For supported document types for Smart Document Understanding, see [Supported document types and browsers](/docs/services/discovery/sdu.html#doctypes).) :
    -  Microsoft Word
    -  PDF
    -  HTML
