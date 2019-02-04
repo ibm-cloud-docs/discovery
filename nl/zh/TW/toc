@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" audience="service" href="/docs/services/discovery/index.html"}
+{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/getting-started-tool.html" path="services/discovery"}
 Discovery
 
     {: .navgroup id="learn"}

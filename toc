@@ -89,6 +89,7 @@ Discovery
     custom-config.md
     language-support.md
     information-security.md
+    recovery.md
     qp.md
     additional-resources.md
     discovery-auxiliary.md

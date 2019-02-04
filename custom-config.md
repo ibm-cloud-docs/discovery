@@ -28,6 +28,7 @@ lastupdated: "2019-01-22"
 {:go: .ph data-hd-programlang='go'}
 
 # Configuration reference
+{: #configref}
 
 You can create your own {{site.data.keyword.discoveryshort}} ingestion configuration in JSON if your data has special [conversion](#conversion), [enrichment](#enrichment), or [normalization](#normalization) needs.
 {: shortdesc}

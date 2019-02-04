@@ -326,7 +326,7 @@ Known issue:
 ## 8 March 2018
 {: #8mar}
 
-- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all **Dedicated** environments. The new features are:
+- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/services/discovery/building-kg.html#kg) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all **Dedicated** environments. The new features are:
   - [Entity similarity](/docs/services/discovery/building-kg.html#similarity)
   - [Evidence](/docs/services/discovery/building-kg.html#evidence)
   - [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization)
@@ -396,7 +396,7 @@ Known issue:
 
 ## 30 November 2017
 
-- Released the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph, which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. This beta feature is available to **Advanced** plan users only. It is not available on **Dedicated** environments. [Resolved](/docs/services/discovery/release-notes.html#8mar) See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) for more information.  A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
+- Released the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph, which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. This beta feature is available to **Advanced** plan users only. It is not available on **Dedicated** environments. [Resolved](/docs/services/discovery/release-notes.html#8mar) See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html#kg) for more information.  A statement explaining beta features can be found [here](/docs/services/discovery/release-notes.html#beta-features).
   - Known issue in {{site.data.keyword.discoveryfull}} Knowledge Graph: All entity type names and relation type names are converted to uppercase during ingestion. For example, the entity "GeoPoliticalEntity" is converted to "GEOPOLITICALENTITY," and the relation "partOf" is converted to "PARTOF." [Resolved](/docs/services/discovery/release-notes.html#5mar)
 - Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} [Resolved](/docs/services/discovery/release-notes.html#26jan). {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
 - Query results return a `score` value, which indicates the relative relevancy between query results. Starting 30 November 2017, the way that `score` is calculated changed. The `score` value should only be used to rank documents in a single search, not across searches or sessions. If you have trained a collection, a `score` value is returned in the results of a natural language query. Since the `score` indicates the relative relevancy between query results, it should not be used as a threshold. Instead, use the `confidence`, which indicates the relevance of the result as compared to the trained model, to set thresholds. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for more information on setting thresholds.
@@ -788,7 +788,7 @@ The following notes describe issues that were identified after the GA release on
 The following notes apply to the General Availability (GA) release of the {{site.data.keyword.discoveryfull}} service.
 
 #### General notes
-[Update: Adding content](/docs/services/discovery/adding-content.html)
+[Update: Adding content](/docs/services/discovery/adding-content.html#addcontent)
 
 See [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window} for current API version.
 
@@ -844,7 +844,7 @@ See [API reference ![External link icon](../../icons/launch-glyph.svg "External 
 
 [Update: Enrichments](/docs/services/discovery/building.html#adding-enrichments)
 
-[Update: Adding content](/docs/services/discovery/adding-content.html)
+[Update: Adding content](/docs/services/discovery/adding-content.html#addcontent)
 
 -   You cannot delete a document by using the tooling. If you need to delete a document, you must use the API's [Delete a document](https://{DomainName}/apidocs/discovery#delete-a-document) method as described in the API reference.
 
