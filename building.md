@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-22"
+lastupdated: "2019-02-06"
 
 ---
 
@@ -35,9 +35,9 @@ Building a {{site.data.keyword.discoveryshort}} service will make it possible to
 
 Before you add your own content to the {{site.data.keyword.discoveryshort}} service, you should configure the service to process the content the way that you want.
 
-The first step is to configure the basic parameters of the service ([Preparing the service for your documents](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)), this includes creating an environment and creating one or more collections within that environment. When a collection is created, a set of defaults ([The default configuration](/docs/services/discovery/building.html#the-default-configuration)) are automatically provided. If you are happy with these defaults, you can proceed to uploading your content ([Adding content](/docs/services/discovery/adding-content.html#addcontent)).
+The first step is to configure the basic parameters of the service ([Preparing the service for your documents](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)), this includes creating an environment and creating one or more collections within that environment. 
 
-However, you will most likely want to specify one or more custom configurations (see [When you need a custom configuration](/docs/services/discovery/building.html#when-you-need-a-custom-configuration)). If this is the case, you will need to do the following:
+If your collection was created before the introduction of [Smart Document Understanding](/docs/services/discovery/sdu.html), you may want to specify one or more custom configurations (see [When you need a custom configuration](/docs/services/discovery/building.html#when-you-need-a-custom-configuration)). If this is the case, you will need to do the following:
 
 -   identify some sample content (documents that are representative of your files)
 -   upload the content ([Uploading sample documents](/docs/services/discovery/building.html#uploading-sample-documents))
@@ -88,7 +88,7 @@ You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box
 
 The {{site.data.keyword.discoveryshort}} service includes a standard configuration that will convert, enrich and normalize your data without requiring you to manually configure these options.
 
-The **Default Configuration** file is only available in collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html). However, when using Smart Document Understanding the same enrichments, and HTML and JSON conversions will be used by default in your collections.
+The **Default Configuration** file is only available in collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html). However, when using Smart Document Understanding the same enrichments, and HTML and JSON conversions, will be used by default in your collections.
 {: note}
 
 When you create a collection, {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the `text` field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)). Standard document conversions based on font styles and sizes will also be applied. You can adjust the enrichments later, using the **Overview** tab. (This configuration is named **Default Configuration** in collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-22"
+lastupdated: "2019-02-06"
 
 ---
 
@@ -74,73 +74,66 @@ A collection is a set of your documents. *Why would I want more than one collect
 The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready to query, and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
 
 1.  Click ![Environment details](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
-1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection. 
+1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection **WEXinstall**.
 
-    {{site.data.keyword.discoveryshort}} will enrich (add cognitive metadata to) the `text` field of your documents with semantic information collected by four {{site.data.keyword.watson}} Enrichments — Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging (learn more about them [here](/docs/services/discovery/building.html#adding-enrichments)). Standard document conversions based on font styles and sizes will also be applied. You can adjust the enrichments later, using the **Overview** tab. (This configuration is named **Default Configuration** in collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)
-
-    There is a configuration file available named **Default Contract Configuration** that supports Element Classification, which can be used to extract party, nature, and category from elements in PDFs. Choose it only if you wish to use this enrichment. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details.
+    When creating a collection, under **Advanced**, you have the option to choose a configuration file named **Default Contract Configuration**. This configuration supports only the Element Classification enrichment, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details. Do not choose this option for this tutorial.
 
 You can also crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
 {: tip}
 
-## Step 3: Create a custom configuration
+## Step 3: Download the sample document and upload to your collection
 {: create-custom-configuration}
 
-After your collection is created, you could immediately start uploading content using the upload area, but we want to create and test a custom configuration.
+1.  Download this sample PDF document: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/watsonexplorerinstall.pdf" download>Watson Explorer Installation Guide <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. See [Supported document types](/docs/services/discovery/sdu.html#doctypes) for the full list of document types supported in {{site.data.keyword.discoveryshort}}. 
 
-1.  Click **Switch** next to the collection name and choose **Create a new configuration**. Name your configuration and click **Create**.
-1.  After you create your configuration, you can customize it:
-    1.  Download the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> sample document.
-    1.  Use the **Upload Sample Documents** panel to upload the sample document. After it uploads, you can click the document name link to view the transformation.
-1.  Now it's time to adjust the configuration. For this task, you change the enrichments that are applied to each document:
-    1.  Click on the **Enrich** section of the configuration. Look at the generated JSON to the right of the screen. Scroll down to the *enriched_text* section and notice that it contains many *concepts*.
-    1.  Next, remove the text enrichment named *concepts* by clicking the **X** next to it and then click **Apply & Save**.
-    1.  Finally, look at the JSON again. Notice how the output has changed and no longer includes *concepts*.
+    In some browsers, the link open in a new window instead of saving locally. If this occurs, select `Save As` in your browser's `File` menu to save a copy of the file.
+    {: tip}
 
-## Step 4: Upload your documents
+1.  Upload the document to your collection. Either drag and drop it into your collection, or click **browse from computer** to upload documents. After the upload is complete, the following information displays:
+    -  The number of documents (1).
+    -  The fields identified from your document. You should see one field identified, `text`. We will identify additional fields in a bit.
+    -  Enrichments applied to your document. The Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging enrichments are automatically applied to the `text` field by {{site.data.keyword.discoveryshort}}. Learn more about enrichments [here](/docs/services/discovery/building.html#adding-enrichments)). 
+    -  Pre-built queries you can run immediately.
+1.  Let's try a quick Natural Language Query to level set. Click **Build your own query** on the lower right.
+1.  On the **Build queries** screen, click on **Search for documents**, then **Use natural language**. Enter `What are the minimum hardware requirements` and click the **Run query** button. Click the **JSON** tab on the right. The result is not as precise as it could be, so let's improve it with Smart Document Understanding.
+1.  Click on the name of the collection (**WEXinstall**) on the upper left to return to the **Overview** screen.  
+ 
+## Step 4: Annotate your document
 {: #upload-your-documents}
 
-When you're happy with the custom conversion of your sample document it's time to ingest the real content into your collection.
+For more information about annotating documents, see [Smart Document Understanding](/docs/services/discovery/sdu.html).
+{: tip}
 
-1.  Download these three sample documents: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
-1.  Click ![File icon](images/icon_yourData.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and select your collection.
-1.  Make sure the custom configuration you created is listed under **Configuration**. If it isn't, click **Switch** next to the configuration name and select it.
-1.  Click the **Upload documents** button and start uploading the four sample documents: test-doc1.html, test-doc2.html, test-doc3.html, test-doc4.html.
-1.  Wait for the documents to upload. The status of your documents display in the **Overview** section.
+1.  Click **Configure data** on the upper right. 
+1.  On the **Configure data** screen, there will be three tabs: **Identify fields**, **Manage fields**, and **Enrich fields**.
+1.  The `Watson Explorer Installation Guide` is displayed and ready for annotation on the **Identify fields** tab. All available fields (`answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`) are displayed in the **Field labels** list on the right. If you purchase an Advanced or Premium plan you can create your own custom labels.
 
-## Step 5: Build a query
+    Since the entire document is currently identified as `text`, the  markers on the right side are entirely in yellow. As you annotate (and the system starts predicting), the colors update.
+    {: tip}
+
+1.  Click on `title`, then select the marker next to `Installation and Integration Guide`. Click the **Submit page** button.
+1.  In the page preview on the left, click on page 3. Note that the `title` has already been predicted for this page. Click the **Submit page** button.
+1.  On page 4, select the `footer` label and select the marker next to the footer. Click the **Submit page** button.
+1.  On pages 5 and 6, annotate the footers with the `footer` label. Submit each page. Click through a few more pages; you will note that the footer was predicted properly by {{site.data.keyword.discoveryshort}}. Annotate the `title`s (flush left) and `subtitle`s (indented) on pages 7, 9, and 10 and submit each page individually.
+1.  Click through a few more pages and check the predicted titles and subtitles. If any need to be changed, annotate those pages and click the **Submit page** button.
+1.  Now click on the **Manage fields** tab and under **Improve query results by splitting your documents** split the document based on `subtitle`. 
+1.  That should be enough annotating for now. Click the **Apply changes to collection** button on the top right. An **Upload your documents** dialog box appears. Browse to the original `watsonexplorerinstall.pdf` file and upload it. This applies all the annotations to your index. After it finishes indexing, the **Overview** screen opens. You should now see 30+ documents, and 4 fields identified from your data: `footer`, `subtitle`, `text`, and `title`. 
+
+    You can exclude fields (such as `footer`) from being indexed by opening the **Manage fields** tab and toggling that field `off`.
+    {: tip}
+
+## Step 5: Let's query
 {: #build-a-query}
 
-1.  Click ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select your collection and click **Get started**.
-1.  On the **Build queries** screen, click **Search for documents**, then **Use the {{site.data.keyword.discoveryshort}} Query Language**:
-    - To search for results with entities named "IBM":
-        1.  Click **Field** and select `enriched_text.entities.text`. Select `contains` for **Operator** and `IBM` for **Value**. The query `enriched_text.entities.text:IBM` is displayed in **Visual Query Builder**.
-        1.  Click **Run Query**. The query returns 4 results.
-    - To search for results with entities named "Watson":
-        1.  Click **Field** and select `enriched_text.entities.text`. Select `contains` for  **Operator** and `watson` for **Value**. The query `enriched_text.entities.text:watson` is displayed in **Visual Query Builder**.
-        1.  Click **Run Query**. The query returns 2 results.
-    - To search for results with both entities named "Watson" and "Slack":
-        1.  Click **Field** and select `enriched_text.entities.text`. Select `contains` for **Operator** and `watson` for **Value**. Click **Add rule**, then repeat your selections, but choose the **Value** of `Slack`. The query `enriched_text.entities.text:watson,enriched_text.entities.text:Slack` is displayed in **Visual Query Builder**.
-        1.  Click **Run Query**. The query returns 1 result.
+1.  Click **Build your own query** on the bottom right.
+1.  On the **Build queries** screen, click on **Search for documents**, then **Use natural language**. Enter `What are the minimum hardware requirements` and click the **Run query** button. 
+1.  Click the **JSON** tab on the right. Look at the `text` under `results`. The answers returned for the query are much more precise.
 
-    Click **Edit in query language** to build queries using the {{site.data.keyword.discoveryshort}} Query Language. To learn more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query reference](/docs/services/discovery/query-reference.html) and [Query concepts](/docs/services/discovery/using.html).
-1.  The results of your query are displayed in the **Results** section:
-    - The **Summary** tab provides an overview of the query results,
-    - The **JSON** tab displays the full JSON results.
-
-    For the queries listed, the **Summary**  displays the document passages (in order of relevance) first, followed by the names of the documents found, then the results by enrichment. **Passages** are short, relevant excerpts extracted from the full documents returned by your query.
-
-    The **Query URL** link provided under both the **JSON** and **Summary** tabs is ready-to-use in your application.
-
-    You can also click **Use natural language** and write a natural language query, such as "IBM Watson partnerships". To learn more about natural language queries, see [Natural language query](/docs/services/discovery/query-parameters.html#nlq).
-
-    Watson can be trained to improve the results of natural language queries, see [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html).
-
-    Additional resources:
-    - To learn more about the data schema of your documents, click the **View Data Schema** icon or click on the **JSON** tab. See [The Discovery data schema](/docs/services/discovery/using.html#discovery-schema) for details.
-    - If editing in the {{site.data.keyword.discoveryshort}} Query Language, click the **Use a sample query** for example queries.
+Additional resources:
+-  To learn more about the data schema of your documents, click the **View Data Schema** icon on the far left or click on the **JSON** tab. See the [Discovery data schema](/docs/services/discovery/using.html#discovery-schema) for details.
+-  Click the **Use a sample query** button to try out example queries written in the {{site.data.keyword.discoveryshort}} Query Language.
 
 ## Next steps
 {: #next-steps}
 
-Now you have a functioning and populated {{site.data.keyword.discoveryshort}} service instance. You can now begin customizing your collection by adding more documents and enrichments, customizing conversion settings, or using [Smart Document Understanding](/docs/services/discovery/sdu.html).
+Now you have a functioning and populated {{site.data.keyword.discoveryshort}} service instance. You can now begin customizing your collection by adding more documents and enrichments, and annotating additional documents. See [Smart Document Understanding](/docs/services/discovery/sdu.html) for more information.
