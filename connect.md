@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-08"
 
 ---
 
@@ -203,23 +203,7 @@ Other items to note when crawling Microsoft SharePoint Online:
 
 This beta feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
 
--  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. Sync schedule:
-    -  Every five minutes: runs every five minutes
-    -  Hourly: runs every hour
-    -  Daily: runs every day between the hours of 00:00 and 06:00 in the specified time zone
-    -  Weekly: runs every week on Sunday between hours of 00:00 and 06:00 in the specified time zone
-    -  Monthly: runs every month on the first Sunday of the month between the hours of 00:00 and 06:00 in the specified time zone
-    
-    Example crawl status:
-    
-    ```json
-    "crawl_status" : {
-    "source_crawl" : {
-      "status" : "completed",
-      "next_crawl" : "2019-02-10T05:00:00-05:00"
-    }
-    ```
-    
+-  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
 -  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/services/discovery/language-support.html#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
 -  `URL group to sync` - Enter your URL and click the plus sign to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). 
 
@@ -271,7 +255,22 @@ Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooli
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
 2.  Select the data source that you want to connect to. If you have selected an on-premise data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery/connect.html#gateway) for more information. 
 3.  Enter your source credentials and click connect. Your source credentials must be obtained from your source system administrator.
-4.  Choose which data you want to the crawl and how often you want to sync it.
+4.  Choose which data you want to the crawl and how often you want to sync it. Sync options:
+    -  Every five minutes: runs every five minutes
+    -  Hourly: runs every hour
+    -  Daily: runs every day between the hours of 00:00 and 06:00 in the specified time zone
+    -  Weekly: runs every week on Sunday between hours of 00:00 and 06:00 in the specified time zone
+    -  Monthly: runs every month on the first Sunday of the month between the hours of 00:00 and 06:00 in the specified time zone
+    
+    Example crawl status:
+    
+    ```json
+    "crawl_status" : {
+    "source_crawl" : {
+      "status" : "completed",
+      "next_crawl" : "2019-02-10T05:00:00-05:00"
+    }
+    ```
 5.  Click **Save & Sync objects** to start crawling your data source. You are then redirected to the collection status screen which updates as documents are added to the collection.
 
 The crawl will sync the data initially and then on frequency that you specified.
