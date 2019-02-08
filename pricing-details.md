@@ -56,6 +56,8 @@ One Watson Knowledge Studio model included. Additional models: Not available<br>
 
 For information about upgrading from Lite to Advanced, see [Upgrading your service](/docs/services/discovery/upgrading.html#service)
 
+For query performance information, see [Query performance](/docs/services/discovery/qp.html#qp). Queries are limited based on plan. Estimated Average Query rates per **Lite** plan: 1 QPS for reranked queries with two top-level text fields.
+
 ## Advanced
 {: #advanced}
 
@@ -65,7 +67,7 @@ When choosing an Advanced Plan size, note that resources are required for both d
 -  You anticipate a large number of concurrent users
 -  Complex query needs 
 
-For additional details on factors that influence query performance, see [Query performance](/docs/services/discovery/qp.html).
+For additional details on factors that influence query performance, see [Query performance](/docs/services/discovery/qp.html). Queries are limited based on plan. Estimated Average Query rates per **Advanced** (S, MS) plans: 10 QPS for reranked queries with two top-level text fields.
 
 Size | Doc Storage Limit | Number of Docs\* | Price 
 ------ | ------ | ------ | ------ 

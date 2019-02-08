@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-06"
+lastupdated: "2019-02-08"
 
 ---
 
@@ -74,7 +74,7 @@ A collection is a set of your documents. *Why would I want more than one collect
 The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready to query, and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
 
 1.  Click ![Environment details](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and choose **Create environment**.
-1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection **WEXinstall**.
+1.  When your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**. Name your collection **InstallDocs**.
 
     When creating a collection, under **Advanced**, you have the option to choose a configuration file named **Default Contract Configuration**. This configuration supports only the Element Classification enrichment, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/services/discovery/element-classification.html#element-collection) for details. Do not choose this option for this tutorial.
 
@@ -96,7 +96,7 @@ You can also crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft S
     -  Pre-built queries you can run immediately.
 1.  Let's try a quick Natural Language Query to level set. Click **Build your own query** on the lower right.
 1.  On the **Build queries** screen, click on **Search for documents**, then **Use natural language**. Enter `What are the minimum hardware requirements` and click the **Run query** button. Click the **JSON** tab on the right. The result is not as precise as it could be, so let's improve it with Smart Document Understanding.
-1.  Click on the name of the collection (**WEXinstall**) on the upper left to return to the **Overview** screen.  
+1.  Click on the name of the collection (**InstallDocs**) on the upper left to return to the **Overview** screen.  
  
 ## Step 4: Annotate your document
 {: #upload-your-documents}
@@ -117,7 +117,7 @@ For more information about annotating documents, see [Smart Document Understandi
 1.  On pages 5 and 6, annotate the footers with the `footer` label. Submit each page. Click through a few more pages; you will note that the footer was predicted properly by {{site.data.keyword.discoveryshort}}. Annotate the `title`s (flush left) and `subtitle`s (indented) on pages 7, 9, and 10 and submit each page individually.
 1.  Click through a few more pages and check the predicted titles and subtitles. If any need to be changed, annotate those pages and click the **Submit page** button.
 1.  Now click on the **Manage fields** tab and under **Improve query results by splitting your documents** split the document based on `subtitle`. 
-1.  That should be enough annotating for now. Click the **Apply changes to collection** button on the top right. An **Upload your documents** dialog box appears. Browse to the original `watsonexplorerinstall.pdf` file and upload it. This applies all the annotations to your index. After it finishes indexing, the **Overview** screen opens. You should now see 30+ documents, and 4 fields identified from your data: `footer`, `subtitle`, `text`, and `title`. 
+1.  That should be enough annotating for now. Click the **Apply changes to collection** button on the top right. An **Upload your documents** dialog box appears. Browse to the original `watsonexplorerinstall.pdf` file and upload it. This applies all the annotations to your index. After it finishes indexing, the **Overview** screen opens. You should now see 30+ documents, and 4 fields identified from your data: `footer`, `subtitle`, `text`, and `title`. (If the changes don't display within a few minutes, refresh the browser window.)
 
     You can exclude fields (such as `footer`) from being indexed by opening the **Manage fields** tab and toggling that field `off`.
     {: tip}
