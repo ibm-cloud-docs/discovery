@@ -113,6 +113,7 @@ If you are using Smart Document Understanding (SDU), you will have models associ
 
 
 ## Restoring your data to a new Watson Discovery instance
+{: #restore}
 
 Consider using your backups to restore to a new {{site.data.keyword.discoveryshort}} instance in a different Data Center (also known as a region/location - for example, Dallas, Houston, Washington, DC, London). 
 {: note}
@@ -132,6 +133,7 @@ After you have your collections setup as before - then you will need to begin in
 -  or other method
 
 ### Restoring training data
+{: #restoretraining}
 
 After collections have been restored, you can begin the process of [recreating your relevancy training models](/docs/services/discovery/train.html#improving-result-relevance-with-the-api). 
 
@@ -143,6 +145,7 @@ Retrieve the training data you backed up, then:
 
 
 ### Restoring connections to external data sources
+{: #restoreconnections}
 
 In case of an unanticipated loss of data, you may lose your scheduled crawls of external data sources. See [Connecting to data sources](/docs/services/discovery/connect.html#sources) for the list of available sources.
 
@@ -152,6 +155,7 @@ Find the data source credentials you stored previously and follow the instructio
 
 
 ### Restoring Smart Document Understanding models
+{: #restoresdu}
 
 To import a previously exported Smart Document Understanding (SDU) model follow the instructions [here](/docs/services/discovery/sdu.html#import). SDU models have the file extension of `.sdumodel`.
 
