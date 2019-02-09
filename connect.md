@@ -40,6 +40,7 @@ You can connect to a data source and pull documents on a schedule (if desired) i
 -  [Microsoft SharePoint Online](/docs/services/discovery/connect.html#connectsp)
 -  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery/connect.html#connectsp_op)
 -  [Web Crawl](/docs/services/discovery/connect.html#connectwebcrawl) (beta)
+-  [IBM Cloud Object Storage](/docs/services/discovery/connect.html#connectcos)
 
 Connecting to a data source can be performed using the {{site.data.keyword.discoveryshort}} tooling, or the API. The {{site.data.keyword.discoveryshort}} tooling provides a simplified method of connection that requires less understanding of the source systems, and the API provides a more granular and highly configurable interface which required a greater understanding of the source that you are connecting to. The following process overview let you know which sections of this document to read next:
 
@@ -50,6 +51,7 @@ Connecting to a data source can be performed using the {{site.data.keyword.disco
     -  [Microsoft SharePoint Online](/docs/services/discovery/connect.html#connectsp)
     -  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery/connect.html#connectsp_op)
     -  [Web Crawl](/docs/services/discovery/connect.html#connectwebcrawl) (beta)
+    -  [IBM Cloud Object Storage](/docs/services/discovery/connect.html#connectcos)
 3.  Read the source configuration instructions based on your configuration choice:
     -  [Using the tooling](/docs/services/discovery/connect.html#source_tooling)
     -  [Using the API](/docs/services/discovery/connect.html#source_api)
@@ -61,11 +63,11 @@ If you select an on-premise data source, you must first install and configure IB
 
 The following general requirements apply to all data sources:
 
--  The individual document file size limit for Box, Salesforce, SharePoint Online, and SharePoint 2016 is 10MB.
+-  The individual document file size limit for Box, Salesforce, SharePoint Online, IBM Cloud Object Storage, and SharePoint 2016 is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring a source using the {{site.data.keyword.discoveryshort}} tooling.
 -  Crawling a data source will use resources (API calls) of the data source. The number of calls depends on the number of documents crawled. An appropriate level of service (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
--  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html). For supported document types for Smart Document Understanding, see [Supported document types and browsers](/docs/services/discovery/sdu.html#doctypes).) :
+-  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html). For supported document types for Smart Document Understanding, see [Supported document types and browsers](/docs/services/discovery/sdu.html#doctypes).):
    -  Microsoft Word
    -  PDF
    -  HTML
@@ -243,9 +245,25 @@ The following credentials are required to connect to a SharePoint 2016 data sour
 
 When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
 
-Other items to note when crawling Microsoft SharePoint 2016 :
+Other items to note when crawling Microsoft SharePoint 2016:
 
 -  When crawling SharePoint 2016, you will need to have a list of SharePoint site collection paths that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl. To crawl your entire SharePoint 2016 site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
+
+## IBM Cloud Object Storage
+{: #connectcos}
+
+When connecting to an IBM Cloud Object Storage source, the following credentials are required. They should be obtained from your IBM Cloud Object Storage administrator:
+
+-  `endpoint` - The `endpoint` used to interact with IBM Cloud Object Storage data.
+-  `access_key_id` - `access_key_id` obtained when the IBM Cloud Object Storage instance was created.
+-  `secret_access_key` - `secret_access_key` to sign requests obtained when the IBM Cloud Object storage instance was created.
+
+After this information is entered, you can choose how often you'd like to sync your data and select the buckets you want to sync to.
+
+Other items to note when crawling IBM Cloud Object Storage:
+
+-  This connector doesn't support crawling private endpoints.
+-  There is a slight performance issue if all buckets are selected. In this case, there may be a delay before the documents complete indexing.
 
 ## Using the tooling
 {: #source_tooling}

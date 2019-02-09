@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-08"
 
 ---
 
@@ -51,6 +51,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 10 February 2019
+{: #10feb19}
+
+- Added the option to connect to and sync with IBM Cloud Object Storage. This data source is not available in Dedicated environments. See [IBM Cloud Object Storage](/docs/services/discovery/connect.html#connectcos) for more information.
 
 ## 4 February 2019
 {: #4feb19}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-06"
+lastupdated: "2019-02-08"
 
 ---
 
@@ -80,7 +80,7 @@ If your collection was created using [Smart Document Understanding](/docs/servic
 For collections created before the release of Smart Document Understanding: when documents are uploaded to a data collection, they are converted and enriched using the configuration file selected for that collection. If you decide later that you would like to change the configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. The {{site.data.keyword.discoveryshort}} service stores the converted text of the documents that you upload, embedded images in **PDF** and **Microsoft Word** files are not stored and will not be returned in results. If your collection is using [Smart Document Understanding](/docs/services/discovery/sdu.html), any changes made to enrichments and conversion in the {{site.data.keyword.discoveryshort}} will be applied to the entire collection when you click the **Apply changes to collection** button. If you collection is large, applying the changes may take some time.  
 {: important}
 
-You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
 {: tip}
 
 ### The default configuration
