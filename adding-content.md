@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-24"
+lastupdated: "2019-02-08"
 
 ---
 
@@ -36,7 +36,7 @@ How do I decide which document upload method to use?
 -   Use the [API](/docs/services/discovery/getting-started.html) if you are integrating the upload of content with an existing application or creating your own custom upload mechanism.
 -   Use the [{{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery/getting-started-tool.html) if you want to quickly upload locally accessible files.
     When uploading documents using the {{site.data.keyword.discoveryshort}} tooling, all documents should have a unique file name. If two files have the same name, the original will be overwritten when the newer version is uploaded. If you would prefer that documents with the same file name coexist in your collection, the Document ID needs to be specified. You can specify the Document ID if you upload documents using the API or the Data Crawler.
--   Use the {{site.data.keyword.discoveryshort}} tooling or API to connect to Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
+-   Use the {{site.data.keyword.discoveryshort}} tooling or API to connect to Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery/connect.html) for more information.
 -   Use the [Data Crawler](/docs/services/discovery/data-crawler.html) if you want to have a managed upload of a significant number of files, or you want to extract content from a supported repository (such as a DB2 database).
 
 ## Adding content with the API or tooling
@@ -69,7 +69,7 @@ Your documents are now enqueued to be converted and enriched. The time this take
 -   **Configuration** — The name of the configuration file used to convert this collection (Only for collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)
 -   **Errors and Warnings**
 
-For information on how to connect to Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling, see [Connecting to data sources](/docs/services/discovery/connect.html).
+For information on how to connect to Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling, see [Connecting to data sources](/docs/services/discovery/connect.html).
 
 
 ## Uploading documents with the API

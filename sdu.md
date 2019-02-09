@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-08"
 
 ---
 
@@ -87,7 +87,7 @@ The toolbar at the top will allow you to:
 - Navigate the document displayed
 - Adjust the page view (`single page view`, `zoom in`, `zoom out`), `clear changes`, and `export/import models`. Click on `single page view` to toggle the display - you can view your annotations and document separately, or together.
 
-You can also crawl Box, Salesforce, Microsoft SharePoint Online, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/services/discovery/connect.html) for more information. If you create a collection using this method, no enrichments will be automatically applied.
+You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/services/discovery/connect.html) for more information. If you create a collection using this method, no enrichments will be automatically applied.
 {: tip}
 
 ## How to annotate a document
