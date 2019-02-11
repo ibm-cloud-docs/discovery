@@ -52,7 +52,7 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
-## 10 February 2019
+## 8 February 2019
 {: #10feb19}
 
 - Added the option to connect to and sync with IBM Cloud Object Storage. This data source is not available in Dedicated environments. See [IBM Cloud Object Storage](/docs/services/discovery/connect.html#connectcos) for more information.
