@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-10-04"
 
 ---
 
@@ -53,20 +53,29 @@ serem ignorados antes de retornar documentos `result` por meio do conjunto de re
 serem retornados | `return=title,url` |
 | [sort](/docs/services/discovery/query-parameters.html#sort) | Campo pelo qual o
 conjunto de resultados será classificado | `sort=enriched_text.sentiment.document.score` |
+| [bias](/docs/services/discovery/query-parameters.html#bias) | Campo para resultados de envios configurados por | `bias=publication_date` |
 | [passages.fields](/docs/services/discovery/query-parameters.html#passages_fields) | Campos
 dos quais passagens serão extraídas | `passages=true&passages.fields=text,abstract,conclusion` |
 | [passages.count](/docs/services/discovery/query-parameters.html#passages_count) | Número de
 passagens a serem retornadas | `passages=true&passages.count=6` |
-| [passages.characters](/docs/services/discovery/query-parameters.html#passages_characters) | 
-Duração das passagens | `passages=true&passages.characters=144` |
+| [passages.characters](/docs/services/discovery/query-parameters.html#passages_characters) | Duração das passagens | `passages=true&passages.characters=144` |
 | [highlight](/docs/services/discovery/query-parameters.html#highlight) | Destacar
 correspondências de consulta | `highlight=true` |
 | [deduplicate](/docs/services/discovery/query-parameters.html#deduplicate) | Deduplicar
 resultados retornados do {{site.data.keyword.discoverynewsfull}} | `deduplicate=true` |
-| [deduplicate.field](/docs/services/discovery/query-parameters.html#deduplicated_field) | 
-Deduplicar resultados retornados com base no campo | `deduplicate.field=title` |
+| [deduplicate.field](/docs/services/discovery/query-parameters.html#deduplicate_field) | Deduplicar resultados retornados com base no campo | `deduplicate.field=title` |
 | [collection_ids](/docs/services/discovery/query-parameters.html#collection_ids) | Consultar
 múltiplas coleções | `collection_ids={1},{2},{3}` |
+| [similar](/docs/services/discovery/query-parameters.html#similar) | Ativa a descoberta de documento semelhante | `similar=true` |
+| [similar.document_ids](/docs/services/discovery/query-parameters.html#similar_document_ids) | A quais documentos localizar documentos semelhantes | `similar.document_ids={id1},{id2}` |
+| [similar.fields](/docs/services/discovery/query-parameters.html#similar_fields) | Quais campos comparar ao localizar documentos semelhantes | `similar.fields=text,title` |
+
+### Limitações de consulta
+
+Não é possível consultar nomes de campos que contêm o seguinte:
+- Caracteres numéricos (`0 - 9`) no sufixo do nome do campo (por exemplo, `extracted-content2`).
+- Os caracteres `_`, `+` e `-` no prefixo do `field_name` (por exemplo, `+extracted-content`).
+- Os caracteres `.`, `,` e `:` no `field_name` (por exemplo, `new:extracted-content`)
 
 ## Operadores
 {: #operators}
@@ -78,10 +87,10 @@ disponíveis:
 |:-------------------:|------------------------------------------------------------|--------------------------------|
 | [.](/docs/services/discovery/query-operators.html#delimiter) | delimitador JSON | `enriched_text.concepts.text` |
 | [:](/docs/services/discovery/query-operators.html#includes) | Inclui | `text:computer` |
-| [::](/docs/services/discovery/query-operators.html#match) | Correspondência exata | `title::Query building` |
+| [::](/docs/services/discovery/query-operators.html#match) | Correspondência exata | `title::"Query building"` |
 | [:!](/docs/services/discovery/query-operators.html#notinclude) | Não inclui | `text:!computer` |
-| [::!](/docs/services/discovery/query-operators.html#notamatch) | Não é uma combinação exata | `title::!Query building` |
-| [\\](/docs/services/discovery/query-operators.html#escape) | Caractere de escape | `enriched_text.entitle.text:Trinidad \& Tobago` |
+| [::!](/docs/services/discovery/query-operators.html#notamatch) | Não é uma combinação exata | `text::!winter` |
+| [\\](/docs/services/discovery/query-operators.html#escape) | Caractere de escape | `title::"Dorothy said: \"There's no place like home\""` |
 | [""](/docs/services/discovery/query-operators.html#phrase) | Consulta de frase | `enriched_text.concepts.text:"IBM Watson"` |
 | [(), \[\]](/docs/services/discovery/query-operators.html#nestedquery) | Agrupamento aninhado | `filter-entities:(text:Turkey,type:Location)` |
 | [<code>&#124;</code>](/docs/services/discovery/query-operators.html#or) | ou | <code>query-enriched.entities.text:Google&#124;IBM</code> |
@@ -90,6 +99,8 @@ disponíveis:
 | [^x](/docs/services/discovery/query-operators.html#multiplier) | Multiplicador de pontuação | `text:IBM^3` |
 | [*](/docs/services/discovery/query-operators.html#wildcard) | Curinga | `query-enriched_text.concepts.text:pre*` |
 | [~n](/docs/services/discovery/query-operators.html#variation) | Variação de sequência | `query-enriched_text.entities.text:cat~1` |
+| [:*](/docs/services/discovery/query-operators.html#exists) | Existe | `title:*` |
+| [!*](/docs/services/discovery/query-operators.html#dnexist) | Não existe | `title!*` |
 
 ## Agregações
 {: #aggregations}
@@ -111,9 +122,9 @@ baseada em tempo | `timeslice(last_modified,2day,America/New York)` |
 documentos de resultados classificados para a agregação atual | `term(enriched_text.concepts.text).top_hits(10)` |
 | [unique_count](/docs/services/discovery/query-aggregations.html#unique_count) | Contagem de
 valores exclusivos para um campo dentro de uma agregação | `unique_count(enriched_text.entities.type)` |
-| [max](/docs/services/discovery/query-aggregations.html#min) | O valor máximo para o campo
+| [max](/docs/services/discovery/query-aggregations.html#max) | O valor máximo para o campo
 especificado no conjunto de resultados. | `max(product.price)` |
-| [min](/docs/services/discovery/query-aggregations.html#max) | Valor mínimo para o campo
+| [min](/docs/services/discovery/query-aggregations.html#min) | Valor mínimo para o campo
 especificado no conjunto de resultados. | `min(product.price)` |
 | [average](/docs/services/discovery/query-aggregations.html#average) |Valor médio para o
 campo especificado no conjunto de resultados. | `average(product.price)` |

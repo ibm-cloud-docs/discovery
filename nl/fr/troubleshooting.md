@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2018
+lastupdated: "2018-08-15"
 
 ---
 
@@ -17,13 +17,97 @@ lastupdated: "2017-08-18"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Traitement des incidents
+# Foires aux questions (FAQ)
+{: #faqs}
 
-Astuces relatives au traitement des incidents liés à l'utilisation du service {{site.data.keyword.discoveryshort}}.
+Foire aux questions concernant le service {{site.data.keyword.discoveryshort}}. 
 
-Si vous rencontrez des problèmes lors de l'utilisation du service {{site.data.keyword.discoveryshort}}, essayez une ou plusieurs des astuces décrites ci-après pour identifier et résoudre ces problèmes. 
+## Puis-je télécharger des tableaux JSON ?
+{: #array} 
 
--   L'ingestion d'un document peut échouer en raison d'une non-concordance de type entre les données présentes dans les document en cours et des données similaires présentes dans un document déjà versé. Par exemple, une zone peut être du type **date** dans un document et être du type **string** dans un document suivant, ce qui empêche l'indexation de ce dernier. 
+Vous pouvez télécharger un tableau JSON, mais chaque section doit être chargée individuellement. Par exemple, le tableau JSON ne peut pas être téléchargé sur le service :
 
-    L'opération de prévisualisation ne peut pas prédire les non-concordances de type car elle teste uniquement un document et ne conserve aucune trace des résultats de conversion.
--   Les indexations rapides ou à grande échelle de documents peuvent parfois entraîner le redémarrage du service de recherche dorsal. Si cela se produit, demandez de l'aide auprès du support {{site.data.keyword.IBM}}. 
+    ```json
+    [{
+      "accepted": 1,
+      "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
+      "answerScore": "49",
+      "authorUserId": "3",
+      "authorUsername": "Butzke",
+      "downModVotes": 0,
+      "id": 2,
+      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
+      "tags": "<arduino-uno><web-server><ethernet>",
+      "title": "Is an Arduino capable of running 24 7?",
+      "upModVotes": 49,
+      "userId": "11",
+      "userReputation": 4535,
+      "username": "sachleen",
+      "views": 3234
+    }, {
+      "accepted": 0,
+      "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
+      "answerScore": "24",
+      "authorUserId": "3",
+      "authorUsername": "Butzke",
+      "downModVotes": 0,
+      "id": 3,
+      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
+      "tags": "<arduino-uno><web-server><ethernet>",
+      "title": "Is an Arduino capable of running 24 7?",
+      "upModVotes": 24,
+      "userId": "13",
+      "userReputation": 489,
+      "username": "Matthew G.",
+      "views": 3234
+    }]
+    ```
+    {: codeblock}
+
+    Pour télécharger ces informations sur le service, fractionnez le tableau et téléchargez chaque section, comme suit :
+
+    Section 1 :
+
+    ```json
+    {
+      "accepted": 1,
+      "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
+      "answerScore": "49",
+      "authorUserId": "3",
+      "authorUsername": "Butzke",
+      "downModVotes": 0,
+      "id": 2,
+      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
+      "tags": "<arduino-uno><web-server><ethernet>",
+      "title": "Is an Arduino capable of running 24 7?",
+      "upModVotes": 49,
+      "userId": "11",
+      "userReputation": 4535,
+      "username": "sachleen",
+      "views": 3234
+    }
+    ```
+    {: codeblock}
+
+    Section 2 :
+
+    ```json
+    {
+      "accepted": 0,
+      "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
+      "answerScore": "24",
+      "authorUserId": "3",
+      "authorUsername": "Butzke",
+      "downModVotes": 0,
+      "id": 3,
+      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
+      "tags": "<arduino-uno><web-server><ethernet>",
+      "title": "Is an Arduino capable of running 24 7?",
+      "upModVotes": 24,
+      "userId": "13",
+      "userReputation": 489,
+      "username": "Matthew G.",
+      "views": 3234
+    }
+    ```
+    {: codeblock}

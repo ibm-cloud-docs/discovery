@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-08-15"
 
 ---
 
@@ -40,7 +40,7 @@ Dieser Operator gibt eine Übereinstimmung für den Abfragebegriff an.
 
 Beispiel:
 ```bash
-enriched_text.concepts.text:cloud computing
+enriched_text.concepts.text:"cloud computing"
 ```
 {: codeblock}
 
@@ -51,9 +51,11 @@ Dieser Operator gibt eine exakte Übereinstimmung für den Abfragebegriff an.
 
 Beispiel:
 ```bash
-enriched_text.concepts.text::cloud computing
+enriched_text.concepts.text::"Cloud computing"
 ```
 {: codeblock}
+
+Bei exakten Übereinstimmungen muss die Groß-/Kleinschreibung beachtet werden.
 
 ## :! \[Enthält nicht\]
 {: #notinclude}
@@ -62,7 +64,7 @@ Dieser Operator gibt an, dass die Ergebnisse keine Übereinstimmung für den Abf
 
 Beispiel:
 ```bash
-enriched_text.concepts.text:!cloud computing
+enriched_text.concepts.text:!"cloud computing"
 ```
 {: codeblock}
 
@@ -73,9 +75,11 @@ Dieser Operator gibt an, dass die Ergebnisse nicht genau mit dem Abfragebegriff 
 
 Beispiel:
 ```bash
-enriched_text.concepts.text::!cloud computing
+enriched_text.concepts.text::!"Cloud computing"
 ```
 {: codeblock}
+
+Bei exakten Übereinstimmungen muss die Groß-/Kleinschreibung beachtet werden.
 
 ## \\ \[Escapezeichen\]
 {: #escape}
@@ -84,7 +88,7 @@ Escapezeichen werden für Abfragen verwendet, die in der Lage sein müssen, Begr
 
 Beispiel:
 ```bash
-enriched_text.concepts.text:\!cloud computing
+title::"Dorothy said: \"There's no place like home\""
 ```
 {: codeblock}
 
@@ -95,7 +99,7 @@ Der gesamte Inhalt einer Ausdrucksabfrage wird so verarbeitet, wie er mit Escape
 
 Beispiel:
 ```bash
-enriched_text.concepts.text:"IBM watson"
+enriched_text.entities.text:"IBM watson"
 ```
 {: codeblock}
 
@@ -157,11 +161,11 @@ enriched_text.concepts.text:IBM^3
 ## * \[Platzhalter\]
 {: #Wildcard}
 
-Ergibt eine Übereinstimmung mit unbekannten Zeichen in einem Suchausdruck.
+Ergibt eine Übereinstimmung mit unbekannten Zeichen in einem Suchausdruck. Verwenden Sie bei Platzhaltern keine Großbuchstaben.
 
 Beispiel:
 ```bash
-enriched_text.concepts.text:IBM*
+enriched_text.entities.text:ib*
 ```
 {: codeblock}
 
@@ -173,5 +177,27 @@ Die Anzahl der Einzelzeichenänderungen, die an einer Zeichenfolge vorgenommen w
 Beispiel:
 ```bash
 enriched_text.concepts.text:Watson~3
+```
+{: codeblock}
+
+## :* \[Vorhanden\]
+{: #exists}
+
+Wird verwendet, um alle Ergebnisse zurückzugeben, bei denen das angegebene `Feld` vorhanden ist.
+
+Beispiel:
+```bash
+title:*
+```
+{: codeblock}
+
+## !* \[Ist nicht vorhanden\]
+{: #dnexist}
+
+Wird verwendet, um alle Ergebnisse zurückzugeben, die das angegebene `Feld` nicht enthalten.
+
+Beispiel:
+```bash
+title!*
 ```
 {: codeblock}

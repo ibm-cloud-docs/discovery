@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -43,41 +43,42 @@ lastupdated: "2017-12-15"
 
 -   **環境** - 環境定義您在 {{site.data.keyword.discoveryshort}} 服務中提供給內容的儲存空間數量。對於 {{site.data.keyword.discoveryshort}} 服務的每一個實例，最多只能建立一個環境。
 
-    您有幾個方案（精簡、標準及進階）可選擇，如需詳細資料，請參閱 [{{site.data.keyword.discoveryshort}} 型錄 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}。您的原始檔不計入檔案大小限制。
+    有幾個方案（精簡、進階、超值）可供您選擇，如需詳細資訊，請參閱 [{{site.data.keyword.discoveryshort}} 型錄 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} 及 [{{site.data.keyword.discoveryshort}} 定價方案](/docs/services/discovery/pricing-details.html)。您的原始檔不計入檔案大小限制，只有所檢索之已轉換 JSON 的大小才會計入大小限制。
 
 -   **集合** - 集合是您環境內的內容分組。您必須至少建立一個集合，才能上傳內容。
 
     集合包含您的專用資料，但 {{site.data.keyword.discoveryshort}} 還包括 {{site.data.keyword.discoverynewsshort}} 這個預先強化的公用資料集。您可以使用它來查詢見解；例如：新聞警示、事件偵測及新聞中的熱門話題；您可以將其整合到應用程式中。
 
-    {{site.data.keyword.discoverynewsshort}} 是一個已利用認知見解預先強化的公用資料集，它也隨附於 {{site.data.keyword.discoveryshort}} 中。如需相關資訊，請參閱 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news)。您無法調整 {{site.data.keyword.discoverynewsshort}} 配置，或將文件新增至此集合中。請參閱[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://discovery-news-demo.mybluemix.net/){: new_window}，它示範使用 {{site.data.keyword.discoverynewsshort}} 可建置的內容。
+    {{site.data.keyword.discoverynewsshort}} 是一個已利用認知見解預先強化的公用資料集，它也隨附於 {{site.data.keyword.discoveryshort}} 中。如需相關資訊，請參閱 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news)。您無法調整 {{site.data.keyword.discoverynewsshort}} 配置，或將文件新增至此集合中。請參閱[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://discovery-news-demo.ng.bluemix.net/){: new_window}，它示範使用 {{site.data.keyword.discoverynewsshort}} 可建置的內容。
 
 若要使用 {{site.data.keyword.discoveryshort}} 工具來建立環境及專用資料集合，請執行下列動作：
 
 1.  在**管理資料**畫面上，按一下 ![齒輪](images/icon_settings.png) 圖示，並選擇**建立環境**。環境會根據您先前選取的 {{site.data.keyword.Bluemix_notm}} 方案而建立。一律可從這個下拉清單取得環境的狀態。
 
-1.  當環境備妥後，請按一下**建立資料集合**按鈕，然後就可以**命名您的新集合**。
+1.  當環境備妥後，請按一下**上傳您自己的資料**按鈕，然後您可以**命名您的新集合**。
 
-    依預設，此配置檔將是**預設配置**。如果您有另一個可用的配置檔，則可以選擇它，也可以稍後再建立新的配置檔，並將它套用至此集合。您也可以選取將新增至此集合的文件語言：英文、德文、西班牙文、阿拉伯文、法文、義大利文、韓文或巴西葡萄牙文。每一個集合只能有一種語言。按一下**建立**之後，您的資料集合將顯示為磚。
+    依預設，此配置檔將是 **Default Configuration**。如果您有另一個可用的配置檔，則可以選擇它，也可以稍後再建立新的配置檔，並將它套用至此集合。您也可以選取將新增至此集合的文件語言：英文、德文、西班牙文、阿拉伯文、日文、法文、義大利文、韓文或巴西葡萄牙文。每一個集合只能有一種語言。按一下**建立**之後，您的資料集合將顯示為磚。
 
 您的環境及資料集合已備妥！如果您要使用預設配置檔，就可以立即開始[新增內容](/docs/services/discovery/adding-content.html)。但是，如果您要使用其他的強化和轉換設定來自訂您的 {{site.data.keyword.discoveryshort}} 配置，就不應該立即開始新增文件，而應該開始建立自訂配置檔。請參閱[配置服務](/docs/services/discovery/building.html#custom-configuration)。
 
-**附註：**當文件上傳至資料集合時，會使用針對該集合所選擇的配置檔來轉換及強化文件。如果您稍後決定將集合切換至不同的配置檔，則可以執行該動作，但已上傳的文件仍透過原始配置檔轉換。在切換配置檔之後上傳的所有文件都會使用新的配置檔。如果您想要**整個**集合使用新的配置，則需要建立新的集合，選擇新的配置檔，然後重新上傳所有文件。{{site.data.keyword.discoveryshort}} 服務會儲存您所上傳文件的已轉換文字，但不會儲存 **PDF** 和 **Microsoft Word** 檔案中的內嵌影像，而且在結果中不會傳回它們。
+**附註：**當文件上傳至資料集合時，會使用針對該集合所選擇的配置檔來轉換及強化文件。如果您稍後決定將集合切換至不同的配置檔，則可以執行該動作，但已上傳的文件仍透過原始配置檔轉換。在切換配置檔之後上傳的所有文件都會使用新的配置檔。如果您想要**整個**集合使用新的配置，則需要建立新的集合、選擇新的配置檔，然後重新上傳所有文件。{{site.data.keyword.discoveryshort}} 服務會儲存您所上傳文件的已轉換文字，但不會儲存 **PDF** 和 **Microsoft Word** 檔案中的內嵌影像，而且在結果中不會傳回它們。
+
+您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 來搜索 Box、Salesforce 及 Microsoft SharePoint Online 資料來源。如需相關資訊，請參閱[連接至資料來源](/docs/services/discovery/connect.html)。
+{: tip}
 
 ### 預設配置
 {: #the-default-configuration}
 
-{{site.data.keyword.discoveryshort}} 服務包含標準配置檔，它將轉換、強化及正規化資料，而不需要您手動配置這些選項。
+{{site.data.keyword.discoveryshort}} 服務包含標準配置，它將轉換、強化及正規化資料，而不需要您手動配置這些選項。
 
-這個預設配置檔的名稱是**預設配置**。它包含強化，以及根據字型樣式和大小的標準文件轉換。
-
-首先是預設強化。{{site.data.keyword.discoveryshort}} 將透過四個 {{site.data.keyword.watson}} 強化（「實體擷取」、「觀感分析」、「種類分類」及「概念標記」）所收集到的語意資訊來強化（新增認知 meta 資料至）文件的文字欄位（[這裡](/docs/services/discovery/building.html#adding-enrichments)可讓您進一步瞭解它們）。
-
-**附註：**從 **2017 年 7 月 18 日**開始，{{site.data.keyword.discoveryfull}} 引進了一項新的強化技術，名稱為 {{site.data.keyword.nlushort}} (NLU)。如需詳細資料，請參閱[新增強化](/docs/services/discovery/building.html#adding-enrichments)。如果您在這個日期之前已將**預設配置**套用至集合，則該集合已使用 {{site.data.keyword.alchemylanguageshort}} 強化來強化。如果您在此日期之後將**預設配置**套用至集合，則會使用 {{site.data.keyword.nlushort}} 強化。
+名稱為 **Default Configuration** 的預設配置包含強化功能，以及根據字型樣式和大小的標準文件轉換。{{site.data.keyword.discoveryshort}} 將透過四個 {{site.data.keyword.watson}} 強化（「實體擷取」、「觀感分析」、「種類分類」及「概念標記」）所收集到的語意資訊來強化（新增認知 meta 資料至）文件的文字欄位（[這裡](/docs/services/discovery/building.html#adding-enrichments)可讓您進一步瞭解它們）。
 
 -   [Microsoft Word 轉換](/docs/services/discovery/building.html#microsoft-word-conversion)
 -   [PDF 轉換](/docs/services/discovery/building.html#pdf-conversion)
 -   [HTML 轉換](/docs/services/discovery/building.html#html-conversion)
 -   [JSON 轉換](/docs/services/discovery/building.html#json-conversion)
+
+{{site.data.keyword.discoveryshort}} 工具提供名稱為 **Default Contract Configuration** 的第二個預設配置。它配置為使用「元素分類」來強化，您可利用該分類從 PDF 中的元素擷取參與方、本質及種類。如需詳細資料，請參閱[元素分類](/docs/services/discovery/element-classification.html#element-collection)。
 
 如果您想建立自訂配置，請參閱[自訂配置](/docs/services/discovery/building.html#custom-configuration)。
 
@@ -104,6 +105,8 @@ lastupdated: "2017-12-15"
 1.  [新增強化](/docs/services/discovery/building.html#adding-enrichments)
 1.  [將資料正規化](/docs/services/discovery/building.html#normalizing-data)
 
+如需配置的詳細資訊，請參閱[配置參考資料](/docs/services/discovery/custom-config.html)。
+
 ### 上傳範例文件
 {: #uploading-sample-documents}
 
@@ -116,11 +119,11 @@ lastupdated: "2017-12-15"
 -   所有文件在進行強化和檢索之前都會轉換成 JSON。
 -   Microsoft Word 和 PDF 文件會先轉換成 HTML，再轉換成 JSON。
 -   HTML 文件會直接轉換成 JSON。
--   範例文件的檔案大小上限為 5MB。1 個月後，會自動刪除範例文件，但如果您想要對配置進行其他變更，則可以再次上傳相同的文件。
+-   範例文件的檔案大小上限為 1MB。範例文件儲存在瀏覽器本端漫遊資料的資料夾中。若要刪除範例文件，請按一下**刪除**圖示。
 
 #### 選擇理想範例文件的準則：
 
--   對於您想要汲取的每一種檔案類型（Microsoft Word、PDF、HTML 及 JSON），您應該具有（至少）一個範例文件。
+-   對於您想要汲取的每一種檔案類型（Microsoft Word、PDF、HTML 及 JSON），您應該具有（至少）一個範例文件。（您無法預覽已利用**元素分類**強化來強化的 PDF 文件。）
 -   如果您有任何唯一的文件類型（例如財務報告或新聞稿），請將其中一個包括在範例文件集中。
 -   對於 HTML 文件，您應該選擇包括要排除之 HTML 標籤的文件，以及您想要併入或排除的標籤屬性。
 -   JSON 文件應該包括您想要一併移除或合併的任何欄位（例如，zipCode 和 postalCode）。
@@ -204,19 +207,20 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ## 新增強化
 {: #adding-enrichments}
 
-**附註：**從 **2017 年 7 月 18 日**開始，{{site.data.keyword.discoveryfull}} 引進了一項新的強化技術，名稱為 {{site.data.keyword.nlushort}} (NLU)。這些強化與您現有的強化相同，但需要稍微不同的配置和綱目。原始強化的名稱為 {{site.data.keyword.alchemylanguageshort}} 強化，將遭到淘汰。
-{{site.data.keyword.alchemylanguageshort}} 強化支援將在 **2018 年 1 月 15 日**結束。新集合應該使用 {{site.data.keyword.nlushort}} 來強化，並儘快移轉含有 {{site.data.keyword.alchemylanguageshort}} 配置檔的任何現有集合。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化的集合及配置檔的相關資訊，請參閱[將強化移轉至 {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html)。
-
 {{site.data.keyword.discoveryshort}} [預設配置](/docs/services/discovery/building.html#the-default-configuration)將透過這四個 {{site.data.keyword.watson}} 功能（「實體擷取」、「觀感分析」、「種類分類」及「概念標記」）所收集的語意資訊來強化（新增認知 meta 資料至）所汲取文件的 `text` 欄位。（總共有九個可用的 {{site.data.keyword.watson}} 強化；其他是「關鍵字擷取」、「關係擷取」、「情緒分析」、「元素分類」及「語意角色擷取」。）
 
+某些 {{site.data.keyword.watson}} 強化可能不適用於特定方案或環境。
+
 **重要事項：**針對所選取要強化的每一個 JSON 欄位，只會強化前 50,000 個字元。
+
+**附註：**{{site.data.keyword.alchemylanguageshort}} 強化在 2018 年 3 月 1 日已淘汰。如果您有任何現有集合仍使用 {{site.data.keyword.alchemylanguageshort}} 強化，您必須移轉至 {{site.data.keyword.nlushort}} 強化。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化之現有集合及配置檔的相關資訊，請參閱[將強化移轉至 {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html)。
 
 您可以進一步擴增文件，方法是將更多的強化新增至 `text` 欄位，或強化其他欄位。若要使用 {{site.data.keyword.discoveryshort}} 工具來達成此目的，請[建立自訂配置](/docs/services/discovery/building.html#custom-configuration)，選擇您要強化的欄位，並從可用的 {{site.data.keyword.nlushort}} 強化清單中進行選取：
 
 ### 實體擷取
 {: #entity-extraction}
 
-傳回在輸入文字中呈現的項目，例如人員、位置及組織。實體擷取會將語意知識新增至內容，以協助瞭解所分析文字的主旨及環境定義。實體擷取技術是以精密的統計演算法和自然語言處理程序技術為基礎，憑藉其對多語言分析、環境定義相關的釐清及引文擷取的支援，在業界獨一無二。請在[這裡](/docs/services/discovery/entity-types.html)檢視實體類型及子類型的完整清單。您也可以使用 {{site.data.keyword.knowledgestudiofull}} 來建立及新增[自訂實體模型](/docs/services/discovery/building.html#custom-entity-model)。
+傳回在輸入文字中呈現的項目，例如人員、位置及組織。實體擷取會將語意知識新增至內容，以協助瞭解所分析文字的主旨及上下文。實體擷取技術是以更準確的統計演算法和自然語言處理程序技術為基礎，憑藉其對多國語言分析和上下文相關釐清的支援，在業界獨一無二。請在[這裡](/docs/services/discovery/entity-types.html)檢視實體類型及子類型的完整清單。您也可以使用 {{site.data.keyword.knowledgestudiofull}} 來建立及新增[自訂實體模型](/docs/services/discovery/building.html#custom-entity-model)。
 
 使用「實體擷取」強化的文件的部分範例：
 
@@ -224,9 +228,9 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
     "enriched_text": {
-      "entities": [
-         {
-           "count": 1,
+        "entities": [
+    {
+      "count": 1,
            "sentiment": {
              "score": 0
            },
@@ -234,8 +238,8 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
            "relevance": 0.98389,
            "type": "Company"
            },
-           {
-           "count": 1,
+      {
+        "count": 1,
            "sentiment": {
              "score": 0
            },
@@ -244,18 +248,18 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
            "type": "Location",
            "disambiguation": {
              "subtype": [
-               "AdministrativeDivision",
+                    "AdministrativeDivision",
                "GovernmentalJurisdiction",
                "OlympicHostCity",
                "PlaceWithNeighborhoods",
                "City"
            ],
-               "name": "Atlanta",
-               "dbpedia_resource": "http://dbpedia.org/resource/Atlanta"
-           }
-           },
-           {
-           "count": 1,
+                  "name": "Atlanta",
+                  "dbpedia_resource": "http://dbpedia.org/resource/Atlanta"
+                }
+              },
+      {
+        "count": 1,
            "sentiment": {
              "score": 0
            },
@@ -264,10 +268,13 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
            "type": "Location",
            "disambiguation": {
              "subtype": [
-               "StateOrCounty"
-           ]
-    }
+                    "StateOrCounty"
+                  ]
+                }
+      }
+    ]
   }
+}
 ```
 {: codeblock}
 
@@ -296,8 +303,8 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-  "enriched_text": {
-    "relations": [
+    "enriched_text": {
+        "relations": [
       {
         "type": "locatedAt",
         "sentence": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
@@ -361,7 +368,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
   {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
     "enriched_text": {
-      "keywords": [
+        "keywords": [
         {
           "text": "Acme Corporation",
           "sentiment": {
@@ -426,7 +433,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
     "enriched_text": {
-      "categories": [
+        "categories": [
         {
           "score": 0.361614,
           "label": "/business and industrial"
@@ -458,7 +465,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
     "enriched_text": {
-      "concepts": [
+        "concepts": [
         {
           "text": "Acme Corporation",
           "relevance": 0.91136,
@@ -576,7 +583,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
     "enriched_text": {
-      "sentiment": {
+        "sentiment": {
         "document": {
         "score": 0.459813,
         "label": "positive"
@@ -600,7 +607,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
     "enriched_text": {
-      "emotion": {
+        "emotion": {
         "document": {
           "emotion": {
           "disgust": 0.102578,
@@ -692,6 +699,10 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
 進行任何變更之後，請按一下**套用並儲存**，然後按一下**完成**。您會回到**管理資料**畫面，您可以在其中將此配置套用至您選擇的集合。
 
+**附註：**您不能指定欄位的`資料類型`（例如：`文字`或`日期`）。在文件汲取期間，如果偵測到某欄位尚未存在於索引中，則 {{site.data.keyword.discoveryshort}} 會根據第一個已檢索文件的欄位值，自動偵測該欄位的`資料類型`。
+
+如果使用**元素分類**強化，則無法執行後置強化正規化。
+
 ## 將實體正規化
 {: #normalizing-entities}
 
@@ -740,7 +751,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
 **附註：**欄位名稱必須符合[欄位名稱需求](/docs/services/discovery/custom-config.html#field_reqs)中定義的限制。
 
-下列 JSON 段落顯示您將 CSS 選取器資訊新增至其中的「預設配置」的相關區段。
+下列 JSON 段落顯示您將 CSS 選取器資訊新增至其中的 Default Configuration 相關區段。
 
 ```json
 {
@@ -921,7 +932,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ## 使用文件分段來分割文件
 {: #doc-segmentation}
 
-您可以根據 HTML 標題標籤將 Word、PDF 及 HTML 文件分割為區段。分割之後，每一個區段都是一份將轉換成 JSON 的個別文件，會個別進行檢索及強化。由於查詢將以個別文件傳回這些區段，因此文件分段可以用來：
+您可以根據 HTML 標題標籤將 Word、PDF 及 HTML 文件分割為區段。分割之後，每一個區段都是個別的文件，會個別進行強化及檢索。由於查詢將以個別文件傳回這些區段，因此文件分段可以用來：
 
   - 對文件的個別區段執行聚集。例如，您的聚集會在每次區段提及特定實體時計算一次，而不是只對整份文件計算一次。
   - 對區段（而非文件）執行相關性訓練，這會使結果有更好的重新分級。
@@ -930,17 +941,19 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
 注意事項：
 
-  - 每份文件的區段數目限制為 `50`。在 `49` 個區段之後的所有其餘文件內容將儲存在區段 `50` 內。
+  - 每份文件的區段數目限制為 `250`。在 `249` 個區段之後的所有其餘文件內容將儲存在區段 `250` 內。
 
-  - 每一個區段都計入您方案的文件限制內。
+  - 每一個區段都計入您方案的文件限制內。{{site.data.keyword.discoveryshort}} 會進行區段檢索，直到達到方案限制為止。如需文件限制，請參閱 [Discovery 定價方案](/docs/services/discovery/pricing-details.html)。
 
   - 使用文件分段時，您不能將資料正規化（請參閱[將資料正規化](/docs/services/discovery/building.html#normalizing-data)）或使用 CSS 選取器擷取欄位（請參閱[使用 CSS 選取器來擷取欄位](/docs/services/discovery/building.html#using-css)）。
 
-  - 如果文件已更新，且需要重新汲取，則刪除的區段會在重新汲取之後仍保留在後面，而且必須使用 API 手動刪除（請參閱[API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/watson/developercloud/discovery/api/v1/?curl#delete-doc){: new_window}）。此外，如果您的文件更新所新增的內容將建立新區段，或刪除的內容將移除區段，則每一個區段將獲指派新的 `document_id`。如果這些區段已使用相關性訓練進行分級，則需要重新執行訓練。在此情況下，請不要將內容新增至現有文件中，而是考量建立新文件來包含新內容，並個別汲取它。請不要從現有文件中刪除區段並重新汲取，而是使用 API 來刪除那些區段。
-
   - 每次偵測到指定的 HTML 標籤時，都會對文件進行分段。因此，分段可能會導致形態異常的 HTML，因為文件可能會在結束（右）標籤之前及開啟（左）標籤之後分割。
 
-  - 不會擷取 HTML、PDF 及 Word meta 資料，因此不會將這些資料併入索引中。此外，使用文件上傳所傳入的自訂 meta 資料將不會併入索引中。
+  - 會擷取 HTML、PDF 及 Word meta 資料及任何自訂 meta 資料，並連同每個區段一起包含在索引中。文件的每個區段將包括相同的 meta 資料。
+
+  - 指定**元素分類**（`elements`）強化時，不支援文件分段。
+
+  - 重新汲取分段文件有其他考量，請參閱[更新分段文件](/docs/services/discovery/building.html#update-seg)。
 
 ### 執行分段
 {: #performing-segmentation}
@@ -1036,3 +1049,16 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
     - `file_type`- 對應於原始文件。
   - `text` 欄位
   - `html` 欄位
+
+### 更新分段文件
+{: #update-seg}
+
+如果已更新分段文件而需要加以重新汲取，可以使用[更新文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} 方法來取代它。
+
+更新分段文件時，應該使用 `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API 的 POST 方法來上傳文件，並將其中一個現行區段的 `parent_id` 欄位內容指定為 `{document_id}` 路徑變數。
+
+更新時，將會改寫所有區段，除非該文件更新版本的區段總數少於原始版本。那些較舊的區段將保留在索引中，且可使用 API 進行個別刪除。如需詳細資料，請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window}。您可以查詢 `notices` 來識別已建立的區段數目。每個區段都有一個 `document_id` 欄位，其包含 `{parent_id}`，後面接著底線，再接著區段號碼。
+
+如果您要更新的文件有任何區段已分級為要進行相關性訓練，您必須先刪除該文件的所有區段，然後將已更新的文件汲取為新文件。這會導致每個區段有新的 `document_id`，而任何訓練過的區段都需要重新訓練。如果您不先刪除舊的內容，已訓練的索引會變得不正確。
+
+或者，請考慮建立一個只包含新內容的新文件，並個別汲取它。

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -27,6 +27,9 @@ Antes de tentar esta tarefa, crie uma instância do serviço do {{site.data.keyw
 no {{site.data.keyword.Bluemix}}. Para concluir este guia, será necessário usar as credenciais que
 estão associadas à instância do serviço que você criou.
 
+É possível usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou a API para efetuar crawl em origens de dados do Box, Salesforce e Microsoft SharePoint Online. Consulte [Conectando-se a origens de dados](/docs/services/discovery/connect.html) para obter mais informações.
+{: tip}
+
 ## Crie um ambiente
 
 Use o método bash POST /v1/environments para criar um ambiente. Pense no ambiente como o warehouse em que você está armazenando todas as suas caixas de documentos. O exemplo a seguir cria um ambiente que é chamado `my-first-environment`:
@@ -40,8 +43,7 @@ curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d
 {: pre}
 
 A API
-retorna uma resposta que inclui informações, como seu ID de ambiente, status do ambiente e quanto armazenamento o ambiente está usando. Não vá para a próxima etapa até que o status do ambiente seja `ready`. Ao criar o ambiente, se o status retornar `status:pending`, use o método `GET /v1/environments/{environment_id}` para verificar o status até que esteja pronto. 
-Nesse exemplo, substitua `{username}` e `{password}` pelas suas credenciais
+retorna uma resposta que inclui informações, como seu ID de ambiente, status do ambiente e quanto armazenamento o ambiente está usando. Não vá para a próxima etapa até que o status do ambiente seja `ready`. Ao criar o ambiente, se o status retornar `status:pending`, use o método `GET /v1/environments/{environment_id}` para verificar o status até que esteja pronto. Nesse exemplo, substitua `{username}` e `{password}` pelas suas credenciais
 de serviço e substitua `{environment_id}` pelo ID de ambiente que foi retornado quando você
 criou o ambiente.
 
@@ -113,8 +115,7 @@ deve ser configurada corretamente ou não deve ser configurada para executar o C
 [{{site.data.keyword.Bluemix_notm}}
 ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net){: new_window}.
 1.  No seu painel do {{site.data.keyword.Bluemix_notm}}, selecione o serviço do {{site.data.keyword.discoveryshort}} criado anteriormente.
-1.  Em **Uso desejado**, selecione o link de download apropriado para o seu
-sistema (DEB, RPM ou ZIP) para fazer download do Data Crawler.
+1.  Em **Automatizar o upload de conteúdo para o serviço Discovery**, selecione o link de download apropriado para seu sistema (DEB, RPM ou ZIP) para fazer download do Data Crawler.
 1.  Como administrador, use os comandos apropriados para instalar o arquivo que transferido por download:
 
     -   Em sistemas como o Red Hat e o CentOS que usam pacotes rpm, use um comando como o seguinte: `rpm -i /full/path/to/rpm/package/rpm-file-name`
@@ -148,8 +149,7 @@ atributo `value` diretamente no atributo `name-"url"` para o
 caminho de arquivo que você deseja efetuar crawl. Por exemplo: `value-"sdk-fs:
 ///TMP/MY_TEST_DATA/"`
 
-    **Observação:** as URLs devem ser iniciadas com `sdk-fs://`. 
-Portanto, para efetuar crawl, por exemplo, `/home/watson/mydocs`, o valor dessa URL seria
+    **Observação:** as URLs devem ser iniciadas com `sdk-fs://`. Portanto, para efetuar crawl, por exemplo, `/home/watson/mydocs`, o valor dessa URL seria
 `sdk-fs:///home/watson/mydocs` - a terceira / é necessária!
 
     Salve e feche o arquivo.
@@ -202,7 +202,6 @@ todas as entidades que são chamadas `IBM`:
 -   Substitua `{username}` e
 `{password}` pelas suas credenciais de serviço.
 -   Substitua `{environment_id}` pelo ID do ambiente que você criou na etapa 1.
-
 -   Substitua `{collection_id}` pelo ID da coleção que você criou na etapa 2.
 
 ```bash

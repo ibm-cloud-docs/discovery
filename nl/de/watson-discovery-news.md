@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-30"
+  years: 2015, 2018
+lastupdated: "2018-09-05"
 
 ---
 
@@ -19,9 +19,9 @@ lastupdated: "2017-11-30"
 
 # Watson Discovery News
 
-{{site.data.keyword.discoverynewsfull}} ist in {{site.data.keyword.discoveryshort}} enthalten. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} ist ein indexierter Datenbestand, der vorab mit den folgenden kognitiven Erkenntnissen aufbereitet wurde: **Schlüsselwortextraktion**, **Entitätsextraktion**, **Semantikrollenextraktion**, **Stimmungsanalyse**, **Beziehungsextraktion** und **Kategorieklassifizierung**. (Weitere Informationen zu Aufbereitungen finden Sie unter [Aufbereitungen hinzufügen](building.html#adding-enrichments).) Auch die folgenden zusätzlichen Metadaten werden hinzugefügt: Suchlaufdatum und Veröffentlichungsdatum. Eine Archivsuche ist für die Nachrichtendaten der letzten 60 Tage verfügbar. Was Sie mit {{site.data.keyword.discoverynewsfull}} erstellen können, ist in einem [Demo ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://discovery-news-demo.mybluemix.net/){: new_window} gezeigt.
+{{site.data.keyword.discoverynewsfull}} ist in {{site.data.keyword.discoveryshort}} enthalten. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} ist ein indexierter Datenbestand, der vorab mit den folgenden kognitiven Erkenntnissen aufbereitet wurde: **Schlüsselwortextraktion**, **Entitätsextraktion**, **Semantikrollenextraktion**, **Stimmungsanalyse**, **Beziehungsextraktion** und **Kategorieklassifizierung**. (Weitere Informationen zu Aufbereitungen finden Sie unter [Aufbereitungen hinzufügen](building.html#adding-enrichments).) Auch die folgenden zusätzlichen Metadaten werden hinzugefügt: Suchlaufdatum und Veröffentlichungsdatum. Eine Archivsuche ist für die Nachrichtendaten der letzten 60 Tage verfügbar. Was Sie mit {{site.data.keyword.discoverynewsfull}} erstellen können, wird in einer [Demo ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://discovery-news-demo.ng.bluemix.net/){: new_window} gezeigt.
 
-{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} wird laufend mit neuen Artikeln aktualisiert. Die englischsprachige Version von {{site.data.keyword.discoverynewsshort}} wird täglich mit ca. 300.000 neuen Artikeln aktualisiert. Die spanischsprachige Version von {{site.data.keyword.discoverynewsshort}} wird täglich mit ca. 60.000 neuen Artikeln aktualisiert, die koreanischsprachige Version von {{site.data.keyword.discoverynewsshort}} mit ca. 10.000 neuen Artikeln pro Tag.
+{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} wird ständig mit neuen Artikeln aktualisiert und ist in Englisch, Spanisch, Deutsch, Koreanisch und Japanisch verfügbar. Die englischsprachige Version von {{site.data.keyword.discoverynewsshort}} wird täglich mit ca. 300.000 neuen Artikeln aktualisiert. Die spanischsprachige Version von {{site.data.keyword.discoverynewsshort}} wird täglich mit ca. 60.000 neuen Artikeln aktualisiert, die deutschsprachige Version von {{site.data.keyword.discoverynewsshort}} mit ca. 40.000 neuen Artikeln und die koreanischsprachige Version von {{site.data.keyword.discoverynewsshort}} mit ca. 10.000 neuen Artikeln pro Tag. Die japanischsprachige Version von {{site.data.keyword.discoverynewsshort}} wird täglich mit ca. 17.000 neuen Artikeln aktualisiert. Die Nachrichtenquellen variieren je nach Sprache, daher sind die Abfrageergebnisse für die einzelnen Sammlungen nicht identisch.
 
 Anwendungsfälle für {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}}:
 
@@ -31,10 +31,15 @@ Anwendungsfälle für {{site.data.keyword.watson}} {{site.data.keyword.discovery
 
 - Trendermittlung für Nachrichtenthemen: Sie können gängige Themen erkennen und Zu- oder Abnahmen für die Häufigkeit der Erwähnung dieser (oder verwandter) Themen überwachen.
 
-Informationen zum Schreiben von Abfragen für {{site.data.keyword.discoverynewsfull}} finden Sie unter [Abfragekonzepte](/docs/services/discovery/using.html) und [Abfragereferenz](/docs/services/discovery/query-reference.html).
+Informationen zum Schreiben von Abfragen für {{site.data.keyword.discoverynewsfull}} finden Sie unter:
+- [Watson Discovery News abfragen](/docs/services/discovery/using.html#querying-news)
+- [Abfragekonzepte](/docs/services/discovery/using.html)
+- [Abfragereferenz](/docs/services/discovery/query-reference.html)
 
-Das Anpassen der {{site.data.keyword.discoverynewsfull}}-Konfiguration, das Durchführen eines Trainings oder das Hinzufügen von Dokumenten zur Sammlung '{{site.data.keyword.discoverynewsfull}}' ist nicht möglich. 
+Das Anpassen der {{site.data.keyword.discoverynewsfull}}-Konfiguration, das Durchführen eines Trainings oder das Hinzufügen von Dokumenten zur Sammlung '{{site.data.keyword.discoverynewsfull}}' ist nicht möglich.
 
-**Hinweis:** Die maximale Anzahl der zurückgegebenen Ergebnisse für eine Abfrage von Watson Discovery News ist `50`. Verwenden Sie zusätzliche Abfragen und den Parameter `offset`, um mehr als `50` Ergebnisse zurückzugeben.
+{{site.data.keyword.discoverynewsfull}}-Abfragen zeigen die ersten 50 Wörter jedes Artikels im JSON-Feld `text` an.
 
-**Hinweis:** Diese Version von {{site.data.keyword.discoverynewsfull}} ist seit dem **31. Juli 2017** verfügbar. Die ursprüngliche Version wurde in '{{site.data.keyword.discoverynewsfull}} Original' umbenannt und mit dem Servicedatum **15. Januar 2018** zurückgezogen. Informationen zur Migration finden Sie unter [Migration von Watson Discovery News Original durchführen](/docs/services/discovery/migrate-bwdn.html).
+Die maximale Anzahl der Ergebnisse, die für eine {{site.data.keyword.discoverynewsfull}}-Abfrage zurückgegeben werden, beträgt `50`. Verwenden Sie zusätzliche Abfragen und den Parameter `offset`, um mehr als `50` Ergebnisse zurückzugeben.
+
+**Hinweis:** Diese Version von {{site.data.keyword.discoverynewsfull}} ist seit dem **31. Juli 2017** verfügbar. {{site.data.keyword.discoverynewsfull}} Original wurde am **15. January 2018** außer Kraft gesetzt. Informationen zur Migration finden Sie unter [Migration von Watson Discovery News Original durchführen](/docs/services/discovery/migrate-bwdn.html).

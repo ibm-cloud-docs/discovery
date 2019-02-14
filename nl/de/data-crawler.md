@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-07-03"
 
 ---
 
@@ -24,7 +24,10 @@ Mit Data Crawler können Sie das Hochladen von Inhalt in den {{site.data.keyword
 
 ## Daten mit Data Crawler durchsuchen
 
-Data Crawler ist ein Befehlszeilentool, mit dem Sie Ihre Dokumente aus den Repositorys entnehmen können, in denen sie sich befinden (z. B. Dateifreigaben, Datenbanken, Microsoft SharePoint&reg;), und sie zur Verwendung durch den {{site.data.keyword.discoveryshort}}-Service mit einer Push-Operation in die Cloud übertragen können.
+Data Crawler ist ein Befehlszeilentool, mit dem Sie Ihre Dokumente aus den Repositorys entnehmen können, in denen sie sich befinden (z. B. Dateifreigaben, Datenbanken, Microsoft SharePoint), und sie zur Verwendung durch den {{site.data.keyword.discoveryshort}}-Service mit einer Push-Operation in die Cloud übertragen können.
+
+Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die Crawlersuche in Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
+{: tip}
 
 ## Einsatzbereiche für Data Crawler
 

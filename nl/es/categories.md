@@ -22,7 +22,7 @@ lastupdated: "2017-08-18"
 En la siguiente tabla se muestran las categorías que devuelve el enriquecimiento de Clasificación de categorías. Puede descargar aquí una hoja de cálculo con esta información: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>.
 {: shortdesc}
 
-| NIVEL 1 | NIVEL 2 | NIVEL 3| NIVEL 4| NIVEL 5|
+| NIVEL 1                   | NIVEL 2                                | NIVEL 3                                | NIVEL 4                        | NIVEL 5                       |
 |---------------------------|----------------------------------------|----------------------------------------|--------------------------------|-------------------------------|
 | art and entertainment     | books and literature                   | best-sellers                           |                                |                               |
 | art and entertainment     | books and literature                   | children's books                       |                                |                               |

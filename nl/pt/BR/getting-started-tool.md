@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-30"
+  years: 2015, 2018
+lastupdated: "2018-07-18"
 
 ---
 
@@ -18,12 +18,15 @@ lastupdated: "2017-11-30"
 {:swift: .ph data-hd-programlang='swift'}
 {:download: .download}
 
-# Introdução ao conjunto de ferramentas
+# Informações Iniciando
 
 Neste curto tutorial, apresentamos o conjunto de ferramentas do
 {{site.data.keyword.discoveryshort}}
 e percorreremos o processo de criação e de procura de uma coleção de dados privados.
 {: shortdesc}
+
+Se você preferir trabalhar na API, veja [Introdução à API](/docs/services/discovery/getting-started.html).
+{: tip}
 
 ## Antes de Começar
 {: #before-you-begin}
@@ -32,31 +35,24 @@ Será necessária uma instância de serviço para iniciar.
 
 <!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
 
-Você criou sua instância de serviço. Clique em **Gerenciar** e, em seguida,
-**Ativar ferramenta**. Acesse a
+
+Você criou sua instância de serviço. Clique em  ** Gerenciar ** e, em seguida,  ** Abrir ferramenta **. Acesse a
 [Etapa 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection).
 {: download tip}
 
-Se você criar um projeto com o serviço do {{site.data.keyword.discoveryshort}}, estará pronto com esses pré-requisitos. Acesse a
-[Etapa 1](/docs/services/discovery/getting-started-tooling.html#launch-the-tooling).
+Se você criou uma instância de serviço do {{site.data.keyword.discoveryshort}}, tudo estará pronto para esses pré-requisitos. Acesse a  [ Etapa 1 ](/docs/services/discovery/getting-started-tool.html#launch-the-tooling).
 
-1.  Acesse a página {{site.data.keyword.watson}} Developer Console [Services ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.{DomainName}/developer/watson/services){: new_window}.
-1.  Selecione {{site.data.keyword.discoveryshort}}, clique em **Incluir serviços** e inscreva-se em uma conta grátis do {{site.data.keyword.Bluemix_notm}} ou efetue login.
-1.  Digite `discovery-tutorial` como o nome do projeto e clique em **Criar projeto**.
+1.  Acesse a página [{{site.data.keyword.discoveryshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.{DomainName}/catalog/services/discovery){: new_window} no {{site.data.keyword.Bluemix_notm}} Catalog.
+1.  Inscreva-se para obter uma conta gratuita do {{site.data.keyword.Bluemix_notm}} ou efetue login.
+1.  Clique em  ** Criar **.
 
-<!-- Remove this text after dedicated instances have the Developer Console: begin -->
-
-Se você usa o {{site.data.keyword.Bluemix_dedicated_notm}}, crie sua instância de serviço na página [{{site.data.keyword.discoveryshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.{DomainName}/catalog/services/discovery/){: new_window} no catálogo.
-
-<!-- Remove this text after dedicated instances have the Developer Console: end -->
 
 ## Etapa 1: Ativar o conjunto de ferramentas
 {: #launch-the-tooling}
 
-Depois de criar um projeto que inclui o serviço do {{site.data.keyword.discoveryshort}}, você acessará a página de detalhes do projeto. Ative o conjunto de ferramentas do
-{{site.data.keyword.discoveryshort}} aqui.
+Depois de criar uma instância do serviço {{site.data.keyword.discoveryshort}}, você chegará ao [painel do {{site.data.keyword.Bluemix_notm}}](https://console.{DomainName}/dashboard). Clique em sua instância de serviço do {{site.data.keyword.discoveryshort}} para acessar o painel do serviço {{site.data.keyword.discoveryshort}}.
 
-Clique em **ferramenta Ativar** para {{site.data.keyword.discoveryshort}} em **Serviços**.
+Na página **Gerenciar**, clique em **Abrir ferramenta**.
 
 <!-- To do: Add screenshot for developer console -->
 
@@ -76,8 +72,7 @@ Se você não estiver em uma página de detalhes do projeto para o serviço do {
 
 Sua primeira etapa no conjunto de ferramentas do {{site.data.keyword.discoveryshort}} é criar uma coleção de dados.
 
-Uma coleção é um conjunto de seus documentos. *Por que eu iria querer mais de uma coleção?* 
-Existem algumas razões:
+Uma coleção é um conjunto de seus documentos. *Por que eu iria querer mais de uma coleção?* Existem algumas razões:
 
 - Talvez você queira múltiplas coleções para separar resultados para públicos diferentes.
 - Os dados podem ser tão diferentes que não faz sentido consultá-los todos ao mesmo tempo.
@@ -85,7 +80,12 @@ Existem algumas razões:
 A coleção de dados públicos e pré-enriquecidos do {{site.data.keyword.discoverynewsshort}} agora está disponível para uso. Ela está pronta para consultar e é possível começar a criar consultas nela imediatamente. Não é possível ajustar sua configuração ou incluir documentos no {{site.data.keyword.discoverynewsshort}}.
 
 1.  Clique em ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> e escolha **Criar ambiente**.
-1.  Quando seu ambiente está pronto, o diálogo **Nomear sua nova coleção** aparece. Nomeie sua coleção e escolha **Configuração padrão** em **Selecionar uma configuração a ser aplicada** (é possível mudar a configuração posteriormente).
+1.  Quando seu ambiente estiver pronto, clique no botão **Fazer upload de seus próprios dados**, em seguida, será possível **Nomear sua nova coleção**. Nomeie sua coleção e escolha **Configuração padrão** em **Selecionar uma configuração a ser aplicada** (é possível mudar a configuração posteriormente).
+
+Há outra configuração disponível denominada **Configuração de contrato padrão** que suporta Classificação de elementos, que pode ser usada para extrair a parte, a natureza e a categoria de elementos em PDFs. Consulte  [ Classificação de Elementos ](/docs/services/discovery/element-classification.html#element-collection)  para obter detalhes.
+
+Também é possível efetuar crawl das origens de dados Box, Salesforce e Microsoft SharePoint Online com o conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. Clique no botão **Conectar uma origem de dados** e veja [Conectando-se a origens de dados](/docs/services/discovery/connect.html) para obter mais informações.
+{: tip}
 
 ## Etapa 3: Criar uma configuração customizada
 {: create-custom-configuration}
@@ -158,8 +158,7 @@ e selecione sua coleção.
 
     Recursos adicionais:
     - Para saber mais sobre o esquema de dados de seus documentos, clique em **Visualizar
-esquema de dados** ou clique na guia **JSON**.
-Consulte [O esquema de dados do Discovery](/docs/services/discovery/using.html#discovery-schema)
+esquema de dados** ou clique na guia **JSON**. Consulte [O esquema de dados do Discovery](/docs/services/discovery/using.html#discovery-schema)
 para obter detalhes.
     - Se estiver editando no {{site.data.keyword.discoveryshort}} Query Language, clique nos
 ícones **?** ao lado de qualquer um dos campos **Insira a consulta

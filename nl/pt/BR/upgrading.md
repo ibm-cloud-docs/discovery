@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -22,30 +22,45 @@ lastupdated: "2017-10-09"
 O serviço do {{site.data.keyword.discoveryfull}} oferece três planos que fornecem diferentes níveis de recursos e de capacidades para atender às suas necessidades.
 {: shortdesc}
 
-Os **casos de usos de dados privados** têm os limites e preços a seguir:
+Veja [Planos de precificação do {{site.data.keyword.discoveryshort}}](/docs/services/discovery/pricing-details.html) e [Catálogo do {{site.data.keyword.discoveryshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} para obter detalhes.
 
-| Lite                     |  Padrão         | Avançado          |  Premium          |
-|--------------------------|-------------------|-------------------|-------------------|
-| Até 2.000 documentos simultâneos por mês\*   |Até 100.000 documentos simultâneos por mês\*<br/> US$10 por 1.000 documentos simultâneos por mês (US$ 0,0139USD/1.000 doc./h)\*\*\*<br/> 2 mil documentos por mês gratuitos\*\*\*\*  | **Ambiente reservado**</br> US$1,000/taxa base mensal<br/> Até 1.000.000 documentos por mês\*<br/> US$5 por 1.000 documentos simultâneos por mês (US$ 0,00694/1.000 doc./h)\*\*\*<br/> 100 mil documentos por mês incluídos\*\*\*\*</br> Para ambientes maiores, entre em contato com [Vendas ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/marketing/iwm/dre/signup?source=MAIL-watson){: new_window}.| Os **Planos Premium** oferecem aos desenvolvedores e organizações uma única instância de locatário de um ou mais serviços Watson para um melhor isolamento e segurança. Esses planos oferecem isolamento a nível de cálculo na plataforma compartilhada existente, bem como dados criptografados de ponta a ponta enquanto em trânsito e em repouso. Para obter mais informações ou para comprar um plano Premium, entre em contato com a área de [Vendas ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://ibm.biz/contact-wdc-premium){: new_window} |
-| 200 MB\*\*                  |10 GB\*\*  | 80 GB\*\* |-
-| Até duas coleções      |Até quatro coleções | Até 100 coleções| - |
-| Até um modelo customizado do {{site.data.keyword.knowledgestudiofull}}     |Até um modelo customizado do {{site.data.keyword.knowledgestudioshort}} | Modelos customizados ilimitados do {{site.data.keyword.knowledgestudioshort}}<br/>1 {{site.data.keyword.knowledgestudioshort}} Custom Model incluído <br/>$ 800 adicionais por modelo do {{site.data.keyword.knowledgestudioshort}} por mês| - |
+## Atualizando seu serviço
+{: #service} 
 
-**Observação:** em todos os planos, as primeiras 1.000 consultas do {{site.data.keyword.discoverynewsshort}} por mês são grátis. As consultas do {{site.data.keyword.discoverynewsshort}} são cobradas em $ 0,10 por consulta após os primeiros 1.000.
+Para redimensionar seu plano de Lite para Avançado:
 
-**Observação:** os serviços de plano Lite são excluídos após 30 dias de inatividade. Um ambiente grátis é atribuído por organização nos planos Lite.
+1. Abra o [{{site.data.keyword.Bluemix_notm}} painel](https://console.{DomainName}/dashboard). 
+1. Clique em sua instância de serviço do {{site.data.keyword.discoveryshort}} para abrir o painel de serviço do {{site.data.keyword.discoveryshort}}.
+1. Na página **Gerenciar** de seu serviço {{site.data.keyword.discoveryshort}}, clique em **Fazer upgrade** para escolher o plano Avançado. Isso abrirá a página  ** Plan ** . Siga as etapas para concluir seu upgrade. 
+1. Retorne para a página **Gerenciar** e clique em **Ativar ferramenta** para abrir o conjunto de ferramentas do {{site.data.keyword.discoveryshort}}.
+   - Se você nunca tiver criado um ambiente para seu plano Lite antes do upgrade para Avançado, clique no ícone ![Cog](images/icon_settings.png) e escolha **Criar ambiente**. Uma tela exibirá as opções para seu plano Avançado. Escolha a que se ajusta às suas necessidades. (`X-Small`, `Small`, `Medium-Small`, `Medium`, `Medium-Large`, `Large`, `X-Large`, `XX-Large`).
+   - Se você tiver criado um ambiente para seu plano Lite antes do upgrade para Avançado, seu novo ambiente de plano Avançado será `Small` por padrão. 
 
-Para obter informações mais detalhadas sobre precificação, consulte [Planos de precificação do Discovery](/docs/services/discovery/pricing-details.html).
+## Alternando de uma camada Avançado para outra
+{: #advanced} 
 
-Para obter informações sobre a segurança do {{site.data.keyword.Bluemix_notm}}, consulte [Descrição do serviço do {{site.data.keyword.Bluemix_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+Se você já tiver um plano Avançado e desejar fazer upgrade dele para um tamanho de plano maior, será possível fazer isso usando a [API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#update-environment){: new_window}. 
 
-## Atualizando um serviço
+Para obter informações detalhadas sobre os limites de armazenamento do plano Avançado e a precificação, veja [Planos de precificação Avançado](/docs/services/discovery/pricing-details.html#advanced).
 
-Para atualizar seu plano, conclua essas etapas:
+É possível fazer upgrade de seu tamanho de plano Avançado, mas não é possível reduzir para um tamanho menor. Os tamanhos de plano avançados disponíveis são: 
 
-1.  No menu do {{site.data.keyword.Bluemix_notm}}, selecione **Serviços** > **Painel**.
-1.  Selecione a instância de serviço que você deseja atualizar para abri-la.
-1.  Clique em **Planejar** na área de janela de navegação.
-   Aqui é possível ver seu plano atual e outras opções de plano disponíveis e fazer mudanças.
+Tamanho do plano | Etiqueta  
+--------- | ------ 
+Extra-Pequ | XS 
+Pequeno | S 
+Médio-Pequeno | MS 
+Médio | M 
+Médio-Grande | ML 
+Grande | L
+Extra-Grande | XL 
+XX-Grande | XXL 
 
-Para obter respostas às perguntas comuns sobre assinaturas, consulte [Gerenciando faturamento e uso ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](/docs/pricing/index.html){: new_window}.
+- A consulta e a indexação podem continuar durante o upgrade. O tempo necessário para fazer upgrade depende de uma série de fatores. É possível pesquisar seu ambiente usando a API enquanto o upgrade é concluído.
+- Mover de um nível de Avançado para outro não requer a criação de novas instâncias. 
+- Uma vez concluído o upgrade, você será faturado na nova taxa do plano.
+
+## Atualizando para um plano Premium
+{: #premium}
+
+Se você estiver interessado em um plano Premium, entre em contato com [Vendas](https://ibm.biz/contact-wdc-premium).  

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-10-25"
 
 ---
 
@@ -29,7 +29,7 @@ API 要求需要以 `version=YYYY-MM-DD` 格式採用日期的版本參數。每
 
 請隨每一個 API 要求傳送版本參數。服務會使用您指定日期的 API 版本，或該日期之前的最新版本。不要預設為現行日期。請改為指定符合您應用程式相容版本的日期，而且在您的應用程式備妥可用於較新版本之前，請勿變更此日期。
 
-現行版本為 `2017-11-07`。
+現行版本為 `2018-10-15`。
 
 ## 測試版特性
 {: #beta-features}
@@ -42,15 +42,257 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
 該服務有下列新增特性和變更。
 
+## 2018 年 10 月 25 日
+{: #25oct}
+
+已變更[元素分類](/docs/services/discovery/element-classification.html)強化的綱目。如果您想要使用更新的綱目，您必須使用版本日期為 `2018-10-15` 或該日期之後的 API 來汲取您的文件。{{site.data.keyword.discoveryshort}} 工具尚未使用此 API 版本（它目前使用 `2018-08-01`），因此使用 {{site.data.keyword.discoveryshort}} 工具汲取的文件將利用原始綱目來強化。
+
+## 2018 年 9 月 25 日
+{: #25sept}
+
+- 已發行連續相關性訓練，其可利用使用者的互動，學習如何顯露出最相關的結果。它可以自動從使用者行為學習，大幅減少改善結果相關性評等所需的工作量。如需詳細資料，請參閱[持續相關性訓練](/docs/services/discovery/continuous-training.html#crt)。
+
+- 已新增 API 支援以執行較長的查詢。這會將字元限制增加到 10,000 個字元，讓您可以在查詢中增加過濾器數目，以及執行更複雜的聚集。如需詳細資料，請參閱位於 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query){: new_window} 和 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query){: new_window} 的 POST 查詢。
+
+- 您現在可以使用 API 來升級您的「進階」方案。如需詳細資料，請參閱[升級方案](/docs/services/discovery/upgrading.html#advanced)。 
+
+- 「元素分類」強化已更新分類的元素、合約元素以及識別的參與方和表格。如需相關更新，請參閱[元素分類](https://console.bluemix.net/docs/services/discovery/element-classification.html)。
+
+- 已新增巴西葡萄牙文的完整支援。如需相關資訊，請參閱[語言支援](/docs/services/discovery/language-support.html)。
+
+- 查詢 API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) 現在支援 `bias` 參數，該參數可讓您偏向某些結果，例如最近發佈的文件。如需相關資訊，請參閱 API 參考資料中的[查詢集合 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} 方法。
+
+- 提供用來強化[元素分類](/docs/services/discovery/element-classification.html#element-collection)集合的 **Default Contract Configuration** 檔被發現具有 HTML 正規化的問題。這個版本隨附了新的 **Default Contract Configuration**。請遵循下列步驟，將新的 **Default Contract Configuration** 套用到您的集合。
+
+     1. 找出哪些集合正在使用 **Default Contract Configuration** 配置檔，或是以 **Default Contract Configuration** 為基礎的自訂配置。
+     1. 記下您對以 **Default Contract Configuration** 為基礎之任何自訂配置所做的變更。
+     1. 您必須從環境中刪除舊的 **Default Contract Configuration** 檔，才能使用新的檔案，因此，請使用 API [刪除配置 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#delete-configuration){: new_window} 來刪除與任何集合相關聯的現行 **Default Contract Configuration**。同時也請刪除以舊 **Default Contract Configuration** 為基礎的任何配置。
+     1. 現在，您可以使用新的 **Default Contract Configuration** 檔。對於使用上述其中一個配置的每個集合，建立新的集合。請套用新的 **Default Contract Configuration**，或是使用步驟 2 所做的記錄，根據新的 **Default Contract Configuration** 來建立新的自訂配置。
+     1. 將先前汲取的檔案上傳至原始集合。
+     1. 刪除舊集合。
+
+## 2018 年 8 月 15 日
+{: #15aug}
+
+- 有兩個新的查詢運算子可供使用。`Exists` (`:*`) 可用來傳回所有存在指定 `field` 的結果。`Does not exist` (`!*`) 可用來傳回所有未包含指定 `field` 的結果。如需相關資訊，請參閱[查詢運算子](/docs/services/discovery/query-operators.html)。 
+
+## 2018 年 8 月 2 日
+{: #2aug}
+
+- {{site.data.keyword.discoveryfull}} 在使用 {{site.data.keyword.discoveryshort}} 工具連接並同步到 Box、Salesforce 及 SharePoint Online 時，目前支援英文、西班牙文、德文、義大利文、葡萄牙文、法文、阿拉伯文、韓文及日文語言集合。 
+
+## 2018 年 7 月 31 日
+ 
+ - 從 **2018 年 8 月 1 日**開始，{{site.data.keyword.discoveryfull}} 具有新的計價結構。它的特色是更簡單的定價模型（文件小時數不再是計算的一部分），以及用於 {{site.data.keyword.discoverynewsfull}} 查詢的分層定價。此外，「標準」方案已下架，而「精簡」方案降低了文件和 {{site.data.keyword.discoverynewsshort}} 查詢限制。定價變更不需要由現行 {{site.data.keyword.discoverynewsshort}} 使用者執行任何動作。如需詳細資料，請參閱 [{{site.data.keyword.discoveryshort}} 定價方案](/docs/services/discovery/pricing-details.html)。
+ 
+**附註：**API 的版本日期已更新為 `2018-08-01`。若要利用新的環境調整大小選項（`LT`、`XS`、`S`、`MS`、`M`、`ML`、`L`、`XL`、`XXL`、`XXXL`），您必須在使用 API 建立環境時使用此版本日期。環境大小的類型現在是 `string`（之前類型為 `integer`。）
+
+## 2018 年 7 月 27 日
+
+- 已發行另一種語言的 [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html)：日文 (`collection_id`: `news-ja`)。{{site.data.keyword.discoverynewsfull}} 也提供英文版、西班牙文版、德文版及韓文版。
+
+## 2018 年 6 月 25 日
+
+- 已新增選項來連接至 Salesforce、Microsoft SharePoint Online 及 Box 資料來源並與其同步。在「超值」環境中無法使用這些資料來源。已發行這些資料來源的 [來源認證 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#credentials-api){: new_window} 和 [配置 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window} API。 
+  - {{site.data.keyword.discoveryfull}} 在使用 {{site.data.keyword.discoveryshort}} 工具連接並同步到 Box、Salesforce 及 SharePoint Online 時，僅支援英文語言集合。[已解決](/docs/services/discovery/release-notes.html#2aug)
+  - Box、Salesforce 及 SharePoint Online 的個別文件檔案大小限制為 10MB。
+- 已在 {{site.data.keyword.discoveryshort}} 工具中新增「效能儀表板」。請參閱[使用效能儀表板檢視度量並改善查詢結果](/docs/services/discovery/dashboard.html)。新的儀表板在「超值」環境或「專用」環境中無法使用。
+- 已新增日文的完整支援。如需相關資訊，請參閱[語言支援](/docs/services/discovery/language-support.html)。
+
+## 2018 年 6 月 22 日
+
+- 已發行事件及意見 API。如需相關資訊，請參閱[API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window}。
+
+## 2018 年 6 月 11 日
+
+-  對於華盛頓特區（美國東部）中管理的應用程式，服務現在支援記號型 Identity and Access Management (IAM) 鑑別。IAM 會使用存取記號（而非服務認證）來進行服務鑑別。如需將 IAM 記號與現有及新應用程式搭配使用的相關資訊，請參閱 [2018 年 5 月 17 日](#17May2018)版本更新。
+-  現在，「元素分類」支援其他合約元素：`Safety and Security`。如需詳細資料，請參閱[瞭解合約元素](/docs/services/discovery/element-classification.html#contract-elements)。
+
+## 2018 年 6 月 6 日
+
+- {{site.data.keyword.discoverynewsfull}} 查詢現在會於 `text` JSON 欄位中顯示每篇文章的前 50 個字。
+
+## 2018 年 6 月 5 日
+{: #5jun}
+
+- 「元素分類」現在提供給「超值」方案的訂閱者使用。
+- `Low` 的 `assurance` 分級不再適用於「元素分類」。
+
+## 2018 年 5 月 31 日
+
+- 已新增法文的完整支援。如需相關資訊，請參閱[語言支援](/docs/services/discovery/language-support.html)。
+
+## 2018 年 5 月 30 日
+
+- 已修正 {{site.data.keyword.discoverynewsfull}} 中的已知問題。之前，當查詢 {{site.data.keyword.discoverynewsshort}} 時，可能會收到不正確的文件計數，因為其他語言中的文件會與您所要求的語言一起計算。不會再出現這種情況。
+- 從 `22 May 2018` 及該日期之後建立的集合開始，{{site.data.keyword.discoveryshort}} 現在會傳回包含下列語言之特殊字元的查詢結果：英文、德文、法文、荷蘭文、義大利文及葡萄牙文。比方說，如果您查詢 `aqui`，現在會同時收到 `aqui` 和 <code>aqu&iacute;</code> 的結果。
+
+## 2018 年 5 月 21 日
+
+- 已發行另一種語言的 [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html)：德文 (`collection_id`: `news-de`)。{{site.data.keyword.discoverynewsfull}} 也提供英文、西班牙文及韓文。
+
+## 2018 年 5 月 17 日
+{: #17May2018}
+
+- {{site.data.keyword.discoverynewsfull}} 查詢現在會於 `text` JSON 欄位中顯示每篇文章的前 20 個字。
+
+-   針對 2018 年 5 月 15 日起雪梨 (**au-syd**) 所管理之應用程式的服務實例，服務現在支援新的 API 鑑別處理程序。對於其他地區中所管理的應用程式，將會盡快啟用這些處理程序。{{site.data.keyword.Bluemix}} 正在移轉至記號型 Identity and Access Management (IAM) 鑑別。IAM 會使用存取記號（而非服務認證）來進行服務鑑別。
+
+   在雪梨地區，您會針對下列項目將 IAM 存取記號與 {{site.data.keyword.discoveryshort}} 服務搭配使用：
+
+    -   在 5 月 15 日之後建立的*新服務實例*。如需相關資訊，請參閱[使用 IAM 記號進行鑑別](/docs/services/watson/getting-started-iam.html)。
+    -   您從 Cloud Foundry 移轉至「資源控制器 (RC)」所管理之資源群組的*現有服務實例*。5 月 15 日之前建立的服務實例會繼續使用服務認證進行鑑別，直到您移轉它們為止。如需相關資訊，請參閱[將 Cloud Foundry 服務實例移轉至資源群組](/docs/resources/instance_migration.html)。
+
+    其他地區中的所有新增和現有服務實例則會繼續使用服務認證（`apikey:{apikey_value}`）進行鑑別。
+
+### 使用 IAM 存取記號來進行鑑別
+
+使用 IAM 存取記號時，您會在將要求傳送至 {{site.data.keyword.discoveryshort}} 服務之前進行鑑別。
+
+1.  從 IBM Cloud 取得 API 金鑰。使用該金鑰來產生 IAM 存取記號。如需相關資訊，請參閱[如何使用 {{site.data.keyword.watson}} 服務 API 金鑰來取得 IAM 記號](/docs/services/watson/getting-started-iam.html#iamtoken)。
+1.  使用 `Authorization` 標頭，將 IAM 存取記號傳遞給 {{site.data.keyword.discoveryshort}} 服務。在此標頭中，請指定 `Authorization: Bearer {access_token}` 來指出存取記號是 `Bearer` 記號。
+
+    下列簡單 cURL 範例使用存取記號：
+
+    ```bash
+    curl -X GET
+    --header "Authorization: Bearer eyJhbGciOiJIUz......sgrKIi8hdFs"
+    "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    ```
+    {: pre}
+
+    如需相關資訊，請參閱[使用記號來進行鑑別](/docs/services/watson/getting-started-iam.html#use_token)。
+
+### 重新整理 IAM 存取記號
+
+您產生的 IAM 存取記號具有下列結構。您可以使用 `access_token` 欄位的值，對服務發出經過鑑別的要求。
+
+```javascript
+{
+  "access_token": "eyJhbGciOiJIUz......sgrKIi8hdFs",
+  "refresh_token": "SPrXw5tBE3......KBQ+luWQVY=",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "expiration": 1473188353
+}
+```
+{: codeblock}
+
+存取記號的存活時間有限。`expires_in` 欄位指出記號持續存在多久（在此案例中為一小時）。`expiration` 欄位會以指定 1970 年 1 月 1 日（UTC/GMT 午夜）以來秒數的 UNIX 時間戳記，顯示記號的到期時間。
+
+在您的應用程式中，檢查存取記號的有效期限，然後使用它來發出經過鑑別的要求。如果已過期，您必須先重新整理存取記號，然後才能使用它。您可以使用 `refresh_token` 欄位的值來重新整理存取記號。如需相關資訊，請參閱[重新整理記號](/docs/services/watson/getting-started-iam.html#refresh_token)。
+
+
+## 2018 年 5 月 11 日
+
+- 您可以在這裡找到資訊安全的詳細資料：[資訊安全](/docs/services/discovery/information-security.html)。
+- 下列 {{site.data.keyword.discoveryfull}} Knowledge Graph `query_entities` 已知問題已使用 `2018-05-04` API 版本更新加以修正。只有在 `2018-05-04` 之後汲取或取代的實體，才適用此修正程式。實體可以透過重新汲取舊文件，或汲取包含那些實體的新文件來進行取代。如果未取代舊的實體，則 `query_entities` 會傳回所有包含 `2018-05-04` API 版本的大寫。
+  - 先前已在 `query_entities` 中將所有實體名稱轉換為駝峰式大小寫。例如，實體名稱 "IBM Corporation" 轉換為 "Ibm Corporation"。不會再出現這種情況。
+
+## 2018 年 5 月 9 日
+
+- 範例文件現在會儲存在本端（在瀏覽器的本端漫遊資料資料夾中）。如需範例文件的相關資訊，請參閱[上傳範例文件](/docs/services/discovery/building.html#uploading-sample-documents)。
+
+## 2018 年 5 月 4 日
+
+- 「元素分類」現在支援兩個額外的合約元素：屬性和起源。如需詳細資料，請參閱[瞭解合約元素](/docs/services/discovery/element-classification.html#contract-elements)。
+
+## 2018 年 4 月 26 日
+
+- 已修正下列汲取問題：在指定了後置強化 `json_normalizations` 和/或 `normalizations` 的某些情況下，可能會以錯誤順序套用正規化。這可能導致文件進行檢索時使用非預期的欄位值。不會再出現這種情況。
+- 範例文件的檔案大小上限現在為 1MB。檔案大小上限之前為 5MB。
+
+## 2018 年 4 月 12 日
+
+- Knowledge Graph：所有集合現在都可以使用[證明](/docs/services/discovery/building-kg.html#evidence)和[標準化及過濾](/docs/services/discovery/building-kg.html#canonicalization)。在 `03-05-2018` 之前建立的任何集合中，您需要重新汲取文件才能使用這些特性。之前，您需要建立新的集合，並重新汲取文件。
+
+## 2018 年 4 月 11 日
+
+- 「元素分類」現在支援兩個額外的種類：`Asset Use` 和 `Communication`。如需詳細資料，請參閱[瞭解合約元素](/docs/services/discovery/element-classification.html#contract-elements)。
+
+## 2018 年 4 月 2 日
+
+- 現在，系統會在 24 小時（而非 1 個月）之後自動刪除範例文件。
+
+## 2018 年 3 月 16 日
+
+- 已新增對德文的完整支援。如需相關資訊，請參閱[語言支援](/docs/services/discovery/language-support.html)。
+
+{{site.data.keyword.discoveryshort}} 工具：
+- 已新增名為 **Default Contract Configuration** 的新配置來支援「元素分類」，該分類可用來從 PDF 中的元素擷取參與方、本質和種類。如需詳細資料，請參閱[元素分類](/docs/services/discovery/element-classification.html#element-collection)。
+
+更新至通用版
+- 文件分段已從測試版狀態移至 GA 狀態。分段限制已增加到 250 個區段。每個文件不再限制為 50 個區段。如需詳細資料，請參閱[文件分段](/docs/services/discovery/building.html#doc-segmentation)。
+
+已知問題：
+- 萬用字元對於包含大寫字母的查詢無效。例如，假設指定索引鍵/欄位配對 `{"borrower": "GOVERNMENT OF INDIA"}`，`query-borrower:*ndia` 會傳回結果，但 `query-borrower:*NDIA` 則不會。
+
+## 2018 年 3 月 8 日
+{: #8mar}
+
+- {{site.data.keyword.discoveryfull}} Knowledge Grap 的測試版已新增數個特性。在測試版期間，[知識圖](/docs/services/discovery/building-kg.html)功能及其相關聯方法僅可用於已訂閱**進階**方案、**超值**方案的服務實例，以及所有**專用**環境。新特性如下：
+  - [實體相似性](/docs/services/discovery/building-kg.html#similarity)
+  - [證明](/docs/services/discovery/building-kg.html#evidence)
+  - [標準化及過濾](/docs/services/discovery/building-kg.html#canonicalization)
+
+## 2018 年 3 月 7 日
+
+- 已修正下列汲取已知問題：在 2 月 28 日和 3 月 6 日之間，只有較小百分比的文件會使用 `id` 和 `extracted_metadata` 欄位來進行檢索（其他文件內容不會進行檢索）。基礎問題已修正，不過，您需要重新提交所有受影響的文件來進行汲取。沒有簡單的方法可識別受影響的文件。
+
+## 2018 年 3 月 5 日
+{: #5mar}
+
+- 下列 {{site.data.keyword.discoveryfull}} Knowledge Graph 已知問題已使用 `2018-03-05` API 版本更新加以修正。此修正程式僅適用於使用 `2018-03-05` 版本更新的新建立集合。  
+  - 在汲取期間，所有實體類型名稱及關係類型名稱先前都會轉換為大寫。例如，實體 "GeoPoliticalEntity" 轉換為 "GEOPOLITICALENTITY"，而關係 "partOf" 轉換為 "PARTOF"。不會再出現這種情況。
+
+## 2018 年 3 月 1 日
+
+- [查詢擴展](/docs/services/discovery/using.html#query-expansion)限制已針對「進階」和「超值」方案增加到 5,000 個查詢擴展及總計 25,000 個詞彙。如需詳細資料，請參閱 [Discovery 定價方案](/docs/services/discovery/pricing-details.html)。
+
+## 2018 年 2 月 28 日
+
+- {{site.data.keyword.alchemylanguageshort}} 強化從 **2018 年 3 月 1 日**起已淘汰。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化之現有集合及配置檔的相關資訊，請參閱[將強化移轉至 {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html)。
+
+## 2018 年 2 月 23 日
+
+- 已新增依文件相似性查詢的能力。您可以透過文件 ID 查詢類似的文件，並選擇性地指定欄位，以進一步修正相似性。如需相關資訊，請參閱[文件相似性](/docs/services/discovery/using.html#doc-similarity)。
+
+- 已強化查詢結果中的 [`highlight` 參數](/docs/services/discovery/query-parameters.html#highlight)。查詢結果將會傳回依其 `score` 排序的完整句子。
+
+## 2018 年 2 月 21 日
+{: #21feb}
+
+- 之前，如果汲取 PDF 文件，則查詢汲取通知時在 `extracted_metadata` 物件以及從文件詳細資料 API 中傳回的 `file_type` 是 `html`。不會再出現這種情況。傳回的 `file_type` 現在是 `pdf`。 
+
+## 2018 年 1 月 26 日
+{: #26jan}
+
+{{site.data.keyword.discoveryshort}} 工具：
+
+- 已將存取韓文和西班牙文集合的功能新增至工具中的 [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) 磚。之前，只能透過 API 來查詢這些集合。
+
+## 2018 年 1 月 23 日
+
+- 已新增擴展查詢範圍的能力；例如，您可以擴展 "car" 的查詢，以包括 "automobile" 和 "motor vehicle"。此外，您還可以取代通常拼錯的詞彙，例如，您可以將 "seabizcuit" 的查詢取代為 "seabiscuit"。查詢擴展是使用 {{site.data.keyword.discoveryshort}} API 來實作。如需詳細資料，請參閱[查詢擴展](/docs/services/discovery/using.html#query-expansion)。  
+
+## 2018 年 1 月 15 日
+
+- {{site.data.keyword.discoverynewsfull}} Original 已從服務下架。它已於 2017 年 7 月 31 日使用名為 {{site.data.keyword.discoverynewsfull}} 的新版本加以取代。如需從 {{site.data.keyword.discoverynewsfull}} Original 移轉至新版本的相關指示，請參閱[從 Watson Discovery News Original 移轉](/docs/services/discovery/migrate-bwdn.html)。
+
+## 2018 年 1 月 11 日
+
+- 已新增韓文的完整支援。如需相關資訊，請參閱[語言支援](/docs/services/discovery/language-support.html)。
+
 ## 2017 年 12 月 15 日
 
-- 發行了**元素分類**強化，其可剖析控管文件中的元素（句子、清單、表格），以對重要種類和類型進行分類。如需相關資訊，請參閱[元素分類](/docs/services/discovery/element-classification.html)。「元素分類」無法用於已訂閱**超值**方案的服務實例。
+- 發行了**元素分類**強化，其可剖析控管文件中的元素（句子、清單、表格），以對重要種類和類型進行分類。如需相關資訊，請參閱[元素分類](/docs/services/discovery/element-classification.html)。「元素分類」無法用於已訂閱**超值**方案的服務實例。[已解決](/docs/services/discovery/release-notes.html#5jun)
 - 新增了簡體中文和荷蘭文的基本語言支援。如需相關資訊，請參閱[語言支援](/docs/services/discovery/language-support.html)。目前，必須使用 API 來建立簡體中文和荷蘭文集合。
 - 新增了「資料搜索器」的兩個新參數：`proxy_host_port` 和 `read-timeout`。如需詳細資料，請參閱[配置資料搜索器](/docs/services/discovery/data-crawler-discovery.html)。
-- 汲取 PDF 文件時，可能會看到下列問題：
+- 汲取 PDF 文件時，可能會看到下列問題：[已解決](/docs/services/discovery/release-notes.html#21feb)
   - 當查詢汲取通知時，會以 `html` 傳回 PDF 文件的 `file_type` 欄位。
   - 針對 PDF 文件，結果的 `extracted_metadata` 物件中的 `file_type` 欄位是設為 `html`。
   - 文件詳細資料 API 也會將 PDF 文件的 `file_type` 欄位傳回為 `html`。
+- 如果您要汲取 JSON，則不支援混合類型陣列。  
 
 {{site.data.keyword.discoveryshort}} 工具：
 
@@ -58,14 +300,14 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
 ## 2017 年 11 月 30 日
 
-- 發行了 {{site.data.keyword.discoveryfull}} Visual Insights 的實驗性版本。您可以使用 Visual Insights，以視覺化方式探索 {{site.data.keyword.discoveryshort}} 基於對語意元素、關係、概念等等的瞭解所識別的連接。如需相關資訊，請參閱 [Visual Insights](/docs/services/discovery/visual-insights.html)。可以在[這裡](/docs/services/discovery/release-notes.html#beta-features)找到說明實驗性/測試版特性的陳述。
-- 發行了 {{site.data.keyword.discoveryfull}} Knowledge Graph 的測試版，其可提供新的端點來查詢文件之間的實體及關係。這包括基於環境定義的搜尋和相關性分級。這項測試版特性只提供給**進階**方案使用者。它無法使用於**專用**環境。如需相關資訊，請參閱 [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html)。可以在[這裡](/docs/services/discovery/release-notes.html#beta-features)找到說明測試版特性的陳述。
-  - {{site.data.keyword.discoveryfull}} Knowledge Graph 中的已知問題：在汲取期間，所有實體類型名稱及關係類型名稱都會轉換為大寫。例如，實體 "GeoPoliticalEntity" 轉換為 "GEOPOLITICALENTITY"，而關係 "partOf”轉換為 "PARTOF"。
-- 發行了其他兩種語言的 [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html)：韓文 (`collection_id`: `news-ko`) 和西班牙文 (`collection_id`: `news-es`)。{{site.data.keyword.discoverynewsfull}} 韓文版和西班牙文版只能透過 API 來使用；如需透過 API 查詢集合的相關資訊，請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}。{{site.data.keyword.discoverynewsfull}} 英文版現在的 `collection_id` 為 `news-en`。早期，`collection_id` 是 `news` - 如果您是使用先前的 `collection_id`，它會繼續運作，不過，您可能會想要針對新專案切換至新的 `collection_id`。
+- 發行了 {{site.data.keyword.discoveryfull}} Knowledge Graph 的測試版，其可提供新的端點來查詢文件之間的實體及關係。這包括以上下文為基礎的搜尋和相關性分級。這項測試版特性只提供給**進階**方案使用者。它無法使用於**專用**環境。[已解決](/docs/services/discovery/release-notes.html#8mar) 如需相關資訊，請參閱 [{{site.data.keyword.discoveryfull}}Knowledge Graph](/docs/services/discovery/building-kg.html)。可以在[這裡](/docs/services/discovery/release-notes.html#beta-features)找到說明測試版特性的陳述。
+  - {{site.data.keyword.discoveryfull}} Knowledge Graph 中的已知問題：在汲取期間，所有實體類型名稱及關係類型名稱都會轉換為大寫。例如，實體 "GeoPoliticalEntity" 轉換為 "GEOPOLITICALENTITY"，而關係 "partOf”轉換為 "PARTOF"。[已解決](/docs/services/discovery/release-notes.html#5mar)
+- 發行了其他兩種語言的 [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html)：韓文 (`collection_id`: `news-ko`) 和西班牙文 (`collection_id`: `news-es`)。{{site.data.keyword.discoverynewsfull}} 韓文版和西班牙文版只能透過 API 來使用；如需透過 API 查詢集合的相關資訊，請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")][Resolved] (/docs/services/discovery/release-notes.html#26jan)(https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}。{{site.data.keyword.discoverynewsfull}} 英文版現在的 `collection_id` 為 `news-en`。早期，`collection_id` 是 `news` - 如果您是使用先前的 `collection_id`，它會繼續運作，不過，您可能會想要針對新專案切換至新的 `collection_id`。
 - 查詢結果傳回 `score` 值，其指出查詢結果之間的相對相關性。從 2017 年 11 月 30 日開始，計算 `score` 的方式已變更。`score` 值只能用於在單一搜尋中對文件進行分級，而不能跨搜尋或階段作業。如果您已訓練集合，則會在自然語言查詢的結果中傳回 `score` 值。由於 `score` 指出查詢結果之間的相對相關性，因此不應使用它作為臨界值。請改用 `confidence` 來設定臨界值，它可指出與訓練模型相較之下的結果相關性。如需設定臨界值的相關資訊，請參閱[信賴度評分](/docs/services/discovery/train-tooling.html#confidence)。
 - 從這個版本開始，段落擷取會偵測句子界限 - 它會嘗試傳回在句子開頭開始並在尾端結束的段落。以前，許多段落會在句子中間開始或結束。如需「段落擷取」的相關資訊，請參閱[段落](/docs/services/discovery/query-parameters.html#passages)。
 
 ## 2017 年 11 月 15 日
+{: #15nov}
 
 {{site.data.keyword.discoveryshort}} 工具：
 
@@ -81,10 +323,11 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 - 新增了其他選項來進行 {{site.data.keyword.discoveryshort}} 工具的「段落擷取」。現在當您查詢時，可以指定要從其中傳回段落的欄位、要傳回的段落數，以及每一個段落的字元數上限。如需限制、最小值和最大值，請參閱[段落](/docs/services/discovery/query-parameters.html#passages)。
 
 ## 2017 年 11 月 8 日
+{: #8nov}
 
 所有 API 呼叫的版本字串已從 `2017-10-16` 變更為 `2017-11-07`。此版本：
-- 已將每一個查詢結果中的 `score` 移至名稱為 `results_metadata` 的新物件。
-- 如果所查詢的集合已訓練，且查詢是自然語言查詢，則 `results_metadata` 會包含 `confidence` 欄位，其顯示該結果的信賴度評分。如需詳細資料，請參閱[信賴度評分](/docs/services/discovery/train-tooling.html#confidence)。
+- 已將每一個查詢結果中的 `score` 移至名稱為 `result_metadata` 的新物件。
+- 如果所查詢的集合已訓練，且查詢是自然語言查詢，則 `result_metadata` 會包含 `confidence` 欄位，其顯示該結果的信賴度評分。如需詳細資料，請參閱[信賴度評分](/docs/services/discovery/train-tooling.html#confidence)。
 - 在汲取期間將過濾掉包含空格的欄位（例如：`body.additional reading`）。`notices` 說明會變成 `The field 'additional reading' is invalid: whitespace, '.', '#' and ',' are invalid in a field name`。
 - 在汲取期間將過濾掉 `result_metadata` 欄位。
 
@@ -95,7 +338,7 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 {{site.data.keyword.discoveryshort}} 工具：
 
 - {{site.data.keyword.discoveryshort}} 工具使用 `2017-10-16` API 版本字串，因此，如果您是使用該工具，則無法再將文件上傳至現有的 {{site.data.keyword.alchemylanguageshort}} 集合，或建立利用 `2017-10-16` 之後的 {{site.data.keyword.alchemylanguageshort}} 強化來強化的新集合。如果您要繼續使用 {{site.data.keyword.discoveryshort}} 工具來強化集合，請先將集合移轉到 {{site.data.keyword.nlushort}}。如需詳細資料，請參閱[將強化移轉至 {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrating-enrichments-to-natural-language-understanding)。
-- **資料綱目瀏覽器**顯示對 {{site.data.keyword.discoverynewsfull}} 集合中的數個強化的範例查詢。它現在也有一個「顯示其他值」鏈結，此鏈結將在 {{site.data.keyword.discoverynewsfull}} 中顯示該強化的其他範例值。
+- **資料綱目瀏覽器**顯示對 {{site.data.keyword.discoverynewsfull}} 集合中的數個強化的範例查詢。它現在也有一個**顯示其他值**鏈結，此鏈結將在 {{site.data.keyword.discoverynewsfull}} 中顯示該強化的其他範例值。
 - 多個生產力加強功能，包括結合集合統計資料、錯誤和警告，以及**管理資料**畫面的資料見解。
 - 新增了一則訊息，可在文件完成處理時顯示警示。
 
@@ -116,7 +359,7 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 ### 2017 年 9 月 29 日
 
 - {{site.data.keyword.discoveryshort}} 已在 2017 年 9 月 29 日於 `Germany` 地區推出。為了遵守 EU 資料法規，此地區不支援 AlchemyLanguage 強化。
-- 已知問題：查詢欄位不能包含空格。在 {{site.data.keyword.discoveryshort}} 中撰寫查詢時，如果有任何查詢欄位包含空格（例如，`body.additional reading`），您會收到 `400: Invalid query syntax error`。
+- 已知問題：查詢欄位不能包含空格。在 {{site.data.keyword.discoveryshort}} 中撰寫查詢時，如果有任何查詢欄位包含空格（例如，`body.additional reading`），您會收到 `400: Invalid query syntax error`。[已解決](/docs/services/discovery/release-notes.html#8nov)
 
 ### 2017 年 9 月 25 日
 
@@ -127,8 +370,8 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 {{site.data.keyword.discoveryshort}} 工具：
 - 「視覺化查詢建置器」已從測試版狀態移至 GA 狀態。「視覺化查詢建置器」目前不支援「過濾器」、「時間片段」及「直方圖」聚集。可按一下**包含結果的分析**，然後按一下**建置查詢**畫面上的**以查詢語言編輯**，來撰寫那些聚集。
 - 新增了測試版功能，以刪除 {{site.data.keyword.discoverynewsfull}} 查詢的重複項目。
-- 除了英文、德文及西班牙文語言集合之外，您現在還可以建立阿拉伯文、法文、義大利文、韓文及巴西葡萄牙文集合。
-- 已知問題：{{site.data.keyword.discoveryshort}} 工具不支援聯合環境。
+- 除了英文、德文及西班牙文語言集合之外，您現在還可以建立阿拉伯文、法文、義大利文、韓文、日文及巴西葡萄牙文集合。
+- 已知問題：{{site.data.keyword.discoveryshort}} 工具不支援聯合環境。[已解決](/docs/services/discovery/release-notes.html#15nov)
 
 ### 2017 年 9 月 14 日
 
@@ -138,7 +381,7 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
 ### 2017 年 9 月 6 日
 
-- 新增了對您的查詢傳回的文件進行刪除重複文件的能力。此測試版特性同時適用於專用集合與 Watson Discovery News 集合。如需詳細資料，請參閱[從查詢結果中排除重複文件](/docs/services/discovery/query-parameters.html#deduplication)。
+- 新增了對您的查詢傳回的文件進行刪除重複文件的能力。此測試版特性同時適用於專用集合與 Watson Discovery News 集合。如需詳細資料，請參閱[從查詢結果排除重複文件](/docs/services/discovery/query-parameters.html#deduplication)。
 
 刪除重複文件目前僅支援作為測試版功能。如需相關資訊，請參閱本文件頂端有關測試版的陳述。
 
@@ -195,7 +438,7 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
 ### 2017 年 7 月 31 日
 
-- 發行了 {{site.data.keyword.discoverynewsfull}} 的新版本。原始版本已重新命名為 {{site.data.keyword.discoverynewsfull}} Original，並已絕版，從 **2018 年 1 月 15 日**起不再提供服務。如需移轉指示，請參閱[從 Watson Discovery News Original 移轉](/docs/services/discovery/migrate-bwdn.html)。
+- 發行了 {{site.data.keyword.discoverynewsfull}} 的新版本。原始版本已重新命名為 {{site.data.keyword.discoverynewsfull}} Original，並已下架，在 **2018 年 1 月 15 日**已從服務移除。如需移轉指示，請參閱[從 Watson Discovery News Original 移轉](/docs/services/discovery/migrate-bwdn.html)。
   **附註：**如果您已建立 {{site.data.keyword.discoveryshort}} 的新實例，您只能存取 {{site.data.keyword.discoverynewsfull}} 的新版本。
 
 - 發行了 {{site.data.keyword.discoveryfull}} 的新定價方案。如需詳細資料，請參閱 [{{site.data.keyword.discoveryshort}} 定價方案](/docs/services/discovery/pricing-details.html)。
@@ -229,9 +472,10 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
     對於使用 {{site.data.keyword.alchemylanguageshort}} 強化進行強化的集合，Insight Cards 將不再自動更新。您必須將集合移轉至 {{site.data.keyword.nlushort}} 強化，Insight Cards 才會更新。
 
-    如果您在 **2017 年 7 月 18 日**之前已建立集合，且已套用**預設配置**，則該集合已使用 {{site.data.keyword.alchemylanguageshort}} 強化來強化。如果您在此日期之後將**預設配置**套用至集合，將會使用 {{site.data.keyword.nlushort}} 強化（配置名稱會變成工具中的 **Default Configuration with NLU**）。由於 {{site.data.keyword.alchemylanguageshort}} 強化會被淘汰，所以不應用於新集合。
+    如果您在 **2017 年 7 月 18 日**之前已建立集合，且已套用 **Default Configuration**，則該集合已使用 {{site.data.keyword.alchemylanguageshort}} 強化來強化。如果您在此日期之後將 **Default Configuration** 套用至集合，將會使用 {{site.data.keyword.nlushort}} 強化（配置名稱會變成工具中的 **Default Configuration with NLU**）。由於 {{site.data.keyword.alchemylanguageshort}} 強化會被淘汰，所以不應用於新集合。
 
 ### 2017 年 6 月 30 日
+{: #30jun}
 
  -  在 2017 年 5 月 5 日引進作為測試版特性的實體正規化功能，已移至 GA 狀態。如需詳細資料，請參閱[建立自訂配置以將實體正規化](/docs/services/discovery/normalize-entities.html)。
 
@@ -259,21 +503,22 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
     - 已重新設計**建置查詢**畫面，但仍保留所有欄位和選項。以下是欄位的新舊名稱。
 
-| **舊欄位名稱**                                           | **新欄位或區段名稱**                                                                                             |
+|**舊欄位名稱**                                           |**新欄位或區段名稱**                                                                                             |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| 撰寫並執行查詢                                           | 搜尋文件                                                                                                                         |
-| 縮小查詢結果（過濾器）                                   | 限制您查詢的文件                                                                                                                         |
-| 將查詢結果分組（聚集）                                   | 包含結果的分析                                                                                                                          |
-| 要顯示的欄位                                             | 名稱不變，但已移至新的**自訂顯示選項**區段。                                                                        |
-| 要傳回的文件數（計數）                                   | 要傳回的文件數 [此欄位已移至**自訂顯示選項**區段。]                                                                            |
-| 包括相符的段落                                           | 包含相關段落 [此欄位已移至**自訂顯示選項**區段。]                                                                    |
-| 要在開始時跳過的查詢欄位數（偏移）                       | 要在開始時跳過的查詢結果數 [此欄位已移至**自訂顯示選項**區段。]                                                                             |
+|撰寫並執行查詢                                           |搜尋文件                                                                                                                         |
+|縮小查詢結果（過濾器）                                   |限制您查詢的文件                                                                                                                         |
+|將查詢結果分組（聚集）                                   |包含結果的分析                                                                                                                          |
+|要顯示的欄位                                             |名稱不變，但已移至新的**自訂顯示選項**區段。                                                                        |
+|要傳回的文件數（計數）                                   |要傳回的文件數 [此欄位已移至**自訂顯示選項**區段。]                                                                            |
+|包括相符的段落                                           |包含相關段落 [此欄位已移至**自訂顯示選項**區段。]                                                                    |
+|要在開始時跳過的查詢欄位數（偏移）                       |要在開始時跳過的查詢結果數 [此欄位已移至**自訂顯示選項**區段。]                                                                             |
 
 ### 2017 年 6 月 5 日
 
  - 現在，Watson Discovery News 查詢只會顯示 `text` 和 `alchemyapi_text` JSON 欄位中每一篇文章的前 150 個字。`blekko.snippet` 欄位只會顯示 Snippet 陣列的第一個句子。
 
 ### 2017 年 5 月 30 日
+{: #30may}
 
  - 查詢 API 上的 `passages` 參數已從測試版移至 GA 狀態。
 
@@ -295,11 +540,13 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
  - 實體正規化現在可以與使用 Watson Knowledge Studio 所產生之自訂模型的 Discovery 服務搭配使用。實體正規化會將不同參照的正規化（標準）名稱插入至來源文件中的相同人員或物件。如需詳細資料，請參閱[建立自訂配置以將實體正規化](/docs/services/discovery/normalize-entities.html)。
 
-     **附註：**實體正規化目前僅支援作為測試版功能。如需相關資訊，請參閱本文件頂端有關測試版的陳述。
+     **附註：**實體正規化目前僅支援作為測試版功能。如需相關資訊，請參閱本文件頂端有關測試版的陳述。[已解決](/docs/services/discovery/release-notes.html#30jun)
+
+{{site.data.keyword.discoveryshort}} 工具：
 
  - 工具錯誤日誌不再限制為最多八 (8) 頁的結果。如果沒有文件名稱，則錯誤日誌仍會顯示文件 ID。
 
- - 配置名稱限制為 50 個字元，而且必須由 `[a-zA-Z0-9-_]` 字元組成。
+ - 配置名稱限制為 50 個字元，而且必須由 `[a-zA-Z0-9-_]` 字元組成。 
 
  - 先前只能透過 API 使用的 `passages` 參數，現在透過「工具」及 API 都可以使用。
 
@@ -307,28 +554,28 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
   - 該服務現在可讓您提供*訓練資料* 來改善查詢結果的正確性。當您提供具有訓練資料的 Discovery 實例時，該服務會使用進階 Watson 演算法來判定最相關的結果。當您新增更多訓練資料時，該服務實例在它傳回的結果中會變得更準確。如需相關資訊，請參閱[改善查詢結果的相關性](/docs/services/discovery/train.html)及 [API 參考資料](http://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data)。
 
-  - 現在，API 支援 `natural_language_query` 參數作為測試版。此參數可讓您以自然語言（而非 Discovery 服務的查詢語言）指定查詢。如需相關資訊，請參閱 API 參考資料中的[查詢集合](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection)方法。
+  - 現在，API 支援 `natural_language_query` 參數作為測試版。此參數可讓您以自然語言（而非 Discovery 服務的查詢語言）指定查詢。如需相關資訊，請參閱 API 參考資料中的[查詢集合](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get)方法。
 
   - 文件更新及勘誤更正。
 
 ### 2017 年 4 月 14 日
 
-已將加強功能新增至查詢 API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`)。如需相關資訊，請參閱 API 參考資料中的[查詢集合](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection)方法。
+已將加強功能新增至查詢 API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`)。如需相關資訊，請參閱 API 參考資料中的[查詢集合](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get)方法。
 
-  - 現在，查詢 API 支援 `passages` 參數。如果此參數設為 `true`，則查詢會從集合的文件中傳回一組最相關的段落。段落是由更準確的 Watson 演算法所產生，用來決定該查詢所傳回之所有文件中的最佳文字段落。這可讓您更精確地尋找資訊及環境定義。如需相關資訊，請參閱 API 參考資料中的[查詢集合](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection)方法。
+  - 現在，查詢 API 支援 `passages` 參數。如果此參數設為 `true`，則查詢會從集合的文件中傳回一組最相關的段落。段落是由更準確的 Watson 演算法所產生，用來決定該查詢所傳回之所有文件中的最佳文字段落。這可讓您更精確地尋找資訊及上下文。如需相關資訊，請參閱 API 參考資料中的[查詢集合](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get)方法。
 
     - 在查詢中指定 `passages=true` 可能會降低效能，這是因為增加了處理來擷取段落。在較大型的環境下，效能影響會減輕。
 
     - 只有在專用集合上才支援 `passages` 參數。在 Watson Discovery News 集合中不支援它。
 
-    - `passages` 參數目前最多傳回 10 個結果。無法變更傳回的結果數。
+    - `passages` 參數目前最多傳回 10 個結果。無法變更傳回的結果數。[更新](/docs/services/discovery/query-parameters.html#passages_count)
 
     - `passages` 參數從集合的任何給定文件中最多傳回三 (3) 個段落。如果文件包含超過三個其他相關段落，該參數不會傳回它們。
 
 ### 2017 年 4 月 7 日
 
-- 現在，查詢 API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) 支援 `sort` 參數，它可讓您指定文件中要排序的欄位清單（以逗點區隔）。如需相關資訊，請參閱 API 參考資料中的[查詢集合](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection)方法。
-- 現在，查詢聚集的 `timeslice` 參數可正確處理 UNIX epoch 格式的日期。如需聚集和 `timeslice` 參數的相關資訊，請參閱[查詢參照](/docs/services/discovery/query-reference.html#aggregations)。
+- 現在，查詢 API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) 支援 `sort` 參數，它可讓您指定文件中要排序的欄位清單（以逗點區隔）。如需相關資訊，請參閱 API 參考資料中的[查詢集合 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} 方法。
+- 現在，查詢聚集的 `timeslice` 參數可正確處理 UNIX epoch 格式的日期。如需聚集和 `timeslice` 參數的相關資訊，請參閱[查詢參考資料](/docs/services/discovery/query-reference.html#aggregations)。
 - 改善錯誤訊息。
 - 更新服務的 Java SDK。如需詳細資料，請參閱 [API 參考資料](http://www.ibm.com/watson/developercloud/discovery/api/v1/?java)。
 - 在查詢中使用萬用字元的下列限制，現在已修正並可正確運作：
@@ -346,10 +593,9 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
 探索到下列已知問題。
 
--  從 HTML、PDF 和 Word 文件汲取的所有欄位都是輸入為**字串**。JSON 欄位和計算欄位（例如觀感評分）會依定義的方式輸入。
-- `preview` 作業目前不檢查已提交的 JSON 文件內的巢狀 JSON 陣列。該服務目前不支援巢狀 JSON 陣列，因此具有巢狀陣列的文件可以順利通過 `preview` 作業，但在嘗試汲取時會失敗。
-- 如果發生汲取錯誤，並看到 `unsupported text language` 訊息，請以 `"language": "english"` 強化選項更新您的配置，以強制所有文字以英文解譯，如下列範例所示。
-
+-  從 HTML、PDF 和 Word 文件汲取的所有欄位都是輸入為**字串**。JSON 欄位和計算欄位（例如觀感評分）會依定義的方式輸入。[更新](/docs/services/discovery/adding-content.html#adding-content-with-the-api-or-tooling)
+- `preview` 作業目前不檢查已提交的 JSON 文件內的巢狀 JSON 陣列。該服務目前不支援巢狀 JSON 陣列，因此具有巢狀陣列的文件可以順利通過 `preview` 作業，但在嘗試汲取時會失敗。請參閱[可以上傳 JSON 陣列嗎？](/docs/services/discovery/troubleshooting.html#array)
+- 如果發生汲取錯誤，並看到 `unsupported text language` 訊息，請以 `"language": "english"` 強化選項更新您的配置，以強制所有文字以英文解譯，如下列範例所示。[更新](/docs/services/discovery/migrate-nlu.html)
 ```json
 "enrichments": [
    {
@@ -374,7 +620,7 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 
  - 後端已最佳化，包括增加了新的逾時值，以改善整體效能。
  - 導致免費（大小為 `0`）環境的環境狀態不論實際狀態如何都報告為 `pending` 狀態，此錯誤已修正。
- - {{site.data.keyword.discoveryshort}} 目前唯一支援的國家語言是美國英文 (`en_US`)。
+ - {{site.data.keyword.discoveryshort}} 目前唯一支援的國家語言是美國英文 (`en_US`)。[更新](/docs/services/discovery/language-support.html)
 
 ### 2017 年 3 月 3 日
 
@@ -387,7 +633,7 @@ IBM 將提供分類為測試版或實驗性的服務、特性及語言支援。�
 -  您可以使用下列指令，對個別文件提交新的配置：
 
 ```bash
-curl -X POST -u {username}:{password} -F "file=@wikipedia-sample.html" -F "configuration=$(cat config.json)" "https://gateway.watsonplatform.net/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2016-12-01"
+curl -X POST -u apikey:{apikey_value} -F "file=@wikipedia-sample.html" -F "configuration=$(cat config.json)" "https://gateway.watsonplatform.net/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2016-12-01"
 ```
 {: pre}
 -  該服務的 PDF 和 Word 轉換器會建立 HTML 作為中間步驟。在最終轉換成正規化 JSON 之前，該服務可以在中間 HTML 上套用其他轉換和正規化。
@@ -400,7 +646,7 @@ curl -X POST -u {username}:{password} -F "file=@wikipedia-sample.html" -F "confi
 ### 2017 年 2 月 16 日
 
 -  現在，您可以使用 CSS 選取器來選取 JSON 欄位，然後對其套用強化。如需相關資訊，請參閱[使用 CSS 選取器來擷取欄位](/docs/services/discovery/building.html#using-css)。
--  現在，您可以將新的 `size: X` 參數傳遞給 [update-environment 方法](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update_environment)來增加環境的大小，其中 `X` 是 0 與 3 之間的整數。如需環境大小和屬性的相關資訊，請參閱 [create-environment 方法](http://www.ibm.com/watson/developercloud/discovery/api/v1/#create_environment)。
+-  現在，您可以將新的 `size: X` 參數傳遞給 [update-environment 方法](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update_environment)來增加環境的大小，其中 `X` 是 0 與 3 之間的整數。如需環境大小和屬性的相關資訊，請參閱 [create-environment 方法](http://www.ibm.com/watson/developercloud/discovery/api/v1/#create_environment)。[更新](/docs/services/discovery/pricing-details.html)
 
     **附註：**您無法減少現有環境的大小。如果您想要減少環境的大小，請聯絡 {{site.data.keyword.IBM}} 支援人員以尋求協助。
 
@@ -413,13 +659,13 @@ curl -X POST -u {username}:{password} -F "file=@wikipedia-sample.html" -F "confi
 
 ### 2017 年 2 月 1 日
 
-下列附註特別適用於「資料搜索器」1.3.0 版。
+下列附註特別適用於「資料搜索器」1.3.0 版。[更新](/docs/services/discovery/data-crawler.html)
 
 -   「資料搜索器」會記錄用來上傳文件的 `document_id` 值，以及上傳的狀態。轉換通知在日誌外不會持續保存。目前沒有工具可與該資料互動，但若時間允許，預期將會開發這類工具。可透過 H2 資料庫來存取資料，該資料庫可配置為使用遠端 DBMS。
 
 ### 2017 年 1 月 16 日
 
-下列附註特別適用於「資料搜索器」1.2.5 版。
+下列附註特別適用於「資料搜索器」1.2.5 版。[更新](/docs/services/discovery/data-crawler.html)
 
 -  「資料搜索器」可以選擇性地在上傳檔案之後立即輪詢文件狀態。這項檢查是搜索器「上傳文件」概念的一部分，因此當啟用這項檢查時，「搜索器」要同時上傳的文件數目，幾乎不太可能超過 {{site.data.keyword.discoveryshort}} 服務可以為該使用者同時處理的文件。
 
@@ -429,123 +675,48 @@ curl -X POST -u {username}:{password} -F "file=@wikipedia-sample.html" -F "confi
 
 下列附註說明在 2016 年 12 月 15 日 GA 發行之後所識別的問題。
 
+[更新：API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+
 -   如果您使用 `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` 或 `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` 呼叫來新增文件，則該呼叫會傳回文件 ID 及**處理中**狀態。如果您隨後使用 `GET /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` 呼叫來查詢該文件，則狀態會保持在**處理中**直到汲取完成，屆時狀態會變更為**可用**。
 
     如果您使用 `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` 呼叫來**更新**現有文件，則即使該服務尚未完全處理已更新的文件，對應的 **GET** 呼叫仍會傳回 `available` 狀態。`available` 狀態係指原始文件或已更新的文件。除非更新作業傳回錯誤，否則目前無從判定已更新文件的狀態。
 
-    暫行解決之道是在提交文件更新之後，先等待最多 10 分鐘，再嘗試查詢更新的內容。
--   您無法上傳 JSON 陣列。若要上傳 JSON 陣列，您必須個別上傳每一個區段。例如，下列 JSON 無法上傳至該服務：
+        暫行解決之道是在提交文件更新之後，先等待最多 10 分鐘，再嘗試查詢更新的內容。
 
-    ```json
-    [{
-      "accepted": 1,
-      "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
-      "answerScore": "49",
-      "authorUserId": "3",
-      "authorUsername": "Butzke",
-      "downModVotes": 0,
-      "id": 2,
-      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
-      "tags": "<arduino-uno><web-server><ethernet>",
-      "title": "Is an Arduino capable of running 24 7?",
-      "upModVotes": 49,
-      "userId": "11",
-      "userReputation": 4535,
-      "username": "sachleen",
-      "views": 3234
-    }, {
-      "accepted": 0,
-      "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
-      "answerScore": "24",
-      "authorUserId": "3",
-      "authorUsername": "Butzke",
-      "downModVotes": 0,
-      "id": 3,
-      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
-      "tags": "<arduino-uno><web-server><ethernet>",
-      "title": "Is an Arduino capable of running 24 7?",
-      "upModVotes": 24,
-      "userId": "13",
-      "userReputation": 489,
-      "username": "Matthew G.",
-      "views": 3234
-    }]
-    ```
-    {: codeblock}
-
-    若要將此資訊上傳至服務，請分解陣列並上傳每一個區段，如下所示：
-
-    區段 1：
-
-    ```json
-    {
-      "accepted": 1,
-      "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
-      "answerScore": "49",
-      "authorUserId": "3",
-      "authorUsername": "Butzke",
-      "downModVotes": 0,
-      "id": 2,
-      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
-      "tags": "<arduino-uno><web-server><ethernet>",
-      "title": "Is an Arduino capable of running 24 7?",
-      "upModVotes": 49,
-      "userId": "11",
-      "userReputation": 4535,
-      "username": "sachleen",
-      "views": 3234
-    }
-    ```
-    {: codeblock}
-
-    區段 2：
-
-    ```json
-    {
-      "accepted": 0,
-      "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
-      "answerScore": "24",
-      "authorUserId": "3",
-      "authorUsername": "Butzke",
-      "downModVotes": 0,
-      "id": 3,
-      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
-      "tags": "<arduino-uno><web-server><ethernet>",
-      "title": "Is an Arduino capable of running 24 7?",
-      "upModVotes": 24,
-      "userId": "13",
-      "userReputation": 489,
-      "username": "Matthew G.",
-      "views": 3234
-    }
-    ```
-    {: codeblock}
 
 ### 2016 年 12 月 15 日，通用版
 
 下列附註適用於 {{site.data.keyword.discoveryfull}} 服務的「通用版 (GA)」。
 
 #### 一般注意事項
+[更新：內容](/docs/services/discovery/adding-content.html)
 
--   您目前無法指定欄位的資料類型。所有欄位都是以文字進行檢索（資料類型**字串**）。
--   如果您使用 API 來使用該服務，則必須在每一個呼叫中指定 API 版本。現行 API 版本為 **2016-12-01**。
+如需現行 API 版本，請參閱[API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}。
+
+[更新：與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery/integrate-wks.html)。
+
+-   您目前無法指定欄位的資料類型。所有欄位都是以文字進行檢索（資料類型**字串**）。 
+-   如果您使用 API 來使用該服務，則必須在每一個呼叫中指定 API 版本。現行 API 版本為 **2016-12-01**。 
 
     **附註：**GA 版本不強制使用特定版本，但仍必須列出它，才能啟用與未來版本的相容性。
 
--   您可以利用一個以 {{site.data.keyword.knowledgestudiofull}} 建立的自訂模型來使用該服務。自訂模型可用來強化所汲取的文件。您必須使用 API 來整合自訂模型與 {{site.data.keyword.discoveryshort}} 服務；您無法使用該工具來執行整合。如需詳細資料，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery/integrate-wks.html "您可以整合來自 {{site.data.keyword.knowledgestudiofull}} 的自訂模型與 {{site.data.keyword.discoveryshort}} 服務，以提供自訂強化。")。
+-   您可以利用一個以 {{site.data.keyword.knowledgestudiofull}} 建立的自訂模型來使用該服務。自訂模型可用來強化所汲取的文件。您必須使用 API 來整合自訂模型與 {{site.data.keyword.discoveryshort}} 服務；您無法使用該工具來執行整合。
 
 #### 資料管理
+[更新](/docs/services/discovery/pricing-details.html)
 
 -   搜尋索引未加密。
 -   備份及還原功能不是使用者可控制的。
 
 #### 環境
+[更新](/docs/services/discovery/pricing-details.html)
 
 -   您只能為每個服務實例建立一個環境來上傳您自己的資料。
 -   {{site.data.keyword.discoveryshort}} 服務位於單一可用性區域（美國南部）。
 -   目前無法使用專用及超值方案。
 
 #### 環境大小調整
+[更新](/docs/services/discovery/pricing-details.html)
 
 -   只有在建立新環境時，您才能選擇環境大小。使用者目前無法調整環境的大小。
 -   選擇具有更多 RAM 的環境大小可增加效能。
@@ -553,27 +724,38 @@ curl -X POST -u {username}:{password} -F "file=@wikipedia-sample.html" -F "confi
 -   {{site.data.keyword.knowledgestudiofull}} 模型的自訂大小調整不是自助式。如需相關資訊，請聯絡您的 {{site.data.keyword.IBM}} 代表。
 
 #### 汲取限制
+[更新](/docs/services/discovery/pricing-details.html)
 
 -   汲取率目前限制為 100 個並行文件汲取作業。將文件提交至該服務進行汲取的應用程式需要重視 HTTP 429 錯誤，並據此對汲取要求進行節流控制。
 -   {{site.data.keyword.alchemylanguageshort}} 強化限制為每個欄位前 50 KB。
 -   來自 {{site.data.keyword.knowledgestudiofull}} 自訂模型的強化不受限制，但會將文件分割成 10-KB 區塊。不會在區塊界限之間標註任何關係。
 
 #### 查詢限制
+[更新](/docs/services/discovery/using.html#query-concepts)
 
 -   過多的查詢負載可能導致搜尋索引處理程序自動重新啟動。
 -   發出查詢的應用程式必須對並行查詢數目施行合理的限制。
 
 ### 已知問題
+[更新：API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+
+[更新：工具](/docs/services/discovery/getting-started-tool.html)
+
+[更新：資料搜索器](/docs/services/discovery/data-crawler.html)
+
+[更新：強化](/docs/services/discovery/building.html#adding-enrichments)
+
+[更新：內容](/docs/services/discovery/adding-content.html)
 
 -   您無法使用該工具來刪除文件。如果您需要刪除文件，必須如 API 參考資料所述使用 API 的[刪除文件](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc)方法。
 
--   API 目前不支援取得在文件汲取期間產生的通知（警告和錯誤）清單。因此，該工具無法顯示汲取通知清單，所以不容易判斷「資料搜索器」所搜索到的哪些文件（如果有的話）無法進行汲取。
+-   API 目前不支援取得在文件汲取期間產生的通知（警告和錯誤）清單。因此，該工具無法顯示汲取通知清單，所以不容易判斷「資料搜索器」所搜索到的哪些文件（如果有的話）無法進行汲取。 
 -   文件狀態資訊不一定精確。
     -   如果汲取作業所花費的時間超過所配置的 10 分鐘逾時，則該服務會報告其無法辨識出此文件，直到汲取作業完成為止。作業完成之後，文件狀態就會變成可用且精確。
     -   已順利檢索但產生錯誤的文件，可能短時間內的狀態為**失敗**，直到文件完全確定至索引為止。在文件確定至索引之後，列出的狀態才精確。
 -   您無法使用該工具來取代特定文件。如果您嘗試這麼做，第二份文件會以個別文件的形式上傳。如果您要使用 API，且知道您要取代的文件 ID，您可以這麼做；請參閱 API 參考資料中的[更新文件](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc)。如果您要使用「資料搜索器」，則從與前一個文件相同的 URL 上傳已更新的文件，會取代原始文件。
 -   如果您要使用該工具來編輯配置中的強化，則只能編輯用於擷取的強化。如果您想要新增或編輯其他強化（例如，來自 {{site.data.keyword.knowledgestudiofull}} 模型的自訂強化），則必須使用 API。如需相關資訊，請參閱 API 參考資料中的[更新配置](http://www.ibm.com/watson/developercloud/discovery/api/v1/#replace_configuration)方法。
--   下列附註特別適用於「資料搜索器」。
+-   下列附註特別適用於「資料搜索器」。 
     -   如果發生上傳失敗，「資料搜索器」會重試上傳。
     -   「資料搜索器」無法重試已順利上傳但無法轉換或檢索的文件。
     -   「資料搜索器」沒有功能可檢查下游狀態，以及嘗試重新上傳下游失敗的 URL。

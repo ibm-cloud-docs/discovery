@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-10"
+  years: 2015, 2018
+lastupdated: "2018-01-23"
 
 ---
 
@@ -273,8 +273,7 @@ excluída. Isso inclui a tag, o conteúdo e quaisquer atributos de tag que estej
 #### exclude_tags_keep_content
 
 `"exclude_tags_keep_content": array` - uma matriz de nomes de tag HTML em que as
-informações da tag são removidas. Isso resulta na remoção da tag HTML e de quaisquer atributos de tag.
-O conteúdo da tag não é removido adicionalmente, a menos que especificado. Por exemplo, se você especificar
+informações da tag são removidas. Isso resulta na remoção da tag HTML e de quaisquer atributos de tag. O conteúdo da tag não é removido adicionalmente, a menos que especificado. Por exemplo, se você especificar
 `exclude_tags_keep_content` para a tag HTML `span`, então
 `<span class="info">Some <strong>Information</strong></span>` será removido
 para: `Some <strong>Information</strong>`
@@ -286,18 +285,17 @@ esse valor for configurado, tudo o que corresponder a um dos XPaths será removi
 
 #### keep_content
 
-`"xpaths": array` - uma matriz de XPaths que identificam o conteúdo que é convertido. 
-Se esse valor for configurado, tudo o que corresponder a um dos XPaths será incluído na saída. As inclusões especificadas por esse parâmetro são processadas após qualquer processamento especificado por `exclude_content`.
+`"xpaths": array` - uma matriz de XPaths que identificam o conteúdo que é convertido. Se esse valor for configurado, tudo o que corresponder a um dos XPaths será incluído na saída. As inclusões especificadas por esse parâmetro são processadas após qualquer processamento especificado por `exclude_content`.
 
 #### exclude_tag_attributes
 
 `"exclude_tag_attributes": array` - uma matriz de nomes de atributos HTML que são
-removidos pela conversão, independentemente da tag HTML na qual eles estiverem presentes.
+removidos pela conversão, independentemente da tag HTML na qual eles estiverem presentes. **Nota:** você receberá uma mensagem de erro se especificar `exclude_tag_attributes` e `keep_tag_attributes` na mesma configuração - somente um pode ser especificado por uma configuração. Se presente, `keep_tag_attributes` deve ser removido completamente da configuração; ele não pode estar presente como uma matriz vazia.
 
 #### keep_tag_attributes
 
 `"keep_tag_attributes": array` - uma matriz de nomes de atributos HTML que são retidos
-pela conversão.
+pela conversão. **Nota:** você receberá uma mensagem de erro se especificar `keep_tag_attributes` e `exclude_tag_attributes` na mesma configuração - somente um pode ser especificado por configuração. Se presente, `exclude_tag_attributes` deve ser removido completamente da configuração; ele não pode estar presente como uma matriz vazia.
 
 #### extracted_fields
 
@@ -321,7 +319,7 @@ Cada campo que você deseja criar é definido por um objeto como segue:
 que define a área de conteúdo a ser armazenada em um campo.
 - `"type": string` *obrigatório* - o tipo de campo a ser criado, pode
 ser `string` ou `date`. Para obter informações detalhadas, consulte
-[Usando seletores CSS para extrair campos](docs/services/discovery/building.md#using-css).
+[Usando seletores CSS para extrair campos](/docs/services/discovery/building.md#using-css).
 
 ### Segmento
 {: #segment}
@@ -477,7 +475,7 @@ ser usado neste campo. Para extrair enriquecimentos do {{site.data.keyword.nlush
 `elements`.
 
   **Observação:** ao usar o enriquecimento de `elements`, é importante seguir as diretrizes especificadas na documentação[Classificação de elemento](/docs/services/discovery/element-classification.html). Especificamente, apenas os arquivos PDF podem ser alimentados quando este enriquecimento é especificado.
-  
+
 - `"source_field": string` - *obrigatório* - o campo de origem que será
 enriquecido. Este campo deverá existir em sua origem após a operação `json_normalizations`
 ter sido concluída.
@@ -519,8 +517,7 @@ extrair do documento alimentado.
 ### Emoção
 
 O enriquecimento `emotion` avalia o tom emocional geral (por exemplo,
-`anger`) do documento inteiro ou das sequências de destino especificadas no documento inteiro. 
-Este enriquecimento pode ser usado apenas com conteúdo em inglês.
+`anger`) do documento inteiro ou das sequências de destino especificadas no documento inteiro. Este enriquecimento pode ser usado apenas com conteúdo em inglês.
 
 - `"document": boolean` _opcional_ - quando `true`, o
 tom emocional do documento inteiro é avaliado.

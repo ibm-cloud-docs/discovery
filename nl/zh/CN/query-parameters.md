@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-05"
+  years: 2015, 2018
+lastupdated: "2018-10-04"
 
 ---
 
@@ -61,7 +61,7 @@ lastupdated: "2017-12-05"
 ## natural_language_query
 {: #nlq}
 
-自然语言查询支持执行以自然语言表达的查询，这可能是从会话式或自由文本界面中的最终用户那里收到的查询 - 例如："IBM Watson in healthcare"。此参数将整个输入用作查询文本。此参数**不会**识别运算符。`natural_language_query` 参数会启用段落搜索和相关性培训等功能。已培训的集合将在自然语言查询的结果中返回 `confidence` 分数。请参阅[置信度分数](/docs/services/discovery/train-tooling.html#confidence)以获取详细信息。
+自然语言查询支持执行以自然语言表达的查询，这可能是从会话式或自由文本界面中的最终用户那里收到的查询 - 例如："IBM Watson in healthcare"。此参数将整个输入用作查询文本。此参数**不会**识别运算符。`natural_language_query` 参数会启用段落搜索和相关性训练等功能。已训练的集合将在自然语言查询的结果中返回 `confidence` 分数。请参阅[置信度分数](/docs/services/discovery/train-tooling.html#confidence)以获取详细信息。自然语言查询的最大查询字符串长度为 `2048`。
 
 **结构参数**
 
@@ -89,6 +89,13 @@ lastupdated: "2017-12-05"
 
 目前，`sort` 参数仅可用于 API；不可通过工具使用。
 
+## bias
+{: #bias}
+
+调整搜索结果以偏向于特定结果，例如最近发布的文档。`bias` 必须设置为 `date` 类型字段或 `number` 类型字段，例如 `bias=publication_date` 或 `bias=field_1`。指定 `date` 类型字段时，返回的结果将偏向于更接近当前日期的字段值。指定 `number` 类型字段时，返回的结果将偏向于更高的字段值。此参数不能与 `sort` 参数在同一查询中使用。
+
+目前，`bias` 参数仅可用于 API；不可通过工具使用。
+
 ## passages
 {: #passages}
 
@@ -104,7 +111,7 @@ lastupdated: "2017-12-05"
 `passages` 参数会返回匹配的段落 (`passage_text`)，另外还会返回 `score`、`document_id`、从中抽取段落的字段的名称 (`field`)，以及该字段内段落文本的起始和结束字符（`start_offset` 和 `end_offset`），如以下示例中所示。该查询显示在示例的顶部。
 
 ```bash
- curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
+ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
 ```
 {: pre}
 
@@ -140,7 +147,7 @@ lastupdated: "2017-12-05"
 索引中将从中抽出段落的字段的逗号分隔列表。如果未指定此参数，那么将包含所有顶级字段。
 
 ### passages.count
-{: #passages_fields}
+{: #passages_count}
 
 要返回的最大段落数。如果找到的段落总数小于该最大值，那么搜索将返回数量少于最大值的段落。缺省值为 `10`。最大值为 `100`。
 
@@ -157,7 +164,7 @@ lastupdated: "2017-12-05"
 输出将在 `enriched_text` 对象后面列出 `highlight` 对象，如以下示例中所示。
 
 ```bash
-curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
+curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
 ```
 {: pre}
 
@@ -197,7 +204,7 @@ curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/
 {: codeblock}
 
 ## 去重
-{: #deduplicate_field}
+{: #deduplicate}
 
  这是一个 Beta 功能，用于根据 `title` 字段从 {{site.data.keyword.discoverynewsfull}} 集合查询结果中排除重复文档。请参阅[从查询结果中排除重复文档](/docs/services/discovery/query-parameters.html#deduplication)。
 
@@ -211,7 +218,7 @@ curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/
 
 如果要查询 {{site.data.keyword.discoverynewsfull}} 集合，或者专用数据集合包含多个完全相同（或接近完全相同）的文档，那么可以使用文档去重功能将其中大部分重复文档排除在查询结果之外。
 
-**注：**目前，文档去重仅作为 Beta 功能受支持。请参阅发行说明中的 [Beta 功能](/docs/services/discovery/release-notes.html#beta-features)以获得更多信息。
+**注：**目前，文档去重仅作为 Beta 功能受支持。请参阅发行说明中的 [Beta 功能](/docs/services/discovery/release-notes.html#beta-features)以获得更多信息。此 Beta 功能当前仅支持英语版本，请参阅[语言支持](/docs/services/discovery/language-support.html#feature-support)以获取详细信息。
 
 **注：**将对每个查询独立去重，因此不支持跨偏移量去重。
 
@@ -255,5 +262,35 @@ curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/
 
 ```bash
 &collection_ids={id1},{id2}
+```
+{: codeblock}
+
+## similar
+{: #similar}
+
+文档相似度用于识别与 `similar.document_ids` 参数中列出的文档类似的文档。通过使用 `similar.fields` 参数指定将考虑哪些字段用于比较，可以进一步优化此值。缺省值为 `false`。请参阅[文档相似度](/docs/services/discovery/using.html#doc-similarity)以获取更多信息。
+
+```bash
+&similar=true
+```
+{: codeblock}
+
+### similar.document_ids
+{: #similar_document_ids}
+
+文档标识的逗号分隔列表，此列表将用作查找与结果类似的文档的基础。如果 `similar` 参数设置为 `true`，那么此参数是必需的。
+
+```bash
+&similar.document_ids={id1},{id2}
+```
+{: codeblock}
+
+### similar.fields
+{: #similar_fields}
+
+可选的逗号分隔字段列表，用于比较文档以查找类似文档。此参数只能与 `similar.document_ids` 参数一起使用。
+
+```bash
+&similar.fields={field1},{field2}
 ```
 {: codeblock}

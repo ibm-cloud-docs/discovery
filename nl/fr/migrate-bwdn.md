@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-16"
 
 ---
 
@@ -19,14 +19,14 @@ lastupdated: "2017-11-08"
 
 # Migration à partir de Watson Discovery News Original
 
-Une nouvelle version de {{site.data.keyword.discoverynewsshort}} a débuté le **31 juillet 2017**. La version d'origine a été renommée {{site.data.keyword.discoverynewsshort}} Original et son retrait est prévu le **15 janvier 2018**.   
+Une nouvelle version de {{site.data.keyword.discoverynewsshort}} a débuté le **31 juillet 2017**. La version d'origine a été renommée {{site.data.keyword.discoverynewsshort}} Original et retirée du service le **15 janvier 2018**. Si vous tentez d'accéder à {{site.data.keyword.discoverynewsshort}} Original, vous recevrez le message `410 GONE`.
 {: shortdesc}
 
 Pour effectuer une migration à partir de {{site.data.keyword.discoverynewsshort}} Original vers la nouvelle version, vous devez effectuer plusieurs modifications, y compris la mise à jour des requêtes créées pour {{site.data.keyword.discoverynewsshort}} Original.
 
-  **Remarque :** si vous avez créé une nouvelle instance de service {{site.data.keyword.discoveryshort}}, vous ne pourrez accéder qu'à la nouvelle version de {{site.data.keyword.discoverynewsshort}}. L'accès à la nouvelle version de {{site.data.keyword.discoverynewsshort}} et à {{site.data.keyword.discoverynewsshort}} Original n'est possible que dans les instances de {{site.data.keyword.discoveryshort}} créées avant le **31 juillet 2017**.
+  **Remarque :** {{site.data.keyword.discoverynewsshort}} Original était disponible uniquement dans les instances de {{site.data.keyword.discoveryshort}} créées avant le **31 juillet 2017** et a été retiré du service le **15 janvier 2018**.
 
-Pour obtenir une description de cette collection, voir [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html). 
+Pour visualiser une description de cette collection, voir [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html).
 
 Pour obtenir une description et des informations relatives à la création de requêtes sur {{site.data.keyword.discoverynewsshort}} Original, voir [Watson Discovery News Original](/docs/services/discovery/discovery-auxiliary.html#watson-discovery-news-original).
 
@@ -34,9 +34,9 @@ Pour obtenir une description et des informations relatives à la création de re
 
 | {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
-| **{{site.data.keyword.discoverynewsshort}} Original** est préenrichi avec les enrichissements Alchemy Language suivants : Keyword Extraction, Entity Extraction, Concept Tagging, Relation Extraction, Sentiment Analysis et Taxonomy Classification. Les métadonnées suivantes sont également ajoutées : date d'exploration, date de publication, classement d'URL, classement d'hôte et texte d'ancrage. | **{{site.data.keyword.discoverynewsshort}}** est préenrichi avec les enrichissements suivants : {{site.data.keyword.nlushort}} (NLU) : Keyword Extraction, Entity Extraction, Semantic Role Extraction, Sentiment Analysis, Relations et Category Classification. Les métadonnées suivantes sont également ajoutées : date d'exploration et date de publication. Pour en savoir plus sur les enrichissements NLU, voir [Ajout d'enrichissements](/docs/services/discovery/building.html#adding-enrichments).                         |
-| **{{site.data.keyword.discoverynewsshort}} Original** était accessible via un environnement qui était unique pour votre instance de service.                       | Lorsque **{{site.data.keyword.discoverynewsshort}}** est utilisé, tous les utilisateurs exécutent une requête portant sur le même environnement et la même collection. Cela signifie que toutes les références à votre environnement et à votre collection doivent être modifiées. |
-| Dans **{{site.data.keyword.discoverynewsshort}} Original**, vous recevez des informations, telles que la taille de la collection, le nombre de documents, etc. lors de l'extraction de l'environnement via l'API. | L'API **{{site.data.keyword.discoverynewsshort}}** ne renvoie pas ces informations.                          |
+| **{{site.data.keyword.discoverynewsshort}} Original** était préenrichi avec les enrichissements Alchemy Language suivants : Keyword Extraction, Entity Extraction, Concept Tagging, Relation Extraction, Sentiment Analysis et Taxonomy Classification. Les métadonnées suivantes étaient également ajoutées : date d'exploration, date de publication, classement d'URL, classement d'hôte et texte d'ancrage. | **{{site.data.keyword.discoverynewsshort}}** est préenrichi avec les enrichissements suivants : {{site.data.keyword.nlushort}} (NLU) : Keyword Extraction, Entity Extraction, Semantic Role Extraction, Sentiment Analysis, Relations et Category Classification. Les métadonnées suivantes sont également ajoutées : date d'exploration et date de publication. Pour en savoir plus sur les enrichissements NLU, voir [Ajout d'enrichissements](/docs/services/discovery/building.html#adding-enrichments).                         |
+| **{{site.data.keyword.discoverynewsshort}} Original** était accessible via un environnement qui était unique pour votre instance de service.                       | Lorsque **{{site.data.keyword.discoverynewsshort}}** est utilisé, tous les utilisateurs exécutent une requête portant sur le même environnement et la même collection. Cela signifie que toutes les références à votre environnement et à votre collection doivent être modifiées.      |
+|Dans **{{site.data.keyword.discoverynewsshort}} Original**, vous avez reçu des informations, telles que la taille de la collection, le nombre de documents, etc. lors de l'extraction de l'environnement via l'API. | L'API **{{site.data.keyword.discoverynewsshort}}** ne renvoie pas ces informations.                          |
 
 Les nouvelles zones suivantes sont disponibles dans **{{site.data.keyword.discoverynewsshort}}** :
 
@@ -61,17 +61,17 @@ Les nouvelles zones suivantes sont disponibles dans **{{site.data.keyword.discov
 `forum_title`  
 `main_image_url`
 
-De nombreuses zones ont également été retirées, par exemple, `blekko.hostrank`, `duplicate_url`, `domain`, etc. Pour obtenir une liste complète, cliquez <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>ICI <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe" class="style-scope doc-content"></a>. 
+De nombreuses zones ont également été retirées, par exemple, `blekko.hostrank`, `duplicate_url`, `domain`, etc. Pour obtenir une liste complète, cliquez <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>ICI <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe" class="style-scope doc-content"></a>.
 
 ## Déplacement de requêtes vers le nouveau service Watson Discovery News
 
 Pour déplacer vos requêtes depuis {{site.data.keyword.discoverynewsshort}} Original vers le nouveau service {{site.data.keyword.discoverynewsshort}}, vous devez modifier toutes les requêtes existantes en procédant comme suit :  
 
-- Modifiez l'ID d'environnement appelé par la requête. Le nom d'environnement News normalisé sur toutes les instances de service {{site.data.keyword.discoveryshort}} est le suivant : 
+- Modifiez l'ID d'environnement appelé par la requête. Le nom d'environnement News normalisé sur toutes les instances de service {{site.data.keyword.discoveryshort}} est le suivant :
 
   `system`  
 
-- Modifiez l'ID de collection appelé par la requête. Le nom de collection News normalisé sur toutes les instances de service {{site.data.keyword.discoveryshort}} est le suivant : 
+- Modifiez l'ID de collection appelé par la requête. Le nom de collection News normalisé sur toutes les instances de service {{site.data.keyword.discoveryshort}} est le suivant :
 
   `news`
 
@@ -89,20 +89,20 @@ Vous pouvez exécuter des requêtes sur {{site.data.keyword.discoverynewsshort}}
 
 **Pour lancer les outils {{site.data.keyword.discoveryshort}} et exécuter des requêtes sur {{site.data.keyword.discoverynewsshort}} :**
 
-1. Cliquez sur **Launch Tool** pour {{site.data.keyword.discoveryshort}} sous **Services**.
-1. Cliquez sur la vignette {{site.data.keyword.discoverynewsshort}} pour ouvrir l'écran **Manage data**. 
-1. Cliquez sur **View data schema**, puis sur **Build queries** pour ouvrir le générateur de requête. 
+1. Cliquez sur **Lanch Tool** pour {{site.data.keyword.discoveryshort}} sous **Services**.
+1. Cliquez sur la vignette {{site.data.keyword.discoverynewsshort}} pour ouvrir l'écran **Manage data**.
+1. Cliquez sur **View data schema**, puis sur **Build queries** pour ouvrir le générateur de requête.
 
   Les requêtes dans {{site.data.keyword.discoverynewsshort}} sont structurées de la même façon que les requêtes écrites pour des collections de données privées. Voir [Concepts de requête](/docs/services/discovery/using.html) et [Référence de requête](/docs/services/discovery/query-reference.html).
   {: tip}
 
-**Remarque :** ne vous attendez pas à obtenir des résultats identiques pour des requêtes similaires dans {{site.data.keyword.discoverynewsshort}} Original et {{site.data.keyword.discoverynewsshort}}. La durée d'exploration, les sources et les enrichissements sont autant de facteurs qui contribuent à générer des résultats différents. 
+**Remarque :** ne vous attendez pas à obtenir des résultats identiques pour des requêtes similaires dans {{site.data.keyword.discoverynewsshort}} Original et {{site.data.keyword.discoverynewsshort}}. La durée d'exploration, les sources et les enrichissements sont autant de facteurs qui contribuent à générer des résultats différents.
 
 ## Ajout de requêtes Watson Discovery News à votre application
 
 Utilisez l'une des méthodes ci-après pour ajouter des requêtes à votre application. Tous ces exemples illustrent une requête portant sur `enriched_text.entities` avec la `IBM` pour `text` (`enriched_text.entities.text:IBM`).
 
-Dans tous les exemples suivants, remplacez `{username}` et `{password}` par le nom d'utilisateur et le mot de passe indiqués sur la page **Service Credentials** de votre instance de service. 
+Dans tous les exemples suivants, remplacez `{username}` et `{password}` par le nom d'utilisateur et le mot de passe indiqués sur la page **Service Credentials** de votre instance de service.
 
 ### Utilisation d'appels directs vers l'API
 
@@ -129,7 +129,7 @@ QueryResponse queryResponse = discovery.query(queryBuilder.build()).execute();
 ### Utilisation du logiciel SDK Watson Node.js
 
 ```javascript
-var watson = require('watson-developer-cloud');
+var watson = require('watson-developer-cloud');  
 
 var discovery = new DiscoveryV1({  
   username: '{username}',  
@@ -151,7 +151,7 @@ discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),
 import sys
 import os
 import json
-from watson_developer_cloud import DiscoveryV1
+from watson_developer_cloud import DiscoveryV1  
 
 discovery = DiscoveryV1(  
   username="{username}",  

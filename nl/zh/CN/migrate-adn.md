@@ -49,7 +49,7 @@ AlchemyData News 已引退，其终止服务日期为 **2018 年 3 月 7 日**�
 1. 导航至 [{{site.data.keyword.Bluemix_notm}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}，登录并从服务目录中选择 {{site.data.keyword.discoveryshort}}。
 1. 根据需要选择相应的套餐，然后单击**创建**。
 
-  {{site.data.keyword.discoveryshort}} 服务提供有 Lite 套餐，每月支持 1000 个可用新闻查询。可以使用此套餐的实例来识别等效查询，而不必为此付费。
+  {{site.data.keyword.discoveryshort}} 服务提供有轻量套餐，每月支持 1000 个可用新闻查询。可以使用此套餐的实例来识别等效查询，而不必为此付费。
   {: tip}
 
 1. 单击**服务凭证**选项卡，然后选择**查看凭证**以识别此实例的 `url`、`username` 和 `password`。

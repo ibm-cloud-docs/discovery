@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -24,6 +24,9 @@ lastupdated: "2017-11-08"
 
 在尝试此任务之前，请先在 {{site.data.keyword.Bluemix}} 中创建 {{site.data.keyword.discoveryshort}} 服务的实例。为了完成本指南，您将需要使用与所创建服务实例相关联的凭证。
 
+您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 来搜寻 Box、Salesforce 和 Microsoft SharePoint Online 数据源。请参阅[连接到数据源](/docs/services/discovery/connect.html)以获取更多信息。
+{: tip}
+
 ## 创建环境
 
 使用 bash POST /v1/environments 方法来创建环境。将环境视为用于存储所有文档箱的仓库。以下示例将创建名为 `my-first-environment` 的环境：
@@ -35,7 +38,7 @@ curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d
 ```
 {: pre}
 
-此 API 返回的响应包含环境标识、环境状态以及环境正在使用的存储量等信息。在环境状态为 `ready` 之前，请勿继续执行下一步。创建环境时，如果状态返回 `status:pending`，请使用 `GET /v1/environments/{environment_id}` 方法来检查状态，直至状态为 ready。在此示例中，将 `{username}` 和 `{password}` 替换为您的服务凭证，并将 `{environment_id}` 替换为创建环境时返回的环境标识。
+此 API 返回的响应包含环境标识、环境状态以及环境正在使用的存储量等信息。在环境状态为 `ready` 之前，请勿继续执行下一步。创建环境时，如果状态返回 `status:pending`，请使用 `GET /v1/environments/{environment_id}` 方法来检查状态，直至状态为就绪。在此示例中，将 `{username}` 和 `{password}` 替换为您的服务凭证，并将 `{environment_id}` 替换为创建环境时返回的环境标识。
 
 ```bash
 curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-11-07
@@ -63,7 +66,7 @@ curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d
 ```
 {: pre}
 
-此 API 返回的响应包含集合标识、集合状态以及集合正在使用的存储量等信息。在集合状态为 `online` 之前，请勿继续执行下一步。创建集合时，如果状态返回 `status:pending`，请使用 `GET /v1/environments/{environment_id}/collections/{collection_id}` 方法来检查状态，直至状态为 online。在此示例中，将 `{username}` 和 `{password}` 替换为您的服务凭证，将 `{environment_id}` 替换为环境标识，并将 `{collection_id}` 替换为此步骤中早先返回的集合标识。
+此 API 返回的响应包含集合标识、集合状态以及集合正在使用的存储量等信息。在集合状态为 `online` 之前，请勿继续执行下一步。创建集合时，如果状态返回 `status:pending`，请使用 `GET /v1/environments/{environment_id}/collections/{collection_id}` 方法来检查状态，直至状态为就绪。在此示例中，将 `{username}` 和 `{password}` 替换为您的服务凭证，将 `{environment_id}` 替换为环境标识，并将 `{collection_id}` 替换为此步骤中早先返回的集合标识。
 
 ```bash
 curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07
@@ -90,7 +93,7 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 
 1.  打开浏览器并登录到 [{{site.data.keyword.Bluemix_notm}} 帐户 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net){: new_window}。
 1.  在 {{site.data.keyword.Bluemix_notm}}“仪表板”中，选择先前创建的 {{site.data.keyword.discoveryshort}} 服务。
-1.  在**目标用途**下，选择适用于您系统的下载链接（DEB、RPM 或 ZIP）以下载 Data Crawler。
+1.  在**自动将内容上传到 Discovery 服务**下，选择适用于您系统的下载链接（DEB、RPM 或 ZIP）以下载 Data Crawler。
 1.  以管理员身份，使用相应命令安装已下载的归档文件：
 
     -   在使用 rpm 软件包的系统（例如，Red Hat 和 CentOS）上，使用诸如以下命令之类的命令：`rpm -i /full/path/to/rpm/package/rpm-file-name`
@@ -110,7 +113,7 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 
 ## 配置搜寻选项
 
-要设置 Data Crawler 来搜寻存储库，必须指定要搜寻的本地系统文件，以及搜寻完成后要将所搜寻到文件的集合发送到的 {{site.data.keyword.discoveryshort}} 服务。
+要设置 Data Crawler 来搜寻存储库，必须指定要搜寻哪些本地系统文件，以及在搜寻完成后要将搜寻到的文件集合发送到哪个 {{site.data.keyword.discoveryshort}} 服务。
 
 1.  **`filesystem-seed.conf`** - 在文本编辑器中打开 `seeds/filesystem-seed.con` 文件。将紧接在 `name-"url"` 属性下的 `value` 属性修改为要搜寻的文件路径。例如：`value-"sdk-fs:///TMP/MY_TEST_DATA/"`
 
@@ -118,7 +121,7 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 
     保存并关闭此文件。
 
-1.  **`discovery_service.conf`** - 在文本编辑器中打开 `discovery/discovery_service.conf` 文件。修改特定于您先前在 {{site.data.keyword.Bluemix_notm}} 上创建的 {{site.data.keyword.discoveryshort}} 服务的以下值：
+1.  **`discovery_service.conf`** - 在文本编辑器中打开 `discovery/discovery_service.conf` 文件。针对您先前在 {{site.data.keyword.Bluemix_notm}} 上创建的 {{site.data.keyword.discoveryshort}} 服务修改以下值：
 
     -   `environment_id` - {{site.data.keyword.discoveryshort}} 服务环境标识。
     -   `collection_id` - {{site.data.keyword.discoveryshort}} 服务集合标识。
@@ -133,7 +136,11 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
         ```bash
         class - "com.ibm.watson.crawler.discoveryserviceoutputadapter.DiscoveryServiceOutputAdapter"
 
+        
+
         config - "discovery_service"
+
+        
 
         discovery_service {
           include "discovery/discovery_service.conf"
@@ -141,7 +148,7 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
         ```
         {: pre}
 
-1.  修改这些文件后，即可以随时搜寻数据。
+1.  修改这些文件后，即可随时搜寻数据。
 
 ## 搜寻数据
 
@@ -149,7 +156,7 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 
 这将使用配置文件 `crawler.conf` 运行搜寻。
 
-**注：**`--config` 选项中传递的配置文件的路径必须是限定路径。即，此路径必须为相对格式（如 `config/crawler.conf` 或 `./crawler.conf`）或绝对路径（如 `/path/to/config/crawler.conf`）。
+**注：**`--config` 选项中传递的配置文件的路径必须是限定路径。即，此路径必须为相对路径格式（如 `config/crawler.conf` 或 `./crawler.conf`）或绝对路径（如 `/path/to/config/crawler.conf`）。
 
 ## 搜索文档
 

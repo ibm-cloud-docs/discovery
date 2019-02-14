@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-16"
 
 ---
 
@@ -19,12 +19,12 @@ lastupdated: "2017-11-08"
 
 # 从 Watson Discovery News Original 迁移
 
-新版本的 {{site.data.keyword.discoverynewsshort}} 已在 **2017 年 7 月 31 日**推出。原始版本已重命名为 {{site.data.keyword.discoverynewsshort}} Original，该版本已引退，其终止服务日期为 **2018 年 1 月 15 日**。  
+新版本的 {{site.data.keyword.discoverynewsshort}} 已在 **2017 年 7 月 31 日**推出。原始版本已重命名为 {{site.data.keyword.discoverynewsshort}} Original，并且已于 **2018 年 1 月 15 日**引退不用。如果您尝试访问 {{site.data.keyword.discoverynewsshort}} Original，那么会收到消息：`410 GONE`。
 {: shortdesc}
 
 要从 {{site.data.keyword.discoverynewsshort}} Original 迁移到新版本，您需要执行多项更改，包括更新为 {{site.data.keyword.discoverynewsshort}} Original 创建的所有查询。
 
-  **注：**如果已创建 {{site.data.keyword.discoveryshort}} 的新实例，那么您只有权访问新版本的 {{site.data.keyword.discoverynewsshort}}。 仅在 **2017 年 7 月 31 日**之前创建的 {{site.data.keyword.discoveryshort}} 实例中，才可同时访问新版本 {{site.data.keyword.discoverynewsshort}} 和 {{site.data.keyword.discoverynewsshort}} Original。
+  **注：**{{site.data.keyword.discoverynewsshort}} Original 仅在 **2017 年 7 月 31 日之前创建**的 {{site.data.keyword.discoveryshort}} 实例中可用，并且已于 **2018 年 1 月 15 日**引退不用。
 
 请参阅 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) 以获取此集合的描述。
 
@@ -32,11 +32,11 @@ lastupdated: "2017-11-08"
 
 ## 服务比较
 
-| {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
+|{{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
-| **{{site.data.keyword.discoverynewsshort}} Original** 已使用以下 Alchemy Language 扩充项进行预扩充：“关键字抽取”、“实体抽取”、“概念标记”、“关系抽取”、“观点分析”和“分类法分类”。此外，还添加了以下其他元数据：搜寻日期、发布日期、URL 排名、主机排名和锚点文本。| **{{site.data.keyword.discoverynewsshort}}** 已使用以下 {{site.data.keyword.nlushort}} (NLU) 扩充项进行预扩充：“关键字抽取”、“实体抽取”、“语义角色抽取”、“观点分析”、“关系”和“类别分类”。此外，还添加了以下其他元数据：搜寻日期和发布日期。要了解有关 NLU 扩充项的更多信息，请参阅[添加扩充项](/docs/services/discovery/building.html#adding-enrichments)。|
-| **{{site.data.keyword.discoverynewsshort}} Original** 可通过对服务实例唯一的环境进行访问。| 使用 **{{site.data.keyword.discoverynewsshort}}** 时，所有用户都将查询相同的环境和集合。这意味着需要更改对环境和集合的所有引用。|
-| 在 **{{site.data.keyword.discoverynewsshort}} Original** 中，通过 API 检索环境时，您会收到集合大小、文档数等信息。| **{{site.data.keyword.discoverynewsshort}}** API 不会返回这些信息。|
+|**{{site.data.keyword.discoverynewsshort}} Original** 已使用以下 Alchemy Language 扩充项进行预扩充：“关键字抽取”、“实体抽取”、“概念标记”、“关系抽取”、“观点分析”和“分类法分类”。此外，还添加了以下其他元数据：搜寻日期、发布日期、URL 排名、主机排名和锚点文本。|**{{site.data.keyword.discoverynewsshort}}** 已使用以下 {{site.data.keyword.nlushort}} (NLU) 扩充项进行预扩充：“关键字抽取”、“实体抽取”、“语义角色抽取”、“观点分析”、“关系”和“类别分类”。此外，还添加了以下其他元数据：搜寻日期和发布日期。要了解有关 NLU 扩充项的更多信息，请参阅[添加扩充项](/docs/services/discovery/building.html#adding-enrichments)。|
+|**{{site.data.keyword.discoverynewsshort}} Original** 可通过对服务实例唯一的环境进行访问。|使用 **{{site.data.keyword.discoverynewsshort}}** 时，所有用户都将查询相同的环境和集合。这意味着需要更改对环境和集合的所有引用。|
+|在 **{{site.data.keyword.discoverynewsshort}} Original** 中，通过 API 检索环境时，您会收到集合大小、文档数等信息。|**{{site.data.keyword.discoverynewsshort}}** API 不会返回这些信息。|
 
 **{{site.data.keyword.discoverynewsshort}}** 中提供了以下新字段：
 

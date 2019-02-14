@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -22,19 +22,19 @@ lastupdated: "2017-12-15"
 Le service {{site.data.keyword.discoveryfull}} offre deux niveaux de support de langue, **de base** et **complet**.
 {: shortdesc}
 
-| Langue                           |  Niveau de support |
+| Langue                         |  Niveau de support         |
 |---------------------------------|------------------------|
-| Anglais (en)                    |  Complet      |
-| Arabe (ar)                      |  De base       |
-| Chinois simplifié (zh-CN)       |  De base       |
-| Néerlandais (nl)                |  De base       |
-| Français (fr)                   |  De base       |
-| Allemand (de)                   |  De base       |
-| Italien (it)                    |  De base       |
-| Japonais (ja)                   |  De base       |
-| Coréen (ko)                     |  De base       |
-| Portugais brésilien (pt-br)     |  De base       |
-| Espagnol (es)                   |  Complet      |
+| Anglais (en)                    |  Complet         |
+| Arabe (ar)                     |  De base         |
+| Chinois simplifié (zh-CN)     |  De base         |
+| Néerlandais (nl)                     |  De base         |
+| Français (fr)                     |  Complet         |
+| Allemand (de)                     |  Complet         |
+| Italien (it)                    |  De base         |
+| Japonais (ja)                  |  Complet         |
+| Coréen (ko)                    |  Complet         |
+| Portugais brésilien (pt-br)   |  Complet         |
+| Espagnol (es)                    |  Complet         |
 
 ## Support de base
 
@@ -45,6 +45,8 @@ Le service {{site.data.keyword.discoveryfull}} offre deux niveaux de support de 
     - API frontale (sans l'API Query frontale)
     - Index optimisé pour les langues
     - Formation de pertinence
+    - Extension de requête
+    - Documentation disponible en 9 langues : anglais, français, allemand, japonais, coréen, portugais brésilien, espagnol, chinois simplifié et chinois traditionnel. Faites défiler jusqu'au bas de la page pour sélectionner la langue de la documentation {{site.data.keyword.Bluemix_notm}}. 
 - Enrichissements
     - Intégration aux modèles personnalisés {{site.data.keyword.knowledgestudiofull}}
     - Détection de la langue
@@ -64,8 +66,11 @@ Le support complet comprend le support de base, plus :
     - Sentiment Analysis
     - Emotion Analysis (en anglais uniquement)
 
+## Prise en charge de l'anglais uniquement
+{: #feature-support}
+
 Actuellement les fonctions suivantes sont prises en charge en anglais uniquement :
 
 - Enrichissement Element Classification
-- {{site.data.keyword.discoveryfull}} Visual Insights (version expérimentale)
-- {{site.data.keyword.discoveryfull}} Knowledge Graph (version bêta)   
+- {{site.data.keyword.discoveryfull}} Knowledge Graph (version bêta)
+- Dédoublonnage de documents (version bêta)

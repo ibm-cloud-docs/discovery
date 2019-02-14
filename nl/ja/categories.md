@@ -1,8 +1,8 @@
 ---
 
-著作権:
-  年: 2015、2017
-最終更新日日: "2017-08-18"
+copyright:
+  years: 2015, 2017
+lastupdated: "2017-08-18"
 
 ---
 
@@ -19,10 +19,10 @@
 
 # カテゴリー階層
 
-以下の表に、カテゴリーの分類エンリッチメントから返されるカテゴリーを示します。この情報が記載されたスプレッドシートは、こちらの <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> からダウンロードできます。
+以下の表に、カテゴリーの分類エンリッチメントから返されるカテゴリーを示します。 この情報が記載されたスプレッドシートは、こちらの <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> からダウンロードできます。
 {: shortdesc}
 
-| レベル 1                  | レベル 2                               | レベル 3                               | レベル 4                       | レベル 5                            |
+| レベル 1                   | レベル 2                                | レベル 3                                | レベル 4                        | レベル 5                       |
 |---------------------------|----------------------------------------|----------------------------------------|--------------------------------|-------------------------------|
 | art and entertainment     | books and literature                   | best-sellers                           |                                |                               |
 | art and entertainment     | books and literature                   | children's books                       |                                |                               |

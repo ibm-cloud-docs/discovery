@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-05-09"
 
 ---
 
@@ -25,7 +25,7 @@ lastupdated: "2017-10-09"
 ## term
 {: #term}
 
-返回所选扩充项的排名靠前的值（按分数和按频率）。所有扩充项都是有效值。您可以选择使用 `count` 来指定要返回的项数。此示例使用概念扩充项返回排名靠前的值的完整文本和扩充项，并指定返回 10 项。
+返回所选扩充项的排名靠前的值（按分数和按频率）。所有扩充项都是有效值。您可以选择使用 `count` 来指定要返回的项数。`count` 参数的缺省值为 10。此示例使用概念扩充项返回排名靠前的值的完整文本和扩充项，并指定返回 10 项。
 
 例如：
 ```bash
@@ -40,14 +40,14 @@ term(enriched_text.concepts.text,count:10)
 
 例如：
 ```bash
-filter(enriched_text.concepts.text:cloud computing)
+filter(enriched_text.concepts.text:"cloud computing")
 ```
 {: codeblock}
 
 ## nested
 {: #nested}
 
-在聚集查询之前应用 nested 可将聚集限制为指定结果区域。例如：`nested(enriched_text.entities)` 表示仅对任何结果的 `enriched_text.entities` 组成部分进行聚集。
+在聚集查询之前应用嵌套，可将聚集限制为指定结果区域。例如：`nested(enriched_text.entities)` 表示仅对任何结果的 `enriched_text.entities` 组成部分进行聚集。
 
 例如：
 ```bash
@@ -69,7 +69,7 @@ histogram(product.price,interval:1)
 ## timeslice
 {: #timeslice}
 
-使用日期来创建时间间隔分段的专用直方图。有效的日期时间间隔值为 `second/seconds`、`minute/minutes`、`hour/hours`、`day/days`、`week/weeks`、`month/months` 和 `year/years`。语法为 `timeslice(<field>,<interval>,<time_zone>)`。要使用 `timeslice`，文档中的时间字段必须为 `date` 数据类型和 [UNIX 时间 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://en.wikipedia.org/wiki/Unix_time){: new_window} 格式。除非同时满足这两个需求，否则 `timeslice` 参数无法正常工作。如果文档包含带有 `1496228512` 之类的值的 `date` 字段，那么可以创建时间片。该值必须是数字格式（例如，`float` 或 `double`），并且不能用引号括起。服务会将文本格式的日期和 ISO 8601 格式的日期视为数据类型 `string`，而不是数据类型 `date`。您可以在 timeslice 聚集中检测异常点。请参阅[时间片异常检测](#anomaly-detection)以获取其他信息。以下示例返回纽约市时区中时间间隔为 2 天的“sales”（“product.sales”）的值。
+使用日期来创建时间间隔分段的专用直方图。有效的日期时间间隔值为 `second/seconds`、`minute/minutes`、`hour/hours`、`day/days`、`week/weeks`、`month/months` 和 `year/years`。语法为 `timeslice(<field>,<interval>,<time_zone>)`. 要使用 `timeslice`，文档中的时间字段必须为 `date` 数据类型和 [UNIX 时间 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://en.wikipedia.org/wiki/Unix_time){: new_window} 格式。除非同时满足这两个需求，否则 `timeslice` 参数无法正常工作。如果文档包含带有 `1496228512` 之类值的 `date` 字段，那么可以创建时间片。该值必须是数字格式（例如，`float` 或 `double`），并且不能用引号括起。服务会将文本格式的日期和 ISO 8601 格式的日期视为数据类型 `string`，而不是数据类型 `date`。您可以在 timeslice 聚集中检测异常点。请参阅[时间片异常检测](#anomaly-detection)以获取其他信息。以下示例返回纽约市时区中时间间隔为 2 天的“sales”（“product.sales”）的值。
 
 例如：
 ```bash
@@ -140,7 +140,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
 
 #### 异常检测的限制
 
-- 目前，异常检测仅在顶级 `timeslice` 聚集上可用，在较低级别 (nested) 聚集中不可用。
+- 目前，异常检测仅在顶级 `timeslice` 聚集上可用，在较低级别（嵌套）聚集中不可用。
 - 可由任何给定 `timeslice` 聚集中的异常检测进行处理的最大点数为 `1500`。
 - 可由异常检测进行处理的最大顶级 timeslice 聚集数为 `20`。
 

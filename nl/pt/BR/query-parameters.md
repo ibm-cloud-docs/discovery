@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-05"
+  years: 2015, 2018
+lastupdated: "2018-10-04"
 
 ---
 
@@ -20,8 +20,7 @@ lastupdated: "2017-12-05"
 # Parâmetros de consulta
 {: #query-parameters}
 
-O serviço do {{site.data.keyword.discoveryfull}} oferece poderosos recursos de pesquisa de conteúdo por meio de consultas. Após seu conteúdo ser transferido por upload e enriquecido pelo serviço do {{site.data.keyword.discoveryshort}}, será possível construir consultas, integrar o{{site.data.keyword.discoveryshort}} em seus próprios projetos ou criar um aplicativo customizado usando o {{site.data.keyword.watson}} Explorer Application Builder. 
-Para obter uma introdução das consultas, veja [Conceitos
+O serviço do {{site.data.keyword.discoveryfull}} oferece poderosos recursos de pesquisa de conteúdo por meio de consultas. Após seu conteúdo ser transferido por upload e enriquecido pelo serviço do {{site.data.keyword.discoveryshort}}, será possível construir consultas, integrar o{{site.data.keyword.discoveryshort}} em seus próprios projetos ou criar um aplicativo customizado usando o {{site.data.keyword.watson}} Explorer Application Builder. Para obter uma introdução das consultas, veja [Conceitos
 de consulta](/docs/services/discovery/using.html). Para obter a lista completa de parâmetros, veja a
 [Referência da
 consulta](/docs/services/discovery/query-reference.html#parameter-descriptions).
@@ -49,8 +48,7 @@ Language](/docs/services/discovery/query-operators.html).
 ## filtro
 {: #filter}
 
-Uma consulta armazenável em cache que exclui quaisquer documentos que não mencionem o conteúdo da consulta. 
-Os resultados da procura de filtro **não** são retornados em ordem de relevância. Essas
+Uma consulta armazenável em cache que exclui quaisquer documentos que não mencionem o conteúdo da consulta. Os resultados da procura de filtro **não** são retornados em ordem de relevância. Essas
 consultas são gravadas usando o
 [{{site.data.keyword.discoveryshort}} Query
 Language](/docs/services/discovery/query-operators.html)
@@ -81,8 +79,7 @@ primeiramente, após os quais quaisquer parâmetros
 são executados em paralelo.
 
 Com uma consulta simples, especialmente em um conjunto de dados pequeno, `filter` e
-`query` geralmente retornam os mesmos resultados exatos (ou semelhantes).
-Se uma chamada `filter` e `query` retornar resultados semelhantes e a
+`query` geralmente retornam os mesmos resultados exatos (ou semelhantes). Se uma chamada `filter` e `query` retornar resultados semelhantes e a
 obtenção de uma resposta em ordem de relevância não for importante, será melhor usar o filtro, já que as
 chamadas de filtro são mais rápidas e armazenadas em cache. O armazenamento em cache significa que, na próxima vez em que
 essa chamada for feita, você obterá uma resposta muito mais rápida, especialmente em um conjunto de dados
@@ -92,8 +89,7 @@ grande.
 {: #aggregation}
 
 As consultas de agregação retornam uma contagem de documentos que correspondem um conjunto de valores de
-dados; por exemplo, palavras-chave principais, a impressão geral de entidades, etc.
-Para obter a lista completa de opções de agregação, consulte a
+dados; por exemplo, palavras-chave principais, a impressão geral de entidades, etc. Para obter a lista completa de opções de agregação, consulte a
 [Tabela de agregações](/docs/services/discovery/query-aggregations.html). Essas agregações
 são gravadas usando o
 [{{site.data.keyword.discoveryshort}} Query
@@ -106,7 +102,7 @@ Uma consulta de linguagem natural permite executar consultas expressas em lingua
 recebida de um usuário final em uma interface de conversação ou de texto livre, por exemplo: "IBM
 Watson em assistência médica". O parâmetro usa a entrada inteira como o texto da consulta. Ele
 **não** reconhece operadores. O parâmetro `natural_language_query`
-permite recursos, como procura de passagem e treinamento de relevância. Coleções treinadas retornarão uma pontuação de `confidence` no resultado de uma consulta de linguagem natural. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter detalhes.
+permite recursos, como procura de passagem e treinamento de relevância. Coleções treinadas retornarão uma pontuação de `confidence` no resultado de uma consulta de linguagem natural. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter detalhes. O comprimento máximo da sequência de consultas para uma consulta de língua natural é `2048`.
 
 **Parâmetros de estrutura**
 
@@ -120,8 +116,7 @@ de resultados inteiro.
 ## Nativa
 {: #count}
 
-O número de documentos que você deseja que sejam retornados na resposta. O padrão é `10`. 
-O máximo para os valores `count` e `offset` juntos em qualquer consulta é
+O número de documentos que você deseja que sejam retornados na resposta. O padrão é `10`. O máximo para os valores `count` e `offset` juntos em qualquer consulta é
 `10000`.
 
 ## Deslocamento
@@ -148,16 +143,21 @@ especificar uma direção de classificação prefixando o campo com `-` para ord
 O parâmetro `sort` está atualmente disponível para uso apenas com a API; ele
 não está disponível por meio do conjunto de ferramentas.
 
+## Propensão
+{: #bias}
+
+Ajusta os resultados da procura com propensão a determinados resultados, por exemplo, documentos que foram publicados mais recentemente. O `bias` deve ser configurado para um campo de tipo `date` ou um campo de tipo `number`, por exemplo, `bias=publication_date` ou `bias=field_1`. Quando um campo de tipo `date` for especificado, os resultados retornados estarão propensos a valores de campo mais próximos da data atual. Quando um campo do tipo `number` for especificado, os resultados retornados estarão propensos a valores de campo mais altos. Esse parâmetro não pode ser usado na mesma consulta que o parâmetro `sort`.
+
+O parâmetro `bias` está atualmente disponível para uso somente com a API; ele não está disponível por meio do conjunto de ferramentas.
+
 ## passages
 {: #passages}
 
 Um booleano que especifica se o serviço retorna um conjunto das passagens mais relevantes dos documentos
-retornados por uma consulta que usa o parâmetro `natural_language_query`.
-As passagens são geradas por algoritmos Watson sofisticados para determinar as melhores passagens de texto de todos os documentos retornados pela consulta. O padrão
+retornados por uma consulta que usa o parâmetro `natural_language_query`. As passagens são geradas por algoritmos Watson sofisticados para determinar as melhores passagens de texto de todos os documentos retornados pela consulta. O padrão
 é `false`.
 
-O parâmetro `passages` pode ser usado somente em coleções privadas.
-Ele não pode ser usado na coleção do {{site.data.keyword.discoverynewsfull}}.
+O parâmetro `passages` pode ser usado somente em coleções privadas. Ele não pode ser usado na coleção do {{site.data.keyword.discoverynewsfull}}.
 {: tip}
 
 O {{site.data.keyword.discoveryshort}} tenta retornar passagens que começam no início de uma
@@ -186,7 +186,7 @@ texto da passagem dentro do campo (`start_offset` e `end_offset`), conforme most
 exemplo a seguir. A consulta é mostrada na parte superior do exemplo.
 
 ```bash
- curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
+ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
 ```
 {: pre}
 
@@ -220,11 +220,10 @@ Thu, 27 Oct 2016 07:01:21 GMT</p>\n"
 ### passages.fields
 {: #passages_fields}
 
-Uma lista separada por vírgula de campos no índice dos quais as passagens serão extraídas.
-Se este parâmetro não for especificado, então todos os campos de nível superior serão incluídos.
+Uma lista separada por vírgula de campos no índice dos quais as passagens serão extraídas. Se este parâmetro não for especificado, então todos os campos de nível superior serão incluídos.
 
 ### passages.count
-{: #passages_fields}
+{: #passages_count}
 
 O número máximo de passagens a serem retornadas. A procura retornará menos se esse for o número total
 localizado. O padrão é `10`. O máximo é `100`.
@@ -247,7 +246,7 @@ A saída lista o objeto `highlight` após o
 objeto `enriched_text`, conforme mostrado no exemplo a seguir.
 
 ```bash
-curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
+curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
 ```
 {: pre}
 
@@ -287,12 +286,11 @@ O JSON que é retornado será do seguinte formato:
 {: codeblock}
 
 ## deduplicate
-{: #deduplicate_field}
+{: #deduplicate}
 
  Um recurso beta que exclui documentos duplicados dos resultados da consulta de coleção do
 {{site.data.keyword.discoverynewsfull}}
-com base no campo `title`.
-Consulte [Excluindo documentos duplicados de resultados da consulta](/docs/services/discovery/query-parameters.html#deduplication).
+com base no campo `title`. Consulte [Excluindo documentos duplicados de resultados da consulta](/docs/services/discovery/query-parameters.html#deduplication).
 
 ### deduplicate.field
 {: #deduplicate_field}
@@ -309,7 +307,7 @@ excluir a maioria deles dos seus resultados da consulta usando a deduplicação 
 
 **Nota:** a deduplicação de documentos é atualmente suportada apenas como um recurso
 beta. Consulte [Recursos beta](/docs/services/discovery/release-notes.html#beta-features) nas
-Notas sobre a liberação para obter mais informações.
+Notas sobre a liberação para obter mais informações. Esse recurso beta é atualmente suportado apenas em inglês. Consulte [Suporte ao idioma](/docs/services/discovery/language-support.html#feature-support) para obter detalhes.
 
 **Nota:** cada consulta é deduplicada de forma independente, portanto, a
 deduplicação nas compensações não é suportada.
@@ -323,8 +321,7 @@ retornados, antes da deduplicação.
 A deduplicação é executada somente nos campos retornados. Se você optar por especificar o
 `return=` em sua consulta, inclua o campo que você está deduplicando.
 
-Para aplicar a deduplicação, use a seguinte sintaxe em sua consulta.  Substitua `{field}` pelo nome do campo em que você deseja deduplicar. 
-O `{field}` especificado deve ser uma sequência, como um `title`.
+Para aplicar a deduplicação, use a seguinte sintaxe em sua consulta.  Substitua `{field}` pelo nome do campo em que você deseja deduplicar. O `{field}` especificado deve ser uma sequência, como um `title`.
 
 ```
 &deduplicate.field={field}
@@ -336,8 +333,7 @@ Ao deduplicar, a resposta JSON inclui `"duplicates_removed": x`, em que
 
 #### Deduplicando documentos no Watson Discovery News
 
-Os artigos de notícias podem ser organizados em vários meios de comunicação e {{site.data.keyword.discoverynewsfull}} escolherá cada um deles, resultando em artigos duplicados. Isso significa que uma consulta ao {{site.data.keyword.discoverynewsfull}} pode retornar potencialmente vários artigos idênticos ou quase idênticos nos resultados da consulta. 
-O uso da deduplicação remove a maioria dos artigos duplicados de suas consultas de procura.
+Os artigos de notícias podem ser organizados em vários meios de comunicação e {{site.data.keyword.discoverynewsfull}} escolherá cada um deles, resultando em artigos duplicados. Isso significa que uma consulta ao {{site.data.keyword.discoverynewsfull}} pode retornar potencialmente vários artigos idênticos ou quase idênticos nos resultados da consulta. O uso da deduplicação remove a maioria dos artigos duplicados de suas consultas de procura.
 
 O {{site.data.keyword.discoveryshort}} deduplica usando a correspondência aproximada no
 campo `title` e, portanto, um campo não precisa ser especificado.
@@ -364,11 +360,40 @@ em sua consulta. Substitua `{field}` pelo nome do campo em que você deseja dedu
 {: #collection_ids}
 
 Uma lista separada por vírgula de coleções no mesmo ambiente que será consultado. Esse parâmetro é
-válido apenas ao usar o método `environments/{environment_id}/query?`. Consulte
-[Consultando múltiplas coleções](/docs/services/discovery/using.html#multiple-collections)
-para obter mais informações.
+válido apenas ao usar o método `environments/{environment_id}/query?`. Veja [Consultando múltiplas coleções](/docs/services/discovery/using.html#multiple-collections) para obter mais informações.
 
 ```bash
 &collection_ids={id1},{id2}
+```
+{: codeblock}
+
+## semelhante
+{: #similar}
+
+A similaridade do documento identifica documentos que são semelhantes aos documentos listados nos parâmetros `similar.document_ids`. Isso pode ser refinado ainda mais, especificando quais campos serão considerados para comparação usando os parâmetros `similar.fields`. O padrão
+é `false`. Consulte  [ Similaridade do documento ](/docs/services/discovery/using.html#doc-similarity)  para obter mais informações.
+
+```bash
+&similar=true
+```
+{: codeblock}
+
+### similar.document_ids
+{: #similar_document_ids}
+
+Uma lista separada por vírgula de IDs de documentos que serão usados como uma base para localizar documentos semelhantes como resultados. Esse parâmetro será necessário se o parâmetro `similar` for configurado para `true`.
+
+```bash
+&similar.document_ids={id1},{id2}
+```
+{: codeblock}
+
+### Similar.fields
+{: #similar_fields}
+
+Uma lista opcional separada por vírgulas de campos que serão usados para comparar documentos para localizar documentos semelhantes. Esse parâmetro pode ser usado somente em conjunto com o parâmetro `similar.document_ids`.
+
+```bash
+&similar.fields={field1},{field2}
 ```
 {: codeblock}

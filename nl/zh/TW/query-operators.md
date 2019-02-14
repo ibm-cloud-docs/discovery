@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-08-15"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2017-10-09"
 # 查詢運算子
 {: #query-operators}
 
-運算子是在查詢的不同部分之間的分隔字元。如需可用運算子的完整清單，請參閱[查詢參照](/docs/services/discovery/query-reference.html#operators)。
+運算子是在查詢的不同部分之間的分隔字元。如需可用運算子的完整清單，請參閱[查詢參考資料](/docs/services/discovery/query-reference.html#operators)。
 
 ## . \[JSON 定界字元\]
 {: #delimiter}
@@ -40,7 +40,7 @@ enriched_text.concepts.text
 
 例如：
 ```bash
-enriched_text.concepts.text:cloud computing
+enriched_text.concepts.text:"cloud computing"
 ```
 {: codeblock}
 
@@ -51,9 +51,11 @@ enriched_text.concepts.text:cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text::cloud computing
+enriched_text.concepts.text::"Cloud computing"
 ```
 {: codeblock}
+
+完全相符要區分大小寫。
 
 ## :! \[不包含\]
 {: #notinclude}
@@ -62,7 +64,7 @@ enriched_text.concepts.text::cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text:!cloud computing
+enriched_text.concepts.text:!"cloud computing"
 ```
 {: codeblock}
 
@@ -73,9 +75,11 @@ enriched_text.concepts.text:!cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text::!cloud computing
+enriched_text.concepts.text::!"Cloud computing"
 ```
 {: codeblock}
+
+完全相符要區分大小寫。
 
 ## \\ \[跳出字元\]
 {: #escape}
@@ -84,7 +88,7 @@ enriched_text.concepts.text::!cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text:\!cloud computing
+title::"Dorothy said: \"There's no place like home\""
 ```
 {: codeblock}
 
@@ -95,7 +99,7 @@ enriched_text.concepts.text:\!cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text:"IBM watson"
+enriched_text.entities.text:"IBM watson"
 ```
 {: codeblock}
 
@@ -157,11 +161,11 @@ enriched_text.concepts.text:IBM^3
 ## * \[萬用字元\]
 {: #Wildcard}
 
-比對搜尋表示式中的不明字元。
+比對搜尋表示式中的不明字元。不要將大寫字母與萬用字元一起使用。
 
 例如：
 ```bash
-enriched_text.concepts.text:IBM*
+enriched_text.entities.text:ib*
 ```
 {: codeblock}
 
@@ -173,5 +177,27 @@ enriched_text.concepts.text:IBM*
 例如：
 ```bash
 enriched_text.concepts.text:Watson~3
+```
+{: codeblock}
+
+## :* \[存在\]
+{: #exists}
+
+用來傳回存在指定 `field` 的所有結果。
+
+例如：
+```bash
+title:*
+```
+{: codeblock}
+
+## !* \[不存在\]
+{: #dnexist}
+
+用來傳回不包含指定 `field` 的所有結果。
+
+例如：
+```bash
+title!*
 ```
 {: codeblock}

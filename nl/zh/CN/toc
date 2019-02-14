@@ -1,22 +1,33 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" audience="service" href="/docs/services/discovery/getting-started-tool.html" path="services/discovery"}
+{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/index.html" path="services/discovery"}
 Discovery
 
     {: .navgroup id="learn"}
-    getting-started.md
     getting-started-tool.md
-    getting-started-query.md
     index.md
     watson-discovery-news.md
-    element-classification.md
-    visual-insights.md
+    
+    {: topicgroup}
+    元素分类
+        element-classification.md
+        schema.md
+        parsing.md
+    
     building-kg.md
+    sample-apps.md
+    [视频](https://ibm.biz/wds_videos)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    {: topicgroup}
+    教程
+        getting-started.md
+        getting-started-query.md
+
     building.md
+    connect.md
     adding-content.md
 
     {: topicgroup}
@@ -36,15 +47,17 @@ Discovery
         query-aggregations.md
 
     {: topicgroup}
-    改进结果相关性
+    改进结果的相关性
         train-tooling.md
+        dashboard.md
         train.md
         train-tips.md
+        continuous-training.md
+        feedback.md
 
     {: topicgroup}
     Discovery 和 Knowledge Studio
         integrate-wks.md
-        normalize-entities.md
 
     {: topicgroup}
     迁移功能
@@ -61,6 +74,11 @@ Discovery
     [API 参考](https://www.ibm.com/watson/developercloud/discovery/api)
 
     {: topicgroup}
+    白皮书
+        [Discovery Cloud 体系结构](http://ibm.biz/discovery_advantage_paper)
+        [Discovery 白皮书](https://www.ibm.com/watson/whitepaper/discovery/)
+
+    {: topicgroup}
     扩充项
         categories.md
         entity-types.md
@@ -69,6 +87,8 @@ Discovery
     query-reference.md
     custom-config.md
     language-support.md
+    information-security.md
+    additional-resources.md
     discovery-auxiliary.md
 
     {: .topicgroup}
@@ -77,6 +97,7 @@ Discovery
         [Java SDK](https://github.com/watson-developer-cloud/java-sdk)
         [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
         [Python SDK](https://github.com/watson-developer-cloud/python-sdk)
+        [Ruby SDK](https://github.com/watson-developer-cloud/ruby-sdk)
         [.NET SDK](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
         [OpenWhisk SDK](https://github.com/watson-developer-cloud/openwhisk-sdk/)
         [Salesforce SDK](https://github.com/watson-developer-cloud/salesforce-sdk)
@@ -94,6 +115,6 @@ Discovery
     {: .topicgroup}
     开发者社区
         [StackOverflow](http://stackoverflow.com/questions/tagged/watson-discovery)
-        [developerWorks Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
-        [WDC Slack 频道](http://wdc-slack-inviter.mybluemix.net/)
+        [IBM Developer Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
+        [WDC Slack 通道](http://wdc-slack-inviter.mybluemix.net/)
     {: .navgroup-end}

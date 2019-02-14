@@ -21,7 +21,7 @@ lastupdated: "2017-11-08"
 
 新版本的 {{site.data.keyword.discoverynewsfull}} 在 **2017 年 7 月 31 日**初次亮相。如需此集合的說明，請參閱 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html)。
 
-AlchemyData News 已絕版，從 **2018 年 3 月 7 日**起不再提供服務。
+AlchemyData News 已下架，在 **2018 年 3 月 7 日**已從服務移除。
 
 ## 服務比較
 {: shortdesc}
@@ -64,7 +64,8 @@ AlchemyData News 已絕版，從 **2018 年 3 月 7 日**起不再提供服務�
 1. 按一下 {{site.data.keyword.discoverynewsshort}} 磚，以開啟**管理資料**畫面。
 1. 按一下**檢視資料綱目**，然後按一下**建置查詢**來開啟查詢建置器。
 
-  {{site.data.keyword.discoverynewsfull}} 中查詢的建構方式與針對專用資料集合撰寫的查詢相同。請參閱[查詢概念](/docs/services/discovery/using.html)及[查詢參照](/docs/services/discovery/query-reference.html)。{: tip}
+  {{site.data.keyword.discoverynewsfull}} 中查詢的建構方式與針對專用資料集合撰寫的查詢相同。請參閱[查詢概念](/docs/services/discovery/using.html)及[查詢參考資料](/docs/services/discovery/query-reference.html)。
+  {: tip}
 
 **附註**：請不要預期 AlchemyData News 及 {{site.data.keyword.discoverynewsfull}} 會針對類似查詢傳回相同的結果。搜索時間、來源及強化全都會結合而傳回不同的結果。
 

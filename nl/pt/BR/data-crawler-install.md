@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -21,10 +21,12 @@ lastupdated: "2017-08-18"
 
 O Data Crawler coleta os dados brutos que são eventualmente utilizados para formar resultados da procura
 para o serviço do {{site.data.keyword.discoveryshort}}. Ao efetuar crawl nos repositórios de dados, o
-crawler faz download dos documentos e metadados, começando em uma URL inicial especificada pelo usuário.
-O crawler descobre documentos em uma hierarquia, ou de outra forma vinculados na URL inicial, e os
+crawler faz download dos documentos e metadados, começando em uma URL inicial especificada pelo usuário. O crawler descobre documentos em uma hierarquia, ou de outra forma vinculados na URL inicial, e os
 enfileira para recuperação.
 {: shortdesc}
+
+É possível usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou a API para efetuar crawl em origens de dados do Box, Salesforce e Microsoft SharePoint Online. Consulte [Conectando-se a origens de dados](/docs/services/discovery/connect.html) para obter mais informações.
+{: tip}
 
 ## Pré-requisito
 
@@ -37,17 +39,18 @@ corretamente ou não deve ser configurada para executar o Crawler.
 
 -   Mínimo de 2 GB RAM no Sistema Linux
 
-## Fazendo download e instalando o Data Crawler
+## Faça download e instale o Data Crawler
 
 1.  Abra um navegador e efetue login na sua conta do [{{site.data.keyword.Bluemix}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net){: new_window}.
 
 1.  No seu painel do {{site.data.keyword.Bluemix_notm}}, selecione o serviço do {{site.data.keyword.discoveryshort}} criado anteriormente.
 
-1.  Clique no link Fazer download do Data Crawler para fazer o download do Data Crawler.
+1.  Na seção **Automatizar o upload de conteúdo para o serviço Discovery**, clique no link apropriado para fazer download do Data Crawler para Linux nos formatos DEB, RPM e ZIP.
 
 1.  Verifique se você está executando o Java Runtime Environment versão 8 ou superior. Execute o comando `java -version` e procure por **1.8**. Se você estiver executando algo anterior à versão **1.8**, será necessário fazer upgrade do Java instalando o Java Developer Kit (JDK) 8 no seu sistema de gerenciamento de pacote, por meio do website [IBM JDK ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/developerworks/java/jdk/){: new_window} ou por meio do [java.com ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.java.com){: new_window}.
 
-        A variável de ambiente `JAVA_HOME` deve ser configurada corretamente ou não deve ser configurada para executar o Crawler. {: tip}
+    A variável de ambiente `JAVA_HOME` deve ser configurada corretamente ou não deve ser configurada para executar o Crawler.
+    {: tip}
 
 1.  Como administrador, use os comandos apropriados para instalar o arquivo que transferido por download:
 
@@ -55,7 +58,8 @@ corretamente ou não deve ser configurada para executar o Crawler.
     -   Em sistemas como o Ubuntu e o Debian que usam pacotes deb, use um comando como o seguinte: `dpkg -i /full/path/to/deb/package/deb-file-name`
     -   Os scripts do Crawler são instalados em `{installation_directory}/bin`; por exemplo, `/opt/ibm/crawler/bin`. Assegure-se de que `{installation_directory}/bin` esteja em sua variável de ambiente `PATH` para os comandos do Crawler trabalharem corretamente.
 
-    Os scripts do Crawler também são instalados em `/usr/local/bin`, portanto, isso também pode ser incluído em sua variável de ambiente `PATH`. {: tip}
+    Os scripts do Crawler também são instalados em `/usr/local/bin`, portanto, isso também pode ser incluído em sua variável de ambiente `PATH`.
+    {: tip}
 1.  Crie seu diretório ativo copiando o conteúdo do diretório `{installation_directory}/share/examples/config` para um diretório ativo em seu sistema, por exemplo, `/home/config`.
 
     **Aviso:** não modifique os arquivos de exemplo de configuração fornecidos diretamente. Copie-os e, em seguida, edite-os. Se você editar os arquivos de exemplo no local, sua configuração poderá ser substituída ao fazer upgrade do Data Crawler ou poderá ser removida ao desinstalá-lo.

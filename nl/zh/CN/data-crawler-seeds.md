@@ -54,7 +54,6 @@ lastupdated: "2017-08-25"
 1.  继续[配置 Data Crawler 以连接到 {{site.data.keyword.discoveryshort}}](/docs/services/discovery/data-crawler-discovery.html)。
 
 要访问连接器和种子配置文件的产品内联机帮助并获取最新信息，请从搜寻器安装目录输入以下命令：
-
 -   对于连接器配置选项：
     ```bash
     man crawler-options.conf
@@ -74,7 +73,7 @@ lastupdated: "2017-08-25"
 
 ### 配置文件系统连接器
 
-下面是使用文件系统连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/filesystem.conf` 文件，并根据您的用例来修改以下值：
+下面是使用文件系统连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/filesystem.conf` 文件，并针对您的用例修改以下值：
 
 -   **`protocol`** - 用于搜寻的连接器协议的名称。请对此连接器使用 `sdk-fs`。
 -   **`collection`** - 该属性用于解包临时文件。缺省值为 `crawler-fs`
@@ -83,7 +82,7 @@ lastupdated: "2017-08-25"
 
 ### 配置文件系统搜寻种子
 
-可配置文件系统搜寻种子文件的以下值。要设置这些值，请打开文件 `config/seeds/filesystemseed.conf`，并根据您的用例来指定以下值：
+可配置文件系统搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/filesystemseed.conf` 文件，并针对您的用例指定以下值：
 
 -   **`url`** - 要搜寻的文件和文件夹的换行符分隔列表。UNIX 用户可以使用诸如 `/usr/local/` 的路径。
 
@@ -119,9 +118,9 @@ lastupdated: "2017-08-25"
 
 ### 配置数据库连接器
 
-下面是使用数据库连接器时需要设置的基本配置选项。要设置这些值，请打开 config/connectors/database.conf 文件，并根据您的用例来修改以下值：
+下面是使用数据库连接器时需要设置的基本配置选项。要设置这些值，请打开 config/connectors/database.conf 文件，并针对您的用例修改以下值：
 
--   **`protocol`** - 用于搜寻的连接器协议的名称。此连接器的该值取决于要访问的数据库系统。
+-   **`protocol`** - 用于搜寻的连接器协议的名称。此连接器的这个值取决于要访问的数据库系统。
 -   **`collection`** - 该属性用于解包临时文件。
 -   **`classname`** - 连接器的 Java 类名。使用此连接器时，该值必须为 `plugin:database.plugin@database`。
 -   **`logging-config`** - 指定用于配置日志记录选项的文件；它必须格式化为 `log4j` XML 字符串。
@@ -129,7 +128,7 @@ lastupdated: "2017-08-25"
 ### 配置数据库搜寻种子
 {: #database-crawl-seed}
 
-可配置数据库搜寻种子文件的以下值。要设置这些值，请打开文件 `config/seeds/database-seed.conf`，并根据您的用例来指定以下值：
+可配置数据库搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/database-seed.conf` 文件，并针对您的用例指定以下值：
 
 -   **`url`** - 要检索的表或视图的 URL。定义定制的 SQL 数据库种子 URL。结构为：
 
@@ -162,7 +161,7 @@ lastupdated: "2017-08-25"
 
 ### 配置 CMIS 连接器
 
-下面是使用 CMIS 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/cmis.conf` 文件，并根据您的用例来指定以下值：
+下面是使用 CMIS 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/cmis.conf` 文件，并针对您的用例指定以下值：
 
 -   **`protocol`** - 用于搜寻的连接器协议的名称。使用此连接器时，该值必须为 `cmis`。
 -   **`collection`** - 该属性用于解包临时文件。
@@ -192,7 +191,7 @@ lastupdated: "2017-08-25"
 
 ### 配置 CMIS 搜寻种子
 
-可配置 CMIS 搜寻种子文件的以下值。要设置这些值，请打开文件 `config/seeds/cmisseed.conf`，并根据您的用例来修改以下值：
+可配置 CMIS 搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/cmisseed.conf` 文件，并针对您的用例修改以下值：
 
 -   **`url`** - CMIS 存储库中要用作搜寻起始点的文件夹的 URL，例如：`cmis://alfresco.test.com:8080/alfresco/cmisatom?folderToProcess-workspace://SpacesStore/guid`
 
@@ -207,7 +206,7 @@ lastupdated: "2017-08-25"
 
 ### 配置 Samba 连接器
 
-下面是使用 Samba 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/samba.conf` 文件，并根据您的用例来指定以下值：
+下面是使用 Samba 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/samba.conf` 文件，并针对您的用例指定以下值：
 
 -   **`protocol`** - 用于搜寻的连接器协议的名称。使用此连接器时，该值为 smb。
 -   **`collection`** - 该属性用于解包临时文件。
@@ -217,7 +216,7 @@ lastupdated: "2017-08-25"
 -   **`password`** - 用于进行认证的 Samba 密码。如果提供了用户名，那么此选项为必填。必须使用 Data Crawler 随附的 vcrypt 程序来加密密码。
 -   **`archive`** - 可使 Samba 连接器搜寻归档文件中压缩的文件并对其建立索引。值为 true 或 false；缺省值为 false。
 -   **`max-policies-per-handle`** - 指定可以为单个 RPC 句柄打开的本地安全授权 (LSA) 策略的最大数量。这些策略定义在各种情况下查询或修改特定系统所需的访问许可权。此选项的缺省值为 255。
--   **`crawl-fs-metadata`** - 开启此选项将使 Data Crawler 添加包含文件相关可用文件系统元数据（创建日期、上次修改日期、文件属性等）的 VXML 文档。
+-   **`crawl-fs-metadata`** - 开启此选项将使 Data Crawler 添加包含文件相关可用文件系统元数据（创建日期、上次修改日期、文件属性等）的 VXML 文档.
 -   **`enable-arc-connector`** - 未使用的选项。
 -   **`disable-indexes`** - 要禁用的索引的换行符分隔列表，此选项可能会加快搜寻，例如：
 
@@ -232,7 +231,7 @@ lastupdated: "2017-08-25"
 
 ### 配置 Samba 搜寻种子
 
-可配置 Samba 搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/samba-seed.conf` 文件，并根据您的用例来指定以下值：
+可配置 Samba 搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/samba-seed.conf` 文件，并针对您的用例指定以下值：
 
 -   **`url`** - 要搜寻的共享的换行符分隔列表，例如：
 
@@ -260,7 +259,7 @@ SharePoint 连接器会考虑所有 SharePoint 对象上的 `noindex` 属性，�
 
 ### 配置 SharePoint 连接器
 
-下面是使用 SharePoint 连接器时需要设置的基本配置选项。要设置这些值，请打开文件 `config/connectors/sharepoint.conf`，并根据您的用例来修改以下值：
+下面是使用 SharePoint 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/sharepoint.conf` 文件，并针对您的用例修改以下值：
 
 -   **`protocol`** - 用于搜寻的连接器协议的名称。使用此连接器时，该值为 `io-sp`。
 -   **`collection`** - 该属性用于解包临时文件。
@@ -289,7 +288,7 @@ SharePoint 连接器会考虑所有 SharePoint 对象上的 `noindex` 属性，�
 
 ### 配置 SharePoint 搜寻种子
 
-可配置 SharePoint 搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/sharepoint-seed.conf` 文件，并根据您的用例来指定以下值：
+可配置 SharePoint 搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/sharepoint-seed.conf` 文件，并针对您的用例指定以下值：
 
 -   **`url`** - 要搜寻的 SharePoint Web 应用程序或站点集合的 URL 的换行符分隔列表。例如：
 
@@ -323,12 +322,12 @@ SharePoint 连接器会考虑所有 SharePoint 对象上的 `noindex` 属性，�
 
 ### 配置 Box 连接器
 
-下面是使用 Box 连接器时需要设置的基本配置选项。要设置这些值，请打开文件 `config/connectors/box.conf`，并根据您的用例来修改以下值：
+下面是使用 Box 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/box.conf` 文件，并针对您的用例修改以下值：
 
 -   **`protocol`** - 用于搜寻的连接器协议的名称。使用此连接器时，该值为 `box`。
 -   **`classname`** - 连接器的 Java 类名。对于此连接器，请使用 `plugin:box.plugin@connector`。
 -   **`logging-config`** - 指定用于配置日志记录选项的文件；它必须格式化为 `log4j` XML 字符串。
--   **`box-crawl-seed-url`** - Box 的基本 URL。对于此连接器，此值为 `box://app.box.com/`。
+-   **`box-crawl-seed-url`** - Box 的基本 URL。此连接器的这个值为 `box://app.box.com/`。
 
     您可以搜寻不同类型的 URL，例如：
 
@@ -355,7 +354,7 @@ SharePoint 连接器会考虑所有 SharePoint 对象上的 `noindex` 属性，�
 ### 配置 Box 搜寻种子
 {: #box-crawl-options}
 
-可以为 Box 搜寻种子文件配置以下更多值。要设置这些值，请打开文件 `config/seeds/boxseed.conf`，并根据您的用例来指定以下值：
+可以为 Box 搜寻种子文件配置以下更多值。要设置这些值，请打开 `config/seeds/boxseed.conf` 文件，并针对您的用例指定以下值：
 
 -   **`url`** - 要用作搜寻起点的 URL。缺省值为 `box://app.box.com/`。
 -   **`default-allow`** - 仅供内部使用。

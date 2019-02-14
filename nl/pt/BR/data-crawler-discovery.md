@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -23,6 +23,9 @@ Para configurar o Data Crawler para efetuar crawl em seu repositório, deve-se e
 de entrada apropriado no arquivo `crawler.conf` e, em seguida, configurar as
 informações específicas do repositório nos arquivos de configuração do adaptador de entrada.
 {: shortdesc}
+
+É possível usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou a API para efetuar crawl em origens de dados do Box, Salesforce e Microsoft SharePoint Online. Consulte [Conectando-se a origens de dados](/docs/services/discovery/connect.html) para obter mais informações.
+{: tip}
 
 Antes de fazer as mudanças listadas nessas etapas, certifique-se de que você criou o seu
 diretório ativo copiando o conteúdo do diretório
@@ -92,7 +95,7 @@ seu repositório de dados](/docs/services/discovery/data-crawler-run.html#crawli
 O arquivo `config/crawler.conf` contém informações que avisam o Data Crawler
 sobre quais arquivos serão usados para seu crawl (adaptador de entrada), o local para envia a coleção de
 arquivos submetidos a crawl quando o crawl tiver sido concluído (adaptador de saída) e outras opções de
-gerenciamento de crawl. 
+gerenciamento de crawl.
 
 **Nota:** todos os caminhos de arquivo são relativos ao
 diretório `config`, exceto o local indicado.
@@ -123,7 +126,7 @@ armazenados em cache localmente. Eles não são armazenados criptografados. Por 
 em cache em um diretório temporário que deve ser limpo na reinicialização e devem ser legíveis somente pelo
 usuário que executou o comando do crawler.
 
-Há uma chance para esse diretório sobreviver ao crawler quando a estrutura do conector desaparecer antes que possa limpar a si mesmo. Considere cuidadosamente o local para seus dados em cache, é possível
+    Há uma chance para esse diretório sobreviver ao crawler quando a estrutura do conector desaparecer antes que possa limpar a si mesmo. Considere cuidadosamente o local para seus dados em cache, é possível
 colocá-los em um sistema de arquivos criptografados, mas esteja ciente das implicações de desempenho desde procedimento. Somente você pode decidir o equilíbrio apropriado entre a velocidade e a segurança dos seus crawls.
 -   **`crawl_config_file`** - o arquivo de configuração a ser usado para o crawl. O valor padrão é: `connectors/filesystem.conf`
 -   **`crawl_seed_file`** - o arquivo inicial de crawl a ser usado para o crawl. O valor padrão é: `seeds/filesystem-seed.conf`
@@ -138,13 +141,15 @@ colocá-los em um sistema de arquivos criptografados, mas esteja ciente das impl
 
     É possível deixar esse valor vazio (ou seja, sequência vazia "") ao usar outros conectores.
 
--   **`urls_to_filter`** - lista de desbloqueio de URLs para efetuar crawl, em uma forma de expressão comum. O Data Crawler efetua crawl somente de URLs que correspondam a uma das expressões comuns fornecidas.
+-   **`urls_to_filter`** - lista de bloqueio de URLs que não devem ser submetidas a crawl, em formato de expressão regular. O Data Crawler não efetuará crawl de URLs que correspondam a qualquer uma das expressões regulares fornecidas.
 
-    A lista de domínio contém os domínios mais comuns de nível superior; inclua nela, se necessário.
+    A `domain list` contém os domínios que não podem ser submetidos a crawl. Adicione-o, se necessário.
 
-    A lista de tipo de extensão de arquivo contém as extensões de arquivo que o Orchestration Service suporta, iniciando com essa liberação do Data Crawler.
+    A `filetype list` contém as extensões de arquivo que o Serviço de Orquestração não suporta.
 
-    Assegure-se de que o domínio da URL inicial seja permitido pelo filtro. Por exemplo, se a URL inicial for semelhante a `http://testdomain.test.in`, inclua "`in`" no filtro de domínio.
+    Remova quaisquer tipos de arquivos suportados das expressões regulares.
+
+    Assegure-se de que o domínio da URL inicial seja permitido pelo filtro. Use um filtro vazio para o comportamento `allow everything`.
 
     Assegure-se de que a URL inicial não seja excluída por um filtro ou o Crawler poderá ser interrompido.
 
@@ -233,11 +238,10 @@ output_directory - "/tmp/crawler-test-output"`
 -   **`logging.log4j.configuration_file`*** - o arquivo de configuração a ser usado para criação de log. No arquivo de amostra `crawler.conf`, essa opção é definida em `logging.log4j` e seu valor padrão é `log4j_custom.properties`. Essa opção deve ser definida de maneira semelhante, independentemente se usar o arquivo `.properties` ou `.conf`.   
 -   **`shutdown_timeout`** - especifica o valor de tempo limite, em minutos, antes de encerrar o aplicativo. O valor padrão é `10`.   
 -   **`output_limit`** - o número mais alto de itens indexáveis que o Crawler tentará enviar simultaneamente para o adaptador de saída. Isso pode ser limitado ainda mais pelo número de núcleos disponíveis para fazer o trabalho. Ele informa que em um determinado ponto qualquer no máximo "x" itens indexáveis serão enviados ao adaptador de saída que está aguardando o retorno. O valor padrão é `10`.   
--   **`input_limit`** - limita o número de URLs que podem ser solicitadas por meio do adaptador de entrada de uma vez. O valor padrão é `3`.   
+-   **`input_limit`** - limita o número de URLs que podem ser solicitadas por meio do adaptador de entrada de uma vez. O valor padrão é  ` 30 `.   
 -   **`output_timeout`** - a quantia de tempo, em segundos, antes que o Data Crawler desista de uma solicitação ao adaptador de saída e, em seguida, remova o item da fila do adaptador de saída para permitir mais processamento. O valor padrão é `1200`.
 
-    Considerações devem ser fornecidas para as restrições impostas pelo adaptador de saída, já que essas restrições podem estar relacionadas com os limites definidos aqui. O `output_limit` definido está relacionado à quantia de objetos indexáveis que podem ser enviados ao adaptador de saída de uma vez. Quando um objeto indexável é enviado ao adaptador de saída, ele está "dentro do horário", conforme definido pela variável `output_timeout`. É possível que o próprio adaptador de saída tenha um regulador que o impeça de processar tantas entradas quantas ele recebe. Por exemplo, o adaptador de saída de orquestração pode ter um conjunto de conexões,configurável para conexões HTTP para o serviço. Se ele for padronizado como 8, por exemplo, e se você configurar o `output_limit` para um número maior que 8, então haverá processos, dentro do horário, aguardando sua vez para serem executados.
-Em seguida, podem ocorrer tempos limites.   
+    Considerações devem ser fornecidas para as restrições impostas pelo adaptador de saída, já que essas restrições podem estar relacionadas com os limites definidos aqui. O `output_limit` definido está relacionado à quantia de objetos indexáveis que podem ser enviados ao adaptador de saída de uma vez. Quando um objeto indexável é enviado ao adaptador de saída, ele está "dentro do horário", conforme definido pela variável `output_timeout`. É possível que o próprio adaptador de saída tenha um regulador que o impeça de processar tantas entradas quantas ele recebe. Por exemplo, o adaptador de saída de orquestração pode ter um conjunto de conexões,configurável para conexões HTTP para o serviço. Se ele for padronizado como 8, por exemplo, e se você configurar o `output_limit` para um número maior que 8, então haverá processos, dentro do horário, aguardando sua vez para serem executados. Em seguida, podem ocorrer tempos limites.   
 -   **`num_threads`** - o número de encadeamentos paralelos que podem ser executados de uma vez. Esse valor pode ser um número inteiro, que especifica o número de encadeamentos paralelos diretamente, ou pode ser uma sequência com o formato `"xNUM"`, especificando o fator de multiplicação do número de processadores disponíveis, por exemplo, `"x1.5"`. O valor padrão é `"30"`
 
 ## Configurando opções de serviço
@@ -272,6 +276,5 @@ As opções padrão podem ser mudadas diretamente abrindo o arquivo `config/disc
 
 O {{site.data.keyword.discoveryshort}} Service Output Adapter pode enviar estatísticas para que o {{site.data.keyword.IBM}} entenda e atenda melhor seus usuários. As opções a seguir podem ser configuradas para a variável `send_stats`:
 
--   **`jvm`** - as estatísticas da Java virtual machine (JVM) enviadas incluem o fornecedor e a versão Java, conforme relatado pela JVM usada para executar o Data Crawler.
-O valor é `true` ou `false`. O valor padrão é `true`.
+-   **`jvm`** - as estatísticas da Java virtual machine (JVM) enviadas incluem o fornecedor e a versão Java, conforme relatado pela JVM usada para executar o Data Crawler. O valor é `true` ou `false`. O valor padrão é `true`.
 -   **`os`** - as estatísticas do sistema operacional (OS) enviadas incluem o nome, a versão e a arquitetura do OS, conforme relatado pela JVM usada para executar o Data Crawler. O valor é `true` ou `false`. O valor padrão é `true`.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-16"
+  years: 2015, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -19,12 +19,10 @@ lastupdated: "2017-10-16"
 
 # 将扩充项迁移到 Natural Language Understanding
 
-从 **2017 年 7 月 18 日**开始，{{site.data.keyword.discoveryfull}} 引入了名为 {{site.data.keyword.nlushort}} (NLU) 的新扩充技术。这些扩充项与现有扩充项相同，但需要的配置和模式略有不同。不推荐使用名为 {{site.data.keyword.alchemylanguageshort}} 扩充项的原始扩充项。
+从 **2017 年 7 月 18 日**开始，{{site.data.keyword.discoveryfull}} 引入了名为 {{site.data.keyword.nlushort}} (NLU) 的新扩充技术。{{site.data.keyword.alchemylanguageshort}} 扩充项已于 **2018 年 3 月 1 日**废弃。
 {: shortdesc}
 
-对 {{site.data.keyword.alchemylanguageshort}} 扩充项的支持将于 **2018 年 1 月 15 日**结束。`2017-10-16` API 版本字符串放弃支持将新文档上传到通过 {{site.data.keyword.alchemylanguageshort}} 扩充的现有集合，并且放弃支持创建新集合并通过 {{site.data.keyword.alchemylanguageshort}} 扩充项来扩充这些集合。使用较早的 API 版本字符串可继续使用 {{site.data.keyword.alchemylanguageshort}}，直到在 **2018 年 1 月 15 日**结束支持为止。
-
-新集合应该使用 {{site.data.keyword.nlushort}} 进行扩充，任何使用 {{site.data.keyword.alchemylanguageshort}} 配置文件的现有集合应该尽快迁移。对 {{site.data.keyword.alchemylanguageshort}} 扩充项摄入的支持将于 **2018 年 1 月 15 日**结束。有关迁移利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的集合和配置文件的信息，请参阅[扩充项比较](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)。
+必须迁移任何利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的现有集合。有关迁移利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的集合和配置文件的信息，请参阅[扩充项比较](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)。
 
 **注：**有关与 {{site.data.keyword.knowledgestudioshort}} 集成的信息，请参阅[与 {{site.data.keyword.knowledgestudiofull}} 集成](/docs/services/discovery/integrate-wks.html)。
 
@@ -33,18 +31,20 @@ lastupdated: "2017-10-16"
 
 {{site.data.keyword.alchemylanguageshort}} 和 {{site.data.keyword.nlushort}} 中提供的七个扩充项及其 JSON 对象名称如下：
 
-| {{site.data.keyword.alchemylanguageshort}} 扩充项的名称| {{site.data.keyword.alchemylanguageshort}} JSON 对象| NLU 扩充项的名称| NLU JSON 对象|
+|{{site.data.keyword.alchemylanguageshort}} 扩充项的名称|{{site.data.keyword.alchemylanguageshort}} JSON 对象|NLU 扩充项的名称|NLU JSON 对象|
 |---------------------------|----------------------------------------|----------------------------------------|--------------------------------|
-| 实体抽取| entities|实体抽取|   entities|
-| 关键字抽取| keywords|关键字抽取|   keywords|
-| 分类法分类| taxonomy                        |类别分类*|   categories*|
-| 概念标记| concepts                        |概念标记|   concepts            |
-| 观点分析| docSentiment                    |观点分析|   sentiment*          |
-| 情绪分析| docEmotions                     |情绪分析|   emotion*            |
-| 关系抽取| relations                       |语义角色抽取*|   semantic_roles*     |
+|实体抽取|entities|实体抽取|entities|
+|关键字抽取|keywords|关键字抽取|keywords|
+|分类法分类|taxonomy                        |类别分类*|categories*|
+|概念标记|concepts            |概念标记|concepts            |
+|观点分析|docSentiment                    |观点分析|sentiment*          |
+|情绪分析|docEmotions                     |情绪分析|emotion*            |
+|关系抽取|relations                       |语义角色抽取*|semantic_roles*     |
  \* 名称更改
 
-有关 {{site.data.keyword.alchemylanguageshort}} 扩充项的更多信息，请参阅 [{{site.data.keyword.alchemylanguageshort}} 扩充项](/docs/services/discovery/discovery-auxiliary.html#AlchemyLanguage-enrichments)。有关 {{site.data.keyword.nlushort}} 扩充项的更多信息，请参阅[添加扩充项](/docs/services/discovery/building.html#adding-enrichments)
+
+
+有关 {{site.data.keyword.nlushort}} 扩充项的更多信息，请参阅[添加扩充项](/docs/services/discovery/building.html#adding-enrichments)
 
 ## 主要更改概述
 

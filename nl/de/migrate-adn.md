@@ -67,7 +67,7 @@ So können Sie die {{site.data.keyword.discoveryshort}}-Tools starten und {{site
   Abfragen in {{site.data.keyword.discoverynewsfull}} sind genauso strukturiert wie Abfragen, die für private Datensammlungen geschrieben sind. Weitere Informationen finden Sie unter [Abfragekonzepte](/docs/services/discovery/using.html) und [Abfragereferenz](/docs/services/discovery/query-reference.html).
   {: tip}
 
-**Hinweis**: Erwarten Sie nicht, dass für ähnliche Abfragen in AlchemyData News und {{site.data.keyword.discoverynewsfull}} identische Ergebnisse zurückgegeben werden. Die Kombination aus Zeitpunkt der Crawlersuche, Quellen und Aufbereitungen führt jeweils zu unterschiedlichen Ergebnissen. 
+**Hinweis**: Erwarten Sie nicht, dass für ähnliche Abfragen in AlchemyData News und {{site.data.keyword.discoverynewsfull}} identische Ergebnisse zurückgegeben werden. Die Kombination aus Zeitpunkt der Crawlersuche, Quellen und Aufbereitungen führt jeweils zu unterschiedlichen Ergebnissen.
 
 ## Watson Discovery News-Abfragen zur Anwendung hinzufügen
 
@@ -107,7 +107,7 @@ var discovery = new DiscoveryV1({
   username: '{benutzername}',
   password: '{kennwort}',
   version_date: '2017-11-07'
-});
+});  
 
 discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),  
   function(error, data) {  

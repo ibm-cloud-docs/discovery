@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-16"
+  years: 2015, 2018
+lastupdated: "2018-05-21"
 
 ---
 
@@ -66,7 +66,7 @@ Zunächst schreiben Sie eine Abfrage, die das Konzept `Cloud computing` in Ihrer
 1.  Klicken Sie in der Anzeige **Abfragen erstellen** auf **Dokumente suchen** und dann auf **{{site.data.keyword.discoveryshort}}-Abfragesprache verwenden**. Führen Sie anschließend Folgendes aus:
     - Klicken Sie auf die Dropdown-Liste **Feld** und wählen Sie den Eintrag `enriched_text.concepts.text` aus. Wählen Sie bei **Operator** die Einstellung `enthält` aus und geben Sie dann bei **Wert** die Zeichenfolge `Cloud computing` ein. Die Abfrage `enriched_text.concepts.text:Cloud computing` wird unter **Visual Query Builder** angezeigt.
 
-    - Alternativ können Sie auf **In Abfragesprache bearbeiten** und dann auf **{{site.data.keyword.discoveryshort}}-Abfragesprache verwenden** klicken. Geben Sie `enriched_text.concepts.text:Cloud computing` im Feld **Abfrage hier eingeben** ein.
+    - Alternativ können Sie auf **In Abfragesprache bearbeiten** und dann auf **{{site.data.keyword.discoveryshort}}-Abfragesprache verwenden** klicken. Geben Sie `enriched_text.concepts.text:"Cloud computing"` im Feld **Abfrage hier eingeben** ein.
 
 1.  Klicken Sie auf **Abfrage ausführen**. Es sollte eine Übereinstimmung (`"matching_results": 1`) erzielt werden. Kopieren Sie die **Abfrage-URL**, die oben auf der Registerkarte **Zusammenfassung** oder **JSON** angezeigt wird, um sie in Ihrer Anwendung zu verwenden.
 
@@ -108,11 +108,11 @@ Sie können Abfrageparameter kombinieren, um zielgerichtetere Abfragen zu erstel
 1.  Klicken Sie unter **Dokumente suchen** auf **{{site.data.keyword.discoveryshort}}-Abfragesprache verwenden** und führen Sie dann Folgendes aus:
     -  Klicken Sie auf die Dropdown-Liste **Feld** und wählen Sie den Eintrag `enriched_text.concepts.text` aus. Wählen Sie bei **Operator** die Einstellung `enthält` aus und geben Sie dann bei **Wert** die Zeichenfolge `world wide web` ein.
 
-       Die Abfrage `enriched_text.concepts.text:world wide web` gibt alle Dokumente zurück, die das Konzept `world wide web` enthalten; die Dokumente werden in der Reihenfolge ihrer Relevanz aufgelistet.
+       Die Abfrage `enriched_text.concepts.text:"world wide web"` gibt alle Dokumente zurück, die das Konzept `world wide web` enthalten; die Dokumente werden in der Reihenfolge ihrer Relevanz aufgelistet.
 
 1.  Klicken Sie auf **Weitere Optionen**, klicken Sie anschließend auf **Zurückzugebende Felder** und wählen Sie **Angeben** aus. Wählen Sie `text` aus. Dies beschränkt die Antwort auf den Text der relevanten Artikel und schließt alle anderen Angaben aus.
 
-1.  Klicken Sie auf **Abfrage ausführen**. Es gibt ein übereinstimmendes Dokument: `"matching_results": 1`. 
+1.  Klicken Sie auf **Abfrage ausführen**. Es gibt ein übereinstimmendes Dokument: `"matching_results": 1`.
 
 ## Schritt 5: Aggregation erstellen
 
@@ -135,16 +135,16 @@ Sie erstellen jetzt eine Aggregation, die die wichtigsten 10 Konzepte in der Sam
 
 Die Sammlung '{{site.data.keyword.discoverynewsshort}}' ist ein allgemein zugänglicher Datenbestand, der vorab mit kognitiven Informationen aufbereitet wurde. Die Sammlung ist in {{site.data.keyword.discoveryshort}} enthalten. Weitere Informationen zu dieser Sammlung finden Sie unter [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news).
 
-Das Anpassen der {{site.data.keyword.discoverynewsshort}}-Konfiguration, das Durchführen eines Trainings oder das Hinzufügen von Dokumenten zur Sammlung '{{site.data.keyword.discoverynewsshort}}' ist nicht möglich. Was Sie mit {{site.data.keyword.discoverynewsshort}} erstellen können, ist in einem [Demo ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://discovery-news-demo.mybluemix.net/){: new_window} gezeigt.
+Das Anpassen der {{site.data.keyword.discoverynewsshort}}-Konfiguration, das Durchführen eines Trainings oder das Hinzufügen von Dokumenten zur Sammlung '{{site.data.keyword.discoverynewsshort}}' ist nicht möglich. Was Sie mit {{site.data.keyword.discoverynewsshort}} erstellen können, wird in einer [Demo ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://discovery-news-demo.ng.bluemix.net/){: new_window} gezeigt.
 
 Die folgende Beispielabfrage gibt die wichtigsten 10 Artikel in {{site.data.keyword.discoverynewsfull}} über die Pittsburgh Steelers mit einer positiven Stimmung zurück.
 
-1.  Klicken Sie auf das Symbol 'Abfragen erstellen' ![Abfragesymbol](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} -->, um die Abfrageseite zu öffnen. Wählen Sie die Sammlung '{{site.data.keyword.discoverynewsshort}}' aus und klicken Sie auf **Los geht's!**
+1.  Klicken Sie auf das Symbol 'Abfragen erstellen' ![Abfragesymbol](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} -->, um die Abfrageseite zu öffnen. Wählen Sie die Sammlung '{{site.data.keyword.discoverynewsshort}}' aus und klicken Sie auf **Los geht's!** (Um die {{site.data.keyword.discoverynewsshort}}-Sammlungen für Spanisch, Deutsch oder Koreanisch abzufragen, müssen Sie zunächst auf das Symbol ![Daten verwalten](/images/icon_yourData.png) klicken und dann die entsprechende Sprache aus der Dropdown-Liste auswählen.)
 
 1.  Klicken Sie unter **Dokumente suchen** auf **{{site.data.keyword.discoveryshort}}-Abfragesprache verwenden** und führen Sie dann Folgendes aus:
     -  Klicken Sie auf die Dropdown-Liste **Feld** und wählen Sie den Eintrag `text` aus. Wählen Sie bei **Operator** die Einstellung `enthält` aus und geben Sie dann bei **Wert** die Zeichenfolge `Pittsburgh Steelers` ein. Klicken Sie auf **Regel hinzufügen**, klicken Sie dann auf die Dropdown-Liste **Feld** und wählen Sie `enriched_text.sentiment.document.label` aus, wählen Sie als **Operator** den Eintrag `enthält` aus und geben Sie dann als **Wert** die Zeichenfolge `positive` ein.
 
-       Die Abfrage `text:Pittsburgh Steelers, enriched_text.sentiment.document.label:positive` wird unter **Visual Query Builder** angezeigt.
+       Die Abfrage `text:"Pittsburgh Steelers",enriched_text.sentiment.document.label:"positive"` wird unter **Visual Query Builder** angezeigt.
 
 1.  Klicken Sie auf **Weitere Optionen** und geben Sie dann den Wert `10` (dies ist der Standardwert) im Feld **Anzahl zurückzugebender Dokumente** ein.
 

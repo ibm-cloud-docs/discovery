@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-09-06"
 
 ---
 
@@ -28,13 +28,13 @@ Para obter informações abrangentes sobre as APIs de treinamento, consulte a [R
 
 Se você preferir usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} para treinar o {{site.data.keyword.discoveryshort}}, consulte [Melhorando a relevância do resultado com o conjunto de ferramentas](/docs/services/discovery/train-tooling.html).
 
-**Observação:** o treinamento de relevância precisa de certos requisitos de dados de treinamento antes que ele entre em vigor. O serviço verifica os dados de treinamento periodicamente para determinar se esses requisitos são atendidos e se atualiza automaticamente com base em qualquer mudança.
-
 **Observação:** o treinamento de relevância atualmente se aplica apenas a consultas de linguagem natural em coleções particulares. Ele não se destina a ser usado com consultas estruturadas da linguagem de consulta do {{site.data.keyword.discoveryshort}}.  Para saber mais sobre a linguagem de consulta do {{site.data.keyword.discoveryshort}}, consulte [Conceitos da consulta](/docs/services/discovery/using.html).
 
 Coleções treinadas retornarão uma pontuação de `confidence` no resultado de uma consulta de linguagem natural. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter detalhes.
 
-**Observação:** há um máximo de 4 coleções treinadas por ambiente.
+Consulte [Requisitos de dados de treinamento](/docs/services/discovery/train.html#reqs) para obter os requisitos mínimos para treinamento, bem como os limites de treinamento.
+
+Consulte [Monitoramento de uso](/docs/services/discovery/feedback.html) para obter detalhes sobre o uso de rastreamento e usando esses dados para ajudá-lo a entender e melhorar os seus aplicativos.
 
 <!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
 
@@ -51,14 +51,20 @@ Os componentes necessários para treinar uma instância do Discovery incluem o s
    Os exemplos podem, opcionalmente, especificar uma consulta de referência cruzada. A consulta de referência cruzada precisa retornar apenas o documento de exemplo e deve ser independente do ID do documento exclusivo do Watson Discovery. No momento as consultas de referência cruzada não são usadas automaticamente, mas podem ser usadas para reparar dados de treinamento quando novos IDs são designados aos documentos durante um evento de ingestão.
 
 ## Requisitos de dados de treinamento
+{: #reqs}
 
-Os dados de treinamento devem atender aos seguintes critérios **mínimos** de qualidade para melhorar efetivamente a relevância das respostas que são retornadas pelo serviço do Discovery. Observe que **mínimo** não significa **ideal**.
+Os dados de treinamento devem atender aos seguintes critérios **mínimos** de qualidade para melhorar efetivamente a relevância das respostas que são retornadas pelo serviço do Discovery. Observe que **mínimo** não significa **ideal**. O serviço verifica os dados de treinamento periodicamente para determinar se esses requisitos são atendidos e se atualiza automaticamente com base em qualquer mudança.
 
-- O conjunto de dados de treinamento da coleção deve conter pelo menos 49 consultas de treinamento exclusivas (ou seja, conjuntos de consultas e exemplos). Dependendo do tamanho e da complexidade de sua coleção, o número de consultas de treinamento em seu conjunto pode precisar ser superior a 49 para que o Watson seja capaz de aplicar treinamento de relevância à coleção.
-- A pontuação de relevância para cada consulta de treinamento deve ser um número inteiro não negativo, por exemplo, `0` para representar *não relevante*, `1` para representar *algo relevante* e `2` para representar *altamente relevante*. No entanto, para flexibilidade máxima, o serviço aceita números inteiros não negativos entre `0` e `100` para usuários avançados que experimentam esquemas de pontuação diferentes. Independentemente do intervalo utilizado, o maior número inteiro no conjunto de consultas de treinamento indica relevância máxima. O conjunto de ferramentas do {{site.data.keyword.discoveryshort}} usa as pontuações de relevância de `0` para representar *não relevante* e `10` para representar *relevante*. Se você planeja pontuar seus documentos usando tanto o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} quanto a API ou planeja iniciar a API e mudar para o conjunto de ferramentas, use as pontuações de relevância `0` e `10`.
+- O conjunto de dados de treinamento da coleção deve conter pelo menos 49 consultas de treinamento exclusivas (ou seja, conjuntos de consultas e exemplos). Dependendo do tamanho e da complexidade de sua coleção, o número de consultas de treinamento em seu conjunto pode precisar ser superior a 49 para que o Watson seja capaz de aplicar treinamento de relevância à coleção. Watson fornecerá feedback se precisar de mais consultas para treinamento.
+- Ao designar pontuações de relevância por meio da API: a pontuação de relevância para cada consulta de treinamento deve ser um número inteiro não negativo, por exemplo, `0` para representar *não relevante*, `1` para representar *algo relevante* e `2` para representar *altamente relevante*. No entanto, para flexibilidade máxima, o serviço aceita números inteiros não negativos entre `0` e `100` para usuários avançados que experimentam esquemas de pontuação diferentes. Independentemente do intervalo utilizado, o maior número inteiro no conjunto de consultas de treinamento indica relevância máxima.
+- Ao designar classificações de relevância por meio do Conjunto de ferramentas: o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} usa as pontuações de relevância de `0` para representar *não relevante* e `10` para representar *relevante*. É necessário aplicar ambas as classificações disponíveis aos seus resultados: `Relevant` e `Not relevant`. A classificação somente de documentos `Relevant` não fornece os dados necessários.  Se você planeja pontuar seus documentos usando tanto o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} quanto a API ou planeja iniciar a API e mudar para o conjunto de ferramentas, use as pontuações de relevância `0` e `10`.
 - As consultas de treinamento devem incluir alguma sobreposição de termo entre a consulta e a resposta desejada para que ele possa ser recuperado pela procura inicial do serviço do Discovery, que possui um escopo amplo.
 
 **Nota:** o Watson utiliza dados de treinamento para aprender padrões e para generalizar consultas de treinamento individuais, não para memorizá-las. O serviço, portanto, nem sempre pode reproduzir os resultados de relevância idênticos para qualquer consulta de treinamento fornecida.
+
+O treinamento não pode exceder os requisitos **máximos** a seguir:
+  - Não é possível exceder 24 coleções treinadas por ambiente.
+  - Dentro de um ambiente único, você está limitado a 10.000 consultas de treinamento, com um máximo de 100 exemplos por consulta. 
 
 ## Incluindo uma consulta no conjunto de dados de treinamento
 
@@ -84,7 +90,6 @@ Os valores neste objeto são os seguintes:
 
 - `query_id`: um ID exclusivo para a consulta. Se você não especificar esse campo, o serviço gerará automaticamente um ID.
 - `natural_language_query`: uma consulta de linguagem natural do Discovery que se aplica ao conjunto de treinamento. <!-- The `natural_language_query` parameter is preferred. -->
-
 - `filter`: um filtro opcional para a consulta, conforme descrito na [Referência de consulta](/docs/services/discovery/query-reference.html#parameter-descriptions).
 
     **Nota:** se você incluir filtros em suas consultas de dados de treinamento, certifique-se de usar os mesmos filtros ao usar consultas de linguagem natural em sua coleção treinada. Se você treinar a coleção com dados filtrados, mas não usar os mesmos tipos de filtros ao consultar a coleção, os resultados poderão ser imprevisíveis.
@@ -218,25 +223,19 @@ Execute as etapas a seguir para incluir exemplo em uma consulta de dados de trei
     {
       "collection_id": "99040100-fe6a-4782-a4f5-28f9eee30850",
       "name": "democollection",
+      "configuration_id": "def9bd08-8472-470f-ab5a-e377f77e9300",
+      "language": "en_us",
+      "status": "available",
       "description": "this is a demo collection",
       "created": "2015-08-24T18:42:25.324Z",
       "updated": "2015-08-24T18:42:25.324Z",
-      "status": "available",
-      "configuration_id": "def9bd08-8472-470f-ab5a-e377f77e9300",
-      "language": "en_us",
       "document_counts": {
         "available": 1000, "processing": 20, "failed": 180
-      }, "training": {
-        "total_examples": 54,
-        "available": true,
-        "processing": false,
-        "minimum_queries_added": true,
-        "minimum_examples_added": true,
-        "sufficient_label_diversity": false,
-        "notices": 13,
-        "successfully_trained": "2017-02-08T14:18:22.786Z",
-        "data_updated": "2017-02-10T14:18:22.786Z"
-      }
+      },
+      "disk_usage": {
+        "used_bytes": 895111
+      }, "training_status": {
+        "data_updated": "2017-02-10T14:18:22.786Z", "total_examples": 54, "sufficient_label_diversity": false, "processing": false, "minimum_examples_added": true, "successfully_trained": "2017-02-08T14:18:22.786Z", "available": true, "notices": 13, "minimum_queries_added": true }
     }
    ```
    {: codeblock}

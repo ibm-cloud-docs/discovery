@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-14"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -32,7 +32,7 @@ Nachfolgend finden Sie Antworten auf häufig gestellte Fragen zum Training einer
 Prüfen Sie mit dem API-Befehl zum [Auflisten der Sammlungsdetails ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/?curl#list-collection-details){: new_window}, ob Ihr System trainiert wurde.  
 
 ```bash
-curl -u "{benutzername}":"{kennwort}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/collections/{sammlungs-id}?version=2017-11-07"
+curl -u "apikey":"{wert_des_api-schlüssels}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/collections/{sammlungs-id}?version=2017-11-07"
 ```
 {: pre}
 
@@ -40,16 +40,16 @@ Beispielantwort:
 
 ```json
 {
-  "training": {
+  "training_status": {
+    "data_updated": "2017-02-10T14:18:22.786Z",
     "total_examples": 54,
-    "available": true,
-    "processing": false,
-    "minimum_queries_added": true,
-    "minimum_examples_added": true,
     "sufficient_label_diversity": false,
-    "notices": 13,
+    "processing": false,
+    "minimum_examples_added": true,
     "successfully_trained": "2017-02-08T14:18:22.786Z",
-    "data_updated": "2017-02-10T14:18:22.786Z"
+    "available": true,
+    "notices": 13,
+    "minimum_queries_added": true    
     }
 }
 ```
@@ -70,7 +70,7 @@ Die Felder der Antwort haben die folgende Bedeutung:
 Fehler oder Warnungen können Sie mit der [API für Abfragehinweise ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window} anzeigen.  
 
 ```bash
-curl -u "{benutzername}":"{kennwort}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/collections/{sammlungs-id}/notices?version=2017-11-07"
+curl -u "apikey":"{wert_des_api-schlüssels}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/collections/{sammlungs-id}/notices?version=2017-11-07"
 ```
 {: pre}
 
@@ -78,7 +78,7 @@ Weitere API-Operationen sind im Abschnitt [Andere Operationen für Trainingsdate
 
 ### Wie interpretierene ich die Konfidenzbewertung (`confidence`), die in Ergebnissen für Abfragen in natürlicher Sprache nach dem Training angezeigt wird?
 
-Trainierte Sammlungen geben im Feld `confidence` des Ergebnisses für eine Abfrage in natürlicher Sprache eine Konfidenzbewertung zurück. Diese Zahl für das Feld `confidence` wird danach berechnet, wie relevant das Ergebnis im Vergleich zum trainierten Modell ist. Die Bewertung der `Konfidenz` ist **nicht** mit der `Bewertung` identisch. Weitere Informationen finden Sie unter [Konfidenzbewertungen](/docs/services/discovery/train-tooling.html#confidence).  
+Sammlungen, für die ein Training durchgeführt wurde, geben im Ergebnis für eine Abfrage in natürlicher Sprache eine Konfidenzbewertung (Feld `confidence`) zurück. Diese Zahl für das Feld `confidence` wird danach berechnet, wie relevant das Ergebnis im Vergleich zum trainierten Modell ist. Die Bewertung der `Konfidenz` ist **nicht** mit der `Bewertung` identisch. Weitere Informationen finden Sie unter [Konfidenzbewertungen](/docs/services/discovery/train-tooling.html#confidence).  
 
 ## Fehler und Warnungen interpretieren
 
@@ -100,11 +100,11 @@ Diese Warnung wird dadurch verursacht, dass die `Dokument-IDs` in Ihren Training
 
 ### Fehler: `Invalid training data found: The query string provided exceeds the maximum length, please provide a shorter one`
 
-- Die maximale Länge der Abfragezeichenfolge ist `X`. Sie müssen die angegebene Abfrage verkürzen. Die Aufnahme eines Filters in Ihre Abfrage ist eine der möglichen Umgehungen für dieses Problem.  
+- Die maximale Länge der Abfragezeichenfolge beträgt `2048`. Sie müssen die entsprechende Abfrage kürzen. Die Aufnahme eines Filters in Ihre Abfrage ist eine der möglichen Umgehungen für dieses Problem.  
 
 ### Fehler: `This collection cannot be trained: your plan does not support training on this many top-level text fields.`
 
-- Dieser Fehler tritt nur bei Verwendung eines `Lite`-Plans auf. Das Training kann für maximal `X` Textfelder der höchsten Ebene durchgeführt werden. Textfelder der höchsten Ebene sind Felder, die nicht unter einem andeeren Feld verschachtelt sind. Das Training wird nur für die Felder der höchsten Ebene durchgeführt und die Anzahl der Felder, die im Trainingsprozess verwendet werden können, ist begrenzt.  
+- Dieser Fehler tritt nur bei Verwendung eines `Lite`-Plans auf. Textfelder der höchsten Ebene sind Felder, die nicht unter einem anderen Feld verschachtelt sind. Das Training wird nur für die Felder der höchsten Ebene durchgeführt und die Anzahl der Felder, die im Trainingsprozess verwendet werden können, ist begrenzt. Je mehr Felder der höchsten Ebene in einer Sammlung vorhanden sind, desto mehr Trainingsdaten sind erforderlich. In den Fällen, in denen mehr als `10` Felder der höchsten Ebene vorhanden sind, treten beim Training eher Fehler auf. 
 
 ### Fehler: `Training data quality standards not met: You will need additional training queries with labeled examples. (To be considered for training, each example must appear in the top 100 search results for its query.)`
 

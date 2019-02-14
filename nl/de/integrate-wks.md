@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-15"
+  years: 2015, 2018
+lastupdated: "2018-08-08"
 
 ---
 
@@ -37,7 +37,7 @@ Bevor Sie ein angepasstes Modell aus {{site.data.keyword.knowledgestudioshort}} 
 1.  Laden Sie mit dem folgenden Befehl in einer Bash-Shell oder funktional entsprechenden Shell wie Cygwin for Windows eine Kopie Ihrer aktuellen {{site.data.keyword.discoveryshort}}-Konfiguration herunter. Ersetzen Sie hierbei `{umgebungs-id}` und `{konfigurations-id}` durch die IDs, die Sie in den beiden vorherigen Schritten notiert haben.
 
     ```bash
-    curl -u "{benutzername}":"{kennwort}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/configurations/{konfigurations-id}?version=2017-11-07" > my_config.json
+    curl -u "apikey":"{wert_des_api-schlüssels}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/configurations/{konfigurations-id}?version=2017-11-07" > my_config.json
     ```
     {: pre}
 
@@ -57,7 +57,7 @@ Bevor Sie ein angepasstes Modell aus {{site.data.keyword.knowledgestudioshort}} 
 
         ```json
         "enrichments": [
-        {
+   {
             "source_field": "text",
             "destination_field": "enriched_text",
             "enrichment": "natural_language_understanding",
@@ -86,7 +86,7 @@ Bevor Sie ein angepasstes Modell aus {{site.data.keyword.knowledgestudioshort}} 
 
         ```json
         "enrichments": [
-        {
+   {
             "source_field": "text",
             "destination_field": "enriched_text",
             "enrichment": "natural_language_understanding",
@@ -114,20 +114,19 @@ Bevor Sie ein angepasstes Modell aus {{site.data.keyword.knowledgestudioshort}} 
         ```
         {: codeblock}
 
-1.  Aktivieren Sie optional die Entitätsnormalisierung (siehe [Angepasste Konfiguration zur Normalisierung von Entitäten erstellen](/docs/services/discovery/normalize-entities.html)).
 1.  Speichern Sie die Datei `my_config.json`.
 1.  Verwenden Sie ein JSON-Prüfprogramm (z. B. [JSLint ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://jslint.com){: new_window}, um die bearbeitete JSON-Datei zu prüfen und bei Bedarf zu korrigieren, bevor Sie die nächsten Schritte ausführen.
 1.  Aktualisieren Sie die Konfiguration wie folgt. Sie benötigen wieder die `{umgebungs-id}` und die `{konfigurations-id}`, die Sie zu Beginn dieser Prozedur ermittelt haben.
 
     ```bash
-    curl -X PUT -u "{benutzername}":"{kennwort}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/configurations/{konfigurations-id}?version=2017-11-07"
+    curl -X PUT -u "apikey":"{wert_des_api-schlüssels}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/configurations/{konfigurations-id}?version=2017-11-07"
     ```
     {: pre}
 
     **Hinweis:** Wenn Sie eine neue Konfiguration erstellen oder die Standardkonfiguration ändern, müssen Sie eine neue angepasste Konfiguration erstellen, statt eine vorhandene Konfiguration zu aktualisieren. Achten Sie vor dem Erstellen einer neuen Konfiguration darauf, das Feld `"configuration_id":` aus der Datei `my_config.json` zu entfernen, und führen Sie dann den folgenden Befehl aus:
 
     ```bash
-    curl -X POST -u "{benutzername}":"{kennwort}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/configurations?version=2017-11-07"
+    curl -X POST -u "apikey":"{wert_des_api-schlüssels}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/configurations?version=2017-11-07"
     ```
     {: pre}
 
@@ -138,11 +137,13 @@ Bevor Sie ein angepasstes Modell aus {{site.data.keyword.knowledgestudioshort}} 
 Sie können ein angepasstes {{site.data.keyword.knowledgestudioshort}}-Modell in die Aufbereitungen für die [Entitätsextraktion](/docs/services/discovery/building.html#entity-extraction) oder [Beziehungsextraktion](/docs/services/discovery/building.html#relation-extraction) mit den {{site.data.keyword.discoveryshort}}-Tools integrieren.
 
 1. Ermitteln Sie die `Modell-ID` Ihres {{site.data.keyword.knowledgestudioshort}}-Modells.
-1. Öffnen Sie in den {{site.data.keyword.discoveryshort}}-Tools die Anzeige **Daten verwalten**, erstellen oder öffnen Sie eine Sammlung und erstellen Sie eine neue Konfiguration.
+1. Klicken Sie in den {{site.data.keyword.discoveryshort}}-Tools auf das Symbol **Daten verwalten** in der linken oberen Ecke, um die Anzeige **Daten verwalten** zu öffnen und eine Sammlung zu erstellen oder zu öffnen. **Hinweis:** Wenn Sie eine vorhandene Sammlung auswählen, sollte sie leer sein. Falls dies nicht der Fall ist, sollten Sie diese Dokumente nach dem Erstellen der neuen Konfigurationsdatei erneut einpflegen.
+1. Klicken Sie im Abschnitt **Konfiguration** in der Anzeige **Daten verwalten** für Ihre Sammlung auf **Wechseln** und anschließend auf **Neue Konfiguration erstellen**. Geben Sie der Konfiguration einen Namen. 
 1. Klicken Sie auf **Aufbereitungen hinzufügen** und wählen Sie entweder die Aufbereitung für die **Entitätsextraktion** oder die **Beziehungsextraktion** aus.
-1. Geben Sie die `Modell-ID` im Feld `ID des angepassten Modells` für die ausgewählte Aufbereitung ein. Das angepasste {{site.data.keyword.knowledgestudiofull}}-Modell überschreibt die Standardeinstellung für diese Aufbereitung. Klicken Sie auf **Anwenden** und dann auf **Fertig**.
+1. Geben Sie die `Modell-ID` im Feld `ID des angepassten Modells` für die ausgewählte Aufbereitung ein. Das angepasste {{site.data.keyword.knowledgestudiofull}}-Modell überschreibt die Standardeinstellung für diese Aufbereitung. 
+1. Klicken Sie auf **Anwenden** und dann auf **Fertig**.
 
-Sobald Dokumente in eine Datensammlung hochgeladen werden, werden sie unter Verwendung der für diese Sammlung ausgewählten Konfigurationsdatei konvertiert und aufbereitet. Falls Sie für eine bestehende Sammlung zu einer neuen Konfigurationsdatei wechseln, nachdem Dokumente hochgeladen wurden, bleiben diese hochgeladenen Dokumente gemäß der ursprünglichen Konfigurationsdatei konvertiert. Alle Dokumente, die nach dem Wechsel der Konfigurationsdatei hochgeladen werden, verwenden die neue Konfigurationsdatei. Wenn Sie die neue Konfiguration für die **gesamte** Sammlung verwenden wollen, müssen Sie eine neue Sammlung erstellen, die neue Konfigurationsdatei auswählen und alle Dokumente erneut hochladen. 
+Sobald Dokumente in eine Datensammlung hochgeladen werden, werden sie unter Verwendung der für diese Sammlung ausgewählten Konfigurationsdatei konvertiert und aufbereitet. Falls Sie für eine bestehende Sammlung zu einer neuen Konfigurationsdatei wechseln, nachdem Dokumente hochgeladen wurden, bleiben diese hochgeladenen Dokumente gemäß der ursprünglichen Konfigurationsdatei konvertiert. Alle Dokumente, die nach dem Wechsel der Konfigurationsdatei hochgeladen werden, verwenden die neue Konfigurationsdatei. Wenn Sie die neue Konfiguration für die **gesamte** Sammlung verwenden wollen, müssen Sie eine neue Sammlung erstellen, die neue Konfigurationsdatei auswählen und alle Dokumente erneut hochladen.
 
 **Hinweis:** Einer Aufbereitung kann nur ein einziges {{site.data.keyword.knowledgestudiofull}}-Modell zugewiesen sein.
 

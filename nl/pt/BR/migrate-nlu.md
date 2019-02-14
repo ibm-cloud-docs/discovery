@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-16"
+  years: 2015, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -19,13 +19,10 @@ lastupdated: "2017-10-16"
 
 # Migrando enriquecimento para o Natural Language Understanding
 
-A partir de **18 de julho de 2017**, o {{site.data.keyword.discoveryfull}} introduziu uma nova tecnologia de enriquecimento chamada {{site.data.keyword.nlushort}} (NLU).  Esses enriquecimentos são iguais aos seus enriquecimentos existentes, mas exigem uma configuração e um esquema ligeiramente diferentes. Os enriquecimentos originais, chamados de enriquecimentos {{site.data.keyword.alchemylanguageshort}}, serão descontinuados.
+A partir de **18 de julho de 2017**, o {{site.data.keyword.discoveryfull}} introduziu uma nova tecnologia de enriquecimento chamada {{site.data.keyword.nlushort}} (NLU). Os enriquecimentos do {{site.data.keyword.alchemylanguageshort}} foram descontinuados efetivamente em **1º de março de 2018**. 
 {: shortdesc}
 
-O suporte ao enriquecimento do {{site.data.keyword.alchemylanguageshort}} terminará em **15 de janeiro de 2018**. A sequência de versão da API `2017-10-16` descontinuou o suporte para upload de novos documentos em coleções existentes enriquecidas com o {{site.data.keyword.alchemylanguageshort}} e para a criação de novas coleções e o aprimoramento delas com enriquecimentos do {{site.data.keyword.alchemylanguageshort}}. Use uma sequência de versões da API anterior para continuar usando o {{site.data.keyword.alchemylanguageshort}} até que o suporte seja encerrado em **15 de janeiro de 2018**.
-
-Novas coleções devem ser enriquecidas com o {{site.data.keyword.nlushort}} e todas as coleções existentes com os arquivos de configuração do {{site.data.keyword.alchemylanguageshort}} devem ser migradas o mais rápido possível. 
-O suporte para ingestão de enriquecimento do {{site.data.keyword.alchemylanguageshort}} termina em **15 de janeiro de 2018**. Para obter informações sobre como migrar coleções e arquivos de configuração que utilizam os enriquecimentos do {{site.data.keyword.alchemylanguageshort}}, consulte [Comparação de enriquecimento](/docs/services/discovery/migrate-nlu.html#enrichment-comparison).
+Quaisquer coleções existentes que utilizam os enriquecimentos de {{site.data.keyword.alchemylanguageshort}} devem ser migradas. Para obter informações sobre como migrar coleções e arquivos de configuração que utilizam os enriquecimentos do {{site.data.keyword.alchemylanguageshort}}, consulte [Comparação de enriquecimento](/docs/services/discovery/migrate-nlu.html#enrichment-comparison).
 
 **Nota:** para obter informações sobre a integração com o {{site.data.keyword.knowledgestudioshort}}, consulte [Integrando-se com o {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
 
@@ -34,24 +31,17 @@ O suporte para ingestão de enriquecimento do {{site.data.keyword.alchemylanguag
 
 Os sete enriquecimentos disponíveis no {{site.data.keyword.alchemylanguageshort}} e no {{site.data.keyword.nlushort}}, juntamente com seus nomes de objetos JSON são:
 
-| Nome do enriquecimento do {{site.data.keyword.alchemylanguageshort}}         | Objeto JSON do {{site.data.keyword.alchemylanguageshort}}  | Nome do enriquecimento NLU                     | 
-Objeto JSON do NLU        |
+| Nome do enriquecimento do {{site.data.keyword.alchemylanguageshort}}         | Objeto JSON do {{site.data.keyword.alchemylanguageshort}}            | Nome do enriquecimento NLU                     | Objeto JSON do NLU        |
 |---------------------------|----------------------------------------|----------------------------------------|--------------------------------|
 | Extração de entidade                     | entidades                        |Extração de entidade                           |   entidades            |
 | Extração de palavra-chave                    | palavras-chave                        |Extração de palavra-chave                          |   palavras-chave            |
-| Classificação de Taxonomia               | taxonomia                        |Classificação de categoria*
-|   categorias*         |
-| Identificação de conceito                       | conceitos                        |Identificação de conceito                             |   
-conceitos            |
-| Análise de sentimentos                    | docSentiment                    |Análise de sentimentos                          |   impressão*
-|
-| Análise de Emoção                      | docEmotions                     |Análise de Emoção
-|   emoção*            |
-| Extração de Relação                  | relações                       |Extração de Função Semântica*
-|   semantic_roles*     |
+| Classificação de Taxonomia               | taxonomia                        |Classificação de categoria*                    |   categorias*         |
+| Identificação de conceito                       | conceitos                        |Identificação de conceito                             |   conceitos            |
+| Análise de sentimentos                    | docSentiment                    |Análise de sentimentos                          |   impressão*          |
+| Análise de Emoção                      | docEmotions                     |Análise de Emoção                            |   emoção*            |
+| Extração de Relação                   | relações                       |Extração de Função Semântica*                   |   semantic_roles*     |
  \* Mudança de nome
 
-Para obter mais informações sobre enriquecimentos do {{site.data.keyword.alchemylanguageshort}}, consulte [Enriquecimentos do {{site.data.keyword.alchemylanguageshort}}](/docs/services/discovery/discovery-auxiliary.html#AlchemyLanguage-enrichments).
 Para obter mais informações sobre enriquecimentos do {{site.data.keyword.nlushort}}, consulte [Incluindo enriquecimentos](/docs/services/discovery/building.html#adding-enrichments)
 
 ## Visão geral das principais mudanças
@@ -66,7 +56,7 @@ Para obter mais informações sobre enriquecimentos do {{site.data.keyword.nlush
 
 O arquivo de configuração padrão do **{{site.data.keyword.alchemylanguageshort}}** (denominado `Configuração Padrão` no conjunto de ferramentas) aplica os seguintes enriquecimentos no campo de texto de seus documentos: **Extração de Entidade**, **Extração de Palavra-chave**, **Classificação de Taxonomia**, **Identificação de Conceito**, **Extração de Relação** e **Análise de Sentimentos**. O arquivo também inclui conversões padrão de documentos com base em estilos e tamanhos de fonte.
 
-O arquivo de configuração padrão do **{{site.data.keyword.nlushort}}** é denominado `Configuração Padrão com NLU` e aplica os seguintes enriquecimentos no campo de texto de seus documentos: **Extração de Entidade**, **Análise de Sentimentos**, **Classificação de Categoria** e **Identificação de Conceito**. O arquivo também inclui conversões padrão de documentos com base em estilos e tamanhos de fonte. Essas conversões de documentos são idênticas àquelas no arquivo de configuração padrão do
+O arquivo de configuração padrão do **{{site.data.keyword.nlushort}}** é denominado `Default Configuration with NLU` e aplicou os enriquecimentos a seguir ao campo de texto de seus documentos: **Extração de entidade **, **Análise de sentimento**, **Classificação de categoria** e **Identificação de conceito**. O arquivo também inclui conversões padrão de documentos com base em estilos e tamanhos de fonte. Essas conversões de documentos são idênticas àquelas no arquivo de configuração padrão do
 {{site.data.keyword.alchemylanguageshort}}.
 
 ## Migrando suas configurações, coleções e consultas
@@ -89,8 +79,7 @@ configuração customizada) e fazer upload de seus documentos. Para obter instru
 
 Para quaisquer consultas que você criou usando o Discovery Query Language, é necessário
 examinar as mudanças no esquema JSON entre o {{site.data.keyword.alchemylanguageshort}} e
-o {{site.data.keyword.nlushort}} e atualizar suas consultas e URLs de consulta apropriadamente. 
-Consulte [Diferenças
+o {{site.data.keyword.nlushort}} e atualizar suas consultas e URLs de consulta apropriadamente. Consulte [Diferenças
 de esquema de enriquecimento](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences) para obter detalhes.
 
 ## Diferenças de esquema de enriquecimento
@@ -261,6 +250,6 @@ A tabela a seguir mostra as diferenças entre o esquema JSON para os enriquecime
 |enriched_text.docEmotions.fear    |enriched_text.emotion.document.emotion.fear|
 |enriched_text.docEmotions.disgust    |enriched_text.emotion.document.emotion.disgust|
 |enriched_text.docEmotions.anger    |enriched_text.emotion.document.emotion.anger|
-|text    |texto|
+|text    |text|
 |title    |title|
 |url    |url|
