@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-10"
+  years: 2015, 2018
+lastupdated: "2018-01-23"
 
 ---
 
@@ -46,7 +46,7 @@ lastupdated: "2017-11-10"
 ```
 {: codeblock}
 
-基本 JSON 物件包含下列項目：
+基礎 JSON 物件包含下列項目：
 
 -  `"name": "Configuration Name"` - 配置的名稱
 -  `"description": "Descriptive text about the configuration"` - 配置的說明
@@ -57,7 +57,7 @@ lastupdated: "2017-11-10"
 - `"enrichments": []` - 哪些強化套用至 JSON 的哪些部分。
 - `"normalizations": []` - 儲存文件之前所需要的任何貼文強化調整。
 
-此外，在建立/更新配置時，下列項目會由 {{site.data.keyword.discoveryshort}} 新增至基本物件中：
+此外，在建立/更新配置時，下列項目會由 {{site.data.keyword.discoveryshort}} 新增至基礎物件中：
 
 ```json
 {
@@ -252,11 +252,11 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 
 #### exclude_tag_attributes
 
-`"exclude_tag_attributes" : array` - 轉換所移除之 HTML 屬性名稱的陣列（不管它們出現在哪一個 HTML 標籤中）。
+`"exclude_tag_attributes" : array` - 轉換所移除之 HTML 屬性名稱的陣列（不管它們出現在哪一個 HTML 標籤中）。**附註：**如果您在相同的配置中同時指定 `exclude_tag_attributes` 和 `keep_tag_attributes`，將會收到錯誤訊息（每個配置只能指定一個）。如果出現的話，必須從配置中完全移除 `keep_tag_attributes`；它不能以空陣列呈現。
 
 #### keep_tag_attributes
 
-`"keep_tag_attributes" : array` - 轉換所保留的 HTML 屬性名稱的陣列。
+`"keep_tag_attributes" : array` - 轉換所保留的 HTML 屬性名稱的陣列。**附註：**如果您在相同的配置中同時指定 `keep_tag_attributes` 和 `exclude_tag_attributes`，將會收到錯誤訊息（每個配置只能指定一個）。如果出現的話，必須從配置中完全移除 `exclude_tag_attributes`；它不能以空陣列呈現。
 
 #### extracted_fields
 
@@ -278,7 +278,7 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 
 - `"css_selector" : string` *必要* - 可定義要儲存在欄位中的內容區域的 CSS 選取器表示式。
 - `"type" : string` *必要* - 要建立的欄位類型可以是 `string`、`date`
-如需詳細資訊，請參閱[使用 CSS 選取器來擷取欄位](docs/services/discovery/building.md#using-css)。
+如需詳細資訊，請參閱[使用 CSS 選取器來擷取欄位](/docs/services/discovery/building.md#using-css)。
 
 ### 區段
 {: #segment}
@@ -425,7 +425,7 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 - `"enrichment" : string` - *必要* - 要用於此欄位的強化類型。若要擷取 {{site.data.keyword.nlushort}} 強化，請使用 `natural_language_understands`，若要執行「元素分類」，請使用 `elements`。
 
   **附註：**使用 `elements` 強化時，務必遵循[元素分類](/docs/services/discovery/element-classification.html)文件中指定的準則。特別是，指定此強化時，只能汲取 PDF 檔案。
-  
+
 - `"source_field" : string` - *必要* - 將強化的來源欄位。在 `json_normalizations` 作業完成之後，此欄位必須存在於來源中。
 - `"destination_field" : string` - *必要* - 將建立強化的儲存器物件的名稱。
 
@@ -464,8 +464,8 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 
 `entities` 強化會擷取已知實體（例如，人員、位置及組織）的實例。可選擇性地指定 {{site.data.keyword.knowledgestudioshort}} 自訂模型來擷取自訂實體。
 
-- `"sentiment" : boolean` - _選用_ - 若為 `true`，會在周圍內容的環境定義中，對擷取的實體執行觀感分析。
-- `"emotion" : boolean` - _選用_ - 若為 `true`，會在周圍內容的環境定義中，對擷取的實體執行情緒語氣分析。
+- `"sentiment" : boolean` - _選用_ - 若為 `true`，會在周圍內容的上下文中，對擷取的實體執行觀感分析。
+- `"emotion" : boolean` - _選用_ - 若為 `true`，會在周圍內容的上下文中，對擷取的實體執行情緒語氣分析。
 - `"limit" : INT` - _選用_ - 要從所汲取文件中擷取的實體數目上限。預設值為 `50`。
 - `"mentions": boolean` - _選用_ - 若為 `true`，會記錄提及此實體的次數。預設值為 `false`。
 - `"mention_types": boolean` - _選用_ - 若為 `true`，會儲存每一次提及此實體的提及類型。預設值為 `false`。
@@ -476,8 +476,8 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 
 `keywords` 強化會擷取文字內重要文字的實例。若要瞭解關鍵字、概念和實體之間的差異，請參閱：[瞭解實體、概念和關鍵字之間的差異](/docs/services/discovery/building.html#udbeck)。
 
-- `"sentiment" : boolean` - _選用_ - 若為 `true`，會在周圍內容的環境定義中，對擷取的關鍵字執行觀感分析。
-- `"emotion" : boolean` - _選用_ - 若為 `true`，會在周圍內容的環境定義中，對擷取的關鍵字執行情緒語氣分析。
+- `"sentiment" : boolean` - _選用_ - 若為 `true`，會在周圍內容的上下文中，對擷取的關鍵字執行觀感分析。
+- `"emotion" : boolean` - _選用_ - 若為 `true`，會在周圍內容的上下文中，對擷取的關鍵字執行情緒語氣分析。
 - `"limit" : INT` - _選用_ - 要從所汲取文件中擷取的關鍵字數目上限。預設值為 `50`。
 
 ### semantic_roles

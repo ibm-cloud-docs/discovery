@@ -27,17 +27,17 @@ lastupdated: "2017-08-18"
 
 次のコマンドを実行します。`crawler`
 
-クローラーから、実行内容を説明する資料を示すプロンプトが出されます。その他のクロール・オプションに加えて、テスト・クロールの実行や、クロールの実行が可能です。
+クローラーから、実行内容を説明する資料を示すプロンプトが出されます。 その他のクロール・オプションに加えて、テスト・クロールの実行や、クロールの実行が可能です。
 
 ## テスト・クロールの実行
 
 次のコマンドを実行します。`crawler testit`
 
-これは、テスト・クロールを実行します (シード URL だけをクロールし、エンキューされた URL を表示します)。シード URL の処理結果が索引付け可能なコンテンツ (例えば、文書) になる場合、そのコンテンツが出力アダプターに送信され、画面に出力されます。シード URL の取得によって URL がエンキューされる場合、それらの URL が表示され、コンテンツは出力アダプターに送信されません。デフォルトでは、5 つのエンキューされた URL が表示されます。
+これは、テスト・クロールを実行します (シード URL だけをクロールし、エンキューされた URL を表示します)。 シード URL の処理結果が索引付け可能なコンテンツ (例えば、文書) になる場合、そのコンテンツが出力アダプターに送信され、画面に出力されます。 シード URL の取得によって URL がエンキューされる場合、それらの URL が表示され、コンテンツは出力アダプターに送信されません。 デフォルトでは、5 つのエンキューされた URL が表示されます。
 
 crawl コマンドのオプションとして、カスタム構成ファイルを指定することもできます。以下に例を示します。`crawler testit --config [config/myconfigfile.conf]`
 
-`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
+`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。 つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
 
 さらに、testit コマンドのオプションとして、表示されるエンキューされた URL の数に対して制限を設定できます。以下に例を示します。`crawler testit --limit [number]`
 
@@ -49,7 +49,7 @@ crawl コマンドのオプションとして、カスタム構成ファイル�
 
 crawl コマンドのオプションとして、カスタム構成ファイルを指定することもできます。以下に例を示します。`crawler crawl --config [config/myconfigfile.conf]`
 
-`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
+`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。 つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
 
 ## クロールの再始動
 
@@ -59,7 +59,7 @@ crawl コマンドのオプションとして、カスタム構成ファイル�
 
 restart コマンドのオプションとして、カスタム構成ファイルを指定することもできます。以下に例を示します。`crawler restart --config [config/myconfigfile.conf]`
 
-`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
+`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。 つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
 
 ## クロールの再開
 
@@ -69,7 +69,7 @@ restart コマンドのオプションとして、カスタム構成ファイル
 
 resume コマンドのオプションとして、カスタム構成ファイルを指定することもできます。以下に例を示します。`crawler resume --config [config/myconfigfile.conf]`
 
-`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
+`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。 つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
 
 ## クロールのリフレッシュ
 
@@ -79,4 +79,4 @@ resume コマンドのオプションとして、カスタム構成ファイル�
 
 refresh コマンドのオプションとして、カスタム構成ファイルを指定することもできます。以下に例を示します。`crawler refresh --config [config/myconfigfile.conf]`
 
-`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。
+`--config` オプション内で渡される構成ファイルへのパスは、修飾されたパスでなければなりません。 つまり、これは相対形式 (`config/myconfigfile.conf` や `./myconfigfile.conf` など)、または絶対パス (`/path/to/config/myconfigfile.conf` など) でなければなりません。

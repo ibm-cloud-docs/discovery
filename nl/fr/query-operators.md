@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-08-15"
 
 ---
 
@@ -25,9 +25,10 @@ Les opérateurs sont les séparateurs entre les différentes parties d'une requ�
 ## . \[Délimiteur JSON\]
 {: #delimiter}
 
-Ce délimiteur sépare les niveaux de hiérarchie dans le schéma JSON. 
+Ce délimiteur sépare les niveaux de hiérarchie dans le schéma JSON.
 
-Par exemple :
+Par
+exemple :
 ```bash
 enriched_text.concepts.text
 ```
@@ -36,75 +37,86 @@ enriched_text.concepts.text
 ## : \[Inclut\]
 {: #includes}
 
-Cet opérateur indique une correspondance pour le terme de requête. 
+Cet opérateur indique une correspondance pour le terme de requête.
 
-Par exemple :
+Par
+exemple :
 ```bash
-enriched_text.concepts.text:cloud computing
+enriched_text.concepts.text:"cloud computing"
 ```
 {: codeblock}
 
 ## :: \[Correspondance exacte\]
 {: #match}
 
-Cet opérateur indique une correspondance exacte pour le terme de requête. 
+Cet opérateur indique une correspondance exacte pour le terme de requête.
 
-Par exemple :
+Par
+exemple :
 ```bash
-enriched_text.concepts.text::cloud computing
+enriched_text.concepts.text::"Cloud computing"
 ```
 {: codeblock}
+
+Les correspondances exactes sont sensibles à la casse.
 
 ## :! \[N'inclut pas\]
 {: #notinclude}
 
-Cet opérateur indique que les résultats ne contiennent pas de correspondance pour le terme de requête. 
+Cet opérateur indique que les résultats ne contiennent pas de correspondance pour le terme de requête.
 
-Par exemple :
+Par
+exemple :
 ```bash
-enriched_text.concepts.text:!cloud computing
+enriched_text.concepts.text:!"cloud computing"
 ```
 {: codeblock}
 
 ## ::! \[N'est pas une correspondance exacte\]
 {: #notamatch}
 
-Cet opérateur indique que les résultats ne correspondent pas exactement au terme de requête. 
+Cet opérateur indique que les résultats ne correspondent pas exactement au terme de requête.
 
-Par exemple :
+Par
+exemple :
 ```bash
-enriched_text.concepts.text::!cloud computing
+enriched_text.concepts.text::!"Cloud computing"
 ```
 {: codeblock}
+
+Les correspondances exactes sont sensibles à la casse.
 
 ## \\ \[Caractère d'échappement\]
 {: #escape}
 
-Utilisé pour les requêtes nécessitant des littéraux chaîne contenant des caractères de contrôle. 
+Utilisé pour les requêtes nécessitant des littéraux chaîne contenant des caractères de contrôle.
 
-Par exemple :
+Par
+exemple :
 ```bash
-enriched_text.concepts.text:\!cloud computing
+title::"Dorothy said: \"There's no place like home\""
 ```
 {: codeblock}
 
 ## "" \[Requête de phrase\]
 {: #phrase}
 
-L'intégralité du contenu d'une requête de phrase est traitée avec des caractères d'échappement. Par conséquent, aucun caractère spécial présent dans une requête de phrase n'est analysé, à l'exception des guillemets (`"`) qui eux, doivent être spécifiés avec un caractère d'échappement (`\"`). Utilisez des requêtes de phrase avec des requêtes basées sur le classement et contenant un texte intégral et non avec des opérations de filtre booléen. N'utilisez pas de caractères génériques (`*`) dans les requêtes de phrase. **Remarque**: les apostrophes (`'`) ne sont pas prises en charge. 
+L'intégralité du contenu d'une requête de phrase est traitée avec des caractères d'échappement. Par conséquent, aucun caractère spécial présent dans une requête de phrase n'est analysé, à l'exception des guillemets (`"`) qui eux, doivent être spécifiés avec un caractère d'échappement (`\"`). Utilisez des requêtes de phrase avec des requêtes basées sur le classement et contenant un texte intégral et non avec des opérations de filtre booléen. N'utilisez pas de caractères génériques (`*`) dans les requêtes de phrase. **Remarque**: les apostrophes (`'`) ne sont pas prises en charge.
 
-Par exemple :
+Par
+exemple :
 ```bash
-enriched_text.concepts.text:"IBM watson"
+enriched_text.entities.text:"IBM watson"
 ```
 {: codeblock}
 
 ## (), \[\] \[Regroupement imbriqué\]
 {: #nestedquery}
 
-Des groupements logiques peuvent être constitués pour spécifier des informations plus spécifiques. 
+Des groupements logiques peuvent être constitués pour spécifier des informations plus spécifiques.
 
-Par exemple :
+Par
+exemple :
 ```bash
 enriched_text.entities:(text:IBM,type:Company)
 ```
@@ -115,7 +127,8 @@ enriched_text.entities:(text:IBM,type:Company)
 
 Opérateur booléen pour "ou".
 
-Par exemple :
+Par
+exemple :
 ```bash
 enriched_text.entities.text:Google|IBM
 ```
@@ -126,7 +139,8 @@ enriched_text.entities.text:Google|IBM
 
 Opérateur booléen pour "et".
 
-Par exemple :
+Par
+exemple :
 ```bash
 enriched_text.entities.text:Google,IBM
 ```
@@ -137,7 +151,8 @@ enriched_text.entities.text:Google,IBM
 
 Crée les comparaisons numériques suivantes : inférieur ou égal à, supérieur ou égal à, supérieur à, inférieur à.
 
-Par exemple :
+Par
+exemple :
 ```bash
 enriched_text.sentiment.document.score>0.679
 ```
@@ -146,9 +161,10 @@ enriched_text.sentiment.document.score>0.679
 ## ^x \[Multiplicateur de score\]
 {: #multiplier}
 
-Augmente la valeur de score d'un terme de recherche. 
+Augmente la valeur de score d'un terme de recherche.
 
-Par exemple :
+Par
+exemple :
 ```bash
 enriched_text.concepts.text:IBM^3
 ```
@@ -157,21 +173,47 @@ enriched_text.concepts.text:IBM^3
 ## * \[Caractère générique\]
 {: #Wildcard}
 
-Etablit des correspondances pour des caractères inconnus dans une expression de recherche. 
+Etablit des correspondances pour des caractères inconnus dans une expression de recherche. N'utilisez pas de majuscules avec les caractères génériques.
 
-Par exemple :
+Par
+exemple :
 ```bash
-enriched_text.concepts.text:IBM*
+enriched_text.entities.text:ib*
 ```
 {: codeblock}
 
 ## ~n \[Variation de chaîne\]
 {: #variation}
 
-Nombre de changements d'un caractère qui doivent être apportés à une chaîne pour la rendre identique à une autre chaîne. Par exemple, `car~1` correspondra à `car`, `cap`, `cat`, `can`, etc..
+Nombre de changements d'un caractère qui doivent être apportés à une chaîne pour la rendre identique à une autre chaîne. Par exemple, `car~1` correspondra à `car`,`cap`,`cat`,`can`, etc.
 
-Par exemple :
+Par
+exemple :
 ```bash
 enriched_text.concepts.text:Watson~3
+```
+{: codeblock}
+
+## :* \[Exists\]
+{: #exists}
+
+Permet de renvoyer tous les résultats pour lesquels la `field` spécifiée existe.
+
+Par
+exemple :
+```bash
+title:*
+```
+{: codeblock}
+
+## !* \[Does not exist\]
+{: #dnexist}
+
+Permet de renvoyer tous les résultats qui n'incluent pas la `field` spécifiée.
+
+Par
+exemple :
+```bash
+title!*
 ```
 {: codeblock}

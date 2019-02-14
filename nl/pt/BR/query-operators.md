@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-08-15"
 
 ---
 
@@ -42,7 +42,7 @@ Esse operador especifica uma correspondência para o termo de consulta.
 
 Por exemplo:
 ```bash
-enriched_text.concepts.text:cloud computing
+enriched_text.concepts.text: "cloud computing "
 ```
 {: codeblock}
 
@@ -53,9 +53,11 @@ Esse operador especifica uma correspondência exata para o termo de consulta.
 
 Por exemplo:
 ```bash
-enriched_text.concepts.text::cloud computing
+enriched_text.concepts.text :: "Computação em nuvem"
 ```
 {: codeblock}
+
+Correspondências exatos fazem distinção entre maiúsculas e minúsculas.
 
 ## :! \[Does not include\]
 {: #notinclude}
@@ -64,7 +66,7 @@ Este operador especifica que os resultados não contêm uma correspondência par
 
 Por exemplo:
 ```bash
-enriched_text.concepts.text:!cloud computing
+enriched_text.concepts.text:! "computação em nuvem "
 ```
 {: codeblock}
 
@@ -75,9 +77,11 @@ Esse operador especifica que os resultados não correspondem exatamente o termo 
 
 Por exemplo:
 ```bash
-enriched_text.concepts.text::!cloud computing
+enriched_text.concepts.text ::! "Computação em nuvem "
 ```
 {: codeblock}
+
+Correspondências exatos fazem distinção entre maiúsculas e minúsculas.
 
 ## \\ \[Escape character\]
 {: #escape}
@@ -87,7 +91,7 @@ sequências literais que contêm caracteres de controle.
 
 Por exemplo:
 ```bash
-enriched_text.concepts.text:\!cloud computing
+title::"Dorothy said: \"There's no place like home\""
 ```
 {: codeblock}
 
@@ -97,13 +101,12 @@ enriched_text.concepts.text:\!cloud computing
 Todos os conteúdos de uma consulta de frase são processados como escapados. Assim, nenhum caractere
 especial em uma consulta de frase é analisado, exceto as aspas duplas (`"`) dentro de uma
 consulta de frase, que devem ser escapadas (`\"`). Use consultas de frase com
-consultas de texto completo baseadas em classificação, não com as operações de filtro booleanas.
-Não use caracteres curingas (`*`) em consultas de frase. **Nota**: aspas
+consultas de texto completo baseadas em classificação, não com as operações de filtro booleanas. Não use caracteres curingas (`*`) em consultas de frase. **Nota**: aspas
 simples (`'`) não são suportadas.
 
 Por exemplo:
 ```bash
-enriched_text.concepts.text:"IBM watson"
+enriched_text.entities.text: "IBM watson"
 ```
 {: codeblock}
 
@@ -165,11 +168,11 @@ enriched_text.concepts.text:IBM^3
 ## * \[Wildcard\]
 {: #Wildcard}
 
-Corresponde caracteres desconhecidos em uma expressão de procura.
+Corresponde caracteres desconhecidos em uma expressão de procura. Não use letras maiúsculas com curingas.
 
 Por exemplo:
 ```bash
-enriched_text.concepts.text:IBM*
+enriched_text.entities.text:ib *
 ```
 {: codeblock}
 
@@ -177,11 +180,32 @@ enriched_text.concepts.text:IBM*
 {: #variation}
 
 O número de uma mudança de caracteres que precisa ser feita em uma sequência para torná-la igual à
-outra sequência. Por exemplo, `car~1` corresponderá a
-`car`, `cap`, `cat`, `can`, etc.
+outra sequência. Por exemplo, `car~1` corresponderá a `car`, `cap`, `cat`, `can`, etc.
 
 Por exemplo:
 ```bash
 enriched_text.concepts.text:Watson~3
+```
+{: codeblock}
+
+## :* \[Exists\]
+{: #exists}
+
+Usado para retornar todos os resultados em que o `field` especificado existe.
+
+Por exemplo:
+```bash
+título: *
+```
+{: codeblock}
+
+## !* \[Não existe\]
+{: #dnexist}
+
+Usado para retornar todos os resultados que não incluem o `field` especificado.
+
+Por exemplo:
+```bash
+title! *
 ```
 {: codeblock}

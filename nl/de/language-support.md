@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -22,19 +22,19 @@ lastupdated: "2017-12-15"
 Der {{site.data.keyword.discoveryfull}}-Service bietet zwei Stufen der Sprachunterstützung, nämlich eine **Basisunterstützung** und eine **vollständige Unterstützung**.
 {: shortdesc}
 
-| Sprache                          |  Unterstützungsstufe   |
+| Sprache                         |  Unterstützungsstufe         |
 |---------------------------------|------------------------|
-| Englisch (en)                   |  Vollständig  |
-| Arabisch (ar)                   |  Basis         |
-| Vereinfachtes Chinesisch (zh-CN)|  Basis         |
-| Niederländisch (nl)            |  Basis         |
-| Französisch (fr)                |  Basis         |
-| Deutsch (de)                    |  Basis         |
-| Italienisch (it)                |  Basis         |
-| Japanisch (ja)                 |  Basis         |
-| Koreanisch (ko)                |  Basis         |
-| Portugisisch (Brasil.) (pt-br)  |  Basis         |
-| Spanisch (es)                   |  Vollständig  |
+| Englisch (en)                    |  Vollständig         |
+| Arabisch (ar)                     |  Basis         |
+| Vereinfachtes Chinesisch (zh-CN)     |  Basis         |
+| Niederländisch (nl)                     |  Basis         |
+| Französisch (fr)                     |  Vollständig         |
+| Deutsch (de)                     |  Vollständig         |
+| Italienisch (it)                    |  Basis         |
+| Japanisch (ja)                  |  Vollständig         |
+| Koreanisch (ko)                    |  Vollständig         |
+| Portugisisch (Brasil.) (pt-br)   |  Vollständig         |
+| Spanisch (es)                    |  Vollständig         |
 
 ## Basisunterstützung
 
@@ -45,6 +45,8 @@ Der {{site.data.keyword.discoveryfull}}-Service bietet zwei Stufen der Sprachunt
     - Front-End-API (ohne Front-End-API für Abfragen)
     - Sprachoptimierter Index
     - Relevanztraining
+    - Abfrageerweiterung
+    - Dokumentation in 9 Sprachen: Englisch, Französisch, Deutsch, Japanisch, Koreanisch, Portugiesisch (Brasilien), Spanisch, Chinesisch (vereinfacht) und Chinesisch (traditionell). Blättern Sie bis zum Ende der {{site.data.keyword.Bluemix_notm}}-Dokumentation, um die Sprache auszuwählen.
 - Aufbereitungen
     - Integration mit angepassten {{site.data.keyword.knowledgestudiofull}}-Modellen
     - Spracherkennung
@@ -53,7 +55,7 @@ Der {{site.data.keyword.discoveryfull}}-Service bietet zwei Stufen der Sprachunt
 
 Die vollständige Unterstützung umfasst die Basisunterstützung zuzüglich Folgendem:
 
-- Passagenabruf 
+- Passagenabruf
 - Übersetzte {{site.data.keyword.knowledgestudiofull}}-Schnittstelle
 - Alle Aufbereitungen in {{site.data.keyword.nlushort}} (NLU) plus Metadatenextraktion. NLU-Aufbereitungen sind Folgende:
     - Entitätsextraktion
@@ -64,8 +66,11 @@ Die vollständige Unterstützung umfasst die Basisunterstützung zuzüglich Folg
     - Stimmungsanalyse
     - Emotionsanalyse (nur Englisch)
 
+## Ausschließliche Unterstützung in Englisch
+{: #feature-support}
+
 Die folgenden Features werden gegenwärtig nur in Englisch unterstützt:
 
 - Aufbereitung für die Elementklassifizierung
-- {{site.data.keyword.discoveryfull}} Visual Insights (experimentell)
-- {{site.data.keyword.discoveryfull}} Knowledge Graph (Betaversion)   
+- {{site.data.keyword.discoveryfull}} Knowledge Graph (Betaversion)
+- Dokumentdeduplizierung (Betaversion)

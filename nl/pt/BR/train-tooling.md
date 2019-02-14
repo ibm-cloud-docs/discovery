@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-05"
+  years: 2015, 2018
+lastupdated: "2018-09-06"
 
 ---
 
@@ -26,27 +26,27 @@ O treinamento de relevância é opcional; se os resultados das suas consultas at
 
 Para treinar o Watson, é necessário:
 
-  -   Fornecer consultas de exemplo que representem as consultas que seus usuários inserem e 
-  -   Fornecer classificação para dizer quais resultados para cada consulta são relevantes ou não 
+  -   Fornecer consultas de exemplo que representem as consultas que seus usuários inserem e
+  -   Fornecer classificação para dizer quais resultados para cada consulta são relevantes ou não
 
 Quando o Watson possui entrada de treinamento suficiente, as informações fornecidas sobre quais resultados são bons e ruins para cada consulta são usadas para aprender sobre sua coleção. O Watson não apenas memoriza, mas também aprende com as informações específicas sobre consultas individuais e aplica os padrões que ele detecta a todas as novas consultas. Ele faz isso com suas próprias técnicas Watson de aprendizado de máquina que localizam sinais em seu conteúdo e em suas perguntas. Após o treinamento ser aplicado, o {{site.data.keyword.discoveryshort}} reordena os resultados da consulta para exibir os resultados mais relevantes na parte superior. Conforme você inclui mais e mais dados de treinamento, o {{site.data.keyword.discoveryshort}} deve tornar-se mais preciso na ordenação dos resultados da consulta.
 
-O treinamento deve atender aos seguintes requisitos **mínimos** para que o {{site.data.keyword.discoveryshort}} comece a aplicar suas classificações:
+**Observação:** o treinamento de relevância atualmente se aplica apenas a consultas de linguagem natural em coleções particulares. Ele não se destina a ser usado com consultas estruturadas da linguagem de consulta do {{site.data.keyword.discoveryshort}}. Para saber mais sobre a linguagem de consulta do {{site.data.keyword.discoveryshort}}, consulte [Conceitos da consulta](/docs/services/discovery/using.html).
 
-  - Deve-se treinar um mínimo de 49 consultas e possivelmente mais. O Watson fornecerá feedback se ele precisar de mais consultas para o treinamento.
-  - É necessário aplicar ambas as classificações disponíveis aos seus resultados: `Relevant` e `Not relevant`. A classificação somente de documentos `Relevant` não fornece os dados necessários.
+Coleções treinadas retornarão uma pontuação de `confidence` no resultado de uma consulta de linguagem natural. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter detalhes.
 
-**Observação:** o treinamento de relevância precisa de certos requisitos de dados de treinamento antes que ele entre em vigor. O serviço verifica os dados de treinamento periodicamente para determinar se esses requisitos são atendidos e se atualiza automaticamente com base em qualquer mudança.
+Consulte [Requisitos de dados de treinamento](/docs/services/discovery/train.html#reqs) para obter os requisitos mínimos para treinamento, bem como os limites de treinamento.
 
-**Observação:** o treinamento de relevância atualmente se aplica apenas a consultas de linguagem natural em coleções particulares. Ele não se destina a ser usado com consultas estruturadas da linguagem de consulta do {{site.data.keyword.discoveryshort}}.  Para saber mais sobre a linguagem de consulta do {{site.data.keyword.discoveryshort}}, consulte [Conceitos da consulta](/docs/services/discovery/using.html).
-
-**Observação:** há um máximo de 4 coleções treinadas por ambiente.  
+Consulte [Monitoramento de uso](/docs/services/discovery/feedback.html) para obter detalhes sobre o uso de rastreamento e usando esses dados para ajudá-lo a entender e melhorar os seus aplicativos.
 
 ## Incluindo consultas e classificando a relevância dos resultados
+{: #results}
 
 O treinamento consiste em três partes: uma consulta de linguagem natural, os resultados da consulta e as classificações que você aplica a esses resultados.
 
-1.  No conjunto de ferramentas do {{site.data.keyword.discoveryshort}}, é possível acessar a página de treinamento de uma coleção na tela **Construir consultas**. Clique em **Treinar o Watson para melhorar os resultados** na parte superior direita. Não é necessário inserir uma consulta na tela **Construir consultas** para iniciar o treinamento.
+1.  Há duas maneiras de acessar a página de treinamento no conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
+    - Para uma coleção individual, na tela **Construir consultas**, clique em **Treinar o Watson para melhorar os resultados** na parte superior direita. Não é necessário inserir uma consulta na tela **Construir consultas** para iniciar o treinamento. 
+    - A partir do painel Desempenho. Clique no ícone **Visualizar métricas de dados** à esquerda para abrir o painel. Você será solicitado a escolher uma coleção para treinar.
 1.  Na tela **Treinar o Watson**, clique em **Incluir uma consulta de linguagem natural**, por exemplo: "IBM Watson em assistência médica" e inclua-a. Certifique-se de que suas consultas sejam gravadas na maneira com que seus usuários as perguntariam. Além disso, as consultas de treinamento devem ser gravadas com algum termo de sobreposição entre a consulta e a resposta desejada. Isso melhora os resultados iniciais quando a consulta de linguagem natural é executada. Como o treinamento de relevância usa somente consultas de linguagem natural, não insira consultas gravadas no {{site.data.keyword.discoveryshort}} Query Language.
 1.  Para visualizar os resultados de sua consulta, clique no botão **Classificar resultados** ao lado dela. Se você achar que não há resultados suficientes, será possível tentar regravar a consulta ou incluir mais documentos nesta coleção por meio da tela **Gerenciar dados**.
 1.  Inicie os resultados de classificação como `Relevant` ou `Not relevant`. Quando você estiver pronto, clique em **Voltar para consultas**. No conjunto de ferramentas do {{site.data.keyword.discoveryshort}}, `Relevant` possui uma pontuação de `10` e `Not relevant` possui uma pontuação de `0`. Se você já iniciou a classificação de resultados para esta coleção usando a API e está usando uma escala de pontuação diferente, um aviso será exibido, com opções para corrigir o problema.
@@ -89,3 +89,9 @@ A pontuação de `confidence` pode ser localizada nos resultados da consulta, so
                 "score": 0.5006834
             },
 ```
+
+**Nota:** o campo `confidence` será retornado somente quando o treinamento de relevância tiver sido concluído com êxito. Também pode haver casos em que o modelo treinado não está disponível e o campo `confidence` não será retornado. 
+
+Por exemplo, o modelo treinado se tornará temporariamente inválido se novos campos de nível superior forem introduzidos ou o esquema da coleção tiver sido mudado de outra forma porque novos documentos com um esquema diferente foram alimentados. Nesse cenário, `confidence` não será retornado com os resultados e os resultados serão provenientes da procura não treinada padrão até que o modelo seja automaticamente reciclado e esteja novamente disponível. Durante a reciclagem, `confidence` não será retornado.
+
+Os aplicativos que usam `confidence` como um limite devem assegurar que eles possam manipular esses cenários. Como a `score` é relativa à consulta, ela não é recomendada para uso como um limite fixo. Em vez disso, recomendamos que os aplicativos sempre executem o mesmo comportamento para todos os resultados que não incluem o campo `confidence`. Por exemplo, um aplicativo pode mostrar todos os resultados sem o campo `confidence` ou ocultar todos os resultados sem o campo `confidence`, mas não deve usar o valor de `score` para mostrar alguns e ocultar outros.

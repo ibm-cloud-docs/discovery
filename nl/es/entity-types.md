@@ -26,7 +26,7 @@ En la siguiente tabla hay una lista de los posibles tipos y subtipos de entidad 
 ## Tipos de entidad
 {: #entity-types}
 
-| Tipo de entidad |
+| Tipo de entidad       |
 |-------------------|
 | Anatomy           |
 | Award             |
@@ -58,7 +58,7 @@ En la siguiente tabla hay una lista de los posibles tipos y subtipos de entidad 
 ## Subtipos de entidad
 {: #entity-subtypes}
 
-| Subtipo de entidad |
+| Subtipo de entidad                      |
 |-------------------------------------|
 | AbusedSubstance                     |
 | Academic                            |

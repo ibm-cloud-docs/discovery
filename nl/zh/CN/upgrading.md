@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -22,29 +22,45 @@ lastupdated: "2017-10-09"
 {{site.data.keyword.discoveryfull}} 服务提供了三种套餐，用于提供不同级别的资源和功能以满足您的需求。
 {: shortdesc}
 
-**专用数据用例**的限制和价格如下：
-
-| Lite|  标准| 高级|  高端|
-|--------------------------|-------------------|-------------------|-------------------|
-| 每月最多 2,000 个并发文档\*|每月最多 100,000 个并发文档\*<br/> 每月每 1,000 个并发文档 10 美元（0.0139 美元/千文档/小时）\*\*\*<br/> 每月 2,000 个文档免费\*\*\*\*| **保留的环境**</br> 基本费率 1,000 美元/月<br/> 每月最多 1,000,000 个文档\*<br/> 每月每 1,000 个并发文档 5 美元（0.00694 美元/千文档/小时）\*\*\*<br/> 含每月 100,000 个文档\*\*\*\*</br> 对于更大型的环境，请联系[销售部 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/marketing/iwm/dre/signup?source=MAIL-watson){: new_window}。| **高端套餐**为开发者和组织提供一个或多个 Watson 服务的单个租户实例，以实现更好的隔离和安全性。这些套餐在现有共享平台上提供计算级隔离，以及端到端的动态和静态数据加密。有关更多信息或要购买高端套餐，请联系[销售部 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://ibm.biz/contact-wdc-premium){: new_window}|
-| 200MB\*\*|10GB\*\*| 80GB\*\*|-
-| 最多 2 个集合|最多 4 个集合| 最多 100 个集合| - |
-| 最多 1 个 {{site.data.keyword.knowledgestudiofull}} 定制模型|最多 1 个 {{site.data.keyword.knowledgestudioshort}} 定制模型| {{site.data.keyword.knowledgestudioshort}} 定制模型数量不限<br/>含 1 个 {{site.data.keyword.knowledgestudioshort}} 定制模型<br/>每月每个 {{site.data.keyword.knowledgestudioshort}} 模型另外收费 800 美元| - |
-
-**注：**在所有套餐中，每月前 1,000 个 {{site.data.keyword.discoverynewsshort}} 查询都是免费的。超过前 1,000 个 {{site.data.keyword.discoverynewsshort}} 查询后，按每个查询 0.10 美元收费。
-
-**注：**不活动时间超过 30 天的 Lite 套餐服务将被删除。在 Lite 套餐上，每个组织分配有一个免费环境。
-
-有关定价的更详细信息，请参阅 [Discovery 价格套餐](/docs/services/discovery/pricing-details.html)。
-
-有关 {{site.data.keyword.Bluemix_notm}} 安全性的信息，请参阅 [{{site.data.keyword.Bluemix_notm}} 服务描述 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](../../icons/launch-glyph.svg "外部链接图标")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+请参阅 [{{site.data.keyword.discoveryshort}} 价格套餐](/docs/services/discovery/pricing-details.html)和 [{{site.data.keyword.discoveryshort}} 目录 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} 以获取详细信息。
 
 ## 升级服务
+{: #service} 
 
-要升级套餐，请完成以下步骤：
+要将套餐大小从轻量调整为高级，请执行以下操作：
 
-1.  在 {{site.data.keyword.Bluemix_notm}} 菜单中，选择**服务** > **仪表板**。
-1.  选择要升级的服务实例以将其打开。
-1.  在导航窗格中，单击**套餐**。在此，可以查看当前套餐和其他可用的套餐选项，并进行更改。
+1. 打开 [{{site.data.keyword.Bluemix_notm}} 仪表板](https://console.{DomainName}/dashboard)。 
+1. 单击 {{site.data.keyword.discoveryshort}} 服务实例以打开 {{site.data.keyword.discoveryshort}} 服务仪表板。
+1. 在 {{site.data.keyword.discoveryshort}} 服务的**管理**页面中，单击**升级**以选择高级套餐。这将打开**套餐**页面。执行以下步骤以完成升级。 
+1. 返回到**管理**页面，然后单击**启动工具**以打开 {{site.data.keyword.discoveryshort}} 工具。
+   - 如果在升级到高级套餐之前，从未为轻量套餐创建过环境，请单击 ![齿轮](images/icon_settings.png) 图标，然后选择**创建环境**。这将显示一个屏幕，其中包含高级套餐的选项。请选择适合您需求的选项（`XS 号`、`S 号`、`M-S 号`、`M 号`、`M-L 号`、`L 号`、`XL 号`、`XXL 号`）。
+   - 如果在升级到高级套餐之前为轻量套餐创建过环境，那么缺省情况下，新的高级套餐环境将为 `S 号`。 
 
-有关预订的常见问题的答案，请参阅[管理记帐和使用情况 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](/docs/pricing/index.html){: new_window}。
+## 从高级套餐的一个层切换到另一个层
+{: #advanced} 
+
+如果您已具有高级套餐，并且要将其升级为更大大小的套餐，那么可以使用 [API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#update-environment){: new_window} 进行升级。 
+
+有关高级套餐存储限制和定价的详细信息，请参阅[高级价格套餐](/docs/services/discovery/pricing-details.html#advanced)。
+
+您可以升级高级套餐大小，但不能将其降级为更小的大小。可用的高级套餐大小包括： 
+
+套餐大小|标签
+--------- | ------ 
+XS 号|XS
+S 号|S
+M-S 号|MS
+M 号|M
+M-L 号|ML
+L 号|L
+XL 号|XL
+XXL 号|XXL
+
+- 在升级期间，可以继续执行查询和建立索引。升级所需的时间取决于多个因素。您可以在完成升级期间使用 API 来轮询环境。
+- 从高级套餐的一个级别移至另一个级别无需创建新实例。 
+- 升级完成后，将按新的套餐费率收费。
+
+## 升级到高端套餐
+{: #premium}
+
+如果您对高端套餐感兴趣，请联系[销售部](https://ibm.biz/contact-wdc-premium)。  

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-05"
+  years: 2015, 2018
+lastupdated: "2018-10-04"
 
 ---
 
@@ -21,7 +21,7 @@ lastupdated: "2017-12-05"
 {: #query-parameters}
 
 {{site.data.keyword.discoveryfull}} 服務透過查詢提供強大的內容搜尋功能。透過 {{site.data.keyword.discoveryshort}} 服務上傳及強化內容之後，您可以建置查詢，將 {{site.data.keyword.discoveryshort}} 整合至您自己的專案，或使用 {{site.data.keyword.watson}} Explorer Application Builder 來建立自訂應用程式。
-若要開始使用查詢，請參閱[查詢概念](/docs/services/discovery/using.html)。如需參數的完整清單，請參閱[查詢參照](/docs/services/discovery/query-reference.html#parameter-descriptions)。
+若要開始使用查詢，請參閱[查詢概念](/docs/services/discovery/using.html)。如需參數的完整清單，請參閱[查詢參考資料](/docs/services/discovery/query-reference.html#parameter-descriptions)。
 {: shortdesc}
 
 **搜尋參數**
@@ -62,7 +62,7 @@ lastupdated: "2017-12-05"
 ## natural_language_query
 {: #nlq}
 
-自然語言查詢可讓您執行以自然語言表示的查詢，這可能是在交談式介面或任意文字介面中從一般使用者接收到的查詢 - 例如："IBM Watson in Healthcare"。此參數使用整個輸入作為查詢文字。它**不能**辨識運算子。`natural_language_query` 參數可啟用諸如段落搜尋和相關性訓練之類的功能。經過訓練的集合將在自然語言查詢的結果中傳回 `confidence` 評分。如需詳細資料，請參閱[信賴度評分](/docs/services/discovery/train-tooling.html#confidence)。
+自然語言查詢可讓您執行以自然語言表示的查詢，這可能是在交談式介面或任意文字介面中從一般使用者接收到的查詢 - 例如："IBM Watson in Healthcare"。此參數使用整個輸入作為查詢文字。它**不能**辨識運算子。`natural_language_query` 參數可啟用諸如段落搜尋和相關性訓練之類的功能。經過訓練的集合將在自然語言查詢的結果中傳回 `confidence` 評分。如需詳細資料，請參閱[信賴度評分](/docs/services/discovery/train-tooling.html#confidence)。自然語言查詢的查詢字串長度上限為 `2048`。
 
 **結構參數**
 
@@ -90,6 +90,13 @@ lastupdated: "2017-12-05"
 
 `sort` 參數目前只能與 API 搭配使用；無法透過工具來使用。
 
+## bias
+{: #bias}
+
+調整搜尋結果以偏向特定結果，例如，最近發佈的文件。`bias` 必須設為 `date` 類型欄位或 `number` 類型欄位，例如 `bias=publication_date` 或 `bias=field_1`。當指定 `date` 類型欄位時，傳回的結果會偏向較接近現行日期的欄位值。當指定 `number` 類型欄位時，傳回的結果會偏向較高的欄位值。這個參數無法用於與 `sort` 參數相同的查詢中。
+
+`bias` 參數目前只能用於 API；它無法透過工具使用。
+
 ## passages
 {: #passages}
 
@@ -105,7 +112,7 @@ lastupdated: "2017-12-05"
 `passages` 參數會傳回相符的段落 (`passage_text`)，以及 `score`、`document_id`、從中擷取段落的欄位名稱 (`field`)，及段落文字在欄位內的開始字元和結束字元（`start_offset` 和 `end_offset`），如下列範例所示。此查詢會顯示在範例頂端。
 
 ```bash
- curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
+ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
 ```
 {: pre}
 
@@ -141,7 +148,7 @@ lastupdated: "2017-12-05"
 索引中將從其中提取段落之以逗點區隔的欄位清單。如果未指定此參數，則會包含所有最上層欄位。
 
 ### passages.count
-{: #passages_fields}
+{: #passages_count}
 
 要傳回的段落數上限。搜尋將傳回所發現的總數（即使它比較少）。預設值為 `10`。最大值是 `100`。
 
@@ -158,7 +165,7 @@ lastupdated: "2017-12-05"
 此輸出在 `enriched_text` 物件之後列出 `highlight` 物件，如下列範例所示。
 
 ```bash
-curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
+curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
 ```
 {: pre}
 
@@ -198,21 +205,21 @@ curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/
 {: codeblock}
 
 ## deduplicate
-{: #deduplicate_field}
+{: #deduplicate}
 
- 一種測試版功能，它會根據 `title` 欄位，從 {{site.data.keyword.discoverynewsfull}} 集合查詢結果中排除重複文件。請參閱[從查詢結果中排除重複文件](/docs/services/discovery/query-parameters.html#deduplication)。
+ 一種測試版功能，它會根據 `title` 欄位，從 {{site.data.keyword.discoverynewsfull}} 集合查詢結果排除重複文件。請參閱[從查詢結果排除重複文件](/docs/services/discovery/query-parameters.html#deduplication)。
 
 ### deduplicate.field
 {: #deduplicate_field}
 
-一種測試版功能，它會根據指定的 `{field}`，從查詢結果中排除重複文件。請參閱[從查詢結果中排除重複文件](/docs/services/discovery/query-parameters.html#deduplication)。
+一種測試版功能，它會根據指定的 `{field}`，從查詢結果排除重複文件。請參閱[從查詢結果排除重複文件](/docs/services/discovery/query-parameters.html#deduplication)。
 
-### 從查詢結果中排除重複文件
+### 從查詢結果排除重複文件
 {: #deduplication}
 
-如果您要查詢 {{site.data.keyword.discoverynewsfull}} 集合，或者您的專用資料集合包含多個相同的（或幾乎相同的）文件，則可以使用刪除重複文件功能，從查詢結果中排除大部分的文件。
+如果您要查詢 {{site.data.keyword.discoverynewsfull}} 集合，或者您的專用資料集合包含多個相同的（或幾乎相同的）文件，則可以使用刪除重複文件功能，從查詢結果排除大部分的文件。
 
-**附註：**刪除重複文件目前僅支援作為測試版功能。如需相關資訊，請參閱「版本注意事項」中的[測試版特性](/docs/services/discovery/release-notes.html#beta-features)。
+**附註：**刪除重複文件目前僅支援作為測試版功能。如需相關資訊，請參閱「版本注意事項」中的[測試版特性](/docs/services/discovery/release-notes.html#beta-features)。目前僅支援英文版的這個測試版特性，如需詳細資料，請參閱[語言支援](/docs/services/discovery/language-support.html#feature-support)。
 
 **附註：**每一項查詢獨立執行刪除重複，因此，不支援跨偏移執行刪除重複。
 
@@ -231,7 +238,7 @@ curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/
 
 #### 在 Watson Discovery News 中刪除重複文件
 
-新聞文章可能聯合供稿給數個新聞渠道，{{site.data.keyword.discoverynewsfull}} 將挑選每一個新聞渠道，這會導致文章重複。這表示對 {{site.data.keyword.discoverynewsfull}} 的查詢可能會在查詢結果中傳回數篇相同或幾乎相同的文章。使用刪除重複將從搜尋查詢中移除大部分的重複文章。
+新聞文章可能聯合供稿給數個新聞管道，{{site.data.keyword.discoverynewsfull}} 將挑選每一個新聞管道，這會導致文章重複。這表示對 {{site.data.keyword.discoverynewsfull}} 的查詢可能會在查詢結果中傳回數篇相同或幾乎相同的文章。使用刪除重複將從搜尋查詢中移除大部分的重複文章。
 
 {{site.data.keyword.discoveryshort}} 是透過在 `title` 欄位上使用近似比對來刪除重複，因此不需要指定欄位。
 
@@ -256,5 +263,35 @@ curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/
 
 ```bash
 &collection_ids={id1},{id2}
+```
+{: codeblock}
+
+## similar
+{: #similar}
+
+文件相似性可識別與 `similar.document_ids` 參數中所列出之文件類似的文件。透過使用 `similar.fields` 參數來指定考慮要比較哪些欄位，可進一步修正此功能。預設值為 `false`。如需相關資訊，請參閱[文件相似性](/docs/services/discovery/using.html#doc-similarity)。
+
+```bash
+&similar=true
+```
+{: codeblock}
+
+### similar.document_ids
+{: #similar_document_ids}
+
+以逗點區隔的文件 ID 清單，用來作為尋找與結果類似之文件的基礎。如果 `similar` 參數設為 `true`，則需要此參數。
+
+```bash
+&similar.document_ids={id1},{id2}
+```
+{: codeblock}
+
+### similar.fields
+{: #similar_fields}
+
+用來比較文件以尋找類似文件的選用性欄位清單（以逗點區隔）。此參數只能與 `similar.document_ids` 參數一起使用。
+
+```bash
+&similar.fields={field1},{field2}
 ```
 {: codeblock}

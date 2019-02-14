@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2018
+lastupdated: "2018-08-15"
 
 ---
 
@@ -17,13 +17,97 @@ lastupdated: "2017-08-18"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# 疑難排解
+# 常見問題
+{: #faqs}
 
-使用 {{site.data.keyword.discoveryshort}} 服務的疑難排解提示。
+有關 {{site.data.keyword.discoveryshort}} 服務的常見問題。
 
-如果您在使用 {{site.data.keyword.discoveryshort}} 服務時發生問題，請嘗試使用下列一個以上的疑難排解提示。
+## 可以上傳 JSON 陣列嗎？
+{: #array} 
 
--   無法汲取文件，因為現行文件中的資料與先前所汲取文件中的類似資料之間有類型不符的情形。例如，在一份文件中的某個欄位可能輸入為**日期**，但在後續文件中卻輸入為**字串**，而導致後續文件無法正確進行檢索。
+您可以上傳 JSON 陣列，但必須個別上傳每一個區段。例如，下列 JSON 無法上傳至該服務：
 
-    預覽作業無法預測類型不符的情形，因為它只會測試單一文件，而且不會保留轉換結果的記錄。
--   快速或大規模的文件檢索有時候可能會導致後端搜尋服務重新啟動。如果發生此情況，請聯絡 {{site.data.keyword.IBM}} 支援人員以尋求協助。
+    ```json
+    [{
+      "accepted": 1,
+      "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
+      "answerScore": "49",
+      "authorUserId": "3",
+      "authorUsername": "Butzke",
+      "downModVotes": 0,
+      "id": 2,
+      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
+      "tags": "<arduino-uno><web-server><ethernet>",
+      "title": "Is an Arduino capable of running 24 7?",
+      "upModVotes": 49,
+      "userId": "11",
+      "userReputation": 4535,
+      "username": "sachleen",
+      "views": 3234
+    }, {
+      "accepted": 0,
+      "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
+      "answerScore": "24",
+      "authorUserId": "3",
+      "authorUsername": "Butzke",
+      "downModVotes": 0,
+      "id": 3,
+      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
+      "tags": "<arduino-uno><web-server><ethernet>",
+      "title": "Is an Arduino capable of running 24 7?",
+      "upModVotes": 24,
+      "userId": "13",
+      "userReputation": 489,
+      "username": "Matthew G.",
+      "views": 3234
+    }]
+    ```
+    {: codeblock}
+
+    若要將此資訊上傳至服務，請分解陣列並上傳每一個區段，如下所示：
+
+    區段 1：
+
+    ```json
+    {
+      "accepted": 1,
+      "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
+      "answerScore": "49",
+      "authorUserId": "3",
+      "authorUsername": "Butzke",
+      "downModVotes": 0,
+      "id": 2,
+      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
+      "tags": "<arduino-uno><web-server><ethernet>",
+      "title": "Is an Arduino capable of running 24 7?",
+      "upModVotes": 49,
+      "userId": "11",
+      "userReputation": 4535,
+      "username": "sachleen",
+      "views": 3234
+    }
+    ```
+    {: codeblock}
+
+    區段 2：
+
+    ```json
+    {
+      "accepted": 0,
+      "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
+      "answerScore": "24",
+      "authorUserId": "3",
+      "authorUsername": "Butzke",
+      "downModVotes": 0,
+      "id": 3,
+      "subtitle": "I'm making a simple Arduino web server and I want to keep it turned on all the time. So it must endure to stay working continuously. I'm using an Arduino Uno with a Ethernet Shield. It's powered with a simple outlet power supply 5V 1A. My Questions Will I have any problems leaving the Arduino turned on all the time? li Is there some other Arduino board better recommended for this? li Are there any precautions that I need to heed regarding this? li ul ",
+      "tags": "<arduino-uno><web-server><ethernet>",
+      "title": "Is an Arduino capable of running 24 7?",
+      "upModVotes": 24,
+      "userId": "13",
+      "userReputation": 489,
+      "username": "Matthew G.",
+      "views": 3234
+    }
+    ```
+    {: codeblock}

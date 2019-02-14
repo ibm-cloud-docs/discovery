@@ -22,7 +22,7 @@ lastupdated: "2017-10-03"
 
 {{site.data.keyword.documentconversionfull}} und {{site.data.keyword.retrieveandrankfull}} werden nicht mehr unterstützt und wurden durch {{site.data.keyword.discoveryfull}} ersetzt. Normalerweise werden diese beiden Services zusammen eingesetzt, um Daten einzupflegen sowie einzustufen sowie anschließend Ergebnisse an Ihre Anwendungen zu liefern. Dieses Dokument führt Sie durch die Migration von {{site.data.keyword.documentconversionshort}} und {{site.data.keyword.retrieveandrankshort}} auf {{site.data.keyword.discoveryshort}}.
 
-{{site.data.keyword.discoveryfull}} bietet eine leistungsfähigere Abfrageschnittstelle, eine vereinfachte Dateneinpflegung, ein verbessertes Trainingsmanagement sowie eine größere Skalierung.{{site.data.keyword.discoveryshort}} deckt viele der Hauptanwendungsfälle wie {{site.data.keyword.retrieveandrankshort}} ab, zu denen die Agentenunterstützung, die Suche in unternehmenseigenen Wissensdatenbanken und die Recherchenunterstützung gehören. Bei der Konzeption wurden viele Herausforderungen bedacht, die sich für Benutzer von {{site.data.keyword.retrieveandrankshort}} ergaben, und viele dieser Probleme gelöst. {{site.data.keyword.discoveryshort}} bietet außerdem neue Funktionen für den Informationsabruf, die in {{site.data.keyword.retrieveandrankshort}} nicht verfügbar waren, beispielsweise der Passagenabruf und verbesserte Suchalgorithmen zur Ermittlung relevanterer Ergebnisse.
+{{site.data.keyword.discoveryfull}} bietet eine leistungsfähigere Abfrageschnittstelle, eine vereinfachte Dateneinpflegung, ein verbessertes Trainingsmanagement sowie eine größere Skalierung. {{site.data.keyword.discoveryshort}} deckt viele der Hauptanwendungsfälle wie {{site.data.keyword.retrieveandrankshort}} ab, zu denen die Agentenunterstützung, die Suche in unternehmenseigenen Wissensdatenbanken und die Recherchenunterstützung gehören. Bei der Konzeption wurden viele Herausforderungen bedacht, die sich für Benutzer von {{site.data.keyword.retrieveandrankshort}} ergaben, und viele dieser Probleme gelöst. {{site.data.keyword.discoveryshort}} bietet außerdem neue Funktionen für den Informationsabruf, die in {{site.data.keyword.retrieveandrankshort}} nicht verfügbar waren, beispielsweise der Passagenabruf und verbesserte Suchalgorithmen zur Ermittlung relevanterer Ergebnisse.
 
 **Featurevergleich**
 
@@ -46,7 +46,7 @@ lastupdated: "2017-10-03"
 | Angepasste Analysefunktionskonfiguration | Ja | Vorkonfiguriert |
 | Angepasste Stoppwörter | Ja | Vorkonfiguriert |
 | Angepasste Sprachwörterbücher | Ja | Vorkonfiguriert |
-| Angepasste Synonyme | Ja |  |
+| Angepasste Synonyme | Ja | Ja |
 **Hinweis:** Diese Tabelle wird aktualisiert, sobald neue {{site.data.keyword.discoveryshort}}-Funktionalitäten hinzugefügt werden.
 
 Bevor Sie mit der Migration beginnen, müssen Sie zunächst die Daten [evaluieren](#evaluate), die in Ihrem {{site.data.keyword.retrieveandrankshort}}-Service gespeichert sind, und sich darüber informieren, wie Sie die verschiedenen Komponenten umstellen, aus denen Ihre Lösung besteht.

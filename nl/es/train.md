@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-09-06"
 
 ---
 
@@ -23,45 +23,53 @@ El servicio {{site.data.keyword.discoveryshort}} se puede entrenar para mejorar 
 entrenamiento de datos*, el servicio utiliza técnicas de entrenamiento máquina de Watson para encontrar señales en el contenido y en las preguntas. A continuación, el servicio reordena los resultados de la consulta para mostrar en primer lugar los resultados más relevantes. A medida que se añaden datos de entrenamiento, la instancia del servicio cada vez es más precisa y sofisticada en la ordenación de los resultados que devuelve.
 {: shortdesc}
 
-El entrenamiento de relevancia es opcional; si los resultados de sus consultas satisfacen sus necesidades, no es necesario un entrenamiento adicional. Para obtener una visión general de situaciones adecuadas para el entrenamiento, consulte el artículo de blog [Cómo sacar el mayor partido al entrenamiento de relevancia ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}. 
+El entrenamiento de relevancia es opcional; si los resultados de sus consultas satisfacen sus necesidades, no es necesario un entrenamiento adicional. Para obtener una visión general de situaciones adecuadas para el entrenamiento, consulte el artículo de blog [Cómo sacar el mayor partido al entrenamiento de relevancia ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}.
 
-Para obtener una amplia información sobre las API de entrenamiento, consulte la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}. 
+Para obtener una amplia información sobre las API de entrenamiento, consulte la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}.
 
-Si prefiere utilizar el conjunto de herramientas de {{site.data.keyword.discoveryshort}} para realizar el entrenamiento de {{site.data.keyword.discoveryshort}}, consulte [Mejora de la relevancia de los resultados con el conjunto de herramientas](/docs/services/discovery/train-tooling.html). 
+Si prefiere utilizar el conjunto de herramientas de {{site.data.keyword.discoveryshort}} para realizar el entrenamiento de {{site.data.keyword.discoveryshort}}, consulte [Mejora de la relevancia de los resultados con el conjunto de herramientas](/docs/services/discovery/train-tooling.html).
 
-**Nota:** El entrenamiento de relevancia necesita determinados requisitos de datos de entrenamiento antes de ser efectivo. El servicio comprueba los datos de entrenamiento de forma periódica para determinar si se satisfacen estos requisitos, y se actualiza a sí mismo de forma automática con base a los cambios. 
+**Nota:** El entrenamiento de relevancia solo se aplica a las consultas de lenguaje natural en recopilaciones privadas. No está pensado para ser utilizado con consultas estructuradas de {{site.data.keyword.discoveryshort}} Query Language.  Para obtener más información sobre {{site.data.keyword.discoveryshort}} Query Language, consulte [Conceptos de consultas](/docs/services/discovery/using.html).
 
-**Nota:** El entrenamiento de relevancia solo se aplica a las consultas de lenguaje natural en recopilaciones privadas. No está pensado para ser utilizado con consultas estructuradas de {{site.data.keyword.discoveryshort}} Query Language. Para obtener más información sobre {{site.data.keyword.discoveryshort}} Query Language, consulte [Conceptos de consultas](/docs/services/discovery/using.html). 
+Las recopilaciones entrenadas devolverán una puntuación de `confidence` en el resultado de una consulta de lenguaje natural. Consulte [Puntuaciones de confianza](/docs/services/discovery/train-tooling.html#confidence) para obtener más información.
 
-Las recopilaciones entrenadas devolverán una puntuación de `confidence` en el resultado de una consulta de lenguaje natural. Consulte [Puntuaciones de confianza](/docs/services/discovery/train-tooling.html#confidence) para obtener más información. 
+Consulte [Requisitos de datos de entrenamiento](/docs/services/discovery/train.html#reqs) para ver los requisitos mínimos del entrenamiento, además de los límites de entrenamiento.
 
-**Nota:** Hay un máximo de 4 recopilaciones entrenadas por entorno.
+Consulte [Supervisión de uso](/docs/services/discovery/feedback.html) para obtener detalles sobre el seguimiento del uso y la utilización de los datos para ayudarle a comprender y mejorar sus aplicaciones.
 
 <!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
 
-Los componentes necesarios para entrenar una instancia de Discovery incluyen lo siguiente: 
+Los componentes necesarios para entrenar una instancia de Discovery incluyen lo siguiente:
 
- - **Datos de entrenamiento**. Es un conjunto de *consultas* y *ejemplo* que el servicio utiliza para refinar resultados de consultas. 
- - **Consulta**. Una consulta de lenguaje natural que se aplica al conjunto de datos de entrenamiento. Cada consulta tiene uno o varios *ejemplos* asociados, tal como se describe en el siguiente punto de la lista. Cada consulta debe ser exclusiva dentro del conjunto de datos de entrenamiento. 
- - **Ejemplo**. Es un documento indexado en una recopilación de Discovery que actúa como ejemplar, con **exactitud o inexactitud**, para la consulta asociada. Cuando se añade un ejemplo a una consulta de datos de entrenamiento, se incluye una etiqueta de relevancia que indica la relevancia (o "exactitud" con relación a su "inexactitud") del documento en la medida que se aplica a la consulta especificada. 
+ - **Datos de entrenamiento**. Es un conjunto de *consultas* y *ejemplo* que el servicio utiliza para refinar resultados de consultas.
+ - **Consulta**. Una consulta de lenguaje natural que se aplica al conjunto de datos de entrenamiento.
+   Cada consulta tiene uno o varios *ejemplos* asociados, tal como se describe en el siguiente punto de la lista.
+   Cada consulta debe ser exclusiva dentro del conjunto de datos de entrenamiento.
+ - **Ejemplo**. Es un documento indexado en una recopilación de Discovery que actúa como ejemplar, con **exactitud o inexactitud**, para la consulta asociada. Cuando se añade un ejemplo a una consulta de datos de entrenamiento, se incluye una etiqueta de relevancia que indica la relevancia (o "exactitud" con relación a su "inexactitud") del documento en la medida que se aplica a la consulta especificada.
 
-   Los ejemplos se identifican mediante el ID de documento indexado. Como se ha dicho, cada documento debe incluir una etiqueta que indique su "exactitud" o "inexactitud" de pertenencia a la consulta. 
+   Los ejemplos se identifican mediante el ID de documento indexado. Como se ha dicho, cada documento debe incluir una etiqueta que indique su "exactitud" o "inexactitud" de pertenencia a la consulta.
 
-   Los ejemplos opcionalmente pueden especificar una consulta de referencias cruzadas. La consulta de referencia cruzada solo necesita devolver el documento de ejemplo y debe ser independiente del ID de documento de Watson Discovery exclusivo. Las consultas de referencia cruzada actualmente no se utilizan automáticamente pero se pueden utilizar para reparar datos de entrenamiento en el caso de que se asignen nuevos ID a documentos durante un suceso de ingestión. 
+   Los ejemplos opcionalmente pueden especificar una consulta de referencias cruzadas. La consulta de referencia cruzada solo necesita devolver el documento de ejemplo y debe ser independiente del ID de documento de Watson Discovery exclusivo. Las consultas de referencia cruzada actualmente no se utilizan automáticamente pero se pueden utilizar para reparar datos de entrenamiento en el caso de que se asignen nuevos ID a documentos durante un suceso de ingestión.
 
 ## Requisitos de datos de entrenamiento
+{: #reqs}
 
-Los datos de entrenamiento deben satisfacer los siguientes criterios de calidad **mínimos** para mejorar de forma efectiva la relevancia de las respuestas que el servicio Discovery devuelve. Tenga presente que **mínimos** no significa **óptimos**.
+Los datos de entrenamiento deben satisfacer los siguientes criterios de calidad **mínimos** para mejorar de forma efectiva la relevancia de las respuestas que el servicio Discovery devuelve. Tenga presente que **mínimos** no significa **óptimos**. El servicio comprueba los datos de entrenamiento de forma periódica para determinar si se satisfacen estos requisitos, y se actualiza a sí mismo de forma automática con base a los cambios.
 
-- El conjunto de datos de entrenamiento de la recopilación debe contener un mínimo de 49 consultas de entrenamiento exclusivas (esto es, conjuntos de consultas y ejemplos). Dependiendo del tamaño y la complejidad de su recopilación, el número de consultas de entrenamiento en su conjunto podría precisar de más de 49 antes que de Watson puede aplicar el entrenamiento de relevancia a la recopilación. 
-- La puntuación de relevancia para cada consulta de entrenamiento debe ser un entero no negativo, por ejemplo, `0` para representar *no relevante*, `1` para representar *parcialmente relevante* y `2` para representar *altamente relevante*. Sin embargo, para ofrecer la mayor flexibilidad posible, el servicio acepta enteros no negativos entre `0` y `100` para que usuarios avanzados experimenten con distintos esquemas de puntuación. Independientemente del rango que utilice, el mayor entero en el conjunto de consultas de entrenamiento indica la máxima relevancia. El conjunto de herramientas de {{site.data.keyword.discoveryshort}} utiliza las puntuaciones de relevancia de `0` para representar *no relevante* y `10` para representar *relevante*. Si tiene previsto puntuar sus documentos tanto con el conjunto de herramientas de {{site.data.keyword.discoveryshort}} como con la API, o si tiene previsto empezar con la API para pasar al conjunto de herramientas, utilice las puntuaciones de relevancia entre `0` y `10`. 
-- Las consultas de entrenamiento deben incluir alguna superposición de términos entre la consulta y la respuesta deseada de forma que pueda ser recuperada por la búsqueda inicial del servicio Discovery, que tiene un ámbito más amplio. 
+- El conjunto de datos de entrenamiento de la recopilación debe contener un mínimo de 49 consultas de entrenamiento exclusivas (esto es, conjuntos de consultas y ejemplos). Dependiendo del tamaño y la complejidad de su recopilación, el número de consultas de entrenamiento en su conjunto podría precisar de más de 49 antes que de Watson puede aplicar el entrenamiento de relevancia a la recopilación. Watson le informará si son necesarias más consultas para el entrenamiento.
+- Al asignar la puntuación de relevancia mediante la API: La puntuación de relevancia de cada consulta de entrenamiento debe ser un entero no negativo, por ejemplo, `0` para representar *no relevante*, `1` para representar *parcialmente relevante* y `2` para representar *altamente relevante*. Sin embargo, para ofrecer la mayor flexibilidad posible, el servicio acepta enteros no negativos entre `0` y `100` para que usuarios avanzados experimenten con distintos esquemas de puntuación. Independientemente del rango que utilice, el mayor entero en el conjunto de consultas de entrenamiento indica la máxima relevancia.
+- Al asignar la valoración de relevancia mediante el conjunto de herramientas: El conjunto de herramientas de {{site.data.keyword.discoveryshort}} utiliza las puntuaciones de relevancia de `0` para representar *no relevante* y `10` para representar *relevante*. Debería utilizar tanto valoraciones `relevantes` como `no relevantes`. Si únicamente valora documentos `relevantes` no estará proporcionando los datos necesarios.  Si tiene previsto puntuar sus documentos tanto con el conjunto de herramientas de {{site.data.keyword.discoveryshort}} como con la API, o si tiene previsto empezar con la API para pasar al conjunto de herramientas, utilice las puntuaciones de relevancia entre `0` y `10`.
+- Las consultas de entrenamiento deben incluir alguna superposición de términos entre la consulta y la respuesta deseada de forma que pueda ser recuperada por la búsqueda inicial del servicio Discovery, que tiene un ámbito más amplio.
 
-**Nota:** Watson utiliza datos de entrenamiento para entrenar patrones y generalizar, no memoriza consultas de entrenamiento concretas. Por lo tanto el servicio no siempre reproduce resultados de relevancia idénticos para una consulta de entrenamiento dada. 
+**Nota:** Watson utiliza datos de entrenamiento para entrenar patrones y generalizar, no memoriza consultas de entrenamiento concretas. Por lo tanto el servicio no siempre reproduce resultados de relevancia idénticos para una consulta de entrenamiento dada.
+
+El entrenamiento no puede superar los requisitos **máximos** siguientes:
+  - No puede exceder 24 recopilaciones entrenadas por entorno.
+  - En un entorno único, está limitado a 10.000 consultas de entrenamiento, con un máximo de 100 ejemplos por consulta. 
 
 ## Adición de una consulta al conjunto de datos de entrenamiento
 
-Utilice el método `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data` para añadir un conjunto de datos de entrenamiento de una recopilación. La consulta se especifica como un objeto JSON con el formato siguiente: 
+Utilice el método `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data` para añadir un conjunto de datos de entrenamiento de una recopilación. La consulta se especifica como un objeto JSON con el formato siguiente:
 
 ```json
 {
@@ -85,17 +93,17 @@ Los valores en este objeto son los siguientes:
 - `natural_language_query`: Consulta de lenguaje natural de Discovery que se aplica al conjunto de entrenamiento. <!-- The `natural_language_query` parameter is preferred. -->
 - `filter`: Parámetro opcional para la consulta, tal como se describe en la [Referencia de consultas](/docs/services/discovery/query-reference.html#parameter-descriptions).
 
-    **Nota:** Si incluye filtros en sus consultas de datos de entrenamiento, asegúrese de utilizar los mismos filtros al utilizar consultas de lenguaje natural en la recopilación entrenada. Si entrena la recopilación con datos filtrados y no utiliza los mismos tipos de filtros al consultar la recopilación, los resultados podrían ser impredecibles. 
+    **Nota:** Si incluye filtros en sus consultas de datos de entrenamiento, asegúrese de utilizar los mismos filtros al utilizar consultas de lenguaje natural en la recopilación entrenada. Si entrena la recopilación con datos filtrados y no utiliza los mismos tipos de filtros al consultar la recopilación, los resultados podrían ser impredecibles.
 
 - `examples`: Matriz que contiene los valores siguientes:
 
-   - `document_id`: ID exclusivo del documento que se aplica al conjunto de entrenamiento. Se trata del *example* descrito con anterioridad.  
-   - `cross_reference`: Etiqueta opcional, habitualmente formada por un campo en el documento referenciado, que "fija" el documento y la información del campo en el caso de que el ID del documento cambie, por ejemplo, si un nuevo documento ingestado se asigna al mismo ID. Especificar un valor para `cross-reference` **no** enlaza un documento con otro, sino que asegura que el servicio conservará la pertinente información del documento en caso de que se cambie su nombre o sea sobrescrito. 
-   - `relevance`: Entero entre `0` y `100`, ambos incluidos, que indican la relevancia relativa de la consulta para los datos de entrenamiento. Valores elevados indican una mayor relevancia. Un valor de `0` indica que no hay relevancia para la consulta, mientras que un valor de `100` indica una relevancia absoluta para la consulta. 
+   - `document_id`: ID exclusivo del documento que se aplica al conjunto de entrenamiento. Se trata del *example* descrito con anterioridad.
+   - `cross_reference`: Etiqueta opcional, habitualmente formada por un campo en el documento referenciado, que "fija" el documento y la información del campo en el caso de que el ID del documento cambie, por ejemplo, si un nuevo documento ingestado se asigna al mismo ID. Especificar un valor para `cross-reference` **no** enlaza un documento con otro, sino que asegura que el servicio conservará la pertinente información del documento en caso de que se cambie su nombre o sea sobrescrito.
+   - `relevance`: Entero entre `0` y `100`, ambos incluidos, que indican la relevancia relativa de la consulta para los datos de entrenamiento. Valores elevados indican una mayor relevancia. Un valor de `0` indica que no hay relevancia para la consulta, mientras que un valor de `100` indica una relevancia absoluta para la consulta.
 
-   **Nota:** Aunque el rango del parámetro `relevance` está entre `0` y `100`, para una mayor flexibilidad, es posible utilizar un rango más reducido para simplificar la puntuación de los ejemplos.  Un rango estándar podría estar entre `0` y `4`, o se podría utilizar todo el rango a base de incrementos de 20 unidades (`0`,`20`,`40`,`60`,`80` y `100`). El conjunto de herramientas de {{site.data.keyword.discoveryshort}} utiliza las puntuaciones de relevancia de `0` para representar *no relevante* y `10` para representar *relevante*. Si tiene previsto puntuar sus documentos tanto con el conjunto de herramientas de {{site.data.keyword.discoveryshort}} como con la API, o si tiene previsto empezar con la API para pasar al conjunto de herramientas, utilice las puntuaciones de relevancia entre `0` y `10`. 
+   **Nota:** Aunque el rango del parámetro `relevance` está entre `0` y `100`, para una mayor flexibilidad, es posible utilizar un rango más reducido para simplificar la puntuación de los ejemplos. Un rango estándar podría estar entre `0` y `4`, o se podría utilizar todo el rango a base de incrementos de 20 unidades (`0`,`20`,`40`,`60`,`80` y `100`). El conjunto de herramientas de {{site.data.keyword.discoveryshort}} utiliza las puntuaciones de relevancia de `0` para representar *no relevante* y `10` para representar *relevante*. Si tiene previsto puntuar sus documentos tanto con el conjunto de herramientas de {{site.data.keyword.discoveryshort}} como con la API, o si tiene previsto empezar con la API para pasar al conjunto de herramientas, utilice las puntuaciones de relevancia entre `0` y `10`.
 
-El objeto siguiente muestra una consulta de datos de entrenamiento cumplimentada. 
+El objeto siguiente muestra una consulta de datos de entrenamiento cumplimentada.
 
 ```json
 {
@@ -149,9 +157,9 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
 
 ## Adición de un ejemplo a una consulta de datos de entrenamiento
 
-Después de crear una consulta de datos de entrenamiento, puede continuar añadiendo ejemplos a la misma para mejorar la precisión del entrenamiento. Utilice `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data/{query_id}` para añadir un ejemplo a una consulta de datos de entrenamiento existente. 
+Después de crear una consulta de datos de entrenamiento, puede continuar añadiendo ejemplos a la misma para mejorar la precisión del entrenamiento. Utilice `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data/{query_id}` para añadir un ejemplo a una consulta de datos de entrenamiento existente.
 
-Siga los siguientes pasos para añadir un ejemplo a una consulta de datos de entrenamiento. 
+Siga los siguientes pasos para añadir un ejemplo a una consulta de datos de entrenamiento.
 
 1. Obtenga el ID de la consulta de la consulta de datos de entrenamiento que desea añadir al nuevo ejemplo [listando las consultas de datos de entrenamiento de la recopilación ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}:
 
@@ -160,7 +168,7 @@ Siga los siguientes pasos para añadir un ejemplo a una consulta de datos de ent
    ```
    {: pre}
 
-   El JSON devuelto tendrá el siguiente formato: 
+   El JSON devuelto tendrá el siguiente formato:
 
    ```json
     {
@@ -186,7 +194,7 @@ Siga los siguientes pasos para añadir un ejemplo a una consulta de datos de ent
    ```
    {: codeblock}
 
-1. Añada el nuevo ejemplo mediante la misma sintaxis se utiliza para definir los ejemplos al crear una nueva consulta de datos de entrenamiento. El siguiente mandato de ejemplo no incluye una referencia cruzada. 
+1. Añada el nuevo ejemplo mediante la misma sintaxis se utiliza para definir los ejemplos al crear una nueva consulta de datos de entrenamiento. El siguiente mandato de ejemplo no incluye una referencia cruzada.
 
    ```bash
     curl -u -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Content-Type: application/json" -d
@@ -204,7 +212,7 @@ Siga los siguientes pasos para añadir un ejemplo a una consulta de datos de ent
    ```
    {: pre}
 
-   El JSON devuelto tendrá el siguiente formato: 
+   El JSON devuelto tendrá el siguiente formato:
 
    ```json
     {
@@ -234,40 +242,43 @@ Siga los siguientes pasos para añadir un ejemplo a una consulta de datos de ent
    ```
    {: codeblock}
 
-1. Compruebe el estado del entrenamiento utilizando el método para [listar los detalles de la recopilación ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#list-collection-details){: new_window} y busque la información del campo `"training"`/`"available"`. Cuando se hayan añadido suficientes consultas y ejemplos para satisfacer sus requisitos, el valor del campo devuelve `true` y el servicio de forma automática empieza a utilizar los datos de entrenamiento. 
+1. Compruebe el estado del entrenamiento utilizando el método para [listar los detalles de la recopilación ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#list-collection-details){: new_window} y busque la información del campo `"training"`/`"available"`. Cuando se hayan añadido suficientes consultas y ejemplos para satisfacer sus requisitos, el valor del campo devuelve `true` y el servicio de forma automática empieza a utilizar los datos de entrenamiento.
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2016-12-01"
    ```
    {: pre}
 
-   El JSON devuelto tendrá el siguiente formato: 
+   El JSON devuelto tendrá el siguiente formato:
 
    ```json
     {
       "collection_id": "99040100-fe6a-4782-a4f5-28f9eee30850",
       "name": "democollection",
+      "configuration_id": "def9bd08-8472-470f-ab5a-e377f77e9300",
+      "language": "en_us",
+      "status": "available",
       "description": "this is a demo collection",
       "created": "2015-08-24T18:42:25.324Z",
       "updated": "2015-08-24T18:42:25.324Z",
-      "status": "available",
-      "configuration_id": "def9bd08-8472-470f-ab5a-e377f77e9300",
-      "language": "en_us",
       "document_counts": {
         "available": 1000,
         "processing": 20,
         "failed": 180
       },
-      "training": {
+      "disk_usage": {
+        "used_bytes": 895111
+      },
+      "training_status": {
+        "data_updated": "2017-02-10T14:18:22.786Z",
         "total_examples": 54,
-        "available": true,
-        "processing": false,
-        "minimum_queries_added": true,
-        "minimum_examples_added": true,
         "sufficient_label_diversity": false,
-        "notices": 13,
+        "processing": false,
+        "minimum_examples_added": true,
         "successfully_trained": "2017-02-08T14:18:22.786Z",
-        "data_updated": "2017-02-10T14:18:22.786Z"
+        "available": true,
+        "notices": 13,
+        "minimum_queries_added": true
       }
     }
    ```
@@ -279,14 +290,14 @@ Siga los siguientes pasos para añadir un ejemplo a una consulta de datos de ent
    - `minimum_examples_added`
    - `sufficient_label_diversity`
 
-   Si la relevancia de sus resultados no mejora, añada más consultas de entrenamiento hasta que los resultados satisfagan sus necesidades. 
+   Si la relevancia de sus resultados no mejora, añada más consultas de entrenamiento hasta que los resultados satisfagan sus necesidades.
 
-Consulte [Sugerencias de entrenamiento de relevancia](/docs/services/discovery/train-tips.html#relevancy-tips) para obtener más ayuda con relación al entrenamiento.    
+Consulte [Sugerencias de entrenamiento de relevancia](/docs/services/discovery/train-tips.html#relevancy-tips) para obtener más ayuda con relación al entrenamiento.   
 
 ## Realización de otras operaciones de consultas de datos de entrenamiento
 {: #training-data-operations}
 
-Las consultas de datos de entrenamiento se pueden administrar y mantener con otros métodos de API que se describen en la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}: 
+Las consultas de datos de entrenamiento se pueden administrar y mantener con otros métodos de API que se describen en la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}:
 
  - [Listado de datos de entrenamiento de una recopilación ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}
  - [Supresión de todos los datos de entrenamiento de una recopilación ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-all-training-data){: new_window}

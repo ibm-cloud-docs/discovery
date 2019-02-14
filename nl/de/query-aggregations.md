@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-05-09"
 
 ---
 
@@ -25,7 +25,7 @@ Aggregationen geben eine Gruppe von Datenwerten zurück. Eine vollständige List
 ## term
 {: #term}
 
-Gibt die höchsten Werte (nach Bewertung und Häufigkeit) für die ausgewählten Aufbereitungen zurück. Gültige Werte sind alle Aufbereitungen. Mit `count` können Sie optional die Anzahl der zurückzugebenden Begriffe angeben. Das folgende Beispiel gibt den vollständigen Text und die Aufbereitungen der höchsten Werte bei der Aufbereitung 'concept' zurück und definiert die Rückgabe von 10 Begriffen.
+Gibt die höchsten Werte (nach Bewertung und Häufigkeit) für die ausgewählten Aufbereitungen zurück. Gültige Werte sind alle Aufbereitungen. Mit `count` können Sie optional die Anzahl der zurückzugebenden Begriffe angeben. Der Parameter `count` hat den Standardwert 10. Das folgende Beispiel gibt den vollständigen Text und die Aufbereitungen der höchsten Werte bei der Aufbereitung 'concept' zurück und definiert die Rückgabe von 10 Begriffen.
 
 Beispiel:
 ```bash
@@ -40,7 +40,7 @@ Ein Modifikator, der die Dokumentgruppe der Aggregationsabfrage eingrenzt, der e
 
 Beispiel:
 ```bash
-filter(enriched_text.concepts.text:cloud computing)
+filter(enriched_text.concepts.text:"cloud computing")
 ```
 {: codeblock}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-08-17"
 
 ---
 
@@ -19,54 +19,103 @@ lastupdated: "2017-10-09"
 
 # Planos de precificação do Discovery
 
-O serviço do {{site.data.keyword.discoveryfull}} oferece três planos que fornecem diferentes níveis de recursos e de capacidades para atender às suas necessidades.
+O serviço {{site.data.keyword.discoveryfull}} oferece três planos -- **Lite**, **Avançado** e **Premium** -- que fornecem diferentes níveis de recursos e capacidades para adequar às suas necessidades.
 {: shortdesc}
 
-Os **casos de usos de dados privados** têm os limites e preços a seguir:
+Os **Casos de uso de dados privados** têm os recursos, limites e preços a seguir:
 
-| Lite                     |  Padrão         | Avançado          | Premium          |
-|--------------------------|-------------------|-------------------|-------------------|
-| Até 2.000 documentos simultâneos por mês\*   |Até 100.000 documentos simultâneos por mês\*<br/> US$10 por 1.000 documentos simultâneos por mês (US$ 0,0139USD/1.000 doc./h)\*\*\*<br/> 2 mil documentos por mês gratuitos\*\*\*\*  | **Ambiente reservado**</br>US$1,000/taxa base mensal<br/> Até 1.000.000 documentos por mês\*<br/> US$5 por 1.000 documentos simultâneos por mês (US$ 0,00694/1.000 doc./h)\*\*\*<br/> 100 mil documentos por mês incluídos\*\*\*\*</br> Para ambientes maiores, entre em contato com [Vendas ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/marketing/iwm/dre/signup?source=MAIL-watson){: new_window}.| Os **Planos Premium** oferecem aos desenvolvedores e organizações uma única instância de locatário de um ou mais serviços Watson para um melhor isolamento e segurança. Esses planos oferecem isolamento a nível de cálculo na plataforma compartilhada existente, bem como dados criptografados de ponta a ponta enquanto em trânsito e em repouso. Para obter mais informações ou para comprar um plano Premium, entre em contato com a área de [Vendas ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://ibm.biz/contact-wdc-premium){: new_window} |
-| 200 MB\*\*                  |10 GB\*\*  | 80 GB\*\* |-|
-| Até duas coleções      |Até quatro coleções | Até 100 coleções|-|
-| Até um modelo customizado do {{site.data.keyword.knowledgestudiofull}}     |Até um modelo customizado do {{site.data.keyword.knowledgestudioshort}} | Modelos customizados ilimitados do {{site.data.keyword.knowledgestudioshort}}<br/>1 {{site.data.keyword.knowledgestudioshort}} Custom Model incluído <br/>$ 800 adicionais por modelo do {{site.data.keyword.knowledgestudioshort}} por mês|-|
+## Lite
+{: #lite}
 
-**Observação:** em todos os planos, as primeiras 1.000 consultas do {{site.data.keyword.discoverynewsshort}} por mês são grátis. As consultas do {{site.data.keyword.discoverynewsshort}} são cobradas em $ 0,10 por consulta após os primeiros 1.000.
+Tamanho | Limite de Armazenamento do Documento | Número de Docs\* | Preço 
+------ | ------ | ------ | ------  
+N/A | 50 MB | 1.000 por mês | Livre 
 
-**Observação:** os serviços de plano Lite são excluídos após 30 dias de inatividade. Um ambiente grátis é atribuído por organização nos planos Lite.
+O plano Lite é um plano iniciador e não deve ser usado para produção. Quando você faz upgrade para um plano pago, é possível manter todos os documentos alimentados. As instâncias do plano Lite são excluídas após 30 dias de inatividade. 
 
- \* O limite do documento supõe um tamanho médio de documento de 100 KB no disco. Este é o tamanho de um documento em uma coleção depois que ele passou por conversão e enriquecimento, de modo que o tamanho pode mudar significativamente da entrada original. É possível visualizar o número de documentos armazenados e a quantia total de armazenamento usada pela API `environments` ou `collections` ou usando o conjunto de ferramentas.
+Atributos:
+- 1 ambiente
+- Até duas coleções
+- Enriquecimentos de NLU Livres\*\*
+- 20 documentos em andamento\*\*\*\* 
 
- \*\* Se seus documentos forem em média maiores que 100 KB no disco, você atingirá o limite de armazenamento de um plano antes do limite máximo de documento.
+Opções adicionais:<br> [ Modelos customizados ](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
+Um modelo do Watson Knowledge Studio incluído. Modelos adicionais: não disponível<br>[Classificação de elementos](/docs/services/discovery/element-classification.html)\*\*\*:
+500 páginas incluídas por mês. Páginas adicionais: não disponível <br>[Consultas de notícias](/docs/services/discovery/watson-discovery-news.html):
+200 consultas de Notícias incluídas por mês. Consultas adicionais: não disponível<br>[Expansões de consulta](/docs/services/discovery/using.html#query-expansion):
+500 expansões de consulta com um total de 1.000 termos. Expansões adicionais: Não disponível
 
- \*\*\* O preço é baseado no número de horas em que um lote de 1.000 documentos é armazenado no serviço (referido como um Mil documentos/hora). Para o calculador de precificação, esse é o número que deve ser inserido (`número de documentos * número de horas em que esses documentos são armazenados em um mês/1000`).
+Para obter informações sobre como fazer upgrade de Lite para Avançado, veja [Fazendo upgrade de seu serviço ](/docs/services/discovery/upgrading.html#service)
 
- \*\*\*\* Quantias livres são baseadas no equivalente de documentos armazenados por um mês. Por exemplo, no plano Padrão, a quantia livre é equivalente a 2.000 documentos * 720 horas / 1.000 documentos em lote = 1.440 Mil documentos/hora.
+## Avançado
+{: #advanced}
 
-**Exemplo:** um usuário no plano Padrão armazena 4.000 documentos no mês inteiro. Ele seria cobrado como segue:
+Tamanho | Limite de Armazenamento do Documento | Número de Docs\* | Preço 
+------ | ------ | ------ | ------ 
+Extra-Pequeno\*\*\*\*\* | 40 GB | Até 50.000 docs por mês | A partir de $500 por mês  
+Pequeno | 160 GB | Até 1M docs por mês | A partir de $1.500 por mês  
+Médio-Pequeno | 320 GB | Até 2M docs por mês | Começando com $3.000 por mês 
+Médio| 640 GB | Até 4M docs por mês | Iniciando com $5.000 por mês 
+Médio-Grande | 1.2 TB | Até 8M docs por mês | Começando com $10.000 por mês 
+Grande| 2,4 TB | Até 16M docs por mês | A partir de $15.000 por mês 
+Extra-Grande| 4 TB | Até 32M docs por mês | A partir de $20.000 por mês 
+XX-Grande | 5,5 TB | Até 64M docs por mês | A partir de $35,000 por mês 
+XXX-Grande | 12 TB | Até 100M docs por mês | Iniciando com $45.000 por mês 
 
-- `4.000 documentos * 720 horas (em um mês) / 1.000 = 2.880` Mil documentos/hora
+O X-Small é o menor ambiente disponível e é recomendado somente para desenvolvimento e teste.\*\*\*\*\*
 
-- `2.880 - 1.440 (horas de documento livre) = 1.440` Mil documentos/hora faturáveis
+Mover de um nível de Avançado para outro não requer a criação de novas instâncias. Novas instâncias serão necessárias se alternar de um plano Avançado para Premium. Para obter informações sobre como fazer upgrade de uma camada de Avançado para outra, veja [Movendo de uma camada de Avançado para outra](/docs/services/discovery/upgrading.html#advanced).
 
-- `1.440 * $0,0139` (preço por Mil documentos/hora) = `$20.00` para o mês
+\*\*\*\*\*Atributos de X-Small Planos: 
+- 1 ambiente
+- Até 4 coleções
+- Enriquecimentos de NLU Livres\*\*
+- 50 documentos em andamento\*\*\*\*
 
-**Nota:** ao calcular a quantia faturada cada hora, o número total de documentos armazenados é arredondado para o próximo 1.000 como parte do cálculo. Por exemplo, se você tiver 4.678 documentos armazenados por 1 hora, será arredondado para 5.000 e resultará em 5 mil documentos/hora sendo faturados para a conta.
+Atributos de todos os outros planos avançados:
+- 1 ambiente
+- Até 100 coleções
+- Enriquecimentos de NLU Livres\*\*
+- 105 documentos em andamento\*\*\*\*
 
-**Nota:** não há encargos adicionais para enriquecimentos.
+Opções adicionais:<br> [Modelos customizados](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
+Um modelo do Watson Knowledge Studio incluído. Modelos adicionais: $800 cada<br>[Classificação de elementos](/docs/services/discovery/element-classification.html)\*\*\*:
+500 páginas incluídas por mês. Páginas adicionais: $0.40 cada<br>[Consultas de notícias](/docs/services/discovery/watson-discovery-news.html):
+200 consultas de Notícias incluídas por mês  
+10.000 consultas adicionais (por mês): $0,10 por consulta<br>
+10.001 - 100.000 consultas adicionais (por mês): $0,05 por consulta<br>
+Mais de 100.000 consultas (por mês): $0,03 por consulta<br>
+[Expansões de consulta](/docs/services/discovery/using.html#query-expansion):
+5.000 expansões de consulta com um total de 25.000 termos
 
-Para obter informações sobre a segurança do {{site.data.keyword.Bluemix_notm}}, consulte [Descrição do serviço do {{site.data.keyword.Bluemix_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+## Premium
+   
+Os planos Premium oferecem aos desenvolvedores e organizações uma única instância de locatário de um ou mais serviços do Watson para melhor isolamento e segurança. Esses planos oferecem isolamento a nível de cálculo na plataforma compartilhada existente, bem como dados criptografados de ponta a ponta enquanto em trânsito e em repouso. 
 
-## Convertendo de planos de precificação anteriores
+Para obter mais informações ou para comprar um plano Premium, entre em contato com [Vendas](https://ibm.biz/contact-wdc-premium). 
+<br>
+<br> 
 
-Clientes que assinaram um plano antes de **1º de agosto de 2017** foram migrados para um dos novos planos.
+**Nota:** a data de versão da API foi atualizada para `2018-08-01`. Para tirar vantagem das novas opções de dimensionamento de ambiente (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), deve-se usar esta data de versão ao criar ambientes com a API. Os tamanhos de ambiente agora têm o tipo de `string` (anteriormente, o tipo era `integer`.)
 
-- Os clientes que anteriormente estavam no plano de avaliação grátis de 30 dias foram migrados para o plano **Lite**.
-  Como resultado dessa transição, os usuários existentes podem ter cumprido ou excedido o limite do plano Lite em documentos _(2000)_, armazenamento _(200Mb)_ ou número de coleções _(2)_. Se você exceder o limite do plano **Lite**, não poderá incluir nenhum conteúdo adicional no serviço, mas ainda poderá consultar coleções. É possível visualizar o status atual de todos esses limites usando o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou a API. Para ser capaz de continuar incluindo conteúdo na instância do {{site.data.keyword.discoveryshort}}, deve-se fazer um dos seguintes:
-  - remova coleções e/ou documentos para que os limites do plano **Lite** não seja excedido.
-    Os documentos podem ser excluídos individualmente por meio da API usando o método [delete-doc ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} ou coleções inteiras podem ser excluídas usando o conjunto de ferramentas ou a API usando o método [delete-collection ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-collection){: new_window} 
-  - Faça upgrade de seu plano para um nível que atenda às suas necessidades de armazenamento.
-- Os clientes com ambientes de tamanho **`1`** **`2`** ou **`3`** foram migrados automaticamente para o plano **Avançado**.
-  Se você foi movido para a camada Avançado e tiver menos de 100.000 documentos e 4 coleções, será possível mudar para a camada Padrão para reduzir custos. Isso requer a criação de uma nova instância do Discovery no plano Padrão e realimentação de dados na nova instância. A ingestão pode ser feita por meio do conjunto de ferramentas, das APIs ou do Data Crawler.
+\* O limite do documento supõe um tamanho médio do documento de 100 KB no disco. O tamanho do documento é calculado depois que ele passou por conversão e enriquecimento, portanto, o tamanho do documento pode mudar significativamente da entrada original. É possível visualizar o número de documentos armazenados e a quantia total de uso de armazenamento usando a API [Ambientes](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api) ou [Coleções](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#collections-api) ou usando o conjunto de ferramentas. Se seus documentos forem em média maiores que 100 KB no disco, você atingirá o limite de armazenamento de um plano antes do limite máximo de documentos. Se você executar [segmentação de documento](https://console.bluemix.net/docs/services/discovery/building.html#doc-segmentation) em seus documentos, cada segmento será contado como um documento separado.
 
-Consulte o [Catálogo do {{site.data.keyword.discoveryshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} para obter informações de precificação adicionais.
+\*\* Os [enriquecimentos do Natural Language Understanding (NLU)](https://console.bluemix.net/docs/services/discovery/building.html#adding-enrichments) são: Extração de entidade, Análise de sentimentos, Classificação de categoria, Identificação de conceito, Extração de palavra-chave, Extração de relação, Análise de emoção, Classificação de elementos e Extração de função semântica. Somente os primeiros 50.000 caracteres de cada documento são enriquecidos. 
+
+\*\*\* A Classificação de elementos é um enriquecimento que analisa por meio do controle de documentos para converter, identificar e classificar elementos de importância. Ela usa o Processamento de Linguagem Natural para extrair os elementos a seguir de documentos PDF: parte (a quem se refere), natureza (tipo de elemento) e categoria (classe específica).
+
+\*\*\*\* Se você atingir seu limite em andamento, será necessário desacelerar a taxa de sua ingestão. Ao usar o serviço Discovery, um documento está "em andamento" ao ser transferido por upload, enriquecido e processado antes de ser incluído em uma coleção.
+
+Para obter informações sobre o cálculo de custos, veja o [IBM Cloud Pricing Calculator ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/pricing/platform/watson){: new_window}.
+
+Para obter informações sobre a segurança do IBM Cloud, veja [Segurança e privacidade de dados dos serviços de nuvem ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument){: new_window}.
+
+Para obter informações adicionais de precificação, veja o [Catálogo do {{site.data.keyword.discoveryshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/catalog/services/discovery){: new_window}.
+
+## Notas para Clientes com Planos Existentes
+
+- Iniciando em **1º de agosto de 2018**, seu faturamento e uso serão baseados neste plano de precificação.
+- O plano Lite foi reduzido de 2.000 documentos/400 consultas do {{site.data.keyword.discoverynewsshort}} por mês para 1.000 documentos/200 consultas do {{site.data.keyword.discoverynewsshort}} por mês. Se você já excedeu os novos limites do plano Lite, não será possível incluir mais nenhum documento. No entanto, é possível continuar usando-o ou fazer upgrade dele para um plano Avançado ou Premium.
+- O plano Padrão tornou-se obsoleto e não estará mais disponível para novos usuários. Se você está atualmente em um plano Padrão existente, é possível continuar usando-o ou fazer upgrade dele para um plano Avançado ou Premium.
+- Os planos Avançado e Premium são agora baseados em camadas de documentos, eles não são mais baseados nas horas de documento. Sua fatura mensal não flutuará com base no número de documentos, a menos que você alterne entre as camadas.
+- Os clientes Premium devem entrar em contato com [Vendas](https://ibm.biz/contact-wdc-premium) para obter detalhes sobre mudanças de faturamento.	

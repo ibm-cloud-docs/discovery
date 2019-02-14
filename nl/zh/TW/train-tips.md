@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-14"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -32,24 +32,24 @@ lastupdated: "2017-11-14"
 請使用[列出集合詳細資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/?curl#list-collection-details){: new_window} API 指令來驗證您的系統是否已經過訓練。  
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
+curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
 ```
 {: pre}
 
-回應範例：
+範例回應：
 
 ```json
 {
-  "training": {
+  "training_status": {
+    "data_updated": "2017-02-10T14:18:22.786Z",
     "total_examples": 54,
-    "available": true,
-    "processing": false,
-    "minimum_queries_added": true,
-    "minimum_examples_added": true,
     "sufficient_label_diversity": false,
-    "notices": 13,
+    "processing": false,
+    "minimum_examples_added": true,
     "successfully_trained": "2017-02-08T14:18:22.786Z",
-    "data_updated": "2017-02-10T14:18:22.786Z"
+    "available": true,
+    "notices": 13,
+    "minimum_queries_added": true    
     }
 }
 ```
@@ -70,7 +70,7 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 您可以使用[查詢通知 API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window} 來檢視錯誤或警告。  
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2017-11-07"
+curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2017-11-07"
 ```
 {: pre}
 
@@ -100,11 +100,11 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 
 ### 錯誤：`Invalid training data found: The query string provided exceeds the maximum length, please provide a shorter one`
 
-- 查詢字串長度上限是 `X`。您需要縮短特定的查詢。將過濾器併入查詢中，不失為暫行解決方法。  
+- 查詢字串長度上限是 `2048`。您需要縮短特定的查詢。將過濾器併入查詢中，不失為暫行解決方法。  
 
 ### 錯誤：`This collection cannot be trained: your plan does not support training on this many top-level text fields.`
 
-- 此錯誤只發生於 `Lite` 方案。可訓練的最上層文字欄位數上限是 `X`。最上層欄位是未在另一個欄位下形成巢狀的欄位。訓練只發生在最上層欄位，並且會限制訓練處理程序中可以使用多少個欄位。  
+- 此錯誤只發生於 `Lite` 方案。最上層欄位是未在另一個欄位下形成巢狀的欄位。訓練只發生在最上層欄位，並且會限制訓練處理程序中可以使用多少個欄位。集合中的最上層欄位越多，所需的訓練資料越多。此外，如果最上層欄位超過 `10` 個，訓練比較可能會遇到錯誤。 
 
 ### 錯誤：`Training data quality standards not met: You will need additional training queries with labeled examples. (To be considered for training, each example must appear in the top 100 search results for its query.)`
 

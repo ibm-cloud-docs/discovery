@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-06-09"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2017-11-08"
 
 # Tutorial: Migrando do Retrieve and Rank
 
-Migrando do {{site.data.keyword.retrieveandrankshort}} para o serviço do {{site.data.keyword.discoveryfull}}. Uma continuação do Tutorial de Introdução ao Cranfield 
+Migrando do {{site.data.keyword.retrieveandrankshort}} para o serviço do {{site.data.keyword.discoveryfull}}. Uma continuação do Tutorial de Introdução ao Cranfield
 
 ## Visão geral
 {: #overview}
@@ -31,7 +31,7 @@ O processo para usuários que migram dados do {{site.data.keyword.retrieveandran
 1. Migrar os dados de coleção.
 2. Migrar os dados de treinamento.
 
-Ao migrar seus dados de coleção treinados, o **mais importante** é _manter os IDs do documento os mesmos_. Isso ocorre porque seus dados de treinamento usam esses IDs para referenciar a verdade absoluta e, se os IDs forem mudados durante a movimentação do {{site.data.keyword.retrieveandrankshort}} para o {{site.data.keyword.discoveryshort}}, a reclassificação será completamente desativada (ou o treinamento poderá nem mesmo iniciar). Como o {{site.data.keyword.discoveryshort}} permite especificar o ID do documento no processo de upload da API, esse problema pode ser evitado seguindo as diretrizes neste documento. Os dados de treinamento do {{site.data.keyword.retrieveandrankshort}} são geralmente armazenados em um arquivo `csv`. Neste tutorial, esse arquivo `csv` é usado para fazer upload dos dados de treinamento de amostra no {{site.data.keyword.discoveryshort}}. A migração de dados de treinamento exportados por meio do conjunto de ferramentas do {{site.data.keyword.retrieveandrankshort}} é detalhada em [Migrando dados de treinamento por meio do serviço](/docs/services/discovery/migrate-dcs-rr.html#extract-train).
+Ao migrar seus dados de coleção treinados, o **mais importante** é _manter os IDs do documento os mesmos_. Isso ocorre porque seus dados de treinamento usam esses IDs para referenciar a verdade absoluta e, se os IDs forem mudados durante a movimentação do {{site.data.keyword.retrieveandrankshort}} para o {{site.data.keyword.discoveryshort}}, a reclassificação será completamente desativada (ou o treinamento poderá nem mesmo iniciar). Como o {{site.data.keyword.discoveryshort}} permite especificar o ID do documento no processo de upload da API, esse problema pode ser evitado seguindo as diretrizes neste documento.  Os dados de treinamento do {{site.data.keyword.retrieveandrankshort}} são geralmente armazenados em um arquivo `csv`. Neste tutorial, esse arquivo `csv` é usado para fazer upload dos dados de treinamento de amostra no {{site.data.keyword.discoveryshort}}.  A migração de dados de treinamento exportados por meio do conjunto de ferramentas do {{site.data.keyword.retrieveandrankshort}} é detalhada em [Migrando dados de treinamento por meio do serviço](/docs/services/discovery/migrate-dcs-rr.html#extract-train).
 
 Este tutorial supõe que o {{site.data.keyword.retrieveandrankshort}} foi configurado de modo semelhante ao [Tutorial de Introdução do {{site.data.keyword.retrieveandrankshort}} ](/docs/services/retrieve-and-rank/getting-started.html) e usa a migração do caminho de origem descrito [aqui](/docs/services/discovery/migrate-dcs-rr.html#source). Consulte [Avalie seu caminho de migração para o serviço Watson Discovery](/docs/services/discovery/migrate-dcs-rr.html#evaluate) para obter outras opções de migração.
 
@@ -51,14 +51,14 @@ Os pré-requisitos a seguir são necessários antes de iniciar este tutorial:
 -  Este tutorial supõe que você possui suas credenciais de serviço.
    -  Quando estiver no serviço do Watson {{site.data.keyword.discoveryshort}} no {{site.data.keyword.Bluemix_notm}}, clique em **Credenciais de serviço**.
    -  Clique em **Visualizar credenciais** em Ações.
-   -  Copie os valores `username` e `password` e certifique-se de que o valor `url` corresponda ao valor nos exemplos abaixo e, se não corresponder, substitua-o também.
+   -  Copie o valor de `apikey` e certifique-se de que o valor de `url` corresponda ao que está nos exemplos abaixo, se não, substitua-o também.
 
 ## Incluindo dados do Cranfield no Discovery
 
 1.  Crie um Ambiente.
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
@@ -67,7 +67,7 @@ Os pré-requisitos a seguir são necessários antes de iniciar este tutorial:
 1. Crie uma Coleção.
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07"
     ```
     {: pre}
 
@@ -79,17 +79,17 @@ Os pré-requisitos a seguir são necessários antes de iniciar este tutorial:
     1.  Faça download do script de upload de dados [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-upload.py){: new_window}. Esse script fará upload do json Cranfield no {{site.data.keyword.discoveryshort}}.
         O script lê o arquivo JSON e envia cada documento JSON individual para o serviço do {{site.data.keyword.discoveryshort}} usando uma configuração padrão no {{site.data.keyword.discoveryshort}}.
         **Nota:** a configuração padrão no {{site.data.keyword.discoveryshort}} fornece configurações semelhantes à configuração Solr padrão no {{site.data.keyword.retrieveandrankshort}}.
-    1.  Emita o comando a seguir para fazer upload dos dados `cranfield-data-json` para a coleção `cranfield_collection`. Substitua `{username}`, `{password}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` por suas informações.  Observe que há opções adicionais, como -d para depuração e –v para a saída detalhada por meio do curl.
+    1.  Emita o comando a seguir para fazer upload dos dados `cranfield-data-json` para a coleção `cranfield_collection`. Substitua `{apikey_value}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` por suas informações. Observe que há opções adicionais, como -d para depuração e –v para a saída detalhada por meio do curl.
 
         ```bash
-        python ./disco-upload.py -u {username}:{password} -i {path_to_file}/cranfield-data.json –e {environment_id} -c {collection_id}
+        python ./disco-upload.py -u apikey:{apikey_value} -i {path_to_file}/cranfield-data.json -e {environment_id} -c {collection_id}
         ```
         {: pre}
 
 1.  Quando o processo de upload é concluído, é possível verificar se os documentos estão lá emitindo o comando a seguir para visualizar os detalhes da coleção:
 
     ```bash
-    curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
+    curl -u "apikey": "{1}/environments/ {2}{0}{1}{7}-11-07"
     ```
     {: pre}
 
@@ -99,27 +99,27 @@ Os pré-requisitos a seguir são necessários antes de iniciar este tutorial:
     {
       "collection_id": "f1360220-ea2d-4271-9d62-89a910b13c37",
       "name": "democollection",
-      "description": "this is a demo collection",
-      "created": "2015-08-24T18:42:25.324Z",
-      "updated": "2015-08-24T18:42:25.324Z",
-      "status": "available",
       "configuration_id": "6963be41-2dea-4f79-8f52-127c63c479b0",
       "language": "en",
+      "status": "available",
+      "description": "this is a demo collection",
+      "created": "2015-08-24T18:42:25.324Z",
+      "updated": "2015-08-24T18:42:25.324Z",      
       "document_counts": {
         "available": 1000, "processing": 20, "failed": 180
       },
       "disk_usage": {
         "used_bytes": 260
-      }, "training": {
+      }, "training_status": {
+        "data_updated": null,
         "total_examples": 0,
-        "available": false,
-        "processing": false,
-        "minimum_queries_added": false,
-        "minimum_examples_added": true,
         "sufficient_label_diversity": false,
-        "notices": 0,
+        "processing": false,
+        "minimum_examples_added": true,
         "successfully_trained": null,
-        "data_updated": null
+        "available": false,
+        "notices": 0,
+        "minimum_queries_added": false        
       }
     }
     ```
@@ -141,10 +141,10 @@ O Watson {{site.data.keyword.discoveryshort}} Service usa um modelo de aprendiza
 
 1.  Faça download do script de upload de dados de treinamento. Esse script será usado para fazer upload dos dados de treinamento para o {{site.data.keyword.discoveryshort}}. O script transforma o arquivo `csv` em um conjunto de consultas e de exemplos JSON e os envia para o serviço do {{site.data.keyword.discoveryshort}} usando as [APIs de dados de treinamento![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data){: new_window}
     **Nota:** o {{site.data.keyword.discoveryshort}} gerencia dados de treinamento dentro do serviço, portanto, ao gerar novos exemplos e consultas de treinamento, eles podem ser armazenados no próprio {{site.data.keyword.discoveryshort}}, não como parte de um arquivo CSV separado que precisa ser mantido.
-1.  Execute o script de upload de treinamento para fazer upload dos dados de treinamento para o {{site.data.keyword.discoveryshort}}. Substitua `{username}`, `{password}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` por suas informações. Observe que há opções adicionais, como `-d` para depuração e `-v` para saída detalhada por meio do curl.
+1.  Execute o script de upload de treinamento para fazer upload dos dados de treinamento para o {{site.data.keyword.discoveryshort}}. Substitua `{apikey_value}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` por suas informações. Observe que há opções adicionais, como `-d` para depuração e `-v` para saída detalhada por meio do curl.
 
     ```bash
-    python ./disco-train.py -u {username}:{password} -i {path_to_file}/cranfield-gt.csv –e {environment_id} -c {collection_id}
+    python ./disco-train.py -u apikey:{apikey_value} -i {path_to_file}/cranfield-gt.csv –e {environment_id} -c {collection_id}
     ```
     {: pre}
 
@@ -155,20 +155,20 @@ O Watson {{site.data.keyword.discoveryshort}} Service usa um modelo de aprendiza
 
 O serviço do {{site.data.keyword.discoveryshort}} usará automaticamente um modelo treinado para reclassificar os resultados da procura, se disponível. Quando [uma chamada API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window} é feita com `natural_language_query` em vez de `query`, uma verificação é feita para ver se há um modelo disponível. Se um modelo estiver disponível, então o {{site.data.keyword.discoveryshort}} usará esse modelo para reclassificar os resultados. Primeiramente, faremos uma procura pelos documentos não classificados e depois faremos uma procura usando o modelo de classificação.
 
-1.  É possível procurar por documentos em sua coleção usando um comando cURL. Execute uma consulta usando a chamada API de consulta para ver os resultados não classificados. Substitua `{username}`, `{password}`, `{environment_id}` e `{collection_id}` pelos seus próprios valores.  Os resultados retornados serão resultados não classificados e usarão as fórmulas de classificação padrão do {{site.data.keyword.discoveryshort}}. É possível tentar outras consultas abrindo o arquivo `csv` de dados de treinamento e copiando o valor da primeira coluna para o parâmetro de consulta.
+1.  É possível procurar por documentos em sua coleção usando um comando cURL. Execute uma consulta usando a chamada API de consulta para ver os resultados não classificados. Substitua `{apikey_value}`, `{environment_id}`, `{collection_id}` por seus próprios valores. Os resultados retornados serão resultados não classificados e usarão as fórmulas de classificação padrão do {{site.data.keyword.discoveryshort}}. É possível tentar outras consultas abrindo o arquivo `csv` de dados de treinamento e copiando o valor da primeira coluna para o parâmetro de consulta.
 
     ```bash
-    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
-1.  Agora, execute uma procura usando o modelo configurando o parâmetro `natural_language_query`. Antes de fazer isso, verifique se você tem um modelo treinado, conforme descrito na seção anterior.  Cole o código a seguir em seu console substituindo `{username}`, `{password}`, `{environment_id}` e `{collection_id}` pelos seus valores.
+1.  Agora, execute uma procura usando o modelo configurando o parâmetro `natural_language_query`. Antes de fazer isso, verifique se você tem um modelo treinado, conforme descrito na seção anterior.  Cole o código a seguir em seu console, substituindo `{apikey_value}`, `{environment_id}`, `{collection_id}` por seus valores.
 
     ```bash
-    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
     Esse comando retornará resultados reclassificados usando o modelo treinado anteriormente. Compare os resultados dessa procura, bem como os resultados de algumas das outras procuras que você tentou anteriormente. Podem ser exibidas algumas diferenças nos resultados em comparação ao que é visto na {{site.data.keyword.retrieveandrankshort}}. Isso ocorre porque algumas das técnicas utilizadas para procura foram mudadas para simplificar a experiência e melhorar os resultados, no entanto, em geral a qualidade dos resultados será semelhante.
 
-Após avaliar os resultados da procura reclassificados, é possível refiná-los no {{site.data.keyword.discoveryshort}} repetindo a etapa de upload de dados de treinamento com consultas e exemplos de treinamento tradicionais e visualizando os resultados da procura. Também é possível incluir novos documentos, conforme descrito na primeira etapa, para ampliar o escopo da procura. Semelhante ao {{site.data.keyword.retrieveandrankshort}}, a melhora dos resultados com treinamento é um processo iterativo.
+Após avaliar os resultados da procura reclassificados, é possível refiná-los no {{site.data.keyword.discoveryshort}} repetindo a etapa de upload de dados de treinamento com consultas e exemplos de treinamento tradicionais e visualizando os resultados da procura.  Também é possível incluir novos documentos, conforme descrito na primeira etapa, para ampliar o escopo da procura. Semelhante ao {{site.data.keyword.retrieveandrankshort}}, a melhora dos resultados com treinamento é um processo iterativo.

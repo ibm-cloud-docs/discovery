@@ -19,34 +19,34 @@ lastupdated: "2017-11-08"
 
 # Migration à partir de AlchemyData News
 
-Une nouvelle version de {{site.data.keyword.discoverynewsfull}} a débuté le **31 juillet 2017**. Pour visualiser une description de cette collection, voir [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html). 
+Une nouvelle version de {{site.data.keyword.discoverynewsfull}} a débuté le **31 juillet 2017**. Pour visualiser une description de cette collection, voir [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html).
 
-Le retrait de AlchemyData News est prévu le **7 mars 2018**. 
+Le retrait de AlchemyData News est prévu le **7 mars 2018**.
 
 ## Comparaison des services
 {: shortdesc}
 
-Les différentes suivantes sont notables lors du passage de AlchemyData News à {{site.data.keyword.discoverynewsshort}} dans le service {{site.data.keyword.discoveryshort}} : 
+Les différentes suivantes sont notables lors du passage de AlchemyData News à {{site.data.keyword.discoverynewsshort}} dans le service {{site.data.keyword.discoveryshort}} :
 
-- {{site.data.keyword.discoveryshort}} facture les requêtes de nouvelles par requête uniquement. Toutes les zones sont disponibles pour être renvoyées avec chaque résultat sans coût supplémentaire. 
-- Chaque requête {{site.data.keyword.discoveryshort}} peut renvoyer un maximum de 50 résultats. Un paramètre `offset` est disponible et vous permet de paginer les requêtes en fonction du nombre de résultats dont vous avez besoin. 
-- Par ailleurs, {{site.data.keyword.discoveryshort}} prend en charge les agrégations. Pour plus d'informations, voir la section [aggregations](/docs/services/discovery/query-reference.html#aggregations) de la documentation {{site.data.keyword.discoveryshort}}. 
-- La méthode de classement utilisée par {{site.data.keyword.discoverynewsfull}} est différente de celle utilisée par AlchemyData News. Il n'existe actuellement aucune zone à classer. 
+- {{site.data.keyword.discoveryshort}} facture les requêtes de nouvelles par requête uniquement. Toutes les zones sont disponibles pour être renvoyées avec chaque résultat sans coût supplémentaire.
+- Chaque requête {{site.data.keyword.discoveryshort}} peut renvoyer un maximum de 50 résultats. Un paramètre `offset` est disponible et vous permet de paginer les requêtes en fonction du nombre de résultats dont vous avez besoin.
+- Par ailleurs, {{site.data.keyword.discoveryshort}} prend en charge les agrégations. Pour plus d'informations, voir la section [aggregations](/docs/services/discovery/query-reference.html#aggregations) de la documentation {{site.data.keyword.discoveryshort}}.
+- La méthode de classement utilisée par {{site.data.keyword.discoverynewsfull}} est différente de celle utilisée par AlchemyData News. Il n'existe actuellement aucune zone à classer.
 - La structure de requête et la structure de données renvoyées diffèrent entre {{site.data.keyword.discoverynewsshort}} et AlchemyData News. Une méthode efficace pour bien comprendre la structure JSON consiste à exécuter une requête sur un seul résultat dans {{site.data.keyword.discoverynewsshort}} et à inspecter le résultat.
-- {{site.data.keyword.discoverynewsshort}} ne prend pas en charge les sorties XML. 
+- {{site.data.keyword.discoverynewsshort}} ne prend pas en charge les sorties XML.
 - Le dédoublonnage est une fonction bêta dans {{site.data.keyword.discoverynewsshort}}.
 
 ## Différences d'authentification
 
-Le service {{site.data.keyword.discoveryshort}} utilise les données d'identification {{site.data.keyword.Bluemix_notm}} `username` et `password` standard pour accéder aux requêtes. Cela remplace la méthode de clé d'API existante utilisée par AlchemyData News. Toutes les requêtes {{site.data.keyword.discoveryshort}} doivent être écrites avec une combinaison de nom d'utilisateur et de mot de passe créée par une instance de service {{site.data.keyword.discoveryshort}}. 
+Le service {{site.data.keyword.discoveryshort}} utilise les données d'identification {{site.data.keyword.Bluemix_notm}} `username` et `password` standard pour accéder aux requêtes. Cela remplace la méthode de clé d'API existante utilisée par AlchemyData News. Toutes les requêtes {{site.data.keyword.discoveryshort}} doivent être écrites avec une combinaison de nom d'utilisateur et de mot de passe créée par une instance de service {{site.data.keyword.discoveryshort}}.
 
 Vous pouvez gérer les données d'identification de service en consultant l'onglet **Service Credentials** de votre service dans {{site.data.keyword.Bluemix_notm}}.
 
 ## Configuration d'une instance Discovery
 
-La méthode de création d'une instance de service {{site.data.keyword.discoveryshort}} est identique à celle qui permet de créer une instance AlchemyData News. 
+La méthode de création d'une instance de service {{site.data.keyword.discoveryshort}} est identique à celle qui permet de créer une instance AlchemyData News.
 
-1. Accédez à [{{site.data.keyword.Bluemix_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}, connectez-vous et sélectionnez  {{site.data.keyword.discoveryshort}} dans le catalogue de service. 
+1. Accédez à [{{site.data.keyword.Bluemix_notm}} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}, connectez-vous et sélectionnez  {{site.data.keyword.discoveryshort}} dans le catalogue de service.
 1. Sélectionnez le plan adapté à vos besoins et cliquez sur **Create**.
 
   Le service {{site.data.keyword.discoveryshort}} offre un plan Lite avec 1000 requêtes de nouvelles disponibles tous les mois. Vous pouvez utiliser une instance de ce plan pour identifier des requêtes équivalentes sans avoir à les payer.
@@ -60,20 +60,20 @@ Vous pouvez exécuter des requêtes sur {{site.data.keyword.discoverynewsfull}} 
 
 Pour lancer les outils {{site.data.keyword.discoveryshort}} et exécuter des requêtes sur {{site.data.keyword.discoverynewsshort}} :
 
-1. Cliquez sur **Launch Tool** pour {{site.data.keyword.discoveryshort}} sous **Services**.
-1. Cliquez sur la vignette {{site.data.keyword.discoverynewsshort}} pour ouvrir l'écran **Manage data**. 
-1. Cliquez sur **View data schema**, puis sur **Build queries** pour ouvrir le générateur de requête. 
+1. Cliquez sur **Lanch Tool** pour {{site.data.keyword.discoveryshort}} sous **Services**.
+1. Cliquez sur la vignette {{site.data.keyword.discoverynewsshort}} pour ouvrir l'écran **Manage data**.
+1. Cliquez sur **View data schema**, puis sur **Build queries** pour ouvrir le générateur de requête.
 
   Les requêtes dans {{site.data.keyword.discoverynewsfull}} sont structurées de la même façon que les requêtes écrites pour des collections de données privées. Voir [Concepts de requête](/docs/services/discovery/using.html) et [Référence de requête](/docs/services/discovery/query-reference.html).
   {: tip}
 
-**Remarque** : ne vous attendez pas à obtenir des résultats identiques pour des requêtes similaires dans AlchemyData News et dans {{site.data.keyword.discoverynewsfull}}. La durée d'exploration, les sources et les enrichissements sont autant de facteurs qui contribuent à générer des résultats différents. 
+**Remarque** : ne vous attendez pas à obtenir des résultats identiques pour des requêtes similaires dans AlchemyData News et dans {{site.data.keyword.discoverynewsfull}}. La durée d'exploration, les sources et les enrichissements sont autant de facteurs qui contribuent à générer des résultats différents.
 
 ## Ajout de requêtes Watson Discovery News à votre application
 
 Utilisez l'une des méthodes ci-après pour ajouter des requêtes à votre application. Tous ces exemples illustrent une requête portant sur `enriched_text.entities` avec la `IBM` pour `text` (`enriched_text.entities.text:IBM`).
 
-Dans tous les exemples suivants, remplacez `{username}` et `{password}` par le nom d'utilisateur et le mot de passe indiqués sur la page **Service Credentials** de votre instance de service. 
+Dans tous les exemples suivants, remplacez `{username}` et `{password}` par le nom d'utilisateur et le mot de passe indiqués sur la page **Service Credentials** de votre instance de service.
 
 ### Utilisation d'appels directs vers l'API
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2017-07-03"
 
 ---
 
@@ -24,7 +24,10 @@ lastupdated: "2017-08-18"
 
 ## 使用 Data Crawler 搜寻数据
 
-Data Crawler 是一个命令行工具，用于帮助您从文档所在的存储库（例如：文件共享、数据库和 Microsoft SharePoint&reg;）中获取文档，然后将这些文档推送到云，以供 {{site.data.keyword.discoveryshort}} 服务使用。
+Data Crawler 是一个命令行工具，用于帮助您从文档所在的存储库（例如：文件共享、数据库和 Microsoft SharePoint）中获取文档，然后将这些文档推送到云，以供 {{site.data.keyword.discoveryshort}} 服务使用。
+
+您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 来搜寻 Box、Salesforce 和 Microsoft SharePoint Online 数据源。请参阅[连接到数据源](/docs/services/discovery/connect.html)以获取更多信息。
+{: tip}
 
 ## 何时使用 Data Crawler
 

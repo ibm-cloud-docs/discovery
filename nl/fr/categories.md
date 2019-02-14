@@ -22,7 +22,7 @@ lastupdated: "2017-08-18"
 Le tableau ci-après présente les catégories qui sont renvoyées par l'enrichissement Category Classification. Vous pouvez télécharger une feuille de calcul contenant ces informations à partir d'ici : <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe" class="style-scope doc-content"></a>.
 {: shortdesc}
 
-| NIVEAU 1                  | NIVEAU 2                               | NIVEAU 3                               | NIVEAU 4                       | NIVEAU 5                      |
+| NIVEAU 1                   | NIVEAU 2                                | NIVEAU 3                                | NIVEAU 4                        | NIVEAU 5                       |
 |---------------------------|----------------------------------------|----------------------------------------|--------------------------------|-------------------------------|
 | art and entertainment     | books and literature                   | best-sellers                           |                                |                               |
 | art and entertainment     | books and literature                   | children's books                       |                                |                               |

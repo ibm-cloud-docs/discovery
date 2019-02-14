@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-16"
 
 ---
 
@@ -19,12 +19,12 @@ lastupdated: "2017-11-08"
 
 # Watson Discovery News Original からのマイグレーション
 
-{{site.data.keyword.discoverynewsshort}} の新しいバージョンが **2017 年 7 月 31 日**に公開されました。元のバージョンは、{{site.data.keyword.discoverynewsshort}} Original と名前変更され、**2018 年 1 月 15 日**のサービスからの削除によって廃止されました。  
+{{site.data.keyword.discoverynewsshort}} の新しいバージョンが **2017 年 7 月 31 日**に公開されました。 元のバージョンは {{site.data.keyword.discoverynewsshort}} Original に名前変更され、**2018 年 1 月 15 日**にサービスを廃止しました。{{site.data.keyword.discoverynewsshort}} Original にアクセスしようとすると、メッセージ `410 GONE` を受け取ります。
 {: shortdesc}
 
 {{site.data.keyword.discoverynewsshort}} Original から新しいバージョンにマイグレーションするには、{{site.data.keyword.discoverynewsshort}} Original 用に作成されたすべての照会の更新を含め、いくつかの変更を行う必要があります。
 
-  **注:** {{site.data.keyword.discoveryshort}} の新規インスタンスを作成した場合は、{{site.data.keyword.discoverynewsshort}} の新しいバージョンにしかアクセスできません。新しい {{site.data.keyword.discoverynewsshort}} と {{site.data.keyword.discoverynewsshort}} Original の両方へのアクセスは、**2017 年 7 月 31 日**より前に作成された {{site.data.keyword.discoveryshort}} のインスタンスでのみ可能です。
+  **注:** {{site.data.keyword.discoverynewsshort}} Original は、**2017 年 7 月 31 日**より前に作成された {{site.data.keyword.discoveryshort}} のインスタンスでのみ使用可能で、**2018 年 1 月 15 日**よりサービスは廃止されました。
 
 このコレクションの説明については、[Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) を参照してください。
 
@@ -34,9 +34,9 @@ lastupdated: "2017-11-08"
 
 | {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
-| **{{site.data.keyword.discoverynewsshort}} Original** は、Alchemy Language エンリッチメント (キーワード抽出、エンティティー抽出、概念のタグ付け、関係抽出、センチメント分析、およびタクソノミー分類) によって事前にエンリッチされています。また、クロール日、公開日、URL ランキング、ホスト・ランク、アンカー・テキストのメタデータも追加されます。| **{{site.data.keyword.discoverynewsshort}}** は、{{site.data.keyword.nlushort}} (NLU) エンリッチメント (キーワード抽出、エンティティー抽出、意味役割抽出、センチメント分析、関係、およびカテゴリー分類) によって事前にエンリッチされています。クロール日付および公開日付もメタデータとして追加されます。NLU エンリッチメントの詳細については、[エンリッチメントの追加](/docs/services/discovery/building.html#adding-enrichments)を参照してください。                         |
-| **{{site.data.keyword.discoverynewsshort}} Original** は、サービス・インスタンス固有の環境からアクセス可能でした。| **{{site.data.keyword.discoverynewsshort}}** を使用する場合、すべてのユーザーは同じ環境とコレクションを照会します。つまり、ご使用の環境とコレクションのすべての参照を変更する必要があります。|
-| **{{site.data.keyword.discoverynewsshort}} Original** では、API を介して環境を取得するときに、コレクション・サイズ、文書数、その他の情報を受け取ります。| **{{site.data.keyword.discoverynewsshort}}** API はこの情報を返しません                          |
+|**{{site.data.keyword.discoverynewsshort}} Original** は、Alchemy Language エンリッチメント (キーワード抽出、エンティティー抽出、概念のタグ付け、関係抽出、センチメント分析、およびタクソノミー分類) によって事前にエンリッチされていました。また、クロール日、公開日、URL ランキング、ホスト・ランク、アンカー・テキストのメタデータも追加されていました。| **{{site.data.keyword.discoverynewsshort}}** は、{{site.data.keyword.nlushort}} (NLU) エンリッチメント (キーワード抽出、エンティティー抽出、意味役割抽出、センチメント分析、関係、およびカテゴリー分類) によって事前にエンリッチされています。 クロール日付および公開日付もメタデータとして追加されます。 NLU エンリッチメントの詳細については、[エンリッチメントの追加](/docs/services/discovery/building.html#adding-enrichments)を参照してください。                         |
+| **{{site.data.keyword.discoverynewsshort}} Original** は、サービス・インスタンス固有の環境からアクセス可能でした。                       | **{{site.data.keyword.discoverynewsshort}}** を使用する場合、すべてのユーザーは同じ環境とコレクションを照会します。 つまり、ご使用の環境とコレクションのすべての参照を変更する必要があります。      |
+| **{{site.data.keyword.discoverynewsshort}} Original** では、API を介して環境を取得するときに、コレクション・サイズや文書数などの情報を受け取っていました。| **{{site.data.keyword.discoverynewsshort}}** API はこの情報を返しません                          |
 
 **{{site.data.keyword.discoverynewsshort}}** では以下の新規フィールドが使用可能です。
 
@@ -61,21 +61,21 @@ lastupdated: "2017-11-08"
 `forum_title`  
 `main_image_url`
 
-多くのフィールド (例えば、`blekko.hostrank`、`duplicate_url`、`domain` など) も削除されました。完全リストについては、<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>ここ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> を参照してください。
+多くのフィールド (例えば、`blekko.hostrank`、`duplicate_url`、`domain` など) も削除されました。 完全リストについては、<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>ここ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> を参照してください。
 
 ## 新しい Watson Discovery News への照会の移動
 
 {{site.data.keyword.discoverynewsshort}} Original から新しい {{site.data.keyword.discoverynewsshort}} に照会を移動するには、以下のようにしてすべての既存の照会を変更する必要があります。  
 
-- 照会が呼び出す環境 ID を変更します。ニュースの環境名は、すべての {{site.data.keyword.discoveryshort}} サービス・インスタンスで以下のように標準化されました。
+- 照会が呼び出す環境 ID を変更します。 ニュースの環境名は、すべての {{site.data.keyword.discoveryshort}} サービス・インスタンスで以下のように標準化されました。
 
   `system`  
 
-- 照会が呼び出すコレクション ID を変更します。ニュースのコレクション名は、すべての {{site.data.keyword.discoveryshort}} サービス・インスタンスで以下のように標準化されました。
+- 照会が呼び出すコレクション ID を変更します。 ニュースのコレクション名は、すべての {{site.data.keyword.discoveryshort}} サービス・インスタンスで以下のように標準化されました。
 
   `news`
 
-- 新しい {{site.data.keyword.discoverynewsshort}} 用の新しい JSON パス構造を使用するように照会を変更します。ほとんどのフィールドがパスを変更し、複数のフィールドが追加され、価値の低い、選択されたフィールドが削除されました。詳細については、フィールド・マイグレーション・スプレッドシート (<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>ここ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a>) を参照してください。例えば、以下の照会をご覧ください。
+- 新しい {{site.data.keyword.discoverynewsshort}} 用の新しい JSON パス構造を使用するように照会を変更します。 ほとんどのフィールドがパスを変更し、複数のフィールドが追加され、価値の低い、選択されたフィールドが削除されました。 詳細については、フィールド・マイグレーション・スプレッドシート (<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>ここ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a>) を参照してください。 例えば、以下の照会をご覧ください。
 
   `discovery/api/v1/environments/ae5790c2-592f-432a-804a-ee16de7154d7/collections/3edcd8f1-e25a-4f44-a069-58332ad17651/query?version=2017-11-07&query=entities.type:"Company"`
 
@@ -85,7 +85,7 @@ lastupdated: "2017-11-08"
 
 ## Watson Discovery News の照会
 
-API、またはいずれかの {{site.data.keyword.watson}} SDK を使用して {{site.data.keyword.discoverynewsshort}} を照会することができます。さらに、照会作成ツールを使用して、対話式に照会を作成することもできます。
+API、またはいずれかの {{site.data.keyword.watson}} SDK を使用して {{site.data.keyword.discoverynewsshort}} を照会することができます。 さらに、照会作成ツールを使用して、対話式に照会を作成することもできます。
 
 **{{site.data.keyword.discoveryshort}} ツールを起動し、{{site.data.keyword.discoverynewsshort}} を照会するには、以下のようにします。**
 
@@ -93,14 +93,14 @@ API、またはいずれかの {{site.data.keyword.watson}} SDK を使用して 
 1. {{site.data.keyword.discoverynewsshort}} タイルをクリックして、**「データの管理 (Manage data)」**画面を開きます。
 1. **「データ・スキーマの表示 (View data schema)」**をクリックし、次に**「照会の作成 (Build queries)」**をクリックして照会ビルダーを開きます。
 
-  {{site.data.keyword.discoverynewsshort}} の照会は、プライベート・データ・コレクション用に作成された照会と同じ方法で構造化されます。[照会の概念](/docs/services/discovery/using.html)および[照会リファレンス](/docs/services/discovery/query-reference.html)を参照してください。
+  {{site.data.keyword.discoverynewsshort}} の照会は、プライベート・データ・コレクション用に作成された照会と同じ方法で構造化されます。 [照会の概念](/docs/services/discovery/using.html)および[照会リファレンス](/docs/services/discovery/query-reference.html)を参照してください。
   {: tip}
 
-**注:** {{site.data.keyword.discoverynewsshort}} Original と {{site.data.keyword.discoverynewsshort}} で、同様の照会についてまったく同じ結果が返されることを期待しないでください。クロール時間、ソース、およびエンリッチメントのすべてが組み合わされて、異なる結果が返されます。
+**注:** {{site.data.keyword.discoverynewsshort}} Original と {{site.data.keyword.discoverynewsshort}} で、同様の照会についてまったく同じ結果が返されることを期待しないでください。 クロール時間、ソース、およびエンリッチメントのすべてが組み合わされて、異なる結果が返されます。
 
 ## アプリケーションへの Watson Discovery News 照会の追加
 
-照会をアプリケーションに追加するには、以下のいずれかの方式を使用します。これらの例はすべて、`IBM` の `text` 値で `enriched_text.entities` を照会します (`enriched_text.entities.text:IBM`)。
+照会をアプリケーションに追加するには、以下のいずれかの方式を使用します。 これらの例はすべて、`IBM` の `text` 値で `enriched_text.entities` を照会します (`enriched_text.entities.text:IBM`)。
 
 以下のすべての例で、`{username}` と `{password}` は、ご自分のサービス・インスタンスの**「サービス資格情報」**ページにリストされている username と password に置き換えてください。
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -28,13 +28,13 @@ O serviço do {{site.data.keyword.discoveryfull}} oferece dois níveis de suport
 | Inglês (en)                    |  Integral         |
 | Árabe (ar)                     |  Básico         |
 | Chinês, simplificado (zh-CN)     |  Básico         |
-| Holandês (nl)                  |  Básico         |
-| Francês (fr)                     |  Básico         |
-| Alemão (de)                     |  Básico         |
+| Holandês (nl)                     |  Básico         |
+| Francês (fr)                     |  Integral         |
+| Alemão (de)                     |  Integral         |
 | Italiano (it)                    |  Básico         |
-| Japonês (ja)                  |  Básico         |
-| Coreano (ko)                   |  Básico         |
-| Português do Brasil (pt-br)   |  Básico         |
+| Japonês (ja)                  |  Integral         |
+| Coreano (ko)                    |  Integral         |
+| Português do Brasil (pt-br)   |  Integral         |
 | Espanhol (es)                    |  Integral         |
 
 ## Suporte básico
@@ -46,6 +46,8 @@ O serviço do {{site.data.keyword.discoveryfull}} oferece dois níveis de suport
     - API frontend (exceto a API de Consulta frontend)
     - Índice otimizado pelo idioma
     - Treinamento de relevância
+    - Expansão de consulta
+    - Documentação em 9 idiomas: inglês, francês, alemão, japonês, coreano, português do Brasil, espanhol, chinês simplificado e chinês tradicional. Role até a parte inferior da documentação do {{site.data.keyword.Bluemix_notm}} para selecionar o idioma.
 - Enriquecimentos
     - Integração com modelos customizados do {{site.data.keyword.knowledgestudiofull}}
     - Detecção de idioma
@@ -66,8 +68,11 @@ extração de metadados. Os enriquecimentos de NLU são:
     - Análise de sentimentos
     - Análise de emoção (somente inglês)
 
+## Suporte somente em inglês
+{: #feature-support}
+
 Os recursos a seguir são suportados atualmente apenas em inglês:
 
 - Enriquecimento Classificação de Elementos
-- {{site.data.keyword.discoveryfull}} Visual Insights (experimental)
-- {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)   
+- {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)
+- Deduplicação de Documento (beta)

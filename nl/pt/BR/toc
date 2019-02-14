@@ -1,22 +1,33 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" audience="service" href="/docs/services/discovery/getting-started-tool.html" path="services/discovery"}
+{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/index.html" path="services/discovery"}
 Discovery
 
     {: .navgroup id="learn"}
-    getting-started.md
     getting-started-tool.md
-    getting-started-query.md
     index.md
     watson-discovery-news.md
-    element-classification.md
-    visual-insights.md
+    
+    {: topicgroup}
+    Classificação de elementos
+        element-classification.md
+        schema.md
+        parsing.md
+    
     building-kg.md
+    sample-apps.md
+    [Vídeos](https://ibm.biz/wds_videos)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    {: topicgroup}
+    Tutoriais
+        getting-started.md
+        getting-started-query.md
+
     building.md
+    connect.md
     adding-content.md
 
     {: topicgroup}
@@ -38,13 +49,15 @@ Discovery
     {: topicgroup}
     Melhorando a relevância dos resultados
         train-tooling.md
+        dashboard.md
         train.md
         train-tips.md
+        continuous-training.md
+        feedback.md
 
     {: topicgroup}
     Discovery e Knowledge Studio
         integrate-wks.md
-        normalize-entities.md
 
     {: topicgroup}
     Migrando recursos
@@ -62,6 +75,11 @@ Discovery
 ](https://www.ibm.com/watson/developercloud/discovery/api)
 
     {: topicgroup}
+    White Papers
+        [Arquitetura de nuvem de descoberta](http://ibm.biz/discovery_advantage_paper)
+        [White Paper de descoberta](https://www.ibm.com/watson/whitepaper/discovery/)
+
+    {: topicgroup}
     Enriquecimento
         categories.md
         entity-types.md
@@ -70,19 +88,22 @@ Discovery
     query-reference.md
     custom-config.md
     language-support.md
+    information-security.md
+    additional-resources.md
     discovery-auxiliary.md
 
     {: .topicgroup}
-    Watson SDKs
-        [Android SDK](https://github.com/watson-developer-cloud/android-sdk)
-        [Java SDK](https://github.com/watson-developer-cloud/java-sdk)
-        [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
-        [Python SDK](https://github.com/watson-developer-cloud/python-sdk)
-        [.NET SDK](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
-        [OpenWhisk SDK](https://github.com/watson-developer-cloud/openwhisk-sdk/)
-        [Salesforce SDK](https://github.com/watson-developer-cloud/salesforce-sdk)
-        [Swift SDK](https://github.com/watson-developer-cloud/swift-sdk)
-        [Unity SDK](https://github.com/watson-developer-cloud/unity-sdk)
+    SDKs do Watson
+        [SDK do Android](https://github.com/watson-developer-cloud/android-sdk)
+        [SDK do Java](https://github.com/watson-developer-cloud/java-sdk)
+        [SDK do Node.js](https://github.com/watson-developer-cloud/node-sdk)
+        [SDK do Python](https://github.com/watson-developer-cloud/python-sdk)
+        [SDK do Ruby](https://github.com/watson-developer-cloud/ruby-sdk)
+        [SDK do .NET](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
+        [SDK do OpenWhisk](https://github.com/watson-developer-cloud/openwhisk-sdk/)
+        [SDK do Salesforce](https://github.com/watson-developer-cloud/salesforce-sdk)
+        [SDK do Swift](https://github.com/watson-developer-cloud/swift-sdk)
+        [SDK do Unity](https://github.com/watson-developer-cloud/unity-sdk)
 
     [Repositórios do Watson GitHub](https://github.com/watson-developer-cloud/)
     {: .navgroup-end}
@@ -95,6 +116,6 @@ Discovery
     {: .topicgroup}
     Comunidade do desenvolvedor
         [StackOverflow](http://stackoverflow.com/questions/tagged/watson-discovery)
-        [developerWorks Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
-        [Canal WDC Slack](http://wdc-slack-inviter.mybluemix.net/)
+        [IBM Developer Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
+        [Canal Slack do WDC](http://wdc-slack-inviter.mybluemix.net/)
     {: .navgroup-end}

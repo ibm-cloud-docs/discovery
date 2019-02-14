@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-10-23"
 
 ---
 
@@ -24,182 +24,148 @@ Die Elementklassifizierung ermöglicht eine schnelle Analyse von maßgeblichen D
 
 Die Konzeption der Elementklassifzierung stellt die folgende Funktionalität bereit:
 
-- Interpretation natürlicher Sprache für Verträge mit Schwerpunkt auf Softwarebeschaffungsverträgen und behördlichen Dokumenten
-- Möglichkeit zur Konvertierung von programmorientiertem PDF-Format in annotiertes JSON-Format
-- Identifizierung von juristischen Personen und Kategorien in Ausrichtung an Expertenwissen
+-  Interpretation natürlicher Sprache für Verträge mit Schwerpunkt auf Softwarebeschaffungsverträgen
+-  Möglichkeit zur Konvertierung von programmorientiertem PDF-Format in annotiertes JSON-Format
+-  Identifizierung von juristischen Personen und Kategorien in Ausrichtung an Expertenwissen
 
 Die Elementklassifizierung verbindet eine funktionsreiche Gruppe von integrierten automatisierten Watson-APIs zur Eingabe einer programmorientierten PDF-Datei, zur Erkennung von Abschnitten, Listen (nummerierte Listen und Aufzählungen), Fußnoten und Tabellen und zur Konvertierung dieser Elemente in ein strukturiertes HTML-Format. Darüber hinaus wird die Klassifizierung dieses strukturierten Formats als JSON-Fomat mit gekennzeichneten Elementen, Typen und Kategorien annotiert und ausgegeben.
 
-Die Elementklassifizierung überträgt Ihre Daten auf sichere Weise, da die Daten sowohl bei der Übertragung als auch im ruhenden Zustand verschlüsselt sind. Informationen zur Sicherheit bei IBM Cloud finden Sie unter [IBM Cloud Service Description ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+Die Elementklassifizierung überträgt Ihre Daten auf sichere Weise, da die Daten sowohl bei der Übertragung als auch im ruhenden Zustand verschlüsselt sind. Informationen zur Sicherheit bei IBM Cloud finden Sie in der [Servicebeschreibung zu {{site.data.keyword.Bluemix_notm}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
+
+Die Elementklassifizierung gibt ein JSON-Objekt zurück, das Folgendes enthält:
+
+-  Ein Objekt des Typs `documents`, das den Titel des Eingabedokuments, eine HTML-Version des Eingabedokuments und den MD5-Hashwert des Eingabedokuments enthält.
+-  Informationen zu dem Modell, das zum Klassifizieren des Eingabedokuments verwendet wird.  
+-  Ein Array des Typs `elements`, das im Eingabedokument angegebene semantische Elemente aufführt.
+-  Ein Array des Typs `tables`, das die im Eingabedokument angegebenen Tabellen aufgliedert.
+-  Ein Objekt des Typs `document_structure`, in dem Abschnittstitel und führende Sätze aufgelistet sind, die im Eingabedokument angegeben sind.
+-  Ein Array des Typs `parties`, in dem die Parteien, Rollen, Adressen und Kontakte von Parteien aufgelistet sind, die im Eingabedokument angegeben sind.
+-  Arrays, die `effective_dates` und `contract_amounts` definieren.
+
+Dieses Beta-Feature wird derzeit nur in Englisch unterstützt. Details hierzu finden Sie unter [Sprachunterstützung](/docs/services/discovery/language-support.html#feature-support).
+
 
 ## Voraussetzungen der Klassifizierung
+{: #element-class}
 
 Damit Dokumente mithilfe der Elementklassifizierung klassifiziert werden können, müssen Ihre Konfiguration und die Quellendokumente die folgenden Voraussetzungen erfüllen:
 
-- Die zu analysierenden Dateien müssen im PDF-Format vorliegen.
-- Der PDF-Inhalt liegt im Textformat vor (gescannte, jedoch nicht mit OCR, also einer automatisierten Texterkennung, verarbeitete Dokumente können nicht analysiert werden).
+-  Die zu analysierenden Dateien müssen im PDF-Format vorliegen.
+-  Der PDF-Inhalt liegt im Textformat vor. Dokumente, die gescannt wurden, können nicht geparst werden, selbst wenn sie mit OCR (einer automatisierten Texterkennung) verarbeitet wurden.
+   **Hinweis:** Ob eine PDF-Datei im Textformat vorliegt, können Sie ermitteln, indem Sie das Dokument in einer PDF-Anzeigefunktion öffnen und mit dem Tool **Textauswahl** ein einzelnes Wort auswählen. Falls Sie kein einzelnes Wort im Dokument auswählen können, kann die Datei nicht analysiert werden.
+-  Die Dateien sind nicht größer als 50 MB.
+-  Geschützte (also nur mit einem Kennwort zu öffnende) PDF-Dateien sowie PDF-Dateien mit eingeschränkter Bearbeitung (bei denen zur Bearbeitung ein Kennwort erforderlich ist) können nicht analysiert werden.
+-  Die {{site.data.keyword.discoveryshort}}-Tools enthalten eine Konfiguration mit dem Namen **Standardvertragskonfiguration**, die verwendet werden kann, um Ihre Sammlung von PDF-Dokumenten aufzubereiten. Sie haben auch die Möglichkeit, eine angepasste Konfiguration zu erstellen, die die Aufbereitung für `elements` enthält. Weitere Informationen finden Sie unter [Voraussetzungen für die Datensammlung](/docs/services/discovery/element-classification.html#element-collection).
+-  Bei **Lite**-Plänen können maximal 500 Seiten pro Monat verarbeitet werden.
+-  Nicht verfügbar in **Dedicated**-Umgebungen.
+-  Die Normalisierung nach der Aufbereitung kann bei Verwendung der Elementklassifizierung nicht ausgeführt werden.
 
-  **Hinweis:** Ob eine PDF-Datei im Textformat vorliegt, können Sie ermitteln, indem Sie das Dokument in einer PDF-Anzeigefunktion öffnen und mit dem Tool **Textauswahl** ein einzelnes Wort auswählen. Falls Sie kein einzelnes Wort im Dokument auswählen können, kann die Datei nicht analysiert werden.
-
-- Die Dateien sind nicht größer als 50 MB.
-- Geschützte (also nur mit einem Kennwort zu öffnende) PDF-Dateien sowie PDF-Dateien mit eingeschränkter Bearbeitung (bei denen zur Bearbeitung ein Kennwort erforderlich ist) können nicht analysiert werden.
-- Es muss eine angepasste {{site.data.keyword.discoveryshort}}-Konfiguration erstellt werden, die die Aufbereitung für Elemente (`elements`) enthält. Diese Konfiguration kann nur zum Einpflegen von PDF-Dokumenten verwendet werden.
-- Bei **Lite**- und **Standard**-Plänen können maximal 500 Seiten pro Monat verarbeitet werden.
-- Bei Serviceinstanzen, die den **Premium**-Plan abonniert haben, ist diese Funktionalität nicht verfügbar.
+**Hinweis:** Die Datei für die **Standardvertragskonfiguration** wurde am 25. September 2018 aktualisiert. Wenn Sie diese Konfiguration vor diesem Datum auf eine Sammlung angewendet haben, finden Sie in den [Releaseinformationen](/docs/services/discovery/release-notes.html#25sept) die Informationen zum Aktualisieren Ihrer Sammlung.
 
 ## Voraussetzungen für die Datensammlung
+{: #element-collection}
 
-Damit die Elementklassifizierung verwendet werden kann, muss Ihre Datensammlung so konfiguriert sein, dass sie bestimmte Anforderungen erfüllt:
+Damit die Elementklassifizierung verwendet werden kann, muss Ihre Sammlung so konfiguriert sein, dass sie bestimmten Anforderungen entspricht.
 
-- `PDF`-Konvertierungseinstellungen werden ignoriert, falls sie angegeben sind.
-- `WORD`-Konvertierungseinstellungen können übergangen werden, da Microsoft Word-Dateien nicht eingepflegt werden können, wenn die Elementklassifizierung angegeben ist.
-- `HTML`-Normalisierungseinstellungen werden ignoriert, falls sie angegeben sind.
-- Die Dokumentteilung wird nicht unterstützt, wenn die Aufbereitung für Elemente (`elements`) angegeben ist.
-- In der {{site.data.keyword.discoveryshort}}-Konfiguration muss das Feld `html` durch die Aufbereitung `elements` aufbereitet werden und für `model` die Einstellung `contract` angegeben sein. Im folgenden Beispiel gilt für `destination_field` die Bezeichnung `enriched_html`; es kann jedoch jeder beliebige gültige Name verwendet werden:
+Die {{site.data.keyword.discoveryshort}}-Tools enthalten eine Konfiguration mit dem Namen **Standardvertragskonfiguration**, die vorkonfiguriert wurde, um PDF-Dokumente mit der Aufbereitung für die **Elementklassifizierung** und anderen erforderlichen Optionen aufzubereiten. Sie können diese Konfiguration auswählen, wenn Sie Ihre Sammlung erstellen. Das JSON für diese Konfiguration lautet:
 
 ```json
-"enrichments": [
-  {
-    "source_field": "html",
-    "destination_field": "enriched_html",
-    "enrichment": "elements",
-    "options": {
-      "model": "contract"
+ {
+   "name": "Standardvertragskonfiguration",
+   "description": "Werte für 'party', 'nature' und 'category' aus Elementen in PDFs extrahieren.",
+  "conversions": {
+     "html": {
+       "exclude_tags_completely": [],
+       "exclude_tags_keep_content": []
+     }
+   },
+   "enrichments": [
+     {
+       "source_field": "html",
+       "destination_field": "enriched_html_elements",
+       "enrichment": "elements",
+       "options": {
+         "model": "contract"
     }
-  }
-]
+     }
+   ]
+ }
 ```
 {: codeblock}
 
-Diese Optionen können mithilfe der {{site.data.keyword.discoveryshort}}-Tools hinzugefügt werden. Erstellen Sie eine angepasste Konfiguration und fügen Sie die Aufbereitung für die **Elementklassifizierung** zum Feld `html` hinzu.
+Falls Sie eine angepasste Konfigurationsdatei erstellen möchten, konfigurieren Sie Ihre Sammlung so, dass sie die folgenden Anforderungen erfüllt:  
 
-**Hinweis:** Wenn die **Elementklassifizierung** mithilfe der Tools hinzugefügt wird, wird für `destination_field` der Wert `enriched_html_elements` festgelegt.
+-  `PDF`-Konvertierungseinstellungen werden ignoriert, falls sie angegeben sind.
+-  `WORD`-Konvertierungseinstellungen können übergangen werden, da Microsoft Word-Dateien nicht eingepflegt werden können, wenn die Elementklassifizierung angegeben ist.
+-  `HTML`-Normalisierungseinstellungen werden ignoriert, falls sie angegeben sind.
+-  Die Dokumentsegmentierung wird nicht unterstützt, wenn die Aufbereitung für Elemente (`elements`) angegeben ist.
+-  In der {{site.data.keyword.discoveryshort}}-Konfiguration muss das Feld `html` durch die Aufbereitung `elements` aufbereitet werden und für `model` die Einstellung `contract` angegeben sein. Im folgenden Beispiel gilt für `destination_field` die Bezeichnung `enriched_html`; es kann jedoch jeder beliebige gültige Name verwendet werden:
 
-Nachdem die angepasste Konfiguration erstellt wurde, kann sie in jeder beliebigen Datensammlung verwendet werden. Zum Hochladen von Dokumenten kann eine beliebige Methode verwendet werden, solange die angepasste Konfiguration angegeben ist. Falls Sie keine Erfahrungen mit dem Erstellen von Sammlungen und dem Hochladen von Dokumenten besitzen, finden Sie unter [Einführung in die Tools](/docs/services/discovery/getting-started-tool.html) entsprechende Informationen.
+```json
+ "enrichments": [
+   {
+     "source_field": "html",
+    "destination_field": "enriched_html",
+    "enrichment": "elements",
+    "options": {
+       "model": "contract"
+    }
+   }
+ ]
+```
+{: codeblock}
+
+Nachdem Sie die `Standardvertragskonfiguration` in den Tools ausgewählt haben, können Sie Ihre Dokumente hochladen. Falls Sie keine Erfahrungen mit dem Erstellen von Sammlungen und dem Hochladen von Dokumenten besitzen, finden Sie unter [Einführung in die Tools](/docs/services/discovery/getting-started-tool.html) entsprechende Informationen.
 
 ## Klassifizierte Elemente
 
 Nachdem ein Dokument mit der Elementklassifizierung klassifiziert wurde, wird es mit einem Array `elements` als Teil des durchsuchbaren Dokuments zurückgegeben.
 
-Jedes Objekt im Array `elements` beschreibt ein Element des Vertrages, das von der Elementklassifizierung erkannt wurde. Der folgende Code stellt ein typisches Element dar:
+Jedes Objekt im Array `elements` beschreibt ein Element des Vertrages, das von {{site.data.keyword.discoveryshort}} erkannt wurde. Der folgende Code stellt ein typisches Element dar:
 
-```
-{
-   "sentence" : {
-     "begin" : 34941,
-     "end" : 35307
-   },
-   "sentence_text" : "A buyer must buy from the supplier.",
+```json
+ {
+    "location" : {
+     "begin" : 134323,
+     "end" : 135109
+    },
+    "text" : "9. In the event that the Participant's total vested account balance is determined to be less than or equal to $2,000.00 as of the date that the Order is received, the parties will be informed in writing that the QDRO determination fee may potentially liquidate the account.",
    "types" : [ {
-     "label" : {
-       "nature" : "Obligation",
-       "party" : "Supplier"
-     },
-     "assurance" : "High"
-   } ],
+      "label" : {
+        "nature" : "Obligation",
+        "party" : "All Parties"
+      },
+      "provenance_ids" : ["Nlu0ogWAEGms4vjhhzpMv3iXhm8b8fBqMBNtT/bXH8JI=", "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
+      ]
+    } ],
    "categories" : [ {
-     "label : "Responsibilities",
-     "assurance : "High"
-     }
-   ]
-}
-```
+      "label" : "Communication",
+      "provenance_ids" : [ "Cs38YyU6VBFtJK1/bgtEJBlqqWmX5F6OYUciRxQXf7HrN5TOCPuI7QXbkbj4LRXoxVuB3/i9H15q5TU+vFxorhUBeWFfF998OYQiPYViD2yI="
+      ]
+    } ],
+    "attributes" : [ {
+      "type" : "Currency",
+      "text" : "$2,000.00",
+      "location" : {
+        "begin" : 134780,
+        "end" : 134789
+      }
+    } ]
+ }
+ ```
+{: codeblock}
 
-Für das Element gibt es vier wichtige Abschnitte:
+Jedes Element verfügt über fünf wichtige Abschnitte:
+-  `location`: Die Indizes `begin` und `end`, die die Position des Elements im Eingabedokument angeben.
+-  `text`: Der Text des klassifizierten Elements.
+-  `types`: Ein Array, das null oder mehr Objekte des Typs `label` enthält. Jedes `label`-Objekt enthält ein Feld `nature`, das die Auswirkung des Elements auf die angegebene Partei (z. B. `Right` oder `Exclusion`) aufführt, und ein Feld `party`, das die vom Element betroffenen Parteien oder Parteien angibt. Weitere Informationen finden Sie unter [types](/docs/services/discovery/parsing.html#contract_types) im Abschnitt mit den [Informationen zum Parsing von Verträgen](/docs/services/discovery/parsing.html#contract_parsing).
+-  `categories`: Ein Array, das null oder mehr Objekte des Typs `label` enthält. Der Wert jedes Objekts `label` gibt eine funktionale Kategorie an, in die das angegebene Element fällt. Weitere Informationen finden Sie unter [Kategorien](/docs/services/discovery/parsing.html#contract_categories) im Abschnitt mit den [Informationen zum Parsing von Verträgen](/docs/services/discovery/parsing.html#contract_parsing).
+-  `attribute`: Ein Array, das null oder mehr Objekte auflistet, die Attribute des Elements definieren. Zu den gegenwärtig unterstützten Attributtypen zählen `Location` (geografische Position oder Region, auf die durch das Element verwiesen wird), `DateTime` (Datum, Uhrzeit, Datumsbereich oder Zeitbereich, der/die durch das Element angegeben wir) und `Currency` (Währungswerte und -einheiten). Jedes Objekt im Array `attributes` enthält auch den Text und die Position des identifizierten Elements. Die Position wird durch die Indizes `begin` und `end` des Texts im Eingabedokument definiert. Weitere Informationen finden Sie unter [attributes](/docs/services/discovery/parsing.html#attributes) im Abschnitt mit den [Informationen zum Parsing von Verträgen](/docs/services/discovery/parsing.html#contract_parsing).
 
-- `sentence_text`: Der analysierte Text.
-- `sentence`: Dieses Objekt beschreibt, wo das Element im konvertierten HTML-Dokument gefunden wurde. Es enthält einen Wert für das Anfangszeichen und einen Wert für das Endzeichen.
-- `types`: Dieses Array beschreibt, worum es sich bei dem Element handelt und was von ihm beeinflusst wird. Es besteht aus einer oder mehreren Gruppen `party` (durch den Satz betroffen) und `nature` (Auswirkung des Satzes auf die erkannte Partei).
-- `categories`: Dieses Array listet die funktionalen Kategorien auf, in die der erkannte Satz fällt. Es gibt den Inhalt des Satzes an.
+Darüber hinaus enthält jedes Objekt in den Arrays `types` und `categories` ein Array des Typs `provenance_ids`. Die im Array `provenance_ids` aufgelisteten Werte sind Hashwerte, die Sie an IBM senden können, um Feedback zu geben oder Unterstützung für den Teil der Analyse zu erhalten, der sich auf das Element bezieht.
 
-**Hinweis**: Einige Sätze fallen unter keinen Typ oder unter keine Kategorie. In diesem Fall werden die Arrays `types` und `categories` leer zurückgegeben.
+**Hinweis**: Einige Sätze fallen unter keinen Typ oder unter keine Kategorie. In diesem Fall werden die Arrays `types` und `categories` vom Service als leere Objekte zurückgegeben.
 
-**Hinweis**: Einige Sätze decken mehrere Themen ab und werden daher mit mehreren aufgelisteten Elementen `types` und `categories` zurückgegeben.
+**Hinweis:** Einige Sätze decken mehrere Themen ab. In diesem Fall gibt der Service mehrere Gruppen von Objekten des Typs `types` und `categories` zurück.
 
-Alle erkannten Parteien werden außerdem im Array 'parties' definiert:
-
-```
-  "parties" : [ {
-    "party" : "Customer",
-    "role" : "Buyer"
-  } ]
-```
-
-Für jedes Element des Arrays 'parties' gibt es zwei wichtige Abschnitte:
-
-- `party`: Der Text, der als Partei im Dokument identifiziert wurde.
-- `role`: Die Rolle der Partei, die identifiziert wurde. Rollen ändern sich auf der Grundlage der Unterdomäne (eine Liste der möglichen Rollen finden Sie in den Informationen zur angegebenen Unterdomäne). Parteien, für die keine bestimmte Rolle identifiziert werden kann, werden wie folgt gekennzeichnet:
-
-
-## Wissenswertes über Vertragselemente
-
-Durch die Elementklassifizierung analysierte Verträge werden unter Angabe jedes identifizierten analysierten Elements zurückgegeben.
-
-In den folgenden Abschnitten ist beschrieben, wie die Analyse in der JSON-Rückgabe beschrieben wird.
-
-### Typ
-
-Die Informationen zum Element `types` werden als Array von Objekten angegeben, wobei jedes Objekt eine Gattung (nature) und eine Partei (party) enthält, die als Paar für dieses Element identifiziert wurden. In der folgenden Tabelle sind die möglichen Werte für `natures` und `parties` aufgeführt, die identifiziert werden können.
-
-Gattungen geben die Aktionstypen an, die der Satz erfordert.
-
-| **Gattung** | **Beschreibung** |
-| --- | --- |
-| Definition | Dieses Element verdeutlicht einen Begriff/eine Beziehung usw. Zur Erfüllung dieses Elements ist keine Aktion erforderlich und keine Partei ist betroffen.|
-| Haftungsausschluss | Die Partei im Element ist nicht verpflichtet, die speziellen Bedingungen im Element zu erfüllen, wird hieran jedoch nicht gehindert.|
-| Ausschluss | Die Partei im Element erfüllt die speziellen Bedingungen nicht, die im Element dargelegt sind.  |
-| Verpflichtung | Die Partei im Element muss die Bedingungen des Elements erfüllen.   |
-| Recht | Der Partei im Element werden die Bedingungen des Elements zugesichert.  |
-
-### Parteien
-
-Für jede identifizierte Klausel werden die betroffenen Parteien namentlich angegeben. Jede identifizierte Partei wird dann nach ihrer Rolle (`role`) klassifiziert. Parteien sind die Beteiligten des Vertrags. Für einen Vertrag können die folgenden Rollen identifiziert werden:
-
-| **Rolle** | **Beschreibung** |
-| --- | --- |
-| `Einkäufer` | Die Partei, die für die Bezahlung von Waren/Dienstleistungen verantwortlich ist. |
-| `Endbenutzer` | Die Partei, die mit den eigentlichen Waren/Dienstleistungen interagiert. Sie wird ausdrücklich vom Einkäufer unterschieden. |
-| `Keine` | Für dieses Element wurde keine Partei identifiziert. Diese Rolle ist immer mit der Gattung 'Definition' verbunden. |
-| `Lieferant` | Die Partei, die für die Lieferung von Waren/Dienstleistungen verantwortlich ist. |
-
-### Kategorien
-
-Kategorien definieren den Inhalt des Satzes. Die folgenden Kategorien können identifiziert werden:
-
-| **Kategorien** | **Beschreibung** |
-| --- | --- |
-| `Änderungen` | Eine Änderung des ursprünglichen Vertrages, die die Konditionen für die Änderung der Vertragsbedingungen festlegt. |
-| `Assetverwendung` | Details aller Assets in der Vereinbarung, die von einer der Parteien genutzt werden. |
-| `Abtretungen` | Umfasst die Übertragung von Rechten einer Partei an eine andere Partei.  |
-| `Prüfungen` | Diese Klausel ermöglicht dem Einkäufer die Untersuchung oder Überprüfung des Lieferanten der bereitgestellten Dienstleistungen. |
-| `Kommunikation` | Beschreibt zulässige Kommunikationsverfahren und Kontaktinformationen. |
-| `Vertraulichkeit` | Beschreibt, wie vertrauliche oder persönliche Informationen behandelt werden, beispielsweise die Zugänglichkeit bestimmter Daten für bestimmte Personen und die Art des Zugriffs. |
-| `Business-Continuity` | Beschreibt, wie ein Unternehmen im Fall einer unterbrechenden Störung die Bereitstellung von Arbeit auf vordefinierten Ebenen fortsetzt. |
-| `Definitionen` | Ein Abschnitt, der einen im Dokument verwendeten Begriff definiert.  |
-| `Liefergegenstände` | Die Artikel oder Dienstleistungen, die am Ende einer Arbeitseinheit zu liefern sind. |
-| `Lieferung` | Der spezielle Zeitplan oder Prozess für den Abschluss eines Projekts. |
-| `Schlichtung` | Gibt an, wie ein gegebenenfalls zwischen den Vertragsparteien entstehender Streitfall gehandhabt wird. |
-| `Höhere Gewalt` | Eine Klausel, die beide Parteien im Fall eines Störereignisses von ihren Verpflichtungen entbindet. |
-| `Freistellung` | Beschreibt den Rechtsbehelf oder die Folgen bei Verstößen gegen Bedingungen. |
-| `Versicherung` | Beschreibt den Umfang des vom Lieferanten zu übernehmenden Versicherungsschutzes. |
-| `Geistiges Eigentum` | Eine Klausel, die sich auf Patente, Copyrights oder Marken bezieht. Kann sich im allgemeineren Sinn auch auf Erfindungen, Autorenschaft oder Fachwissen beziehen. |
-| `Haftung` | Beschreibt Verpflichtungen und Einschränkungen für die Zuständigkeit jeder Partei. |
-| `Sonstiges` | Relevante Abschnitte, die nicht in andere Kategorien passen. |
-| `Zahlungsbedingungen & Rechnungsstellung` | Beschreibt, welche Zahlungen fällig sind und wie der Zeitplan für die Zahlung lautet. |
-| `Preisgestaltung & Steuern` | Beschreibt, wie sich die Preise zusammensetzen und wie Steuern anzuwenden sind. |
-| `Datenschutz` | Beschreibt die geltenden Datenschutzregelungen. |
-| `Zuständigkeiten` | Beschreibt die Zuständigkeiten der einzelnen Parteien. |
-| `Sicherheit` | Beschreibt, wie Schädigungen einer Partei zu verhindern sind. Schließt die Sicherheit sowohl für das Personal als auch für physische Assets ein. |
-| `Leistungsumfang` | Beschreibt in der Leistungsbeschreibung detailliert, was durch die Parteien geleistet werden soll. |
-| `Unterauftragsvergabe` | Bezieht sich auf alle Drittparteien, die an die Erfüllung einer Anforderung beteiligt sind. |
-| `Laufzeit & Kündigung` | Der Zeitraum, in dem etwas stattfindet, und die Bedingungen, unter denen der Vertrag beendet werden kann. |
-| `Gewährleistung` | Die Garantie eines Lieferant für die Funktionsweise eines Produkts. |
-
-### Zusicherung
-
-Jedem Element (Typ oder Kategorie), das von der Elementklassifizierung identifiziert wird, wird eine Einstufung der Zusicherung (`assurance`) erteilt. Die möglichen Werte für die Zusicherung sind nachfolgend beschrieben:
-
-| **Zusicherung** | **Beschreibung** |
-| --- | --- |
-| `Hoch` | Es gibt signifikante Anzeichen, dass die angegebene Klassifizierung repräsentativ für den Inhalt ist. |
-| `Niedrig` | Es gibt einige Anzeichen für die Unterstützung der Klassifizierung, zur Bestätigung ist jedoch möglicherweise eine weitere Prüfung erforderlich. |
+**Hinweis**: Einige Sätze enthalten keine identifizierbaren Attribute. In diesem Fall gibt der Service das Array `attributes` als leere Objekte zurück.

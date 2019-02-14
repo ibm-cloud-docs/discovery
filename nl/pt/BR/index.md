@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-09-07"
 
 ---
 
@@ -48,9 +48,7 @@ do {{site.data.keyword.nlushort}} (NLU).
 
 Para obter informações sobre suporte ao idioma, consulte [Suporte ao idioma do {{site.data.keyword.discoveryshort}}](/docs/services/discovery/language-support.html).
 
-Para obter informações sobre a segurança do {{site.data.keyword.Bluemix_notm}}, consulte [Descrição do serviço do {{site.data.keyword.Bluemix_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
-
-{{site.data.keyword.discoveryfull}} Visual Insights é um recurso experimental que pode ser usado para explorar visualmente as conexões identificadas pelo entendimento do {{site.data.keyword.discoveryshort}} de elementos de semântica, relações, conceitos e mais. Para obter mais informações, consulte [{{site.data.keyword.discoveryfull}} Visual Insights](/docs/services/discovery/visual-insights.html).
+Para obter informações sobre a segurança do {{site.data.keyword.Bluemix_notm}}, veja a [Descrição do serviço do {{site.data.keyword.Bluemix_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
 
 {{site.data.keyword.discoveryfull}} Knowledge Graph é um recurso beta que fornece novos terminais para consultas de entidades e de relações entre documentos. Isso inclui buscas baseadas em contexto e classificação de relevância. Consulte [{{site.data.keyword.discoveryfull}} Gráfico de conhecimento](/docs/services/discovery/building-kg.html) para obter mais informações.
 
@@ -61,7 +59,7 @@ Para a lista de pré-requisitos e de navegadores suportados do {{site.data.keywo
 ## Watson Discovery News
 {: #watson-discovery-news}
 
-{{site.data.keyword.discoverynewsshort}}, um conjunto de dados públicos que foi pré-enriquecido com insights cognitivos, também está incluído com o {{site.data.keyword.discoveryshort}}. É possível utilizar este conjunto de dados públicos e não estruturados para consultar insights que podem ser integrados aos seus aplicativos. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) para obter mais informações. Veja uma demonstração do que você pode construir com o {{site.data.keyword.discoverynewsshort}} [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://discovery-news-demo.mybluemix.net/){: new_window}.
+{{site.data.keyword.discoverynewsshort}}, um conjunto de dados públicos que foi pré-enriquecido com insights cognitivos, também está incluído com o {{site.data.keyword.discoveryshort}}. É possível utilizar este conjunto de dados públicos e não estruturados para consultar insights que podem ser integrados aos seus aplicativos. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) para obter mais informações. Veja uma demonstração do que você pode construir com o {{site.data.keyword.discoverynewsshort}} [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
 O serviço do {{site.data.keyword.discoveryshort}} está disponível no
 [{{site.data.keyword.Bluemix_notm}}
@@ -81,4 +79,6 @@ O conjunto de ferramentas do serviço do {{site.data.keyword.discoveryshort}} fo
 - Comece com o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou com a API do {{site.data.keyword.discoveryshort}}:
     - [Introdução ao conjunto de ferramentas do {{site.data.keyword.discoveryshort}}](/docs/services/discovery/getting-started-tool.html)
     - [Introdução à API do {{site.data.keyword.discoveryshort}}](/docs/services/discovery/getting-started.html)
-- Visualize a lista de SDKs na área de janela de navegação.
+- O serviço {{site.data.keyword.discoveryshort}} suporta vários SDKs para simplificar o desenvolvimento de aplicativos. Os SDKs estão disponíveis para muitas linguagens de programação e plataformas populares, incluindo Node.js, Java e Python. Todos os SDKs estão disponíveis no [watson-developer-cloud namespace ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/watson-developer-cloud){: new_window} no GitHub.
+    - Para obter uma lista completa de SDKs e informações sobre como usá-los, consulte [{{site.data.keyword.watson}} SDKs](https://console.bluemix.net/docs/services/watson/getting-started-sdks.html#sdks).
+    - Para obter informações detalhadas sobre todos os métodos dos SDKs Node, Java e Python, veja a [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl){: new_window}.

@@ -103,15 +103,12 @@ discovery.query(queryBuilder.build()).execute();
 ```javascript
 var watson = require('watson-developer-cloud');
 
-var discovery = new DiscoveryV1({
-  username: '{username}',
-  password: '{password}',
-  version_date: '2017-11-07'
-});
+var discovery = new DiscoveryV1({  
+  username: '{username}', password: '{password}', version_date: '2017-11-07' });  
 
 discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),
-  function(error, data) {
-  console.log(JSON.stringify(data, null, 2));
+  function(error, data) {  
+  console.log(JSON.stringify(data, null, 2));  
 ```
 {: codeblock}
 

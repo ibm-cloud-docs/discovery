@@ -1,8 +1,8 @@
 ---
 
-著作権:
-  年: 2015、2017
-最終更新日日: "2017-08-18"
+copyright:
+  years: 2015, 2017
+lastupdated: "2017-07-03"
 
 ---
 
@@ -24,13 +24,16 @@
 
 ## Data Crawler を使用したデータのクロール
 
-Data Crawler は、リポジトリー (例えば、ファイル共有、データベース、Microsoft SharePoint &reg;) に保存されている文書を取り出して、{{site.data.keyword.discoveryshort}} サービスで使用するためにクラウドにプッシュするのに役立つコマンド・ライン・ツールです。
+Data Crawler は、リポジトリー (例えば、ファイル共有、データベース、Microsoft SharePoint) に保存されている文書を取り出して、{{site.data.keyword.discoveryshort}} サービスで使用するためにクラウドにプッシュするのに役立つコマンド・ライン・ツールです。
+
+{{site.data.keyword.discoveryshort}} ツールまたは API を使用して、Box、Salesforce、および Microsoft SharePoint Online データ・ソースをクロールできます。詳しくは、『[データ・ソースへの接続](/docs/services/discovery/connect.html)』を参照してください。
+{: tip}
 
 ## Data Crawler を使用するケース
 
 多数のファイルをリモート・システムから管理アップロードする場合や、サポートされているリポジトリー (DB2 データベースなど) からコンテンツを抽出する場合は、Data Crawler を使用すべきです。
 
-Data Crawler は、ローカル・ドライブからファイルをアップロードするためのソリューションではありません。ローカル・ドライブからのファイルのアップロードには、ツールまたはダイレクト API 呼び出しを使用してください。
+Data Crawler は、ローカル・ドライブからファイルをアップロードするためのソリューションではありません。 ローカル・ドライブからのファイルのアップロードには、ツールまたはダイレクト API 呼び出しを使用してください。
 {: tip}
 
 ## Data Crawler の使用

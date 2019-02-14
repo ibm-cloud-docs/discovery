@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-16"
+  years: 2015, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -19,65 +19,62 @@ lastupdated: "2017-10-16"
 
 # Natural Language Understanding으로 인리치먼트 마이그레이션
 
-**2017년 7월 18일**에 {{site.data.keyword.discoveryfull}}는 {{site.data.keyword.nlushort}}(NLU)이라는 새 인리치먼트 기술을 도입하였습니다. 이 인리치먼트는 기존 인리치먼트와 동일하지만 약간 다른 구성 및 스키마가 필요합니다. {{site.data.keyword.alchemylanguageshort}}라고 하는 원래 인리치먼트는 더 이상 사용되지 않습니다.
+**2017년 7월 18일**에 {{site.data.keyword.discoveryfull}}는 {{site.data.keyword.nlushort}}(NLU)이라는 새 인리치먼트 기술을 도입하였습니다. {{site.data.keyword.alchemylanguageshort}} 인리치먼트는 **2018년 3월 1일**부터 더 이상 사용되지 않습니다.
 {: shortdesc}
 
-{{site.data.keyword.alchemylanguageshort}} 인리치먼트 지원은 **2018년 1월 15일**에 종료됩니다. `2017-10-16` API 버전 문자열에서 새 문서를 {{site.data.keyword.alchemylanguageshort}}로 강화된 기존 콜렉션에 업로드하고 새 콜렉션을 작성하고 새 콜렉션을 {{site.data.keyword.alchemylanguageshort}} 인리치먼트로 강화하기 위한 지원은 더 이상 사용되지 않습니다. 지원이 **2018년 1월 15일**에 종료될 때까지 {{site.data.keyword.alchemylanguageshort}}를 계속 사용하려면 이전 API 버전 문자열을 사용하십시오. 
-
-가능한 빨리 마이그레이션된 {{site.data.keyword.alchemylanguageshort}} 구성 파일이 포함된 기존 콜렉션과 {{site.data.keyword.nlushort}}를 사용하여 새 콜렉션을 강화해야 합니다. {{site.data.keyword.alchemylanguageshort}} 인리치먼트 수집 지원은 **2018년 1월 15일**에 종료됩니다. {{site.data.keyword.alchemylanguageshort}} 인리치먼트를 활용하는 콜렉션 및 구성 파일의 마이그레이션에 대한 정보는 [인리치먼트 비교](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)를 참조하십시오.
+{{site.data.keyword.alchemylanguageshort}} 인리치먼트를 사용하는 기존 콜렉션은 마이그레이션해야 합니다. {{site.data.keyword.alchemylanguageshort}} 인리치먼트를 활용하는 콜렉션 및 구성 파일의 마이그레이션에 대한 정보는 [인리치먼트 비교](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)를 참조하십시오.
 
 **참고:** {{site.data.keyword.knowledgestudioshort}}와의 통합에 대한 자세한 정보는 [{{site.data.keyword.knowledgestudiofull}}와 통합](/docs/services/discovery/integrate-wks.html)을 참조하십시오.
 
 ## 인리치먼트 비교
 {: #enrichment-comparison}
 
-다음은 {{site.data.keyword.alchemylanguageshort}} 및 {{site.data.keyword.nlushort}}에서 사용 가능한 일곱 개의 인리치먼트와 해당 JSON 오브젝트 이름입니다. 
+다음은 {{site.data.keyword.alchemylanguageshort}} 및 {{site.data.keyword.nlushort}}에서 사용 가능한 일곱 개의 인리치먼트와 해당 JSON 오브젝트 이름입니다.
 
-| {{site.data.keyword.alchemylanguageshort}} 인리치먼트의 이름         | {{site.data.keyword.alchemylanguageshort}} JSON 오브젝트            | NLU 인리치먼트의 이름                     | NLU JSON 오브젝트        |
+|{{site.data.keyword.alchemylanguageshort}} 인리치먼트의 이름         |{{site.data.keyword.alchemylanguageshort}} JSON 오브젝트            |NLU 인리치먼트의 이름                     |NLU JSON 오브젝트        |
 |---------------------------|----------------------------------------|----------------------------------------|--------------------------------|
-| 엔티티 추출                           | entities                        |엔티티 추출                                 |   entities            |
-| 키워드 추출                           | keywords                        |키워드 추출                                 |   keywords            |
-| 택소노미 분류                         | taxonomy                        |카테고리 분류*                        |   categories*         |
-| 개념 태그 지정                        | concepts                        |개념 태그 지정                              |   concepts            |
-| 감성 분석                             | docSentiment                    |감성 분석                                   |   sentiment*          |
-| 감정 분석                             | docEmotions                     |감정 분석                                   |   emotion*            |
-| 관계 추출                             | relations                       |시맨틱 역할 추출*                     |   semantic_roles*     |
+|엔티티 추출                     |entities                        |엔티티 추출                           |entities            |
+|키워드 추출                    |keywords                        |키워드 추출                          |keywords            |
+|택소노미 분류               |taxonomy                        |카테고리 분류*                    |categories*         |
+|개념 태그 지정                       |concepts                        |개념 태그 지정                             |concepts            |
+|감성 분석                    |docSentiment                    |감성 분석                          |sentiment*          |
+|감정 분석                      |docEmotions                     |감정 분석                            |emotion*            |
+|관계 추출                   |relations                       |시맨틱 역할 추출*                   |semantic_roles*     |
  \* 이름 변경
 
-{{site.data.keyword.alchemylanguageshort}} 인리치먼트에 대한 자세한 정보는 [{{site.data.keyword.alchemylanguageshort}} 인리치먼트](/docs/services/discovery/discovery-auxiliary.html#AlchemyLanguage-enrichments)를 참조하십시오.
-{{site.data.keyword.nlushort}} 인리치먼트에 대한 자세한 정보는 [인리치먼트 추가](/docs/services/discovery/building.html#adding-enrichments)를 참조하십시오. 
+{{site.data.keyword.nlushort}} 인리치먼트에 대한 자세한 정보는 [인리치먼트 추가](/docs/services/discovery/building.html#adding-enrichments)를 참조하십시오.
 
 ## 주요 변경사항의 개요
 
 - {{site.data.keyword.nlushort}} 인리치먼트의 JSON 스키마는 {{site.data.keyword.alchemylanguageshort}} 인리치먼트에서 사용된 것과 다릅니다. 각 인리치먼트에 대한 변경사항의 전체 목록은 [인리치먼트 스키마 차이점](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)을 참조하십시오.
-- _택소노미 분류_({{site.data.keyword.alchemylanguageshort}}) 인리치먼트는 이제 _카테고리 분류_로 이름이 변경되었습니다. 해당 JSON 오브젝트 이름은 `taxonomy`에서 `categories`로 변경되었습니다. 
-- _관계 추출_({{site.data.keyword.alchemylanguageshort}}) 인리치먼트는 이제 _시맨틱 역할 추출_로 이름이 변경되었습니다. 해당 JSON 오브젝트 이름은 `relations`에서 `semantic_roles`로 변경되었습니다. 
+- _택소노미 분류_({{site.data.keyword.alchemylanguageshort}}) 인리치먼트는 이제 _카테고리 분류_로 이름이 변경되었습니다. 해당 JSON 오브젝트 이름은 `taxonomy`에서 `categories`로 변경되었습니다.
+- _관계 추출_({{site.data.keyword.alchemylanguageshort}}) 인리치먼트는 이제 _시맨틱 역할 추출_로 이름이 변경되었습니다. 해당 JSON 오브젝트 이름은 `relations`에서 `semantic_roles`로 변경되었습니다.
 - _감성 분석_의 JSON 오브젝트 이름은 `docSentiment`에서 `sentiment`로 변경되었습니다.
 - _감정 분석_의 JSON 오브젝트 이름은 `docEmotions`에서 `emotion`으로 변경되었습니다.
 
 ## 구성 파일 변경사항
 
-**{{site.data.keyword.alchemylanguageshort}}** 기본 구성 파일(도구에서 `Default configuration`으로 이름이 지정됨)에서 **엔티티 추출**, **키워드 추출**, **택소노미 분류**, **개념 태그 지정**, **관계 추출** 및 **감성 분석**의 인리치먼트를 문서의 텍스트 필드에 적용합니다. 또한 파일에는 글꼴 스타일 및 크기에 따른 표준 문서 변환도 포함됩니다. 
+**{{site.data.keyword.alchemylanguageshort}}** 기본 구성 파일(도구에서 `Default configuration`으로 이름이 지정됨)에서 **엔티티 추출**, **키워드 추출**, **택소노미 분류**, **개념 태그 지정**, **관계 추출** 및 **감성 분석**의 인리치먼트를 문서의 텍스트 필드에 적용합니다. 또한 파일에는 글꼴 스타일 및 크기에 따른 표준 문서 변환도 포함됩니다.
 
-**{{site.data.keyword.nlushort}}** 기본 구성 파일은 `Default Configuration with NLU`로 이름이 변경되고 **엔티티 추출**, **감성 분석**, **카테고리 분류** 및 **개념 태그 지정**의 인리치먼트를 문서의 텍스트 필드에 적용합니다. 또한 파일에는 글꼴 스타일 및 크기에 따른 표준 문서 변환도 포함됩니다. 이 문서 변환은 {{site.data.keyword.alchemylanguageshort}} 기본 구성 파일의 문서 변환과 동일합니다. 
+**{{site.data.keyword.nlushort}}** 기본 구성 파일은 `Default Configuration with NLU`라는 이름으로 지정되고 문서의 텍스트 필드에 **엔티티 추출**, **감성 분석**, **카테고리 분류** 및 **개념 태그 지정**과 같은 인리치먼트를 적용합니다. 또한 파일에는 글꼴 스타일 및 크기에 따른 표준 문서 변환도 포함됩니다. 이 문서 변환은 {{site.data.keyword.alchemylanguageshort}} 기본 구성 파일의 문서 변환과 동일합니다.
 
 ## 구성, 콜렉션 및 조회 마이그레이션
 
-사용자 정의 구성을 작성한 경우 {{site.data.keyword.nlushort}} 인리치먼트를 사용하는 새 사용자 정의 구성을 작성해야 합니다. 지시사항은 다음 문서를 참조하십시오. 
+사용자 정의 구성을 작성한 경우 {{site.data.keyword.nlushort}} 인리치먼트를 사용하는 새 사용자 정의 구성을 작성해야 합니다. 지시사항은 다음 문서를 참조하십시오.
 
 - [도구](/docs/services/discovery/building.html#custom-configuration)
 - [API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#add_configuration){: new_window}
 
-기존 콜렉션에 적용된 사용자 정의 {{site.data.keyword.alchemylanguageshort}} 구성 또는 {{site.data.keyword.alchemylanguageshort}} 기본 구성이 있는 기존 콜렉션을 보유한 경우 {{site.data.keyword.nlushort}} 구성 파일(기본 구성 또는 새 사용자 정의 구성)을 적용하고 문서를 업로드하십시오. 지시사항은 다음 문서를 참조하십시오. 
+기존 콜렉션에 적용된 사용자 정의 {{site.data.keyword.alchemylanguageshort}} 구성 또는 {{site.data.keyword.alchemylanguageshort}} 기본 구성이 있는 기존 콜렉션을 보유한 경우 {{site.data.keyword.nlushort}} 구성 파일(기본 구성 또는 새 사용자 정의 구성)을 적용하고 문서를 업로드하십시오. 지시사항은 다음 문서를 참조하십시오.
 
 - [도구](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)
 - [API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#create-collection){: new_window}
 
-Discovery 조회 언어를 사용하여 작성한 조회의 경우 {{site.data.keyword.alchemylanguageshort}} 및 {{site.data.keyword.nlushort}} 간의 JSON 스키마 변경사항을 확인하고 조회 및 조회 URL을 적절하게 업데이트하십시오. 자세한 사항은 [인리치먼트 스키마 차이점](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)을 참조하십시오. 
+Discovery 조회 언어를 사용하여 작성한 조회의 경우 {{site.data.keyword.alchemylanguageshort}} 및 {{site.data.keyword.nlushort}} 간의 JSON 스키마 변경사항을 확인하고 조회 및 조회 URL을 적절하게 업데이트하십시오. 자세한 사항은 [인리치먼트 스키마 차이점](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)을 참조하십시오.
 
 ## 인리치먼트 스키마 차이점
 
-다음 표는 {{site.data.keyword.nlushort}} 인리치먼트의 JSON 스키마 및 {{site.data.keyword.alchemylanguageshort}} 인리치먼트의 JSON 스키마 간의 차이점을 표시합니다. 
+다음 표는 {{site.data.keyword.nlushort}} 인리치먼트의 JSON 스키마 및 {{site.data.keyword.alchemylanguageshort}} 인리치먼트의 JSON 스키마 간의 차이점을 표시합니다.
 
 | {{site.data.keyword.alchemylanguageshort}}                         | {{site.data.keyword.nlushort}}       |
 |-----------------------------------------|--------------------------------------|

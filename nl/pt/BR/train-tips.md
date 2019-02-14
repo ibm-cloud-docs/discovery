@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-14"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -32,7 +32,7 @@ Respostas para perguntas comuns sobre treinamento de uma coleção.
 Use o comando da API [Detalhes de coleção de lista ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/?curl#list-collection-details){: new_window} para verificar se seu sistema foi treinado.  
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
+curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
 ```
 {: pre}
 
@@ -40,17 +40,8 @@ Resposta de exemplo:
 
 ```json
 {
-  "training": {
-    "total_examples": 54,
-    "available": true,
-    "processing": false,
-    "minimum_queries_added": true,
-    "minimum_examples_added": true,
-    "sufficient_label_diversity": false,
-    "notices": 13,
-    "successfully_trained": "2017-02-08T14:18:22.786Z",
-    "data_updated": "2017-02-10T14:18:22.786Z"
-    }
+  "training_status": {
+    "data_updated": "2017-02-10T14:18:22.786Z", "total_examples": 54, "sufficient_label_diversity": false, "processing": false, "minimum_examples_added": true, "successfully_trained": "2017-02-08T14:18:22.786Z", "available": true, "notices": 13, "minimum_queries_added": true }
 }
 ```
 
@@ -70,7 +61,7 @@ Na resposta:
 É possível usar a [API de avisos de consulta ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window} para visualizar erros ou avisos.  
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2017-11-07"
+curl -u "apikey": "{1}/environments/{2}{0}{1}{7}-11-07"
 ```
 {: pre}
 
@@ -100,11 +91,11 @@ Este aviso é causado porque os `document_ids` em seus dados de treinamento dado
 
 ### Erro: `Invalid training data found: The query string provided exceeds the maximum length, please provide a shorter one`
 
-- O comprimento máximo da sequência de consultas é `X`. É necessário encurtar a consulta específica. A inclusão de um filtro em sua consulta é uma maneira de solução alternativa.  
+- O comprimento máximo da sequência de consultas é `2048`. Será necessário encurtar a consulta específica. A inclusão de um filtro em sua consulta é uma maneira de solução alternativa.  
 
 ### Erro: `This collection cannot be trained: your plan does not support training on this many top-level text fields.`
 
-- Esse erro ocorre apenas com os planos `Lite`. O número máximo de campos de texto de nível superior que podem ser treinados é `X`. Campos de nível superior são campos que não estão aninhados embaixo de outro campo. O treinamento ocorre apenas nos campos de nível superior e há limites para quantos campos podem ser usados no processo de treinamento.  
+- Esse erro ocorre apenas com os planos `Lite`. Os campos de nível superior são campos que não estão aninhados sob outro campo. O treinamento ocorre apenas nos campos de nível superior e há limites para quantos campos podem ser usados no processo de treinamento. Quanto mais campos de nível superior em uma coleção, mais dados de treinamento são necessários. Além disso, nos casos em que há mais de `10` campos de nível superior, o treinamento é mais provável de encontrar erros. 
 
 ### Erro: `Training data quality standards not met: You will need additional training queries with labeled examples. (To be considered for training, each example must appear in the top 100 search results for its query.)`
 

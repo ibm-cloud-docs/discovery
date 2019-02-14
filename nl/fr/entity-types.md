@@ -26,7 +26,7 @@ Les tableaux ci-après répertorient les types et sous-types d'entité qui peuve
 ## Types d'entité
 {: #entity-types}
 
-| Type d'entité     |
+| Type d'entité       |
 |-------------------|
 | Anatomy           |
 | Award             |
@@ -58,7 +58,7 @@ Les tableaux ci-après répertorient les types et sous-types d'entité qui peuve
 ## Sous-types d'entité
 {: #entity-subtypes}
 
-| Sous-type d'entité                  |
+| Sous-type d'entité                      |
 |-------------------------------------|
 | AbusedSubstance                     |
 | Academic                            |

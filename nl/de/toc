@@ -1,22 +1,33 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" audience="service" href="/docs/services/discovery/getting-started-tool.html" path="services/discovery"}
+{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/index.html" path="services/discovery"}
 Discovery
 
     {: .navgroup id="learn"}
-    getting-started.md
     getting-started-tool.md
-    getting-started-query.md
     index.md
     watson-discovery-news.md
-    element-classification.md
-    visual-insights.md
+    
+    {: topicgroup}
+    Elementklassifizierung
+        element-classification.md
+        schema.md
+        parsing.md
+    
     building-kg.md
+    sample-apps.md
+    [Videos](https://ibm.biz/wds_videos)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    {: topicgroup}
+    Lernprogramme
+        getting-started.md
+        getting-started-query.md
+
     building.md
+    connect.md
     adding-content.md
 
     {: topicgroup}
@@ -38,13 +49,15 @@ Discovery
     {: topicgroup}
     Ergebnisrelevanz verbessern
         train-tooling.md
+        dashboard.md
         train.md
         train-tips.md
+        continuous-training.md
+        feedback.md
 
     {: topicgroup}
     Discovery und Knowledge Studio
         integrate-wks.md
-        normalize-entities.md
 
     {: topicgroup}
     Features migrieren
@@ -61,6 +74,11 @@ Discovery
     [API-Referenz](https://www.ibm.com/watson/developercloud/discovery/api)
 
     {: topicgroup}
+    Whitepapers
+        [Discovery-Cloudarchitektur](http://ibm.biz/discovery_advantage_paper)
+        [Discovery-Whitepaper](https://www.ibm.com/watson/whitepaper/discovery/)
+
+    {: topicgroup}
     Aufbereitung
         categories.md
         entity-types.md
@@ -69,6 +87,8 @@ Discovery
     query-reference.md
     custom-config.md
     language-support.md
+    information-security.md
+    additional-resources.md
     discovery-auxiliary.md
 
     {: .topicgroup}
@@ -77,6 +97,7 @@ Discovery
         [Java SDK](https://github.com/watson-developer-cloud/java-sdk)
         [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
         [Python SDK](https://github.com/watson-developer-cloud/python-sdk)
+        [Ruby SDK](https://github.com/watson-developer-cloud/ruby-sdk)
         [.NET SDK](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
         [OpenWhisk SDK](https://github.com/watson-developer-cloud/openwhisk-sdk/)
         [Salesforce SDK](https://github.com/watson-developer-cloud/salesforce-sdk)
@@ -94,6 +115,6 @@ Discovery
     {: .topicgroup}
     Entwicklercommunity
         [StackOverflow](http://stackoverflow.com/questions/tagged/watson-discovery)
-        [developerWorks Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
+        [IBM Developer Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
         [WDC Slack channel](http://wdc-slack-inviter.mybluemix.net/)
     {: .navgroup-end}

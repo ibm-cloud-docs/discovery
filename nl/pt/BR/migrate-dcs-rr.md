@@ -23,14 +23,12 @@ lastupdated: "2017-10-03"
 O {{site.data.keyword.documentconversionfull}} e o
 {{site.data.keyword.retrieveandrankfull}}
 foram descontinuados e substituídos pelo {{site.data.keyword.discoveryfull}}. Geralmente, esses dois
-serviços são usados juntos para alimentar, classificar e, em seguida, entregar resultados para seus aplicativos. 
-Este documento é fornecido para guiá-lo pelo processo de migração por meio do
+serviços são usados juntos para alimentar, classificar e, em seguida, entregar resultados para seus aplicativos. Este documento é fornecido para guiá-lo pelo processo de migração por meio do
 {{site.data.keyword.documentconversionshort}} e do {{site.data.keyword.retrieveandrankshort}}
 para o {{site.data.keyword.discoveryshort}}.
 
 O {{site.data.keyword.discoveryfull}} fornece uma interface de consulta mais robusta, ingestão de
-dados simplificada, gerenciamento de treinamento melhorado e maior escala. 
-O {{site.data.keyword.discoveryshort}} aborda muitos dos casos de uso principais que o
+dados simplificada, gerenciamento de treinamento melhorado e maior escala. O {{site.data.keyword.discoveryshort}} aborda muitos dos casos de uso principais que o
 {{site.data.keyword.retrieveandrankshort}}, incluindo assistente de agente de suporte, procura de base
 de conhecimento organizacional e assistência de pesquisa. Ele foi construído com muitos dos desafios
 enfrentados pelos usuários do {{site.data.keyword.retrieveandrankshort}} em mente e resolve muitos desses
@@ -60,8 +58,9 @@ de passagem e melhores algoritmos de procura para localizar resultados mais rele
 | Configuração do analisador customizado | Sim | Pré-configurado |
 | Palavras vazias customizadas | Sim | Pré-configurado |
 | Dicionários de idiomas customizados | Sim | Pré-configurado |
-| Sinônimos customizados | Sim |  |
+| Sinônimos customizados | Sim | Sim |
 **Nota:** essa tabela é atualizada conforme novos recursos do {{site.data.keyword.discoveryshort}} são incluídos.
+
 Antes de iniciar a ação de migração, deve-se primeiramente [avaliar](#evaluate) os dados armazenados em seu serviço do {{site.data.keyword.retrieveandrankshort}} e entender como você moverá os diferentes componentes que compõem sus solução atual.
 
 A maioria dos clientes usa o {{site.data.keyword.documentconversionshort}} em conjunto com o

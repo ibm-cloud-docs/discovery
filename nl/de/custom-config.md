@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-10"
+  years: 2015, 2018
+lastupdated: "2018-01-23"
 
 ---
 
@@ -252,11 +252,11 @@ Jedes Element im Array `styles` gibt eine Überschriftsebene aus den Microsoft W
 
 #### exclude_tag_attributes
 
-`"exclude_tag_attributes" : array`: Ein Array von HTML-Attributnamen, die durch die Konvertierung unabhängig davon entfernt werden, in welchem HTML-Tag sie vorhanden sind.
+`"exclude_tag_attributes" : array`: Ein Array von HTML-Attributnamen, die durch die Konvertierung unabhängig davon entfernt werden, in welchem HTML-Tag sie vorhanden sind. **Hinweis:** Sie erhalten eine Fehlernachricht, wenn Sie sowohl `exclude_tag_attributes` als auch `keep_tag_attributes` in derselben Konfiguration angeben; es kann nur ein Attribut pro Konfiguration angegeben werden. Falls vorhanden, muss `keep_tag_attributes` vollständig aus der Konfiguration entfernt werden; das Attribut kann nicht als leeres Array vorhanden sein.
 
 #### keep_tag_attributes
 
-`"keep_tag_attributes" : array`: Ein Array von HTML-Attributnamen, die durch die Konvertierung beibehalten werden.
+`"keep_tag_attributes" : array`: Ein Array von HTML-Attributnamen, die durch die Konvertierung beibehalten werden. **Hinweis:** Sie erhalten eine Fehlernachricht, wenn Sie sowohl `keep_tag_attributes` als auch `exclude_tag_attributes` in derselben Konfiguration angeben; es kann nur ein Attribut pro Konfiguration angegeben werden. Falls vorhanden, muss `exclude_tag_attributes` vollständig aus der Konfiguration entfernt werden; das Attribut kann nicht als leeres Array vorhanden sein.
 
 #### extracted_fields
 
@@ -278,7 +278,7 @@ Jedes Feld, das Sie erstellen wollen, wird wie folgt durch ein Objekt definiert:
 
 - `"css_selector" : string` *(erforderlich)*: Ein CSS-Selektorausdruck, der den in einem Feld zu speichernden Bereich des Inhalts definiert.
 - `"type" : string` *(erforderlich)*: Der Typ des zu erstellenden Feldes, möglich sind `string`, `date`.
-Ausführliche Informationen finden Sie unter [Felder mittels CSS-Selektoren extrahieren](docs/services/discovery/building.md#using-css).
+Ausführliche Informationen finden Sie unter [Felder mittels CSS-Selektoren extrahieren](/docs/services/discovery/building.md#using-css).
 
 ### Segmentierung
 {: #segment}
@@ -425,7 +425,7 @@ Vor der Aufbereitung können Sie eine Normalisierung der eingepflegten JSON-Date
 - `"enrichment" : string` *(erforderlich)*: Der Typ der Aufbereitung, die für dieses Feld verwendet werden soll. Um {{site.data.keyword.nlushort}}-Aufbereitungen zu extrahieren, verwenden Sie `natural_language_understanding`, zur Ausführung der Elementklassifizierung verwenden Sie `elements`.
 
   **Hinweis:** Bei Verwendung der Aufbereitung `elements` müssen unbedingt die unter [Elementklassifizierung](/docs/services/discovery/element-classification.html) angegebenen Anleitungen befolgt werden. Insbesondere können nur PDF-Dateien eingepflegt werden, wenn diese Aufbereitung angegeben ist.
-  
+
 - `"source_field" : string` *(erforderlich)*: Das Quellenfeld, das aufbereitet wird. Dieses Feld muss in der Quelle vorhanden sein, nachdem die Operation `json_normalizations` abgeschlossen wurde.
 - `"destination_field" : string` *(erforderlich)*: Der Name des Containerobjekts, in dem die Aufbereitungen erstellt werden.
 

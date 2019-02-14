@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-05-09"
 
 ---
 
@@ -26,9 +26,8 @@ disponíveis, consulte a [Referência de consulta](/docs/services/discovery/quer
 ## term
 {: #term}
 
-Retorna os valores superiores (por pontuação e por frequência) para os enriquecimentos selecionados. 
-Todos os enriquecimentos são valores válidos. É possível, opcionalmente, usar `count` para
-especificar o número de termos a serem retornados. Este exemplo retorna o texto completo e os valores maiores
+Retorna os valores superiores (por pontuação e por frequência) para os enriquecimentos selecionados. Todos os enriquecimentos são valores válidos. É possível, opcionalmente, usar `count` para
+especificar o número de termos a serem retornados. O parâmetro `count` tem um valor padrão de 10. Este exemplo retorna o texto completo e os valores maiores
 com o enriquecimento de conceito e especifica para retornar 10 termos.
 
 Por exemplo:
@@ -45,7 +44,7 @@ filtra até o conjunto de documentos que incluem o conceito de computação em n
 
 Por exemplo:
 ```bash
-filter(enriched_text.concepts.text:cloud computing)
+filter (enriched_text.concepts.text: "cloud computing ")
 ```
 {: codeblock}
 
@@ -66,11 +65,9 @@ nested(enriched_text.entities)
 
 Cria segmentos de intervalo numérico para categorizar documentos. Usa valores de campo de um campo
 numérico único para descrever a categoria. O campo usado para criar o histograma deve ser um tipo numérico
-(`integer`, `float`, `double` ou `date`).
-Tipos não numéricos, como `string`, não são suportados. Por exemplo, "price": 1,30 é um valor
+(`integer`, `float`, `double` ou `date`). Tipos não numéricos, como `string`, não são suportados. Por exemplo, "price": 1,30 é um valor
 numérico que funciona e "price": "1,30" é uma sequência, que não funciona. Use o
-argumento `interval` para definir o tamanho das seções nas quais os resultados são divididos.
-Os valores do intervalo devem ser números inteiros não negativos configurados de maneira lógica
+argumento `interval` para definir o tamanho das seções nas quais os resultados são divididos. Os valores do intervalo devem ser números inteiros não negativos configurados de maneira lógica
 para segmentação de seus possíveis valores de campo. Por exemplo, se seu conjunto de dados incluir o preço de vários itens,
 como: "price": 1,30, "price": 1,99 e "price": 2,99, será possível usar intervalos de 1, para que tudo
 esteja agrupado entre 1 e 2 e entre 2 e 3. Provavelmente você não usaria um intervalo de 100, já que, desse modo,
@@ -91,8 +88,7 @@ Um histograma especializado que usa datas para criar segmentos de intervalo. Os 
 sintaxe é `timeslice(<field>,<interval>,<time_zone>)`. Para usar o
 `timeslice`, os campos de tempo em seus documentos devem ser do tipo de
 dados `date` e estar no formato [Horário do
-UNIX![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Unix_time){: new_window}.
-A menos que esses dois requisitos sejam atendidos, o parâmetro `timeslice` não funciona
+UNIX![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Unix_time){: new_window}. A menos que esses dois requisitos sejam atendidos, o parâmetro timeslice não funciona
 corretamente. Será possível criar uma fatia de tempo se seus documentos contiverem os campos
 `date` com valores como `1496228512`. O valor deve estar em um formato
 numérico (por exemplo, `float` ou `double`) e não deve estar colocado entre
@@ -226,7 +222,7 @@ nested(enriched_text.entities).term(enriched_text.entities.text,count:3).unique_
 ```
 {: codeblock}
 
-## max
+## máx.
 {: #max}
 
 Retorna o valor mais alto no campo especificado em todos os documentos correspondentes.

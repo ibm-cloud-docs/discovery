@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-10-25"
 
 ---
 
@@ -29,7 +29,7 @@ As solicitações de API requerem um parâmetro version que use uma data no form
 
 Envie o parâmetro version com cada solicitação de API. O serviço usa a versão da API para a data que você especificar ou a versão mais recente antes dessa data. Não padronize com a data atual. Em vez disso, especifique uma data que corresponda a uma versão que seja compatível com seu aplicativo e não a mude até que o aplicativo esteja pronto para uma versão mais recente.
 
-A versão atual é `2017-11-07`.
+A versão atual é  ` 2018-10-15 `.
 
 ## Recursos beta
 {: #beta-features}
@@ -42,15 +42,257 @@ A IBM libera serviços, recursos e suporte ao idioma que são classificados como
 
 Os novos recursos e mudanças a seguir para o serviço estão disponíveis.
 
+## 25 de outubro de 2018
+{: #25oct}
+
+O esquema para o enriquecimento [Classificação de elemento](/docs/services/discovery/element-classification.html) foi mudado. Se você deseja usar o esquema atualizado, deve-se alimentar seus documentos com a API, usando a data da versão de `2018-10-15` ou mais recente. O conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ainda não usa essa versão da API (ele usa atualmente `2018-08-01`), portanto, os documentos alimentados usando o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} serão enriquecidos com o esquema original.
+
+## 25 de setembro de 2018
+{: #25sept}
+
+- Continuous Relevancy Training liberado, que usa interações de usuários para aprender como levantar os resultados mais relevantes. Ele pode aprender com o comportamento do usuário automaticamente, reduzindo significativamente o esforço necessário para melhorar a classificação por relevância dos resultados.  Consulte  [ Continuous Relevancy Training ](/docs/services/discovery/continuous-training.html#crt)  para obter detalhes.
+
+- Incluído suporte de API para executar consultas mais longas. Isso aumenta o limite de caractere para 10.000 caracteres e torna possível aumentar o número de filtros em suas consultas e executar agregações mais complexas. Veja a Consulta de POST em [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query){: new_window} e [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query){: new_window} para obter detalhes.
+
+- Agora é possível fazer upgrade de seu plano Avançado usando a API. Veja [Fazendo upgrade de seu plano](/docs/services/discovery/upgrading.html#advanced) para obter detalhes. 
+
+- O enriquecimento Classificação de elementos atualizou os elementos classificados, elementos do contrato e partes e tabelas identificadas. Consulte  [ Classificação de Elementos ](https://console.bluemix.net/docs/services/discovery/element-classification.html)  para obter as atualizações.
+
+- Incluído suporte integral para português do Brasil. Para obter mais informações, consulte  [ Suporte ao idioma ](/docs/services/discovery/language-support.html).
+
+- A API de propensão (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) agora suporta o parâmetro `bias`, que permite a propensão a determinados resultados, por exemplo, documentos que foram publicados mais recentemente. Consulte o método [Consultar a sua coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} na referência de API para obter informações.
+
+- Descobriu-se que o arquivo de **Configuração de contrato padrão** fornecido para enriquecer coleções para [Classificação de elementos](/docs/services/discovery/element-classification.html#element-collection) teve um problema com normalizações HTML. Uma nova **Configuração de contrato padrão** foi incluída com esta liberação. Siga as etapas abaixo para aplicar a nova **Configuração de contrato padrão** às suas coleções.
+
+     1. Determine quais de suas coleções estão usando o arquivo de configuração de **Configuração de contrato padrão** ou uma configuração customizada com base na **Configuração de contrato padrão**.
+     1. Anote as mudanças feitas em quaisquer configurações customizadas com base na **Configuração de contrato padrão**.
+     1. Como o antigo arquivo de **Configuração de contrato padrão** precisa ser excluído de seu ambiente antes que o novo seja usado, use a API [Excluir configuração ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#delete-configuration){: new_window} para excluir a **Configuração de contrato padrão** associada a qualquer uma de suas coleções. Exclua também quaisquer configurações com base na antiga **Configuração de contrato padrão**.
+     1. Agora é possível usar o novo arquivo de **Configuração de contrato padrão**. Para cada coleção usando uma dessas configurações, crie uma nova coleção. Aplique a nova **Configuração de contrato padrão** ou crie uma nova configuração customizada com base na nova **Configuração de contrato padrão** usando as notas que você fez na etapa 2.
+     1. Faça upload dos arquivos alimentados anteriormente para as coleções originais.
+     1. Exclua as coleções antigas.
+
+## 15 de agosto de 2018
+{: #15aug}
+
+- Dois novos operadores de consulta estão disponíveis. `Exists` (`:*`) pode ser usado para retornar todos os resultados em que o `field` especificado existe. `Does not exist` (`!*`) pode ser usado para retornar todos os resultados que não incluem o `field` especificado. Consulte  [ Operadores de consulta ](/docs/services/discovery/query-operators.html)  para obter mais informações. 
+
+## 2 de agosto de 2018
+{: #2aug}
+
+- O {{site.data.keyword.discoveryfull}} agora suporta coleções nos idiomas inglês, espanhol, alemão, italiano, português, francês, árabe, coreano e japonês ao conectar e sincronizar com o Box, Salesforce e SharePoint Online com o conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. 
+
+## 31 de julho de 2018
+ 
+ - Iniciando em **1º de agosto de 2018**, o {{site.data.keyword.discoveryfull}} tem uma nova estrutura de precificação. Ele apresenta um modelo de precificação mais simples (as horas de documento não fazem mais parte do cálculo) e precificação em camadas para consultas do {{site.data.keyword.discoverynewsfull}}. Além disso, o plano Padrão tornou-se obsoleto e o plano Lite reduziu os limites de documento e de consulta do {{site.data.keyword.discoverynewsshort}}. As mudanças de precificação não requerem ação de usuários atuais do {{site.data.keyword.discoverynewsshort}}. Consulte  [ {{site.data.keyword.discoveryshort}}  Planos de Precificação ](/docs/services/discovery/pricing-details.html)  para obter detalhes.
+ 
+**Nota:** a data de versão da API foi atualizada para `2018-08-01`. Para tirar vantagem das novas opções de dimensionamento de ambiente (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), deve-se usar esta data de versão ao criar ambientes com a API. Os tamanhos de ambiente agora têm o tipo de `string` (anteriormente, o tipo era `integer`.)
+
+## 27 de julho de 2018
+
+- [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) liberado em um idioma adicional: japonês (`collection_id`: `news-ja`). O {{site.data.keyword.discoverynewsfull}} também está disponível em inglês, espanhol, alemão e coreano.
+
+## 25 de junho de 2018
+
+- Incluída a opção para se conectar e sincronizar com as origens de dados Salesforce, Microsoft SharePoint Online e Box. Essas origens de dados não estão disponíveis em ambientes Premium. Liberadas as APIs [Credencial de origem ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#credentials-api){: new_window} e [Configuração ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#configurations-api){: new_window} para essas origens de dados. 
+  - O {{site.data.keyword.discoveryfull}} suporta somente coleções no idioma inglês ao conectar e sincronizar com o Box, Salesforce e SharePoint Online com o conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. [ Resolvido ](/docs/services/discovery/release-notes.html#2aug)
+  - O limite de tamanho do arquivo de documento individual para Box, Salesforce e SharePoint Online é de 10 MB.
+- Incluído um novo Painel de Desempenho no conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. Veja [Visualizando métricas e melhorando os resultados da consulta com o painel Desempenho](/docs/services/discovery/dashboard.html). O novo painel não está disponível nos ambientes Premium ou Dedicado.
+- Incluído suporte integral para japonês. Para obter mais informações, consulte  [ Suporte ao idioma ](/docs/services/discovery/language-support.html).
+
+## 22 de junho de 2018
+
+- Liberada a API de Eventos e Feedback. Veja a [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} para obter mais informações.
+
+## 11 de junho de 2018
+
+-  Para aplicativos que estão hospedados em Washington, DC (Leste dos EUA), o serviço agora suporta a autenticação de Identity and Access Management (IAM) baseada em token. O IAM usa tokens de acesso em vez de credenciais de serviço para autenticação com um serviço. Para obter mais informações sobre como usar tokens do IAM com aplicativos novos e existentes, veja a atualização da liberação de [17 de maio de 2018](#17May2018).
+-  Um elemento do contrato adicional agora é suportado na Classificação de elementos: `Safety and Security`. Consulte  [ Entendendo Elementos do Contrato ](/docs/services/discovery/element-classification.html#contract-elements)  para obter detalhes.
+
+## 6 de junho de 2018
+
+- As consultas do {{site.data.keyword.discoverynewsfull}} agora exibem as primeiras 50 palavras de cada artigo no campo JSON `text`.
+
+## 5 de junho de 2018
+{: #5jun}
+
+- A Classificação de elementos agora está disponível para aqueles inscritos nos planos Premium.
+- A classificação `assurance` de `Low` não está mais disponível para Classificação de elementos.
+
+## 31 de maio de 2018
+
+- Incluído suporte integral para francês. Para obter mais informações, consulte  [ Suporte ao idioma ](/docs/services/discovery/language-support.html).
+
+## 30 de maio de 2018
+
+- Corrigido um problema conhecido no  {{site.data.keyword.discoverynewsfull}}. Anteriormente, ao consultar o {{site.data.keyword.discoverynewsshort}}, era possível receber uma contagem de documentos incorreta porque os documentos em outros idiomas seriam contados junto com o idioma solicitado. Isso já não é mais o caso.
+- Iniciando com as coleções criadas em e após `22 May 2018`, o {{site.data.keyword.discoveryshort}} agora retorna resultados da consulta que incluem caracteres especiais para os idiomas a seguir: inglês, alemão, francês, holandês, italiano e português. Por exemplo, se você consultar `aqui`, agora receberá os resultados para `aqui` e <code>aqu&iacute;</code>.
+
+## 21 de maio de 2018
+
+- [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) liberado em um idioma adicional: alemão (`collection_id`: `news-de`). O {{site.data.keyword.discoverynewsfull}} também está disponível em inglês, espanhol e coreano.
+
+## 17 de maio de 2018
+{: #17May2018}
+
+- As consultas do {{site.data.keyword.discoverynewsfull}} agora exibem somente as primeiras 20 palavras de cada artigo no campo JSON `text`.
+
+-   O serviço agora suporta um novo processo de autenticação de API para instâncias de serviço para aplicativos que são hospedados em Sydney (**au-syd**) a partir de 15 de maio de 2018. Elas serão ativadas para aplicativos que estão hospedados em outras regiões em breve. O {{site.data.keyword.Bluemix}} está no processo de migração para a autenticação de Identity and Access Management (IAM) baseada em token. O IAM usa tokens de acesso em vez de credenciais de serviço para autenticação com um serviço.
+
+   Na região de Sydney, você usa tokens de acesso do IAM com o serviço {{site.data.keyword.discoveryshort}} para
+
+    -   *Novas instâncias de serviço* que você cria depois de 15 de maio. Para obter mais informações, veja [Autenticando com tokens do IAM](/docs/services/watson/getting-started-iam.html).
+    -   *Instâncias de serviço existentes* que você migra do Cloud Foundry para um grupo de recursos que é gerenciado pelo Resource Controller (RC). As instâncias de serviço que foram criadas antes de 15 de maio continuam a usar credenciais de serviço para autenticação até que você as migre. Para obter mais informações, veja [Migrando instâncias de serviço do Cloud Foundry para um grupo de recursos](/docs/resources/instance_migration.html).
+
+    Todas as instâncias de serviço novas e existentes em outras regiões continuam a usar credenciais de serviço (`apikey:{apikey_value}`) para autenticação.
+
+### Usando um token de acesso do IAM para autenticar
+
+Ao usar tokens de acesso do IAM, você se autentica antes de enviar uma solicitação ao serviço {{site.data.keyword.discoveryshort}}.
+
+1.  Obtenha uma chave API do IBM Cloud. Use essa chave para gerar um token de acesso do IAM. Para obter mais informações, veja [Como obter um token do IAM usando uma chave API do serviço {{site.data.keyword.watson}}](/docs/services/watson/getting-started-iam.html#iamtoken).
+1.  Passe o token de acesso do IAM para o serviço {{site.data.keyword.discoveryshort}} usando o cabeçalho `Authorization`. No cabeçalho, indique que o token de acesso é um token `Bearer` especificando `Authorization: Bearer {access_token}`.
+
+    O exemplo de cURL simples a seguir usa um token de acesso:
+
+    ```bash
+    curl -X GET
+    --header "Authorization: Bearer eyJhbGciOiJIUz......sgrKIi8hdFs"
+    "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    ```
+    {: pre}
+
+    Para obter mais informações, veja [Usando um token para autenticação](/docs/services/watson/getting-started-iam.html#use_token).
+
+### Atualizando um token de acesso do IAM
+
+Os tokens de acesso do IAM que são gerados tem a estrutura a seguir. Você usa o valor do campo `access_token` para fazer uma solicitação autenticada para o serviço.
+
+```javascript
+{
+  "access_token": "eyJhbGciOiJIUz......sgrKIi8hdFs",
+  "refresh_token": "SPrXw5tBE3......KBQ+luWQVY=",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "expiration": 1473188353
+}
+```
+{: codeblock}
+
+Os tokens de acesso têm um tempo limitado de vida. O campo `expires_in` indica a duração do token, neste caso, uma hora. O campo `expiration` mostra quando o token expira como um registro de data e hora do UNIX que especifica o número de segundos desde 1º de janeiro de 1970 (meia-noite UTC/GMT).
+
+Em seu aplicativo, verifique o prazo de expiração do token de acesso antes de usá-lo para fazer uma solicitação autenticada. Se ele está expirado, deve-se atualizar o token de acesso antes de poder usá-lo. Você usa o valor do campo `refresh_token` para atualizar o token de acesso. Para obter mais informações, veja [Atualizando um token](/docs/services/watson/getting-started-iam.html#refresh_token).
+
+
+## 11 de maio de 2018
+
+- Detalhes sobre segurança de informações podem ser localizados aqui: [Segurança de informações](/docs/services/discovery/information-security.html).
+- O problema conhecido de `query_entities` do {{site.data.keyword.discoveryfull}} Knowledge Graph foi corrigido com a atualização da versão da API `2018-05-04`. Essa correção se aplicará somente se as entidades forem alimentadas ou substituídas após `2018-05-04`. As entidades podem ser substituídas realimentando os documentos antigos ou alimentando os novos documentos que contêm essas entidades. Se as entidades antigas não forem substituídas, o `query_entities` retornará tudo em maiúsculo com a versão da API `2018-05-04`.
+  - Todos os nomes de entidade eram convertidos anteriormente em camel case no `query_entities`. Por exemplo, o nome da entidade "IBM Corporation" era convertido em "Ibm Corporation". Isso já não é mais o caso.
+
+## 9 de maio de 2018
+
+- Os documentos de amostra são agora armazenados localmente, na pasta de dados móveis locais de seu navegador. Para obter mais informações sobre documentos de amostra, veja [Fazendo upload de documentos de amostra](/docs/services/discovery/building.html#uploading-sample-documents).
+
+## 4 de maio de 2018
+
+- Dois elementos de contrato adicionais agora são suportados na Classificação de elementos: atributos e proveniência. Consulte  [ Entendendo Elementos do Contrato ](/docs/services/discovery/element-classification.html#contract-elements)  para obter detalhes.
+
+## 26 de abril de 2018
+
+- O problema de ingestão a seguir foi corrigido: em alguns casos em que `json_normalizations` e/ou `normalizations` de pós-enriquecimento foram especificados, as normalizações podem ter sido aplicadas na ordem errada. Isso pode resultar em documentos que estão sendo indexados com valores de campo inesperados. Isso já não é mais o caso.
+- O tamanho máximo do arquivo para um documento de amostra agora é 1 MB. O tamanho máximo do arquivo era anteriormente 5 MB.
+
+## 12 de abril de 2018
+
+- Knowledge Graph: [Evidência](/docs/services/discovery/building-kg.html#evidence) e [Canonicalização e filtragem](/docs/services/discovery/building-kg.html#canonicalization) agora estão disponíveis em todas as coleções. Em quaisquer coleções criadas antes de `03-05-2018`, é necessário realimentar seus documentos para usar esses recursos. Anteriormente, você precisava criar uma nova coleção e realimentar seus documentos.
+
+## 11 de abril de 2018
+
+- Duas categorias adicionais são agora suportadas na Classificação de elementos: `Asset Use` e `Communication`. Consulte  [ Entendendo Elementos do Contrato ](/docs/services/discovery/element-classification.html#contract-elements)  para obter detalhes.
+
+## 2 de abril de 2018
+
+- Os documentos de amostra agora são excluídos automaticamente após 24 horas, em vez de 1 mês.
+
+## 16 de março de 2018
+
+- Incluído suporte integral para alemão. Para obter mais informações, consulte  [ Suporte ao idioma ](/docs/services/discovery/language-support.html).
+
+Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
+- Uma nova configuração denominada **Configuração de contrato padrão** foi incluída para suportar a Classificação de elementos, que pode ser usada para extrair a parte, a natureza e a categoria de elementos em PDFs. Consulte  [ Classificação de Elementos ](/docs/services/discovery/element-classification.html#element-collection)  para obter detalhes.
+
+Atualizado para disponibilidade geral:
+- A segmentação de documentação foi movida do status beta para o status GA. O limite de segmentação foi aumentado para 250 segmentos. Ele não está mais limitado a 50 segmentos por documento. Consulte  [ Segmentação de documentação ](/docs/services/discovery/building.html#doc-segmentation)  para obter detalhes.
+
+Problema conhecido:
+- Os curingas não funcionam com consultas que contêm letras maiúsculas. Por exemplo, dado o par chave/campo `{"borrower": "GOVERNMENT OF INDIA"}`, `query-borrower:*ndia` retornará resultados, mas `query-borrower:*NDIA` não os retornará.
+
+## 8 de março de 2018
+{: #8mar}
+
+- A versão beta do {{site.data.keyword.discoveryfull}} Knowledge Graph incluiu vários recursos. Durante a liberação beta, a funcionalidade [Knowledge Graph](/docs/services/discovery/building-kg.html) e os métodos associados a ela estão disponíveis somente para instâncias de serviço que estão inscritas nos planos **Avançado** e **Premium** e em todos os ambientes **dedicados**. Os novos recursos são:
+  - [ Similaridade de Entidade ](/docs/services/discovery/building-kg.html#similarity)
+  - [ Evidência ](/docs/services/discovery/building-kg.html#evidence)
+  - [ Canonicalização e filtragem ](/docs/services/discovery/building-kg.html#canonicalization)
+
+## 7 de março de 2018
+
+- O problema conhecido de ingestão foi corrigido: entre 28 de fevereiro e 6 de março, uma pequena porcentagem de documentos foi indexada com somente os campos `id` e `extracted_metadata` (outro conteúdo do documento não foi indexado). O problema subjacente foi corrigido, no entanto, será necessário reenviar quaisquer documentos afetados para ingestão. Não há uma maneira simples de identificar os documentos afetados.
+
+## 5 de março de 2018
+{: #5mar}
+
+- O problema conhecido do {{site.data.keyword.discoveryfull}} Knowledge Graph a seguir foi corrigido com a atualização da versão de API `2018-03-05`. Essa correção se aplica somente a coleções recém-criadas que usam a atualização de versão `2018-03-05`.  
+  - Todos os nomes de tipo de entidade e nomes de tipo de relação foram convertidos anteriormente em maiúsculos durante a ingestão. Por exemplo, a entidade "GeoPoliticalEntity" foi convertida em "GEOPOLITICALENTITY" e a relação "partOf" foi convertida em "PARTOF." Isso já não é mais o caso.
+
+## 1º de março de 2018
+
+- Os limites de [Expansão de consulta](/docs/services/discovery/using.html#query-expansion) foram aumentados nos planos Avançado e Premium para 5.000 expansões de consulta e 25.000 termos no total. Consulte  [ Planos de precificação de descoberta ](/docs/services/discovery/pricing-details.html)  para obter detalhes.
+
+## 28 de fevereiro de 2018
+
+- Os enriquecimentos do {{site.data.keyword.alchemylanguageshort}} foram descontinuados efetivamente em **1º de março de 2018**. Para obter informações sobre a migração de coleções existentes e arquivos de configuração que utilizam os enriquecimentos do {{site.data.keyword.alchemylanguageshort}}, consulte [Migrando enriquecimentos para o {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
+
+## 23 de fevereiro de 2018
+
+- Incluída a capacidade de consultar por similaridade de documento. É possível consultar documentos semelhantes por IDs de documento e, opcionalmente, refinar ainda mais a similaridade especificando campos. Consulte  [ Similaridade do documento ](/docs/services/discovery/using.html#doc-similarity)  para obter mais informações.
+
+- O [parâmetro `highlight`](/docs/services/discovery/query-parameters.html#highlight) em resultados da consulta foi aprimorado. Os resultados da consulta retornarão sentenças completas, ordenadas por sua `score`.
+
+## 21 de fevereiro de 2018
+{: #21feb}
+
+- Anteriormente, ao alimentar documentos PDF, o `file_type` retornado quando avisos de ingestão eram consultados, no objeto `extracted_metadata` e na API de detalhes do documento, era `html`. Isso já não é mais o caso. O `file_type` retornado agora será `pdf`. 
+
+## 26 de janeiro de 2018
+{: #26jan}
+
+Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
+
+- Incluída a capacidade de acessar coleções coreanas e espanholas para o tile do [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) no conjunto de ferramentas. Anteriormente, essas coleções podiam ser consultadas somente por meio da API.
+
+## 23 de janeiro de 2018
+
+- Incluída a capacidade de expandir o escopo de uma consulta, por exemplo, é possível expandir uma consulta para "carro" para incluir "automóvel" e "veículo motorizado". Além disso, é possível substituir termos normalmente digitados incorretamente, por exemplo, substituir as consultas por "seabizcuit" por "seabiscuit". A expansão de consulta é implementada com a API do {{site.data.keyword.discoveryshort}}. Consulte  [ Expansão de consulta ](/docs/services/discovery/using.html#query-expansion)  para obter detalhes.  
+
+## 15 de janeiro de 2018
+
+- O {{site.data.keyword.discoverynewsfull}} Original foi retirado de serviço. Ele foi substituído em 31 de julho de 2017 por uma nova versão, denominada {{site.data.keyword.discoverynewsfull}}. Para obter instruções sobre como migrar do {{site.data.keyword.discoverynewsfull}} Original para a nova versão, veja [Migrando do Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
+
+## 11 de janeiro de 2018
+
+- Incluído suporte integral para coreano. Para obter mais informações, consulte  [ Suporte ao idioma ](/docs/services/discovery/language-support.html).
+
 ## 15 de dezembro de 2017
 
-- Liberado o enriquecimento **Classificação de Elementos**, que analisa elementos (sentenças, listas, tabelas) em documentos de controle para classificar categorias e tipos importantes. Consulte [Classificação de elementos](/docs/services/discovery/element-classification.html) para obter mais informações. A Classificação de Elementos não está disponível para instâncias de serviço que estejam inscritas no plano **Premium**.
+- Liberado o enriquecimento **Classificação de Elementos**, que analisa elementos (sentenças, listas, tabelas) em documentos de controle para classificar categorias e tipos importantes. Consulte [Classificação de elementos](/docs/services/discovery/element-classification.html) para obter mais informações. A Classificação de Elementos não está disponível para instâncias de serviço que estejam inscritas no plano **Premium**. [ Resolvido ](/docs/services/discovery/release-notes.html#5jun)
 - Incluído suporte ao idioma básico para chinês simplificado e holandês. Consulte [Suporte ao idioma](/docs/services/discovery/language-support.html) para obter mais informações. Atualmente, as coleções em chinês simplificado e em holandês devem ser criadas com a API.
 - Incluídos dois novos parâmetros para o Data Crawler: `proxy_host_port` e `read-timeout`. Consulte [Configurando o Data Crawler](/docs/services/discovery/data-crawler-discovery.html) para obter detalhes.
-- Os seguintes problemas podem ser vistos ao alimentar documentos PDF:
+- Os problemas a seguir podem ser vistos ao alimentar documentos PDF: [Resolvido](/docs/services/discovery/release-notes.html#21feb)
   - Quando avisos de ingestão são consultados, o campo `file_type` para documentos PDF é retornado como `html`.
   - O campo `file_type` no objeto `extracted_metadata` de resultados para documentos PDF é configurado como `html`.
   - A API de detalhes de documento também retorna o campo `file_type` para documentos PDF como `html`.
+- Se você estiver alimentando JSON, as matrizes de tipo misto não serão suportadas.  
 
 Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 
@@ -58,14 +300,14 @@ Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 
 ## 30 de novembro de 2017
 
-- Liberada a versão experimental do {{site.data.keyword.discoveryfull}} Visual Insights. O Visual Insights permite explorar visualmente as conexões identificadas pelo entendimento de elementos, relações, conceitos semânticos, etc. do {{site.data.keyword.discoveryshort}}. Consulte [Visual Insights](/docs/services/discovery/visual-insights.html) para obter informações adicionais. Um comunicado explicando os recursos experimentais/beta pode ser localizado [aqui](/docs/services/discovery/release-notes.html#beta-features).
-- Liberada a versão beta do {{site.data.keyword.discoveryfull}} Knowledge Graph, que fornece novos terminais para consulta de entidades e de relações em documentos. Isso inclui buscas baseadas em contexto e classificação de relevância. Este recurso beta está disponível somente para usuários do plano **Avançado**. Ele não está disponível em ambientes **Dedicados**. Consulte [{{site.data.keyword.discoveryfull}} Gráfico de conhecimento](/docs/services/discovery/building-kg.html) para obter mais informações.  Um comunicado explicando os recursos beta pode ser localizado [aqui](/docs/services/discovery/release-notes.html#beta-features).
-  - Problema conhecido no {{site.data.keyword.discoveryfull}} Knowledge Graph: todos os nomes de tipo de entidade e nomes de tipo de relação são convertidos em maiúsculas durante a ingestão. Por exemplo, a entidade "GeoPoliticalEntity" é convertida em "GEOPOLITICALENTITY" e a relação "partOf" é convertida em "PARTOF."
-- Liberado o [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) em dois idiomas adicionais: coreano (`collection_id`: `news-ko`) e espanhol (`collection_id`: `news-s`). O {{site.data.keyword.discoverynewsfull}} em coreano e espanhol está disponível para uso somente por meio da API; para obter informações sobre como consultar uma coleção por meio da API, consulte [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. O {{site.data.keyword.discoverynewsfull}} em inglês agora possui o `collection_id` de `news-en`. Anteriormente, o `collection_id` era `news` - se você estiver usando o `collection_id` anterior, ele continuará funcionando, no entanto, será possível mudar para o novo, `collection_id` para novos projetos.
+- Liberada a versão beta do {{site.data.keyword.discoveryfull}} Knowledge Graph, que fornece novos terminais para consulta de entidades e de relações em documentos. Isso inclui buscas baseadas em contexto e classificação de relevância. Este recurso beta está disponível somente para usuários do plano **Avançado**. Ele não está disponível em ambientes **Dedicados**. [Resolvido](/docs/services/discovery/release-notes.html#8mar) Veja [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) para obter mais informações. Um comunicado explicando os recursos beta pode ser localizado [aqui](/docs/services/discovery/release-notes.html#beta-features).
+  - Problema conhecido no {{site.data.keyword.discoveryfull}} Knowledge Graph: todos os nomes de tipo de entidade e nomes de tipo de relação são convertidos em maiúsculas durante a ingestão. Por exemplo, a entidade "GeoPoliticalEntity" é convertida em "GEOPOLITICALENTITY" e a relação "partOf" é convertida em "PARTOF." [ Resolvido ](/docs/services/discovery/release-notes.html#5mar)
+- Liberado o [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery/watson-discovery-news.html) em dois idiomas adicionais: coreano (`collection_id`: `news-ko`) e espanhol (`collection_id`: `news-s`). O {{site.data.keyword.discoverynewsfull}} em coreano e espanhol está disponível para uso somente por meio da API; para obter informações sobre a consulta de uma coleção por meio da API, veja [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")][Resolved](/docs/services/discovery/release-notes.html#26jan)(https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. O {{site.data.keyword.discoverynewsfull}} em inglês agora possui o `collection_id` de `news-en`. Anteriormente, o `collection_id` era `news` - se você estiver usando o `collection_id` anterior, ele continuará funcionando, no entanto, será possível mudar para o novo, `collection_id` para novos projetos.
 - Os resultados da consulta retornam um valor de `score`, que indica a relevância relativa entre os resultados da consulta. A partir de 30 de novembro de 2017, a maneira com que o `score` é calculado mudou. O valor de `score` deve ser usado somente para classificar documentos em uma procura única, não em procuras ou sessões. Se você tiver treinado uma coleção, um valor de `score` será retornado nos resultados de uma consulta de linguagem natural. Como o `score` indica a relevância relativa entre os resultados da consulta, ele não deve ser usado como um limite. Em vez disso, use o `confidence`, que indica a relevância do resultado quando comparado com o modelo treinado, para configurar limites. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter mais informações sobre configuração de limites.
 - Iniciando com esta liberação, a recuperação de passagem detecta limites de sentença, que tenta retornar passagens que começam no início de uma frase e que param no término. Anteriormente, muitas passagens iniciariam ou terminariam em algum lugar no meio da sentença. Consulte [Passagens](/docs/services/discovery/query-parameters.html#passages) para obter mais informações sobre a recuperação de Passagem.
 
 ## 15 de novembro de 2017
+{: #15nov}
 
 Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 
@@ -81,10 +323,11 @@ Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 - Incluídas opções adicionais para recuperação de Passagem no conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. Durante a consulta, agora é possível especificar os campos dos quais você deseja que as passagens sejam retornadas, o número de passagens a serem retornadas e a contagem máxima de caracteres para cada passagem. Consulte [Passagens](/docs/services/discovery/query-parameters.html#passages) para obter os limites mínimos e máximos.
 
 ## 8 de novembro de 2017
+{: #8nov}
 
 A sequência de versão para todas as chamadas API mudou de `2017-10-16` para `2017-11-07`. Esta versão:
-- Moveu o `score` em cada resultado da consulta para um novo objeto chamado `results_metadata`.
-- Se a coleção consultada foi treinada e a consulta for uma consulta de linguagem natural, os `results_metadata` incluirão um campo `confidence` que exibe a pontuação de confiança para esse resultado. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter detalhes.
+- Moveu a `score` em cada resultado da consulta para um novo objeto denominado `result_metadata`.
+- Se a coleção consultada foi treinada e a consulta for uma consulta de língua natural, `result_metadata` incluirá um campo `confidence` que exibe a pontuação de confiança para esse resultado. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter detalhes.
 - Os campos que incluem espaços em branco (por exemplo: `body.additional read`) serão filtrados durante a ingestão. A descrição `notices` lerá `O campo 'leitura adicional' é inválido: espaço em branco, '.', '#' e ',' são inválidos em um nome de campo`.
 - O campo `result_metadata` será filtrado durante a ingestão.
 
@@ -95,9 +338,9 @@ A sequência de versão para todas as chamadas API mudou de `2017-10-16` para `2
 Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 
 - O conjunto de ferramentas do {{site.data.keyword.discoveryshort}} usa a sequência de versão da API `2017-10-16`, portanto, se você estiver usando o conjunto de ferramentas, não será mais possível fazer upload de documentos para as coleções existentes do {{site.data.keyword.alchemylanguageshort}} ou criar novas coleções aprimoradas com enriquecimentos do {{site.data.keyword.alchemylanguageshort}} após a versão `2017-10-16`.  Se você deseja continuar o uso do conjunto de ferramentas do {{site.data.keyword.discoveryshort}} para enriquecer coleções, primeiramente migre suas coleções para o {{site.data.keyword.nlushort}}. Consulte [Migrando enriquecimentos para {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrating-enrichments-to-natural-language-understanding) para obter detalhes.
-- O **Data Schema Explorer** exibe consultas de amostra para vários enriquecimentos na coleção do {{site.data.keyword.discoverynewsfull}}. Agora ele também possui um link **Mostrar mais valores" que exibe valores de exemplo adicionais para esse enriquecimento no {{site.data.keyword.discoverynewsfull}}.
+- O **Data Schema Explorer** exibe consultas de amostra para vários enriquecimentos na coleção do {{site.data.keyword.discoverynewsfull}}. Agora ele também tem um link **Mostrar mais valores** que exibirá valores de exemplo adicionais para esse enriquecimento no {{site.data.keyword.discoverynewsfull}}.
 - Múltiplos aprimoramentos de produtividade, incluindo uma combinação de estatísticas de coleção, erros e avisos e dados de insights na tela **Gerenciar dados**.
-- Uma mensagem foi incluída que exibe um alerta quando o processamento dos documentos é concluído. 
+- Uma mensagem foi incluída que exibe um alerta quando o processamento dos documentos é concluído.
 
 ## 9 de outubro de 2017
 
@@ -116,7 +359,7 @@ Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 ### 29 de setembro de 2017
 
 - {{site.data.keyword.discoveryshort}} ativado na região `Germany` em 29 de setembro de 2017. Para estar em conformidade com os regulamentos de dados da EU, os enriquecimentos de AlchemyLanguage não são suportados nesta região.
-- Problema conhecido: os campos de consulta não podem conter espaços em branco.  Ao gravar uma consulta no {{site.data.keyword.discoveryshort}}, se qualquer campo de consulta contiver espaço em branco (por exemplo, `body.additional read`), você receberá um `Erro 400: sintaxe de consulta inválida`.
+- Problema conhecido: os campos de consulta não podem conter espaços em branco.  Ao gravar uma consulta no {{site.data.keyword.discoveryshort}}, se qualquer campo de consulta contiver espaço em branco (por exemplo, `body.additional read`), você receberá um `Erro 400: sintaxe de consulta inválida`. [ Resolvido ](/docs/services/discovery/release-notes.html#8nov)
 
 ### 25 de setembro de 2017
 
@@ -127,8 +370,8 @@ Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 - O Visual Query Builder mudou do status beta para o status GA. As agregações Filtro, Fatia de tempo e Histograma não são suportadas atualmente com o Visual Query Builder. Clique em **Incluir análise de seus resultados** e depois em **Editar no Query Language** na tela **Construir consultas** para gravar essas agregações.
 - Incluído o recurso beta para deduplicação em consultas do {{site.data.keyword.discoverynewsfull}}.
-- Além das coleções nos idiomas inglês, alemão e espanhol, agora é possível criar coleções em árabe, francês, italiano, coreano e português do Brasil.
-- Problema conhecido: o {{site.data.keyword.discoveryshort}} Tooling não suporta ambientes organizados.
+- Além das coleções de idiomas inglês, alemão e espanhol, agora é possível criar coleções em árabe, francês, italiano, coreano, japonês e português do Brasil.
+- Problema conhecido: o {{site.data.keyword.discoveryshort}} Tooling não suporta ambientes organizados. [ Resolvido ](/docs/services/discovery/release-notes.html#15nov)
 
 ### 14 de setembro de 2017
 
@@ -230,6 +473,7 @@ Ambos os recursos são aprimoramentos de construção de consulta e podem ser lo
     Se você criou uma coleção antes de **18 de julho de 2017** e aplicou a **Configuração Padrão**, essa coleção foi aprimorada com enriquecimentos do {{site.data.keyword.alchemylanguageshort}}. Se você aplicar a **Configuração Padrão** a uma coleção após essa data, os enriquecimentos do {{site.data.keyword.nlushort}} serão usados (o nome da configuração alternará para **Configuração Padrão com o NLU** no conjunto de ferramentas). Como os enriquecimentos do {{site.data.keyword.alchemylanguageshort}} estão sendo descontinuados, eles não devem ser usados com novas coleções.
 
 ### 30 de junho de 2017
+{: #30jun}
 
  -  A capacidade de normalização de entidade introduzida como um recurso beta em 5 de maio de 2017 foi movida para o status GA. Consulte [Criando uma configuração customizada para normalizar entidades](/docs/services/discovery/normalize-entities.html) para obter detalhes.
 
@@ -257,16 +501,14 @@ Ambos os recursos são aprimoramentos de construção de consulta e podem ser lo
 
     - A tela **Construir consultas** foi reprojetada, mas todos os campos e opções permanecem. A seguir estão os nomes antigos e novos dos campos.
 
-| **Nome do campo antigo**              | **Nome do novo campo ou seção**
-|
+| **Nome do campo antigo**                                           | **Nome do novo campo ou seção**                                                                                             |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| Gravar e executar uma consulta                           | Procurar por documentos  |
-| Limitar seus resultados da consulta (filtro)           | Limitar quais documentos serão consultados  |
-| Agrupar resultados da consulta (agregação)               | Incluir análise de seus resultados  |
-| Campos para exibição                                     | O nome não mudou, mas foi movido para a nova seção **Customizar opções de exibição**.                                      |
-| Número de documentos a serem retornados (contagem)       | Número de documentos a serem retornados [esse campo foi movido para a seção **Customizar opções de exibição**].
-|
-| Incluir passagens correspondentes                        | Incluir passagens relevantes [esse campo foi movido para a seção **Customizar opções de exibição**].                        |
+| Gravar e executar uma consulta                                    | Procurar por documentos                                                                                                  |
+| Limitar seus resultados da consulta (filtro)                       | Limitar quais documentos serão consultados                                                                                       |
+| Agrupar resultados da consulta (agregação)                        | Incluir análise de seus resultados                                                                                      |
+| Campos para exibição                                        | O nome não mudou, mas foi movido para a nova seção **Customizar opções de exibição**.                                      |
+| Número de documentos a serem retornados (contagem)                    | Número de documentos a serem retornados [esse campo foi movido para a seção **Customizar opções de exibição**].                    |
+| Incluir passagens correspondentes                                | Incluir passagens relevantes [esse campo foi movido para a seção **Customizar opções de exibição**].                        |
 | Número de campos de consulta a serem ignorados no início (compensação) | Número de resultados da consulta a serem ignorados no início [esse campo foi movido para a seção **Customizar opções de exibição**]. |
 
 ### 5 de junho de 2017
@@ -274,6 +516,7 @@ Ambos os recursos são aprimoramentos de construção de consulta e podem ser lo
  - As consultas do Watson Discovery News agora exibem apenas as primeiras 150 palavras de cada artigo nos campos JSON `text` e `alchemyapi_text`. O campo `blekko.snippet` exibe apenas a primeira sentença da matriz de fragmento.
 
 ### 30 de maio de 2017
+{: #30may}
 
  - O parâmetro `passages` na consulta da API foi movido do status beta para GA.
 
@@ -295,11 +538,13 @@ Ambos os recursos são aprimoramentos de construção de consulta e podem ser lo
 
  - A normalização da entidade está agora disponível para uso com o serviço do Discovery que usa um modelo customizado gerado pelo Watson Knowledge Studio. A normalização da entidade insere nomes normalizados (canônicos) para referências diferentes para a mesma pessoa ou objeto no documento de origem. Consulte [Criando uma configuração customizada para normalizar entidades](/docs/services/discovery/normalize-entities.html) para obter detalhes.
 
-     **Nota:** a normalização de entidade é suportada atualmente apenas como um recurso beta. Consulte a instrução sobre betas no topo deste documento para obter mais informações
+     **Nota:** a normalização de entidade é suportada atualmente apenas como um recurso beta. Consulte a instrução sobre betas no topo deste documento para obter mais informações [ Resolvido ](/docs/services/discovery/release-notes.html#30jun)
+
+Conjunto de ferramentas do {{site.data.keyword.discoveryshort}}:
 
  - O log de erro do Tooling não está mais limitado a um máximo de 8 (oito) páginas de resultados. O log de erros ainda exibe o ID do documento se o nome do documento não está disponível.
 
- - Os nomes de configuração são limitados a 50 caracteres e devem consistir nos caracteres `[a-zA-Z0-9-_]`.
+ - Os nomes de configuração são limitados a 50 caracteres e devem consistir nos caracteres `[a-zA-Z0-9-_]`. 
 
  - O parâmetro `passages` disponível anteriormente somente por meio da API agora está disponível também por meio do Tooling.
 
@@ -307,27 +552,27 @@ Ambos os recursos são aprimoramentos de construção de consulta e podem ser lo
 
   - O serviço agora permite que você forneça *dados de treinamento* para melhorar a precisão dos seus resultados da consulta. Ao fornecer uma instância do Discovery com dados de treinamento, o serviço usa os algoritmos avançados do Watson para determinar os resultados mais relevantes. À medida que você inclui mais dados de treinamento, a instância do serviço se torna mais precisa e sofisticada nos resultados retornados. Consulte [Melhorando a relevância dos seus resultados da consulta](/docs/services/discovery/train.html) e a [Referência da API](http://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data) para obter informações.
 
-  - A API agora suporta o parâmetro `natural_language_query` como uma liberação beta. Este parâmetro permite especificar uma consulta em linguagem natural, não na linguagem de consulta do serviço do Discovery. Consulte o método [Consulte sua coleção](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) na referência de API para informações.
+  - A API agora suporta o parâmetro `natural_language_query` como uma liberação beta. Este parâmetro permite especificar uma consulta em linguagem natural, não na linguagem de consulta do serviço do Discovery. Consulte o método [Consulte sua coleção](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get) na referência de API para informações.
 
   - Atualizações de documentação e correções de erratas.
 
 ### 14 de abril de 2017
 
-Aprimoramentos foram incluídos na API de consulta (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). Consulte o método [Consulte sua coleção](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) na referência de API para informações.
+Aprimoramentos foram incluídos na API de consulta (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). Consulte o método [Consulte sua coleção](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get) na referência de API para informações.
 
-  - A consulta de API agora suporta o parâmetro `passages`. Se o parâmetro for configurado como `true`, a consulta retornará um conjunto de passagens mais relevantes dos documentos em sua coleção. As passagens são geradas por algoritmos Watson sofisticados para determinar as melhores passagens de texto de todos os documentos retornados pela consulta. Isso permite localizar informações e contexto com mais precisão. Consulte o método [Consulte sua coleção](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) na referência de API para informações.
+  - A consulta de API agora suporta o parâmetro `passages`. Se o parâmetro for configurado como `true`, a consulta retornará um conjunto de passagens mais relevantes dos documentos em sua coleção. As passagens são geradas por algoritmos Watson sofisticados para determinar as melhores passagens de texto de todos os documentos retornados pela consulta. Isso permite localizar informações e contexto com mais precisão. Consulte o método [Consulte sua coleção](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get) na referência de API para informações.
 
     - A especificação de `passages=true` em sua consulta pode reduzir o desempenho como resultado do aumento de processamento para extrair passagens. Em ambientes maiores, o impacto no desempenho pode ser reduzido.
 
     - O parâmetro `passages` é suportado apenas em coleções privadas. Ele não é suportado na coleção do Watson Discovery News.
 
-    - O parâmetro `passages` atualmente retorna um máximo de 10 resultados. O número de resultados retornados não pode ser mudado.
+    - O parâmetro `passages` atualmente retorna um máximo de 10 resultados. O número de resultados retornados não pode ser mudado. [ Atualizar ](/docs/services/discovery/query-parameters.html#passages_count)
 
     - O parâmetro `passages` retorna um máximo de 3 (três) passagens de qualquer documento especificado na coleção. Se um documento contiver mais de três passagens relevantes adicionais, o parâmetro não as retornará.
 
 ### 7 de abril de 2017
 
-- A API de consulta (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) agora suporta o parâmetro `sort`, que permite especificar uma lista separada por vírgula de campos no documento para classificação. Consulte o método [Consulte sua coleção](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection) na referência de API para informações.
+- A API de consulta (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) agora suporta o parâmetro `sort`, que permite especificar uma lista separada por vírgula de campos no documento para classificação. Consulte o método [Consultar a sua coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} na referência de API para obter informações.
 - O parâmetro `timeslice` para agregações de consulta agora manipula corretamente datas no formato de época do UNIX. Consulte [Referência de consulta](/docs/services/discovery/query-reference.html#aggregations) para obter informações sobre agregações e o parâmetro `timeslice`.
 - Aprimoramentos para mensagens de erro.
 - Atualizações para o SDK Java de serviço. Consulte a [Referência da API](http://www.ibm.com/watson/developercloud/discovery/api/v1/?java) para obter detalhes.
@@ -346,10 +591,10 @@ Aprimoramentos foram incluídos na API de consulta (`GET /v1/environments/{envir
 
 Os problemas conhecidos a seguir foram descobertos.
 
--  Todos os campos que são alimentados com documentos HTML, PDF e Word são digitados como **sequência**. Campos JSON e campos calculados, como pontuação de confiança, são do tipo conforme definido.
-- A operação `preview` não verifica atualmente as matrizes JSON aninhadas dentro de um documento JSON enviado. Como o serviço não suporta atualmente matrizes JSON aninhadas, um documento com matrizes aninhadas pode passar com sucesso na operação `preview`, mas falha em uma tentativa de ingestão.
-- Se você encontrar erros de ingestão com a mensagem `idioma de texto não suportado`, atualize sua configuração com a opção de enriquecimento `"language": "english"` para forçar todo o texto a ser interpretado como inglês, conforme mostrado no exemplo a seguir.
-
+-  Todos os campos que são alimentados com documentos HTML, PDF e Word são digitados como **sequência**. Campos JSON e campos calculados, como pontuação de confiança, são do tipo conforme definido. [ Atualizar ](/docs/services/discovery/adding-content.html#adding-content-with-the-api-or-tooling)
+- A operação `preview` não verifica atualmente as matrizes JSON aninhadas dentro de um documento JSON enviado. Como o serviço não suporta atualmente matrizes JSON aninhadas, um documento com matrizes aninhadas pode passar com sucesso na operação `preview`, mas falha em uma tentativa de ingestão. Consulte  [ Posso fazer upload de matrizes JSON? ](/docs/services/discovery/troubleshooting.html#array)
+- Se você encontrar erros de ingestão com a mensagem `idioma de texto não suportado`, atualize sua configuração com a opção de enriquecimento `"language": "english"` para forçar todo o texto a ser interpretado como inglês, conforme mostrado no exemplo a seguir. 
+[ Atualizar ](/docs/services/discovery/migrate-nlu.html)
 ```json
 "enrichments": [ {
      "enrichment": "alchemy_language",
@@ -373,7 +618,7 @@ Os erros a seguir foram corrigidos.
 
  - Otimizado o backend, incluindo a adição de novos tempos limites, para melhorar o desempenho geral.
  - Corrigido um erro que fazia com que o status de ambientes livres (dimensão `0`) relatasse um status de `pending`, independentemente do status real.
- - O único idioma nacional suportado atualmente pelo {{site.data.keyword.discoveryshort}} é inglês dos EUA (`en_US`).
+ - O único idioma nacional suportado atualmente pelo {{site.data.keyword.discoveryshort}} é inglês dos EUA (`en_US`). [ Atualizar ](/docs/services/discovery/language-support.html)
 
 ### 3 de março de 2017
 
@@ -386,10 +631,10 @@ Os erros a seguir foram corrigidos.
 -  É possível enviar uma nova configuração com um documento individual usando o comando a seguir:
 
 ```bash
-curl -X POST -u {username}:{password} -F "file=@wikipedia-sample.html" -F "configuration=$(cat config.json)" "https://gateway.watsonplatform.net/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2016-12-01"
+curl -X POST -u apikey:{apikey_value} -F "file=@wikipedia-sample.html" -F "configuration=$(cat config.json)" "https://gateway.watsonplatform.net/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2016-12-01"
 ```
 {: pre}
--  Os conversores PDF e Word do serviço criam HTML como uma etapa intermediária. O serviço pode aplicar transformações e normalizações adicionais no HTML intermediário antes da transformação final ao JSON normalizado. 
+-  Os conversores PDF e Word do serviço criam HTML como uma etapa intermediária. O serviço pode aplicar transformações e normalizações adicionais no HTML intermediário antes da transformação final ao JSON normalizado.
 
 Os erros a seguir foram corrigidos.
 
@@ -399,11 +644,11 @@ Os erros a seguir foram corrigidos.
 ### 16 de fevereiro de 2017
 
 -  Agora é possível usar seletores CSS para selecionar campos JSON nos quais é possível, então, aplicar enriquecimentos. Consulte [Usando seletores CSS para extrair campos](/docs/services/discovery/building.html#using-css) para obter informações.
--  Agora é possível aumentar o tamanho de um ambiente transmitindo um novo parâmetro `size: X` para o [método update-environment](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update_environment), em que `X` é um número inteiro entre 0 e 3. Consulte o [método create-environment](http://www.ibm.com/watson/developercloud/discovery/api/v1/#create_environment) para obter informações sobre os tamanhos e atributos de ambientes.
+-  Agora é possível aumentar o tamanho de um ambiente transmitindo um novo parâmetro `size: X` para o [método update-environment](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update_environment), em que `X` é um número inteiro entre 0 e 3. Consulte o [método create-environment](http://www.ibm.com/watson/developercloud/discovery/api/v1/#create_environment) para obter informações sobre os tamanhos e atributos de ambientes. [ Atualizar ](/docs/services/discovery/pricing-details.html)
 
     **Nota:** não é possível reduzir o tamanho de um ambiente existente. Se você deseja reduzir o tamanho de seu ambiente, entre em contato com o suporte da {{site.data.keyword.IBM}} para obter assistência.
 
--  Um novo operador de consulta está disponível. O operador `::!` foi incluído como um operador não igual unário. Por exemplo, agora é possível executar `query=field::!value` (não igual). Anteriormente, o único operador de exclusão era `:!` para o operador não contém (por exemplo, `query=field:!value`). 
+-  Um novo operador de consulta está disponível. O operador `::!` foi incluído como um operador não igual unário. Por exemplo, agora é possível executar `query=field::!value` (não igual). Anteriormente, o único operador de exclusão era `:!` para o operador não contém (por exemplo, `query=field:!value`).
 
 Os erros a seguir foram corrigidos.
 
@@ -413,12 +658,14 @@ Os erros a seguir foram corrigidos.
 ### 1 de fevereiro de 2017
 
 As notas a seguir se aplicam especificamente à liberação do Data Crawler 1.3.0.
+[ Atualizar ](/docs/services/discovery/data-crawler.html)
 
 -   O Data Crawler registra os valores de `document_id` usados para fazer upload de documentos e o status do upload. Os avisos de conversão não são persistidos fora do log. Atualmente não há uma ferramenta para interagir com esses dados, mas tais ferramentas devem ser desenvolvidas de modo oportuno. Os dados são acessíveis por meio do banco de dados H2, que pode ser configurado para usar um DBMS remoto.
 
 ### 16 de janeiro de 2017
 
 As notas a seguir se aplicam especificamente à liberação do Data Crawler 1.2.5.
+[ Atualizar ](/docs/services/discovery/data-crawler.html)
 
 -  Opcionalmente, o Data Crawler pode pesquisar o status do documento imediatamente após o upload de um arquivo. Essa verificação faz parte do conceito do Crawler de "upload de um documento", portanto, quando essa verificação é ativada, o Crawler é praticamente incapaz de fazer upload de mais documentos simultaneamente do que o serviço do {{site.data.keyword.discoveryshort}} pode processar ao mesmo tempo para o usuário.
 
@@ -428,81 +675,48 @@ As notas a seguir se aplicam especificamente à liberação do Data Crawler 1.2.
 
 As notas a seguir descrevem problemas que foram identificados após a liberação de GA em 15 de dezembro de 2016.
 
+[Atualização: referência de API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+
 -   Se você incluir um documento usando a chamada `POST /v1/environments/{environment_id}/collections/{collection_id}/documents`
     ou `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]`, a chamada retornará um ID de documento e o status **processando**. Em seguida, se você consultar o documento usando a chamada `GET /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]`, o status permanecerá em **processando** até que a ingestão seja concluída, ponto no qual o status muda para **disponível**.
 
     Se você **atualizar** um documento existente usando a chamada `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]`, a chamada **GET** correspondente retornará o status `available`, mesmo se o serviço ainda não tiver processado completamente o documento atualizado. O status `available` pode consultar o documento original ou o documento atualizado. A menos que a operação de atualização retorne um erro, atualmente não é possível determinar o status do documento atualizado.
 
     Uma solução alternativa é aguardar até 10 minutos após o envio de uma atualização de documento antes de tentar consultar o conteúdo atualizado.
--   Não é possível fazer upload de matrizes JSON. Para fazer upload de uma matriz JSON, deve-se fazer upload de cada seção individualmente. Por exemplo, o JSON a seguir não pode ser transferido por upload para o serviço:
-
-    ```json
-    [{
-      "accepted": 1, "answer": "Não deve haver nenhum problema para mantê-lo ligado o tempo todo, no entanto, deve-se considerar qualquer contador que você possa ter como o uso do código millis. Dos documentos do Arduino em milis, este número voltará a ser zero após aproximadamente 50 dias. citação de bloco - Então, para projetos que estão ativos por longos períodos de tempo, talvez um problema não seja visto imediatamente, mas algo assim pode aparecer e causar erros no caminho. ", "answerScore": "49", "authorUserId": "3", "authorUsername": "Butzke", "downModVotes": 0, "id": 2, "subtitle": "Estou criando um servidor da web Arduino simples e quero mantê-lo ligado o tempo todo. Então, ele deve aguardar para continuar trabalhando continuamente. Estou usando um Arduino Uno com uma blindagem Ethernet. Ele é alimentado com uma fonte de alimentação de saída simples 5V 1A. Minhas perguntas - Tenho problemas para deixar o Arduino ligado o tempo todo? li - Existe alguma outra placa do Arduino melhor recomendada para isso? li - Existem precauções que devo ter em relação a isso? li ul ", "tags": "<arduino-uno><web-server><ethernet>", "title": "Um Arduino é capaz de ser executado 24 horas por dia, sete dias por semana?",
-      "upModVotes": 49,
-      "userId": "11",
-      "userReputation": 4535,
-      "username": "sachleen",
-      "views": 3234
-    }, {
-      "accepted": 0, "answer": "Além da menção de Sachleen a Milli, que afirma que qualquer calor de eletroeletrônico pode ser perturbador. Não é provável que o micro controlador em si seja um problema enorme da perspectiva do calor, mas outros componentes, como a fonte de alimentação, podem causar problemas. li - Se o código usa EEPROMWrite, o EEPROM é classificado apenas para algo em torno de 100 mil gravações. li ul ", "answerScore": "24", "authorUserId": "3", "authorUsername": "Butzke", "downModVotes": 0, "id": 3, "subtitle": "Estou criando um servidor da web Arduino simples e quero mantê-lo ligado o tempo todo. Então, ele deve aguardar para continuar trabalhando continuamente. Estou usando um Arduino Uno com uma blindagem Ethernet. Ele é alimentado com uma fonte de alimentação de saída simples 5V 1A. Minhas perguntas - Tenho problemas para deixar o Arduino ligado o tempo todo? li - Existe alguma outra placa do Arduino melhor recomendada para isso? li - Existem precauções que devo ter em relação a isso? li ul ", "tags": "<arduino-uno><web-server><ethernet>", "title": "Um Arduino é capaz de ser executado 24 horas por dia, sete dias por semana?", "upModVotes": 24, "userId": "13", "userReputation": 489, "username": "Matthew G.",
-      "views": 3234
-    }]
-    ```
-    {: codeblock}
-
-    Para fazer upload dessas informações para o serviço, divida a matriz e faça upload de cada seção
-como segue:
-
-    Seção 1:
-
-    ```json
-    {
-      "accepted": 1, "answer": "Não deve haver nenhum problema para mantê-lo ligado o tempo todo, no entanto, deve-se considerar qualquer contador que você possa ter como o uso do código millis. Dos documentos do Arduino em milis, este número voltará a ser zero após aproximadamente 50 dias. citação de bloco - Então, para projetos que estão ativos por longos períodos de tempo, talvez um problema não seja visto imediatamente, mas algo assim pode aparecer e causar erros no caminho. ", "answerScore": "49", "authorUserId": "3", "authorUsername": "Butzke", "downModVotes": 0, "id": 2, "subtitle": "Estou criando um servidor da web Arduino simples e quero mantê-lo ligado o tempo todo. Então, ele deve aguardar para continuar trabalhando continuamente. Estou usando um Arduino Uno com uma blindagem Ethernet. Ele é alimentado com uma fonte de alimentação de saída simples 5V 1A. Minhas perguntas - Tenho problemas para deixar o Arduino ligado o tempo todo? li - Existe alguma outra placa do Arduino melhor recomendada para isso? li - Existem precauções que devo ter em relação a isso? li ul ", "tags": "<arduino-uno><web-server><ethernet>", "title": "Um Arduino é capaz de ser executado 24 horas por dia, sete dias por semana?",
-      "upModVotes": 49,
-      "userId": "11",
-      "userReputation": 4535,
-      "username": "sachleen",
-      "views": 3234
-    }
-    ```
-    {: codeblock}
-
-    Seção 2:
-
-    ```json
-    {
-      "accepted": 0, "answer": "Além da menção de Sachleen a Milli, que afirma que qualquer calor de eletroeletrônico pode ser perturbador. Não é provável que o micro controlador em si seja um problema enorme da perspectiva do calor, mas outros componentes, como a fonte de alimentação, podem causar problemas. li - Se o código usa EEPROMWrite, o EEPROM é classificado apenas para algo em torno de 100 mil gravações. li ul ", "answerScore": "24", "authorUserId": "3", "authorUsername": "Butzke", "downModVotes": 0, "id": 3, "subtitle": "Estou criando um servidor da web Arduino simples e quero mantê-lo ligado o tempo todo. Então, ele deve aguardar para continuar trabalhando continuamente. Estou usando um Arduino Uno com uma blindagem Ethernet. Ele é alimentado com uma fonte de alimentação de saída simples 5V 1A. Minhas perguntas - Tenho problemas para deixar o Arduino ligado o tempo todo? li - Existe alguma outra placa do Arduino melhor recomendada para isso? li - Existem precauções que devo ter em relação a isso? li ul ", "tags": "<arduino-uno><web-server><ethernet>", "title": "Um Arduino é capaz de ser executado 24 horas por dia, sete dias por semana?", "upModVotes": 24, "userId": "13", "userReputation": 489, "username": "Matthew G.",
-      "views": 3234
-    }
-    ```
-    {: codeblock}
 
 ### Liberação Disponibilidade Geral, 15 de dezembro de 2016
 
 As notas a seguir se aplicam à liberação de Disponibilidade Geral (GA) do serviço do {{site.data.keyword.discoveryfull}}.
 
 #### Notas gerais
+[ Atualizar: Incluindo conteúdo ](/docs/services/discovery/adding-content.html)
 
--   Atualmente não é possível especificar o tipo de dados dos campos. Todos os campos são indexados como texto (tipo de dados **sequência**).
--   Se você usar a API para trabalhar com o serviço, deverá especificar a versão da API com cada chamada. A versão da API atual é **2016-12-01**.
+Veja [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window} para a versão da API atual.
+
+[ Atualização: Integrando com o  {{site.data.keyword.knowledgestudiofull}} ](/docs/services/discovery/integrate-wks.html).
+
+-   Atualmente não é possível especificar o tipo de dados dos campos. Todos os campos são indexados como texto (tipo de dados **sequência**). 
+-   Se você usar a API para trabalhar com o serviço, deverá especificar a versão da API com cada chamada. A versão da API atual é **2016-12-01**. 
 
     **Nota:** a versão específica não é aplicada na liberação GA, mas ainda deve ser listada para ativar a compatibilidade com liberações futuras.
 
--   É possível usar o serviço com um modelo customizado criado com o {{site.data.keyword.knowledgestudiofull}}. O modelo customizado pode ser usado para enriquecer documentos alimentados. Deve-se usar a API para integrar o modelo customizado com o serviço do {{site.data.keyword.discoveryshort}}; não é possível executar a integração usando o conjunto de ferramentas. Consulte [Integrando-se com o {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html "É possível integrar um modelo customizado do {{site.data.keyword.knowledgestudiofull}} ao serviço do {{site.data.keyword.discoveryshort}} para fornecer enriquecimentos customizados.") para obter detalhes.
+-   É possível usar o serviço com um modelo customizado criado com o {{site.data.keyword.knowledgestudiofull}}. O modelo customizado pode ser usado para enriquecer documentos alimentados. Deve-se usar a API para integrar o modelo customizado com o serviço do {{site.data.keyword.discoveryshort}}; não é possível executar a integração usando o conjunto de ferramentas.
 
 #### Gerenciamento de dados
+[ Atualizar ](/docs/services/discovery/pricing-details.html)
 
 -   Os índices de procura não são criptografados.
 -   As funções de backup e de restauração não são controláveis pelo usuário.
 
 #### Ambientes
+[ Atualizar ](/docs/services/discovery/pricing-details.html)
 
 -   É possível criar apenas um ambiente por instância de serviço para fazer upload de seus próprios dados.
 -   O serviço do {{site.data.keyword.discoveryshort}} está localizado em uma zona de disponibilidade única (sul dos EUA).
 -   Os planos dedicados e Premium não estão disponíveis no momento atual.
 
 #### Dimensionamento de ambiente
+[ Atualizar ](/docs/services/discovery/pricing-details.html)
 
 -   É possível escolher um tamanho de ambiente somente ao criar um novo ambiente. A capacidade de redimensionar um ambiente não está disponível atualmente para os usuários.
 -   A escolha de um tamanho de ambiente com mais RAM aumenta o desempenho.
@@ -510,17 +724,28 @@ As notas a seguir se aplicam à liberação de Disponibilidade Geral (GA) do ser
 -   O dimensionamento customizado para modelos do {{site.data.keyword.knowledgestudiofull}} não é de autoatendimento. Entre em contato com seu representante {{site.data.keyword.IBM}} para obter mais informações.
 
 #### Limitações de ingestão
+[ Atualizar ](/docs/services/discovery/pricing-details.html)
 
 -   A taxa de ingestão está atualmente limitada a 100 operações de ingestão de documentos simultâneas. Um aplicativo que envia documentos para o serviço para ingestão precisa respeitar os erros HTTP 429 e regular as solicitações de ingestão apropriadamente.
 -   Os enriquecimentos do {{site.data.keyword.alchemylanguageshort}} são limitados aos primeiros 50 KB por campo.
 -   Enriquecimentos de modelos customizados do {{site.data.keyword.knowledgestudiofull}} não são limitados, mas os documentos de divisão são limitados em chunks de 10 KB. Nenhum relacionamento é anotado entre os limites de chunk.
 
 #### Limitações de consulta
+[ Atualizar ](/docs/services/discovery/using.html#query-concepts)
 
 -   Um carregamento de consulta excessivo pode fazer com que o processo de índice de procura reinicie automaticamente.
 -   Os aplicativos que emitem consultas devem aplicar limites razoáveis sobre o número de consultas simultâneas.
 
 ### Problemas conhecidos
+[Atualização: referência de API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}
+
+[ Update: tooling ](/docs/services/discovery/getting-started-tool.html)
+
+[ Atualização: Data Crawler ](/docs/services/discovery/data-crawler.html)
+
+[ Atualização: Enriquecimentos ](/docs/services/discovery/building.html#adding-enrichments)
+
+[ Atualizar: Incluindo conteúdo ](/docs/services/discovery/adding-content.html)
 
 -   Não é possível excluir um documento usando o conjunto de ferramentas. Se você precisar excluir um documento, deverá usar o método [Excluir um documento](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc) da API conforme descrito na referência de API.
 
@@ -530,7 +755,7 @@ As notas a seguir se aplicam à liberação de Disponibilidade Geral (GA) do ser
     -   Os documentos que são indexados com sucesso, mas que geraram erros, poderão ter um status **com falha** por um curto período de tempo até que o documento tenha sido totalmente confirmado no índice. Depois que o documento é confirmado no índice, o status listado é preciso.
 -   Não é possível usar o conjunto de ferramentas para substituir um documento específico. Se você tentar fazer isso, o segundo documento será transferido por upload como um documento separado. Se você estiver usando a API e souber o ID do documento que deseja substituir, poderá fazer isso; consulte [Atualizar um documento](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc) na referência de API. Se você estiver usando o Data Crawler, o upload de um documento atualizado por meio da mesma URL como um documento anterior substitui o documento original.
 -   Se você estiver usando o conjunto de ferramentas para editar os enriquecimentos em sua configuração, será possível editar apenas os enriquecimentos usados para extração. Se você deseja incluir ou editar os outros enriquecimentos (por exemplo, enriquecimentos customizados de um modelo do {{site.data.keyword.knowledgestudiofull}}), deve-se usar a API. Consulte o método [Atualizar uma Configuração](http://www.ibm.com/watson/developercloud/discovery/api/v1/#replace_configuration) na referência de API para obter informações.
--   As notas a seguir se aplicam especificamente ao Data Crawler.
+-   As notas a seguir se aplicam especificamente ao Data Crawler. 
     -   O Data Crawler tenta fazer upload novamente se ele encontra uma falha de upload.
     -   O Data Crawler é incapaz de tentar novamente documentos que foram transferidos por upload com sucesso, mas que falharam ao serem convertidos ou indexados.
     -   O Data Crawler não possui uma função para verificar o status de recebimento de dados e de tentar refazer o upload de URLs que falharam no recebimento de dados.

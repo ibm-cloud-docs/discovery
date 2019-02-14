@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-08-15"
 
 ---
 
@@ -40,7 +40,7 @@ enriched_text.concepts.text
 
 例如：
 ```bash
-enriched_text.concepts.text:cloud computing
+enriched_text.concepts.text:"cloud computing"
 ```
 {: codeblock}
 
@@ -51,9 +51,11 @@ enriched_text.concepts.text:cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text::cloud computing
+enriched_text.concepts.text::"Cloud computing"
 ```
 {: codeblock}
+
+完全匹配是区分大小写的。
 
 ## :! \[不包含\]
 {: #notinclude}
@@ -62,7 +64,7 @@ enriched_text.concepts.text::cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text:!cloud computing
+enriched_text.concepts.text:!"cloud computing"
 ```
 {: codeblock}
 
@@ -73,9 +75,11 @@ enriched_text.concepts.text:!cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text::!cloud computing
+enriched_text.concepts.text::!"Cloud computing"
 ```
 {: codeblock}
+
+完全匹配是区分大小写的。
 
 ## \\ \[转义字符\]
 {: #escape}
@@ -84,7 +88,7 @@ enriched_text.concepts.text::!cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text:\!cloud computing
+title::"Dorothy said: \"There's no place like home\""
 ```
 {: codeblock}
 
@@ -95,7 +99,7 @@ enriched_text.concepts.text:\!cloud computing
 
 例如：
 ```bash
-enriched_text.concepts.text:"IBM watson"
+enriched_text.entities.text:"IBM watson"
 ```
 {: codeblock}
 
@@ -157,21 +161,43 @@ enriched_text.concepts.text:IBM^3
 ## * \[通配符\]
 {: #Wildcard}
 
-与搜索表达式中的未知字符相匹配。
+与搜索表达式中的未知字符相匹配。不要将大写字母与通配符一起使用。
 
 例如：
 ```bash
-enriched_text.concepts.text:IBM*
+enriched_text.entities.text:ib*
 ```
 {: codeblock}
 
 ## ~n \[字符串变体\]
 {: #variation}
 
-将一个字符串转换为另一个字符串所需的单字符更改次数。例如，`car~1` 与 `car`、`cap`、`cat`、`can` 等相匹配。
+将一个字符串转换为另一个字符串所需的单字符更改次数。例如，`car~1` 将与 `car`、`cap`、`cat`、`can` 等相匹配。
 
 例如：
 ```bash
 enriched_text.concepts.text:Watson~3
+```
+{: codeblock}
+
+## :* \[存在\]
+{: #exists}
+
+用于返回包含指定 `field` 的所有结果。
+
+例如：
+```bash
+title:*
+```
+{: codeblock}
+
+## !* \[不存在\]
+{: #dnexist}
+
+用于返回不包含指定 `field` 的所有结果。
+
+例如：
+```bash
+title!*
 ```
 {: codeblock}

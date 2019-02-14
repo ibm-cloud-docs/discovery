@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-16"
 
 ---
 
@@ -19,12 +19,12 @@ lastupdated: "2017-11-08"
 
 # 從 Watson Discovery News Original 移轉
 
-新版本的 {{site.data.keyword.discoverynewsshort}} 在 **2017 年 7 月 31 日**初次亮相。原始版本已重新命名為 {{site.data.keyword.discoverynewsshort}} Original，並已絕版，從 **2018 年 1 月 15 日**起不再提供服務。  
+新版本的 {{site.data.keyword.discoverynewsshort}} 在 **2017 年 7 月 31 日**初次亮相。原始版本已重新命名為 {{site.data.keyword.discoverynewsshort}} Original，並且在 **2018 年 1 月 15 日**已從服務下架。如果您嘗試存取 {{site.data.keyword.discoverynewsshort}} Origianl，您會收到 `410 GONE` 訊息。
 {: shortdesc}
 
 若要從 {{site.data.keyword.discoverynewsshort}} Original 移轉至新版本，您需要進行一些變更，包括更新已對 {{site.data.keyword.discoverynewsshort}} Original 建立的任何查詢。
 
-  **附註：**如果您已建立 {{site.data.keyword.discoveryshort}} 的新實例，您只能存取 {{site.data.keyword.discoverynewsshort}} 的新版本。只有在 **2017 年 7 月 31 日**之前建立的 {{site.data.keyword.discoveryshort}} 實例中，才能同時存取新的 {{site.data.keyword.discoverynewsshort}} 與 {{site.data.keyword.discoverynewsshort}} Original。
+  **附註：**{{site.data.keyword.discoverynewsshort}} Original 僅適用於 **2017 年 7 月 31 日**之前建立的 {{site.data.keyword.discoveryshort}} 實例，並且在 **2018 年 1 月 15 日**已從服務下架。
 
 如需此集合的說明，請參閱 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html)。
 
@@ -32,11 +32,11 @@ lastupdated: "2017-11-08"
 
 ## 服務比較
 
-| {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
+|{{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
-| **{{site.data.keyword.discoverynewsshort}} Original** 已使用下列「Alchemy 語言」強化進行預先強化：「關鍵字擷取」、「實體擷取」、「概念標記」、「關係擷取」、「觀感分析」及「分類架構分類」。也新增了下列其他 meta 資料：搜索日期、發佈日期、URL 分級、主機分級及錨點文字。| **{{site.data.keyword.discoverynewsshort}}** 已使用下列 {{site.data.keyword.nlushort}} (NLU) 強化進行預先強化：「關鍵字擷取」、「實體擷取」、「語意角色擷取」、「觀感分析」、「關係」及「種類分類」。也新增了下列其他 meta 資料：搜索日期和發佈日期。若要進一步瞭解 NLU 強化，請參閱[新增強化](/docs/services/discovery/building.html#adding-enrichments)。|
-| 可透過對服務實例而言是唯一的環境來存取 **{{site.data.keyword.discoverynewsshort}} Original**。| 使用 **{{site.data.keyword.discoverynewsshort}}** 時，所有使用者會查詢相同的環境和集合。這表示需要變更環境和集合的所有參照。|
-| 在 **{{site.data.keyword.discoverynewsshort}} Original** 中，透過 API 擷取該環境時，您會收到諸如集合大小、文件數等資訊。| **{{site.data.keyword.discoverynewsshort}}** API 不會傳回此資訊。|
+| **{{site.data.keyword.discoverynewsshort}} Original** 已使用下列「Alchemy 語言」強化進行預先強化：「關鍵字擷取」、「實體擷取」、「概念標記」、「關係擷取」、「觀感分析」及「分類架構分類」。也新增了下列其他 meta 資料：搜索日期、發佈日期、URL 分級、主機分級及錨點文字。|**{{site.data.keyword.discoverynewsshort}}** 已使用下列 {{site.data.keyword.nlushort}} (NLU) 強化進行預先強化：「關鍵字擷取」、「實體擷取」、「語意角色擷取」、「觀感分析」、「關係」及「種類分類」。也新增了下列其他 meta 資料：搜索日期和發佈日期。若要進一步瞭解 NLU 強化，請參閱[新增強化](/docs/services/discovery/building.html#adding-enrichments)。|
+|可透過對服務實例而言是唯一的環境來存取 **{{site.data.keyword.discoverynewsshort}} Original**。|使用 **{{site.data.keyword.discoverynewsshort}}** 時，所有使用者會查詢相同的環境和集合。這表示需要變更環境和集合的所有參照。|
+|在 **{{site.data.keyword.discoverynewsshort}} Original** 中，透過 API 擷取環境時，您會收到集合大小、文件數等資訊。|**{{site.data.keyword.discoverynewsshort}}** API 不會傳回此資訊。|
 
 以下是 **{{site.data.keyword.discoverynewsshort}}** 可用的新欄位：
 
@@ -93,7 +93,7 @@ lastupdated: "2017-11-08"
 1. 按一下 {{site.data.keyword.discoverynewsshort}} 磚，以開啟**管理資料**畫面。
 1. 按一下**檢視資料綱目**，然後按一下**建置查詢**來開啟查詢建置器。
 
-  {{site.data.keyword.discoverynewsshort}} 中查詢的建構方式與針對專用資料集合撰寫的查詢相同。請參閱[查詢概念](/docs/services/discovery/using.html)及[查詢參照](/docs/services/discovery/query-reference.html)。
+  {{site.data.keyword.discoverynewsshort}} 中查詢的建構方式與針對專用資料集合撰寫的查詢相同。請參閱[查詢概念](/docs/services/discovery/using.html)及[查詢參考資料](/docs/services/discovery/query-reference.html)。
   {: tip}
 
 **附註：**請不要預期 {{site.data.keyword.discoverynewsshort}} Original 和 {{site.data.keyword.discoverynewsshort}} 會針對類似查詢傳回相同的結果。搜索時間、來源及強化全都會結合而傳回不同的結果。

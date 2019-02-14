@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -65,13 +65,9 @@ fazer upload de seu conteúdo.
 tem para o conteúdo no serviço do {{site.data.keyword.discoveryshort}}. Um máximo de um ambiente pode ser
 criado para cada instância do serviço do {{site.data.keyword.discoveryshort}}.
 
-    Você tem vários planos (Lite, Padrão e Avançado) para escolher, consulte o
-[{{site.data.keyword.discoveryshort}}
-![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} para obter detalhes. Seus arquivos de origem não contam seu
-limite de tamanho do arquivo.
+    Você tem vários planos (Lite, Avançado, Premium) dentre os quais escolher, veja o [catálogo do {{site.data.keyword.discoveryshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} e [Planos de precificação do {{site.data.keyword.discoveryshort}}](/docs/services/discovery/pricing-details.html) para obter detalhes. Seus arquivos de origem não contam com relação ao seu limite de tamanho do arquivo, somente o tamanho do JSON convertido que é indexado conta para o seu limite de tamanho.
 
--   **Coleção** - uma coleção é um agrupamento de seu conteúdo dentro do ambiente. 
-Deve-se criar pelo menos uma coleção para poder fazer upload de seu conteúdo.
+-   **Coleção** - uma coleção é um agrupamento de seu conteúdo dentro do ambiente. Deve-se criar pelo menos uma coleção para poder fazer upload de seu conteúdo.
 
     As coleções são compostas de seus dados privados, mas
 o {{site.data.keyword.discoveryshort}}
@@ -79,25 +75,21 @@ também inclui o {{site.data.keyword.discoverynewsshort}}, um conjunto de dados 
 enriquecido. Ele pode ser usado para consultar insights; por exemplo: alertas de notícias, detecção de
 eventos e a tendência de tópicos nas notícias, que podem ser integrados em seus aplicativos.
 
-    {{site.data.keyword.discoverynewsshort}}, um conjunto de dados públicos que foi pré-enriquecido com insights cognitivos, também está incluído com o {{site.data.keyword.discoveryshort}}. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) para obter mais informações. 
-Não é possível ajustar a configuração do {{site.data.keyword.discoverynewsshort}} nem incluir
-documentos nessa coleção. Veja uma demonstração do que você pode construir com o {{site.data.keyword.discoverynewsshort}} [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://discovery-news-demo.mybluemix.net/){: new_window}.
+    {{site.data.keyword.discoverynewsshort}}, um conjunto de dados públicos que foi pré-enriquecido com insights cognitivos, também está incluído com o {{site.data.keyword.discoveryshort}}. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) para obter mais informações. Não é possível ajustar a configuração do {{site.data.keyword.discoverynewsshort}} nem incluir
+documentos nessa coleção. Veja uma demonstração do que você pode construir com o {{site.data.keyword.discoverynewsshort}} [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
 Para criar um ambiente e a coleção de dados privados com o conjunto de ferramentas do
 {{site.data.keyword.discoveryshort}}:
 
 1.  Na tela **Gerenciar dados**, clique no ícone
 ![Cog](images/icon_settings.png) e escolha **Criar ambiente**. O
-ambiente é criado com base no plano do {{site.data.keyword.Bluemix_notm}} que você selecionou anteriormente. 
-O status de seu ambiente está sempre disponível nesta lista suspensa.
+ambiente é criado com base no plano do {{site.data.keyword.Bluemix_notm}} que você selecionou anteriormente. O status de seu ambiente está sempre disponível nesta lista suspensa.
 
-1.  Depois que seu ambiente está pronto, clique no botão **Criar uma coleção de
-dados** para poder **Nomear sua nova coleção**.
+1.  Quando seu ambiente estiver pronto, clique no botão **Fazer upload de seus próprios dados** e, em seguida, é possível **Nomear sua nova coleção**.
 
     Por padrão, o arquivo de configuração será **Configuração padrão**. Se você
 tiver outro arquivo de configuração disponível, será possível escolhê-lo ou criar um novo mais tarde e
-aplicá-lo a esta coleção. Também é possível selecionar o idioma dos documentos que serão incluídos nessa
-coleção: inglês, alemão, espanhol, árabe, francês, italiano, coreano ou português do Brasil. Deve haver apenas
+aplicá-lo a esta coleção. Também é possível selecionar o idioma dos documentos que serão incluídos nesta coleção: inglês, alemão, espanhol, árabe, japonês, japonês, francês, italiano, coreano ou português do Brasil. Deve haver apenas
 um idioma em cada uma das suas coleções. Depois de clicar em **Criar**, sua coleção de dados
 aparecerá como um ladrilho.
 
@@ -107,37 +99,31 @@ imediatamente. No entanto, se você deseja customizar sua configuração do {{si
 [Configurando o seu serviço](/docs/services/discovery/building.html#custom-configuration).
 
 **Nota:** quando os documentos são transferidos por upload para uma coleção de dados,
-eles são convertidos e enriquecidos usando o arquivo de configuração escolhido para essa coleção. Se você decidir mais tarde que deseja mudar uma coleção para um arquivo de configuração diferente, será possível fazer isso, mas os documentos que já foram transferidos por upload permanecerão convertidos pelo arquivo de configuração original. Todos os documentos transferidos por upload depois de mudar o arquivo de configuração usarão o novo arquivo de configuração. Se você deseja que a coleção **inteira** use a nova configuração, será necessário criar uma nova coleção, escolher esse novo arquivo de configuração e fazer um novo upload de todos os documentos. 
-O serviço do {{site.data.keyword.discoveryshort}} armazena o texto convertido dos documentos que você
+eles são convertidos e enriquecidos usando o arquivo de configuração escolhido para essa coleção. Se você decidir mais tarde que deseja mudar uma coleção para um arquivo de configuração diferente, será possível fazer isso, mas os documentos que já foram transferidos por upload permanecerão convertidos pelo arquivo de configuração original. Todos os documentos transferidos por upload depois de mudar o arquivo de configuração usarão o novo arquivo de configuração. Se você deseja que a coleção **inteira** use a nova configuração, será necessário criar uma nova coleção, escolher esse novo arquivo de configuração e fazer um novo upload de todos os documentos. O serviço do {{site.data.keyword.discoveryshort}} armazena o texto convertido dos documentos que você
 faz upload e as imagens integradas em arquivos **PDF** e **Microsoft Word**
 não são armazenadas e não serão retornadas nos resultados.
+
+É possível usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou a API para efetuar crawl em origens de dados do Box, Salesforce e Microsoft SharePoint Online. Consulte [Conectando-se a origens de dados](/docs/services/discovery/connect.html) para obter mais informações.
+{: tip}
 
 ### A configuração padrão
 {: #the-default-configuration}
 
-O serviço do {{site.data.keyword.discoveryshort}} inclui um arquivo de configuração padrão que
-irá converter, enriquecer e normalizar seus dados sem requerer configuração manual dessas opções.
+O serviço {{site.data.keyword.discoveryshort}} inclui uma configuração padrão converterá, enriquecerá e normalizará seus dados sem requerer que você configure manualmente essas opções.
 
-Esse arquivo de configuração padrão é denominado **Configuração padrão**. Ele contém
-enriquecimentos, além de conversões de documentos padrão com base em estilos e tamanhos da fonte.
-
-Primeiramente os enriquecimentos padrão. O {{site.data.keyword.discoveryshort}} irá enriquecer
+A configuração padrão denominada **Configuração padrão** contém enriquecimentos, mais conversões de documentos padrão com base em estilos e tamanhos de fonte. O {{site.data.keyword.discoveryshort}} irá enriquecer
 (incluir metadados cognitivos) o campo de texto de seus documentos com informações semânticas coletadas
 por quatro enriquecimentos do {{site.data.keyword.watson}}, Extração de Entidade,
 Análise de Sentimentos, Classificação de Categoria e Identificação de Conceito (aprender mais sobre eles
 [aqui](/docs/services/discovery/building.html#adding-enrichments)).
-
-**Observação:** começando em **18 de julho de 2017**, o {{site.data.keyword.discoveryfull}} introduziu uma nova tecnologia de enriquecimento, chamada de {{site.data.keyword.nlushort}} (NLU). Consulte [Incluindo enriquecimentos](/docs/services/discovery/building.html#adding-enrichments) para obter detalhes. 
-Se você aplicou a **Configuração padrão** em uma coleção antes dessa data, essa coleção foi
-melhorada com os enriquecimentos do {{site.data.keyword.alchemylanguageshort}}. Se você aplicar a
-**Configuração padrão** em uma coleção após essa data, os
-enriquecimentos do {{site.data.keyword.nlushort}} serão utilizados.
 
 -   [Conversão em Microsoft
 Word](/docs/services/discovery/building.html#microsoft-word-conversion)
 -   [Conversão em PDF](/docs/services/discovery/building.html#pdf-conversion)
 -   [Conversão em HTML](/docs/services/discovery/building.html#html-conversion)
 -   [Conversão em JSON](/docs/services/discovery/building.html#json-conversion)
+
+Uma segunda configuração padrão denominada **Configuração de contrato padrão** está disponível no conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. Ela é configurada para enriquecer com a Classificação de elementos, que pode ser usada para extrair a parte, a natureza e a categoria de elementos em PDFs. Consulte [ Classificação de Elementos ](/docs/services/discovery/element-classification.html#element-collection) para obter detalhes.
 
 Se você deseja criar uma configuração customizada, consulte
 [Configuração customizada](/docs/services/discovery/building.html#custom-configuration).
@@ -146,10 +132,8 @@ Se você deseja criar uma configuração customizada, consulte
 {: #when-you-need-a-custom-configuration}
 
 O serviço do {{site.data.keyword.discoveryshort}} tem como objetivo obter as informações
-certas de seu conteúdo e retorná-las para seus usuários.
- A identificação de qual é a informação e de como ela é armazenada no seu conteúdo é definida pela
-configuração que você usa para alimentar o conteúdo. 
-Os tipos de conteúdo que o serviço do {{site.data.keyword.discoveryshort}} pode alimentar são
+certas de seu conteúdo e retorná-las para seus usuários. A identificação de qual é a informação e de como ela é armazenada no seu conteúdo é definida pela
+configuração que você usa para alimentar o conteúdo. Os tipos de conteúdo que o serviço do {{site.data.keyword.discoveryshort}} pode alimentar são
 flexíveis, o que significa que mesmo que seu conteúdo não estruturado seja salvo em um formato específico, a
 estrutura desse conteúdo não precisa corresponder à estrutura de outro conteúdo do mesmo tipo.
 
@@ -188,12 +172,13 @@ documentos de amostra](/docs/services/discovery/building.html#converting-sample-
 enriquecimentos](/docs/services/discovery/building.html#adding-enrichments)
 1.  [Normalizando dados](/docs/services/discovery/building.html#normalizing-data)
 
+Para obter informações detalhadas sobre configurações, veja a [Referência de configuração](/docs/services/discovery/custom-config.html).
+
 ### Fazendo upload de documentos de amostra
 {: #uploading-sample-documents}
 
 Para tornar o processo de configuração mais eficiente, é possível fazer upload até dez arquivos Microsoft
-Word, HTML, JSON ou PDF que representam seu conjunto de documentos.
-Eles são chamados de **documentos de amostra**. Os documentos de amostra não são incluídos
+Word, HTML, JSON ou PDF que representam seu conjunto de documentos. Eles são chamados de **documentos de amostra**. Os documentos de amostra não são incluídos
 em sua coleção, eles são usados apenas para identificar campos que são comuns aos seus documentos e para
 customizar esses campos de acordo com seus requisitos.
 
@@ -208,14 +193,12 @@ arquivo.
 -   Todos os seus documentos são convertidos em JSON antes de serem enriquecidos e indexados.
 -   Documentos Microsoft Word e PDF são convertidos primeiramente em HTML e depois em JSON.
 -   Documentos HTML são convertidos diretamente em JSON.
--   O tamanho máximo do arquivo para um documento de amostra é 5 MB. Os documentos de amostra são
-excluídos automaticamente após 1 mês, mas será possível fazer upload dos mesmos documentos novamente se
-desejar fazer mudanças adicionais na sua configuração.
+-   O tamanho máximo do arquivo para um documento de amostra é 1 MB. Os documentos de amostra são armazenados na pasta de dados de roaming local do navegador. Para excluir seus documentos de amostra, clique no ícone **Excluir**.
 
 #### Diretrizes para escolha de bons documentos de amostra:
 
 -   É necessário ter (no mínimo) um documento de amostra para cada tipo de arquivo que pretende
-alimentar, Microsoft Word, PDF, HTML e JSON.
+alimentar, Microsoft Word, PDF, HTML e JSON. (Não é possível visualizar documentos PDF enriquecidos com o enriquecimento de **Classificação de elementos**.)
 -   Se você tiver quaisquer tipos de documento exclusivos (como relatórios financeiros ou press
 releases), inclua cada um deles em seu conjunto de documentos de amostra.
 -   Para documentos HTML, é necessário escolher documentos que incluam tags HTML que você deseja
@@ -271,8 +254,7 @@ conjunto de configurações de conversão.
 
 Os tamanhos e estilos de fonte do Microsoft Word são usados para converter os títulos em seus
 documentos corretamente em H1, H2 e assim por diante. Os títulos do H1 são o título do documento e os títulos
-do H2 são subtítulos. Use as caixas de texto e os botões de opção para mudar as configurações padrão, se desejar. 
-Também é possível incluir níveis de título e estilos do Word adicionais. Se os documentos do Word tendem a
+do H2 são subtítulos. Use as caixas de texto e os botões de opção para mudar as configurações padrão, se desejar. Também é possível incluir níveis de título e estilos do Word adicionais. Se os documentos do Word tendem a
 usar um nome de fonte ou de estilo específico para títulos, inclua essas informações. Isso ajudará a melhorar sua conversão, o que produzirá melhores resultados de consulta.
 
 **Exemplo:** se seus documentos do Word geralmente usam uma fonte 20 pt em itálico
@@ -335,10 +317,6 @@ Após fazer qualquer mudança, clique em **Aplicar e salvar**.
 ## Incluindo enriquecimentos
 {: #adding-enrichments}
 
-**Observação:** começando em **18 de julho de 2017**, o {{site.data.keyword.discoveryfull}} introduziu uma nova tecnologia de enriquecimento, chamada de {{site.data.keyword.nlushort}} (NLU).  Esses enriquecimentos são iguais aos seus enriquecimentos existentes, mas exigem uma configuração e um esquema ligeiramente diferentes. Os enriquecimentos originais, chamados de enriquecimentos {{site.data.keyword.alchemylanguageshort}}, serão descontinuados. 
-O suporte ao enriquecimento do {{site.data.keyword.alchemylanguageshort}} terminará em
-**15 de janeiro de 2018**. Novas coleções devem ser enriquecidas com o {{site.data.keyword.nlushort}} e todas as coleções existentes com os arquivos de configuração do {{site.data.keyword.alchemylanguageshort}} devem ser migradas o mais rápido possível. Para obter informações sobre como migrar coleções e arquivos de configuração que utilizam os enriquecimentos do{{site.data.keyword.alchemylanguageshort}}, consulte [Migrando enriquecimentos para o {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
-
 A {{site.data.keyword.discoveryshort}}
 [configuração padrão](/docs/services/discovery/building.html#the-default-configuration) irá
 enriquecer (incluir metadados cognitivos) o campo `texto` de seus documentos alimentados
@@ -348,8 +326,12 @@ total de nove enriquecimentos do {{site.data.keyword.watson}} disponíveis; os o
 Extração de Palavra-chave, Extração de Relação, Análise de Emoção, Classificação de Elementos e Extração de
 Função Semântica).
 
+Alguns enriquecimentos do {{site.data.keyword.watson}} podem não estar disponíveis em determinados planos ou ambientes.
+
 **Importante:** apenas os 50.000 primeiros caracteres de cada campo JSON selecionado
 para enriquecimento serão aprimorados.
+
+**Nota:** os enriquecimentos do {{site.data.keyword.alchemylanguageshort}} foram descontinuados em 1º de março de 2018. Se você tem quaisquer coleções existentes que estão usando os enriquecimentos do {{site.data.keyword.alchemylanguageshort}}, deve-se migrar para os enriquecimentos do {{site.data.keyword.nlushort}}. Para obter informações sobre a migração de coleções existentes e arquivos de configuração que utilizam os enriquecimentos do {{site.data.keyword.alchemylanguageshort}}, consulte [Migrando enriquecimentos para o {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
 
 Você pode aumentar ainda mais seus documentos incluindo mais enriquecimentos no campo
 `text` ou enriquecer outros campos. Para fazer isso usando o conjunto de ferramentas do
@@ -361,11 +343,7 @@ enriquecimentos do {{site.data.keyword.nlushort}} disponíveis:
 ### Extração de Entidade
 {: #entity-extraction}
 
-Retorna itens como pessoas, lugares e organizações presentes no texto de entrada. Extração de entidade inclui conhecimento semântico ao conteúdo para ajudar a entender o assunto e o contexto do texto que está sendo analisado. 
-As técnicas de extração de entidade são baseadas em algoritmos estatísticos sofisticados e em tecnologia de
-processamento de linguagem natural e são exclusivas no segmento de mercado com seu apoio para análise multilíngue,
-desambiguação contextual e extração de citação.
-Visualize a lista completa de tipos e subtipos de entidade
+Retorna itens como pessoas, lugares e organizações presentes no texto de entrada. Extração de entidade inclui conhecimento semântico ao conteúdo para ajudar a entender o assunto e o contexto do texto que está sendo analisado. As técnicas de extração de entidade são baseadas em algoritmos estatísticos sofisticados e em tecnologia de processamento de linguagem natural e são exclusivas na indústria com seu suporte para análise multilíngue e desambiguação sensível ao contexto. Visualize a lista completa de tipos e subtipos de entidade
 [aqui](/docs/services/discovery/entity-types.html). Também é possível criar e incluir um
 [modelo de entidade customizado](/docs/services/discovery/building.html#custom-entity-model)
 com o {{site.data.keyword.knowledgestudiofull}}.
@@ -375,42 +353,45 @@ Parte exemplo de um documento enriquecido com a Extração de entidade:
 ```json
 {
   "text": "Os acionistas ficaram satisfeitos com o fato de a Acme Corporation planejar a construção de uma nova fábrica em Atlanta, Georgia.", "enriched_text": {
-      "entities": [ {
-           "count": 1, "sentiment": {
-             "score": 0
-           },
+    "entities": [ {
+        "count": 1, "sentiment": {
+          "score": 0
+        },
            "text": "Acme Corporation",
            "relevance": 0.98389,
            "type": "Company"
-           },
-           {
-           "count": 1, "sentiment": {
-             "score": 0
-           },
+      },
+      {
+        "count": 1, "sentiment": {
+          "score": 0
+        },
            "text": "Atlanta",
            "relevance": 0.532754,
            "type": "Location",
            "disambiguation": {
-             "subtype": [
-               "AdministrativeDivision",
+          "subtype": [
+            "AdministrativeDivision",
                "GovernmentalJurisdiction",
                "OlympicHostCity",
                "PlaceWithNeighborhoods",
                "City"
-           ], "name": "Atlanta", "dbpedia_resource": "http://dbpedia.org/resource/Atlanta" }
-           },
-           {
-           "count": 1, "sentiment": {
-             "score": 0
-           },
+          ], "name": "Atlanta", "dbpedia_resource": "http://dbpedia.org/resource/Atlanta" }
+      },
+      {
+        "count": 1, "sentiment": {
+          "score": 0
+        },
            "text": "Georgia",
            "relevance": 0.469643,
            "type": "Location",
            "disambiguation": {
-             "subtype": [
-               "StateOrCounty" ]
-    }
+          "subtype": [
+            "StateOrCounty" ]
+        }
+      }
+    ]
   }
+}
 ```
 {: codeblock}
 
@@ -418,15 +399,13 @@ No exemplo anterior, seria possível consultar o tipo de entidade, acessando `en
 
 `sentiment` é calculado para tipos de entidade, mesmo que o enriquecimento **sentiment** não seja selecionado. Para saber mais sobre a análise de sentimentos, consulte [Análise de sentimentos](/docs/services/discovery/building.html#sentiment-analysis).
 
-A pontuação de `relevance` é de `0.0` a `1.0`. Quanto maior a pontuação, mais relevante a entidade. 
-O campo `desambiguation` contém as informações de desambiguação para a entidade, que inclui
+A pontuação de `relevance` é de `0.0` a `1.0`. Quanto maior a pontuação, mais relevante a entidade. O campo `desambiguation` contém as informações de desambiguação para a entidade, que inclui
 as informações de `subtype` da entidade e links para um ou mais recursos, se aplicável. A `count` é o número de vezes que a entidade é mencionada no documento.
 
 #### Usando um modelo de entidade customizado
 {: #custom-entity-model}
 
-Se você deseja criar um modelo de enriquecimento customizado, é possível fazê-lo em {{site.data.keyword.knowledgestudiofull}} e importá-lo para o {{site.data.keyword.discoveryshort}}, incluindo o ID na caixa`Custom Model ID` do conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. Para obter mais informações sobre como integrar com o {{site.data.keyword.knowledgestudiofull}}, consulte [Integrando com o{{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). 
-O modelo do {{site.data.keyword.knowledgestudiofull}} customizado substituirá o enriquecimento
+Se você deseja criar um modelo de enriquecimento customizado, é possível fazê-lo em {{site.data.keyword.knowledgestudiofull}} e importá-lo para o {{site.data.keyword.discoveryshort}}, incluindo o ID na caixa`Custom Model ID` do conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. Para obter mais informações sobre como integrar com o {{site.data.keyword.knowledgestudiofull}}, consulte [Integrando com o{{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). O modelo do {{site.data.keyword.knowledgestudiofull}} customizado substituirá o enriquecimento
 Extração de Entidade padrão.
 
 **Observação:** somente um modelo do {{site.data.keyword.knowledgestudiofull}} pode ser designado a um enriquecimento.
@@ -494,8 +473,7 @@ pontuação, mais relevante é a relação.
 #### Usando um modelo de relação customizado
 {: #custom-relation-model}
 
-Se você deseja criar um modelo de enriquecimento customizado, é possível fazê-lo em {{site.data.keyword.knowledgestudiofull}} e importá-lo para o {{site.data.keyword.discoveryshort}}, incluindo o ID na caixa`Custom Model ID` do conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. Para obter mais informações sobre como integrar com o {{site.data.keyword.knowledgestudiofull}}, consulte [Integrando com o{{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). 
-O modelo do {{site.data.keyword.knowledgestudiofull}} customizado substituirá o enriquecimento
+Se você deseja criar um modelo de enriquecimento customizado, é possível fazê-lo em {{site.data.keyword.knowledgestudiofull}} e importá-lo para o {{site.data.keyword.discoveryshort}}, incluindo o ID na caixa`Custom Model ID` do conjunto de ferramentas do {{site.data.keyword.discoveryshort}}. Para obter mais informações sobre como integrar com o {{site.data.keyword.knowledgestudiofull}}, consulte [Integrando com o{{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). O modelo do {{site.data.keyword.knowledgestudiofull}} customizado substituirá o enriquecimento
 Extração de Relação padrão.
 
 **Observação:** somente um modelo do {{site.data.keyword.knowledgestudiofull}} pode ser designado a um enriquecimento.
@@ -568,8 +546,7 @@ A pontuação de `relevance` é de `0.0` a `1.0`. Quanto maior a pontuação, ma
 ### Classificação de Categoria
 
 Categoriza conteúdo de texto de entrada, HTML ou baseado na web em uma taxonomia hierárquica em até
-cinco níveis de profundidade. Os níveis mais profundos permitem classificar o conteúdo em subsegmentos mais precisos e úteis. 
-Visualize a lista completa de categorias [aqui](/docs/services/discovery/categories.html).
+cinco níveis de profundidade. Os níveis mais profundos permitem classificar o conteúdo em subsegmentos mais precisos e úteis. Visualize a lista completa de categorias [aqui](/docs/services/discovery/categories.html).
 
 Exemplo de parte de um documento enriquecida com Classificação de Categoria:
 
@@ -698,8 +675,7 @@ Exemplo de parte de um documento enriquecida com Extração de Função de Semâ
 
 No exemplo anterior, seria possível consultar o texto do assunto de relação, acessando `enriched_text.relations.subject.text`
 
-`sentiment` é calculado para relações, mesmo que o enriquecimento **sentiment** não seja relacionado. Para saber mais sobre a análise de sentimentos, consulte [Análise de sentimentos](/docs/services/discovery/building.html#sentiment-analysis). Ele não extrairá `entities` ou `keywords` (como mostrado no exemplo) a menos que você também selecione os enriquecimentos **entidade** e **palavra-chave**. 
-Consulte [Extração de Entidade](/docs/services/discovery/building.html#entity-extraction) e
+`sentiment` é calculado para relações, mesmo que o enriquecimento **sentiment** não seja relacionado. Para saber mais sobre a análise de sentimentos, consulte [Análise de sentimentos](/docs/services/discovery/building.html#sentiment-analysis). Ele não extrairá `entities` ou `keywords` (como mostrado no exemplo) a menos que você também selecione os enriquecimentos **entidade** e **palavra-chave**. Consulte [Extração de Entidade](/docs/services/discovery/building.html#entity-extraction) e
 [Extração de Palavra-chave](/docs/services/discovery/building.html#keyword-extraction)
 para obter mais informações sobre os enriquecimentos.
 
@@ -856,6 +832,10 @@ Na seção **Normalizar** do conjunto de ferramentas do
 Após fazer quaisquer mudanças, clique em **Aplicar e salvar** e, em seguida,
 **Concluído**. Você será retornado para a tela **Gerenciar dados**,
 na qual é possível aplicar esta configuração à coleção de sua escolha.
+
+**Nota:** não é possível especificar o `data type` (por exemplo: `text` ou `date`) de campos. Durante a ingestão do documento, se for detectado um campo que ainda não existe no índice, o {{site.data.keyword.discoveryshort}} detectará automaticamente o `data type` desse campo com base no valor do campo para o primeiro documento indexado.
+
+Se estiver usando o enriquecimento de **Classificação de elementos**, não será possível executar a normalização pós-enriquecimento.
 
 ## Normalizando entidades
 {: #normalizing-entities}
@@ -1069,14 +1049,13 @@ Alguns os seletores CSS comuns incluem o seguinte:
   - `[attribute]` - corresponde a qualquer tag com o
 `attribute` especificado, independentemente do valor
   - `[attribute=value]` ou `[attribute="value"]` — corresponde o
-`attribute` e o `value` especificados 
+`attribute` e o `value` especificados
 
 ## Dividindo documentos com a segmentação de documentos
 {: #doc-segmentation}
 
 É possível dividir seus documentos Word, PDF e HTML em segmentos com base nas tags de título
-HTML. Uma vez dividido, cada segmento é um documento separado que será convertido em JSON e depois indexado e
-enriquecido separadamente. Como as consultas retornarão esses segmentos como documentos separados, segmentação
+HTML. Uma vez dividido, cada segmento é um documento separado que será enriquecido e indexado separadamente. Como as consultas retornarão esses segmentos como documentos separados, segmentação
 de documento pode ser usada para:
 
   - Executar agregações em segmentos individuais de um documento. Por exemplo, sua agregação contaria
@@ -1092,10 +1071,9 @@ seguintes tags HTML: `h1` `h2` `h3` `h4`
 
 Considerações:
 
-  - O número de segmentos por documento é limitado a `50`. Qualquer conteúdo do
-documento restante após `49` segmentos será armazenado no segmento `50`.
+  - O número de segmentos por documento é limitado a `250`. Qualquer conteúdo do documento restante após `249` segmentos será armazenado no segmento `250`.
 
-  - Cada segmento conta até o limite de documento de seu plano.
+  - Cada segmento conta até o limite de documento de seu plano. O {{site.data.keyword.discoveryshort}} indexará segmentos até que o limite de plano seja atingido. Veja [Planos de precificação de descoberta](/docs/services/discovery/pricing-details.html) para obter os limites do documento.
 
   - Não é possível normalizar dados (consulte
 [Normalizar dados](/docs/services/discovery/building.html#normalizing-data)) ou usar os
@@ -1103,23 +1081,14 @@ seletores CSS para extrair campos (consulte
 [Usando seletores CSS para extrair campos](/docs/services/discovery/building.html#using-css))
 ao usar segmentação de documento.
 
-  - Se um documento foi atualizado e precisa ser alimentado novamente, os segmentos excluídos
-ficarão para trás após a reingestão e deverão ser excluídos manualmente usando a API (consulte
-[Referência da API
-![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/?curl#delete-doc){: new_window}:). Além disso, se sua atualização de documento
-possui conteúdo incluído que criará novos segmentos ou um conteúdo excluído que removerá segmentos, cada
-seção será designada a um novo `document_id`. Se esses segmentos já foram classificados com
-treinamento de relevância, o treinamento precisará ser executado novamente. Nesse caso, em vez de incluir
-conteúdo em um documento existente, considere criar um novo documento possuindo o novo conteúdo e alimentá-lo
-separadamente. Em vez de excluir segmentos de um documento existente e realimentá-los, exclua esses segmentos
-usando a API.
-
-  - Os documentos serão segmentados cada vez que a tag HTML especificada é detectada.
-Consequentemente, a segmentação poderá levar a HTML malformado, já que os documentos podem ser divididos antes
+  - Os documentos serão segmentados cada vez que a tag HTML especificada é detectada. Consequentemente, a segmentação poderá levar a HTML malformado, já que os documentos podem ser divididos antes
 das tags de fechamento e após as tags de abertura.
 
-  - Metadados HTML, PDF e Word não são extraídos e não serão incluídos no índice. Além disso, metadados
-customizados transmitidos com o upload do documento não serão incluídos no índice.
+  - Metadados HTML, PDF e Word, assim como quaisquer metadados customizados, são extraídos e incluídos no índice com cada segmento. Cada segmento de um documento incluirá metadados idênticos.
+
+  - A segmentação de documento não é suportada quando o enriquecimento de **Classificação de elementos** (`elements`) é especificado.
+
+  - A nova ingestão de um documento segmentado tem considerações adicionais, veja [Atualizando um documento segmentado](/docs/services/discovery/building.html#update-seg).
 
 ### Executando segmentação
 {: #performing-segmentation}
@@ -1220,3 +1189,16 @@ tag de título, o `title` será `no-title`.
     - `file_type`- corresponde ao documento original.
   - Campo `text`
   - Campo `html`
+
+### Atualizando um documento segmentado
+{: #update-seg}
+
+Se um documento segmentado tiver sido atualizado e precisar ser alimentado novamente, ele poderá ser substituído usando o método [Atualizar documento ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window}.
+
+Ao atualizar um documento segmentado, o documento deve ser transferido por upload usando o método POST da API `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}`, especificando os conteúdos do campo `parent_id` de um dos segmentos atuais como a variável de caminho `{document_id}`.
+
+Ao atualizar, todos os segmentos serão sobrescritos, a menos que a versão atualizada do documento tenha menos seções totais do que o original. Esses segmentos mais antigos permanecerão no índice e poderão ser excluídos individualmente usando a API. Consulte a [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} para obter detalhes. É possível identificar quantos segmentos foram criados consultando os `notices`. A cada segmento é fornecido um campo `document_id` que é composto por um `{parent_id}`, seguido por um sublinhado, seguido pelo número do segmento.
+
+Se qualquer um dos segmentos do documento que você pretende atualizar foi classificado para treinamento de relevância, deve-se primeiro excluir todos os segmentos desse documento e, em seguida, alimentar o documento atualizado como um novo documento. Isso resultará em um novo `document_id` para cada segmento e todos os segmentos treinados precisarão ser reciclados. O índice treinado se tornará inexato se você não excluir o conteúdo antigo primeiro.
+
+Como alternativa, considere a criação de um novo documento que contenha somente o novo conteúdo e alimente-o separadamente.

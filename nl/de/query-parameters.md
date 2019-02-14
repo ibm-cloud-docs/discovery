@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-05"
+  years: 2015, 2018
+lastupdated: "2018-10-04"
 
 ---
 
@@ -34,7 +34,7 @@ Die **Ergebnismenge** ist die Gruppe der Dokumente, die durch die kombinierten S
 
 Eine Suche mit dem Parameter 'query' gibt alle Dokumente in Ihrem Datenbestand mit vollständigen Aufbereitungen und dem vollständigen Text in der Reihenfolge ihrer Relevanz zurück. Eine Abfrage schließt außerdem alle Dokumente aus, in denen der Abfrageinhalt nicht erwähnt wird. Derartige Abfragen werden in der [{{site.data.keyword.discoveryshort}}](/docs/services/discovery/query-operators.html)-Abfragesprache geschrieben.
 
-## Parameter 'filter'
+## filter
 {: #filter}
 
 Dieser Parameter gibt eine zwischenspeicherbare Abfrage an, die alle Dokumente ausschließt, in denen der Abfrageinhalt nicht erwähnt wird. Ergebnisse der Filtersuche werden **nicht** in der Reihenfolge ihrer Relevanz zurückgegeben. Derartige Abfragen werden in der [{{site.data.keyword.discoveryshort}}-Abfragesprache](/docs/services/discovery/query-operators.html) geschrieben.
@@ -61,7 +61,7 @@ Aggregationsabfragen geben die Anzahl von Dokumenten zurück, die mit einer Grup
 ## Parameter 'natural_language_query'
 {: #nlq}
 
-Bei einer Abfrage in natürlicher Sprache können Sie die Abfrage in natürlicher Sprache ausdrücken, also so, wie sie von einem Endbenutzer in einer dialogorientierten Schnittstelle oder einer Schnittstelle für Text mit freiem Format empfangen werden könnte (z. B. 'IBM Watson im Gesundheitswesen'). Der Parameter verwendet die gesamte Eingabe als Abfragetext. Operatoren werden **nicht** erkannt. Der Parameter `natural_language_query` ermöglicht die Verwendung von Funktionen wie Passagensuche und Relevanztraining. Sammlungen, für die ein Training durchgeführt wurde, geben im Ergebnis für eine Abfrage in natürlicher Sprache eine Konfidenzbewertung (Feld `confidence`) zurück. Details enthält der Abschnitt [Konfidenzbewertung](/docs/services/discovery/train-tooling.html#confidence).
+Bei einer Abfrage in natürlicher Sprache können Sie die Abfrage in natürlicher Sprache ausdrücken, also so, wie sie von einem Endbenutzer in einer dialogorientierten Schnittstelle oder einer Schnittstelle für Text mit freiem Format empfangen werden könnte (z. B. 'IBM Watson im Gesundheitswesen'). Der Parameter verwendet die gesamte Eingabe als Abfragetext. Operatoren werden **nicht** erkannt. Der Parameter `natural_language_query` ermöglicht die Verwendung von Funktionen wie Passagensuche und Relevanztraining. Sammlungen, für die ein Training durchgeführt wurde, geben im Ergebnis für eine Abfrage in natürlicher Sprache eine Konfidenzbewertung (Feld `confidence`) zurück. Details enthält der Abschnitt [Konfidenzbewertung](/docs/services/discovery/train-tooling.html#confidence). Die maximale Länge der Abfragezeichenfolge für eine Abfrage in natürlicher Sprache ist `2048`.
 
 **Strukturparameter**
 
@@ -89,6 +89,13 @@ Eine durch Kommas getrennte Liste der Felder im Dokument, nach denen die Sortier
 
 Der Parameter `sort` kann gegenwärtig nur bei der API verwendet werden; in den Tools ist er nicht verfügbar.
 
+## Parameter 'bias'
+{: #bias}
+
+Passt die Suchergebnisse an, um bestimmte Ergebnisse zu beeinflussen, z. B. Dokumente, die zuletzt veröffentlicht wurden. Der Parameter `bias` muss entweder auf ein Feld vom Typ `date` oder auf ein Feld vom Typ `number` gesetzt sein, z. B. `bias=publication_date` oder `bias=field_1`. Wenn ein Feld `date` angegeben wird, werden die zurückgegebenen Ergebnisse auf Feldwerte ausgerichtet, die dem aktuellen Datum näher liegen. Wenn ein Feld `number` angegeben wird, werden die Ergebnisse auf höhere Feldwerte ausgerichtet. Dieser Parameter kann nicht in derselben Abfrage wie der Parameter `sort` verwendet werden.
+
+Der Parameter `bias` steht derzeit nur für die API zur Verfügung; er ist nicht über die Tools verfügbar.
+
 ## Parameter 'passages'
 {: #passages}
 
@@ -104,7 +111,7 @@ Da sich bei einer Anpassung der Satzgrenzen die Größe der Passagen erhöht, er
 Der Parameter `passages` gibt passende Passagen (`passage_text`) und die Bewertung (`score`), die Dokument-ID (`document_id`), den Namen des Feldes, aus dem die Passage extrahiert wurde (`field`) sowie das Start- und Endezeichen des Passagentextes innerhalb des Feldes (`start_offset` und `end_offset`) zurück. Dies ist im folgenden Beispiel gezeigt. Die Abfrage ist oben im Beispiel dargestellt.
 
 ```bash
- curl -u "{benutzername}":"{kennwort}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/collections/{sammlungs-id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
+ curl -u "apikey":"{wert_des_api-schlüssels}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/collections/{sammlungs-id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
 ```
 {: pre}
 
@@ -140,7 +147,7 @@ Die JSON-Rückgabe besitzt das folgende Format:
 Eine durch Kommas getrennte Liste der Felder im Index, aus denen die Passagen entnommen werden. Falls dieser Parameter nicht angegeben ist, werden alle Felder der höchsten Ebene einbezogen.
 
 ### Parameter 'passages.count'
-{: #passages_fields}
+{: #passages_count}
 
 Die maximale Anzahl der zurückzugebenden Passagen. Die Suche gibt weniger Ergebnisse zurück, falls die gefundene Gesamtzahl diesen Wert unterschreitet. Der Standardwert ist `10`. Der maximale Wert ist `100`.
 
@@ -157,7 +164,7 @@ Dieser boolesche Parameter gibt an, ob die zurückgegebene Ausgabe ein Objekt `h
 In der Ausgabe ist das Objekt `highlight` nach dem Objekt `enriched_text` angegeben. Dies ist im folgenden Beispiel gezeigt.
 
 ```bash
-curl -u "{benutzername}":"{kennwort}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/collections/{sammlungs-id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
+curl -u "apikey":"{wert_des_api-schlüssels}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/collections/{sammlungs-id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
 ```
 {: pre}
 
@@ -197,7 +204,7 @@ Die JSON-Rückgabe besitzt das folgende Format:
 {: codeblock}
 
 ## Parameter 'deduplicate'
-{: #deduplicate_field}
+{: #deduplicate}
 
  Diese Betafunktionalität schließt Dokumentduplikate aus Abfrageergebnissen für die Sammlung '{{site.data.keyword.discoverynewsfull}}' aus. Basis hierfür ist der Wert des Feldes `title`. Weitere Informationen enthält der Abschnitt [Doppelte Dokumente aus Abfrageergebnissen ausschließen](/docs/services/discovery/query-parameters.html#deduplication).
 
@@ -211,7 +218,7 @@ Diese Betafunktionalität schließt Dokumentduplikate aus Abfrageergebnissen aus
 
 Falls Sie die Sammlung '{{site.data.keyword.discoverynewsfull}}' abfragen oder Ihre private Datensammlung mehrere identische (oder nahezu identische) Dokumente enthält, können Sie mithilfe der Dokumentdeduplizierung einen Großteil dieser Dokumente aus den Abfrageergebnissen ausschließen.
 
-**Hinweis:** Die Dokumentdeduplizierung wird gegenwärtig nur als Betafunktionalität unterstützt. Weitere Informationen enthält der Abschnitt [Features als Betaversion](/docs/services/discovery/release-notes.html#beta-features) in den Releaseinformationen.
+**Hinweis:** Die Dokumentdeduplizierung wird gegenwärtig nur als Betafunktionalität unterstützt. Weitere Informationen enthält der Abschnitt [Features als Betaversion](/docs/services/discovery/release-notes.html#beta-features) in den Releaseinformationen. Dieses Beta-Feature wird derzeit nur in Englisch unterstützt. Details hierzu finden Sie unter [Sprachunterstützung](/docs/services/discovery/language-support.html#feature-support).
 
 **Hinweis:** Jede Abfrage wird unabhängig dedupliziert. Eine offsetübergreifende Deduplizierung wird daher nicht unterstützt.
 
@@ -219,7 +226,7 @@ Die Deduplizierung wird nach der Extraktion von `Passagen` und der Berechnung vo
 
 Die Deduplizierung wird nur für zurückgegebene Felder ausgeführt. Falls Sie `return=` in Ihrer Abfrage angeben, beziehen Sie das Feld ein, auf dessen Grundlage die Deduplizierung erfolgen soll.
 
-Zur Anwendung der Deduplizierung verwenden Sie die folgende Syntax in Ihrer Abfrage. Ersetzen Sie `{feld}` durch den Namen des Feldes, auf dessen Grundlage die Deduplizierung ausgeführt werden soll. Der für `{feld}` angegebene Wert muss eine Zeichenfolge sein, z. B. `title`.
+Zur Anwendung der Deduplizierung verwenden Sie die folgende Syntax in Ihrer Abfrage.  Ersetzen Sie `{feld}` durch den Namen des Feldes, auf dessen Grundlage die Deduplizierung ausgeführt werden soll. Der für `{feld}` angegebene Wert muss eine Zeichenfolge sein, z. B. `title`.
 
 ```
 &deduplicate.field={field}
@@ -255,5 +262,35 @@ Eine durch Kommas getrennte Liste von Sammlungen in derselben Umgebung, die abge
 
 ```bash
 &collection_ids={id1},{id2}
+```
+{: codeblock}
+
+## Parameter 'similar'
+{: #similar}
+
+Die Dokumentähnlichkeit identifiziert Dokumente, die den Dokumenten ähneln, die in den Parametern `similar.document_ids` aufgelistet sind. Dies kann noch weiter optimiert werden, indem Sie angeben, welche Felder für einen Vergleich mithilfe der Parameter `similar.fields` herangezogen werden sollen. Der Standardwert ist `false`. Weitere Informationen finden Sie unter [Dokumentähnlichkeit](/docs/services/discovery/using.html#doc-similarity).
+
+```bash
+&similar=true
+```
+{: codeblock}
+
+### Parameter 'similar.document_ids'
+{: #similar_document_ids}
+
+Eine durch Kommas getrennte Liste der Dokument-IDs, die als Grundlage für die Suche nach ähnlichen Dokumenten verwendet wird. Dieser Parameter ist erforderlich, wenn der Parameter `similar` auf `true` gesetzt ist.
+
+```bash
+&similar.document_ids={id1},{id2}
+```
+{: codeblock}
+
+### Parameter 'similar.fields'
+{: #similar_fields}
+
+Eine optionale, durch Kommas getrennte Liste der Felder, die zum Vergleichen von Dokumenten verwendet werden, um ähnliche Dokumente zu finden. Dieser Parameter kann nur in Verbindung mit dem Parameter `similar.document_ids` verwendet werden.
+
+```bash
+&similar.fields={field1},{field2}
 ```
 {: codeblock}
