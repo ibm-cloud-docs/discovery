@@ -105,10 +105,8 @@ sistema de arquivos. Para configurar esses valores, abra o arquivo
 `config/connectors/filesystem.conf` e modifique os valores a seguir, que são específicos para
 seus casos de uso:
 
--   **`protocol`** - O nome do protocolo do conector usado para o crawl. 
-Use `sdk-fs` para esse conector.
--   **`collection`** - Esse atributo é usado para descompactar arquivos temporários. 
-O valor padrão é `crawler-fs`
+-   **`protocol`** - O nome do protocolo do conector usado para o crawl. Use `sdk-fs` para esse conector.
+-   **`collection`** - Esse atributo é usado para descompactar arquivos temporários. O valor padrão é `crawler-fs`
 -   **`logging-config`** - Especifica o arquivo usado para configurar as opções de criação de log; ele deve ser formatado como uma sequência XML `log4j`.
 -   **`classname`** - Classe Java para o conector. O valor para
 usar esse conector deve ser `plugin:filesystem.plugin@filesystem`.
@@ -122,8 +120,7 @@ defina os valores a seguir, que são específicos para os casos de uso:
 -   **`url`** - lista separada por quebras de linha de arquivos e
 pastas para efetuar crawl. Os usuários do UNIX podem usar um caminho como `/usr/local/`.
 
-    **Observação:** as URLs devem ser iniciadas com `sdk-fs://`. 
-Portanto, para efetuar crawl, por exemplo, `/home/watson/mydocs`, o valor dessa URL seria
+    **Observação:** as URLs devem ser iniciadas com `sdk-fs://`. Portanto, para efetuar crawl, por exemplo, `/home/watson/mydocs`, o valor dessa URL seria
 `sdk-fs:///home/watson/mydocs` - a terceira `/` é necessária!
 
     Os sistemas de arquivos usados por sistemas de computadores do tipo Linux, UNIX e UNIX
@@ -134,8 +131,7 @@ durante o crawl. Para evitar esses erros, é necessário excluir o diretório `/
 crawl de nível superior em um sistema de arquivos do tipo Linux, UNIX ou UNIX. Se ele estiver presente no sistema
 no qual você está efetuando crawl, também será necessário excluir diretórios do sistema temporários, como
 `/proc`, `/sys` e `/tmp`, que contêm arquivos temporários
-e informações do sistema.
-**`hops`** - Somente uso interno.   **`default-allow`** - Somente uso interno.
+e informações do sistema.   **`hops`** - Somente uso interno.   **`default-allow`** - Somente uso interno.
     {: tip}
 
 ## Configurando opções de crawl do banco de dados
@@ -162,8 +158,7 @@ O conector recupera todos os registros da tabela e do banco de dados especificad
 driver Oracle JDBC (Java Database Connectivity) versão 1.5. Todos os drivers JDBC de terceiros fornecidos com
 o Data Crawler estão localizados no diretório
 `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` de sua
-instalação do Data Crawler, no qual é possível incluí-los, removê-los e modificá-los conforme necessário. 
-Também é possível usar a configuração `extra_jars_dir` no
+instalação do Data Crawler, no qual é possível incluí-los, removê-los e modificá-los conforme necessário. Também é possível usar a configuração `extra_jars_dir` no
 arquivo `crawler.conf` para especificar outro local.
 
 ***Drivers DB2 JDBC*** - o Data Crawler não é fornecido com os
@@ -201,8 +196,7 @@ A seguir estão as opções de configuração básica que são necessárias para
 dados. Para configurar esses valores, abra o arquivo config/connectors/database.conf e modifique os
 valores a seguir, que são específicos para seus casos de uso:
 
--   **`protocol`** - O nome do protocolo do conector usado para o crawl. 
-O valor para esse conector é baseado no sistema de banco de dados a ser acessado.
+-   **`protocol`** - O nome do protocolo do conector usado para o crawl. O valor para esse conector é baseado no sistema de banco de dados a ser acessado.
 -   **`collection`** - Esse atributo é usado para descompactar arquivos temporários.
 -   **`classname`** - Classe Java para o conector. O valor para
 usar esse conector deve ser `plugin:database.plugin@database`.
@@ -211,12 +205,10 @@ usar esse conector deve ser `plugin:database.plugin@database`.
 ### Configurando o valor inicial de crawl do banco de dados
 {: #database-crawl-seed}
 
-Os valores a seguir podem ser configurados para o arquivo inicial de crawl do banco de dados. 
-Para configurar esses valores, abra o arquivo `config/seeds/database-seed.conf` e defina
+Os valores a seguir podem ser configurados para o arquivo inicial de crawl do banco de dados. Para configurar esses valores, abra o arquivo `config/seeds/database-seed.conf` e defina
 os valores a seguir, que são específicos para os casos de uso:
 
--   **`url`** - a URL da tabela ou da visualização a ser recuperada. 
-Define sua URL inicial do banco de dados SQL customizado. A estrutura é:
+-   **`url`** - a URL da tabela ou da visualização a ser recuperada. Define sua URL inicial do banco de dados SQL customizado. A estrutura é:
 
     -   `database-system://host:port/database?[per=num]&[sql=SQL]`
 
@@ -245,8 +237,7 @@ documento. Esse é o maior bloco de memória que será carregado de uma vez. Aum
 essa sequência substitui a classe JDBC usada pelo conector quando `(other)` é escolhido
 como o sistema de banco de dados.
 -   **`connection-string`** (opção do extensor) - quando
-especificada, essa sequência substitui a sequência de conexões JDBC gerada automaticamente.
-Isso permite fornecer uma configuração mais detalhada sobre a conexão com o banco de dados, como balanceamento
+especificada, essa sequência substitui a sequência de conexões JDBC gerada automaticamente. Isso permite fornecer uma configuração mais detalhada sobre a conexão com o banco de dados, como balanceamento
 de carga ou conexões SSL. Por exemplo: `jdbc:netezza://127.0.0.1:5480/databasename`
 -   **`save-frequency-for-resume`** (opção do extensor) -
 especifica o nome de uma coluna ou de um rótulo associado para poder continuar um crawl ou executar uma
@@ -267,8 +258,7 @@ A seguir estão as opções de configuração básica que são necessárias para
 configurar esses valores, abra o arquivo `config/connectors/cmis.conf` e defina os
 valores a seguir, que são específicos para os casos de uso:
 
--   **`protocol`** - O nome do protocolo do conector usado para o crawl. 
-O valor para usar esse conector deve ser `cmis:document`.
+-   **`protocol`** - O nome do protocolo do conector usado para o crawl. O valor para usar esse conector deve ser `cmis:document`.
 -   **`collection`** - Esse atributo é usado para descompactar arquivos temporários.
 -   **`dns`** - opção não utilizada.
 -   **`classname`** - Classe Java para o conector. Use
@@ -335,8 +325,7 @@ A seguir estão as opções de configuração básica que são necessárias para
 configurar esses valores, abra o arquivo `config/connectors/samba.conf` e defina os
 valores a seguir, que são específicos para os casos de uso:
 
--   **`protocol`** - O nome do protocolo do conector usado para o crawl. 
-O valor para usar esse conector é smb.
+-   **`protocol`** - O nome do protocolo do conector usado para o crawl. O valor para usar esse conector é smb.
 -   **`collection`** - Esse atributo é usado para descompactar arquivos temporários.
 -   **`classname`** - Classe Java para o conector. O valor para
 usar esse conector deve ser `plugin:smb.plugin@connector`.
@@ -398,8 +387,7 @@ compartilhamentos para efetuar crawl, por exemplo:
 **Importante:** o conector SharePoint requer o Microsoft SharePoint Server 2007 (MOSS
 2007), o SharePoint Server 2010, o SharePoint Server 2013 ou o SharePoint Online.
 
-O conector SharePoint permite efetuar crawl de objetos SharePoint e indexar as informações que eles contêm. 
-Um objeto, como um documento, perfil do usuário, coleção de site, blog, item da lista, lista de associação,
+O conector SharePoint permite efetuar crawl de objetos SharePoint e indexar as informações que eles contêm. Um objeto, como um documento, perfil do usuário, coleção de site, blog, item da lista, lista de associação,
 página de diretório, etc., pode ser indexado com seus metadados associados. Para obter itens e
 documentos da lista, os índices podem incluir anexos.
 
@@ -413,12 +401,10 @@ SharePoint deve ter pelo menos privilégios de acesso de leitura integral.
 
 ### Configurando o conector SharePoint
 
-A seguir estão as opções de configuração básica que são necessárias para usar o conector SharePoint. 
-Para configurar esses valores, abra o arquivo `config/connectors/sharepoint.conf` e modifique
+A seguir estão as opções de configuração básica que são necessárias para usar o conector SharePoint. Para configurar esses valores, abra o arquivo `config/connectors/sharepoint.conf` e modifique
 os valores a seguir, que são específicos para os casos de uso:
 
--   **`protocol`** - O nome do protocolo do conector usado para o crawl. 
-O valor para usar esse conector é `io-sp`.
+-   **`protocol`** - O nome do protocolo do conector usado para o crawl. O valor para usar esse conector é `io-sp`.
 -   **`collection`** - Esse atributo é usado para descompactar arquivos temporários.
 -   **`classname`** - Classe Java para o conector. Use
 `plugin:io-sharepoint.plugin@connector` para esse conector.
@@ -473,8 +459,7 @@ SharePoint; os valores são `true` ou `false`; o valor padrão é
 
 ### Configurando o valor inicial de crawl do SharePoint
 
-Os valores adicionais a seguir podem ser configurados para o arquivo inicial de crawl do SharePoint. 
-Para configurar esses valores, abra o arquivo `config/seeds/sharepoint-seed.conf` e
+Os valores adicionais a seguir podem ser configurados para o arquivo inicial de crawl do SharePoint. Para configurar esses valores, abra o arquivo `config/seeds/sharepoint-seed.conf` e
 defina os valores a seguir, que são específicos para os casos de uso:
 
 -   **`url`** - lista separada por quebras de linha de
@@ -519,8 +504,7 @@ A seguir estão as opções de configuração básica que são necessárias para
 configurar esses valores, abra o arquivo `config/connectors/box.conf` e modifique os valores
 a seguir, que são específicos para os casos de uso:
 
--   **`protocol`** - O nome do protocolo do conector usado para o crawl. 
-O valor para usar esse conector é `caixa`.
+-   **`protocol`** - O nome do protocolo do conector usado para o crawl. O valor para usar esse conector é `caixa`.
 -   **`classname`** - Classe Java para o conector. Use
 `plugin:box.plugin@connector` para esse conector.
 -   **`logging-config`** - Especifica o arquivo usado para configurar as opções de criação de log; ele deve ser formatado como uma sequência XML `log4j`.
@@ -563,8 +547,7 @@ Os valores adicionais a seguir podem ser configurados para o arquivo inicial de 
 configurar esses valores, abra o arquivo `config/seeds/box-seed.conf` e defina os
 valores a seguir, que são específicos para os casos de uso:
 
--   **`url`** - a URL a ser usada como o ponto de início do crawl. 
-O valor padrão é `box://app.box.com/`.
+-   **`url`** - a URL a ser usada como o ponto de início do crawl. O valor padrão é `box://app.box.com/`.
 -   **`default-allow`** - Somente uso interno.
 
 ## Limitações

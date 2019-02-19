@@ -61,7 +61,7 @@ enriquecimento Extração de Entidade. É possível fazer download de uma planil
 ## Subtipos de entidade
 {: #entity-subtypes}
 
-| Subtipo de entidade                 |
+| Subtipo de entidade                      |
 |-------------------------------------|
 | AbusedSubstance                     |
 | Academic                            |

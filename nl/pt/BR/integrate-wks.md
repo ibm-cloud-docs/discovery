@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-15"
+  years: 2015, 2018
+lastupdated: "2018-08-08"
 
 ---
 
@@ -30,8 +30,7 @@ Isso fornece a flexibilidade para aplicar os recursos de aprimoramento de docume
 
 ## Antes de Começar
 
-Antes de ser possível integrar um modelo customizado de {{site.data.keyword.knowledgestudioshort}} com o serviço do {{site.data.keyword.discoveryshort}}, deve-se criar e implementar o modelo usando o{{site.data.keyword.knowledgestudioshort}}. 
-Consulte a [Documentação do {{site.data.keyword.knowledgestudioshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} para obter informações sobre como criar e implementar modelos. É necessário ter o ID exclusivo do modelo implementado para integrá-lo com o serviço do {{site.data.keyword.discoveryshort}}.
+Antes de ser possível integrar um modelo customizado de {{site.data.keyword.knowledgestudioshort}} com o serviço do {{site.data.keyword.discoveryshort}}, deve-se criar e implementar o modelo usando o{{site.data.keyword.knowledgestudioshort}}. Consulte a [Documentação do {{site.data.keyword.knowledgestudioshort}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} para obter informações sobre como criar e implementar modelos. É necessário ter o ID exclusivo do modelo implementado para integrá-lo com o serviço do {{site.data.keyword.discoveryshort}}.
 
 ## Integrando seu modelo customizado com a API
 
@@ -40,7 +39,7 @@ Consulte a [Documentação do {{site.data.keyword.knowledgestudioshort}} ![Ícon
 1.  Faça download de uma cópia de sua configuração atual do {{site.data.keyword.discoveryshort}} executando os comandos a seguir em um shell bash ou equivalente, tal como Cygwin for Windows. Substitua `{environment_id}` e `{configuration_id}` pelos IDs que você anotou nas duas etapas anteriores.
 
     ```bash
-    curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration_id}?version=2017-11-07" > my_config.json
+    curl -u "apikey": "{1}/environments/ {2}{0}{1}{7}-11-07" > my_config.json
     ```
     {: pre}
 
@@ -97,13 +96,12 @@ Consulte a [Documentação do {{site.data.keyword.knowledgestudioshort}} ![Ícon
         ```
         {: codeblock}
 
-1.  Opcionalmente, ative a normalização de entidade conforme descrito em [Criando uma configuração personalizada para normalizar entidades](/docs/services/discovery/normalize-entities.html).
 1.  Salve o arquivo `my_config.json`.
 1.  Use um validador JSON, como [JSLint ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://jslint.com){: new_window} para validar e, se necessário, corrija seu JSON editado antes de executar as próximas etapas.
 1.  Atualize a configuração conforme a seguir. Você precisa novamente dos IDs `{environment_id}` e `{configuration_id}` coletados no início deste procedimento.
 
     ```bash
-    curl -X PUT -u "{username}":"{password}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration_id}?version=2017-11-07"
+    curl -X PUT -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration_id}?version=2017-11-07"
     ```
     {: pre}
 
@@ -114,7 +112,7 @@ campo `"configuration_id":` foi removido do seu arquivo `my_config.json`
 e, em seguida, execute o seguinte comando:
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
     ```
     {: pre}
 
@@ -130,17 +128,17 @@ com o conjunto de ferramentas do {{site.data.keyword.discoveryshort}}.
 
 1. Obtenha o `ID do modelo` de seu
 modelo do {{site.data.keyword.knowledgestudioshort}}.
-1. No conjunto de ferramentas do {{site.data.keyword.discoveryshort}}, abra o
-a tela **Gerenciar dados**, crie ou abra uma coleção e crie uma nova configuração.
+1. No conjunto de ferramentas do {{site.data.keyword.discoveryshort}}, clique no ícone **Gerenciar dados** no canto superior esquerdo para abrir a tela **Gerenciar dados** e, em seguida, crie ou abra uma coleção. **Nota:** se você escolher uma coleção existente, ela deverá estar vazia. Se não, será necessário realimentar esses documentos após a criação de seu novo arquivo de configuração.
+1. Na seção **Configuração** da tela **Gerenciar dados** para sua coleção, clique em **Alternar** e, em seguida, em **Criar uma nova configuração**. Nomeie a configuração. 
 1. Clique em **Incluir enriquecimentos** e selecione os enriquecimentos
 **Extração de Entidade** ou **Extração de Relação**.
 1. Insira o `ID do modelo` na caixa `ID do modelo customizado`
 do enriquecimento selecionado. O modelo {{site.data.keyword.knowledgestudiofull}} customizado
-substituirá o padrão para esse enriquecimento. Clique em **Aplicar** e depois em
+substituirá o padrão para esse enriquecimento. 
+1. Clique em **Aplicar** e depois em
 **Concluído**.
 
-Quando os documentos são transferidos por upload para uma coleta de dados, eles são convertidos e enriquecidos usando o arquivo de configuração escolhido para essa coleção. 
-Se você alternar uma coleção existente para um novo arquivo de configuração após os documentos terem sido
+Quando os documentos são transferidos por upload para uma coleta de dados, eles são convertidos e enriquecidos usando o arquivo de configuração escolhido para essa coleção. Se você alternar uma coleção existente para um novo arquivo de configuração após os documentos terem sido
 transferidos por upload, esses documentos transferidos por upload permanecerão convertidos pelo arquivo de
 configuração original. Quaisquer documentos transferidos por upload depois de alternar o arquivo de
 configuração usarão o novo arquivo de configuração. Se você deseja que a coleção **inteira** use a nova configuração, será necessário criar uma nova coleção, escolher esse novo arquivo de configuração e fazer um novo upload de todos os documentos.

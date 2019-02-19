@@ -22,11 +22,11 @@ lastupdated: "2017-10-03"
 
 {{site.data.keyword.documentconversionfull}} et {{site.data.keyword.retrieveandrankfull}} sont devenus obsolètes et ont été remplacés par {{site.data.keyword.discoveryfull}}. En général, ces deux services sont utilisés conjointement pour ingérer, classer puis fournir des résultats à vos applications. Ce document a pour objectif de vous guider dans le processus de migration à partir de {{site.data.keyword.documentconversionshort}} et {{site.data.keyword.retrieveandrankshort}} vers {{site.data.keyword.discoveryshort}}.
 
-{{site.data.keyword.discoveryfull}} fournit une interface de requête plus robuste, une ingestion de données simplifiée, une gestion de formation améliorée et une échelle plus étendue. {{site.data.keyword.discoveryshort}} prend en charge une grande partie des principaux cas d'utilisation de {{site.data.keyword.retrieveandrankshort}}, y compris l'assistant d'agent, la recherche dans la base de connaissances organisationnelle et l'assistance de recherche. Ce service a été créé en tenant compte d'un grand nombre des difficultés rencontrées par les utilisateurs de {{site.data.keyword.retrieveandrankshort}}, et il résout la plupart de ces problématiques. {{site.data.keyword.discoveryshort}} fournit également de nouvelles fonctions pour l'extraction d'informations qui ne sont pas disponibles dans {{site.data.keyword.retrieveandrankshort}}, y compris l'extraction des passages et des algorithmes de recherche améliorés, afin de trouver des résultats plus pertinents. 
+{{site.data.keyword.discoveryfull}} fournit une interface de requête plus robuste, une ingestion de données simplifiée, une gestion de formation améliorée et une échelle plus étendue. {{site.data.keyword.discoveryshort}} prend en charge une grande partie des principaux cas d'utilisation de {{site.data.keyword.retrieveandrankshort}}, y compris l'assistant d'agent, la recherche dans la base de connaissances organisationnelle et l'assistance de recherche. Ce service a été créé en tenant compte d'un grand nombre des difficultés rencontrées par les utilisateurs de {{site.data.keyword.retrieveandrankshort}}, et il résout la plupart de ces problématiques. {{site.data.keyword.discoveryshort}} fournit également de nouvelles fonctions pour l'extraction d'informations qui ne sont pas disponibles dans {{site.data.keyword.retrieveandrankshort}}, y compris l'extraction des passages et des algorithmes de recherche améliorés, afin de trouver des résultats plus pertinents.
 
 **Comparaison des fonctions**
 
-| Fonction| {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
+| Fonction | {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
 | Recherche en langage naturel | Oui | Oui |
 | Formation pour la pertinence par apprentissage automatique | Oui | Oui |
@@ -46,21 +46,21 @@ lastupdated: "2017-10-03"
 | Configuration d'analyseur personnalisée | Oui | Préconfigurée |
 | Mots vides personnalisés | Oui | Préconfigurée |
 | Dictionnaires de langue personnalisés | Oui | Préconfigurée |
-| Synonymes personnalisés | Oui |  |
+| Synonymes personnalisés | Oui | Oui |
 **Remarque :** ce tableau sera mis à jour à mesure que de nouvelles fonctions {{site.data.keyword.discoveryshort}} seront ajoutées.
 
-Avant de lancer la migration, vous devez d'abord [évaluer](#evaluate) les données stockées dans votre service {{site.data.keyword.retrieveandrankshort}} et comprendre de quelle façon vous allez déplacer les différents composants qui constituent votre solution actuelle. 
+Avant de lancer la migration, vous devez d'abord [évaluer](#evaluate) les données stockées dans votre service {{site.data.keyword.retrieveandrankshort}} et comprendre de quelle façon vous allez déplacer les différents composants qui constituent votre solution actuelle.
 
 La plupart des clients utilise {{site.data.keyword.documentconversionshort}} conjointement à {{site.data.keyword.retrieveandrankshort}}. Si vous n'utilisez pas {{site.data.keyword.documentconversionshort}} pour convertir un contenu de manière à pouvoir le stocker dans un index pouvant faire l'objet d'une recherche, reportez-vous à la rubrique décrivant les [options de migration d'un service {{site.data.keyword.documentconversionshort}} autonome](#dcs).
 
 Si vous avez utilisé le tutoriel {{site.data.keyword.retrieveandrankshort}} tutorial et basé votre propre instance du service sur ce tutoriel, une extension du tutoriel qui ingère les mêmes données dans {{site.data.keyword.discoveryshort}} est décrite [ici](/docs/services/discovery/migrate-rnr-tut.html).
 
-**Remarque :** la fonctionnalité de conversion et d'enrichissement est fournie avec {{site.data.keyword.discoveryshort}}. Si vous avez utilisé {{site.data.keyword.documentconversionshort}} et/ou {{site.data.keyword.nlushort}} pour convertir et enrichir des documents HTML, PDF ou Microsoft Word source, ces services sont remplacés par des fonctions dans le service {{site.data.keyword.discoveryshort}}. 
+**Remarque :** la fonctionnalité de conversion et d'enrichissement est fournie avec {{site.data.keyword.discoveryshort}}. Si vous avez utilisé {{site.data.keyword.documentconversionshort}} et/ou {{site.data.keyword.nlushort}} pour convertir et enrichir des documents HTML, PDF ou Microsoft Word source, ces services sont remplacés par des fonctions dans le service {{site.data.keyword.discoveryshort}}.
 
 ## Evaluation de votre chemin de migration vers le service Watson Discovery
 {: #evaluate}
 
-Deux options pratiques vous permettent d'effectuer une migration à partir de {{site.data.keyword.retrieveandrankshort}} : la migration à partir d'un contenu source et la migration à partir d'un contenu indexé. Evaluez les deux options avant de choisir celle que vous utiliserez. 
+Deux options pratiques vous permettent d'effectuer une migration à partir de {{site.data.keyword.retrieveandrankshort}} : la migration à partir d'un contenu source et la migration à partir d'un contenu indexé. Evaluez les deux options avant de choisir celle que vous utiliserez.
 
 ### Migration à partir d'un contenu source
 {: #source}
@@ -70,16 +70,16 @@ Pour effectuer une migration à partir du contenu source, vous devrez :
 -  avoir accès aux fichiers source d'origine à partir desquels le contenu a été ingéré ;
 -  extraire l'ID de chaque document à l'aide d'un programme (le résultat comporte déjà un ID avant d'être indexé).
 
-Si vous pouvez respecter tous les critères de migration, il est recommandé d'utiliser cette méthode pour passer au service {{site.data.keyword.discoveryshort}}. 
+Si vous pouvez respecter tous les critères de migration, il est recommandé d'utiliser cette méthode pour passer au service {{site.data.keyword.discoveryshort}}.
 
-Pour faire migrer votre contenu source, modifiez la procédure décrite dans [le tutoriel de migration](/docs/services/discovery/migrate-rnr-tut.html) afin de respecter les caractéristiques de vos données source. 
+Pour faire migrer votre contenu source, modifiez la procédure décrite dans [le tutoriel de migration](/docs/services/discovery/migrate-rnr-tut.html) afin de respecter les caractéristiques de vos données source.
 
 #### Migration des unités de réponse
 
 Si vous avez créé des unités de réponse à l'aide de {{site.data.keyword.documentconversionshort}}, choisissez l'une des options suivantes pour faire migrer ce contenu :
 
--  Si vous avez formé un dispositif de classement et devez faire migrer le classement, prenez le contenu qui a été renvoyé par {{site.data.keyword.documentconversionshort}} et versez-le dans {{site.data.keyword.discoveryshort}}. 
--  Si vous n'avez aucune donnée de formation à faire migrer, versez les documents source d'origine dans {{site.data.keyword.discoveryshort}} à l'aide de la [fonction de segmentation de document](/docs/services/discovery/building.html#doc-segmentation). 
+-  Si vous avez formé un dispositif de classement et devez faire migrer le classement, prenez le contenu qui a été renvoyé par {{site.data.keyword.documentconversionshort}} et versez-le dans {{site.data.keyword.discoveryshort}}.
+-  Si vous n'avez aucune donnée de formation à faire migrer, versez les documents source d'origine dans {{site.data.keyword.discoveryshort}} à l'aide de la [fonction de segmentation de document](/docs/services/discovery/building.html#doc-segmentation).
 
 ### Migration à partir d'un contenu indexé
 {: #indexed}
@@ -87,17 +87,17 @@ Si vous avez créé des unités de réponse à l'aide de {{site.data.keyword.doc
 Vous devez effectuer une migration à partir du contenu indexé dans {{site.data.keyword.retrieveandrankshort}} si vous n'avez pas accès aux documents source d'origine, ou :
 
 - si vous avez utilisé une génération d'ID de document automatique et formé un dispositif de classement ;
-- si vous avez créé des unités de réponse dans {{site.data.keyword.documentconversionshort}} et que vous les avez classées, mais que vous n'avez pas conservé les unités de réponse générées par le service {{site.data.keyword.documentconversionshort}}. 
+- si vous avez créé des unités de réponse dans {{site.data.keyword.documentconversionshort}} et que vous les avez classées, mais que vous n'avez pas conservé les unités de réponse générées par le service {{site.data.keyword.documentconversionshort}}.
 
-**Remarque :** cette méthode est possible uniquement si l'ensemble du contenu nécessaire figure dans des zones stockées dans {{site.data.keyword.retrieveandrankshort}}. Si le contenu a été indexé uniquement et n'a pas été stocké, il ne sera pas possible d'exécuter des requêtes sur le contenu en dehors du service, et les données devront être converties et fractionnées à nouveau à partir du contenu source. 
+**Remarque :** cette méthode est possible uniquement si l'ensemble du contenu nécessaire figure dans des zones stockées dans {{site.data.keyword.retrieveandrankshort}}. Si le contenu a été indexé uniquement et n'a pas été stocké, il ne sera pas possible d'exécuter des requêtes sur le contenu en dehors du service, et les données devront être converties et fractionnées à nouveau à partir du contenu source.
 
 Les documents sont extraits à partir du service à l'aide de la méthode [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} avec une requête vide `q=*:*`. Le nombre de documents renvoyés peut être supérieur au nombre maximal de retours (`200` pour la plupart des collections). Si tel est le cas, plusieurs appels doivent être émis avec la [pagination ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} appropriée pour collecter tous les documents.
 
-Les documents pour lesquels des **ID** sont spécifiés sont téléchargés vers le service {{site.data.keyword.discoveryshort}} à l'aide de la méthode [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window}. Chaque téléchargement de document est un appel d'API distinct. 
+Les documents pour lesquels des **ID** sont spécifiés sont téléchargés vers le service {{site.data.keyword.discoveryshort}} à l'aide de la méthode [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window}. Chaque téléchargement de document est un appel d'API distinct.
 
 ## Migration des données de formation
 
-Après avoir fait migré vos résultats, vous devez faire migrer les données de formation qui ont été créées pour le contenu. Il existe deux options pour la migration des données de formation : la migration à partir de la source (`csv`) et la migration à partir du service. Si vous avez téléchargé des données de formation à partir d'un fichier `csv` et que vous avez toujours accès à ce fichier, il est recommandé d'effectuer la migration à partir de la source. Si vous avez utilisé les outils {{site.data.keyword.retrieveandrankshort}} ou que vous n'avez pas accès au fichier `csv` d'origine, il est recommandé d'effectuer la migration à partir du service. 
+Après avoir fait migré vos résultats, vous devez faire migrer les données de formation qui ont été créées pour le contenu. Il existe deux options pour la migration des données de formation : la migration à partir de la source (`csv`) et la migration à partir du service. Si vous avez téléchargé des données de formation à partir d'un fichier `csv` et que vous avez toujours accès à ce fichier, il est recommandé d'effectuer la migration à partir de la source. Si vous avez utilisé les outils {{site.data.keyword.retrieveandrankshort}} ou que vous n'avez pas accès au fichier `csv` d'origine, il est recommandé d'effectuer la migration à partir du service.
 
 ### Migration de la formation à partir du contenu source
 {: #csv}
@@ -107,16 +107,16 @@ Pour effectuer une migration à partir du contenu source de classement, vous dev
 - avoir accès aux fichiers `csv` source d'origine avec lesquels les données de formation ont été initialement téléchargées ;
 - vous assurer que les ID des documents formés lors de leur indexation correspondent aux ID des documents formés lors de leur indexation dans {{site.data.keyword.retrieveandrankshort}}.
 
-Si vous pouvez respecter tous les critères de migration, il est recommandé d'utiliser cette méthode pour faire migrer la formation vers le service {{site.data.keyword.discoveryshort}}. 
+Si vous pouvez respecter tous les critères de migration, il est recommandé d'utiliser cette méthode pour faire migrer la formation vers le service {{site.data.keyword.discoveryshort}}.
 
-Pour faire migrer vos données de formation, modifiez la procédure décrite dans [le tutoriel de migration](/docs/services/discovery/migrate-rnr-tut.html) afin de respecter les caractéristiques de vos données source. 
+Pour faire migrer vos données de formation, modifiez la procédure décrite dans [le tutoriel de migration](/docs/services/discovery/migrate-rnr-tut.html) afin de respecter les caractéristiques de vos données source.
 
 ### Migration des données de formation à partir du service
 {: #extract-train}
 
 Pour faire migrer des données de formation à partir du service {{site.data.keyword.retrieveandrankshort}}, vous devrez extraire les données de formation à l'aide des API {{site.data.keyword.retrieveandrankshort}}, convertir le document JSON de formation {{site.data.keyword.retrieveandrankshort}} dans un format utilisable par{{site.data.keyword.discoveryshort}} et enfin faire ingérer les données de formation par {{site.data.keyword.discoveryshort}} à l'aide de l'API.
 
-Pour extraire les données de formation de {{site.data.keyword.retrieveandrankshort}}, utilisez la fonction `Export` des outils {{site.data.keyword.retrieveandrankshort}}. Une fois le téléchargement d'une exportation complète, procédez à l'extraction du fichier `.zip`. L'archive comprend deux fichiers. Les données de formation sont stockées dans celui qui se nomme `export-questions.json`. Ce fichier contient un tableau d'objets de formation JSON. 
+Pour extraire les données de formation de {{site.data.keyword.retrieveandrankshort}}, utilisez la fonction `Export` des outils {{site.data.keyword.retrieveandrankshort}}. Une fois le téléchargement d'une exportation complète, procédez à l'extraction du fichier `.zip`. L'archive comprend deux fichiers. Les données de formation sont stockées dans celui qui se nomme `export-questions.json`. Ce fichier contient un tableau d'objets de formation JSON.
 
 Chaque résultat de formation contenu dans le tableau est présenté comme suit :
 
@@ -178,7 +178,7 @@ Chaque résultat de formation contenu dans le tableau est présenté comme suit 
 ```
 {: codeblock}
 
-{{site.data.keyword.discoveryshort}} ne requiert pas que toutes les informations soient exportées à partir de {{site.data.keyword.retrieveandrankshort}}. Le fragment suivant illustre la structure requise pour une entrée de formation {{site.data.keyword.discoveryshort}}. 
+{{site.data.keyword.discoveryshort}} ne requiert pas que toutes les informations soient exportées à partir de {{site.data.keyword.retrieveandrankshort}}. Le fragment suivant illustre la structure requise pour une entrée de formation {{site.data.keyword.discoveryshort}}.
 
 ```json
 {
@@ -199,13 +199,13 @@ Chaque résultat de formation contenu dans le tableau est présenté comme suit 
 
 A ce stade, vous devrez convertir vos informations de formation {{site.data.keyword.retrieveandrankshort}} en informations de formation {{site.data.keyword.discoveryshort}}. Tenez compte des points suivants lors de la conversion.
 
-- Le texte **non pertinent** est signalé par un score de pertinence (`relevance`) égal à `0` dans {{site.data.keyword.discoveryshort}}, mais il est signalé par une valeur de classement (`ranking`) égale à `1` dans {{site.data.keyword.retrieveandrankshort}} - Toutes les entrées `"ranking": 1` doivent être converties en `"relevance": 0` dans {{site.data.keyword.discoveryshort}}. 
-- Les outils {{site.data.keyword.discoveryshort}} utilisent une échelle binaire de `0` et `10`. Si vous souhaitez classer d'autres résultats et utiliser les outils {{site.data.keyword.discoveryshort}}, vous devez convertir toutes les entrées `"ranking": 1` et `"ranking": 2` en`"relevance": 0`, et toutes les entrées `"ranking": 3` et `"ranking": 4` en `"relevance": 10`. Cela n'est pas obligatoire si vous ne classez pas d'autres résultats ou si vous n'utilisez pas les outils {{site.data.keyword.discoveryshort}}. 
-- Des questions sans réponse ne sont pas requises par {{site.data.keyword.discoveryshort}}, car la validité de la formation pour la pertinence est vérifiée manuellement. 
+- Le texte **non pertinent** est signalé par un score de pertinence (`relevance`) égal à `0` dans {{site.data.keyword.discoveryshort}}, mais il est signalé par une valeur de classement (`ranking`) égale à `1` dans {{site.data.keyword.retrieveandrankshort}} - Toutes les entrées `"ranking": 1` doivent être converties en `"relevance": 0` dans {{site.data.keyword.discoveryshort}}.
+- Les outils {{site.data.keyword.discoveryshort}} utilisent une échelle binaire de `0` et `10`. Si vous souhaitez classer d'autres résultats et utiliser les outils {{site.data.keyword.discoveryshort}}, vous devez convertir toutes les entrées `"ranking": 1` et `"ranking": 2` en`"relevance": 0`, et toutes les entrées `"ranking": 3` et `"ranking": 4` en `"relevance": 10`. Cela n'est pas obligatoire si vous ne classez pas d'autres résultats ou si vous n'utilisez pas les outils {{site.data.keyword.discoveryshort}}.
+- Des questions sans réponse ne sont pas requises par {{site.data.keyword.discoveryshort}}, car la validité de la formation pour la pertinence est vérifiée manuellement.
 
 ![Flux de migration de classement](images/migrate-ranking.png)
 
-A titre d'exemple, l'**exemple de données de formation {{site.data.keyword.retrieveandrankshort}}** illustré ci-dessous doit être converti pour être utilisé dans les outils {{site.data.keyword.discoveryshort}}, comme suit : 
+A titre d'exemple, l'**exemple de données de formation {{site.data.keyword.retrieveandrankshort}}** illustré ci-dessous doit être converti pour être utilisé dans les outils {{site.data.keyword.discoveryshort}}, comme suit :
 
 ```json
 {
@@ -235,7 +235,7 @@ A titre d'exemple, l'**exemple de données de formation {{site.data.keyword.retr
 ## Support de langue
 {: #language}
 
-Voir le tableau [Support de langue pour {{site.data.keyword.discoveryshort}}](/docs/services/discovery/language-support.html). Les fonctions {{site.data.keyword.retrieveandrankshort}} sont essentiellement prises en charge par le support de langue **de base** pour {{site.data.keyword.discoveryshort}}. 
+Voir le tableau [Support de langue pour {{site.data.keyword.discoveryshort}}](/docs/services/discovery/language-support.html). Les fonctions {{site.data.keyword.retrieveandrankshort}} sont essentiellement prises en charge par le support de langue **de base** pour {{site.data.keyword.discoveryshort}}.
 
 ## Migration des requêtes
 {: #queries}
@@ -261,7 +261,7 @@ Le langage de requête {{site.data.keyword.discoveryfull}} est différent du lan
 | `*` | `*` | Caractère générique |
 | `~`(0 à 1) | [~n] | Variation de chaîne |
 
-Pour plus d'informations sur le langage de requête {{site.data.keyword.discoveryfull}}, voir les rubriques [Concepts de requête](/docs/services/discovery/using.html) et [Référence de requête](/docs/services/discovery/query-reference.html). 
+Pour plus d'informations sur le langage de requête {{site.data.keyword.discoveryfull}}, voir les rubriques [Concepts de requête](/docs/services/discovery/using.html) et [Référence de requête](/docs/services/discovery/query-reference.html).
 
 
 ## Migration de service Watson Document Conversion autonome

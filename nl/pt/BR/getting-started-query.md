@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-16"
+  years: 2015, 2018
+lastupdated: "2018-05-21"
 
 ---
 
@@ -58,10 +58,10 @@ Vamos iniciar conhecendo o {{site.data.keyword.discoveryshort}} JSON. Para enten
     -  **Hierarquia de conteúdo** exibe as taxonomias hierárquicas descobertas em seus documentos pelo enriquecimento Classificação de Categoria.
     -  **Conceitos relacionados** exibe os conceitos descobertos em seus documentos pelo enriquecimento Identificação de Conceito.
 
-         Clique em **Visualizar no esquema** em qualquer cartão para ver os enriquecimentos que compõem esses resultados. {: tip}
+         Clique em **Visualizar no esquema** em qualquer cartão para ver os enriquecimentos que compõem esses resultados.
+         {: tip}
 
-1.  Para familiarizar-se com o esquema de dados de seus documentos, observe a tela **Visualizar esquema de dados**.
-Ela exibe os campos e os valores em seus documentos transformados em duas maneiras: por documento (**Visualização de documento**) ou por campo (**Visualização de coleção**). A **Visualização de coleção** exibe todos os campos em sua coleção.
+1.  Para familiarizar-se com o esquema de dados de seus documentos, observe a tela **Visualizar esquema de dados**. Ela exibe os campos e os valores em seus documentos transformados em duas maneiras: por documento (**Visualização de documento**) ou por campo (**Visualização de coleção**). A **Visualização de coleção** exibe todos os campos em sua coleção.
 
     Clique no botão **Visualizar esquema de dados**. Na **visualização de Coleção**, em `enriched_text`, é possível examinar os enriquecimentos que você aplicou com o arquivo de **Configuração padrão**. Clique em `categories`, `concepts`, `entities` e `sentiment` para ver como sua coleção foi enriquecida com o Watson Insights.
 
@@ -74,16 +74,13 @@ Vamos começar gravando uma consulta que localizará o conceito `Cloud computing
 
 1.  Clique no ícone de construção de consultas ![Ícone de consulta](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> para abrir a página de consulta. Selecione a coleção que contém os Press Releases da {{site.data.keyword.IBM_notm}} e clique em **Introdução**.
 1.  Na tela **Construir consultas**, clique em **Procurar por documentos**, depois em **Usar o {{site.data.keyword.discoveryshort}} Query Language** e, em seguida:
-    - Clique no menu suspenso **Campo** e escolha `enriched_text.concepts.text` e para o **Operador**, escolha `contains` e, em seguida, insira o **Valor** de `Cloud computing`. 
-A consulta `enriched_text.concepts.text:Cloud computing` será exibida no **Visual Query Builder**.
+    - Clique no menu suspenso **Campo** e escolha `enriched_text.concepts.text` e para o **Operador**, escolha `contains` e, em seguida, insira o **Valor** de `Cloud computing`. A consulta `enriched_text.concepts.text:Cloud computing` será exibida no **Visual Query Builder**.
 
-    - Como alternativa, é possível clicar em **Editar na linguagem de consulta** e depois em **Usar o {{site.data.keyword.discoveryshort}} Query Language**. Insira `enriched_text.concepts.text:Cloud computing` no campo **Insira a consulta aqui**.
+    - Como alternativa, é possível clicar em **Editar na linguagem de consulta** e depois em **Usar o {{site.data.keyword.discoveryshort}} Query Language**. Insira `enriched_text.concepts.text:"Cloud computing"` no campo **Inserir consulta aqui**.
 
 1.  Clique em **Executar consulta**. Deve haver uma correspondência (`"matching_results": 1`). Copie a **URL de consulta** na parte superior da guia **Resumo** ou **JSON** para usar em seu aplicativo.
 
-**Bônus:** em **Mais opções**, você tem a opção para ativar a recuperação de passagem com o botão de opções **Incluir passagens relevantes**.
-As passagens são curtas, excertos relevantes extraídos dos documentos completos retornados pela sua consulta. Essas passagens direcionadas são extraídas dos campos `text` dos documentos em sua coleção. 
-Consulte [Passages](/docs/services/discovery/query-parameters.html#passages) para obter mais informações. A recuperação de passagem não está disponível para a coleção Notícias do {{site.data.keyword.discoveryshort}}.
+**Bônus:** em **Mais opções**, você tem a opção para ativar a recuperação de passagem com o botão de opções **Incluir passagens relevantes**. As passagens são curtas, excertos relevantes extraídos dos documentos completos retornados pela sua consulta. Essas passagens direcionadas são extraídas dos campos `text` dos documentos em sua coleção. Consulte [Passages](/docs/services/discovery/query-parameters.html#passages) para obter mais informações. A recuperação de passagem não está disponível para a coleção Notícias do {{site.data.keyword.discoveryshort}}.
 
 Se desejar conferir algumas consultas pré-construídas, clique no botão **Usar uma consulta de amostra**.
 {: tip}
@@ -123,10 +120,9 @@ todos os resultados sobre `aquisições`, em ordem de relevância.
 1.  Em **Procurar por documentos**, clique em **Usar o {{site.data.keyword.discoveryshort}} Query Language** e, em seguida:
     -  Clique no menu suspenso **Campo** e escolha `enriched_text.concepts.text` e para o **Operador**, escolha `contains` e, em seguida, insira o **Valor** de `world wide web`.
 
-       A consulta `enriched_text.concepts.text:world wide web` retornará todos os documentos que incluírem o conceito de `world wide web` e esses documentos serão classificados em ordem de relevância.
+       A consulta `enriched_text.concepts.text: "world wide web"` retornará todos os documentos que incluem o conceito de `world wide web` e esses documentos serão classificados em ordem de relevância.
 
-1.  Clique em **Mais opções** e, em seguida, **Campos a serem retornados** e escolha **Especificar**. Selecione `text`. 
-Isso limitará a resposta para o texto dos artigos relevantes e exclui o restante.
+1.  Clique em **Mais opções** e, em seguida, **Campos a serem retornados** e escolha **Especificar**. Selecione `text`. Isso limitará a resposta para o texto dos artigos relevantes e exclui o restante.
 
 1.  Clique em **Executar consulta**. Haverá um documento correspondente: `"matching_results": 1`
 
@@ -152,17 +148,17 @@ exibida no **Visual Query Builder**.
 
 O {{site.data.keyword.discoverynewsshort}} é um conjunto de dados públicos que foi previamente enriquecido com insights cognitivos. Ele é está incluído com o {{site.data.keyword.discoveryshort}}. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) para obter mais informações sobre esta coleção.
 
-Não é possível ajustar a configuração do {{site.data.keyword.discoverynewsshort}}, treinar ou incluir documentos na coleção do {{site.data.keyword.discoverynewsshort}}. Veja uma demonstração do que você pode construir com o {{site.data.keyword.discoverynewsshort}} [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://discovery-news-demo.mybluemix.net/){: new_window}.
+Não é possível ajustar a configuração do {{site.data.keyword.discoverynewsshort}}, treinar ou incluir documentos na coleção do {{site.data.keyword.discoverynewsshort}}. Veja uma demonstração do que você pode construir com o {{site.data.keyword.discoverynewsshort}} [aqui ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
 A consulta de exemplo a seguir retorna os 10 principais artigos no {{site.data.keyword.discoverynewsfull}} sobre os Pittsburgh Steelers que têm uma impressão positiva.
 
 1.  Clique no ícone de construção de consultas ![Ícone de consulta](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> para abrir a página de consulta. Selecione a coleção {{site.data.keyword.discoverynewsshort}} e
-clique em **Introdução**.
+clique em **Introdução**. (Para consultar as coleções espanholas, alemãs ou coreanas do {{site.data.keyword.discoverynewsshort}}, deve-se primeiro clicar no ícone ![Gerenciar dados](/images/icon_yourData.png), em seguida, escolher o idioma apropriado na lista suspensa.)
 
 1.  Em **Procurar por documentos**, clique em **Usar o {{site.data.keyword.discoveryshort}} Query Language** e, em seguida:
     -  Clique no menu suspenso **Campo** e escolha `text` e para o **Operador**, escolha `contains` e, em seguida, insira o **Valor** de `Pittsburgh Steelers`. Clique em **Incluir regra**, em seguida, clique no menu suspenso **Campo** e escolha `enriched_text.sentiment.document.label` e para o **Operator**, escolha `contains` e, em seguida, insira o **Valor** de `positive.`
 
-       A consulta `text:Pittsburgh Steelers, enriched_text.sentiment.document.label:positive` será exibida no **Visual Query Builder**.
+       A consulta `text:"Pittsburgh Steelers",enriched_text.sentiment.document.label:"positive"` será exibida no **Visual Query Builder**.
 
 1.  Clique em **Mais opções** e, em seguida, insira `10` (esse é o padrão) no campo **Número de documentos a serem retornados**.
 
@@ -170,5 +166,4 @@ clique em **Introdução**.
 
 **Observação:** o número máximo de resultados retornados para uma consulta do Watson Discovery News é `50`.
 
-Os artigos de notícias podem ser organizados em vários meios de comunicação e {{site.data.keyword.discoverynewsfull}} escolherá cada um deles, resultando em artigos duplicados. Isso significa que uma consulta ao {{site.data.keyword.discoverynewsfull}} pode retornar potencialmente vários artigos idênticos ou quase idênticos nos resultados da consulta. 
-Para ativar a deduplicação, em **Mais opções**, escolha **Excluir resultados duplicados**. Para saber mais sobre o recurso beta, consulte [Excluindo documentos beta de resultados da consulta](/docs/services/discovery/query-parameters.html#deduplication).
+Os artigos de notícias podem ser organizados em vários meios de comunicação e {{site.data.keyword.discoverynewsfull}} escolherá cada um deles, resultando em artigos duplicados. Isso significa que uma consulta ao {{site.data.keyword.discoverynewsfull}} pode retornar potencialmente vários artigos idênticos ou quase idênticos nos resultados da consulta. Para ativar a deduplicação, em **Mais opções**, escolha **Excluir resultados duplicados**. Para saber mais sobre o recurso beta, consulte [Excluindo documentos beta de resultados da consulta](/docs/services/discovery/query-parameters.html#deduplication).

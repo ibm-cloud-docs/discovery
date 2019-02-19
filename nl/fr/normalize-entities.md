@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -20,7 +20,5 @@ lastupdated: "2017-08-18"
 # Création d'une configuration personnalisée pour ajouter des noms canoniques
 {: #normalizing-entities}
 
-Vous pouvez configurer le service {{site.data.keyword.discoveryshort}} afin d'inclure des *entités normalisées*, également appelées *noms canoniques*, dans le résultat de vos requêtes.
+Cette fonction n'est actuellement pas prise en charge avec les enrichissements {{site.data.keyword.nlushort}}. Les enrichissements {{site.data.keyword.alchemylanguageshort}} ont été dépréciés à la date du **1er mars 2018**.
 {: shortdesc}
-
-**Remarque :** pour l'instant, cette fonction n'est pas prise en charge avec les enrichissements {{site.data.keyword.nlushort}}. En revanche, elle est prise en charge avec les enrichissements {{site.data.keyword.alchemylanguageshort}}. Pour plus d'informations sur la configuration de cette fonction avec les enrichissements {{site.data.keyword.alchemylanguageshort}}, voir [Création d'une configuration personnalisée pour normaliser des entités {{site.data.keyword.alchemylanguageshort}}](/docs/services/discovery/discovery-auxiliary.html#normalizing-entities). 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -20,7 +20,5 @@ lastupdated: "2017-08-18"
 # Angepasste Konfiguration zum Hinzufügen von kanonischen Namen erstellen
 {: #normalizing-entities}
 
-Sie können den {{site.data.keyword.discoveryshort}}-Service so konfigurieren, dass in die Ausgabe Ihrer Abfragen *normalisierte Entitäten* einbezogen werden, die auch als *kanonische Namen* bezeichnet werden.
+Dieses Feature wird im Zusammenhang mit Aufbereitungen in {{site.data.keyword.nlushort}} gegenwärtig nicht unterstützt. {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen werden seit dem **1. März 2018** nicht weiter unterstützt.
 {: shortdesc}
-
-**Hinweis:** Dieses Feature wird im Zusammenhang mit Aufbereitungen in {{site.data.keyword.nlushort}} gegenwärtig nicht unterstützt. Es wird unterstützt, wenn Sie Aufbereitungen in {{site.data.keyword.alchemylanguageshort}} verwenden. Details über das Konfigurieren dieses Features mit Aufbereitungen in {{site.data.keyword.alchemylanguageshort}} finden Sie unter [Angepasste Konfiguration zum Normalisieren von {{site.data.keyword.alchemylanguageshort}}-Entitäten erstellen](/docs/services/discovery/discovery-auxiliary.html#normalizing-entities).

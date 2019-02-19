@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -21,6 +21,9 @@ lastupdated: "2017-12-15"
 
 Um Data Crawler für die Crawlersuche in Ihrem Repository zu konfigurieren, müssen Sie den geeigneten Eingabeadapter in der Datei `crawler.conf` angeben und anschließend repositoryspezifische Informationen in den Konfigurationsdateien für den Eingabeadapter konfigurieren.
 {: shortdesc}
+
+Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die Crawlersuche in Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
+{: tip}
 
 Bevor Sie die in den folgenden Schritten aufgeführten Änderungen vornehmen, müssen Sie sicherstellen, dass Sie Ihr Arbeitsverzeichnis erstellt haben, indem Sie den Inhalt des Verzeichnisses `{installationsverzeichnis}/share/examples/config` in ein Arbeitsverzeichnis auf Ihrem System kopiert haben (z. B. `/home/config`).
 
@@ -72,7 +75,7 @@ Die Informationen in der Datei `config/crawler.conf` teilen Data Crawler mit, we
 Um auf das produktinterne Handbuch für die Datei `crawler.conf` zuzugreifen, das die neuesten Informationen enthält, geben Sie den Befehl  `man crawler.conf` im Installationsverzeichnis des Crawlers ein.
 {: tip}
 
-In dieser Datei können die folgenden Optionen festgelegt werden: 
+In dieser Datei können die folgenden Optionen festgelegt werden:
 
 ### Eingabeadapter
 {: #input-adapter}
@@ -98,13 +101,15 @@ In dieser Datei können die folgenden Optionen festgelegt werden:
 
     Bei Verwendung anderer Connectors können Sie diesen Wert leer lassen (also die leere Zeichenfolge "" verwenden).
 
--   **`urls_to_filter`**: Eine Whitelist der zu durchsuchenden URLs (jeweils angegeben im Format eines regulären Ausdrucks). Data Crawler durchsucht ausschließlich URLs, die mit einem der angegebenen regulären Ausdrücke übereinstimmen.
+-   **`urls_to_filter`**: Eine Blacklist der nicht zu durchsuchenden URLs (jeweils angegeben im Format eines regulären Ausdrucks). Data Crawler durchsucht keine URLs, die nicht den bereitgestellten regulären Ausdrücken entsprechen.
 
-    Die Domänenliste enthält die gängigsten Domänen der höchsten Ebene; sie kann bei Bedarf ergänzt werden.
+    Die Domänenliste (`domain list`) enthält die Domänen, die nicht durchsucht werden können. Sie können bei Bedarf Domänen zur Liste hinzufügen.
 
-    Die Liste für den Dateierweiterungstyp enthält die Dateierweiterungen, die bei diesem Data Crawler-Release vom Orchestrierungsservice unterstützt werden.
+    Die Dateitypliste (`filetype list`) enthält die Dateierweiterungen, die der Orchestrierungsservice nicht unterstützt.
 
-    Stellen Sie sicher, dass die Domäne für Ihre Seed-URLs durch den Filter zugelassen wird. Falls die Seed-URL beispielsweise `http://testdomain.test.in` lautet, fügen Sie `in` zum Domänenfilter hinzu.
+    Entfernen Sie alle unterstützten Dateitypen aus den regulären Ausdrücken.
+
+    Stellen Sie sicher, dass die Domäne für Ihre Seed-URLs durch den Filter zugelassen wird. Verwenden Sie einen leeren Filter für das Verhalten von `Alles zulassen`.
 
     Stellen Sie sicher, dass Ihre Seed-URL nicht durch einen Filter ausgeschlossen wird, da der Crawler andernfalls blockieren kann.
 
@@ -119,7 +124,7 @@ In dieser Datei können die folgenden Optionen festgelegt werden:
 {: #output-adapter}
 
 -   **`class`**: Definiert die Klasse des Ausgabeadapters für Data Crawler.
--   **`config`**: Definiert, welcher Konfigurationsschlüssel an den Ausgabeadapter übergeben werden soll. Die Zeichenfolge muss einem Schlüssel in diesem Konfigurationsobjekt entsprechen. Codebeispiel: 
+-   **`config`**: Definiert, welcher Konfigurationsschlüssel an den Ausgabeadapter übergeben werden soll. Die Zeichenfolge muss einem Schlüssel in diesem Konfigurationsobjekt entsprechen. Codebeispiel:
 
     ```
     class - "com.ibm.watson.crawler.discoveryserviceoutputadapter.DiscoveryServiceOutputAdapter"
@@ -193,7 +198,7 @@ output_directory - "/tmp/crawler-test-output"`
 -   **`logging.log4j.configuration_file`***: Die Konfigurationsdatei, die für die Protokollierung zu verwenden ist. In der Beispieldatei `crawler.conf` ist diese Option in `logging.log4j` definiert und ihr Standardwert lautet `log4j_custom.properties`. Diese Option muss unabhängig davon, ob eine Datei `.properties` oder `.conf` verwendet wird, ähnlich definiert werden.   
 -   **`shutdown_timeout`**: Gibt in Minuten den Zeitlimitwert an, bevor die Anwendung beendet wird. Der Standardwert ist `10`.   
 -   **`output_limit`**: Die höchste Anzahl von indexierbaren Elementen, die der Crawler gleichzeitig versucht, an den Ausgabeadapter zu senden. Dies kann durch die Anzahl der verfügbaren Kerne für die Ausführung der Arbeit weiter eingeschränkt werden. Der Wert besagt, dass an einem bestimmten Punkt nicht mehr als 'x' indexierbare Elemente an den Ausgabeadapter gesendet werden, während auf die Rückgabe gewartet wird. Der Standardwert ist `10`.   
--   **`input_limit`**: Begrenzt die Anzahl der URLs, die gleichzeitig aus dem Eingabeadapter angefordert werden können. Der Standardwert ist `3`.   
+-   **`input_limit`**: Begrenzt die Anzahl der URLs, die gleichzeitig aus dem Eingabeadapter angefordert werden können. Der Standardwert ist `30`.   
 -   **`output_timeout`**: Gibt an, nach wie vielen Sekunden Data Crawler eine Anforderung an den Ausgabeadapter aufgibt und das Element anschließend aus der Warteschlange für den Ausgabeadapter entfernt, um eine weitere Verarbeitung zu ermöglichen. Der Standardwert ist `1200`.
 
     Die durch den Ausgabeadapter vorgegebenen Einschränkungen müssen berücksichtigt werden, da sich diese Einschränkungen auf die hier definierten Grenzwerte auswirken können. Der definierte Wert für `output_limit` bezieht sich lediglich darauf, wie viele indexierbare Objekte gleichzeitig an den Ausgabeadapter gesendet werden können. Sobald ein indexierbares Objekt an den Ausgabeadapter gesendet wurde, wird es bei der Zählung berücksichtigt, die durch die Variable `output_timeout` definiert wird. Es kann sein, dass der Ausgabeadapter selbst eine Drosselung vornimmt, die verhindert, dass er so viele Eingaben verarbeiten kann, wie er empfängt. Beispielsweise kann der Ausgabeadapter für die Orchestrierung einen Verbindungspool besitzen, der für HTTP-Verbindungen zum Service konfigurierbar ist. Falls er beispielsweise den Standardwert 8 verwendet und Sie für `output_limit` einen größeren Wert als 8 festlegen, gibt es Prozesse, die bei der Zählung berücksichtigt wurden und deren Verarbeitung aussteht. In einem solchen Fall kann es zu Zeitlimitüberschreitungen kommen.   
@@ -215,7 +220,7 @@ Um auf das produktinterne Handbuch für die Datei `discovery-service.conf` zuzug
 Standardoptionen können Sie direkt ändern, indem Sie die Datei `config/discovery/discovery_service.conf` öffnen und die folgenden Werte Ihrem Anwendungsfall entsprechend angeben:
 
 -   **`http_timeout`**: Das Zeitlimit in Sekunden für die Operation zum Lesen/Indexieren von Dokumenten. Der Standardwert ist `125`.
--   **`proxy_host_port`** (optional): Wenn Data Crawler hinter einer Firewall ausgeführt wird, müssen Sie möglicherweise den Proxy-Hostnamen und die Proxy-Portnummer festlegen, damit Data Crawler mit dem {{site.data.keyword.discoveryshort}}-Service kommunizieren kann. Der Standardwert für diese Option ist eine leere Zeichenfolge. Falls Sie den Wert ändern müssen, sollte er das Format `"<host>:<port>"` aufweisen.
+-   **`proxy_host_port`** (optional): Wenn Data Crawler hinter einer Firewall ausgeführt wird, müssen Sie möglicherweise den Proxy-Hostnamen und die Proxy-Portnummer festlegen, damit Data Crawler mit dem {{site.data.keyword.discoveryshort}}-Service kommunizieren kann. Der Standardwert für diese Option ist eine leere Zeichenfolge. Falls Sie den Wert ändern müssen, sollte er das Format `"<host>:<port>"`.
 -   **`concurrent_upload_connection_limit`**: Die zulässige Anzahl gleichzeitiger Verbindung für das Hochladen von Dokumenten. Der Standardwert ist `2`.
 
     **Hinweis:** Bei Verwendung des Ausgabeadapters für den Orchestrierungsservice sollte dieser Wert größer-gleich dem Wert für `output_limit` sein, der beim Konfigurieren der Optionen für die Crawlersuche festgelegt wurde.   

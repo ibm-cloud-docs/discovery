@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-16"
+  years: 2015, 2018
+lastupdated: "2018-02-28"
 
 ---
 
@@ -19,12 +19,10 @@ lastupdated: "2017-10-16"
 
 # 將強化移轉至 Natural Language Understanding
 
-從 **2017 年 7 月 18 日**開始，{{site.data.keyword.discoveryfull}} 引進了一項新的強化技術，名稱為 {{site.data.keyword.nlushort}} (NLU)。這些強化與您現有的強化相同，但需要稍微不同的配置和綱目。原始強化的名稱為 {{site.data.keyword.alchemylanguageshort}} 強化，將遭到淘汰。
+從 **2017 年 7 月 18 日**開始，{{site.data.keyword.discoveryfull}} 引進了一項新的強化技術，名稱為 {{site.data.keyword.nlushort}} (NLU)。{{site.data.keyword.alchemylanguageshort}} 強化從 **2018 年 3 月 1 日**起已淘汰。
 {: shortdesc}
 
-{{site.data.keyword.alchemylanguageshort}} 強化支援將在 **2018 年 1 月 15 日**結束。`2017-10-16` API 版本字串不再支援將新文件上傳至使用 {{site.data.keyword.alchemylanguageshort}} 強化的現有集合，也不再支援建立新集合及使用 {{site.data.keyword.alchemylanguageshort}} 強化來強化它們。請使用較早的 API 版本字串，以繼續使用 {{site.data.keyword.alchemylanguageshort}}，直到 **2018 年 1 月 15 日**結束支援為止。
-
-新集合應該使用 {{site.data.keyword.nlushort}} 來強化，並儘快移轉含有 {{site.data.keyword.alchemylanguageshort}} 配置檔的任何現有集合。{{site.data.keyword.alchemylanguageshort}} 強化汲取支援將在 **2018 年 1 月 15 日**結束。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化的集合和配置檔的相關資訊，請參閱[強化比較](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)。
+任何利用 {{site.data.keyword.alchemylanguageshort}} 強化的現有集合都必須加以移轉。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化的集合和配置檔的相關資訊，請參閱[強化比較](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)。
 
 **附註：**如需與 {{site.data.keyword.knowledgestudioshort}} 整合的相關資訊，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery/integrate-wks.html)。
 
@@ -33,18 +31,19 @@ lastupdated: "2017-10-16"
 
 {{site.data.keyword.alchemylanguageshort}} 和 {{site.data.keyword.nlushort}} 中可用的七個強化及其 JSON 物件名稱如下：
 
-| {{site.data.keyword.alchemylanguageshort}} 強化的名稱         | {{site.data.keyword.alchemylanguageshort}} JSON 物件            | NLU 強化的名稱                     | NLU JSON 物件        |
+|{{site.data.keyword.alchemylanguageshort}} 強化的名稱         |{{site.data.keyword.alchemylanguageshort}} JSON 物件            |NLU 強化的名稱                     |NLU JSON 物件        |
 |---------------------------|----------------------------------------|----------------------------------------|--------------------------------|
-| 實體擷取                              | entities                        |實體擷取                                    |   entities            |
-| 關鍵字擷取                            | keywords                        |關鍵字擷取                                  |   keywords            |
-| 分類架構分類                          | taxonomy                        |種類分類*                             |   categories*         |
-| 概念標記                              | concepts                        |概念標記                                    |   concepts            |
-| 觀感分析                              | docSentiment                    |觀感分析                                    |   sentiment*          |
-| 情緒分析                              | docEmotions                     |情緒分析                                    |   emotion*            |
-| 關係擷取                              | relations                       |語意角色擷取*                         |   semantic_roles*     |
+|實體擷取                              |entities                        |實體擷取                                    |entities                        |
+|關鍵字擷取                            |keywords                        |關鍵字擷取                                  |keywords                        |
+|分類架構分類                          |taxonomy                        |種類分類*                             |categories*         |
+|概念標記                              |concepts            |概念標記                                    |concepts            |
+|觀感分析                              |docSentiment                    |觀感分析                                    |sentiment*          |
+|情緒分析                              |docEmotions                     |情緒分析                                    |emotion*            |
+|關係擷取                              |relations                       |語意角色擷取*                         |semantic_roles*     |
  \* 名稱變更
 
-如需 {{site.data.keyword.alchemylanguageshort}} 強化的相關資訊，請參閱 [{{site.data.keyword.alchemylanguageshort}} 強化](/docs/services/discovery/discovery-auxiliary.html#AlchemyLanguage-enrichments)。
+
+
 如需 {{site.data.keyword.nlushort}} 強化的相關資訊，請參閱[新增強化](/docs/services/discovery/building.html#adding-enrichments)
 
 ## 主要變更概觀
@@ -59,7 +58,7 @@ lastupdated: "2017-10-16"
 
 **{{site.data.keyword.alchemylanguageshort}}** 預設配置檔（在工具中名稱為 `Default configuration`）已將下列強化套用至您文件的文字欄位：**實體擷取**、**關鍵字擷取**、**分類架構分類**、**概念標記**、**關係擷取**及**觀感分析**。此檔案也包括基於字型樣式及大小的標準文件轉換。
 
-**{{site.data.keyword.nlushort}}** 預設配置檔名稱為 `Default Configuration with NLU`，它將下列強化套用至您文件的文字欄位：**實體擷取**、**觀感分析**、**種類分類**及**概念標記**。此檔案也包括基於字型樣式及大小的標準文件轉換。這些文件轉換與 {{site.data.keyword.alchemylanguageshort}} 預設配置檔中的轉換相同。
+**{{site.data.keyword.nlushort}}** 預設配置檔名稱為 `Default Configuration with NLU`，它會將下列強化套用至您文件的文字欄位：**實體擷取**、**觀感分析**、**種類分類**及**概念標記**。此檔案也包括基於字型樣式及大小的標準文件轉換。這些文件轉換與 {{site.data.keyword.alchemylanguageshort}} 預設配置檔中的轉換相同。
 
 ## 移轉配置、集合及查詢
 

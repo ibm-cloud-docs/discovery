@@ -86,9 +86,10 @@ lastupdated: "2017-08-25"
 
 -   **`url`** - 要搜索的檔案與資料夾以換行區隔清單。UNIX 使用者可以使用 `/usr/local/` 之類的路徑。
 
-    **附註：**URL 必須以 `sdk-fs://` 開頭。因此比方說，若要搜索 `/home/watson/mydocs`，此 URL 的值會是 `sdk-fs:///home/watson/mydocs` - 第三個 `/` 是必要的！
+    **附註：**URL 必須以 `sdk-fs://` 為開頭。因此比方說，若要搜索 `/home/watson/mydocs`，此 URL 的值會是 `sdk-fs:///home/watson/mydocs` - 第三個 `/` 是必要的！
 
-    Linux、UNIX 及 UNIX 型電腦系統所使用的檔案系統可包含特殊類型的檔案，例如，代表具名管道的區塊和字元裝置節點及檔案，因為它們不包含資料，而是作為裝置或 I/O 存取點，因此無法進行搜索。試圖搜索這類檔案將在搜索期間產生錯誤。若要避免這類錯誤，您應該在 Linux、UNIX 或 UNIX 型檔案系統的任何最上層搜索中排除 `/dev` 目錄。如果您要搜索的系統上有諸如 `/proc`、`/sys` 及 `/tmp` 之類的暫存系統目錄（其包含暫時性檔案和系統資訊），則您也應該除排它們。**`hops`** - 僅供內部使用。**`default-allow`** - 僅供內部使用。{: tip}
+    Linux、UNIX 及 UNIX 型電腦系統所使用的檔案系統可包含特殊類型的檔案，例如，代表具名管道的區塊和字元裝置節點及檔案，因為它們不包含資料，而是作為裝置或 I/O 存取點，因此無法進行搜索。試圖搜索這類檔案將在搜索期間產生錯誤。若要避免這類錯誤，您應該在 Linux、UNIX 或 UNIX 型檔案系統的任何最上層搜索中排除 `/dev` 目錄。如果您要搜索的系統上有諸如 `/proc`、`/sys` 及 `/tmp` 之類的暫存系統目錄（其包含暫時性檔案和系統資訊），則您也應該除排它們。**`hops`** - 僅供內部使用。**`default-allow`** - 僅供內部使用。
+    {: tip}
 
 ## 配置資料庫搜索選項
 
@@ -277,7 +278,7 @@ SharePoint 連接器會遵循所有 SharePoint 物件上的 `noindex` 屬性，�
 
     **附註：**Retrieve and Rank 服務不會遵循安全。
 
--   **`user-profile-master-url`** - 連接器用來建置使用者設定檔鏈結的基本 URL。應該配置此項目，以指向使用者設定檔的顯示表單。如果發現記號 `%FIRST_SEED%`，會將它以第一個種子 URL 取代。啟用搜索使用者設定檔時，這是必要欄位。
+-   **`user-profile-master-url`** - 連接器用來建置使用者設定檔鏈結的基礎 URL。應該配置此項目，以指向使用者設定檔的顯示表單。如果發現記號 `%FIRST_SEED%`，會將它以第一個種子 URL 取代。啟用搜索使用者設定檔時，這是必要欄位。
 -   **`urls`** - 要搜索的 SharePoint Web 應用程式或網站集合的 HTTP URL 以換行區隔清單。
 -   **`ehcache-config`** - 未使用的選項。
 -   **`method`** - 將藉以傳遞參數的方法（`GET` 或 `POST`）。
@@ -326,7 +327,7 @@ SharePoint 連接器會遵循所有 SharePoint 物件上的 `noindex` 屬性，�
 -   **`protocol`** - 用於搜索的連接器通訊協定的名稱。用來使用此連接器的值是 `box`。
 -   **`classname`** - 連接器的 Java 類別名稱。請對此連接器使用 `plugin:box.plugin@connector`。
 -   **`logging-config`** - 指定用於配置記載選項的檔案；必須以 `log4j` XML 字串的形式將它格式化。
--   **`box-crawl-seed-url`** - Box 的基本 URL。此連接器的值是 `box://app.box.com/`。
+-   **`box-crawl-seed-url`** - Box 的基礎 URL。此連接器的值是 `box://app.box.com/`。
 
     您也可以搜索不同類型的 URL，例如：
 

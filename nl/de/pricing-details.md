@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-08-17"
 
 ---
 
@@ -19,54 +19,103 @@ lastupdated: "2017-10-09"
 
 # Preisstrukturpläne für Discovery
 
-Der {{site.data.keyword.discoveryfull}}-Service bietet drei Pläne, die für Sie je nach Bedarf verschiedene Ebenen von Ressourcen und Funktionalität bereitstellen.
+Der {{site.data.keyword.discoveryfull}}-Service bietet drei Pläne: **Lite**, **Advanced** und **Premium**, die für Sie je nach Bedarf verschiedene Ebenen von Ressourcen und Funktionalität bereitstellen.
 {: shortdesc}
 
-Für **private Datenanwendungsfälle** gelten die folgenden Begrenzungen und Preise:
+Für **private Datenanwendungsfälle** gelten die folgenden Features, Begrenzungen und Preise:
 
-| Lite                     |  Standard         | Advanced          | Premium          |
-|--------------------------|-------------------|-------------------|-------------------|
-| Bis zu 2.000 gleichzeitige Dokumente pro Monat\*   | Bis zu 100.000 gleichzeitige Dokumente pro Monat\*<br/> $10 je 1.000 gleichzeitige Dokumenten pro Monat ($0.0139USD/1000 Dokumente/Std.)\*\*\*<br/> 2.000 Dokumente pro Monat kostenlos\*\*\*\*  | **Reservierte Umgebung**</br>$1.000/Monat Basispreis<br/> Bis zu 1.000.000 Dokumente pro Monat\*<br/> $5 je 1.000 gleichzeitige Dokumente pro Monat ($0.00694 USD/1000 Dokumente/Std.)\*\*\*<br/> 100.000 Dokumente pro Monat inklusive\*\*\*\*</br> Wenden Sie sich bei größeren Umgebungen an den [Vertrieb ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/marketing/iwm/dre/signup?source=MAIL-watson){: new_window}.| **Premium-Pläne** bieten Entwicklern und Organisationen zur besseren Isolierung und Sicherheit eine einzige Tenantinstanz von einem oder mehreren Watson-Services. Diese Pläne ermöglichen die Isolation auf Berechnungsebene auf der bestehenden gemeinsam genutzten Plattform sowie durchgängig verschlüsselte Daten sowohl bei der Übertragung als auch in ruhendem Zustand. Wenn Sie weitere Informationen benötigen oder einen Premium-Plan erwerben möchten, wenden Sie sich an den [Vertrieb ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://ibm.biz/contact-wdc-premium){: new_window}. |
-| 200 MB\*\*                  |10 GB\*\*  | 80 GB\*\* |-|
-| Bis zu 2 Sammlungen      |Bis zu 4 Sammlungen | Bis zu 100 Sammlungen|-|
-| Bis zu 1 angepasstes {{site.data.keyword.knowledgestudiofull}}-Modell    |Bis zu 1 angepasstes {{site.data.keyword.knowledgestudioshort}}-Modell    | Keine Begrenzung für angepasste {{site.data.keyword.knowledgestudioshort}}-Modelle<br/>1 angepasstes {{site.data.keyword.knowledgestudioshort}}-Modell inklusive<br/>Zusätzlich $800 pro {{site.data.keyword.knowledgestudioshort}} Modell und Monat|-|
+## Lite
+{: #lite}
 
-**Hinweis:** Bei allen Plänen sind die ersten 1.000 Abfragen für {{site.data.keyword.discoverynewsshort}} im Monat kostenlos. Nach den ersten 1000 Abfragen werden alle weiteren Abfragen von {{site.data.keyword.discoverynewsshort}} mit $0,10 pro Abfrage berechnet.
+Größe | Dokumentspeichergrenze | Anzahl der Dokumente\* | Preis 
+------ | ------ | ------ | ------  
+N/Z | 50 MB | 1.000 pro Monat | Kostenlos 
 
-**Hinweis:** Services eines Lite-Plans werden nach 30 Tagen Inaktivität gelöscht. Bei Lite-Plänen ist eine Umgebung pro Organisation kostenlos.
+Der Lite-Plan ist ein Startplan und sollte nicht für die Produktion verwendet werden. Wenn Sie ein Upgrade auf einen bezahlten Plan durchführen, können Sie alle eingepflegten Dokumente beibehalten.  Lite-Planinstanzen werden nach 30 Tagen Inaktivität gelöscht. 
 
- \* Die Dokumentbegrenzung geht von einer durchschnittlichen Dokumentgröße von 100 KB auf Platte aus. Dies ist die Größe eines Dokuments in einer Sammlung, nachdem es der Konvertierung und Aufbereitung unterzogen wurde. Die Größe kann daher erheblich von der ursprünglichen Eingabe abweichen. Sie können die Anzahl der gespeicherten Dokumente und das Gesamtvolumen des belegten Speichers mit der API `environments` oder `collections` bzw. mithilfe der Tools anzeigen.
+Attribute:
+- 1 Umgebung
+- Bis zu 2 Sammlungen
+- Kostenlose NLU-Aufbereitungen\*\*
+- 20 Inflight-Dokumente\*\*\*\* 
 
- \*\* Falls Ihre Dokumente durchschnittlich größer als 100 KB auf Platte sind, erreichen Sie die Speicherbegrenzung eines Plans vor der maximalen Dokumentbegrenzung.
+Zusätzliche Optionen:<br> [Angepasste Modelle](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
+Ein Watson Knowledge Studio-Modell enthalten. Zusätzliche Modelle: Nicht verfügbar<br>[Elementklassifizierung](/docs/services/discovery/element-classification.html)\*\*\*:
+500 Seiten pro Monat enthalten. Zusätzliche Seiten: Nicht verfügbar <br>[News-Abfragen](/docs/services/discovery/watson-discovery-news.html):
+200 News-Abfragen pro Monat enthalten. Zusätzliche Abfragen: Nicht verfügbar<br>[Abfrageerweiterungen](/docs/services/discovery/using.html#query-expansion):
+500 Abfrageerweiterungen mit insgesamt 1.000 Begriffen. Zusätzliche Erweiterungen: Nicht verfügbar
 
- \*\*\* Der Preis basiert auf der Anzahl der Stunden, die ein Stapel von 1.000 Dokumenten im Service gespeichert ist (wird als '1000-Dokument-Stunde' bezeichnet). Für den Preisrechner ist dies die Anzahl, die eingegeben werden sollte  (`Anzahl der Dokumente * Anzahl der Stunden, die diese Dokumente pro Monat gespeichert sind / 1000`).
+Informationen zum Upgrade von Lite auf Advanced finden Sie unter [Upgrade für Ihren Service durchführen](/docs/services/discovery/upgrading.html#service).
 
- \*\*\*\* Kostenlose Volumina basieren auf dem Äquivalent der einen Monat lang gespeicherten Dokumente. Im Standard-Plan ist das kostenlose Volumen äquivalent zu 2.000 Dokumenten * 720 Stunden / 1000-Dokument-Stapel  = 1440 Tausend-Dokument-Stunden.
+## Advanced
+{: #advanced}
 
-**Beispiel:** Ein Benutzer mit dem Standard-Plan speichert 4.000 Dokumente für den gesamten Monat. Diese werden wie folgt berechnet:
+Größe | Dokumentspeichergrenze | Anzahl der Dokumente\* | Preis 
+------ | ------ | ------ | ------ 
+X-Small\*\*\*\*\* | 40 GB | Bis zu 50.000 Dokumente pro Monat | Ab $500 pro Monat  
+Small | 160 GB | Bis zu 1 Mio. Dokumente pro Monat | Ab $1.500 pro Monat  
+Medium-Small | 320 GB | Bis zu 2 Mio. Dokumente pro Monat | Ab $3.000 pro Monat  
+Medium| 640 GB | Bis zu 4 Mio. Dokumente pro Monat | Ab $5.000 pro Monat  
+Medium-Large | 1,2 TB | Bis zu 8 Mio. Dokumente pro Monat | Ab $10.000 pro Monat  
+Large| 2,4 TB | Bis zu 16 Mio. Dokumente pro Monat | Ab $15.000 pro Monat  
+X-Large| 4 TB | Bis zu 23 Mio. Dokumente pro Monat | Ab $20.000 pro Monat  
+XX-Large | 5,5 TB | Bis zu 64 Mio. Dokumente pro Monat | Ab $35.000 pro Monat  
+XXX-Large | 12 TB | Bis zu 100 Mio. Dokumente pro Monat | Ab $45.000 pro Monat  
 
-- `4000 Dokumente * 720 Stunden (in einem Monat) / 1000 = 2.880` verbrauchte Tausend-Dokument-Stunden.
+X-Small ist die kleinste verfügbare Umgebung und wird nur für Entwicklungs- und Testumgebungen empfohlen.\*\*\*\*\*
 
-- `2.880 - 1.440 (kostenlose Dokumentstunden) = 1.440` berechnungsfähige Tausend-Dokument-Stunden.
+Wenn Sie von einer Ebene von Advanced zu einer anderen wechseln, müssen Sie keine neuen Instanzen erstellen. Neue Instanzen sind allerdings erforderlich, wenn Sie von einem Advanced- zu einem Premium-Plan wechseln. Informationen zum Durchführen eines Upgrades von einer Ebene von Advanced auf eine andere finden Sie unter [Von einer Advanced-Ebene zu einer anderen wechseln](/docs/services/discovery/upgrading.html#advanced).
 
-- `1.440 * $0,0139` (Preis je Tausend-Dokument-Stunde) = `$20,00` für den Monat.
+\*\*\*\*\*Attribute von X-Small-Plänen: 
+- 1 Umgebung
+- Bis zu 4 Sammlungen
+- Kostenlose NLU-Aufbereitungen\*\*
+- 50 Inflight-Dokumente\*\*\*\*
 
-**Hinweis:** Bei der Berechnung des in Rechnung gestellten Betrags für jede Stunde wird die Gesamtzahl der gespeicherten Dokumente auf den nächsten Tausender aufgerundet. Falls Sie beispielsweise 4.678 Dokumente für 1 Stunde gespeichert haben, würden die Dokumente auf 5.000 gerundet und 5 Tausend-Dokument-Stunden ergeben, die für das Konto in Rechnung gestellt werden.
+Attribute für alle anderen Advanced-Pläne:
+- 1 Umgebung
+- Bis zu 100 Sammlungen
+- Kostenlose NLU-Aufbereitungen\*\*
+- 105 Inflight-Dokumente\*\*\*\*
 
-**Hinweis:** Für Aufbereitungen entstehen keine zusätzlichen Kosten.
+Zusätzliche Optionen:<br> [Angepasste Modelle](/docs/services/discovery/integrate-wks.html#integrating-your-custom-model):<br>
+Ein Watson Knowledge Studio-Modell enthalten. Zusätzliche Modelle: Jeweils $800<br>[Elementklassifizierung](/docs/services/discovery/element-classification.html)\*\*\*:
+500 Seiten pro Monat enthalten. Zusätzliche Seiten: Je $0,40<br>[News-Abfragen](/docs/services/discovery/watson-discovery-news.html):
+200 News-Abfragen pro Monat enthalten  
+10.000 zusätzliche Abfragen (pro Monat): $0,10 pro Abfrage<br>
+10.001 - 100.000 zusätzliche Abfragen (pro Monat): $0,05 pro Abfrage<br>
+Über 100.000 zusätzliche Abfragen (pro Monat): $0,03 pro Abfrage<br>
+[Abfrageerweiterungen](/docs/services/discovery/using.html#query-expansion):
+5.000 Abfrageerweiterungen mit insgesamt 25.000 Begriffen
 
-Angaben über die {{site.data.keyword.Bluemix_notm}}-Sicherheit enthält der Abschnitt [{{site.data.keyword.Bluemix_notm}}-Servicebeschreibung ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](../../icons/launch-glyph.svg "Symbol für externen Link")] (http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}.
+## Premium
+   
+Premium-Pläne bieten Entwicklern und Organisationen zur besseren Isolierung und Sicherheit eine einzige Tenantinstanz von einem oder mehreren Watson-Services. Diese Pläne ermöglichen die Isolation auf Berechnungsebene auf der bestehenden gemeinsam genutzten Plattform sowie durchgängig verschlüsselte Daten sowohl bei der Übertragung als auch in ruhendem Zustand. 
 
-## Aus vorherigen Preisstrukturplänen konvertieren
+Für weitere Informationen oder für den Kauf eines Premium-Plans wenden Sie sich an den [Vertrieb](https://ibm.biz/contact-wdc-premium). 
+<br>
+<br> 
 
-Kunden, die einen Plan vor dem **1. August 2017** abonniert haben, wurden auf einen der neuen Pläne migriert.
+**Hinweis:** Das Versionsdatum der API wurde auf `2018-08-01` aktualisiert. Um die Vorteile der neuen Optionen für Umgebungsgrößen (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`) nutzen zu können, müssen Sie beim Erstellen von Umgebungen über die API dieses Versionsdatum verwenden. Die Umgebungsgrößen weisen jetzt den Typ `string` auf (bisher war der Typ `integer`.)
 
-- Kunden, die zuvor den Plan für den dreißigtägigen kostenlosen Test verwendeten, wurden auf den **Lite**-Plan migriert.
-  Infolge dieser Überführung haben Bestandskunden möglicherweise die Begrenzung des Lite-Plans für Dokumente _(2000)_, Speicher _(200Mb)_ oder Anzahl der Sammlungen _(2)_ erreicht bzw. überschritten. Falls Sie die Begrenzung des **Lite**-Plans überschritten haben, können Sie keinen zusätzlichen Inhalt im Service hinzufügen, Ihre Sammlungen jedoch weiterhin abfragen. Den aktuellen Status aller dieser Grenzwerte können Sie mithilfe der {{site.data.keyword.discoveryshort}}-Tools oder der API anzeigen. Damit Sie das Hinzufügen von Inhalt zur {{site.data.keyword.discoveryshort}}-Instanz fortsetzen können, müssen Sie eine der folgenden Maßnahmen ergreifen:
-  - Entfernen Sie Sammlungen und/oder Dokumente, damit die Begrenzungen des **Lite**-Plans nicht mehre überschritten werden.
-    Dokumente können entweder einzeln über die API mit der Methode [delete-doc ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} oder als ganze Sammlungen mithilfe der Tools oder der API unter Verwendung der Methode [delete-collection ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-collection){: new_window} gelöscht werden.
-  - Führen Sie für Ihren Plan ein Upgrade auf eine Stufe durch, die Ihren Speicherbedarf erfüllt.
-- Kunden mit Umgebungen der Größe **`1`**, **`2`** oder **`3`** wurden automatisch auf den **Advanced**-Plan migriert.
-  Falls Sie auf die Stufe 'Advanced' versetzt wurden und weniger als 100.000 Dokumente und 4 Sammlungen verwenden, können Sie zur Kostenersparnis auf die Stufe 'Standard' wechseln. Dies erfordert das Erstellen einer neuen Discovery-Instanz im Standard-Plan und das erneute Einpflegen der Daten in die neue Instanz. Das Einpflegen kann über die Tools, die APIs oder mit Data Crawler erfolgen.
+\* Die Dokumentbegrenzung geht von einer durchschnittlichen Dokumentgröße von 100 KB auf Platte aus. Die Dokumentgröße wird berechnet, nachdem das Dokument der Konvertierung und Aufbereitung unterzogen wurde. Die Größe kann daher erheblich von der ursprünglichen Eingabe abweichen. Sie können die Anzahl der gespeicherten Dokumente und das Gesamtvolumen des belegten Speichers mit der [Umgebungs-](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api) oder [Sammlungs](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#collections-api)-API bzw. mithilfe der Tools anzeigen. Falls Ihre Dokumente durchschnittlich größer als 100 KB auf Platte sind, erreichen Sie die Speicherbegrenzung eines Plans vor der maximalen Dokumentbegrenzung. Wenn Sie für Ihre Dokumente die [Dokumentsegmentierung](https://console.bluemix.net/docs/services/discovery/building.html#doc-segmentation) ausführen, wird jedes Segment als separates Dokument gezählt.
 
-Zusätzliche Preisinformationen finden Sie im [{{site.data.keyword.discoveryshort}}-Katalog ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}.
+\*\* Die [Aufbereitungen von Natural Language Understanding (NLU)](https://console.bluemix.net/docs/services/discovery/building.html#adding-enrichments) sind Entitätsextraktion, Stimmungsanalyse, Kategorieklassifizierung, Konzepttagging, Schlüsselwortextraktion, Beziehungsextraktion, Emotionsanalyse, Elementklassifizierung und Semantikrollenextraktion. Es werden nur die ersten 50.000 Zeichen jedes Dokuments aufbereitet. 
+
+\*\*\* Die Elementklassifizierung ist eine Aufbereitung, die die Analyse von maßgeblichen Dokumenten ermöglicht, um relevante Elemente zu konvertieren, zu identifizieren und zu klassifizieren. Dabei wird die Verarbeitung natürlicher Sprachen genutzt, um die folgenden Elemente aus PDF-Dokumenten zu extrahieren: Partei (der Bezug), die Gattung (der Typ des Elements) und die Kategorie (die spezifische Klasse).
+
+\*\*\*\* Wenn Sie Ihre InFlight-Begrenzung erreichen, sollten Sie die Einpflegerate verlangsamen. Bei der Verwendung des Discovery-Service wird ein Dokument während des Uploads, der Aufbereitung und der Verarbeitung als "Inflight" bezeichnet, bevor es zu einer Sammlung hinzugefügt wird.
+
+Informationen zur Berechnung der Kosten finden Sie im Abschnitt zum [IBM Cloud-Preisrechner ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") ](https://console.bluemix.net/pricing/platform/watson){: new_window}.
+
+Informationen zur Sicherheit bei IBM Cloud finden Sie im Abschnitt zur [Datensicherheit und zum Datenschutz von Cloud-Services ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument){: new_window}.
+
+Zusätzliche Preisinformationen finden Sie im [{{site.data.keyword.discoveryshort}}-Katalog ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") ](https://console.bluemix.net/catalog/services/discovery){: new_window}.
+
+## Hinweise für Kunden mit bestehenden Plänen
+
+- Seit dem **1. August 2018** basiert Ihre Abrechnung und Nutzung auf diesem Preisstrukturplan.
+- Der Lite-Plan wurde von 2.000 Dokumenten/400 {{site.data.keyword.discoverynewsshort}}-Abfragen pro Monat auf 1.000 Dokumente/200 {{site.data.keyword.discoverynewsshort}}-Abfragen pro Monat reduziert. Wenn Sie die neuen Lite-Planbegrenzungen bereits überschritten haben, können Sie keine weiteren Dokumente hinzufügen. Sie können das Programm jedoch weiterhin verwenden oder ein Upgrade auf einen Advanced- oder Premium-Plan durchführen.
+- Der Standard-Plan wurde außer Kraft gesetzt und ist für neue Benutzer nicht mehr verfügbar. Wenn Sie sich derzeit in einem vorhandenen Standard-Plan befinden, können Sie die Anwendung weiter verwenden oder ein Upgrade auf einen Advanced- oder Premium-Plan durchführen.
+- Die Advanced- und Premium-Pläne basieren jetzt auf Preisstufen für Dokumente und nicht mehr auf Dokumentstunden. Ihre monatlichen Rechnungen orientieren sich daher nicht mehr an der Anzahl der Dokumente, es sei denn, Sie wechseln zwischen Preisstufen.
+- Als Premium-Kunde wenden Sie sich an den [Vertrieb](https://ibm.biz/contact-wdc-premium), um mehr zur geänderten Rechnungsstellung zu erfahren.	

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-10"
+  years: 2015, 2018
+lastupdated: "2018-01-23"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2017-11-10"
 如果您的数据有特殊的[转换](#conversion)、[扩充](#enrichment)或[规范化](#normalization)需求，那么可以采用 JSON 格式创建您自己的 {{site.data.keyword.discoveryshort}} 摄入配置。
 {: shortdesc}
 
- 以下各部分详细描述了此 JSON 的结构以及可在其中定义的对象。
+ 以下部分中详细描述了此 JSON 的结构以及可在其中定义的对象。
 
 ## 配置结构
 {: #structure}
@@ -116,7 +116,7 @@ lastupdated: "2017-11-10"
 
 转换 PDF 文件时，这些文件中的标题可以通过识别每个标题级别的大小、字体和样式进行确定（并转换为相应的 HTML "`h`" 标记）。如有必要，可以多次指定标题级别，以便正确识别所有相关部分。HTML 标题级别对于确定是计划使用 CSS 选择器来抽取内容还是打算使用文档拆分来拆分文档而言非常重要。`heading` 对象包含 `fonts` 数组，该数组中的每一项都使用以下参数指定标题级别：
 
-- `"level": INT` - *必需* - 使用这些参数识别到的文本将转换为的 HTML `h` 级别。
+- `"level": INT` - *必需* - HTML `h` 级别，使用这些参数识别到的文本将转换为该级别。
 - `"min_size": INT` - _可选_ - 识别为此标题级别的最小字体大小。
 - `"max_size": INT` - _可选_ - 识别为此标题级别的最大字体大小。
 - `"bold": boolean` - _可选_ - 为 `true` 时，仅将粗体字体识别为此标题级别。
@@ -175,7 +175,7 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 
 `fonts` 数组中的每一项都使用以下参数和字体特征来指定标题级别：
 
-- `"level": INT` - *必需* - 使用这些参数识别到的文本将转换为的 HTML `h` 级别。
+- `"level": INT` - *必需* - HTML `h` 级别，使用这些参数识别到的文本将转换为该级别。
 - `"min_size": INT` - _可选_ - 识别为此标题级别的最小字体大小。
 - `"max_size": INT` - _可选_ - 识别为此标题级别的最大字体大小。
 - `"bold": boolean` - _可选_ - 为 `true` 时，仅将粗体字体识别为此标题级别。
@@ -186,7 +186,7 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 
 `styles` 数组中的每一项都通过应用于该段的 Microsoft Word 样式指定标题级别。
 
-- `"level": INT` - *必需* - 使用这些参数识别到的文本将转换为的 HTML `h` 级别。
+- `"level": INT` - *必需* - HTML `h` 级别，使用这些参数识别到的文本将转换为该级别。
 - `"names": array` - *必需* - 将识别为此标题级别的样式名称的逗号分隔数组。
 
 *何时使用字体和何时使用样式* - 如果 Microsoft Word 文档非常符合样式表，其中每段都使用相应样式进行了正确标记，那么建议您使用 `styles` 来抽取标题。但是，您可能会发现某些文档具有作者已手动覆盖的样式。这些文档在使用 `fonts` 抽取方法时转换效果更好。
@@ -252,11 +252,11 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 
 #### exclude_tag_attributes
 
-`"exclude_tag_attributes" : array` - 由转换除去的 HTML 属性名称的数组，与这些属性名称所在的 HTML 标记无关。
+`"exclude_tag_attributes" : array` - 由转换除去的 HTML 属性名称的数组，与这些属性名称所在的 HTML 标记无关。**注：**如果在同一配置中同时指定了 `exclude_tag_attributes` 和 `keep_tag_attributes`，那么您将收到一条错误消息 - 对于每个配置，只能指定其中一项。如果提供了 `keep_tag_attributes`，那么必须从配置中将其完全除去；此项不能作为空数组提供。
 
 #### keep_tag_attributes
 
-`"keep_tag_attributes" : array` - 由转换保留的 HTML 属性名称的数组。
+`"keep_tag_attributes" : array` - 由转换保留的 HTML 属性名称的数组。**注：**如果在同一配置中同时指定了 `keep_tag_attributes` 和 `exclude_tag_attributes`，那么您将收到一条错误消息 - 对于每个配置，只能指定其中一项。如果提供了 `exclude_tag_attributes`，那么必须从配置中将其完全除去；此项不能作为空数组提供。
 
 #### extracted_fields
 
@@ -277,7 +277,8 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 **注：**配置中定义的字段名称必须满足[字段名称需求](#field_reqs)中定义的限制。
 
 - `"css_selector" : string` - *必需* - 用于定义要存储在字段中的内容区域的 CSS 选择器表达式。
-- `"type" : string` - *必需* - 要创建的字段的类型，可以是 `string` 或 `date`。有关详细信息，请参阅[使用 CSS 选择器抽取字段](docs/services/discovery/building.md#using-css)。
+- `"type" : string` - *必需* - 要创建的字段的类型，可以是 `string` 或 `date`。
+有关详细信息，请参阅[使用 CSS 选择器抽取字段](/docs/services/discovery/building.md#using-css)。
 
 ### 分段
 {: #segment}
@@ -421,10 +422,10 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 
 {{site.data.keyword.discoveryshort}} 支持添加 {{site.data.keyword.nlushort}} 和“元素分类”扩充项。您要扩充的每个字段都由 `enrichments` 数组中的对象进行定义。每个扩充对象都需要指定 `source_field`、`destination_field` 和 enrichments。
 
-- `"enrichment": string` - *必需* - 要在此字段上使用的扩充类型。要抽取 {{site.data.keyword.nlushort}} 扩充项，请使用 `natural_language_understanding`；要执行“元素分类”，请使用 `elements`。
+- `"enrichment": string` - *必需* - 要在此字段上使用的扩充项类型。要抽取 {{site.data.keyword.nlushort}} 扩充项，请使用 `natural_language_understanding`；要执行“元素分类”，请使用 `elements`。
 
   **注：**使用 `elements` 扩充项时，遵循[元素分类](/docs/services/discovery/element-classification.html)文档中指定的准则很重要。具体而言，只有在指定此扩充项时，才能摄入 PDF 文件。
-  
+
 - `"source_field" : string` - *必需* - 将扩充的源字段。完成 `json_normalizations` 操作后，源中必须存在此字段。
 - `"destination_field" : string` - *必需* - 要在其中创建扩充项的容器对象的名称。
 

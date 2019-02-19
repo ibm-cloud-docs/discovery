@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-16"
 
 ---
 
@@ -19,12 +19,12 @@ lastupdated: "2017-11-08"
 
 # Von Watson Discovery News Original migrieren
 
-Eine neue Version von {{site.data.keyword.discoverynewsshort}} ist seit dem **31. Juli 2017** verfügbar. Die ursprüngliche Version wurde in '{{site.data.keyword.discoverynewsshort}} Original' umbenannt und mit dem Servicedatum **15. Januar 2018** zurückgezogen.   
+Eine neue Version von {{site.data.keyword.discoverynewsshort}} ist seit dem **31. Juli 2017** verfügbar. Die ursprüngliche Version wurde in {{site.data.keyword.discoverynewsshort}} Original umbenannt und wurde mit dem Servicedatum **15. Januar 2018** zurückgezogen. Wenn Sie versuchen, auf {{site.data.keyword.discoverynewsshort}} Original zuzugreifen, erhalten Sie die Nachricht `410 GONE`.
 {: shortdesc}
 
 Zur Migration von {{site.data.keyword.discoverynewsshort}} Original auf die neue Version müssen Sie einige Änderungen vornehmen, zu denen auch die Aktualisierung aller Abfragen gehört, die für {{site.data.keyword.discoverynewsshort}} Original erstellt wurden.
 
-  **Hinweis:** Falls Sie eine neue Instanz von {{site.data.keyword.discoveryshort}} erstellt haben, können Sie nur auf die neue Version von {{site.data.keyword.discoverynewsshort}} zugreifen. Der Zugriff auf sowohl die neue {{site.data.keyword.discoverynewsshort}}-Version als auch auf {{site.data.keyword.discoverynewsshort}} Original ist nur in Instanzen von {{site.data.keyword.discoveryshort}} verfügbar, die vor dem **31. Juli 2017** erstellt worden sind.
+  **Hinweis:** {{site.data.keyword.discoverynewsshort}} Original war nur in Instanzen von {{site.data.keyword.discoveryshort}} verfügbar, die vor dem **31. Juli 2017** erstellt wurden und mit dem Servicedatum **15. Januar 2018** zurückgezogen wurden.
 
 Eine Beschreibung dieser Sammlung finden Sie unter [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html).
 
@@ -34,9 +34,9 @@ Eine Beschreibung sowie Informationen zur Abfrage von {{site.data.keyword.discov
 
 | {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
-| **{{site.data.keyword.discoverynewsshort}} Original** ist vorab mit den folgenden Alchemy Language-Aufbereitungen aufbereitet: Schlüsselwortextraktion, Entitätsextraktion, Konzepttagging, Beziehungsextraktion, Stimmungsanalyse und Taxonomieklassifizierung. Auch die folgenden zusätzlichen Metadaten werden hinzugefügt: Suchlaufdatum, Veröffentlichungsdatum, URL-Einstufung, Hosteinstufung und Ankertext. | **{{site.data.keyword.discoverynewsshort}}** ist vorab mit den folgenden Aufbereitungen von {{site.data.keyword.nlushort}} (NLU) aufbereitet: Schlüsselwortextraktion, Entitätsextraktion, Semantikrollenextraktion, Stimmungsanalyse, Beziehungen und Kategorieklassifizierung. Auch die folgenden zusätzlichen Metadaten werden hinzugefügt: Suchlaufdatum und Veröffentlichungsdatum. Weitere Informationen zu NLU-Aufbereitungen finden Sie unter [Aufbereitungen hinzufügen](/docs/services/discovery/building.html#adding-enrichments).                         |
-| **{{site.data.keyword.discoverynewsshort}} Original** war über eine Umgebung zugänglich, die für die Serviceinstanz eindeutig war.                        | Bei Verwendung von **{{site.data.keyword.discoverynewsshort}}** fragen alle Benutzer dieselbe Umgebung und Sammlung ab. Dies bedeutet, dass alle Verweise auf Ihre Umgebung und Sammlung geändert werden müssen.   |
-| In **{{site.data.keyword.discoverynewsshort}} Original** empfangen Sie Informationen wie Sammlungsgröße, Anzahl der Dokumente usw., wenn Sie die Umgebung über die API abfragen.   | **Die {{site.data.keyword.discoverynewsshort}}**-API gibt diese Informationen nicht zurück.                  |
+| **{{site.data.keyword.discoverynewsshort}} Original** wurde vorab mit den folgenden Alchemy Language-Aufbereitungen aufbereitet: Schlüsselwortextraktion, Entitätsextraktion, Konzepttagging, Beziehungsextraktion, Stimmungsanalyse und Taxonomieklassifizierung. Auch die folgenden zusätzlichen Metadaten wurden hinzugefügt: Suchlaufdatum, Veröffentlichungsdatum, URL-Einstufung, Hosteinstufung und Ankertext. | **{{site.data.keyword.discoverynewsshort}}** ist vorab mit den folgenden Aufbereitungen von {{site.data.keyword.nlushort}} (NLU) aufbereitet: Schlüsselwortextraktion, Entitätsextraktion, Semantikrollenextraktion, Stimmungsanalyse, Beziehungen und Kategorieklassifizierung. Auch die folgenden zusätzlichen Metadaten werden hinzugefügt: Suchlaufdatum und Veröffentlichungsdatum. Weitere Informationen zu NLU-Aufbereitungen finden Sie unter [Aufbereitungen hinzufügen](/docs/services/discovery/building.html#adding-enrichments).                         |
+| **{{site.data.keyword.discoverynewsshort}} Original** war über eine Umgebung zugänglich, die für die Serviceinstanz eindeutig war.                       | Bei Verwendung von **{{site.data.keyword.discoverynewsshort}}** fragen alle Benutzer dieselbe Umgebung und Sammlung ab. Dies bedeutet, dass alle Verweise auf Ihre Umgebung und Sammlung geändert werden müssen.      |
+| In ** {{site.data.keyword.discoverynewsshort}} Original** wurden Informationen wie Sammlungsgröße, Anzahl der Dokumente usw. beim Abrufen der Umgebung über die API empfangen.  | **Die {{site.data.keyword.discoverynewsshort}}**-API gibt diese Informationen nicht zurück.                          |
 
 In **{{site.data.keyword.discoverynewsshort}}** sind die folgenden Felder verfügbar:
 
@@ -79,7 +79,7 @@ Um Ihre Abfragen von {{site.data.keyword.discoverynewsshort}} Original auf das n
 
   `discovery/api/v1/environments/ae5790c2-592f-432a-804a-ee16de7154d7/collections/3edcd8f1-e25a-4f44-a069-58332ad17651/query?version=2017-11-07&query=entities.type:"Company"`
 
-  geändert werden in 
+  geändert werden in
 
   `discovery/api/v1/environments/system/collections/news/query?version=2017-11-07&query=enriched_text.entities.type:"Company"`  
 
@@ -96,7 +96,7 @@ Sie können {{site.data.keyword.discoverynewsshort}} mithilfe der API oder mit e
   Abfragen in {{site.data.keyword.discoverynewsshort}} sind genauso strukturiert wie Abfragen, die für private Datensammlungen geschrieben sind. Weitere Informationen finden Sie unter [Abfragekonzepte](/docs/services/discovery/using.html) und [Abfragereferenz](/docs/services/discovery/query-reference.html).
   {: tip}
 
-**Hinweis**: Erwarten Sie nicht, dass für ähnliche Abfragen in {{site.data.keyword.discoverynewsshort}} Original und {{site.data.keyword.discoverynewsshort}} identische Ergebnisse zurückgegeben werden. Die Kombination aus Zeitpunkt der Crawlersuche, Quellen und Aufbereitungen führt jeweils zu unterschiedlichen Ergebnissen. 
+**Hinweis**: Erwarten Sie nicht, dass für ähnliche Abfragen in {{site.data.keyword.discoverynewsshort}} Original und {{site.data.keyword.discoverynewsshort}} identische Ergebnisse zurückgegeben werden. Die Kombination aus Zeitpunkt der Crawlersuche, Quellen und Aufbereitungen führt jeweils zu unterschiedlichen Ergebnissen.
 
 ## Watson Discovery News-Abfragen zur Anwendung hinzufügen
 
@@ -130,13 +130,13 @@ discovery.query(queryBuilder.build()).execute();
 ### Watson-Node.js-SDK verwenden
 
 ```javascript
-var watson = require('watson-developer-cloud');
+var watson = require('watson-developer-cloud');  
 
 var discovery = new DiscoveryV1({  
   username: '{benutzername}',
   password: '{kennwort}',
   version_date: '2017-11-07'
-});
+});  
 
 discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),  
   function(error, data) {  
@@ -158,7 +158,7 @@ discovery = DiscoveryV1(
   username="{benutzername}",
   password="{kennwort}",
   version="2017-11-07"
-)
+)  
 
 qopts = {'query': 'enriched_text.entities.text:IBM'}  
 my_query = discovery.query('system', 'news', qopts)  

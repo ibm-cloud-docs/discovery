@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-05-09"
 
 ---
 
@@ -20,12 +20,12 @@ lastupdated: "2017-10-09"
 # 查詢聚集
 {: #query-aggregations}
 
-聚集傳回一組資料值。如需可用聚集的完整清單，請參閱[查詢參照](/docs/services/discovery/query-reference.html#aggregations)。
+聚集傳回一組資料值。如需可用聚集的完整清單，請參閱[查詢參考資料](/docs/services/discovery/query-reference.html#aggregations)。
 
 ## term
 {: #term}
 
-傳回所選取強化的前幾個值（依評分和依頻率）。所有強化都是有效值。您可以選擇性地使用 `count` 來指定要傳回的詞彙數。此範例會傳回含有概念強化的前幾個值的全文和強化，並指定傳回 10 個詞彙。
+傳回所選取強化的前幾個值（依評分和依頻率）。所有強化都是有效值。您可以選擇性地使用 `count` 來指定要傳回的詞彙數。`count` 參數的預設值為 10。此範例會傳回含有概念強化的前幾個值的全文和強化，並指定傳回 10 個詞彙。
 
 例如：
 ```bash
@@ -40,7 +40,7 @@ term(enriched_text.concepts.text,count:10)
 
 例如：
 ```bash
-filter(enriched_text.concepts.text:cloud computing)
+filter(enriched_text.concepts.text:"cloud computing")
 ```
 {: codeblock}
 

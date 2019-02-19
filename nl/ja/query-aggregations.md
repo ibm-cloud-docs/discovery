@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-05-09"
 
 ---
 
@@ -20,14 +20,14 @@ lastupdated: "2017-10-09"
 # 照会の集約
 {: #query-aggregations}
 
-集約は、一連のデータ値を返します。使用可能な集約の完全リストについては、[照会リファレンス](/docs/services/discovery/query-reference.html#aggregations)を参照してください。
+集約は、一連のデータ値を返します。 使用可能な集約の完全リストについては、[照会リファレンス](/docs/services/discovery/query-reference.html#aggregations)を参照してください。
 
 ## term
 {: #term}
 
-選択したエンリッチメントの上位の値を (スコア順および頻度順に) 返します。すべてのエンリッチメントは有効な値です。オプションで、`count` を使用して、返す用語の数を指定できます。以下の例は、概念エンリッチメントでの最上位の値のフルテキストとエンリッチメントを返し、10 個の用語を返すことを指定します。
+選択したエンリッチメントの上位の値を (スコア順および頻度順に) 返します。 すべてのエンリッチメントは有効な値です。 オプションで、`count` を使用して、返す用語の数を指定できます。 `count` パラメーターのデフォルト値は 10 です。以下の例は、概念エンリッチメントでの最上位の値のフルテキストとエンリッチメントを返し、10 個の用語を返すことを指定します。
 
-例:
+以下に例を示します。
 ```bash
 term(enriched_text.concepts.text,count:10)
 ```
@@ -36,20 +36,20 @@ term(enriched_text.concepts.text,count:10)
 ## filter
 {: #filter}
 
-この修飾子が前に付いた集約照会の文書セットを絞り込みます。以下の例は、フィルタリングでクラウド・コンピューティングの概念を含む文書セットを検出します。
+この修飾子が前に付いた集約照会の文書セットを絞り込みます。 以下の例は、フィルタリングでクラウド・コンピューティングの概念を含む文書セットを検出します。
 
-例:
+以下に例を示します。
 ```bash
-filter(enriched_text.concepts.text:cloud computing)
+filter(enriched_text.concepts.text:"cloud computing")
 ```
 {: codeblock}
 
 ## nested
 {: #nested}
 
-集約照会の前に nested を適用すると、集約は、指定された結果の領域に制限されます。例えば、`nested(enriched_text.entities)` は、どの結果でも集約対象として使用されるのは `enriched_text.entities` コンポーネントのみであることを意味します。
+集約照会の前に nested を適用すると、集約は、指定された結果の領域に制限されます。 例えば、`nested(enriched_text.entities)` は、結果の `enriched_text.entities` コンポーネントのみが集約に使用されることを意味します。
 
-例:
+以下に例を示します。
 ```bash
 nested(enriched_text.entities)
 ```
@@ -58,9 +58,9 @@ nested(enriched_text.entities)
 ## histogram
 {: #histogram}
 
-文書を分類するための数値区間セグメントを作成します。単一の数値フィールドのフィールド値を使用して、カテゴリーを記述します。ヒストグラムの作成に使用するフィールドは、数値型 (`integer`、`float`、`double`、または `date`) でなければなりません。`string` などの非数値型はサポートされません。例えば、"price": 1.30 は数値なので機能しますが、"price": "1.30" はストリングなので機能しません。結果を分割するセクションのサイズを定義するには、`interval` 引数を使用します。interval の値は、非負の整数でなければなりません。また、考えられるフィールド値をセグメント化する際に意味をなすように設定する必要があります。例えば、データ・セットに複数のアイテムの価格 (例えば、“price”: 1.30、“price”: 1.99、および“price”: 2.99) が含まれている場合は、1 の interval を使用できます。こうすると、1 と 2 の間、および 2 と 3 の間にグループ化されているすべてが表示されます。100 の interval を使用することはおそらくありません。なぜなら、その場合は、すべてのデータが同じセグメントに入ることになるからです。ヒストグラムは 10 進数の値を処理できますが、interval は整数でなければなりません。以下の例に示すように、構文は `histogram(<field>,<interval>)` になります。
+文書を分類するための数値区間セグメントを作成します。 単一の数値フィールドのフィールド値を使用して、カテゴリーを記述します。 ヒストグラムの作成に使用するフィールドは、数値型 (`integer`、`float`、`double`、または `date`) でなければなりません。 `string` などの非数値型はサポートされません。 例えば、"price": 1.30 は数値なので機能しますが、"price": "1.30" はストリングなので機能しません。 結果を分割するセクションのサイズを定義するには、`interval` 引数を使用します。 interval の値は、非負の整数でなければなりません。また、考えられるフィールド値をセグメント化する際に意味をなすように設定する必要があります。 例えば、データ・セットに複数のアイテムの価格 (例えば、“price”: 1.30、“price”: 1.99、および“price”: 2.99) が含まれている場合は、1 の interval を使用できます。こうすると、1 と 2 の間、および 2 と 3 の間にグループ化されているすべてが表示されます。100 の interval を使用することはおそらくありません。なぜなら、その場合は、すべてのデータが同じセグメントに入ることになるからです。 ヒストグラムは 10 進数の値を処理できますが、interval は整数でなければなりません。 以下の例に示すように、構文は `histogram(<field>,<interval>)` になります。
 
-例:
+以下に例を示します。
 ```bash
 histogram(product.price,interval:1)
 ```
@@ -69,9 +69,9 @@ histogram(product.price,interval:1)
 ## timeslice
 {: #timeslice}
 
-日付を使用して区間セグメントを作成する特殊なヒストグラム。有効な日付間隔値は、`second/seconds`、`minute/minutes`、`hour/hours`、`day/days`、`week/weeks`、`month/months`、および `year/years` です。構文は `timeslice(<field>,<interval>,<time_zone>)` です。`timeslice` を使用するには、文書内の時間フィールドは `date` データ型で、[UNIX 時間 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://en.wikipedia.org/wiki/Unix_time){: new_window} フォーマットでなければなりません。これらの両方の要件が満たされていない限り、`timeslice` パラメーターは正しく機能しません。文書に、`1496228512` などの値を含む `date` フィールドが含まれている場合、タイム・スライスを作成できます。値は、数値フォーマット (例えば、`float` や `double`) でなければならず、引用符で囲まれていてはなりません。サービスは、テキスト内の日付と ISO 8601 フォーマットの日付を、`date` のデータ型ではなく、`string` のデータ型として処理します。timeslice 集約で変則的な点を検出することができます。追加情報については、[タイム・スライスの異常検出](#anomaly-detection)を参照してください。以下の例は、"sales" ("product.sales") の値を、New York City タイム・ゾーンで 2 日間の間隔で返します。
+日付を使用して区間セグメントを作成する特殊なヒストグラム。 有効な日付間隔値は、`second/seconds`、`minute/minutes`、`hour/hours`、`day/days`、`week/weeks`、`month/months`、および `year/years` です。 構文は `timeslice(<field>,<interval>,<time_zone>)` です。 `timeslice` を使用するには、文書内の時間フィールドは `date` データ型で、[UNIX 時間 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://en.wikipedia.org/wiki/Unix_time){: new_window} フォーマットでなければなりません。 これらの両方の要件が満たされていない限り、`timeslice` パラメーターは正しく機能しません。 文書に、`1496228512` などの値を含む `date` フィールドが含まれている場合、タイム・スライスを作成できます。 値は、数値フォーマット (例えば、`float` や `double`) でなければならず、引用符で囲まれていてはなりません。 サービスは、テキスト内の日付と ISO 8601 フォーマットの日付を、`date` のデータ型ではなく、`string` のデータ型として処理します。 timeslice 集約で変則的な点を検出することができます。 追加情報については、[タイム・スライスの異常検出](#anomaly-detection)を参照してください。 以下の例は、"sales" ("product.sales") の値を、New York City タイム・ゾーンで 2 日間の間隔で返します。
 
-例:
+以下に例を示します。
 ```bash
 timeslice(product.sales,2day,America/New York)
 ```
@@ -80,7 +80,7 @@ timeslice(product.sales,2day,America/New York)
 ### タイム・スライスの異常検出
 {: #anomaly-detection}
 
-オプションで、`timeslice` 集約の結果に異常検出を適用できます。異常検出は、時系列の中で、通常と異なるデータ・ポイントを見つけ、後で検討するためにそれらにフラグを立てるために使用されます。異常検出の使用例としては、クレジット・カード使用の急増の識別や、Watson Discovery News での特定のトピックに関する記事群の検索などがあります。
+オプションで、`timeslice` 集約の結果に異常検出を適用できます。 異常検出は、時系列の中で、通常と異なるデータ・ポイントを見つけ、後で検討するためにそれらにフラグを立てるために使用されます。 異常検出の使用例としては、クレジット・カード使用の急増の識別や、Watson Discovery News での特定のトピックに関する記事群の検索などがあります。
 
 異常検出を適用するには、集約で以下の構文を使用します。
 
@@ -92,7 +92,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
 `timeslice` 集約で `anomaly:true` を指定すると、以下の 2 つの追加フィールド (例に示されている) が出力に含まれます。
 
   - 異常検出が実行されたことを示す `"anomaly": true`
-  - 出力の結果配列で変則的なポイント内の `anomaly` フィールド。anomaly フィールドには、変則的な動作の大きさを示す `float` データ型の値が含まれます。anomaly フィールドの値が `1` に近づけば近づくほど、結果が変則的である可能性が高くなります。
+  - 出力の結果配列で変則的なポイント内の `anomaly` フィールド。 anomaly フィールドには、変則的な動作の大きさを示す `float` データ型の値が含まれます。 anomaly フィールドの値が `1` に近づけば近づくほど、結果が変則的である可能性が高くなります。
 
   - `results` 配列内の各オブジェクトの `key` と `key_as_string` は、UNIX タイム・スタンプ (秒単位) に対応しています。
   - anomaly スコアは、照会全体ではなく、1 つの照会に関連しています。
@@ -140,7 +140,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
 
 #### 異常検出の制限
 
-- 異常検出は、現在、最上位の `timeslice` 集約でのみ使用可能です。下位 (ネストされた) 集約では使用できません。
+- 異常検出は、現在、最上位の `timeslice` 集約でのみ使用可能です。 下位 (ネストされた) 集約では使用できません。
 - ある特定の `timeslice` 集約で、異常検出によって処理できるポイントの最大数は `1500` です。
 - 異常検出によって処理できる最上位 timeslice 集約の最大数は `20` です。
 
@@ -157,9 +157,9 @@ The following example workflow detects an anomaly for the text entity `London` a
 ## top_hits
 {: #top_hits}
 
-照会またはエンリッチメントのスコアによってランク付けされた文書を返します。どの照会パラメーターまたは集約でも使用できます。以下の例は、term 集約で上位 10 個のヒットを返します。
+照会またはエンリッチメントのスコアによってランク付けされた文書を返します。 どの照会パラメーターまたは集約でも使用できます。 以下の例は、term 集約で上位 10 個のヒットを返します。
 
-例:
+以下に例を示します。
 ```bash
 term(enriched_text.concepts.text).top_hits(10)
 ```
@@ -186,7 +186,7 @@ nested(enriched_text.entities).term(enriched_text.entities.text,count:3).unique_
 
 一致するすべての文書において、指定されたフィールドの最高値を返します。
 
-例:
+以下に例を示します。
 ```bash
 max(product.price)
 ```
@@ -197,7 +197,7 @@ max(product.price)
 
 一致するすべての文書において、指定されたフィールドの最低値を返します。
 
-例:
+以下に例を示します。
 ```bash
 min(product.price)
 ```
@@ -208,7 +208,7 @@ min(product.price)
 
 一致するすべての文書において、指定されたフィールドの平均値を返します。
 
-例:
+以下に例を示します。
 ```bash
 average(product.price)
 ```
@@ -219,7 +219,7 @@ average(product.price)
 
 一致するすべての文書において、指定されたフィールドの値を合計します。
 
-例:
+以下に例を示します。
 ```bash
 sum(product.price)
 ```

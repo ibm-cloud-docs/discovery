@@ -19,14 +19,14 @@ lastupdated: "2017-10-09"
 
 # エンティティー・タイプとサブタイプ
 
-以下の表に、エンティティー抽出のエンリッチメントで戻される可能性があるエンティティー・タイプとサブタイプをリストします。<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> で、この情報を含むスプレッドシートをダウンロードできます。
+以下の表に、エンティティー抽出のエンリッチメントで戻される可能性があるエンティティー・タイプとサブタイプをリストします。 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> で、この情報を含むスプレッドシートをダウンロードできます。
 {: shortdesc}
 
 
 ## エンティティー・タイプ
 {: #entity-types}
 
-| エンティティー・タイプ|
+| エンティティー・タイプ       |
 |-------------------|
 | Anatomy           |
 | Award             |
@@ -58,7 +58,7 @@ lastupdated: "2017-10-09"
 ## エンティティー・サブタイプ
 {: #entity-subtypes}
 
-| エンティティー・サブタイプ|
+| エンティティー・サブタイプ                      |
 |-------------------------------------|
 | AbusedSubstance                     |
 | Academic                            |

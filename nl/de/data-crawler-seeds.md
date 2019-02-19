@@ -88,7 +88,7 @@ Die folgenden Werte können in der Datei konfiguriert werden, die den Seed für 
 
     **Hinweis:** Die URLs müssen mit der Zeichenfolge `sdk-fs://` beginnen. Um beispielsweise `/home/watson/mydocs` zu durchsuchen, muss als Wert dieser URL daher `sdk-fs:///home/watson/mydocs` angegeben werden. Der dritte Schrägstrich ist unbedingt erforderlich!
 
-    Die von Linux-, UNIX- und UNIX-ähnlichen Computersystemen verwendeten Dateisysteme können besondere Dateitypen enthalten, beispielsweise Block-  und Zeicheneinheitenknoten und Dateien, die benannte Pipes darstellen. Diese Dateien können nicht durchsucht werden, weil sie keine Daten enthalten, sondern als Zugriffspunkte für Einheiten oder Ein-/Ausgabe dienen. Der Versuch, solche Dateien zu durchsuchen, verursacht Fehler bei der Crawlersuche. Zur Vermeidung derartiger Fehler sollten Sie das Verzeichnis `/dev` bei jeder übergeordneten Crawlersuche in einem Linux-, UNIX- oder UNIX-ähnlichen Dateisystem ausschließen. Falls das System, in dem Sie die Crawlersuche ausführen, temporäre Systemverzeichnisse wie z. B. `/proc`, `/sys` und `/tmp` vorhanden sind, die temporäre Dateien und Systeminformationen enthalten, sollten Sie diese Verzeichnisse ebenfalls ausschließen. **`hops`**: Nur zur internen Verwendung. **`default-allow`**: Nur zur internen Verwendung.
+    Die von Linux-, UNIX- und UNIX-ähnlichen Computersystemen verwendeten Dateisysteme können besondere Dateitypen enthalten, beispielsweise Block-  und Zeicheneinheitenknoten und Dateien, die benannte Pipes darstellen. Diese Dateien können nicht durchsucht werden, weil sie keine Daten enthalten, sondern als Zugriffspunkte für Einheiten oder Ein-/Ausgabe dienen. Der Versuch, solche Dateien zu durchsuchen, verursacht Fehler bei der Crawlersuche. Zur Vermeidung derartiger Fehler sollten Sie das Verzeichnis `/dev` bei jeder übergeordneten Crawlersuche in einem Linux-, UNIX- oder UNIX-ähnlichen Dateisystem ausschließen. Falls das System, in dem Sie die Crawlersuche ausführen, temporäre Systemverzeichnisse wie z. B. `/proc`, `/sys` und `/tmp` vorhanden sind, die temporäre Dateien und Systeminformationen enthalten, sollten Sie diese Verzeichnisse ebenfalls ausschließen.   **`hops`**: Nur zur internen Verwendung.   **`default-allow`**: Nur zur internen Verwendung.
     {: tip}
 
 ## Optionen für die Crawlersuche in Datenbanken konfigurieren
@@ -121,7 +121,7 @@ Der Connector ruft alle Datensätze aus der angegebenen Datenbank und Tabelle ab
 Für die Verwendung des Datenbankconnectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/database.conf` und ändern Sie die folgenden Werte Ihren Anwendungsfällen entsprechend:
 
 -   **`protocol`**: Der Name des Connectorprotokolls, das für die Crawlersuche verwendet wird. Der Wert für diesen Connector richtet sich nach dem Datenbanksystem, auf das zugegriffen werden soll.
--   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet. 
+-   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet.
 -   **`classname`**: Der Java-Klassenname für den Connector. Für diesen Connector muss der Wert `plugin:database.plugin@database` verwendet werden.
 -   **`logging-config`**: Gibt die Datei an, die zum Konfigurieren der Protokollierungsoptionen verwendet wird; der Wert muss als XML-Zeichenfolge gemäß `log4j` formatiert sein.
 
@@ -164,7 +164,7 @@ Mit dem Connector für CMIS (Content Management Interoperability Services) könn
 Für die Verwendung des CMIS-Connectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/cmis.conf` und geben Sie die folgenden Werte Ihren Anwendungsfällen entsprechend an:
 
 -   **`protocol`**: Der Name des Connectorprotokolls, das für die Crawlersuche verwendet wird. Für diesen Connector muss der Wert `cmis` verwendet werden.
--   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet. 
+-   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet.
 -   **`dns`**: Nicht verwendete Option.
 -   **`classname`**: Der Java-Klassenname für den Connector. Verwenden Sie für diesen Connector den Wert `plugin:cmis-v1.1.plugin@connector`.
 -   **`logging-config`**: Gibt die Datei an, die zum Konfigurieren der Protokollierungsoptionen verwendet wird; der Wert muss als XML-Zeichenfolge gemäß `log4j` formatiert sein.
@@ -209,7 +209,7 @@ Mit dem Samba-Connector können Sie Dateifreigaben von Server Message Block (SMB
 Für die Verwendung des Samba-Connectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/samba.conf` und geben Sie die folgenden Werte Ihren Anwendungsfällen entsprechend an:
 
 -   **`protocol`**: Der Name des Connectorprotokolls, das für die Crawlersuche verwendet wird. Für diesen Connector muss der Wert `smb` verwendet werden.
--   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet. 
+-   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet.
 -   **`classname`**: Der Java-Klassenname für den Connector. Für diesen Connector muss der Wert `plugin:smb.plugin@connector` verwendet werden.
 -   **`logging-config`**: Gibt die Datei an, die zum Konfigurieren der Protokollierungsoptionen verwendet wird; der Wert muss als XML-Zeichenfolge gemäß `log4j` formatiert sein.
 -   **`username`**: Der Samba-Benutzername für die Authentifizierung. Wenn er angegeben wird, müssen auch die Domäne und das Kennwort angegeben werden. Ist er nicht angegeben, wird das Gastkonto verwendet.
@@ -262,7 +262,7 @@ Der SharePoint-Connector beachtet das Attribut `noindex` bei allen SharePoint-Ob
 Für die Verwendung des SharePoint-Connectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/sharepoint.conf` und ändern Sie die folgenden Werte Ihren Anwendungsfällen entsprechend:
 
 -   **`protocol`**: Der Name des Connectorprotokolls, das für die Crawlersuche verwendet wird. Für diesen Connector muss der Wert `io-sp` verwendet werden.
--   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet. 
+-   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet.
 -   **`classname`**: Der Java-Klassenname für den Connector. Verwenden Sie für diesen Connector den Wert `plugin:io-sharepoint.plugin@connector`.
 -   **`logging-config`**: Gibt die Datei an, die zum Konfigurieren der Protokollierungsoptionen verwendet wird; der Wert muss als XML-Zeichenfolge gemäß `log4j` formatiert sein.
 -   **`seed-url-type`**: Gibt an, auf welchen Typ von SharePoint-Objekt die angegebenen Seed-URLs verweisen. Möglich sind Siteerfassungen oder Webanwendungen (werden auch als 'virtuelle Server' bezeichnet).

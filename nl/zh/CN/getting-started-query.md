@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-16"
+  years: 2015, 2018
+lastupdated: "2018-05-21"
 
 ---
 
@@ -33,7 +33,7 @@ lastupdated: "2017-10-16"
 
 ## 开始之前
 
-**完成[入门](/docs/services/discovery/getting-started-tool.html)中的步骤。**如果尚未完成**入门**，请转至**管理数据**屏幕，创建名为 {{site.data.keyword.IBM_notm}} Press Releases 的新集合，并将以下四个文档添加到该集合（使用 **Default Configuration**）：<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>testoc1.html <img src="../../icons/launch-glyph.svg" alt=" 外部链接图标" title="外部链接图标" class="style-scope doc-content"></a>、<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>testoc2.html <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a>、<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>testdoc3.html <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a> 和 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a>
+**完成[入门](/docs/services/discovery/getting-started-tool.html)中的步骤。**如果尚未完成**入门**，请转至**管理数据**屏幕，创建名为 {{site.data.keyword.IBM_notm}} Press Releases 的新集合，并将以下四个文档添加到该集合（使用**缺省配置**）：<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>testoc1.html <img src="../../icons/launch-glyph.svg" alt=" 外部链接图标" title="外部链接图标" class="style-scope doc-content"></a>、<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>testoc2.html <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a>、<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>testdoc3.html <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a> 和 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a>
 
 ## 步骤 1：Discovery 数据模式快速导览
 
@@ -41,7 +41,7 @@ lastupdated: "2017-10-16"
 
 1.  [启动 {{site.data.keyword.discoveryshort}} 工具](/docs/services/discovery/getting-started-tool.html#launch-the-tooling)。在**管理数据**屏幕上，选择 {{site.data.keyword.IBM_notm}} Press Releases 集合。
 
-1.  查看 Watson 在扩充的文档中发现的见解。
+1.  查看 Watson 在扩充的文档中发现的洞察。
 
     -  **总体观点**显示“观点分析”扩充项发现的标记为 positive、neutral 和 negative 的文档分别所占百分比。
     -  **排名靠前的实体**显示“实体抽取”扩充项在文档中发现的人员、场所和组织。
@@ -53,7 +53,7 @@ lastupdated: "2017-10-16"
 
 1.  为了熟悉文档的数据模式，我们来浏览**查看数据模式**屏幕。此屏幕通过两种方式显示已变换文档中的字段和值：按文档（**文档视图**）或按字段（**集合视图**）。**集合视图**将显示集合中的所有字段。
 
-    单击**查看数据模式**按钮。在**集合视图**中的 `enriched_text` 下，可以检查通过 **Default Configuration** 文件应用的扩充项。单击 `categories`、`concepts`、`entities` 和 `sentiment` 可查看集合是如何通过 Watson 见解扩充的。
+    单击**查看数据模式**按钮。在**集合视图**中的 `enriched_text` 下，可以检查通过 **Default Configuration** 文件应用的扩充项。单击 `categories`、`concepts`、`entities` 和 `sentiment` 可查看集合是如何通过 Watson 洞察扩充的。
 
 如果查询未返回任何匹配的结果，而您认为应该返回匹配结果，请尝试将查询使用的字段/值改换为可以在数据模式中验证的字段/值。
 {: tip}    
@@ -66,7 +66,7 @@ lastupdated: "2017-10-16"
 1.  在**构建查询**屏幕上，单击**搜索文档**，单击**使用 {{site.data.keyword.discoveryshort}} Query Language**，然后执行以下操作：
     - 单击**字段**下拉列表并选择 `enriched_text.concepts.text`，对于**运算符**，选择 `contains`，然后输入**值** `Cloud computing`。查询 `enriched_text.concepts.text:Cloud computing` 将显示在 **Visual Query Builder** 下。
 
-    - 或者，可以单击**使用查询语言编辑**，然后单击**使用 {{site.data.keyword.discoveryshort}} Query Language**。在**在此输入查询**字段中，输入 `enriched_text.concepts.text:Cloud computing`。
+    - 或者，可以单击**使用查询语言编辑**，然后单击**使用 {{site.data.keyword.discoveryshort}} Query Language**。在**在此输入查询**字段中，输入 `enriched_text.concepts.text:"Cloud computing"`。
 
 1.  单击**运行查询**。应该会有一个匹配项 (`"matching_results": 1`)。复制**摘要**或 **JSON** 选项卡项部的**查询 URL**，以便在应用程序中使用。
 
@@ -108,7 +108,7 @@ lastupdated: "2017-10-16"
 1.  在**搜索文档**下，单击**使用 {{site.data.keyword.discoveryshort}} Query Language**，然后执行以下操作：
     -  单击**字段**下拉列表并选择 `enriched_text.concepts.text`，对于**运算符**，选择 `contains`，然后输入**值** `world wide web`。
 
-       查询 `enriched_text.concepts.text:world wide web` 将返回包含 `world wide web` 概念的所有文档，并且这些文档将按相关性顺序排名。
+       查询 `enriched_text.concepts.text:"world wide web"` 将返回包含 `world wide web` 概念的所有文档，并且这些文档将按相关性顺序排名。
 
 1.  单击**更多选项**，单击**要返回的字段**，然后选择**指定**。选择 `text`。这会将响应限制为相关文章的文本，而排除所有其他内容。
 
@@ -123,7 +123,7 @@ lastupdated: "2017-10-16"
 1.  单击“构建查询”图标 ![“查询”图标](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> 以打开查询页面。选择包含 {{site.data.keyword.IBM_notm}} Press Releases 的集合，然后单击**开始使用**。
 
 1.  在**包含对结果的分析**下：
-    -  单击**输出**下拉列表并选择`排名靠前的值`，对于**字段**，选择 `enriched_text.concepts.text`，然后为**计数**输入 `10`。
+    -  单击**输出**下拉列表并选择`排名靠前的值`。对于**字段**，选择 `enriched_text.concepts.text`，然后为**计数**输入 `10`。
 
        `Term` 将返回 `concepts` `text` 字段的最常见值。**计数**指定要返回的结果数。查询 `term(enriched_text.concepts.text,count:10)` 将显示在 **Visual Query Builder** 下。   
 
@@ -133,18 +133,18 @@ lastupdated: "2017-10-16"
 
 ## 步骤 6：在 Watson Discovery News 中构建查询
 
-{{site.data.keyword.discoverynewsshort}} 是已使用认知见解进行预扩充的公共数据集。它随附于 {{site.data.keyword.discoveryshort}}。请参阅 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) 以获取有关此集合的更多信息。
+{{site.data.keyword.discoverynewsshort}} 是已使用认知洞察进行预扩充的公共数据集。它随附于 {{site.data.keyword.discoveryshort}}。请参阅 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) 以获取有关此集合的更多信息。
 
-不能调整 {{site.data.keyword.discoverynewsshort}} 配置，也不能培训 {{site.data.keyword.discoverynewsshort}} 集合或向其中添加文档。请在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://discovery-news-demo.mybluemix.net/){: new_window} 查看可以使用 {{site.data.keyword.discoverynewsshort}} 构建的内容的演示。
+不能调整 {{site.data.keyword.discoverynewsshort}} 配置，也不能训练 {{site.data.keyword.discoverynewsshort}} 集合或向其中添加文档。请在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://discovery-news-demo.ng.bluemix.net/){: new_window} 查看可以使用 {{site.data.keyword.discoverynewsshort}} 构建的内容的演示。
 
 以下示例查询返回 {{site.data.keyword.discoverynewsfull}} 中有关 Pittsburgh Steelers 的具有正面观点的前 10 篇文章。
 
-1.  单击“构建查询”图标 ![“查询”图标](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> 以打开查询页面。选择 {{site.data.keyword.discoverynewsshort}} 集合，然后单击**开始使用**。
+1.  单击“构建查询”图标 ![“查询”图标](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> 以打开查询页面。选择 {{site.data.keyword.discoverynewsshort}} 集合，然后单击**开始使用**。（要查询西班牙语、德语或韩语 {{site.data.keyword.discoverynewsshort}} 集合，必须首先单击 ![管理数据](/images/icon_yourData.png) 图标，然后从下拉列表中选择相应的语言。）
 
 1.  在**搜索文档**下，单击**使用 {{site.data.keyword.discoveryshort}} Query Language**，然后执行以下操作：
     -  单击**字段**下拉列表并选择 `text`，对于**运算符**，选择 `contains`，然后输入**值** `Pittsburgh Steelers`。单击**添加规则**，然后单击**字段**下拉列表并选择 `enriched_text.sentiment.document.label`，对于**运算符**，选择 `contains`，然后输入**值** `positive`。
 
-       查询 `text:Pittsburgh Steelers, enriched_text.sentiment.document.label:positive` 将显示在 **Visual Query Builder** 下。
+       查询 `text:"Pittsburgh Steelers",enriched_text.sentiment.document.label:"positive"` 将显示在 **Visual Query Builder** 下。
 
 1.  单击**更多选项**，然后在**要返回的文档数**中输入 `0`（这是缺省值）。
 

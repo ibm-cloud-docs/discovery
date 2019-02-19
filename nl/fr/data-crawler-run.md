@@ -27,7 +27,7 @@ Vous ne devez jamais exécuter le moteur d'exploration en tant qu'utilisateur `r
 
 Exécutez la commande suivante : `crawler`
 
-Le moteur d'exploration vous invite à lire la documentation qui explique ce qu'il faut faire. Vous pouvez exécuter une exploration test, ou exécuter une exploration, en plus d'autres options d'exploration. 
+Le moteur d'exploration vous invite à lire la documentation qui explique ce qu'il faut faire. Vous pouvez exécuter une exploration test, ou exécuter une exploration, en plus d'autres options d'exploration.
 
 ## Exécution d'une exploration test
 
@@ -40,7 +40,7 @@ sortie. Par défaut, cinq adresses URL placées en file d'attente sont affichée
 
 Vous pouvez également spécifier un fichier de configuration personnalisée en tant qu'option dans la commande crawl, par exemple : `crawler testit --config [config/myconfigfile.conf]`
 
-Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`. 
+Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`.
 
 En outre, vous pouvez définir le nombre limite d'adresses URL placées en file d'attente qui sont affichées en tant qu'option de la commande testit, par exemple : `crawler testit --limit [number]`
 
@@ -52,7 +52,7 @@ Cette commande permet d'exécuter une exploration avec le fichier de configurati
 
 Vous pouvez également spécifier un fichier de configuration personnalisée en tant qu'option dans la commande crawl, par exemple : `crawler crawl --config [config/myconfigfile.conf]`
 
-Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`. 
+Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`.
 
 ## Redémarrage d'une exploration
 
@@ -62,7 +62,7 @@ Cette commande exécute un redémarrage d'exploration en démarrant une nouvelle
 
 Vous pouvez également spécifier un fichier de configuration personnalisée en tant qu'option dans la commande restart, par exemple : `crawler restart --config [config/myconfigfile.conf]`
 
-Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`. 
+Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`.
 
 ## Reprise d'une exploration
 
@@ -72,7 +72,7 @@ Cette commande permet de reprendre l'exécution d'une exploration à l'endroit o
 
 Vous pouvez également spécifier un fichier de configuration personnalisée en tant qu'option dans la commande resume, par exemple : `crawler resume --config [config/myconfigfile.conf]`
 
-Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`. 
+Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`.
 
 ## Actualisation d'une exploration
 
@@ -82,4 +82,4 @@ La commande actualise une exploration précédente avec le fichier de configurat
 
 Vous pouvez également spécifier un fichier de configuration personnalisée en tant qu'option dans la commande refresh, par exemple : `crawler refresh --config [config/myconfigfile.conf]`
 
-Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`. 
+Le chemin d'accès au fichier de configuration transmis via l'option `--config` doit être un chemin qualifié, à savoir, au format de chemin d'accès relatif, tel que `config/myconfigfile.conf` ou `./myconfigfile.conf`, ou au format de chemin d'accès absolu, tel que `/path/to/config/myconfigfile.conf`.

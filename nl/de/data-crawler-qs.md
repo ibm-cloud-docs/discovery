@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -24,11 +24,14 @@ In diesem Abschnitt wird erläutert, wie Sie mit Data Crawler Dateien aus Ihrem 
 
 Erstellen Sie vor dem Ausführen dieser Task eine Instanz des {{site.data.keyword.discoveryshort}}-Service in {{site.data.keyword.Bluemix}}. Damit Sie diese Anleitung durcharbeiten können, müssen Sie die Berechtigungsnachweise verwenden, die der erstellten Instanz des Service zugeordnet sind.
 
+Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die Crawlersuche in Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
+{: tip}
+
 ## Umgebung erstellen
 
 Verwenden Sie die Bash-Methode 'POST /v1/environments', um eine Umgebung zu erstellen. Eine Umgebung ist hier mit einer Art Data-Warehouse vergleichbar, in dem Sie alle Ihre Behälter für Dokumente speichern. Im folgenden Beispiel wird eine Umgebung namens `my-first-environment` erstellt:
 
-Ersetzen Sie hierbei `{benutzername}` und `{kennwort}` durch Ihre Serviceberechtigungsnachweise.
+Ersetzen Sie `{benutzername}` und `{kennwort}` durch Ihre Serviceberechtigungsnachweise.
 
 ```bash
 curl -X POST -u "{benutzername}":"{kennwort}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
@@ -90,7 +93,7 @@ Laden Sie die folgenden Dokumente herunter:
 
 1.  Öffnen Sie einen Browser und melden Sie sich bei Ihrem [{{site.data.keyword.Bluemix_notm}}-Konto ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net){: new_window} an.
 1.  Wählen Sie in Ihrem {{site.data.keyword.Bluemix_notm}}-Dashboard den {{site.data.keyword.discoveryshort}}-Service aus, den Sie zuvor erstellt haben.
-1.  Wählen Sie unter **Vorgesehener Gebrauch** den entsprechenden Download-Link für Ihr System aus (DEB, RPM oder ZIP), um Data Crawler herunterzuladen.
+1.  Wählen Sie unter **Upload von Inhalt in den Discovery-Service automatisieren** den entsprechenden Download-Link für Ihr System (DEB, RPM oder ZIP) aus, um Data Crawler herunterzuladen.
 1.  Führen Sie als Administrator die folgenden Befehle aus, um die heruntergeladene Archivdatei zu installieren:
 
     -   Verwenden Sie auf Systemen wie Red Hat und CentOS, die RPM-Pakete verwenden, einen Befehl wie etwa den Folgenden: `rpm -i /full/path/to/rpm/package/rpm-dateiname`
@@ -126,7 +129,7 @@ Um Data Crawler für die Crawlersuche in Ihrem Repository zu konfigurieren, müs
     -   `configuration`: Geben Sie den vollständigen Pfad dieser Datei `discovery_service.conf` an, z. B. `/home/config/discovery/discovery_service.conf`.
     -   `username`: Geben Sie den Benutzernamen des Berechtigungsnachweises für Ihren {{site.data.keyword.discoveryshort}}-Service an.
     -   `password`: Geben Sie das Kennwort des Berechtigungsnachweises für Ihren {{site.data.keyword.discoveryshort}}-Service an.
-1.  **`crawler.conf`**: Öffnen Sie die Datei `config/crawler.conf` in einem Texteditor. 
+1.  **`crawler.conf`**: Öffnen Sie die Datei `config/crawler.conf` in einem Texteditor.
 
     -   Legen Sie die Optionen `output_adapter`, `class` und `config` für den {{site.data.keyword.discoveryshort}}-Service wie folgt fest:
 

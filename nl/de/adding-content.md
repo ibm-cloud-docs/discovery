@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-10"
+  years: 2015, 2018
+lastupdated: "2018-08-15"
 
 ---
 
@@ -25,6 +25,8 @@ Wie entscheide ich mich für das zu nutzende Dokumentuploadverfahren?
 -   Verwenden Sie die [API](/docs/services/discovery/getting-started.html), wenn der Upload von Inhalt mit einer vorhandenen Anwendung integriert werden soll oder Sie ein eigenes angepasstes Uploadverfahren erstellen.
 -   Verwenden Sie die [{{site.data.keyword.discoveryshort}}-Tools](/docs/services/discovery/getting-started-tool.html) wenn Sie zugängliche Dateien schnell hochladen möchten.
     Beim Hochladen von Dokumenten mit den {{site.data.keyword.discoveryshort}}-Tools sollten alle Dokumente einen eindeutigen Dateinamen besitzen. Falls zwei Dateien denselben Namen tragen, wird das Original beim Hochladen der neueren Version überschrieben. Falls in Ihrer Sammlung jedoch Dokumente desselben Dateinamens koexistieren sollen, muss die Dokument-ID angegeben werden. Sie können die Dokument-ID angeben, wenn Sie für den Dokumentupload die API oder Data Crawler verwenden.
+-   Verwenden Sie die {{site.data.keyword.discoveryshort}}-Tools oder die API, um eine Verbindung zu Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen herzustellen. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
+
 -   Verwenden Sie [Data Crawler](/docs/services/discovery/data-crawler.html), falls Sie ein verwaltetes Upload für eine erhebliche Anzahl von Dateien durchführen möchten oder wenn Sie Inhalt aus einem unterstützten Repository (z. B. einer Db2-Datenbank) extrahieren wollen.
 
 ## Inhalt mit der API oder den Tools hinzufügen
@@ -32,16 +34,25 @@ Wie entscheide ich mich für das zu nutzende Dokumentuploadverfahren?
 Berücksichtigen Sie die folgenden Punkte, bevor Sie Dokumente zu Ihrer Sammlung hinzufügen:
 
 -   Die maximale Größe von Dateien, die in den {{site.data.keyword.discoveryshort}}-Service hochgeladen werden können, beträgt 50 MB.
-
 -   Die Beispieldokumente werden nicht automatisch zur Sammlung hinzugefügt. Sie müssen sie selbst hinzufügen, wenn Sie sie im Rahmen Ihrer Sammlung verwenden wollen.
-
+-   Nur die ersten 50.000 Zeichen jedes JSON-Feldes, das für die Aufbereitung ausgewählt ist, werden aufbereitet.
 -   Beim Erstellen einer Sammlung wählen Sie die Dokumentsprache aus (Standardeinstellung ist Englisch). Eine Liste der Sprachen finden Sie unter [Sprachunterstützung](/docs/services/discovery/language-support.html). Ihre Dokumente werden in der ausgewählten Sprache aufbereitet. Verwenden Sie in einer Sammlung jeweils nur eine einzige Sprache.
-
--   Sie können Microsoft Word-, PDF-, HTML- und JSON-Dokumente zu Ihrer Sammlung hinzufügen. **Hinweis:** PDF-Dokumente, bei denen es sich um gescannte Bilddateien handelt, können nicht konvertiert und aufbereitet werden. 
-
+-   Sie können Microsoft Word-, PDF-, HTML- und JSON-Dokumente zu Ihrer Sammlung hinzufügen. **Hinweis:** PDF-Dokumente, bei denen es sich um gescannte Bilddateien handelt, können nicht konvertiert und aufbereitet werden.
 -   Die Dokumente in Ihrer Sammlung werden unter Verwendung der angegebenen Konfigurationsdatei konvertiert, die 'Standardkonfiguration' heißt, sofern Sie keine andere Konfigurationsdatei auswählen. Informationen zum Erstellen einer Konfigurationsdatei finden Sie unter [Angepasste Konfiguration](/docs/services/discovery/building.html#custom-configuration).
+-   Sobald Dokumente in eine Datensammlung hochgeladen werden, werden sie unter Verwendung der für diese Sammlung ausgewählten Konfigurationsdatei konvertiert und aufbereitet. Falls Sie später bei einer Sammlung zu einer anderen Konfigurationsdatei wechseln wollen, ist dies möglich. Die Dokumente, die bereits hochgeladen wurden, bleiben jedoch gemäß der ursprünglichen Konfigurationsdatei konvertiert. Alle Dokumente, die nach dem Wechsel der Konfigurationsdatei hochgeladen werden, verwenden die neue Konfigurationsdatei. Wenn Sie die neue Konfiguration für die **gesamte** Sammlung verwenden wollen, müssen Sie eine neue Sammlung erstellen, die neue Konfigurationsdatei auswählen und alle Dokumente erneut hochladen.
+-   Der `Datentyp` (z. B. `text` oder `date`) von Feldern kann nicht angegeben werden. Wenn während der Dokumenteinpflegung ein Feld erkannt wird, das noch nicht im Index vorhanden ist, erkennt {{site.data.keyword.discoveryshort}} automatisch den `Datentyp` dieses Feldes, basierend auf dem Wert des Feldes für das erste indexierte Dokument.
+-   Das Einpflegen eines Dokuments kann fehlschlagen, weil keine Typübereinstimmung zwischen Daten im aktuellen Dokument und ähnlichen Daten in einem zuvor eingepflegten Dokument besteht. Beispielsweise kann ein Feld in einem Dokument den Typ `date` und in einem nachfolgenden Dokument den Typ `string` besitzen.
+-   Wenn Sie die angepasste Zerlegung in Tokens verwenden möchten (derzeit nur für japanische Sammlungen verfügbar, wenn die {{site.data.keyword.discoveryshort}}-API verwendet wird), muss das entsprechende Wörterverzeichnis für Ihre Sammlung vor dem Hochladen von Dokumenten hinzugefügt werden.
 
--   Sobald Dokumente in eine Datensammlung hochgeladen werden, werden sie unter Verwendung der für diese Sammlung ausgewählten Konfigurationsdatei konvertiert und aufbereitet. Falls Sie später bei einer Sammlung zu einer anderen Konfigurationsdatei wechseln wollen, ist dies möglich. Die Dokumente, die bereits hochgeladen wurden, bleiben jedoch gemäß der ursprünglichen Konfigurationsdatei konvertiert. Alle Dokumente, die nach dem Wechsel der Konfigurationsdatei hochgeladen werden, verwenden die neue Konfigurationsdatei. Wenn Sie die neue Konfiguration für die **gesamte** Sammlung verwenden wollen, müssen Sie eine neue Sammlung erstellen, die neue Konfigurationsdatei auswählen und alle Dokumente erneut hochladen. 
+Beim Hochladen von Dokumenten gelten die folgenden Einschränkungen:
+
+-   **Lite**-Pläne: 21 Inflight-Dokumente
+-   **Advanced**-Pläne: 105 Inflight-Dokumente (außer für X-Small Advanced-Pläne, die eine Begrenzung von 50 Inflight-Dokumenten aufweisen)
+-   **Premium**-Pläne: 210 Inflight-Dokumente
+
+Änderungen vorbehalten. 
+
+Wenn Sie den Discovery-Service verwenden, bedeutet der Inflight-Upload, dass das Dokument vor dem Hinzufügen zur Sammlung hochgeladen und verarbeitet wird. Wenn Sie die Inflight-Begrenzung erreichen, sollten Sie die Einpflegerate verlangsamen. Eine Möglichkeit besteht darin, einen automatischen Backoff-Mechanismus mit Wiederholungen hinzuzufügen.
 
 ## Dokumente mit den Discovery-Tools hochladen
 
@@ -55,6 +66,9 @@ Ihre Dokumente werden jetzt für die Konvertierung und Aufbereitung eingereiht. 
 -   **Anzahl der Dokumente** in Ihrer Sammlung.
 -   **Konfiguration**: Der Name der Konfigurationsdatei, die zum Konvertieren dieser Sammlung verwendet wird.
 -   **Fehler und Warnungen**
+
+Informationen zum Herstellen von Verbindungen zu Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen mit den {{site.data.keyword.discoveryshort}}-Tools finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
+
 
 ## Dokumente mit der API hochladen
 

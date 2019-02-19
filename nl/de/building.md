@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-15"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -43,41 +43,42 @@ Im {{site.data.keyword.discoveryshort}}-Service wird der Inhalt, den Sie hochlad
 
 -   **Umgebung**: Die Umgebung definiert den Umfang der Speicherkapazität, die Ihnen für Inhalt im {{site.data.keyword.discoveryshort}}-Service zur Verfügung steht. Für jede Instanz des {{site.data.keyword.discoveryshort}}-Service kann maximal eine Umgebung erstellt werden.
 
-    Falls Sie unter mehreren Plänen auswählen können (Lite, Standard und Advanced), finden Sie im [{{site.data.keyword.discoveryshort}}-Katalog ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} detaillierte Angaben. Ihre Quellendateien werden bei der Zählung für die Dateigrößenbegrenzung nicht berücksichtigt.
+    Sie können unter mehreren Plänen (Lite, Advanced, Premium) auswählen. Weitere Details hierzu finden Sie im [{{site.data.keyword.discoveryshort}}-Katalog ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} und in den [Preisstrukturplänen für {{site.data.keyword.discoveryshort}}](/docs/services/discovery/pricing-details.html). Ihre Quellendateien werden bei der Zählung für die Dateigrößenbegrenzung nicht berücksichtigt, sondern nur die Größe der konvertierten JSON-Datei, die indexiert wird.
 
 -   **Sammlung**: Eine Sammlung ist eine Gruppierung Ihres Inhalts in der Umgebung. Sie müssen mindestens eine Sammlung erstellen, damit Sie Ihren Inhalt hochladen können.
 
     Sammlungen bestehen aus Ihren privaten Daten, aber {{site.data.keyword.discoveryshort}} enthält ebenfalls den voraufbereiteten allgemein zugänglichen Datenbestand '{{site.data.keyword.discoverynewsshort}}'. Diesen Datenbestand können Sie zur Abfrage von Erkenntnissen verwenden (beispielsweise durch Alertausgabe für Nachrichten, Ereigniserkennung und Trendermittlung für Themen in den Nachrichten), die Sie in Ihre Anwendungen integrieren können.
 
-    {{site.data.keyword.discoverynewsshort}}, ein allgemein zugänglicher Datenbestand, der vorab mit kognitiven Informationen aufbereitet wurde, ist ebenfalls in {{site.data.keyword.discoveryshort}} enthalten. Weitere Informationen finden Sie unter [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news). Das Anpassen der {{site.data.keyword.discoverynewsshort}}-Konfiguration oder das Hinzufügen von Dokumenten zu dieser Sammlung ist nicht möglich. Was Sie mit {{site.data.keyword.discoverynewsshort}} erstellen können, ist in einem [Demo ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://discovery-news-demo.mybluemix.net/){: new_window} gezeigt.
+    {{site.data.keyword.discoverynewsshort}}, ein allgemein zugänglicher Datenbestand, der vorab mit kognitiven Informationen aufbereitet wurde, ist ebenfalls in {{site.data.keyword.discoveryshort}} enthalten. Weitere Informationen finden Sie unter [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news). Das Anpassen der {{site.data.keyword.discoverynewsshort}}-Konfiguration oder das Hinzufügen von Dokumenten zu dieser Sammlung ist nicht möglich. Was Sie mit {{site.data.keyword.discoverynewsshort}} erstellen können, wird in einer [Demo ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://discovery-news-demo.ng.bluemix.net/){: new_window} gezeigt.
 
 So erstellen Sie eine Umgebung und eine private Datensammlung mit den {{site.data.keyword.discoveryshort}}-Tools:
 
 1.  Klicken Sie in der Anzeige **Daten verwalten** auf das Symbol ![Cog](images/icon_settings.png) und wählen Sie die Option **Umgebung erstellen** aus. Die Umgebung wird auf der Basis des zuvor von Ihnen ausgewählten {{site.data.keyword.Bluemix_notm}}-Plans erstellt. Mithilfe dieses Dropdown-Felds können Sie sich jederzeit über den Status Ihrer Umgebung informieren.
 
-1.  Sobald Ihre Umgebung bereit ist, klicken Sie auf die Schaltfläche **Datensammlung erstellen**. Anschließend können Sie Ihre neue **Datensammlung benennen**.
+1.  Sobald Ihre Umgebung bereit ist, klicken Sie auf die Schaltfläche **Eigene Daten hochladen**. Anschließend können Sie Ihre neue **Datensammlung benennen**.
 
-    Als Konfigurationsdatei wird standardmäßig die **Standardkonfiguration** verwendet. Falls eine andere Konfigurationsdatei verfügbar ist, können Sie diese Datei auswählen oder auch später eine neue Datei erstellen und sie auf diese Sammlung anwenden. Außerdem können Sie die Sprache der Dokumente auswählen, die Sie zu dieser Sammlung hinzufügen (Englisch, Deutsch, Spanisch, Arabisch, Französisch, Italienisch, Koreanisch oder Portugiesisch (Brasilien)). Jede Ihrer Sammlungen sollte nur eine einzige Sprache beinhalten. Nachdem Sie auf **Erstellen** geklickt haben, wird Ihre Datensammlung als Kachel angezeigt.
+    Als Konfigurationsdatei wird standardmäßig die **Standardkonfiguration** verwendet. Falls eine andere Konfigurationsdatei verfügbar ist, können Sie diese Datei auswählen oder auch später eine neue Datei erstellen und sie auf diese Sammlung anwenden. Sie können auch die Sprache der Dokumente auswählen, die Sie zu dieser Sammlung hinzufügen: Englisch, Deutsch, Spanisch, Arabisch, Japanisch, Französisch, Italienisch, Koreanisch oder Portugiesisch (Brasilien). Jede Ihrer Sammlungen sollte nur eine einzige Sprache beinhalten. Nachdem Sie auf **Erstellen** geklickt haben, wird Ihre Datensammlung als Kachel angezeigt.
 
 Ihre Umgebung und Ihre Datensammlung sind jetzt bereit! Falls Sie die Standardkonfigurationsdatei verwenden wollen, können Sie sofort mit dem [Hinzufügen von Inhalt](/docs/services/discovery/adding-content.html) beginnen. Wenn Sie jedoch Ihre {{site.data.keyword.discoveryshort}}-Konfiguration mit zusätzlichen Aufbereitungen und Konvertierungseinstellungen anpassen möchten, sollten Sie jetzt noch keine Dokumente hinzufügen, sondern zunächst Ihre angepasste Konfigurationsdatei erstellen. Weitere Informationen enthält der Abschnitt [Service konfigurieren](/docs/services/discovery/building.html#custom-configuration).
 
 **Hinweis:** Sobald Dokumente in eine Datensammlung hochgeladen werden, werden sie unter Verwendung der für diese Sammlung ausgewählten Konfigurationsdatei konvertiert und aufbereitet. Falls Sie später bei einer Sammlung zu einer anderen Konfigurationsdatei wechseln wollen, ist dies möglich. Die Dokumente, die bereits hochgeladen wurden, bleiben jedoch gemäß der ursprünglichen Konfigurationsdatei konvertiert. Alle Dokumente, die nach dem Wechsel der Konfigurationsdatei hochgeladen werden, verwenden die neue Konfigurationsdatei. Wenn Sie die neue Konfiguration für die **gesamte** Sammlung verwenden wollen, müssen Sie eine neue Sammlung erstellen, die neue Konfigurationsdatei auswählen und alle Dokumente erneut hochladen. Der {{site.data.keyword.discoveryshort}}-Service speichert den konvertierten Text der von Ihnen hochgeladenen Dokumente; eingebettete Images in **PDF**- und **Microsoft Word**-Dateien werden nicht gespeichert und nicht in Ergebnissen zurückgegeben.
 
+Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die Crawlersuche in Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
+{: tip}
+
 ### Standardkonfiguration
 {: #the-default-configuration}
 
-Der {{site.data.keyword.discoveryshort}}-Service beinhaltet eine Standardkonfigurationsdatei, die Ihre Daten konvertiert, aufbereitet und normalisiert, ohne dass Sie diese Optionen manuell konfigurieren müssen.
+Der {{site.data.keyword.discoveryshort}}-Service beinhaltet eine Standardkonfiguration, die Ihre Daten konvertiert, aufbereitet und normalisiert, ohne dass Sie diese Optionen manuell konfigurieren müssen.
 
-Diese Standardkonfigurationsdatei heißt **Standardkonfiguration**. Sie enthält Aufbereitungen sowie Standarddokumentkonvertierungen, die auf Schriftstilen und -größen basieren.
-
-Zunächst nun einige Informationen zu den Standardaufbereitungen. {{site.data.keyword.discoveryshort}} bereitet das Textfeld Ihrer Dokumente mit semantischen Informationen auf (fügt dem Feld hierzu kognitive Metadaten hinzu), die durch vier {{site.data.keyword.watson}}-Aufbereitungen (Entitätsextraktion, Stimmungsanalyse, Kategorieklassifizierung und Konzepttagging) erfasst wurden (weitere Informationen zu diesen Aufbereitungen finden Sie [hier](/docs/services/discovery/building.html#adding-enrichments)).
-
-**Hinweis:** Am **18. Juli 2017** wurde für {{site.data.keyword.discoveryfull}} eine neue Aufbereitungstechnologie namens {{site.data.keyword.nlushort}} (NLU) eingeführt. Details enthält der Abschnitt [Aufbereitungen hinzufügen](/docs/services/discovery/building.html#adding-enrichments). Falls Sie die **Standardkonfiguration** vor diesem Datum auf eine Sammlung angewendet haben, wurde diese Sammlung mit den {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen aufbereitet. Falls Sie die **Standardkonfiguration** nach diesem Datum auf eine Sammlung angewendet haben, wurden die {{site.data.keyword.nlushort}}-Aufbereitungen verwendet.
+Die Standardkonfiguration mit dem Namen **Standardkonfiguration** enthält Aufbereitungen sowie Standarddokumentkonvertierungen, die auf Schriftstilen und -größen basieren. {{site.data.keyword.discoveryshort}} bereitet das Textfeld Ihrer Dokumente mit semantischen Informationen auf (fügt dem Feld hierzu kognitive Metadaten hinzu), die durch vier {{site.data.keyword.watson}}-Aufbereitungen (Entitätsextraktion, Stimmungsanalyse, Kategorieklassifizierung und Konzepttagging) erfasst wurden (weitere Informationen zu diesen Aufbereitungen finden Sie [hier](/docs/services/discovery/building.html#adding-enrichments)).
 
 -   [Microsoft Word-Konvertierung](/docs/services/discovery/building.html#microsoft-word-conversion)
 -   [PDF-Konvertierung](/docs/services/discovery/building.html#pdf-conversion)
 -   [HTML-Konvertierung](/docs/services/discovery/building.html#html-conversion)
 -   [JSON-Konvertierung](/docs/services/discovery/building.html#json-conversion)
+
+Eine zweite Standardkonfiguration mit dem Namen **Standardvertragskonfiguration** steht in den {{site.data.keyword.discoveryshort}}-Tools zur Verfügung. Sie ist für die Aufbereitung mit der Elementklassifizierung konfiguriert, mit der Partei-, Natur- und Kategorieelemente aus Elementen in PDFs extrahiert werden können. Details finden Sie unter [Elementklassifizierung](/docs/services/discovery/element-classification.html#element-collection).
 
 Wenn Sie eine angepasste Konfiguration erstellen möchten, finden Sie im Abschnitt [Angepasste Konfiguration](/docs/services/discovery/building.html#custom-configuration) entsprechende Informationen.
 
@@ -89,7 +90,7 @@ Die Zielsetzung des {{site.data.keyword.discoveryshort}}-Service ist das Abrufen
 -   **Ich habe verstanden, dass meine Dokumente unter Umständen nicht auf die von der Standardkonfiguration erwartete Weise strukturiert sind. *Wie kann ich ermitteln, ob die Standardeinstellungen in meinem Fall geeignet sind?***
     -   Ob die Standardeinstellung für Sie geeignet ist, können Sie am einfachsten dadurch ermitteln, dass Sie sie durch das [Hochladen von Beispieldokumenten](/docs/services/discovery/building.html#uploading-sample-documents) testen. Falls die JSON-Ergebnisse für das Beispiel Ihren Erwartungen entsprechen, ist keine zusätzliche Konfiguration erforderlich.
 -   **Ich habe verstanden, dass Standardaufbereitungen zum Textfeld meiner Dokumente hinzugefügt werden. Kann ich zusätzliche Aufbereitungen zu anderen Feldern hinzufügen?**
-    -   Natürlich. Sie können zusätzliche Aufbereitungen zu so vielen Feldern hinzufügen, wie Sie möchten. Details enthält der Abschnitt [Aufbereitungen hinzufügen](/docs/services/discovery/building.html#adding-enrichments). 
+    -   Natürlich. Sie können zusätzliche Aufbereitungen zu so vielen Feldern hinzufügen, wie Sie möchten. Details enthält der Abschnitt [Aufbereitungen hinzufügen](/docs/services/discovery/building.html#adding-enrichments).
 
 ## Angepasste Konfiguration
 {: #custom-configuration}
@@ -104,6 +105,8 @@ Die drei Schritte beim Anpassen einer Konfigurationsdatei sind das **Konvertiere
 1.  [Aufbereitungen hinzufügen](/docs/services/discovery/building.html#adding-enrichments)
 1.  [Daten normalisieren](/docs/services/discovery/building.html#normalizing-data)
 
+Ausführliche Informationen zu Konfigurationen finden Sie in der [Konfigurationsreferenz](/docs/services/discovery/custom-config.html).
+
 ### Beispieldokumente hochladen
 {: #uploading-sample-documents}
 
@@ -116,11 +119,11 @@ Beim Erstellen einer neuen Konfigurationsdatei mit den {{site.data.keyword.disco
 -   Alle Ihre Dokumente werden vor der Aufbereitung und Indexierung in JSON konvertiert.
 -   Microsoft Word- und PDF-Dokumente werden zunächst in HTML und dann in JSON konvertiert.
 -   HTML-Dokumente werden direkt in JSON konvertiert.
--   Die maximale Dateigröße für ein Beispieldokument beträgt 5 MB. Beispieldokumente werden nach einem Monat automatisch gelöscht. Sie können die Beispieldokumente jedoch erneut hochladen, wenn Sie weitere Änderungen an Ihrer Konfiguration vornehmen möchten.
+-   Die maximale Dateigröße für ein Beispieldokument beträgt 1 MB. Beispieldokumente werden im lokalen Roaming-Datenordner Ihres Browsers gespeichert. Um Ihre Beispieldokumente zu löschen, klicken Sie auf das Symbol **Löschen**.
 
 #### Richtlinien für die Auswahl geeigneter Beispieldokumente:
 
--   Sie sollten (mindestens) ein Beispieldokument für jeden Dateityp bereithalten, den Sie einpflegen wollen (Microsoft Word, PDF, HTML und JSON).
+-   Sie sollten (mindestens) ein Beispieldokument für jeden Dateityp bereithalten, den Sie einpflegen wollen (Microsoft Word, PDF, HTML und JSON). (Sie können keine Vorschau von PDF-Dokumenten anzeigen, die mit der **Elementklassifizierung** aufbereitet sind.)
 -   Falls eindeutige Dokumenttypen vorhanden sind (z. B. Rechnungsberichte oder Pressemitteilungen), beziehen Sie in Ihre Gruppe der Beispieldokumente ein Dokument des jeweiligen Typs ein.
 -   Für HTML-Dokumente sollten Sie Dokumente auswählen, in denen HTML-Tags enthalten sind, die Sie ausschließen wollen, sowie Tagattribute, die Sie ein- oder ausschließen wollen.
 -   JSON-Dokumente sollten alle Felder enthalten, die Sie entfernen oder zusammenführen wollen (z. B. 'zipCode' und 'postalCode').
@@ -204,69 +207,74 @@ Klicken Sie auf **Anwenden und speichern**, nachdem Sie Änderungen vorgenommen 
 ## Aufbereitungen hinzufügen
 {: #adding-enrichments}
 
-**Hinweis:** Am **18. Juli 2017** wurde für {{site.data.keyword.discoveryfull}} eine neue Aufbereitungstechnologie namens {{site.data.keyword.nlushort}} (NLU) eingeführt. Diese Aufbereitungen sind mit den bestehenden Aufbereitungen identisch, erfordern jedoch eine leicht abweichende Konfiguration und ein etwas anderes Schema. Die ursprünglichen Aufbereitungen (also {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen) werden nicht mehr verwendet. Die Unterstützung für {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen endet am **15. Januar 2018**. Neue Sammlungen sollten mit {{site.data.keyword.nlushort}} aufbereitet werden, bestehende Sammlungen mit möglichst zeitnah migrierten {{site.data.keyword.alchemylanguageshort}}-Konfigurationsdateien. Informationen zum Migrieren von Sammlungen und Konfigurationsdateien, die die {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwenden, finden Sie unter [Aufbereitungen nach {{site.data.keyword.nlushort}} migrieren](/docs/services/discovery/migrate-nlu.html).
-
 Die {{site.data.keyword.discoveryshort}}-[Standardkonfiguration](/docs/services/discovery/building.html#the-default-configuration) bereitet das Feld `text` Ihrer eingepflegten Dokumente mit semantischen Informationen auf (fügt dem Feld hierzu kognitive Metadaten hinzu), die durch die vier folgenden {{site.data.keyword.watson}}-Funktionen erfasst wurden: Entitätsextraktion, Stimmungsanalyse, Kategorieklassifizierung und Konzepttagging. (Insgesamt sind neun {{site.data.keyword.watson}}-Aufbereitungen verfügbar; die weiteren Aufbereitungen sind Schlüsselwortextraktion, Beziehungsextraktion, Emotionsanalyse, Elementklassifizierung und Semantikrollenextraktion.)
 
+In bestimmten Plänen oder Umgebungen stehen einige {{site.data.keyword.watson}}-Aufbereitungen möglicherweise nicht zur Verfügung.
+
 **Wichtig:** Nur die ersten 50.000 Zeichen jedes JSON-Feldes, das für die Aufbereitung ausgewählt ist, werden aufbereitet.
+
+**Hinweis:** {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen werden seit dem 1. März 2018 nicht weiter unterstützt. Wenn Sie über vorhandene Sammlungen verfügen, die {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwenden, müssen Sie eine Migration zu {{site.data.keyword.nlushort}}-Aufbereitungen durchführen. Informationen zum Migrieren von vorhandenen Sammlungen und Konfigurationsdateien, die die {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwenden, finden Sie unter [Aufbereitungen nach {{site.data.keyword.nlushort}} migrieren](/docs/services/discovery/migrate-nlu.html).
 
 Sie können Ihre Dokumente zusätzlich erweitern, indem Sie weitere Aufbereitungen zum Feld `text` hinzufügen oder andere Felder aufbereiten. Hierzu müssen Sie mit den {{site.data.keyword.discoveryshort}}-Tools eine [angepasste Konfiguration erstellen](/docs/services/discovery/building.html#custom-configuration), das/die aufzubereitende(n) Feld(er) auswählen und eine Auswahl in der Liste der verfügbaren {{site.data.keyword.nlushort}}-Aufbereitungen treffen:
 
 ### Entitätsextraktion
 {: #entity-extraction}
 
-Gibt Elemente wie Personen, Orte und Organisationen zurück, die im Eingabetext vorhanden sind. Die Entitätsextraktion fügt semantisches Wissen zum Inhalt hinzu, mit dessen Hilfe das Subjekt und der Kontext des analysierten Textes ermittelt werden können. Die Verfahren für die Entitätsextraktion basieren auf hoch entwickelten Statistikalgorithmen und der Technologie zur Verarbeitung natürlicher Sprache und sind durch ihre Unterstützung von mehrsprachiger Analyse, kontextabhängiger Vereindeutigung und Zitatextraktion branchenweit singulär. Die vollständige Liste der Entitätstypen und Subtypen finden Sie [hier](/docs/services/discovery/entity-types.html). Sie können auch ein [angepasstes Entitätsmodell](/docs/services/discovery/building.html#custom-entity-model) mit {{site.data.keyword.knowledgestudiofull}} erstellen und hinzufügen.
+Gibt Elemente wie Personen, Orte und Organisationen zurück, die im Eingabetext vorhanden sind. Die Entitätsextraktion fügt semantisches Wissen zum Inhalt hinzu, mit dessen Hilfe das Subjekt und der Kontext des analysierten Textes ermittelt werden können. Die Verfahren für die Entitätsextraktion basieren auf hoch entwickelten Statistikalgorithmen und der Technologie zur Verarbeitung natürlicher Sprache und sind durch ihre Unterstützung von mehrsprachiger Analyse und kontextabhängiger Vereindeutigung branchenweit einzigartig. Die vollständige Liste der Entitätstypen und Subtypen finden Sie [hier](/docs/services/discovery/entity-types.html). Sie können auch ein [angepasstes Entitätsmodell](/docs/services/discovery/building.html#custom-entity-model) mit {{site.data.keyword.knowledgestudiofull}} erstellen und hinzufügen.
 
 Beispielabschnitt eines mit Entitätsextraktion aufbereiteten Dokuments:
 
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-      "entities": [
-         {
-           "count": 1,
+      "enriched_text": {
+    "entities": [
+    {
+        "count": 1,
            "sentiment": {
-             "score": 0
-           },
+          "score": 0
+        },
            "text": "Acme Corporation",
            "relevance": 0.98389,
            "type": "Company"
-           },
-           {
-           "count": 1,
+      },
+      {
+        "count": 1,
            "sentiment": {
-             "score": 0
-           },
+          "score": 0
+        },
            "text": "Atlanta",
            "relevance": 0.532754,
            "type": "Location",
            "disambiguation": {
-             "subtype": [
-               "AdministrativeDivision",
+          "subtype": [
+            "AdministrativeDivision",
                "GovernmentalJurisdiction",
                "OlympicHostCity",
                "PlaceWithNeighborhoods",
                "City"
-           ],
+          ],
                "name": "Atlanta",
                "dbpedia_resource": "http://dbpedia.org/resource/Atlanta"
            }
-           },
-           {
-           "count": 1,
+      },
+      {
+        "count": 1,
            "sentiment": {
-             "score": 0
-           },
+          "score": 0
+        },
            "text": "Georgia",
            "relevance": 0.469643,
            "type": "Location",
            "disambiguation": {
-             "subtype": [
-               "StateOrCounty"
-           ]
-    }
+          "subtype": [
+            "StateOrCounty"
+                  ]
+        }
+      }
+    ]
   }
+}
 ```
 {: codeblock}
 
@@ -295,7 +303,7 @@ Beispielabschnitt eines mit Beziehungsextraktion aufbereiteten Dokuments:
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-  "enriched_text": {
+      "enriched_text": {
     "relations": [
       {
         "type": "locatedAt",
@@ -340,7 +348,7 @@ Im obigen Beispiel könnte der Beziehungstyp durch Zugriff auf `enriched_text.re
 
 Die zugehörigen Entitäten sind im Feld `arguments` aufgelistet. Die von der Beziehungsextraktion identifizierbaren Entitätstypen finden Sie [hier](/docs/services/discovery/relation-types.html#specific-entity-types).
 
-Der Wert für `score` (Bewertung) reicht von `0.0` bis `1.0`. Je höher die Bewertung, desto relevanter die Beziehung. 
+Der Wert für `score` (Bewertung) reicht von `0.0` bis `1.0`. Je höher die Bewertung, desto relevanter die Beziehung.
 
 #### Angepasstes Beziehungsmodell verwenden
 {: #custom-relation-model}
@@ -686,10 +694,14 @@ Im letzten Schritt zur Anpassung Ihrer Konfigurationsdatei wird eine abschließe
 
 Im Abschnitt **Normalisieren** der {{site.data.keyword.discoveryshort}}-Tools können Sie Folgendes ausführen:
 
--   Sie können Felder verschieben, zusammenführen, kopieren oder entfernen. 
+-   Sie können Felder verschieben, zusammenführen, kopieren oder entfernen.
 -   Leere Felder (also Felder, die keine Informationen enthalten) werden standardmäßig gelöscht. Dies können Sie mit der Umschaltfunktion **Leere Felder entfernen** ändern.
 
 Klicken Sie auf **Anwenden und speichern**, nachdem Sie Änderungen vorgenommen haben, und dann auf **Fertig**. Sie werden daraufhin zur Anzeige **Daten verwalten** zurückgeführt, in der Sie diese Konfiguration auf die gewünschte Sammlung anwenden können.
+
+**Hinweis:** Sie können nicht den `Datentyp` (z. B. `text` oder `date`) von Feldern angeben. Wenn während der Dokumenteinpflegung ein Feld erkannt wird, das noch nicht im Index vorhanden ist, erkennt {{site.data.keyword.discoveryshort}} automatisch den `Datentyp` dieses Feldes, basierend auf dem Wert des Feldes für das erste indexierte Dokument.
+
+Wenn Sie die Aufbereitung für die **Elementklassifizierung** verwenden, können Sie keine Normalisierung nach der Aufbereitung ausführen.
 
 ## Entitäten normalisieren
 {: #normalizing-entities}
@@ -703,8 +715,8 @@ Falls Sie korrekt formatiertes HTML einpflegen, können Sie es normalisieren, mi
 
 ```json
 {
-  "name": "JSON-Konfiguration extrahieren",
-  "description": "Neue Konfiguration zur Extraktion von JSON-Feldern aus HTML",
+  "name": "Extract JSON config",
+  "description": "New configuration enabling extraction of JSON fields from HTML",
   "conversions": {
     ...
     "html": {
@@ -920,7 +932,7 @@ Nachfolgend sind einige häufig verwendet Selektoren aufgelistet:
 ## Dokumente mittels Dokumentsegmentierung teilen
 {: #doc-segmentation}
 
-Sie können Word-, PDF- und HTML-Dokumente basierend auf HTML-Überschriftentags in Segmente teilen. Nachdem ein Dokument geteilt wurde, wird jedes Segment als separates Dokument behandelt, das in JSON konvertiert und danach separat indexiert und aufbereitet wird. Da diese Segmente von Abfragen als separate Dokumente zurückgegeben werden, können Sie mit der Dokumentsegmentierung Folgendes erreichen:
+Sie können Word-, PDF- und HTML-Dokumente basierend auf HTML-Überschriftentags in Segmente teilen. Nachdem ein Dokument geteilt wurde, wird jedes Segment als separates Dokument behandelt, das separat aufbereitet und indexiert wird. Da diese Segmente von Abfragen als separate Dokumente zurückgegeben werden, können Sie mit der Dokumentsegmentierung Folgendes erreichen:
 
   - Sie können Aggregationen für einzelne Segmente eines Dokuments durchführen. Eine Aggregation könnte beispielsweise jede Erwähnung einer bestimmten Entität in einem Segment zählen, statt dies lediglich für das gesamte Dokument vorzunehmen.
   - Sie können ein Relevanztraining für Segmente anstelle von Dokumenten durchführen, was die Neueinstufung des Ergebnisses verbessert.
@@ -929,17 +941,19 @@ Die Segmente werden erstellt, wenn die Dokumente in HTML konvertiert werden (Wor
 
 Hinweise:
 
-  - Die Anzahl der Segmente pro Dokument ist auf `50` begrenzt. Der gesamte verbleibende Dokumentinhalt nach dem Erreichen von `49` Segmenten wird im Segment `50` gespeichert.
+  - Die Anzahl der Segmente pro Dokument ist auf `250` begrenzt. Der gesamte verbleibende Dokumentinhalt nach dem Erreichen von `249` Segmenten wird im Segment `250` gespeichert.
 
-  - Jedes Segment wird bei der Zählung für den Dokumentgrenzwert Ihres Plans berücksichtigt.
+  - Jedes Segment wird bei der Zählung für den Dokumentgrenzwert Ihres Plans berücksichtigt. {{site.data.keyword.discoveryshort}} indexiert so lange Segmente, bis der Plangrenzwert erreicht ist. Dokumentbegrenzungen finden Sie unter [Preisstrukturpläne für Discovery](/docs/services/discovery/pricing-details.html).
 
   - Wenn Sie die Dokumentsegmentierung verwenden, können Sie weder Daten normalisieren (siehe [Daten normalisieren](/docs/services/discovery/building.html#normalizing-data)) noch Felder mithilfe von CSS-Selektoren extrahieren (siehe [Felder mittels CSS-Selektoren extrahieren](/docs/services/discovery/building.html#using-css)).
 
-  - Falls ein Dokument aktualisiert wurde und erneut eingepflegt werden muss, sind gelöschte Segmente nach dem erneuten Einpflegen weiterhin vorhanden und müssen mithilfe der API (siehe [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/watson/developercloud/discovery/api/v1/?curl#delete-doc){: new_window}) manuell gelöscht werden. Außerdem wird jedem Abschnitt eine neue Dokument-ID (`document_id`) zugeordnet, falls bei der Dokumentaktualisierung Inhalt hinzugefügt wurde, der neue Segmente erstellt, oder Inhalt gelöscht wurde, der Segmente entfernt. Falls für diese Segmente bereits durch ein Relevanztraining eine Einstufung vorgenommen wurde, muss das Training erneut durchgeführt werden. In diesem Fall kann es sinnvoller sein, ein neues Dokument zu erstellen, das den neuen Inhalt enthält, und es separat einzupflegen, statt Inhalt zu einem bestehenden Dokument hinzuzufügen. Löschen Sie solche Segmente mithilfe der API, statt sie aus einem bestehenden Dokument zu löschen und erneut einzupflegen.
-
   - Dokumente werden bei jeder Erkennung des angegebenen HTML-Tags segmentiert. Die Segmentierung kann infolgedessen zu einem fehlerhaften HTML-Dokument führen, weil es sein könnte, dass die Dokumente vor Endtags und nach Anfangstags geteilt werden.
 
-  - HTML-, PDF- und Word-Metadaten werden nicht extrahiert und nicht in den Index einbezogen. Auch angepasste Metadaten, die durch den Dokumentupload übergeben werden, werden nicht in den Index einbezogen.
+  - HTML-, PDF- und Word-Metadaten sowie alle benutzerdefinierten Metadaten werden extrahiert und mit jedem Segment in den Index aufgenommen. Jedes Segment eines Dokuments enthält identische Metadaten.
+
+  - Die Dokumentsegmentierung wird nicht unterstützt, wenn die Aufbereitung für die **Elementklassifizierung** (`elements`) angegeben ist.
+
+  - Beim erneuten Einpflegen eines segmentierten Dokuments sind zusätzliche Hinweise zu beachten. Weitere Informationen finden Sie im Abschnitt [Segmentierte Dokumente aktualisieren](/docs/services/discovery/building.html#update-seg).
 
 ### Segmentierung durchführen
 {: #performing-segmentation}
@@ -1035,3 +1049,16 @@ Alle Segmente enthalten Folgendes:
     - `file_type`: Entspricht dem Originaldokument.
   - Feld `text`
   - Feld `html`
+
+### Segmentierte Dokumente aktualisieren
+{: #update-seg}
+
+Wenn ein segmentiertes Dokument aktualisiert wurde und erneut eingepflegt werden muss, kann es mit der Methode [Update document ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} ersetzt werden.
+
+Beim Aktualisieren eines segmentierten Dokuments sollte das Dokument unter Verwendung der POST-Methode der API `/environments/{umgebungs-id}/collections/{sammlungs-id}/documents/{dokument-id}` hochgeladen werden. Geben Sie dabei den Inhalt des Feldes `parent_id` eines der aktuellen Segmente als Pfadvariable `{dokument-id}` an.
+
+Bei der Aktualisierung werden alle Segmente überschrieben, es sei denn, die aktualisierte Version des Dokuments enthält weniger Gesamtabschnitte als das Original. Diese älteren Segmente bleiben im Index und können mit der API einzeln gelöscht werden. Details enthält die [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window}. Sie können ermitteln, wie viele Segmente erstellt wurden, indem Sie die Hinweise (`notices`) abfragen. Jedes Segment erhält ein Feld `document_id`, das sich aus der übergeordneten ID (`{parent_id}`) gefolgt von einem Unterstrich und der Segmentnummer zusammensetzt.
+
+Wenn eines der Segmente des Dokuments, das Sie aktualisieren wollen, für das Relevanztraining eingestuft wurde, müssen Sie zunächst alle Segmente dieses Dokuments löschen und dann das aktualisierte Dokument als neues Dokument einpflegen. Dies führt zu einer neuen `document-id` für jedes Segment und alle trainierten Segmente müssen erneut trainiert werden. Der trainierte Index wird ungenau, wenn Sie den alten Inhalt nicht zuerst löschen.
+
+Alternativ können Sie die Erstellung eines neuen Dokuments in Erwägung ziehen, das nur den neuen Inhalt enthält, und dieses separat einpflegen.

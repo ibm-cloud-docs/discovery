@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-30"
+  years: 2015, 2018
+lastupdated: "2018-07-18"
 
 ---
 
@@ -18,10 +18,13 @@ lastupdated: "2017-11-30"
 {:swift: .ph data-hd-programlang='swift'}
 {:download: .download}
 
-# Einführung in die Tools
+# Einführung
 
 In diesem kurzen Lernprogramm werden die {{site.data.keyword.discoveryshort}}-Tools vorgestellt. Sie werden durch den Prozess für die Erstellung einer privaten Datensammlung geführt und erfahren, wie Sie diese durchsuchen können.
 {: shortdesc}
+
+Wenn Sie lieber mit der API arbeiten, lesen Sie den Abschnitt [Einführung in die API](/docs/services/discovery/getting-started.html).
+{: tip}
 
 ## Vorbereitende Schritte
 {: #before-you-begin}
@@ -30,28 +33,23 @@ Sie benötigen eine Serviceinstanz.
 
 <!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
 
-Sie haben Ihre Serviceinstanz erstellt. Klicken Sie auf **Verwalten** und anschließend auf **Tool starten**. Fahren Sie mit [Schritt 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection) fort.
+
+Sie haben Ihre Serviceinstanz erstellt. Klicken Sie auf **Verwalten** und dann auf **Tool öffnen**. Fahren Sie mit [Schritt 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection) fort.
 {: download tip}
 
-Falls Sie ein Projekt mit dem {{site.data.keyword.discoveryshort}}-Service erstellt haben, sind alle diese Voraussetzungen bereits eingerichtet. Fahren Sie mit [Schritt 1](/docs/services/discovery/getting-started-tooling.html#launch-the-tooling) fort.
+Wenn Sie eine {{site.data.keyword.discoveryshort}}-Serviceinstanz erstellt haben, sind alle diese Voraussetzungen bereits eingerichtet. Fahren Sie mit [Schritt 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling) fort.
 
+1.  Rufen Sie die [{{site.data.keyword.discoveryshort}}-Seite ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.{DomainName}/catalog/services/discovery){: new_window} im {{site.data.keyword.Bluemix_notm}}-Katalog auf.
+1.  Registrieren Sie sich entweder für ein kostenloses {{site.data.keyword.Bluemix_notm}}-Konto oder melden Sie sich an.
+1.  Klicken Sie auf **Erstellen**.
 
-1.  Wechseln Sie zur {{site.data.keyword.watson}} Developer Console-Seite [Services ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.{DomainName}/developer/watson/services){: new_window}.
-1.  Wählen Sie {{site.data.keyword.discoveryshort}} aus, klicken Sie auf **Services hinzufügen** und registrieren Sie sich entweder für ein kostenloses {{site.data.keyword.Bluemix_notm}}-Konto oder melden Sie sich an.
-1.  Geben Sie `discovery-tutorial` als Projektnamen ein und klicken Sie auf **Projekt erstellen**.
-
-<!-- Remove this text after dedicated instances have the Developer Console: begin -->
-
-Falls Sie {{site.data.keyword.Bluemix_dedicated_notm}} verwenden, erstellen Sie Ihre Serviceinstanz über die Seite [{{site.data.keyword.discoveryshort}} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.{DomainName}/catalog/services/discovery/){: new_window} im Katalog. 
-
-<!-- Remove this text after dedicated instances have the Developer Console: end -->
 
 ## Schritt 1: Tools starten
 {: #launch-the-tooling}
 
-Nachdem Sie ein Projekt erstellt haben, das den {{site.data.keyword.discoveryshort}}-Service enthält, wird die Seite mit den Projektdetails aufgerufen. Starten Sie von dort aus die {{site.data.keyword.discoveryshort}}-Tools.
+Nachdem Sie eine Instanz des {{site.data.keyword.discoveryshort}}-Service erstellt haben, landen Sie im [{{site.data.keyword.Bluemix_notm}}-Dashboard](https://console.{DomainName}/dashboard). Klicken Sie auf die {{site.data.keyword.discoveryshort}}-Serviceinstanz, um die Dashboardseite des {{site.data.keyword.discoveryshort}}-Service aufzurufen.
 
-Klicken Sie unter **Services** für {{site.data.keyword.discoveryshort}} auf **Tool starten**.
+Klicken Sie auf der Seite **Verwalten** auf **Tool öffnen**.
 
 <!-- To do: Add screenshot for developer console -->
 
@@ -79,7 +77,12 @@ Eine Sammlung ist eine Gruppe von Dokumenten. *Es kann sinnvoll sein, mehrere Sa
 Die allgemein zugängliche und bereits aufbereitete {{site.data.keyword.discoverynewsshort}}-Datensammlung steht Ihnen ebenfalls zur Verfügung. Sie kann sofort abgefragt werden und Sie können umgehend mit der Erstellung von Abfragen für diese Sammlung beginnen. Ihre Konfiguration kann jedoch nicht angepasst werden; auch das Hinzufügen von Dokumenten zu {{site.data.keyword.discoverynewsshort}} ist nicht möglich.
 
 1.  Klicken Sie auf ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> und wählen Sie **Umgebung erstellen** aus.
-1.  Sobald Ihre Umgebung bereit ist, wird das Dialogfeld **Benennen Sie Ihre neue Sammlung** angezeigt. Vergeben Sie einen Namen für Ihre Sammlung und wählen Sie bei **Anzuwendende Konfiguration auswählen** die Option **Standardkonfiguration** aus (Sie können die Konfiguration später ändern).
+1.  Sobald Ihre Umgebung bereit ist, klicken Sie auf die Schaltfläche **Eigene Daten hochladen**. Anschließend können Sie Ihre neue **Datensammlung benennen**. Vergeben Sie einen Namen für Ihre Sammlung und wählen Sie bei **Anzuwendende Konfiguration auswählen** die Option **Standardkonfiguration** aus (Sie können die Konfiguration später ändern).
+
+Es ist eine weitere Konfiguration mit dem Namen **Standardvertragskonfiguration** verfügbar, die die Elementklassifizierung unterstützt, mit der Partei-, Natur- und Kategorienelemente aus Elementen in PDFs extrahiert werden können. Details finden Sie unter [Elementklassifizierung](/docs/services/discovery/element-classification.html#element-collection).
+
+Sie können auch Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen mit den {{site.data.keyword.discoveryshort}}-Tools durchsuchen. Klicken Sie auf die Schaltfläche **Datenquelle verbinden**; weitere Informationen hierzu finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
+{: tip}
 
 ## Schritt 3: Angepasste Konfiguration erstellen
 {: create-custom-configuration}
@@ -141,4 +144,4 @@ Sobald Sie mit der angepassten Konvertierung für das Beispieldokument zufrieden
 ## Nächste Schritte
 {: #next-steps}
 
-Sie besitzen nun eine funktionsfähige und mit Daten bestückte {{site.data.keyword.discoveryshort}}-Serviceinstanz. Jetzt können Sie mit der Anpassung Ihrer Sammlung beginnen, indem Sie weitere Dokumente und Aufbereitungen hinzufügen sowie Konvertierungseinstellungen anpassen. 
+Sie besitzen nun eine funktionsfähige und mit Daten bestückte {{site.data.keyword.discoveryshort}}-Serviceinstanz. Jetzt können Sie mit der Anpassung Ihrer Sammlung beginnen, indem Sie weitere Dokumente und Aufbereitungen hinzufügen sowie Konvertierungseinstellungen anpassen.

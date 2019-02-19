@@ -1,0 +1,120 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/index.html" path="services/discovery"}
+Discovery
+
+    {: .navgroup id="learn"}
+    getting-started-tool.md
+    index.md
+    watson-discovery-news.md
+    
+    {: topicgroup}
+    Element Classification
+        element-classification.md
+        schema.md
+        parsing.md
+    
+    building-kg.md
+    sample-apps.md
+    [Videos](https://ibm.biz/wds_videos)
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    {: topicgroup}
+    Esercitazioni
+        getting-started.md
+        getting-started-query.md
+
+    building.md
+    connect.md
+    adding-content.md
+
+    {: topicgroup}
+    Utilizzo di Data Crawler
+        data-crawler.md
+        data-crawler-qs.md
+        data-crawler-install.md
+        data-crawler-seeds.md
+        data-crawler-discovery.md
+        data-crawler-run.md
+
+    {: topicgroup}
+    Creazione di query
+        using.md
+        query-parameters.md
+        query-operators.md
+        query-aggregations.md
+
+    {: topicgroup}
+    Miglioramento della pertinenza dei risultati
+        train-tooling.md
+        dashboard.md
+        train.md
+        train-tips.md
+        continuous-training.md
+        feedback.md
+
+    {: topicgroup}
+    Discovery e Knowledge Studio
+        integrate-wks.md
+
+    {: topicgroup}
+    Migrazione di funzioni
+        migrate-adn.md
+        migrate-nlu.md
+        migrate-bwdn.md
+        migrate-dcs-rr.md
+        migrate-rnr-tut.md
+
+    upgrading.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [Riferimento API](https://www.ibm.com/watson/developercloud/discovery/api)
+
+    {: topicgroup}
+    Whitepaper
+        [Architettura cloud di Discovery](http://ibm.biz/discovery_advantage_paper)
+        [Whitepaper di Discovery](https://www.ibm.com/watson/whitepaper/discovery/)
+
+    {: topicgroup}
+    Arricchimento
+        categories.md
+        entity-types.md
+        relation-types.md
+
+    query-reference.md
+    custom-config.md
+    language-support.md
+    information-security.md
+    additional-resources.md
+    discovery-auxiliary.md
+
+    {: .topicgroup}
+    SDK Watson
+        [SDK Android](https://github.com/watson-developer-cloud/android-sdk)
+        [SDK Java](https://github.com/watson-developer-cloud/java-sdk)
+        [SDK Node.js](https://github.com/watson-developer-cloud/node-sdk)
+        [SDK Python](https://github.com/watson-developer-cloud/python-sdk)
+        [SDK Ruby](https://github.com/watson-developer-cloud/ruby-sdk)
+        [SDK .NET](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
+        [SDK OpenWhisk](https://github.com/watson-developer-cloud/openwhisk-sdk/)
+        [SDK Salesforce](https://github.com/watson-developer-cloud/salesforce-sdk)
+        [SDK Swift](https://github.com/watson-developer-cloud/swift-sdk)
+        [SDK Unity](https://github.com/watson-developer-cloud/unity-sdk)
+
+    [Repository GitHub di Watson](https://github.com/watson-developer-cloud/)
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    release-notes.md
+    troubleshooting.md
+    pricing-details.md
+
+    {: .topicgroup}
+    Community degli sviluppatori
+        [StackOverflow](http://stackoverflow.com/questions/tagged/watson-discovery)
+        [IBM Developer Answers](https://developer.ibm.com/answers/topics/watson-discovery/)
+        [WDC Slack channel](http://wdc-slack-inviter.mybluemix.net/)
+    {: .navgroup-end}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-10-04"
 
 ---
 
@@ -44,13 +44,24 @@ Mithilfe von Abfrageparametern können Sie Ihre Sammlung durchsuchen, eine Ergeb
 | [offset](/docs/services/discovery/query-parameters.html#offset) | Die Anzahl der Ergebnisse, die vor der Rückgabe von Dokumenten aus der Ergebnismenge in `result` ignoriert werden sollen. | `offset=100` |
 | [return](/docs/services/discovery/query-parameters.html#return) | Die Liste der zurückzugebenden Felder. | `return=title,url` |
 | [sort](/docs/services/discovery/query-parameters.html#sort) | Das Feld, nach dem die Ergebnismenge sortiert werden soll. | `sort=enriched_text.sentiment.document.score` |
+| [bias](/docs/services/discovery/query-parameters.html#bias) | Das Feld, für das Ergebnisse beeinflusst werden sollen. | `bias=publication_date` |
 | [passages.fields](/docs/services/discovery/query-parameters.html#passages_fields) | Die Felder, aus denen Passagen extrahiert werden sollen. | `passages=true&passages.fields=text,abstract,conclusion` |
 | [passages.count](/docs/services/discovery/query-parameters.html#passages_count) | Die Anzahl der zurückzugebenden Passagen. | `passages=true&passages.count=6` |
 | [passages.characters](/docs/services/discovery/query-parameters.html#passages_characters) | Die Länge der Passagen. | `passages=true&passages.characters=144` |
 | [highlight](/docs/services/discovery/query-parameters.html#highlight) | Hebt Übereinstimmungen mit der Abfrage hervor. | `highlight=true` |
 | [deduplicate](/docs/services/discovery/query-parameters.html#deduplicate) | Dedupliziert aus {{site.data.keyword.discoverynewsfull}} zurückgegebene Ergebnisse. | `deduplicate=true` |
-| [deduplicate.field](/docs/services/discovery/query-parameters.html#deduplicated_field) | Dedupliziert zurückgegebene Ergebnisse auf der Basis eines Feldes. | `deduplicate.field=title` |
+| [deduplicate.field](/docs/services/discovery/query-parameters.html#deduplicate_field) | Dedupliziert zurückgegebene Ergebnisse auf der Basis eines Feldes. | `deduplicate.field=title` |
 | [collection_ids](/docs/services/discovery/query-parameters.html#collection_ids) | Fragt mehrere Sammlungen ab. | `collection_ids={1},{2},{3}` |
+| [similar](/docs/services/discovery/query-parameters.html#similar) | Ermöglicht die Suche nach ähnlichen Dokumenten. | `similar=true` |
+| [similar.document_ids](/docs/services/discovery/query-parameters.html#similar_document_ids) | Gibt an, für welche Dokumente ähnliche Dokumente gesucht werden sollen. | `similar.document_ids={id1},{id2}` |
+| [similar.fields](/docs/services/discovery/query-parameters.html#similar_fields) | Gibt an, welche Felder bei der Suche nach ähnlichen Dokumenten verglichen werden sollen. | `similar.fields=text,title` |
+
+### Einschränkungen für Abfragen
+
+Feldnamen, die Folgendes enthalten, können nicht abgefragt werden:
+- Numerische Zeichen (`0 - 9`) im Suffix für den Feldnamen (z. B. `extracted-content2`).
+- Die Zeichen `_`, `+` und `-` im Präfix im Feldnamen (`field_name`) (z. B. `+extracted-content`).
+- Die Zeichen `.`, `,` und `:` im Feldnamen (`field_name`) (z. B. `new:extracted-content`)
 
 ## Operatoren
 {: #operators}
@@ -61,18 +72,20 @@ Operatoren trennen die einzelnen Bestandteile einer Abfrage voneinander. Die fol
 |:-------------------:|------------------------------------------------------------|--------------------------------|
 | [.](/docs/services/discovery/query-operators.html#delimiter) | JSON-Begrenzer | `enriched_text.concepts.text` |
 | [:](/docs/services/discovery/query-operators.html#includes) | Enthält | `text:computer` |
-| [::](/docs/services/discovery/query-operators.html#match) | Exakte Übereinstimmung | `title::Query building` |
+| [::](/docs/services/discovery/query-operators.html#match) | Exakte Übereinstimmung | `title::"Query building"` |
 | [:!](/docs/services/discovery/query-operators.html#notinclude) | Enthält nicht | `text:!computer` |
-| [::!](/docs/services/discovery/query-operators.html#notamatch) | Keine exakte Übereinstimmung | `title::!Query building` |
-| [\\](/docs/services/discovery/query-operators.html#escape) | Escapezeichen | `enriched_text.entitle.text:Trinidad \& Tobago` |
+| [::!](/docs/services/discovery/query-operators.html#notamatch) | Keine exakte Übereinstimmung | `text::!winter` |
+| [\\](/docs/services/discovery/query-operators.html#escape) | Escapezeichen | `title::"Dorothy said: \"There's no place like home\""` |
 | [""](/docs/services/discovery/query-operators.html#phrase) | Ausdrucksabfrage | `enriched_text.concepts.text:"IBM Watson"` |
 | [(), \[\]](/docs/services/discovery/query-operators.html#nestedquery) | Verschachtelte Gruppierung | `filter-entities:(text:Turkey,type:Location)` |
-| [<code>&#124;</code>](/docs/services/discovery/query-operators.html#or) | Oder | <code>query-enriched.entities.text:Google&#124;IBM</code> |
-| [,](/docs/services/discovery/query-operators.html#and) | Und | `query-enriched.entities.text:Google,IBM` |
+| [<code>&#124;</code>](/docs/services/discovery/query-operators.html#or) | oder | <code>query-enriched.entities.text:Google&#124;IBM</code> |
+| [,](/docs/services/discovery/query-operators.html#and) | und | `query-enriched.entities.text:Google,IBM` |
 | [<=, >=, >, <](/docs/services/discovery/query-operators.html#comparisons) | Numerische Vergleiche |  `enriched_text.sentiment.document.score>0.679`     |
 | [^x](/docs/services/discovery/query-operators.html#multiplier) | Bewertungsmultiplikator | `text:IBM^3` |
 | [*](/docs/services/discovery/query-operators.html#wildcard) | Platzhalter | `query-enriched_text.concepts.text:pre*` |
 | [~n](/docs/services/discovery/query-operators.html#variation) | Zeichenfolgenvariante | `query-enriched_text.entities.text:cat~1` |
+| [:*](/docs/services/discovery/query-operators.html#exists) | Ist vorhanden | `title:*` |
+| [!*](/docs/services/discovery/query-operators.html#dnexist) | Ist nicht vorhanden | `title!*` |
 
 ## Aggregationen
 {: #aggregations}
@@ -88,7 +101,7 @@ Aggregationen geben eine Gruppe von Datenwerten zurück. Die folgenden Aggregati
 | [timeslice](/docs/services/discovery/query-aggregations.html#timeslice) | Zeitbasierte Verteilung. | `timeslice(last_modified,2day,America/New York)` |
 | [top_hits](/docs/services/discovery/query-aggregations.html#top_hits) | Gibt die am höchsten eingestuften Ergebnisdokumente für die aktuelle Aggregation an. | `term(enriched_text.concepts.text).top_hits(10)` |
 | [unique_count](/docs/services/discovery/query-aggregations.html#unique_count) | Zählt die eindeutigen Werte für ein Feld in einer Aggregation. | `unique_count(enriched_text.entities.type)` |
-| [max](/docs/services/discovery/query-aggregations.html#min) | Gibt den Maximalwert für das angegebene Feld in der Ergebnismenge an. | `max(product.price)` |
-| [min](/docs/services/discovery/query-aggregations.html#max) | Gibt den Minimalwert für das angegebene Feld in der Ergebnismenge an. | `min(product.price)` |
-| [average](/docs/services/discovery/query-aggregations.html#average) | Gibt den Mittelwert für das angegebene Feld in der Ergebnismenge an. | `average(product.price)` |
+| [max](/docs/services/discovery/query-aggregations.html#max) | Gibt den Maximalwert für das angegebene Feld in der Ergebnismenge an. | `max(product.price)` |
+| [min](/docs/services/discovery/query-aggregations.html#min) | Gibt den Minimalwert für das angegebene Feld in der Ergebnismenge an. | `min(product.price)` |
+| [average](/docs/services/discovery/query-aggregations.html#average) |Gibt den Mittelwert für das angegebene Feld in der Ergebnismenge an. | `average(product.price)` |
 | [sum](/docs/services/discovery/query-aggregations.html#sum) | Gibt die Summe aller Felder in der Ergebnismenge an. | `sum(product.price)` |

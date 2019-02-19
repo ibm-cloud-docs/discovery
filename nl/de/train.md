@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-09-06"
 
 ---
 
@@ -28,13 +28,13 @@ Umfassende Informationen zu den Trainings-APIs enthält die [API-Referenz ![Symb
 
 Falls Sie lieber die {{site.data.keyword.discoveryshort}}-Tools für das Training von {{site.data.keyword.discoveryshort}} verwenden möchten, finden Sie im Abschnitt [Relevanz der Ergebnisse mithilfe der Tools verbessern](/docs/services/discovery/train-tooling.html) weiterführende Informationen.
 
-**Hinweis:** Beim Relevanztraining müssen bestimmte Anforderungen an die Trainingsdaten erfüllt sein, damit es Wirkung zeigt. Der Service überprüft die Trainingsdaten in regelmäßigen Abständen, um festzustellen, ob diese Anforderungen erfüllt sind, und aktualisiert sich aufgrund von Änderungen automatisch selbst.
-
-**Hinweis:** Das Relevanztrainig ist gegenwärtig nur auf Abfragen in natürlicher Sprache für private Sammlungen anwendbar. Es ist nicht für die Verwendung bei strukturierten Abfragen in der {{site.data.keyword.discoveryshort}}-Abfragesprache gedacht. Weitere Informationen zur {{site.data.keyword.discoveryshort}}-Abfragesprache finden Sie unter [Abfragekonzepte](/docs/services/discovery/using.html).
+**Hinweis:** Das Relevanztraining ist gegenwärtig nur auf Abfragen in natürlicher Sprache für private Sammlungen anwendbar. Es ist nicht für die Verwendung bei strukturierten Abfragen in der {{site.data.keyword.discoveryshort}}-Abfragesprache gedacht.  Weitere Informationen zur {{site.data.keyword.discoveryshort}}-Abfragesprache finden Sie unter [Abfragekonzepte](/docs/services/discovery/using.html).
 
 Sammlungen, für die ein Training durchgeführt wurde, geben im Ergebnis für eine Abfrage in natürlicher Sprache eine Konfidenzbewertung (Feld `confidence`) zurück. Details enthält der Abschnitt [Konfidenzbewertung](/docs/services/discovery/train-tooling.html#confidence).
 
-**Hinweis:** Pro Umgebung kann es maximal 4 trainierte Sammlungen geben.
+Unter [Anforderungen an Trainingsdaten](/docs/services/discovery/train.html#reqs) finden Sie die Mindestanforderungen für das Training sowie die Trainingsbegrenzungen.
+
+Unter [Nutzungsüberwachung](/docs/services/discovery/feedback.html) finden Sie Details zur Nutzungsüberwachung und zur Verwendung der Daten, um Ihre Anwendungen besser verstehen und verbessern zu können.
 
 <!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
 
@@ -51,14 +51,20 @@ Zum Trainieren einer Discovery-Instanz werden die folgenden Komponenten benötig
    Beispiele können optional eine Querverweisabfrage angeben. Die Querverweisabfrage muss nur das Beispieldokument zurückgeben und von der eindeutigen Dokument-ID in Watson Discovery unabhängig sein. Querverweisabfragen werden gegenwärtig nicht automatisch verwendet, können jedoch eingesetzt werden, um Trainingsdaten zu reparieren, falls während eines Einpflegeereignisses neue IDs zu Dokumenten zugeordnet werden.
 
 ## Anforderungen an Trainingsdaten
+{: #reqs}
 
-Trainingsdaten müssen die folgenden **Mindestqualitätskriterien** erfüllen, damit die Relevanz der vom Discovery-Service zurückgegebenen Antworten wirksam verbessert werden kann. Bitte beachten Sie, dass **Mindestkriterien** nicht gleichbedeutend mit **optimalen Kriterien** ist.
+Trainingsdaten müssen die folgenden **Mindestqualitätskriterien** erfüllen, damit die Relevanz der vom Discovery-Service zurückgegebenen Antworten wirksam verbessert werden kann. Bitte beachten Sie, dass **Mindestkriterien** nicht gleichbedeutend mit **optimalen Kriterien** ist. Der Service überprüft die Trainingsdaten in regelmäßigen Abständen, um festzustellen, ob diese Anforderungen erfüllt sind, und aktualisiert sich aufgrund von Änderungen automatisch selbst.
 
-- Die Trainingsdaten der Sammlung müssen mindestens 49 eindeutige Trainingsabfragen (also Gruppen aus Abfragen und Beispielen) enthalten. Abhängig von der Größe und der Komplexität Ihrer Sammlung muss Ihr Bestand möglicherweise mehr als 49 Trainingsabfragen enthalten, damit Watson in der Lage ist, das Relevanztraining auf die Sammlung anzuwenden.
-- Die Relevanzquote für jede Trainingsabfrage muss eine nicht negative ganze Zahl sein, z. B. `0` für *nicht relevant*, `1` für *etwas relevant* und `2` für *sehr relevant*. Um erfahrenen Benutzern beim Experimentieren mit unterschiedlichen Einstufungsschemas eine maximale Flexibilität zu bieten, akzeptiert der Service jedoch nicht negative ganze Zahlen zwischen `0` und `100`. Die größte ganze Zahl in der Gruppe der Trainingsfragen gibt jedoch immer die maximale Relevanz an, unabhängig davon, welchen Bereich Sie verwenden. Die {{site.data.keyword.discoveryshort}}-Tools verwenden die Relevanzquoten `0` für *nicht relevant* und `10` für *relevant*. Falls Sie Ihre Dokumente sowohl mit den {{site.data.keyword.discoveryshort}}-Tools als auch der API einstufen oder zunächst die API verwenden und später auf die Tools umsteigen wollen, verwenden Sie die Relevanzquoten `0` und `10`.
+- Die Trainingsdaten der Sammlung müssen mindestens 49 eindeutige Trainingsabfragen (also Gruppen aus Abfragen und Beispielen) enthalten. Abhängig von der Größe und der Komplexität Ihrer Sammlung muss Ihr Bestand möglicherweise mehr als 49 Trainingsabfragen enthalten, damit Watson in der Lage ist, das Relevanztraining auf die Sammlung anzuwenden. Watson gibt Ihnen eine Rückmeldung, falls weitere Abfragen für das Training benötigt werden.
+- Beim Zuordnungen von Relevanzquoten über die API: Die Relevanzquote für jede Trainingsabfrage muss eine nicht negative ganze Zahl sein, z. B. `0` für *nicht relevant*, `1` für *etwas relevant* und `2` für *sehr relevant*. Um erfahrenen Benutzern beim Experimentieren mit unterschiedlichen Einstufungsschemas eine maximale Flexibilität zu bieten, akzeptiert der Service jedoch nicht negative ganze Zahlen zwischen `0` und `100`. Die größte ganze Zahl in der Gruppe der Trainingsfragen gibt jedoch immer die maximale Relevanz an, unabhängig davon, welchen Bereich Sie verwenden.
+- Beim Zuordnen von Relevanzeinstufungen über die Tools: Die {{site.data.keyword.discoveryshort}}-Tools verwenden die Relevanzquoten `0` für *nicht relevant* und `10` für *relevant*. Sie sollten beide verfügbaren Einstufungen in Ihren Ergebnissen anwenden, also `Relevant` (= relevant) und `Not relevant` (= nicht relevant). Wenn Sie die Einstufung nur für `relevante` Dokumente vornehmen, erhalten Sie nicht die benötigten Daten.  Falls Sie Ihre Dokumente sowohl mit den {{site.data.keyword.discoveryshort}}-Tools als auch der API einstufen oder zunächst die API verwenden und später auf die Tools umsteigen wollen, verwenden Sie die Relevanzquoten `0` und `10`.
 - Die Trainingsabfragen müssen einige Begriffsüberschneidungen zwischen der Abfrage und der gewünschten Antwort einbeziehen, damit diese bei der erstmaligen Suche durch den Discovery-Service abgerufen werden kann, die sich über einen großen Bereich erstreckt.
 
 **Hinweis:** Watson verwendet Trainingsdaten, um Muster zu erlernen und Verallgemeinerungen vorzunehmen, und nicht, um einzelne Trainingsabfragen auswendig zu lernen. Daher reproduziert der Service möglicherweise für eine bestimmte Trainingsabfrage nicht immer identishce Relevanzergebnisse.
+
+Das Training darf die folgenden **maximalen** Anforderungen nicht überschreiten:
+  - Sie dürfen 24 trainierte Sammlungen pro Umgebung nicht überschreiten.
+  - In einer einzigen Umgebung sind Sie auf 10.000 Trainingsabfragen begrenzt, wobei maximal 100 Beispiele pro Abfrage angegeben sind. 
 
 ## Abfrage zum Trainingsdatenbestand hinzufügen
 
@@ -248,27 +254,30 @@ Führen Sie die folgenden Schritte aus, um ein Beispiel zu einer Trainingsdatena
     {
       "collection_id": "99040100-fe6a-4782-a4f5-28f9eee30850",
       "name": "democollection",
+      "configuration_id": "def9bd08-8472-470f-ab5a-e377f77e9300",
+      "language": "en_us",
+      "status": "available",
       "description": "this is a demo collection",
       "created": "2015-08-24T18:42:25.324Z",
       "updated": "2015-08-24T18:42:25.324Z",
-      "status": "available",
-      "configuration_id": "def9bd08-8472-470f-ab5a-e377f77e9300",
-      "language": "en_us",
       "document_counts": {
         "available": 1000,
         "processing": 20,
         "failed": 180
       },
-      "training": {
+      "disk_usage": {
+        "used_bytes": 895111
+      },
+      "training_status": {
+        "data_updated": "2017-02-10T14:18:22.786Z",
         "total_examples": 54,
-        "available": true,
-        "processing": false,
-        "minimum_queries_added": true,
-        "minimum_examples_added": true,
         "sufficient_label_diversity": false,
-        "notices": 13,
+        "processing": false,
+        "minimum_examples_added": true,
         "successfully_trained": "2017-02-08T14:18:22.786Z",
-        "data_updated": "2017-02-10T14:18:22.786Z"
+        "available": true,
+        "notices": 13,
+        "minimum_queries_added": true
       }
     }
    ```

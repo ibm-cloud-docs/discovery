@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2018
+lastupdated: "2018-07-03"
 
 ---
 
@@ -22,6 +22,9 @@ lastupdated: "2017-08-18"
 Data Crawler erfasst Rohdaten, die später dann zur Bildung von Suchergebnissen für den {{site.data.keyword.discoveryshort}}-Service verwendet werden. Bei einer Crawlersuche in Datenrepositorys lädt der Crawler ausgehend von einer benutzerdefinierten Seed-URL Dokumente und Metadaten herunter. Der Crawler erkennt Dokumente in einer Hierarchie oder auf andere Weise mit der Seed-URL verbundene Dokumente und reiht sie zum Abruf ein.
 {: shortdesc}
 
+Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die Crawlersuche in Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
+{: tip}
+
 ## Voraussetzungen
 
 -   Java Runtime Environment Version 8 oder höher
@@ -38,11 +41,12 @@ Data Crawler erfasst Rohdaten, die später dann zur Bildung von Suchergebnissen 
 
 1.  Wählen Sie in Ihrem {{site.data.keyword.Bluemix_notm}}-Dashboard den {{site.data.keyword.discoveryshort}}-Service aus, den Sie zuvor erstellt haben.
 
-1.  Klicken Sie auf den Link für den Download von Data Crawler, um Data Crawler herunterzuladen.
+1.  Klicken Sie im Abschnitt **Upload von Inhalt in den Discovery-Service automatisieren** auf den entsprechenden Link, um den Data Crawler für Linux in DEB-, RPM- und ZIP-Formaten herunterzuladen.
 
 1.  Vergewissern Sie sich, dass Java Runtime Environment Version 8 oder höher ausgeführt wird. Führen Sie den Befehl `java -version` aus und suchen Sie nach **1.8**. Falls eine frühere Version als **1.8** angegeben ist, müssen Sie für Java ein Upgrade durchführen, indem Sie Java Developer Kit (JDK) 8 aus Ihrem Paketmanagementsystem, von der Website [IBM JDK ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/developerworks/java/jdk/){: new_window} oder über [java.com ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://www.java.com){: new_window} installieren.
 
-    Die Umgebungsvariable `JAVA_HOME` muss korrekt festgelegt sein oder darf andernfalls nicht festgelegt sein, damit der Crawler ausgeführt werden kann.{: tip}
+    Die Umgebungsvariable `JAVA_HOME` muss korrekt festgelegt sein oder darf andernfalls nicht festgelegt sein, damit der Crawler ausgeführt werden kann.
+    {: tip}
 
 1.  Führen Sie als Administrator die folgenden Befehle aus, um die heruntergeladene Archivdatei zu installieren:
 

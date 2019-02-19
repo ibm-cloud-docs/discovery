@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-01-16"
 
 ---
 
@@ -19,19 +19,14 @@ lastupdated: "2017-11-08"
 
 # Migrando do Watson Discovery News Original
 
-Uma nova versão do {{site.data.keyword.discoverynewsshort}} lançada em **31 de julho de 2017**. A versão original foi renomeada {{site.data.keyword.discoverynewsshort}} Original e foi retirada com uma remoção da data de serviço de **15 de janeiro de 2018**.  
+Uma nova versão do {{site.data.keyword.discoverynewsshort}} lançada em **31 de julho de 2017**. A versão original foi renomeada para {{site.data.keyword.discoverynewsshort}} Original e foi retirada de serviço em **15 de janeiro de 2018**. Se você tentar acessar o {{site.data.keyword.discoverynewsshort}} Original, receberá a mensagem `410 GONE`.
 {: shortdesc}
 
 Para migrar do {{site.data.keyword.discoverynewsshort}} Original para a nova versão, é necessário
 fazer várias mudanças, incluindo atualizar quaisquer consultas criadas para o
 {{site.data.keyword.discoverynewsshort}} Original.
 
-  **Nota:** se você tiver criado uma nova instância do
-{{site.data.keyword.discoveryshort}}, você terá acesso somente à nova versão do
-{{site.data.keyword.discoverynewsshort}}. O acesso aos novos
-{{site.data.keyword.discoverynewsshort}} e {{site.data.keyword.discoverynewsshort}} Original
-está disponível apenas em instâncias do {{site.data.keyword.discoveryshort}} criadas antes de
-**31 de julho de 2017**.
+  **Nota:** o {{site.data.keyword.discoverynewsshort}} Original estava disponível somente nas instâncias do {{site.data.keyword.discoveryshort}} criadas antes de **31 de julho de 2017** e foi retirado de serviço em **15 de janeiro de 2018**.
 
 Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) para obter uma descrição desta coleção.
 
@@ -44,26 +39,17 @@ News Original](/docs/services/discovery/discovery-auxiliary.html#watson-discover
 
 | {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
-| O **{{site.data.keyword.discoverynewsshort}} Original** é pré-aprimorado
-com os enriquecimentos do Alchemy Language a seguir: Extração de Palavra-Chave, Extração de
-Entidade, Identificação de Conceito, Extração de Relação, Análise de Sentimentos e Classificação de Taxonomia. Os seguintes metadados adicionais também são incluídos: data de crawl, data de publicação, classificação de URL, classificação de host e texto âncora.     | 
-O **{{site.data.keyword.discoverynewsshort}}** é pré-aprimorado com os
+| O **{{site.data.keyword.discoverynewsshort}} Original** foi pré-enriquecido com os enriquecimentos de Alchemy Language a seguir: Extração de palavra-chave, Extração de entidade, Identificação de conceito, Extração de relação, Análise de sentimento e Classificação de taxonomia. Os metadados adicionais a seguir também foram incluídos: data de crawl, data de publicação, classificação de URL, classificação de host e texto âncora.     | O **{{site.data.keyword.discoverynewsshort}}** é pré-aprimorado com os
 enriquecimentos do {{site.data.keyword.nlushort}} (NLU) a seguir: Extração de
 Palavra-Chave, Extração de Entidade, Extração de Função Semântica, Análise de Sentimentos,
-Relações e Classificação de Categoria. Os seguintes metadados adicionais também são incluídos: data de crawl e data de publicação. 
-Para saber mais sobre os enriquecimentos do NLU, consulte
-[Incluindo enriquecimentos](/docs/services/discovery/building.html#adding-enrichments).
-|
+Relações e Classificação de Categoria. Os seguintes metadados adicionais também são incluídos: data de crawl e data de publicação. Para saber mais sobre os enriquecimentos do NLU, consulte
+[Incluindo enriquecimentos](/docs/services/discovery/building.html#adding-enrichments).                         |
 | O **{{site.data.keyword.discoverynewsshort}} Original** era acessível por meio de
 um ambiente que era exclusivo na instância de serviço.                       | Ao usar o
 **{{site.data.keyword.discoverynewsshort}}**, todos os usuários consultam o mesmo
-ambiente e coleção. Isso significa que todas as referências ao seu ambiente e coleção precisam ser mudadas.
-|
-| No **{{site.data.keyword.discoverynewsshort}} Original**, você recebe informações
-como o tamanho da coleção, o número de documentos, etc., ao recuperar o ambiente por meio da API.  | 
-A API do **{{site.data.keyword.discoverynewsshort}}** não retorna essas
-informações.
-|
+ambiente e coleção. Isso significa que todas as referências ao seu ambiente e coleção precisam ser mudadas.      |
+| No **{{site.data.keyword.discoverynewsshort}} Original**, você recebeu informações como tamanho da coleção, número de documentos, etc. ao recuperar o ambiente por meio da API. | A API do **{{site.data.keyword.discoverynewsshort}}** não retorna essas
+informações.                          |
 
 Os novos campos a seguir estão disponíveis no
 **{{site.data.keyword.discoverynewsshort}}**:
@@ -104,8 +90,7 @@ Para mover suas consultas do {{site.data.keyword.discoverynewsshort}} Original p
 
   `news`
 
-- Modifique a consulta para usar a nova estrutura de caminho JSON para o novo {{site.data.keyword.discoverynewsshort}}. A maioria dos campos mudou os caminhos, múltiplos campos foram incluídos e um grupo selecionado de campos de baixo valor foi removido. Consulte a planilha de migração de campo para obter detalhes completos <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>aqui <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo" class="style-scope doc-content"></a>).
-Por exemplo, a consulta a seguir:
+- Modifique a consulta para usar a nova estrutura de caminho JSON para o novo {{site.data.keyword.discoverynewsshort}}. A maioria dos campos mudou os caminhos, múltiplos campos foram incluídos e um grupo selecionado de campos de baixo valor foi removido. Consulte a planilha de migração de campo para obter detalhes completos <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>aqui <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo" class="style-scope doc-content"></a>). Por exemplo, a consulta a seguir:
 
   `discovery/api/v1/environments/ae5790c2-592f-432a-804a-ee16de7154d7/collections/3edcd8f1-e25a-4f44-a069-58332ad17651/query?version=2017-11-07&query=entities.type:"Company"`
 

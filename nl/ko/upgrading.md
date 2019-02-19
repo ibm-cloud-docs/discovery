@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-09"
+  years: 2015, 2018
+lastupdated: "2018-09-25"
 
 ---
 
@@ -22,30 +22,45 @@ lastupdated: "2017-10-09"
 {{site.data.keyword.discoveryfull}} 서비스는 사용자의 요구에 맞게 서로 다른 레벨의 리소스와 기능을 제공하는 세 가지 플랜을 제공합니다.
 {: shortdesc}
 
-**개인용 데이터 유스 케이스**에서는 다음 제한사항 및 가격을 표시합니다. 
-
-| 라이트                   |  표준             | 고급              |  프리미엄          |
-|--------------------------|-------------------|-------------------|-------------------|
-| 매월 최대 2,000개의 동시 문서\*   |매월 최대 100,000개의 동시 문서\*   <br/> 매월 $10로 1,000개의 동시 문서($0.0139USD/1000Doc/Hr)\*\*\*<br/> 매월 2,000개의 무료 문서\*\*\*\*  | **예약된 환경**</br> $1,000/매월 기본 비용<br/> 매월 최대 1,000,000개의 문서\*<br/> 매월 $5로 1,000개의 동시 문서($0.00694 USD/1000Doc/Hr)\*\*\*<br/> 매월 100,000개의 문서 포함\*\*\*\*</br> 대형 환경의 경우 [IBM 담당자에게 문의하기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/marketing/iwm/dre/signup?source=MAIL-watson){: new_window}를 참조하십시오.| **프리미엄 플랜**은 더 나은 격리 및 보안을 위해 하나 이상의 Watson 서비스의 단일 테넌트 인스턴스를 개발자와 조직에게 제공합니다. 이러한 플랜은 전이 중 및 휴지 중에 엔드-투-엔드 암호화된 데이터를 제공할 뿐만 아니라 기존 공유 플랫폼에서 컴퓨팅 레벨 격리를 제공합니다. 자세한 정보를 확인하거나 프리미엄 플랜을 구입하려는 경우 [IBM 담당자에게 문의하기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://ibm.biz/contact-wdc-premium){: new_window}를 참조하십시오. |
-| 200MB\*\*                  |10GB\*\*  | 80GB\*\* |-
-| 최대 2개의 콜렉션      |최대 4개의 콜렉션 | 최대 100개의 콜렉션| - |
-| 최대 1개의 {{site.data.keyword.knowledgestudiofull}} 사용자 정의 모델     |최대 1개의 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델     | 무제한 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델<br/>1개의 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델 포함 <br/>매월 {{site.data.keyword.knowledgestudioshort}} 모델당 추가 $800| - |
-
-**참고:** 모든 플랜에서 처음 1,000건의 {{site.data.keyword.discoverynewsshort}} 조회가 무료입니다. {{site.data.keyword.discoverynewsshort}} 조회는 처음 1000건 이후에는 조회당 $0.10이 부과됩니다. 
-
-**참고:** 라이트 플랜 서비스는 30일의 비활성 기간 후 삭제됩니다. 라이트 플랜에서는 조직당 1개의 환경이 무료로 할당됩니다. 
-
-가격 책정에 대한 자세한 정보는 [Discovery 가격 책정 플랜](/docs/services/discovery/pricing-details.html)을 참조하십시오.
-
-{{site.data.keyword.Bluemix_notm}} 보안에 대한 자세한 정보는 [{{site.data.keyword.Bluemix_notm}} 서비스 설명 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=IBM+Bluemix+Service+Description){: new_window}을 참조하십시오. 
+세부사항은 [{{site.data.keyword.discoveryshort}} 가격 책정 플랜](/docs/services/discovery/pricing-details.html) 및 [{{site.data.keyword.discoveryshort}} 카탈로그 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}를 참조하십시오.
 
 ## 서비스 업그레이드
+{: #service} 
 
-플랜을 업그레이드하려면 다음 단계를 완료하십시오. 
+플랜 크기를 라이트에서 고급으로 조정하려면 다음을 수행하십시오.
 
-1.  {{site.data.keyword.Bluemix_notm}} 메뉴에서 **서비스** > **대시보드**를 선택하십시오.
-1.  업그레이드할 서비스 인스턴스를 선택하여 여십시오. 
-1.  탐색 분할창에서 **플랜**을 클릭하십시오.
-   여기에서 현재 플랜 및 기타 사용 가능한 플랜 옵션을 볼 수 있으며 변경할 수 있습니다. 
+1. [{{site.data.keyword.Bluemix_notm}} 대시보드](https://console.{DomainName}/dashboard)를 여십시오. 
+1. {{site.data.keyword.discoveryshort}} 서비스 인스턴스를 클릭하여 {{site.data.keyword.discoveryshort}} 서비스 대시보드를 여십시오.
+1. {{site.data.keyword.discoveryshort}} 서비스의 **관리** 페이지에서 **업그레이드**를 클릭하여 고급 플랜을 선택하십시오. 그러면 **프랜** 페이지가 열립니다. 단계를 수행하여 업그레이드를 완료하십시오. 
+1. **관리** 페이지로 돌아가서 **도구 실행**을 클릭하여 {{site.data.keyword.discoveryshort}} 도구를 여십시오.
+   - 고급으로 업그레이드하기 전에 라이트 플랜에 대한 환경을 작성한 적이 없는 경우 ![Cog](images/icon_settings.png) 아이콘을 클릭하고 **환경 작성**을 선택하십시오. 화면에 고급 플랜의 옵션이 표시됩니다. 필요에 따라 항목을 선택하십시오. (`X-Small`, `Small`, `Medium-Small`, `Medium`, `Medium-Large`, `Large`, `X-Large`, `XX-Large`).
+   - 고급으로 업그레이드하기 전에 라이트 플랜에 대한 환경을 작성한 적이 없는 경우 새 고급 플랜 환경은 기본적으로 `Small`입니다.  
 
-구독에 대한 일반적인 질문의 답변은 [청구 및 사용량 관리 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](/docs/pricing/index.html){: new_window}를 참조하십시오.
+## 한 고급 계층에서 다른 계층으로 전환
+{: #advanced} 
+
+이미 고급 플랜을 사용 중이고 이를 더 큰 플랜 크기로 업그레이드하려는 경우 [API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#update-environment){: new_window}를 사용하여 이를 수행할 수 있습니다. 
+
+고급 플랜 저장 공간 한계 및 가격 책정에 대한 자세한 정보는 [고급 가격 책정 플랜](/docs/services/discovery/pricing-details.html#advanced)을 참조하십시오.
+
+고급 플랜 크기를 업그레이드할 수는 있지만 작은 크기로 줄일 수는 없습니다. 사용 가능한 고급 플랜 크기는 다음과 같습니다. 
+
+플랜 크기 | 레이블 
+--------- | ------ 
+X-Small | XS 
+Small | S 
+Medium-Small | MS 
+Medium | M 
+Medium-Large | ML 
+Large | L
+X-Large | XL 
+XX-Large | XXL 
+
+- 업그레이드 중에 조회 및 인덱싱을 진행할 수 있습니다. 업그레이드에 필요한 시간은 여러 요인에 따라 달라집니다. 업그레이드가 완료되는 동안 API를 사용하여 환경을 폴링할 수 있습니다.
+- 고급 플랜의 한 레벨에서 다른 레벨로 이동하는 경우 새 인스턴스를 작성할 필요가 없습니다.  
+- 업그레이드가 완료되면 새 플랜 등급으로 비용이 청구됩니다.
+
+## 프리미엄 플랜으로 업그레이드
+{: #premium}
+
+프리미엄 플랜에 관심이 있는 경우 [영업 담당자](https://ibm.biz/contact-wdc-premium)에게 문의하십시오.  

@@ -27,13 +27,13 @@ Nunca ejecute el rastreador como `root`, a menos que necesite acceso a los archi
 
 Ejecute el siguiente mandato: `crawler`
 
-El rastreador le presentará la documentación que explica lo que se debe hacer. Puede ejecutar un rastreo de prueba, o ejecutar un rastreo, además de establecer otras opciones de rastreo. 
+El rastreador le presentará la documentación que explica lo que se debe hacer. Puede ejecutar un rastreo de prueba, o ejecutar un rastreo, además de establecer otras opciones de rastreo.
 
 ## Ejecución de un rastreo de prueba
 
 Ejecute el siguiente mandato: `crawler testit`
 
-Este mandato ejecuta un rastreo de prueba, que sólo rastrea el URL de semilla y muestra los URL que se colocan en cola. Si el URL de semilla da lugar a contenido indexable (por ejemplo, es un documento), entonces dicho contenido se envía al adaptador de salida, y el contenido se imprime en la pantalla. Si la recuperación del URL de semilla coloca en cola varios URL, dichos URL se mostrarán y no se enviará ningún contenido al adaptador de salida. De forma predeterminada, se muestran cinco URL en cola. 
+Este mandato ejecuta un rastreo de prueba, que sólo rastrea el URL de semilla y muestra los URL que se colocan en cola. Si el URL de semilla da lugar a contenido indexable (por ejemplo, es un documento), entonces dicho contenido se envía al adaptador de salida, y el contenido se imprime en la pantalla. Si la recuperación del URL de semilla coloca en cola varios URL, dichos URL se mostrarán y no se enviará ningún contenido al adaptador de salida. De forma predeterminada, se muestran cinco URL en cola.
 
 También se puede especificar un archivo de configuración personalizado como una opción para el mandato de rastreo, por ejemplo: `crawler testit --config [config/myconfigfile.conf]`
 

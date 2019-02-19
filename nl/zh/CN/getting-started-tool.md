@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-30"
+  years: 2015, 2018
+lastupdated: "2018-07-18"
 
 ---
 
@@ -18,10 +18,13 @@ lastupdated: "2017-11-30"
 {:swift: .ph data-hd-programlang='swift'}
 {:download: .download}
 
-# 工具入门
+# 入门
 
 在此简短教程中，我们将介绍 {{site.data.keyword.discoveryshort}} 工具，然后完成创建专用数据集合并对其进行搜索的过程。
 {: shortdesc}
+
+如果您倾向于使用 API，请参阅 [API 入门](/docs/services/discovery/getting-started.html)。
+{: tip}
 
 ## 开始之前
 {: #before-you-begin}
@@ -30,27 +33,23 @@ lastupdated: "2017-11-30"
 
 <!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
 
-您已创建服务实例。单击**管理**，然后单击**启动工具**。请转至[步骤 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection)。
+
+您已创建服务实例。单击**管理**，然后单击**打开工具**。请转至[步骤 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection)。
 {: download tip}
 
-如果是使用 {{site.data.keyword.discoveryshort}} 服务创建的项目，那么已经设置所有这些先决条件。请转至[步骤 1](/docs/services/discovery/getting-started-tooling.html#launch-the-tooling)。
+如果已创建 {{site.data.keyword.discoveryshort}} 服务实例，说明这些先决条件已全部准备就绪。请转至[步骤 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling)。
 
-1.  转至 {{site.data.keyword.watson}} 开发者控制台[服务 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.{DomainName}/developer/watson/services){: new_window} 页面。
-1.  选择 {{site.data.keyword.discoveryshort}}，单击**添加服务**，然后注册免费 {{site.data.keyword.Bluemix_notm}} 帐户或登录。
-1.  输入 `discovery-tutorial` 作为项目名称，然后单击**创建项目**。
+1.  转至 {{site.data.keyword.Bluemix_notm}}“目录”中的 [{{site.data.keyword.discoveryshort}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.{DomainName}/catalog/services/discovery){: new_window} 页面。
+1.  注册免费的 {{site.data.keyword.Bluemix_notm}} 帐户或登录。
+1.  单击**创建**。
 
-<!-- Remove this text after dedicated instances have the Developer Console: begin -->
-
-如果使用的是 {{site.data.keyword.Bluemix_dedicated_notm}}，请在“目录”的 [{{site.data.keyword.discoveryshort}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.{DomainName}/catalog/services/discovery/){: new_window} 页面中创建服务实例。
-
-<!-- Remove this text after dedicated instances have the Developer Console: end -->
 
 ## 步骤 1：启动工具
 {: #launch-the-tooling}
 
-创建包含 {{site.data.keyword.discoveryshort}} 服务的项目后，您将位于项目详细信息页面上。从这里启动 {{site.data.keyword.discoveryshort}} 工具。
+创建 {{site.data.keyword.discoveryshort}} 服务的实例后，您将登录到 [{{site.data.keyword.Bluemix_notm}} 仪表板](https://console.{DomainName}/dashboard)。单击 {{site.data.keyword.discoveryshort}} 服务实例以转至 {{site.data.keyword.discoveryshort}} 服务仪表板。
 
-在**服务**下，针对 {{site.data.keyword.discoveryshort}}，单击**启动工具**。
+在**管理**页面上，单击**打开工具**。
 
 <!-- To do: Add screenshot for developer console -->
 
@@ -78,7 +77,12 @@ lastupdated: "2017-11-30"
 此外，还有预扩充的公共 {{site.data.keyword.discoverynewsshort}} 数据集合供您使用。这是可随时查询的集合，您可以立即开始创建对该集合的查询。不能调整此集合的配置，也不能向 {{site.data.keyword.discoverynewsshort}} 添加文档。
 
 1.  单击 ![齿轮](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} -->，然后选择**创建环境**。
-1.  环境就绪后，将显示**命名新集合**对话框。命名集合并从**选择要应用的配置**中选择 **Default Configuration**（日后可以更改此配置）。
+1.  环境就绪后，请单击**上传您自己的数据**按钮，然后可以**命名新集合**。命名集合并从**选择要应用的配置**中选择**缺省配置**（日后可以更改此配置）。
+
+另外还提供了一个名为 **Default Contract Configuration** 的配置，此配置支持“元素分类”，后者可用于从 PDF 内的元素中抽取参与方、性质和类别。请参阅[元素分类](/docs/services/discovery/element-classification.html#element-collection)以获取详细信息。
+
+您还可以使用 {{site.data.keyword.discoveryshort}} 工具来搜寻 Box、Salesforce 和 Microsoft SharePoint Online 数据源。单击**连接数据源**按钮，然后请参阅[连接到数据源](/docs/services/discovery/connect.html)以获取更多信息。
+{: tip}
 
 ## 步骤 3：创建定制配置
 {: create-custom-configuration}
@@ -91,7 +95,7 @@ lastupdated: "2017-11-30"
     1.  使用**上传样本文档**面板来上传样本文档。上传后，可以单击文档名称链接来查看变换。
 1.  现在来调整配置。对于此任务，您将更改应用于每个文档的扩充项：
     1.  单击配置的**扩充**部分。在屏幕右侧查看生成的 JSON。向下滚动到 *enriched_text* 部分，请注意，此部分包含多个 *concepts*。
-    1.  接下来，通过单击名为 *concepts* 的文本扩充项旁边的 **X** 来除去相应扩充项，然后单击**应用并保存**。
+    1.  接下来，通过单击名为 *concepts* 的文本扩充项旁边的 **X** 来除去该扩充项，然后单击**应用并保存**。
     1.  最后，再次查看 JSON。请注意，输出已经发生变化，不再包含 *concepts*。
 
 ## 步骤 4：上传文档
@@ -110,13 +114,13 @@ lastupdated: "2017-11-30"
 
 1.  单击 ![“查询”图标](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> 以打开查询页面。选择您的集合，然后单击**开始使用**。
 1.  在**构建查询**屏幕上，单击**搜索文档**，然后单击**使用 {{site.data.keyword.discoveryshort}} Query Language**：
-    - 要搜索具有名为“IBM”的实体的结果：
+    - 要使用实体名“IBM”搜索结果：
         1.  单击**字段**，然后选择 `enriched_text.entities.text`。对于**运算符**，选择 `contains`，对于**值**，选择 `IBM`。查询 `enriched_text.entities.text:IBM` 将显示在 **Visual Query Builder** 中。
         1.  单击**运行查询**。此查询会返回 4 个结果。
-    - 要搜索具有名为“Watson”的实体的结果：
+    - 要使用实体名“Watson”搜索结果：
         1.  单击**字段**，然后选择 `enriched_text.entities.text`。对于**运算符**，选择 `contains`，对于**值**，选择 `watson`。查询 `enriched_text.entities.text:watson` 将显示在 **Visual Query Builder** 中。
         1.  单击**运行查询**。此查询会返回 2 个结果。
-    - 要搜索同时具有名为“Watson”和“Slack”的实体的结果：
+    - 要同时使用实体名“Watson”和“Slack”搜索结果：
         1.  单击**字段**，然后选择 `enriched_text.entities.text`。对于**运算符**，选择 `contains`，对于**值**，选择 `watson`。单击**添加规则**，然后重复您的选择，但对于**值**，选择 `Slack`。查询 `enriched_text.entities.text:watson,enriched_text.entities.text:Slack` 将显示在 **Visual Query Builder** 中。
         1.  单击**运行查询**。此查询会返回 1 个结果。
 
@@ -131,7 +135,7 @@ lastupdated: "2017-11-30"
 
     您还可以单击**使用自然语言**并编写自然语言查询，例如“IBM Watson 伙伴关系”。要了解有关自然语言查询的更多信息，请参阅[自然语言查询](/docs/services/discovery/query-parameters.html#nlq)。
 
-    可以对 Watson 进行培训以改进自然语言查询的结果，请参阅[使用工具改进结果相关性](/docs/services/discovery/train-tooling.html)。
+    可以对 Watson 进行训练以改进自然语言查询的结果，请参阅[使用工具改进结果相关性](/docs/services/discovery/train-tooling.html)。
 
     其他资源：
     - 要了解有关文档数据模式的更多信息，请单击**查看数据模式**图标或单击 **JSON** 选项卡。请参阅 [Discovery 数据模式](/docs/services/discovery/using.html#discovery-schema)以获取详细信息。

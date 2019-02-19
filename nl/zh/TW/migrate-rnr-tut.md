@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2018
+lastupdated: "2018-06-09"
 
 ---
 
@@ -51,14 +51,14 @@ lastupdated: "2017-11-08"
 -  本指導教學假設您有服務認證。
    -  如果您位於 {{site.data.keyword.Bluemix_notm}} 上的 Watson {{site.data.keyword.discoveryshort}} 服務中，請按一下**服務認證**。
    -  按一下「動作」下的**檢視認證**。
-   -  複製 `username` 和 `password` 值，並確定 `url` 值符合下面範例中的值，如果不符合，請一併取代。
+   -  複製 `apikey` 值，並確定 `url` 值符合下面範例中的值，如果不符合，請一併取代。
 
 ## 將 Cranfield 資料新增至 Discovery
 
 1.  建立環境。
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
@@ -67,7 +67,7 @@ lastupdated: "2017-11-08"
 1. 建立集合。
 
     ```bash
-    curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07"
     ```
     {: pre}
 
@@ -79,17 +79,17 @@ lastupdated: "2017-11-08"
     1.  在[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-upload.py){: new_window} 下載「資料上傳 Script」。這個 Script 會將 Cranfield json 上傳至 {{site.data.keyword.discoveryshort}}。
         Script 會讀取整個 JSON 檔案，並使用 {{site.data.keyword.discoveryshort}} 中的預設配置，將每個個別的 JSON 文件傳送至 {{site.data.keyword.discoveryshort}} 服務。
         **附註：**{{site.data.keyword.discoveryshort}} 中的預設配置提供的設定類似於 {{site.data.keyword.retrieveandrankshort}} 中的預設 Solr 配置。
-    1.  發出下列指令，將 `cranfield-data-json` 資料上傳至 `cranfield_collection` 集合。將 `{username}`、`{password}`、`{path_to_file}`、`{environment_id}`、`{collection_id}` 取代為您的資訊。請注意，還有其他選項，-d 代表除錯，而 –v 代表 curl 的詳細輸出。
+    1.  發出下列指令，將 `cranfield-data-json` 資料上傳至 `cranfield_collection` 集合。將 `{apikey_value}`、`{path_to_file}`、`{environment_id}`、`{collection_id}` 取代為您的資訊。請注意，還有其他選項，-d 代表除錯，而 –v 代表 curl 的詳細輸出。
 
         ```bash
-        python ./disco-upload.py -u {username}:{password} -i {path_to_file}/cranfield-data.json –e {environment_id} -c {collection_id}
+        python ./disco-upload.py -u apikey:{apikey_value} -i {path_to_file}/cranfield-data.json -e {environment_id} -c {collection_id}
         ```
         {: pre}
 
 1.  上傳處理程序完成之後，您可以發出下列指令來檢視集合詳細資料，以檢查文件是否存在於該處：
 
     ```bash
-    curl -u "{username}":"{password}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
     ```
     {: pre}
 
@@ -99,12 +99,12 @@ lastupdated: "2017-11-08"
     {
       "collection_id": "f1360220-ea2d-4271-9d62-89a910b13c37",
       "name": "democollection",
-      "description": "this is a demo collection",
-      "created": "2015-08-24T18:42:25.324Z",
-      "updated": "2015-08-24T18:42:25.324Z",
-      "status": "available",
       "configuration_id": "6963be41-2dea-4f79-8f52-127c63c479b0",
       "language": "en",
+      "status": "available",
+      "description": "this is a demo collection",
+      "created": "2015-08-24T18:42:25.324Z",
+      "updated": "2015-08-24T18:42:25.324Z",      
       "document_counts": {
         "available": 1000,
         "processing": 20,
@@ -113,16 +113,16 @@ lastupdated: "2017-11-08"
       "disk_usage": {
         "used_bytes": 260
       },
-      "training": {
+      "training_status": {
+        "data_updated": null,
         "total_examples": 0,
-        "available": false,
-        "processing": false,
-        "minimum_queries_added": false,
-        "minimum_examples_added": true,
         "sufficient_label_diversity": false,
-        "notices": 0,
+        "processing": false,
+        "minimum_examples_added": true,
         "successfully_trained": null,
-        "data_updated": null
+        "available": false,
+        "notices": 0,
+        "minimum_queries_added": false        
       }
     }
     ```
@@ -144,10 +144,10 @@ Watson {{site.data.keyword.discoveryshort}} 服務使用機器學習模型將文
 
 1.  下載「訓練資料上傳 Script」。您將使用此 Script 將訓練資料上傳至 {{site.data.keyword.discoveryshort}}。此 Script 會將 `csv` 檔案轉換成一組 JSON 查詢和範例，並使用[訓練資料 API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data){: new_window}，將它們傳送至 {{site.data.keyword.discoveryshort}} 服務
 **附註：**{{site.data.keyword.discoveryshort}} 在該服務內管理訓練資料，因此當產生新的範例和訓練查詢時，它們可以儲存在 {{site.data.keyword.discoveryshort}} 本身，而不是作為需要維護之個別 CSV 檔案的一部分。
-1.  執行「訓練上傳 Script」，將訓練資料上傳至 {{site.data.keyword.discoveryshort}}。將 `{username}`、`{password}`、`{path_to_file}`、`{environment_id}`、`{collection_id}` 取代為您的資訊。請注意，還有其他選項，`-d` 代表除錯，而 `–v` 代表 curl 的詳細輸出。
+1.  執行「訓練上傳 Script」，將訓練資料上傳至 {{site.data.keyword.discoveryshort}}。將 `{apikey_value}`、`{path_to_file}`、`{environment_id}`、`{collection_id}` 取代為您的資訊。請注意，還有其他選項，`-d` 代表除錯，而 `–v` 代表 curl 的詳細輸出。
 
     ```bash
-    python ./disco-train.py -u {username}:{password} -i {path_to_file}/cranfield-gt.csv –e {environment_id} -c {collection_id}
+    python ./disco-train.py -u apikey:{apikey_value} -i {path_to_file}/cranfield-gt.csv –e {environment_id} -c {collection_id}
     ```
     {: pre}
 
@@ -158,17 +158,17 @@ Watson {{site.data.keyword.discoveryshort}} 服務使用機器學習模型將文
 
 {{site.data.keyword.discoveryshort}} 服務會自動使用訓練過的模型將搜尋結果重新分級（如果有的話）。如果是使用 `natural_language_query` 而非 `query` 來發出 [API 呼叫 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}，則會檢查是否有可用的模型。如果有可用的模型，則 {{site.data.keyword.discoveryshort}} 會使用該模型將結果重新分級。首先，我們將搜尋未分級的文件，然後將使用分級模型來執行搜尋。
 
-1.  您可以使用 cURL 指令，在集合中搜尋文件。使用查詢 API 呼叫來執行查詢，以查看未分級的結果。將 `{username}`、`{password}`、`{environment_id}`、`{collection_id}` 取代為您自己的值。傳回的結果將是未分級的結果，並將使用預設的 {{site.data.keyword.discoveryshort}} 分級公式。您可以開啟訓練資料 `csv` 檔案，並將第一個直欄的值複製到查詢參數中，來嘗試其他查詢。
+1.  您可以使用 cURL 指令，在集合中搜尋文件。使用查詢 API 呼叫來執行查詢，以查看未分級的結果。將 `{apikey_value}`、`{environment_id}`、`{collection_id}` 取代為您的資訊。傳回的結果將是未分級的結果，並將使用預設的 {{site.data.keyword.discoveryshort}} 分級公式。您可以開啟訓練資料 `csv` 檔案，並將第一個直欄的值複製到查詢參數中，來嘗試其他查詢。
 
     ```bash
-    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
-1.  現在，透過設定 `natural_language_query` 參數，來使用模型執行搜尋。在這麼做之前，請務必先檢查您是否有訓練過的模型，如前一節所述。在主控台中貼上下列程式碼，並將 `{username}`、`{password}`、`{environment_id}`、`{collection_id}` 取代為您的值。
+1.  現在，透過設定 `natural_language_query` 參數，來使用模型執行搜尋。在這麼做之前，請務必先檢查您是否有訓練過的模型，如前一節所述。在主控台貼上下列程式碼，並將 `{apikey_value}`、`{environment_id}`、`{collection_id}` 取代為您的值。
 
     ```bash
-    curl -u "{username}":"{password}""https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
