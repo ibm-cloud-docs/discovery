@@ -28,6 +28,7 @@ lastupdated: "2019-02-08"
 {:go: .ph data-hd-programlang='go'}
 
 # Getting started
+{: #getting-started}
 
 In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} tooling and go through the process of creating a private data collection and searching it.
 {: shortdesc}
@@ -36,7 +37,7 @@ If you prefer to work in the API, see [Getting started with the API](/docs/servi
 {: tip}
 
 ## Before you begin
-{: #before-you-begin}
+{: #before-you-begin-tool}
 {: hide-dashboard}
 
 You need a service instance to start.
@@ -62,7 +63,7 @@ After you create an instance of the {{site.data.keyword.discoveryshort}} service
 <!-- To do: Add screenshot for developer console -->
 
 ## Step 2: Create a collection
-{: #create-a-collection}
+{: #create-a-collection-tool}
 
 Your first step in the {{site.data.keyword.discoveryshort}} tooling is to create a data collection.
 
@@ -134,6 +135,6 @@ Additional resources:
 -  Click the **Use a sample query** button to try out example queries written in the {{site.data.keyword.discoveryshort}} Query Language.
 
 ## Next steps
-{: #next-steps}
+{: #next-steps-tool}
 
 Now you have a functioning and populated {{site.data.keyword.discoveryshort}} service instance. You can now begin customizing your collection by adding more documents and enrichments, and annotating additional documents. See [Smart Document Understanding](/docs/services/discovery/sdu.html) for more information.

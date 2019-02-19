@@ -29,12 +29,14 @@ lastupdated: "2017-10-03"
 
 
 # Migrating from Watson Document Conversion and Retrieve and Rank
+{: #migrate-dcs-rr}
 
 {{site.data.keyword.documentconversionfull}} and {{site.data.keyword.retrieveandrankfull}} have been deprecated and replaced by {{site.data.keyword.discoveryfull}}. Typically, these two services are used together to ingest, rank, and then deliver results to your applications. This document is provided to guide you through the process of migrating from {{site.data.keyword.documentconversionshort}} and {{site.data.keyword.retrieveandrankshort}} to {{site.data.keyword.discoveryshort}}.
 
 {{site.data.keyword.discoveryfull}} provides a more robust query interface, simplified data ingestion, improved training management, and increased scale. {{site.data.keyword.discoveryshort}} addresses many of the same core use cases as {{site.data.keyword.retrieveandrankshort}} including support agent assist, organizational knowledge base search, and research assistance. It was built with many of challenges faced by users of {{site.data.keyword.retrieveandrankshort}} in mind, and addresses many of those issues. {{site.data.keyword.discoveryshort}} also provides new capabilities for information retrieval not available in {{site.data.keyword.retrieveandrankshort}} including passage retrieval and improved search algorithms to find more relevant results.
 
 **Feature Comparison**
+{: #features-dcs-rr}
 
 | Feature | {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
@@ -85,6 +87,7 @@ If you can meet all of the migration criteria, it is recommended that you use th
 To migrate your source content, modify the procedure described in [the migration tutorial](/docs/services/discovery/migrate-rnr-tut.html) to meet the specifics of your source data.
 
 #### Migrating answer units
+{: #answerunit-dcs-rr}
 
 If you created answer units using {{site.data.keyword.documentconversionshort}} choose one of the following options to migrate that content:
 
@@ -106,6 +109,7 @@ Documents are extracted from the service using the [/v1/solr_clusters/{solr_clus
 Documents with specified **ID's** are uploaded to the {{site.data.keyword.discoveryshort}} service using the [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} method. Each document upload is a separate API call.
 
 ## Migrating training data
+{: #trainingdata-dcs-rr}
 
 After migrating your results, the next step is to migrate any training data that has been created for the content. There are two options for migrating training data: migrate from source (`csv`), and migrate from service. If you uploaded training data from a `csv` file and still have access to that file, you should migrate from source. If you used the {{site.data.keyword.retrieveandrankshort}} tooling or don't have access to the original `csv` file you should migrate from the service.
 

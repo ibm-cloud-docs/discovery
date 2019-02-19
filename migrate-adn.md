@@ -28,13 +28,14 @@ lastupdated: "2017-11-08"
 {:go: .ph data-hd-programlang='go'}
 
 # Migrating from AlchemyData News
+{: #migrate-adn}
 
 A new version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) for a description of this collection.
 
 AlchemyData News has been retired with a removal from service date of **7, March 2018**
 
 ## Service comparison
-{: shortdesc}
+{: #service-adn}
 
 The following differences are of note when moving from AlchemyData News to {{site.data.keyword.discoverynewsshort}} in the {{site.data.keyword.discoveryshort}} service.
 
@@ -47,12 +48,14 @@ The following differences are of note when moving from AlchemyData News to {{sit
 - Deduplication is a beta feature in {{site.data.keyword.discoverynewsshort}}.
 
 ## Authentication differences
+{: #auth-adn}
 
 The {{site.data.keyword.discoveryshort}} service uses the standard {{site.data.keyword.Bluemix_notm}} `username` and `password` credentials to access queries. This replaces the existing API key method that AlchemyData News used. All {{site.data.keyword.discoveryshort}} queries must be made with a username and password combination created by {{site.data.keyword.discoveryshort}} service instance.
 
 Your service credentials can be managed by viewing the **Service Credentials** tab of your service within {{site.data.keyword.Bluemix_notm}}.
 
 ## Configuring a Discovery instance
+{: #config-adn}
 
 A {{site.data.keyword.discoveryshort}} service instance is created in the same way that you created your AlchemyData News instance.
 
@@ -65,6 +68,7 @@ A {{site.data.keyword.discoveryshort}} service instance is created in the same w
 1. Click on the **Service Credentials** tab and select **View Credentials** to identify the `url`, `username`, and `password` for this instance.
 
 ## Querying Watson Discovery News
+{: #querying-adn}
 
 You can query {{site.data.keyword.discoverynewsfull}} by using the API or one of the {{site.data.keyword.watson}} SDKs. Additionally, you can use the query building tooling to construct queries interactively.
 
@@ -81,12 +85,14 @@ Do not expect identical results to be returned for similar queries in AlchemyDat
 {: note}
 
 ## Adding Watson Discovery News queries to your application
+{: #queries-adn}
 
 Use one of the following methods to add queries to your application. All of these examples query for `enriched_text.entities` with a `text` value of `IBM` (`enriched_text.entities.text:IBM`).
 
 In all of the following examples, replace `{username}` and `{password}` with the username and password that are listed in the **Service Credentials** page of your service instance.
 
 ### Using direct calls to the API
+{: #api-adn}
 
 ```bash
 curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
@@ -94,6 +100,7 @@ curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery
 {: pre}
 
 ### Using the Java SDK
+{: #javasdk-adn}
 
 ```java
 Discovery discovery = new Discovery("2017-11-07");
@@ -110,6 +117,7 @@ discovery.query(queryBuilder.build()).execute();
 {: codeblock}
 
 ### Using the Watson Node.js SDK
+{: #nodesdk-adn}
 
 ```javascript
 var watson = require('watson-developer-cloud');
@@ -127,6 +135,7 @@ discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),
 {: codeblock}
 
 ### Using the Watson Python SDK
+{: #pythonsdk-adn}
 
 ```python
 import sys

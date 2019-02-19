@@ -251,7 +251,7 @@ You can also integrate one or more custom models from {{site.data.keyword.knowle
 Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 {: important}
 
-**Note:** {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated 1 March 2018. If you have any existing collections that are using {{site.data.keyword.alchemylanguageshort}} enrichments, you must migrate to {{site.data.keyword.nlushort}} enrichments. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
+**Note:** {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated 1 March 2018. If you have any existing collections that are using {{site.data.keyword.alchemylanguageshort}} enrichments, you must migrate to {{site.data.keyword.nlushort}} enrichments. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrate-nlu).
 
 You can further augment your documents by adding more enrichments to the `text` field, or enriching other fields. To do so using Smart Document Understanding in the {{site.data.keyword.discoveryshort}} tooling, open the **Enrich Fields** tab. To do so for collections created before Smart Document Understanding, [create a custom configuration](/docs/services/discovery/building.html#custom-configuration), choose the field(s) you'd like to enrich and select from the list of available {{site.data.keyword.nlushort}} enrichments:
 
@@ -325,7 +325,7 @@ The `relevance` score ranges from `0.0` to `1.0`. The higher the score, the more
 #### Using a custom entity model
 {: #custom-entity-model}
 
-If you wish to create a custom enrichment model, you can do so in {{site.data.keyword.knowledgestudiofull}} and import the model into {{site.data.keyword.discoveryshort}} by adding the ID in the `Custom Model ID` box of the {{site.data.keyword.discoveryshort}} tooling. For more information on integrating with {{site.data.keyword.knowledgestudiofull}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). The custom {{site.data.keyword.knowledgestudiofull}} model will override the default Entity Extraction enrichment.
+If you wish to create a custom enrichment model, you can do so in {{site.data.keyword.knowledgestudiofull}} and import the model into {{site.data.keyword.discoveryshort}} by adding the ID in the `Custom Model ID` box of the {{site.data.keyword.discoveryshort}} tooling. For more information on integrating with {{site.data.keyword.knowledgestudiofull}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-wks). The custom {{site.data.keyword.knowledgestudiofull}} model will override the default Entity Extraction enrichment.
 
 **Note:** Only one {{site.data.keyword.knowledgestudiofull}} model can be assigned to an enrichment.
 
@@ -391,7 +391,7 @@ The `score` ranges from `0.0` to `1.0`. The higher the score, the more relevant 
 #### Using a custom relation model
 {: #custom-relation-model}
 
-If you wish to create a custom enrichment model, you can do so in {{site.data.keyword.knowledgestudiofull}} and import the model into {{site.data.keyword.discoveryshort}} by adding the ID in the `Custom Model ID` box of the {{site.data.keyword.discoveryshort}} tooling. For more information on integrating with {{site.data.keyword.knowledgestudiofull}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). The custom {{site.data.keyword.knowledgestudiofull}} model will override the default Relation extraction enrichment.
+If you wish to create a custom enrichment model, you can do so in {{site.data.keyword.knowledgestudiofull}} and import the model into {{site.data.keyword.discoveryshort}} by adding the ID in the `Custom Model ID` box of the {{site.data.keyword.discoveryshort}} tooling. For more information on integrating with {{site.data.keyword.knowledgestudiofull}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-wks). The custom {{site.data.keyword.knowledgestudiofull}} model will override the default Relation extraction enrichment.
 
 **Note:** Only one {{site.data.keyword.knowledgestudiofull}} model can be assigned to an enrichment.
 
@@ -462,6 +462,7 @@ In the preceding example, you could query the keyword text by accessing `enriche
 The `relevance` score ranges from `0.0` to `1.0`. The higher the score, the more relevant the keyword.
 
 ### Category classification
+{: #category-classification}
 
 Categorizes input text, HTML, or web-based content into a hierarchical taxonomy up to five levels deep. Deeper levels allow you to classify content into more accurate and useful subsegments. View the complete list of categories [here](/docs/services/discovery/categories.html#cathierarchy).
 
@@ -523,6 +524,7 @@ In the preceding example, you can query the concept text type by accessing `enri
 The `relevance` score ranges from `0.0` to `1.0`. The higher the score, the more relevant the concept. Links to the resource(s) are provided, if applicable.
 
 ### Semantic Role extraction
+{: #semantic-role-extraction}
 
 Identifies subject, action, and object relations within sentences in the input content. Relation information can be used to automatically identify buying signals, key events, and other important actions.
 
@@ -964,6 +966,7 @@ After the preceding HTML is ingested and enhanced, the {{site.data.keyword.disco
 After deciding which HTML elements you want to extract, you can then further modify the configuration file to specify the enrichments you want to apply to them.
 
 #### Common selectors
+{: #common-selectors}
 
 Some common CSS selectors include the following:
 
@@ -1029,6 +1032,7 @@ Segmentation is setup via the API in the `conversions` section.
 `selector_tags` is an array that specifies the heading tags documents can be segmented on.
 
 #### Example
+{: #example-segmentation}
 
 Configuration:
 

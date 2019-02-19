@@ -44,7 +44,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filter
-{: #filter}
+{: #aggfilter}
 
 A modifier that will narrow down the document set of the aggregation query it precedes. This example filters down to the set of documents that include the concept Cloud computing.
 
@@ -149,6 +149,7 @@ If you specify `anomaly:true` with the `timeslice` aggregation, the output inclu
 {: codeblock}
 
 #### Limitations of anomaly detection
+{: #anomaly-limitations}
 
 - Anomaly detection is currently available only on top-level `timeslice` aggregations. It is not available in lower-level (nested) aggregations.
 - The maximum number of points that can be processed by anomaly detection in any given `timeslice` aggregation is `1500`.

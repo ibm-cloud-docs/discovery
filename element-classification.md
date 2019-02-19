@@ -128,6 +128,7 @@ If you wish to create a custom configuration file, configure your collection to 
 After selecting the `Default Contract Configuration` in the tooling, you can upload your documents. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery/getting-started-tool.html).
 
 ## Classified Elements
+{: #classified-elements}
 
 Once a document has been indexed with Element Classification, it will be returned with an `elements` array as part of the searchable document.
 

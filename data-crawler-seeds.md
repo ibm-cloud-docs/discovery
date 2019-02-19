@@ -28,6 +28,7 @@ lastupdated: "2019-01-28"
 {:go: .ph data-hd-programlang='go'}
 
 # Configuring connector and seed options
+{: #configuring-connector-and-seed-options}
 
 When crawling data, the Crawler first identifies the type of data repository (connector) and the user-specified starting location (seed) to begin downloading information.
 {: shortdesc}
@@ -84,6 +85,7 @@ Another option to upload large numbers of files into {{site.data.keyword.discove
 {: note}
 
 ### Configuring the filesystem connector
+{: #filesystem-connector}
 
 Following are the basic configuration options that are required to use the filesystem connector. To set these values, open the file `config/connectors/filesystem.conf`, and modify the following values specific to your use cases:
 
@@ -93,6 +95,7 @@ Following are the basic configuration options that are required to use the files
 -   **`classname`** - Java class name for the connector. The value to use this connector must be `plugin:filesystem.plugin@filesystem`.
 
 ### Configuring the filesystem crawl seed
+{: #filesystem-crawl-seed}
 
 The following values can be configured for the filesystem crawl seed file. To set these values, open the file `config/seeds/filesystem-seed.conf` and specify the following values specific to your use cases:
 
@@ -104,6 +107,7 @@ The following values can be configured for the filesystem crawl seed file. To se
     {: tip}
 
 ## Configuring Database crawl options
+{: #database-crawl}
 
 The database connector allows you to crawl a database by executing a custom SQL command and creating one document per row (record) and one content element per column (field). You can specify a column to be used as a unique key, as well as a column containing a timestamp representing the last-modification date of each record. The connector retrieves all records from the specified database, and can also be restricted to specific tables, joins, and so on in the SQL statement.
 
@@ -129,6 +133,7 @@ The connector retrieves all records from the specified database and table.
 1.  Change to the directory that was extracted from the archive file, and copy the JAR file from this directory to the `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` subdirectory of your Data Crawler installation directory, or you can use the `extra_jars_dir` setting in the `crawler.conf` file to specify another location.
 
 ### Configuring the Database Connector
+{: #database-connector}
 
 Following are the basic configuration options that are required to use the Database connector. To set these values, open the file config/connectors/database.conf and modify the following values specific to your use cases:
 
@@ -172,6 +177,7 @@ The following values can be configured for the Database crawl seed file. To set 
 The CMIS (Content Management Interoperability Services) connector lets you crawl CMIS-enabled CMS (Content Management System) repositories, such as Alfresco, Documentum or {{site.data.keyword.IBM}} Content Manager, and index the data that they contain.
 
 ### Configuring the CMIS Connector
+{: #cmis-connector}
 
 Following are the basic configuration options that are required to use the CMIS connector. To set these values, open the file `config/connectors/cmis.conf` and specify the following values specific to your use cases:
 
@@ -199,6 +205,7 @@ Following are the basic configuration options that are required to use the CMIS 
 -   **`ssl-version`** - Specifies a version of SSL to use for HTTPS connections. By default the strongest protocol available is used.
 
 ### Configuring the CMIS Crawl Seed
+{: #cmis-crawl-seed}
 
 The following values can be configured for the CMIS crawl seed file. To set these values, open the file `config/seeds/cmis-seed.conf` and modify the following values specific to your use cases:
 
@@ -214,6 +221,7 @@ The following values can be configured for the CMIS crawl seed file. To set thes
 The Samba connector allows you to crawl Server Message Block (SMB) and Common Internet filesystem (CIFS) fileshares. This type of fileshare is common on Windows networks, and is also provided through the open source project Samba.
 
 ### Configuring the Samba Connector
+{: #smb-cifs-samba-crawl-connector}
 
 Following are the basic configuration options that are required to use the Samba connector. To set these values, open the file `config/connectors/samba.conf` and specify the following values specific to your use cases:
 
@@ -239,6 +247,7 @@ Following are the basic configuration options that are required to use the Samba
 -   **`enqueue-persistence`** - Unused option.
 
 ### Configuring the Samba Crawl Seed
+{: #smb-cifs-samba-crawl-seed}
 
 The following values can be configured for the Samba crawl seed file. To set these values, open the file `config/seeds/samba-seed.conf` and specify the following values specific to your use cases:
 

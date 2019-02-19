@@ -28,6 +28,7 @@ lastupdated: "2019-02-08"
 {:go: .ph data-hd-programlang='go'}
 
 # Adding content with Data Crawler
+{: #adding-content-with-data-crawler}
 
 The data crawler lets you automate the upload of content to the {{site.data.keyword.discoveryshort}} Service.
 {: shortdesc}
@@ -36,6 +37,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 {: important}
 
 ## Crawling data with the Data Crawler
+{: #dc-crawling}
 
 The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases) and push them to the cloud, to be used by the {{site.data.keyword.discoveryshort}} service.
 
@@ -43,6 +45,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 {: important}
 
 ## When to use the Data Crawler
+{: #dc-use}
 
 The Data Crawler should be used if you want to have a managed upload of a significant number of files from a remote system, or you want to extract content from a supported repository (such as a DB2 database).
 
@@ -50,6 +53,7 @@ The Data Crawler is not intended to be a solution for uploading files from your 
 {: note}
 
 ## Using the Data Crawler
+{: #dc-using}
 
 1. [Configure the {{site.data.keyword.discoveryshort}} service](/docs/services/discovery/building.html#configservice)
 1. [Download and install the Data Crawler](/docs/services/discovery/data-crawler-install.html) on a supported Linux system that has access to the content that you want to crawl.

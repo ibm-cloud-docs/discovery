@@ -28,6 +28,7 @@ lastupdated: "2019-01-22"
 {:go: .ph data-hd-programlang='go'}
 
 # Query concepts
+{: #query-concepts}
 
 The {{site.data.keyword.discoveryfull}} service offers powerful content search capabilities. Once your content is uploaded and enriched by the {{site.data.keyword.discoveryshort}} service, you can build queries, then integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder.
 {: shortdesc}
@@ -111,7 +112,7 @@ Considerations:
 ## Building combined queries
 {: #building-combined-queries}
 
-You can combine query parameters together to build more targeted queries. For example. you can use the both the `filter` and `query` parameters together. For more information about filtering vs. querying, see [Differences between the filter and query parameters](/docs/services/discovery/query-parameters.html#filtervquery).
+You can combine query parameters together to build more targeted queries. For example, you can use the both the `filter` and `query` parameters together. For more information about filtering vs. querying, see [Differences between the filter and query parameters](/docs/services/discovery/query-parameters.html#filtervquery).
 
 ## How to structure an aggregation
 {: #structure-aggregation}

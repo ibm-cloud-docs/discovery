@@ -28,6 +28,7 @@ lastupdated: "2018-01-16"
 {:go: .ph data-hd-programlang='go'}
 
 # Migrating from Watson Discovery News Original
+{: #migrate-bwdn}
 
 A new version of {{site.data.keyword.discoverynewsshort}} debuted on **31, July 2017**. The original version was renamed {{site.data.keyword.discoverynewsshort}} Original and was retired from service **15, January 2018**. If you attempt to access {{site.data.keyword.discoverynewsshort}} Original, you will receive the message `410 GONE`.
 {: shortdesc}
@@ -41,6 +42,7 @@ See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html)
 For a description and information about querying {{site.data.keyword.discoverynewsshort}} Original, see [Watson Discovery News Original](/docs/services/discovery/discovery-auxiliary.html#watson-discovery-news-original).
 
 ## Service comparison
+{: #service-bwdn}
 
 | {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
@@ -74,6 +76,7 @@ The following new fields are available in **{{site.data.keyword.discoverynewssho
 Many fields have been removed as well, for example `blekko.hostrank`, `duplicate_url`, `domain`, and more. See <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>HERE <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> for a complete list.
 
 ## Moving Queries to the new Watson Discovery News
+{: #queries-bwdn}
 
 To move your queries from {{site.data.keyword.discoverynewsshort}} Original to the new {{site.data.keyword.discoverynewsshort}}, you need to modify all existing queries in the following ways:  
 
@@ -94,6 +97,7 @@ To move your queries from {{site.data.keyword.discoverynewsshort}} Original to t
   `discovery/api/v1/environments/system/collections/news/query?version=2017-11-07&query=enriched_text.entities.type:"Company"`  
 
 ## Querying Watson Discovery News
+{: #querying-bwdn}
 
 You can query {{site.data.keyword.discoverynewsshort}} by using the API or one of the {{site.data.keyword.watson}} SDKs. Additionally, you can use the query building tooling to interactively construct queries.
 
@@ -109,12 +113,14 @@ You can query {{site.data.keyword.discoverynewsshort}} by using the API or one o
 **Note:** Do not expect identical results to be returned for similar queries in {{site.data.keyword.discoverynewsshort}} Original and {{site.data.keyword.discoverynewsshort}}. Crawl time, sources, and enrichments all combine to return different results.
 
 ## Adding Watson Discovery News queries to your application
+{: #add-queries-bwdn}
 
 Use one of the following methods to add queries to your application. All of these examples query for `enriched_text.entities` with a `text` value of `IBM` (`enriched_text.entities.text:IBM`).
 
 In all of the following examples, replace `{username}` and `{password}` with the username and password that are listed in the **Service Credentials** page of your service instance.
 
 ### Using direct calls to the API
+{: #api-bwdn}
 
 ```bash
 curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
@@ -122,6 +128,7 @@ curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/
 {: pre}
 
 ### Using the Watson Java SDK
+{: #javasdk-bwdn}
 
 ```java
 Discovery discovery = new Discovery("2017-11-07");  
@@ -137,6 +144,7 @@ QueryResponse queryResponse = discovery.query(queryBuilder.build()).execute();
 {: codeblock}
 
 ### Using the Watson Node.js SDK
+{: #nodesdk-bwdn}
 
 ```javascript
 var watson = require('watson-developer-cloud');  
@@ -156,6 +164,7 @@ discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),
 {: codeblock}
 
 ### Using the Watson Python SDK
+{: #pythonsdk-bwdn}
 
 ```python
 import sys  

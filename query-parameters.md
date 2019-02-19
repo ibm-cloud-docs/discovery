@@ -246,6 +246,7 @@ To apply deduplication, use the following syntax in your query.  Replace `{field
 When deduplicating, the JSON response includes `"duplicates_removed": x`, where `x` is the number of documents removed from the results.
 
 #### Deduplicating documents in Watson Discovery News
+{: #deduplicatewds}
 
 News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. Using deduplication will remove most duplicate articles from your search queries.
 
