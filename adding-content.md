@@ -40,6 +40,7 @@ How do I decide which document upload method to use?
 -   Use the [Data Crawler](/docs/services/discovery/data-crawler.html) if you want to have a managed upload of a significant number of files, or you want to extract content from a supported repository (such as a DB2 database).
 
 ## Adding content with the API or tooling
+{: #adding-content-with-the-api-or-tooling}
 
 Consider the following when you are ready to add documents to your collection:
 
@@ -56,6 +57,7 @@ Consider the following when you are ready to add documents to your collection:
 -   If you plan to use custom tokenization (currently only available for Japanese collections when using the {{site.data.keyword.discoveryshort}} API), the tokenization dictionary for your collection must be added before uploading documents.
 
 ## Uploading documents with the Discovery tooling
+{: #upload_tooling}
 
 1.  Create a collection. See [Preparing the service for your documents](/docs/services/discovery/building.html#preparing-the-service-for-your-documents).
 1.  Click on the collection to open it.
@@ -73,6 +75,7 @@ For information on how to connect to Box, Salesforce, Microsoft SharePoint Onlin
 
 
 ## Uploading documents with the API
+{: #upload_api}
 
 See [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/services/discovery/getting-started.html) for a step-by-step tutorial.
 
@@ -82,6 +85,7 @@ For more information about the API, see the [API reference ![External link icon]
 1.  Then use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method to add documents to your collection.
 
 ## Crawling URLs
+{: #crawl_urls}
 
 You can crawl URLs and index them using the {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} Service [Indexing plugin for Apache Nutch ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Watson/nutch-indexer-discovery). The crawl does not update automatically, so the procedure will need to be repeated periodically to keep the index up-to-date. 
 

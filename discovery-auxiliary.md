@@ -28,6 +28,7 @@ lastupdated: "2018-02-28"
 {:go: .ph data-hd-programlang='go'}
 
 # Discovery archives
+{: #discovery-archives}
 
 This topic contains information about {{site.data.keyword.discoveryshort}} features that have been replaced with newer options.
 {: tip}
@@ -35,14 +36,16 @@ This topic contains information about {{site.data.keyword.discoveryshort}} featu
 ## AlchemyLanguage enrichments
 {: #AlchemyLanguage-enrichments}
 
-{{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
+{{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrate-nlu).
 
 ## Watson Discovery News Original
+{: #watson-discovery-news-original}
 
 {{site.data.keyword.discoverynewsfull}} Original was retired from service **15 January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](watson-discovery-news.html) for more information.
 For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
 
 ### Querying Watson Discovery News Original
+{: #querying-wds-original}
 
 {{site.data.keyword.discoverynewsfull}} Original was retired from service **15 January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) for more information. For information on querying the new version, see [Querying Watson Discovery News](/docs/services/discovery/using.html#querying-news).
 

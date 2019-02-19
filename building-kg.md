@@ -30,7 +30,7 @@ lastupdated: "2018-06-09"
 # Watson Discovery Knowledge Graph
 {: #kg}
 
-Knowledge graphs go beyond just data and information by making connections within your data across documents and generating new knowledge. We provide the AI technology that automatically creates custom knowledge graphs from unstructured data by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and ranking the results using relevance algorithms. Knowledge Graphs can function as the "knowledge hub" for your company and can be used for enterprise search, summarization, recommendation engines, other decision making processes - for example, detecting fraud, waste, or abuse. The use of a custom model (created in {{site.data.keyword.knowledgestudioshort}}) in the Knowledge Graph creation process, can help build domain specific KGs with applicability in domains such as financial, technology, security, intelligence, healthcare and many others. See [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html) for more information about integrating {{site.data.keyword.discoveryshort}} with {{site.data.keyword.knowledgestudioshort}}.
+Knowledge graphs go beyond just data and information by making connections within your data across documents and generating new knowledge. We provide the AI technology that automatically creates custom knowledge graphs from unstructured data by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and ranking the results using relevance algorithms. Knowledge Graphs can function as the "knowledge hub" for your company and can be used for enterprise search, summarization, recommendation engines, other decision making processes - for example, detecting fraud, waste, or abuse. The use of a custom model (created in {{site.data.keyword.knowledgestudioshort}}) in the Knowledge Graph creation process, can help build domain specific KGs with applicability in domains such as financial, technology, security, intelligence, healthcare and many others. See integrating-with-watson-knowledge-studio for more information about integrating {{site.data.keyword.discoveryshort}} with {{site.data.keyword.knowledgestudioshort}}.
 
 
 Two RESTful end-points added to {{site.data.keyword.discoveryfull}} provide the ability to search for disambiguated, enriched entities and relations across documents in unstructured document collections. Search results can be rank ordered by relevance or popularity. In addition to a search token, the APIs can use optional context word(s) or passages that finds more relevant entities and relations within the large automatically created knowledge graph.
@@ -46,16 +46,18 @@ This connected graph of knowledge and ranking techniques facilitates the followi
 -  Inferences and aggregations across documents by querying for entities and relationships in a connected graph of knowledge. Some examples of such queries are: How is person X connected to person Y? What is the sphere of influence of person X?
 
 ## Service requirements
+{: #kg_servreq}
 
 During the beta release, Knowledge Graph functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all dedicated environments.
 
 This beta feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details.
 
 ## Collection requirements
+{: #kg_collreq}
 
 {{site.data.keyword.discoveryshort}} uses Entities and Relationships extracted from ingested documents to form the Knowledge Graph and allow entity and relationship queries.
 
-**Note:** [Entity similarity](/docs/services/discovery/building-kg.html#similarity), [Evidence](/docs/services/discovery/building-kg.html#evidence), and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#canonicalization) are available in all collections. For collections created before `03-05-2018`, you need to reingest your documents to use these features.
+**Note:** [Entity similarity](/docs/services/discovery/building-kg.html#kg_similarity), [Evidence](/docs/services/discovery/building-kg.html#kg_evidence), and [Canonicalization and filtering](/docs/services/discovery/building-kg.html#kg_canonicalization) are available in all collections. For collections created before `03-05-2018`, you need to reingest your documents to use these features.
 
 **Note:** Knowledge Graph can be used on private data collections only, it is not designed for use with {{site.data.keyword.discoverynewsshort}}.
 
@@ -116,7 +118,7 @@ Create a custom configuration as follows, after creating a {{site.data.keyword.d
 1. After the custom configuration has been uploaded it can be used in any collection that you create, any method to upload documents can be used as long as the custom configuration is specified. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery/getting-started-tool.html). When you get to [step 3](/docs/services/discovery/getting-started-tool.html#create-custom-configuration) select `Knowledge Graph Configuration` instead of creating a new configuration.
 
 ## Canonicalization and filtering
-{: #canonicalization}
+{: #kg_canonicalization}
 
 All entities in documents ingested on or after `5 March 2018` will be automatically be normalized with canonical names derived from a public dictionary. In addition, any pronouns included in entities or relations for example: `he`, `she`, `they`, or `it` will automatically be filtered out before ingestion into Knowledge Graph. Documents ingested before `5 March 2018` will not include this level of canonicalization and filtering; you should create new collections and reingest your documents to utilize this feature.
 
@@ -124,9 +126,9 @@ When building an entities query or a relations query in Knowledge Graph, you can
 
 
 ## Entities queries
-{: #entities}
+{: #kg_entities}
 
-The beta release of the Knowledge Graph entities query supports context-based entity [disambiguation](/docs/services/discovery/building-kg.html#disambiguation) and [similarity](/docs/services/discovery/building-kg.html#similarity) queries. A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the `v1/environments/{environment_id}/collections/{collection_id}/query_entities` endpoint.
+The beta release of the Knowledge Graph entities query supports context-based entity [disambiguation](/docs/services/discovery/building-kg.html#kg_disambiguation) and [similarity](/docs/services/discovery/building-kg.html#kg_similarity) queries. A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the `v1/environments/{environment_id}/collections/{collection_id}/query_entities` endpoint.
 
 You can query entities using the API, or with the {{site.data.keyword.discoveryshort}} tooling. See [Querying Knowledge Graph using the Discovery tooling](/docs/services/discovery/building-kg.html#querying-kg) for tooling information.
 
@@ -149,7 +151,7 @@ The Knowledge Graph entity query JSON object takes the following form:
 ```
 {: codeblock}
 
--  `"feature": string` _required_ - the entity query feature to be used. Supported features are: [disambiguate](/docs/services/discovery/building-kg.html#disambiguation) and [similar_entities](/docs/services/discovery/building-kg.html#similarity).
+-  `"feature": string` _required_ - the entity query feature to be used. Supported features are: [disambiguate](/docs/services/discovery/building-kg.html#kg_disambiguation) and [similar_entities](/docs/services/discovery/building-kg.html#kg_similarity).
 -  `"entity": {}` _required_ - an object that contains the entity information to disambiguate.
    -  `"text": string` _required_ - the entity text that will be disambiguated
    -  `"type": string` _optional_ - the optional entity type to disambiguate against, if not specified, all types are included.
@@ -157,7 +159,7 @@ The Knowledge Graph entity query JSON object takes the following form:
 -  `"context": {}` _optional_ - an optional object that includes contextual requirements for the disambiguation.
    -  `"text": string` _optional_ - entity text to provide context for the queried entity and rank based on that association. For example, if you wanted to query the city of London in England your query would look for `London` with the context of `England`. Input can be partial names or large passages containing relevant entity terms. Multiple terms can be passed together.
 -  `"count": INT` _optional_ - The number of disambiguated entities to return. The default is `10`. The maximum is `1000`
--  `"evidence_count": INT` _optional_ The number of evidence instances to return for each identified entity. The default is `0`. The maximum value for the `evidence_count` field is 10,000 divided by the number specified in the `count` field. See the [Evidence](/docs/services/discovery/building-kg.html#evidence) section of this page for a detailed description and examples.
+-  `"evidence_count": INT` _optional_ The number of evidence instances to return for each identified entity. The default is `0`. The maximum value for the `evidence_count` field is 10,000 divided by the number specified in the `count` field. See the [Evidence](/docs/services/discovery/building-kg.html#kg_evidence) section of this page for a detailed description and examples.
 
 The query returns results of the following form:
 
@@ -187,7 +189,7 @@ If no match is found, the following JSON object is returned:
 {: codeblock}
 
 ### Entity disambiguation
-{: #disambiguation}
+{: #kg_disambiguation}
 
 Knowledge Graph entities query provides context-based entity disambiguation. Based on the entity text provided and optional context text, `disambiguation` identifies unique entities and returns a list of the entities ranked based on the context information.
 
@@ -197,7 +199,7 @@ For example, disambiguating the entity text `Steve` in the context of `iphone` c
 
 
 ### Entity similarity
-{: #similarity}
+{: #kg_similarity}
 
 Knowledge Graph entities query provides context-based entity similarity detection. Based on the entity text provided and optional context text, `similar_entities` identifies unique entities and returns a list of the entities ranked based on the context information.
 
@@ -206,7 +208,7 @@ An entity similarity query is requested by specifying `"similar_entities"` as th
 For example, if you looked for similar entities to `Ford` in the context `car`, similar entity results could include `GM`, `Toyota`, and `Nissan`.
 
 ## Relations queries
-{: #relations}
+{: #kg_relations}
 
 Knowledge Graph relations queries supports finding most relevant relationships based on input entities using implicit entity disambiguation, context based relationships, sorting by relevance score and mention count, and filtering by types and document ids.
 
@@ -260,7 +262,7 @@ A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the 
       -  `"include": []` _optional_ a comma separated list of entity types explicitly include in the query. If specified, all other types are considered excluded.
    -  `"document_ids": []` _optional_ a comma separated list of documents on which to perform the relationship query on.
 -  `"count": INT` _optional_ The number of relations to return. The default is `10`. The maximum is `1000`.
--  `"evidence_count": INT` _optional_ The number of evidence instances to return for each identified relation. The default is `0`. The maximum value for the `evidence_count` field is 10,000 divided by the number specified in the `count` field. See the [Evidence](/docs/services/discovery/building-kg.html#evidence) section of this page for a detailed description and examples.
+-  `"evidence_count": INT` _optional_ The number of evidence instances to return for each identified relation. The default is `0`. The maximum value for the `evidence_count` field is 10,000 divided by the number specified in the `count` field. See the [Evidence](/docs/services/discovery/building-kg.html#kg_evidence) section of this page for a detailed description and examples.
 
 The query returns results in the following form:
 
@@ -306,7 +308,7 @@ If no match is found, the following JSON object is returned:
 {: codeblock}
 
 ## Evidence
-{: #evidence}
+{: #kg_evidence}
 
 For some entity or relationship queries it may be valuable to understand where the connections were identified. Evidence of the connections will let you reference the original document, clarify the results, or further disambiguate as appropriate. Beginning with collections created after `03-05-2018`, both the `query_entities` and `query_relations` endpoints have the option of providing evidence in the returned results. This feature is available for collections created before `03-05-2018`, but documents will need to be reingested to use this feature on those older collections.
 
@@ -392,7 +394,7 @@ In `query_relations` each object in the `relations` array will contain the speci
 ## Querying Knowledge Graph using the Discovery tooling
 {: #querying-kg}
 
-Those with service instances subscribed to the [**Advanced**](/docs/services/discovery/building-kg.html#service-requirements) plan can query private collections with Knowledge Graph using the {{site.data.keyword.discoveryshort}} tooling.  
+Those with service instances subscribed to the [**Advanced**](/docs/services/discovery/building-kg.html#kg_servreq) plan can query private collections with Knowledge Graph using the {{site.data.keyword.discoveryshort}} tooling.  
 
 To access Knowledge Graph querying in the {{site.data.keyword.discoveryshort}} tooling:
 

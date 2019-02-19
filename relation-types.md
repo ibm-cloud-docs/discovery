@@ -28,6 +28,7 @@ lastupdated: "2017-11-15"
 {:go: .ph data-hd-programlang='go'}
 
 # Relation types
+{: #relation-types}
 
 The following table lists the possible relation types that are returned by the [Relation Extraction](/docs/services/discovery/building.html#relation-extraction) enrichment.
 {: shortdesc}

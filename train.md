@@ -28,6 +28,7 @@ lastupdated: "2019-01-14"
 {:go: .ph data-hd-programlang='go'}
 
 # Improving result relevance with the API
+{: #improving-result-relevance-with-the-api}
 
 You can train the {{site.data.keyword.discoveryshort}} service to improve the relevance of query results for your particular organization or subject area. When you provide a {{site.data.keyword.discoveryshort}} instance with *training data*, the service uses machine-learning Watson techniques to find signals in your content and questions. The service then reorders query results to display the most relevant results at the top. As you add more training data, the service instance becomes more accurate and sophisticated in the ordering of results it returns.
 {: shortdesc}
@@ -79,6 +80,7 @@ Training cannot exceed the following **maximum** requirements:
   - Within a single collection, you are limited to 10,000 training queries, with a maximum of 100 examples per query. 
 
 ## Adding a query to the training-data set
+{: #adding-a-query}
 
 Use the `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data` method to add a query to a collection's set of training data. The query is specified as a JSON object in the following format:
 
@@ -167,6 +169,7 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
 {: pre}
 
 ## Adding an example to a training-data query
+{: #adding-an-example}
 
 After you create a training-data query, you can continue to add examples to it to improve the accuracy of the training. Use the `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data/{query_id}` to add an example to an existing training-data query.
 

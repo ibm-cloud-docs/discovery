@@ -29,11 +29,13 @@ lastupdated: "2018-06-09"
 
 
 # Tutorial: Migrating from Retrieve and Rank
+{: #migrate-rnr}
 
 Migrating from {{site.data.keyword.retrieveandrankshort}} to the {{site.data.keyword.discoveryfull}} service. A continuation of the Cranfield Getting Started Tutorial
 
 ## Overview
-{: #overview}
+{: #overview-rnr}
+
 This tutorial guides you through the process of creating and training a {{site.data.keyword.discoveryfull}} Service with sample data. This tutorial uses the same data set used in the [{{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial](/docs/services/retrieve-and-rank/getting-started.html), but you can use the same approach to create a service instance that uses your own data.
 
 The process for users migrating data from {{site.data.keyword.retrieveandrankshort}} to {{site.data.keyword.discoveryshort}} consists of two main steps.
@@ -64,6 +66,7 @@ The following pre-requisites are necessary before beginning this tutorial:
    -  Copy the `apikey` value and make sure that the `url` value matches the one in the examples below, if it doesn't, replace it as well.
 
 ## Adding Cranfield data to Discovery
+{: #cranfield-rnr}
 
 1.  Create an Environment.
 
@@ -143,6 +146,7 @@ Look at the section `document_counts` to see how many documents were uploaded su
 The `training` section of the return gives you information about your training. We'll review that section after you upload your training data.
 
 ## Adding Training data into Discovery
+{: #trainingdata-rnr}
 
 Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning model to re-rank documents. To do so you need to train a model. Training occurs after you have loaded enough queries along with the appropriate rated documents. By loading enough examples with enough variance to Watson {{site.data.keyword.discoveryshort}}, you are teaching it what a "good" document is. In this step, we will use the existing Cranfield "ground truth" that is used in {{site.data.keyword.retrieveandrankshort}} to train Watson {{site.data.keyword.discoveryshort}}.
 
@@ -164,7 +168,7 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 1.  Once the data is loaded, you can check the status of training using the collection details command we saw in the previous section. {{site.data.keyword.discoveryshort}} will check about once per hour to see if there is any new data, and if there is it will begin processing it and turn it into a machine learning model. When a model is training, you will see the state of the training section change from `"processing": false` to `"processing": true`. Once the model has been trained, you will see the state in the training section to change from `"available": false` to `"available": true`. You will also see the date change for the value `"successfully_trained"`.  If there are any errors, you can view them by looking at the **notices API** as described in the previous section.
 
 ## Search for documents
-{: search}
+{: #search-rnr}
 
 The {{site.data.keyword.discoveryshort}} service will automatically use a trained model to re-rank search results if available. When [an API call ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
 

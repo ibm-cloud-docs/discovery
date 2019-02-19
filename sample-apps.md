@@ -28,6 +28,7 @@ lastupdated: "2018-11-29"
 {:go: .ph data-hd-programlang='go'}
 
 # Sample Apps
+{: #sample-apps}
 
 Learn more about {{site.data.keyword.discoveryfull}} from these sample applications and labs.
 {: shortdesc}

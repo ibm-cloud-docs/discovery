@@ -28,6 +28,7 @@ lastupdated: "2018-02-28"
 {:go: .ph data-hd-programlang='go'}
 
 # Migrating enrichments to Natural Language Understanding
+{: #migrate-nlu}
 
 Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU). {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**. 
 {: shortdesc}
@@ -55,6 +56,7 @@ The seven enrichments available in {{site.data.keyword.alchemylanguageshort}} an
 For more information about {{site.data.keyword.nlushort}} enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments)
 
 ## Overview of major changes
+{: #overview-nlu}
 
 - The JSON schema for {{site.data.keyword.nlushort}} enrichments differs from the one used in the {{site.data.keyword.alchemylanguageshort}} enrichments, for a full list of the changes to each enrichment, see: [Enrichment schema differences](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences).
 - The _Taxonomy Classification_ ({{site.data.keyword.alchemylanguageshort}}) enrichment is now named _Category Classification_. Its JSON object name has been changed from `taxonomy` to `categories`.
@@ -63,12 +65,14 @@ For more information about {{site.data.keyword.nlushort}} enrichments, see [Addi
 - The JSON object name for _Emotion Analysis_ has been changed from `docEmotions` to `emotion`.
 
 ## Configuration file changes
+{: #config-nlu}
 
 The **{{site.data.keyword.alchemylanguageshort}}** default configuration file (named `Default configuration` in the tooling) applied the following enrichments to the text field of your documents: **Entity Extraction**, **Keyword Extraction**, **Taxonomy Classification**, **Concept Tagging**, **Relation Extraction**, and **Sentiment Analysis**. The file also includes standard document conversions based on font styles and sizes.
 
 The **{{site.data.keyword.nlushort}}** default configuration file is named `Default Configuration with NLU`, and applied the following enrichments to the text field of your documents: **Entity Extraction**, **Sentiment Analysis**, **Category Classification**, and **Concept Tagging**. The file also includes standard document conversions based on font styles and sizes. These document conversions are identical to the ones in the {{site.data.keyword.alchemylanguageshort}} default configuration file.
 
 ## Migrating your configurations, collections, and queries
+{: #migrateconfig-nlu}
 
 If you have created any custom configurations, you need to create new ones that use the {{site.data.keyword.nlushort}} enrichments. For instructions, see these docs:
 
@@ -83,6 +87,7 @@ If you have existing collections that have either the {{site.data.keyword.alchem
 For any queries you have created using the Discovery Query Language, you need to examine the JSON schema changes between {{site.data.keyword.alchemylanguageshort}} and {{site.data.keyword.nlushort}} and update your queries and Query URLs accordingly. See [Enrichment schema differences](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences) for details.
 
 ## Enrichment schema differences
+{: #enrichment-schema-differences}
 
 The following table shows the differences between the JSON schema for {{site.data.keyword.nlushort}} enrichments and {{site.data.keyword.alchemylanguageshort}} enrichments.
 

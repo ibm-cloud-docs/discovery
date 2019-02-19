@@ -28,6 +28,7 @@ lastupdated: "2018-12-11"
 {:go: .ph data-hd-programlang='go'}
 
 # Improving result relevance with the tooling
+{: #improving-result-relevance-with-the-tooling}
 
 The relevance of natural language query results can be improved in the {{site.data.keyword.discoveryfull}} service with training. You can train your private collections using either the {{site.data.keyword.discoveryshort}} tooling, or the {{site.data.keyword.discoveryshort}} APIs. See [Improving the relevance of your query results with the API](/docs/services/discovery/train.html) if you would prefer to use the APIs.
 {: shortdesc}
@@ -73,6 +74,7 @@ To return to the **Manage data** screen, click the name of the collection on the
 If you would like to delete all of the training data in your collection at one time, you must do so via the API. See [Delete all training data for a collection](https://{DomainName}/apidocs/discovery#delete-all-training-data) for more information. For more information about training via the API, see [Improving the relevance of your query results with the API](/docs/services/discovery/train.html).
 
 ## Testing and iterating on the relevancy of results
+{: #testing-results}
 
 After you have completed rating results, and Watson has applied the training, you should test to see if your query results have improved. To do so, run test queries that are related (but not identical to) your training queries. Check to see if the results of your test queries have improved.
 

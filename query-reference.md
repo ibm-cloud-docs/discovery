@@ -28,6 +28,7 @@ lastupdated: "2018-10-04"
 {:go: .ph data-hd-programlang='go'}
 
 # Query reference
+{: #query-reference}
 
 The {{site.data.keyword.discoveryfull}} service offers powerful content search capabilities through queries. After your content is uploaded and enriched by the {{site.data.keyword.discoveryshort}} service, you can build queries, integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder.
 {: shortdesc}
@@ -67,6 +68,7 @@ Query parameters enable you to search your collection, identify a result set, an
 | [similar.fields](/docs/services/discovery/query-parameters.html#similar_fields) | Which fields to compare when finding similar documents | `similar.fields=text,title` |
 
 ### Query limitations
+{: #query-limitations}
 
 You cannot query on field names that contain the following:
 - Numerical characters (`0 - 9`) in the suffix of the field name (for example `extracted-content2`).
@@ -105,7 +107,7 @@ Aggregations return a set of data values. These are the available aggregations:
 | Aggregation | Description | Example |
 |:-------------------:|------------------------------------------------------------|--------------------------------|
 | [term](/docs/services/discovery/query-aggregations.html#term) | Count of identical values | `term(enriched_text.concepts.text,count:10)` |
-| [filter](/docs/services/discovery/query-aggregations.html#filter) | Filter results set to defined pattern | `filter(enriched_text.concepts.text:cloud computing)`
+| [filter](/docs/services/discovery/query-aggregations.html#aggfilter) | Filter results set to defined pattern | `filter(enriched_text.concepts.text:cloud computing)`
 | [nested](/docs/services/discovery/query-aggregations.html#nested) | Restrict aggregation | `nested(enriched_text.entities)` |
 | [histogram](/docs/services/discovery/query-aggregations.html#histogram) | Interval based distribution | `histogram(product.price,interval:1)` |
 | [timeslice](/docs/services/discovery/query-aggregations.html#timeslice) | Time base distribution | `timeslice(last_modified,2day,America/New York)` |

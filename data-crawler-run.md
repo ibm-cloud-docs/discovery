@@ -28,6 +28,7 @@ lastupdated: "2019-01-28"
 {:go: .ph data-hd-programlang='go'}
 
 # Crawling your data repository
+{: #crawling-your-data-repository}
 
 After the crawler options have all been properly configured, you can run a crawl against your data repository.
 {: shortdesc}
@@ -43,6 +44,7 @@ Run the following command: `crawler`
 The crawler prompts you with documentation that explains what to do. You can run a test crawl, or run a crawl, in addition to other crawl options.
 
 ## Running a test crawl
+{: #running-test-crawl}
 
 Run the following command: `crawler testit`
 
@@ -55,6 +57,7 @@ The path to the configuration file passed in the `--config` option must be a qua
 Additionally, you can set the limit for the number of enqueued URLs that are displayed as an option for the testit command, for example: `crawler testit --limit [number]`
 
 ## Running a crawl
+{: #running-crawl}
 
 Run the following command: `crawler crawl`
 
@@ -65,6 +68,7 @@ You can also specify a custom configuration file as an option for the crawl comm
 The path to the configuration file passed in the `--config` option must be a qualified path. That is, it must be in relative formats, such as `config/myconfigfile.conf` or `./myconfigfile.conf`, or in an absolute path such as `/path/to/config/myconfigfile.conf`.
 
 ## Restarting a crawl
+{: #restarting-crawl}
 
 Run the following command: `crawler restart`
 
@@ -75,6 +79,7 @@ You can also specify a custom configuration file as an option for the restart co
 The path to the configuration file passed in the `--config` option must be a qualified path. That is, it must be in relative formats, such as `config/myconfigfile.conf` or `./myconfigfile.conf`, or in an absolute path such as `/path/to/config/myconfigfile.conf`.
 
 ## Resuming a crawl
+{: #resuming-crawl}
 
 Run the following command: `crawler resume`
 
@@ -85,6 +90,7 @@ You can also specify a custom configuration file as an option for the resume com
 The path to the configuration file passed in the `--config` option must be a qualified path. That is, it must be in relative formats, such as `config/myconfigfile.conf` or `./myconfigfile.conf`, or in an absolute path such as `/path/to/config/myconfigfile.conf`.
 
 ## Refreshing a crawl
+{: #refresh-crawl}
 
 Run the following command: `crawler refresh`
 

@@ -28,6 +28,7 @@ lastupdated: "2019-01-08"
 {:go: .ph data-hd-programlang='go'}
 
 # Integrating with Watson Knowledge Studio
+{: #integrating-with-wks}
 
 You can integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom entity and relations enrichments.
 {: shortdesc}
@@ -37,6 +38,7 @@ This gives you the flexibility to apply the {{site.data.keyword.discoveryshort}}
 You can use the service API or the {{site.data.keyword.discoveryshort}} tooling to integrate a {{site.data.keyword.knowledgestudioshort}} model with the {{site.data.keyword.discoveryshort}} service.
 
 ## Before you begin
+{: #wks-beforeintegration}
 
 Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with the {{site.data.keyword.discoveryshort}} service, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with the {{site.data.keyword.discoveryshort}} service.
 
@@ -209,5 +211,6 @@ You cannot apply multiple custom models to the same field using the {{site.data.
 When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you switch an existing collection to a new configuration file after documents have been uploaded, those uploaded documents will remain converted by the original configuration file. Any documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents.
 
 ## Next Steps
+{: #wks-nextsteps}
 
 Use the {{site.data.keyword.discoveryshort}} service with your new configuration to ingest private data. Documents you ingest with the updated configuration are automatically enriched with the data from your custom model.

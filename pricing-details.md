@@ -28,6 +28,7 @@ lastupdated: "2019-01-29"
 {:go: .ph data-hd-programlang='go'}
 
 # Discovery pricing plans
+{: #discovery-pricing-plans}
 
 The {{site.data.keyword.discoveryfull}} service offers three plans -- **Lite**, **Advanced**, and **Premium** -- that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
@@ -83,7 +84,7 @@ XXX-Large | 12 TB | Up to 100M docs per month | Starting at $45,000 per month
 
 X-Small is the smallest environment available, and is recommended for development and testing only.\*\*\*\*\*
 
-Moving from one level of Advanced to another does not require the creation of new instances. New instances will be required if switching from an Advanced to a Premium plan. For information about upgrading from one tier of Advanced to another, see [Moving from one Advanced tier to another](/docs/services/discovery/upgrading.html#advanced).
+Moving from one level of Advanced to another does not require the creation of new instances. New instances will be required if switching from an Advanced to a Premium plan. For information about upgrading from one tier of Advanced to another, see [Moving from one Advanced tier to another](/docs/services/discovery/upgrading.html).
 
 \*\*\*\*\*Attributes of X-Small plans: 
 - 1 environment
@@ -106,6 +107,7 @@ Over 100,000 queries (per month): $0.03 per query<br>
 5,000 query expansions with 25,000 total terms
 
 ## Premium
+{: #premiumplan}
    
 Premium plans offer developers and organizations a single tenant instance of one or more Watson services for better isolation and security. These plans offer compute-level isolation on the existing shared platform, as well as end-to-end encrypted data while in transit and at rest. 
 
@@ -133,6 +135,7 @@ For information about IBM Cloud security, see [Cloud Services data security and 
 For additional pricing information, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window}.
 
 ## Notes for Customers with Existing Plans
+{: #pricingnotes}
 
 - Beginning **August 1, 2018**, your billing and usage will be based on this pricing plan.
 - The Lite plan has been reduced from 2,000 documents/400 {{site.data.keyword.discoverynewsshort}} queries per month to 1,000 documents/200 {{site.data.keyword.discoverynewsshort}} queries per month.  If you have already exceeded the new Lite plan limits, you can't add any more documents. However, you can continue using it or upgrade to an Advanced or Premium plan.

@@ -28,6 +28,7 @@ lastupdated: "2019-02-06"
 {:go: .ph data-hd-programlang='go'}
 
 # Getting started with querying
+{: #getting-started-with-querying}
 
 In this tutorial, we will learn how to write a few different types of queries in the {{site.data.keyword.discoveryshort}} Query Language.
 {: shortdesc}
@@ -42,6 +43,7 @@ You can also write natural language queries (such as "IBM Watson partnerships") 
 {: tip}
 
 ## Before you begin
+{: #querying-before-you-begin}
 
 Go to the **Manage data** screen and create a new collection named {{site.data.keyword.IBM_notm}} Press Releases, and add these four documents to it: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
 
@@ -49,6 +51,7 @@ In some browsers, the link open in a new window instead of saving locally. If th
 {: tip}
 
 ## Step 1: Quick tour of the Discovery data schema
+{: #querying-step1}
 
 Let's start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To understand how to build a query using the {{site.data.keyword.discoveryshort}} Query Language, it helps to be familiar with the JSON produced by {{site.data.keyword.discoveryshort}} after it enriches the documents in your collection.
 
@@ -69,6 +72,7 @@ If your query does not return any matching results, and you think it should, try
 {: tip}    
 
 ## Step 2: Build a basic query
+{: #querying-step2}
 
 Let's start out by writing a query that will find the concept `Cloud computing` in your collection:
 
@@ -86,6 +90,7 @@ If you'd like to check out a few pre-built queries, click the **Use a sample que
 {: tip}
 
 ## Step 3: Experiment with different queries
+{: #querying-step3}
 
 Try out these queries:
 
@@ -105,6 +110,7 @@ To return all documents that contain the entity `IBM`, but not the entity `Watso
    The query `enriched_text.entities.text:IBM,enriched_text.entities.text:!Watson` will display under the **Visual Query Builder**. The operator `:!` specifies "does not contain".
 
 ## Step 4: Build a combined query
+{: #querying-step4}
 
 You can combine query parameters together to build more targeted queries. Let's try using both the `filter` and `query` parameters to return documents about {{site.data.keyword.IBM_notm}} acquisitions. The filter parameter will narrow down the results to only documents that mention `IBM`, and then the query parameter will return all results about `acquisitions`,in order of relevance.
 
@@ -125,6 +131,7 @@ You can combine query parameters together to build more targeted queries. Let's 
 1.  Click **Run query**. There will be one matching document: `"matching_results": 1`
 
 ## Step 5: Building an aggregation
+{: #querying-step5}
 
 Aggregations return a set of data values; for example, top keywords, overall sentiment of entities, and more.
 
@@ -142,6 +149,7 @@ Try building this aggregation - it will return the top 10 concepts in the {{site
 1.  Click **Run query**. The top 10 concepts will be displayed in both the **Summary** and **JSON** tabs. Here is an example of the Summary:
 
 ## Step 6: Build a query in Watson Discovery News
+{: #querying-step6}
 
 {{site.data.keyword.discoverynewsshort}}, is a public data set that has been pre-enriched with cognitive insights. It is included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) for more information about this collection.
 

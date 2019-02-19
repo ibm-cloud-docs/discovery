@@ -28,6 +28,7 @@ lastupdated: "2019-01-28"
 {:go: .ph data-hd-programlang='go'}
 
 # Configuring the Data Crawler
+{: #configuring-the-data-crawler}
 
 To set up the Data Crawler to crawl your repository, you must specify the appropriate input adapter in the `crawler.conf` file, and then configure repository-specific information in the input adapter configuration files.
 {: shortdesc}

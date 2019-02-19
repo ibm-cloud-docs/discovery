@@ -28,6 +28,7 @@ lastupdated: "2019-01-28"
 {:go: .ph data-hd-programlang='go'}
 
 # Downloading and installing the Data Crawler
+{: #downloading-and-installing-the-data-crawler}
 
 The Data Crawler collects the raw data that is eventually used to form search results for the {{site.data.keyword.discoveryshort}} service. When crawling data repositories, the crawler downloads documents and metadata, starting from a user-specified seed URL. The crawler discovers documents in a hierarchy, or otherwise linked from the seed URL, and enqueues these for retrieval.
 {: shortdesc}
@@ -36,6 +37,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 {: important}
 
 ## Prerequisites
+{: #dc-prerequisites}
 
 -   Java Runtime Environment version 8 or higher
 
@@ -46,6 +48,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 -   Minimum 2 GB RAM on the Linux system
 
 ## Download and install the Data Crawler
+{: #dc-download-install}
 
 1.  Open a browser and log into your [{{site.data.keyword.Bluemix}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){: new_window}.
 
@@ -75,6 +78,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 1.  You are now ready to [configure the Data Crawler to connect to your repository](/docs/services/discovery/data-crawler-seeds.html)
 
 ## Data Crawler structure
+{: #dc-structure}
 
 The Data Crawler download places the following folders on your system:
 
@@ -88,6 +92,7 @@ The Data Crawler download places the following folders on your system:
     -   `man` - In-product manual page crawler documentation.
 
 ## Known limitations in this release
+{: #dc-limitations}
 
 -   The Data Crawler may hang when running the Filesystem connector with an invalid or missing URL.
 -   Configure the `urls_to_filter` value in the `crawler.conf` file, such that all the whitelist URLs or RegExes are included in a single RegEx expression. See [Configuring crawl options](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options) for more information.

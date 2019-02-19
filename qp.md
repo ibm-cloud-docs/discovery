@@ -33,6 +33,7 @@ lastupdated: "2018-12-18"
 Query performance in {{site.data.keyword.discoveryshort}} is dependent on a number of factors. 
 
 ## Evaluating performance 
+{: #qp-evaluate}
 
 If you expect high simultaneous load on your application, it is important to evaluate the performance of your {{site.data.keyword.discoveryshort}} application. There are several dimensions commonly used to measure performance:
 1.  **Response latency** - The time it takes for {{site.data.keyword.discoveryshort}} to return the results of your query. 
@@ -48,10 +49,12 @@ If you expect high simultaneous load on your application, it is important to eva
 Query performance in {{site.data.keyword.discoveryshort}} will vary based on a number of factors, including plan size, query complexity, features used, and collection size and complexity.
 
 ### Plan size
+{: #qp-plansize}
 
 {{site.data.keyword.discoveryshort}} pricing plans limit the number of available documents and also provide differing ability to handle query load. The larger the plan size, the more resources that will be available to handle queries. The average rate limits also vary by plan size. Upgrading your plan can improve performance. See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery/pricing-details.html#discovery-pricing-plans) for plans and limits. 
 
 ### Query complexity
+{: #qp-query}
 
 There are many ways to run queries against {{site.data.keyword.discoveryshort}} and the different operations used can impact performance. These query characteristics can impact performance:
 
@@ -64,6 +67,7 @@ There are many ways to run queries against {{site.data.keyword.discoveryshort}} 
 See [Query reference](/docs/services/discovery/query-reference.html) for details.
 
 ### Features used
+{: #qp-features}
 
 There are a number of features that enhance query results. The following features can impact performance:
  
@@ -71,7 +75,8 @@ There are a number of features that enhance query results. The following feature
 1.   **Relevancy Training** - Relevancy training computes features for each top-level text field (fields at the same level as `document_id` in the JSON) in the collection. If there are many top level fields, this can cause a performance impact for a `natural_language_query` when using training. Reducing the number of top level fields can improve performance. This can be done via normalization or by manually editing the JSON to put fields that are not helpful to finding relevant content in a nested structured. Changing the fields used for training also has an impact on the model so you’ll need to consider both the impact to performance and accuracy of results if making this change. See [Improving result relevance](/docs/services/discovery/train-tooling.html#improving-result-relevance-with-the-tooling) for more information on relevancy training.
 1.  **Continuous Relevancy Training** - Continuous relevancy training searches across all collections in an environment. The more collections in an environment, the larger the impact on performance.  See [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html#crt) for more information.
 
-### Collection size and complexity 
+### Collection size and complexity
+{: #qp-collection} 
 
 The makeup of the documents in a private collection can also impact query performance:
 1.  **Total number of documents** - Performance may be affected when approaching the upper limits of `Number of Documents` for Advanced plan sizes. 

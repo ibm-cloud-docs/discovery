@@ -28,6 +28,7 @@ lastupdated: "2019-01-28"
 {:go: .ph data-hd-programlang='go'}
 
 # Getting started with the Data Crawler
+{: #getting-started-with-the-data-crawler}
 
 This topic explains how to use the data crawler to ingest files from your local filesystem, to use with the {{site.data.keyword.discoveryfull}} service.
 {: shortdesc}
@@ -38,6 +39,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 Before attempting this task, create an instance of the {{site.data.keyword.discoveryshort}} service in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
 
 ## Create an environment
+{: #dc-create-environment}
 
 Use the bash POST /v1/environments method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents. The following example creates an environment that is called `my-first-environment`:
 
@@ -56,6 +58,7 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 {: pre}
 
 ## Create a collection
+{: #dc-create-collection}
 
 Next, use the `POST /v1/environments/{environment_id}/collections` method to create a collection. Think of a collection as a box where you will store your documents in your environment. This example creates a collection that is called `my-first-collection` in the environment that you created in the previous step, and uses the following default configuration:
 
@@ -84,6 +87,8 @@ curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/a
 {: pre}
 
 ## Download example documents
+{: #dc-download-documents}
+
 Download these documents:
 
 -   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
@@ -92,6 +97,7 @@ Download these documents:
 -   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
 
 ## Download and install the Data Crawler
+{: #download-and-install-the-data-crawler}
 
 1.  Verify your system prerequisites
 
@@ -114,6 +120,7 @@ Download these documents:
     {: tip}
 
 ## Create your working directory
+{: #dc-working-directory}
 
 Copy the contents of the `{installation_directory}/share/examples/config` directory to a working directory on your system, for example `/home/config`.
 
@@ -122,6 +129,7 @@ Copy the contents of the `{installation_directory}/share/examples/config` direct
 **Note:** References in this guide to files in the `config` directory, such as `config/crawler.conf`, refer to that file in your working directory, and NOT in the installed `{installation_directory}/share/examples/config` directory.
 
 ## Configure crawl options
+{: #dc-configure-crawl-options}
 
 To set up the Data Crawler to crawl your repository, you must specify which local system files you want to crawl, and which {{site.data.keyword.discoveryshort}} service to send the collection of crawled files to, once the crawl has been completed.
 
@@ -157,6 +165,7 @@ To set up the Data Crawler to crawl your repository, you must specify which loca
 1.  After modifying these files, you are ready to crawl your data.
 
 ## Crawl your data
+{: #dc-crawl}
 
 Run the following command: `crawler crawl --config [config/crawler.conf]`
 
@@ -165,6 +174,7 @@ This will run a crawl with the configuration file `crawler.conf`.
 **Note:** The path to the configuration file passed in the `--config` option must be a qualified path. That is, it must be in relative formats, such as `config/crawler.conf` or `./crawler.conf`, or in an absolute path such as `/path/to/config/crawler.conf`.
 
 ## Search your documents
+{: #dc-search}
 
 Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_id}/query` method to search your collection of documents. The following example returns all entities that are called `IBM`:
 
@@ -178,5 +188,6 @@ curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/
 {: pre}
 
 ## Results
+{: #dc-results}
 
 You have now successfully queried documents in an environment and collection you created. Now you can begin customizing by adding more documents to the collection.

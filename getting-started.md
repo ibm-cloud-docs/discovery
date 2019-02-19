@@ -35,7 +35,7 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
 {: tip}
 
 ## Before you begin
-{: #before-you-begin}
+{: #before-you-begin-api}
 
 - Create an instance of the service:
     1.  Go to the [{{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery) page in the {{site.data.keyword.cloud_notm}} catalog.
@@ -80,7 +80,7 @@ This tutorial uses an API key to authenticate. For production uses, make sure th
     The status must be `active` before you can create a collection.
 
 ## Step 2: Create a collection
-{: #create-a-collection}
+{: #create-a-collection-api}
 
 Now that the environment is ready, you can create a collection. Think of a collection as a box where you will store your documents in your environment.
 
@@ -198,7 +198,7 @@ curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{c
 {: pre}
 
 ## Next steps
-{: #next-steps}
+{: #next-steps-api}
 
 You successfully queried documents in the environment and collection you created. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings.
 

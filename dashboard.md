@@ -28,6 +28,7 @@ lastupdated: "2018-06-25"
 {:go: .ph data-hd-programlang='go'}
 
 # Viewing metrics and improving query results with the Performance dashboard
+{: #performance-dashboard}
 
 The Performance dashboard in the {{site.data.keyword.discoveryshort}} tooling can be used to view query metrics, as well as improve query results, including query relevance.
 

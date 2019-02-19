@@ -28,6 +28,7 @@ lastupdated: "2018-12-18"
 {:go: .ph data-hd-programlang='go'}
 
 # Language support
+{: #language-support}
 
 The {{site.data.keyword.discoveryfull}} service offers two levels of language support, **Basic** and **Full**.
 {: shortdesc}
@@ -47,6 +48,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
 | Spanish (es)                    |  Full         |
 
 ## Basic support
+{: #basic-support}
 
 - {{site.data.keyword.discoveryshort}} support includes:
     - Document conversion
@@ -63,6 +65,7 @@ The {{site.data.keyword.discoveryfull}} service offers two levels of language su
     - Language detection
 
 ## Full support
+{: #full-support}
 
 Full support includes basic support, plus:
 

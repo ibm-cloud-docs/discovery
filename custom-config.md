@@ -257,31 +257,38 @@ Each item in the `styles` array specifies a heading level from the Microsoft Wor
 ```
 {: codeblock}
 
-#### exclude_tags_completely
+#### exclude_tags_completely'
+{: #configref_exclude_completely}
 
 `"exclude_tags_completely" : array` - An array of HTML tag names that will be excluded. This includes the tag, the content and any tag attributes that are defined.
 
 #### exclude_tags_keep_content
+{: #configref_exclude_tags_keep_content}
 
 `"exclude_tags_keep_content" : array` - An array of HTML tag names where the tag information is removed. This results in the HTML tag and any tag attributes being stripped. The content of the tag is not further stripped unless specified. For example if you specify `exclude_tags_keep_content` for the `span` HTML tag, then `<span class="info">Some <strong>Information</strong></span>` will be stripped to: `Some <strong>Information</strong>`
 
 #### exclude_content
+{: #configref_exclude_content}
 
 `"xpaths" : array` - An array of XPaths that identify content that is removed. If this value is set, anything that matches one of the XPaths are removed from the output.
 
 #### keep_content
+{: #configref_keep_content}
 
 `"xpaths" : array` - An array of XPaths that identify content that is converted. If this value is set, anything that matches one of the XPaths are included in the output. The inclusions specified by this parameter are processed after any processing specified by `exclude_content`.
 
 #### exclude_tag_attributes
+{: #configref_exclude_tag_attributes}
 
 `"exclude_tag_attributes" : array` - An array of HTML attribute names that are removed by the conversion regardless of which HTML tag they are present in. **Note:** You will receive an error message if you specify both `exclude_tag_attributes` and `keep_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `keep_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
 
 #### keep_tag_attributes
+{: #configref_keep_tag_attributes}
 
 `"keep_tag_attributes" : array` - An array of HTML attribute names that are retained by the conversion. **Note:** You will receive an error message if you specify both `keep_tag_attributes` and `exclude_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `exclude_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
 
 #### extracted_fields
+{: #configref_extracted}
 
 This object defines any content from the HTML source that is to be extracted into a separate JSON field as part of the conversion. The content is identified by using CSS selectors.
 
@@ -455,6 +462,7 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
   **Note:** Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
 
 ### Element Classification enrichments
+{: #element_classification_enrichments}
 
 When using Element Classification, each `elements` enrichment object must contain an `"options": {}` object with the following parameters specified:
 
@@ -462,21 +470,25 @@ When using Element Classification, each `elements` enrichment object must contai
 
 **Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery/element-classification.html) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
 
-### Natural Language Understanding Enrichments
+### Natural Language Understanding enrichments
+{: #nlu_enrichments}
 
 When using {{site.data.keyword.nlushort}}, each object within the `enrichments` array must also contain an `"options": { "features": { } }` object that contains one or more of the following enrichments:
 
 ### categories
+{: #nlu_categories}
 
 The `categories` enrichment identifies any general categories in the ingested document. This enrichment has no options and must be specified as an empty object `"categories" : {}`
 
 ### concepts
+{: #nlu_concepts}
 
 The `concepts` enrichment finds concepts with which the input text is associated, based on other concepts and entities that are present in that text.
 
 - `"limit" : INT` - *required* - The maximum number of concepts to extract from the ingested document.
 
 ### emotion
+{: #nlu_emotion}
 
 The `emotion` enrichment evaluates the overall emotional tone (for example `anger`) of entire document or specified target strings in the entire document. This enrichment can only be used with English content.
 
@@ -484,6 +496,7 @@ The `emotion` enrichment evaluates the overall emotional tone (for example `ange
 - `"targets" : array ` _optional_ - A comma-separated array of target strings of which to evaluate the emotional state within the document.
 
 ### entities
+{: #nlu_entities}
 
 The `entities` enrichment extracts instances of known entities such as people, places, and organizations. Optionally, a {{site.data.keyword.knowledgestudioshort}} custom model can be specified to extract custom entities.
 
@@ -496,6 +509,7 @@ The `entities` enrichment extracts instances of known entities such as people, p
 - `"model" : string` - _optional_ - When specified, the custom model is used to extract entities instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) for more information.
 
 ### keywords
+{: #nlu_keywords}
 
 The `keywords` enrichment extracts instances of significant words within the text. To understand the difference between keywords, concepts, and entities see: [Understanding the difference between Entities, Concepts, and Keywords](/docs/services/discovery/building.html#udbeck).
 
@@ -504,6 +518,7 @@ The `keywords` enrichment extracts instances of significant words within the tex
 - `"limit" : INT` - _optional_ - The maximum number of keywords to extract from the ingested document. The default is `50`.
 
 ### semantic_roles
+{: #nlu_semantic_roles}
 
 The `semantic_roles` enrichment identifies sentence components such as subject, action, and object within the ingested text.
 
@@ -512,6 +527,7 @@ The `semantic_roles` enrichment identifies sentence components such as subject, 
 - `"limit" : INT` - _optional_ - The maximum number of `semantic_roles` objects to extract (sentences to parse) from the ingested document. The default is `50`.
 
 ### sentiment
+{: #nlu_sentiment}
 
 The `sentiment` enrichment evaluates the overall sentiment level of entire document or specified target strings in the entire document.
 
@@ -519,6 +535,7 @@ The `sentiment` enrichment evaluates the overall sentiment level of entire docum
 - `"targets" : array ` _optional_ - A comma-separated array of target strings to evaluate sentiment of within the document.
 
 ### relations
+{: #nlu_relations}
 
 The `relations` enrichment extracts known relationships between identified entities within the document. Optionally, a {{site.data.keyword.knowledgestudioshort}} custom model can be specified to extract custom relationships.
 

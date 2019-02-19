@@ -28,6 +28,7 @@ lastupdated: "2018-09-25"
 {:go: .ph data-hd-programlang='go'}
 
 # Upgrading your plan
+{: #upgrading-your-plan}
 
 The {{site.data.keyword.discoveryfull}} service offers three plans that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
@@ -35,7 +36,7 @@ The {{site.data.keyword.discoveryfull}} service offers three plans that provide 
 See [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) and [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window} for details.
 
 ## Upgrading your service
-{: #service} 
+{: #service}
 
 To resize your plan from Lite to Advanced:
 
@@ -47,7 +48,7 @@ To resize your plan from Lite to Advanced:
    - If you had created an environment for your Lite plan before the upgrade to Advanced, your new Advanced plan environment will be `Small` by default. 
 
 ## Switching from one Advanced tier to another
-{: #advanced} 
+{: #switchadvanced} 
 
 If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#update-an-environment){: new_window}. 
 
