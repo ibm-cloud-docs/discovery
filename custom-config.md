@@ -257,7 +257,7 @@ Each item in the `styles` array specifies a heading level from the Microsoft Wor
 ```
 {: codeblock}
 
-#### exclude_tags_completely'
+#### exclude_tags_completely
 {: #configref_exclude_completely}
 
 `"exclude_tags_completely" : array` - An array of HTML tag names that will be excluded. This includes the tag, the content and any tag attributes that are defined.
