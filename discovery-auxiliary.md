@@ -41,7 +41,7 @@ This topic contains information about {{site.data.keyword.discoveryshort}} featu
 ## Watson Discovery News Original
 {: #watson-discovery-news-original}
 
-{{site.data.keyword.discoverynewsfull}} Original was retired from service **15 January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](watson-discovery-news.html) for more information.
+{{site.data.keyword.discoverynewsfull}} Original was retired from service **15 January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) for more information.
 For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
 
 ### Querying Watson Discovery News Original
