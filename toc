@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/getting-started-tool.html" path="services/discovery"}
+{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery?topic=discovery-getting-started#getting-started" path="services/discovery"}
 Discovery
 
     {: .navgroup id="learn"}
@@ -68,6 +68,7 @@ Discovery
         migrate-dcs-rr.md
         migrate-rnr-tut.md
 
+    recovery.md
     upgrading.md
     {: .navgroup-end}
 
@@ -89,23 +90,11 @@ Discovery
     custom-config.md
     language-support.md
     information-security.md
-    recovery.md
     qp.md
     additional-resources.md
     discovery-auxiliary.md
 
-    {: .topicgroup}
-    Watson SDKs
-        [Android SDK](https://github.com/watson-developer-cloud/android-sdk)
-        [Java SDK](https://github.com/watson-developer-cloud/java-sdk)
-        [Node.js SDK](https://github.com/watson-developer-cloud/node-sdk)
-        [Python SDK](https://github.com/watson-developer-cloud/python-sdk)
-        [Ruby SDK](https://github.com/watson-developer-cloud/ruby-sdk)
-        [.NET SDK](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
-        [OpenWhisk SDK](https://github.com/watson-developer-cloud/openwhisk-sdk/)
-        [Salesforce SDK](https://github.com/watson-developer-cloud/salesforce-sdk)
-        [Swift SDK](https://github.com/watson-developer-cloud/swift-sdk)
-        [Unity SDK](https://github.com/watson-developer-cloud/unity-sdk)
+    /watson/watson-using-sdks
 
     [Watson GitHub repos](https://github.com/watson-developer-cloud/)
     {: .navgroup-end}
