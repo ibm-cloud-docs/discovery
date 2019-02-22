@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -33,7 +33,7 @@ lastupdated: "2019-02-08"
 The {{site.data.keyword.discoveryshort}} service lets you connect to and crawl documents from remote sources.
 {: shortdesc}
 
-You can connect to a data source and pull documents on a schedule (if desired) into the {{site.data.keyword.discoveryshort}} service by configuring a collection to associate with that source. Each collection can be configured with one data source. The {{site.data.keyword.discoveryshort}} service pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by the {{site.data.keyword.discoveryshort}} service. The following types of data sources can be crawled:
+You can connect to a data source and pull documents on a schedule (if desired) into the {{site.data.keyword.discoveryshort}} service by configuring a collection to associate with that source. Each collection can be configured with one data source if using the {{site.data.keyword.discoveryshort}} tooling, if using the API, you can send documents from multiple data sources into a single collection. The {{site.data.keyword.discoveryshort}} service pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by the {{site.data.keyword.discoveryshort}} service. The following types of data sources can be crawled:
 
 -  [Box](/docs/services/discovery/connect.html#connectbox)
 -  [Salesforce](/docs/services/discovery/connect.html#connectsf)
@@ -66,7 +66,8 @@ The following general requirements apply to all data sources:
 -  The individual document file size limit for Box, Salesforce, SharePoint Online, IBM Cloud Object Storage, and SharePoint 2016 is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring a source using the {{site.data.keyword.discoveryshort}} tooling.
--  Crawling a data source will use resources (API calls) of the data source. The number of calls depends on the number of documents crawled. An appropriate level of service (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
+-  If using the {{site.data.keyword.discoveryshort}} tooling, a collection can be configured with a single data source. If using the API, documents from multiple data sources can be sent into a single collection.
+-  Crawling a data source will use resources (API calls) of the data source. The number of API calls depends on the number of documents that need to be crawled. An appropriate level of service license (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
 -  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html). For supported document types for Smart Document Understanding, see [Supported document types and browsers](/docs/services/discovery/sdu.html#doctypes).):
    -  Microsoft Word
    -  PDF
@@ -143,8 +144,11 @@ The next few steps will require assistance from the Administrator of your organi
     - `Generate User Access Tokens` 
 1.  Click the **Save Changes** button.
 
-Refresh is only supported with Enterprise level access.
+`Refresh` is only supported with Enterprise level access.
 {: note}
+
+If you change your Box App settings, `Reauthorize` your App so the changes take effect.
+{: tip}
 
 The next few steps will require assistance from the Administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
 
@@ -190,15 +194,17 @@ When connecting to a Microsoft SharePoint Online source, ensure that the instanc
 The following credentials are required to connect to a SharePoint Online source, they should be obtained from your SharePoint administrator:
 
 -  `organization_url` - The `organization_url` of the source that these credentials connect to.
--  `site_collection.path` - The `site_collection.path` of the source that these credentials connect to.
--  `username` - The `client_id` of the source that these credentials connect to.
+-  `site_collection_path` - The `site_collection_path` of the source that these credentials connect to.
+-  `username` - The `client_id` of the source that these credentials connect to. This user must have access to all sites and lists that need to be crawled and indexed.
 -  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
 
 When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
 
 Other items to note when crawling Microsoft SharePoint Online:
 
--  When crawling SharePoint, you will need to have a list of SharePoint site collection paths that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl. To crawl your entire SharePoint Online site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
+-  To crawl SharePoint 2016, the `Crawl User` account must have `SiteCollection Administrator` permissions.
+
+-  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
 
 ## Web Crawl
 {: #connectwebcrawl}
@@ -238,7 +244,7 @@ Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premis
 
 The following credentials are required to connect to a SharePoint 2016 data source, they should be obtained from your SharePoint administrator:
 
--  `username` - The `client_id` of the source that these credentials connect to.
+-  `username` - The `client_id` of the source that these credentials connect to. This user must have access to all sites and lists that need to be crawled and indexed.
 -  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
 -  `web_application_url` - The SharePoint 2016 `web_application_url`; for example, https://sharepointwebapp.com:8443. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
 -  `domain` - The `domain` of the SharePoint 2016 account.
@@ -247,7 +253,9 @@ When identifying the credentials, it might be useful to consult the [Microsoft S
 
 Other items to note when crawling Microsoft SharePoint 2016:
 
--  When crawling SharePoint 2016, you will need to have a list of SharePoint site collection paths that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl. To crawl your entire SharePoint 2016 site, do not select multiple paths (URLs) in this field. In that scenario, enter a `/` in the `site_collection.path` field.
+-  To crawl SharePoint 2016, the `Crawl User` account must have `SiteCollection Administrator` permissions.
+
+-  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
 
 ## IBM Cloud Object Storage
 {: #connectcos}
@@ -300,6 +308,8 @@ The crawl will sync the data initially and then on frequency that you specified.
 Use the following process to create a collection connected to a data source using the API.
 
 If you plan to connect to an on-premise data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery/connect.html#gateway) for more information. 
+
+The following example uses the SharePoint data source.
 
 1.  Create credentials for the source that you are connecting to using the [Source Credentials API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-credentials){: new_window}. Record the returned **credential_id** of the newly created credentials.
 2.  Create a new configuration using the [Configuration API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window}. This configuration must contain a **source** object which defines what should be crawled. The **source** object must contain the **credential_id** that you recorded earlier.
