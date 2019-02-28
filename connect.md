@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-21"
+lastupdated: "2019-02-28"
 
 ---
 
@@ -63,16 +63,17 @@ If you select an on-premise data source, you must first install and configure IB
 
 The following general requirements apply to all data sources:
 
--  The individual document file size limit for Box, Salesforce, SharePoint Online, IBM Cloud Object Storage, and SharePoint 2016 is 10MB.
+-  The individual document file size limit for Box, Salesforce, SharePoint Online, SharePoint 2016, IBM Cloud Object Storage, and Web Crawl is 10MB.
 -  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
 -  You will need to know which resources of the data source to crawl. This can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring a source using the {{site.data.keyword.discoveryshort}} tooling.
 -  If using the {{site.data.keyword.discoveryshort}} tooling, a collection can be configured with a single data source. If using the API, documents from multiple data sources can be sent into a single collection.
 -  Crawling a data source will use resources (API calls) of the data source. The number of API calls depends on the number of documents that need to be crawled. An appropriate level of service license (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
--  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html). For supported document types for Smart Document Understanding, see [Supported document types and browsers](/docs/services/discovery/sdu.html#doctypes).):
-   -  Microsoft Word
-   -  PDF
-   -  HTML
-   -  JSON
+-  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
+    -  Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/discovery/sdu.html#22jan19){: new_window}: Microsoft Word, PDF, HTML, JSON
+    -  Collections created after the release of [SDU](/docs/services/discovery/sdu.html):
+       -  Lite plans: PDF, Word, PowerPoint, Excel
+       -  Advanced plans: PDF, Word, PowerPoint, Excel, PNG, TIFF, JPG
+    Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted. JSON and HTML documents are supported by {{site.data.keyword.discoveryshort}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API.
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is re-crawled, new documents are added, updated document are modified to the current version, and deleted documents remain as the version last stored.
 
 ## Box
@@ -81,10 +82,10 @@ The following general requirements apply to all data sources:
 You'll need to create a new Box custom application to connect to {{site.data.keyword.discoveryfull}}. The Box application you create requires either Enterprise level or Application level access.
 
 -  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery/connect.html#applevelbox) is recommended. You will need an administrator to approve your application.
-
 -  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/services/discovery/connect.html#entlevelbox) is recommended.
 
-**Note:** The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/){: new_window} for updates.
+The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/){: new_window} for updates.
+{: note}
 
 ### Setting up Application level access
 {: #applevelbox}
@@ -185,7 +186,6 @@ Other items to note when crawling Salesforce:
 -  Knowledge Articles are only crawled if their **version** is `published` and their languages is `en-us`.
 -  When using the API, you will need to have a list of Salesforce objects that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl.
 
-
 ## SharePoint Online
 {: #connectsp}
 
@@ -202,8 +202,7 @@ When identifying the credentials, it might be useful to consult the [Microsoft S
 
 Other items to note when crawling Microsoft SharePoint Online:
 
--  To crawl SharePoint 2016, the `Crawl User` account must have `SiteCollection Administrator` permissions.
-
+-  To crawl SharePoint, the `Crawl User` account must have `SiteCollection Administrator` permissions.
 -  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
 
 ## Web Crawl
@@ -220,21 +219,6 @@ For this beta release, the number of web pages crawled will be limited, so the w
 
 If you require different **Crawl settings** for other URLs, click **Add URL group** and create a new group. You can create as many URL groups as you need.
 {: tip}
-
-## Installing IBM Secure Gateway for on-premise data 
-{: #gateway}
-
-To connect to an on-premise data source, you first need to download, install, and configure IBM Secure Gateway. After you have installed IBM Secure Gateway for your first on-premise data source, you won't need to repeat this process.
-
-1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
-1.  Select the data source that you want to connect to. When you select an on-premise data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
-1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of IBM Secure Gateway.
-1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/SecureGateway/securegateway_install.html#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
-1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
-1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `mycompany.sharepoint.com` and port: `80`.
-1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful you will see the `Connection successful` message. If the connection was not successful, open the Secure Gateway dashboard and verify that the endpoints on the **Allow access** list are correct.
-
-After the connection is successful you can begin entering the credentials for your on-premise data source.
 
 ## SharePoint 2016 On-Premise
 {: #connectsp_op}
@@ -254,7 +238,6 @@ When identifying the credentials, it might be useful to consult the [Microsoft S
 Other items to note when crawling Microsoft SharePoint 2016:
 
 -  To crawl SharePoint 2016, the `Crawl User` account must have `SiteCollection Administrator` permissions.
-
 -  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
 
 ## IBM Cloud Object Storage
@@ -337,7 +320,7 @@ The following example uses the SharePoint data source.
 The source crawl begins as soon as the collection is created, and then again on the frequency that you specified.
 **Note:** If you modify anything in the **source** object of the configuration a new crawl will be started (or restarted if one is already running) at that time.
 
-## Specifying a `customer_id`
+### Specifying a `customer_id`
 {: #source_customer_id}
 
 A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} document can be used to delete content based on the `customer_id` using the **user-data** method in the API. Incoming documents from a data source are not automatically assigned a `customer_id` when ingested. If your application requires a `customer_id` to be defined, you can specify one (or more) of the incoming fields from the source system to be copied and used as a `customer_id`. To do this you must modify the configuration that is being used to connect to the source.
@@ -358,3 +341,23 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
 3.  The next scheduled crawl will add the `customer_id` field to all documents. If you want to have a crawl start immediately, modify the source configuration (**Sync settings** in the tooling).
 
 See [Information security ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/discovery/information-security.html){: new_window} for more information and information about deleting based on `customer_id`.
+
+## Installing IBM Secure Gateway for on-premise data 
+{: #gateway}
+
+To connect to an on-premise data source, you first need to download, install, and configure IBM Secure Gateway. After you have installed IBM Secure Gateway for your first on-premise data source, you won't need to repeat this process.
+
+1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
+1.  Select the data source that you want to connect to. When you select an on-premise data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
+1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of IBM Secure Gateway.
+1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/SecureGateway/securegateway_install.html#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
+1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
+1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `mycompany.sharepoint.com` and port: `80`.
+1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful you will see the `Connection successful` message. If the connection was not successful, open the Secure Gateway dashboard and verify that the endpoints on the **Allow access** list are correct.
+
+After the connection is successful you can begin entering the credentials for your on-premise data source.
+
+## Data source connection and data isolation
+{: #source_isolation}
+
+[Connecting to external data sources](/docs/services/discovery?topic=discovery-sources#sources) reduces the data isolation of your service instance because data in transit between the source and the service cannot be isolated. All other isolation (at-rest, administration, query) remains in full. All in-flight communication between and within services and data sources is encrypted using TLS v1.2. The private keys for the TLS certificates are encrypted at rest using AES-256-GCM, the service certificates expire every three years, and the certificate revocation lists are updated monthly. All credentials are sent over an encrypted connection using TLS v1.2 and encrypted at rest using AES-256. Connections to those data sources use whatever secure protocols are supported by those data sources.
