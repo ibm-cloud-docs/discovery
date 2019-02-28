@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-28"
+lastupdated: "2019-02-28"
 
 ---
 
@@ -70,7 +70,7 @@ The specified values are the defaults in `config/crawler.conf`, and configure th
     -   `configuration_id` - Your {{site.data.keyword.discoveryshort}} service configuration ID.
     -   `configuration` - The full path location of this `discovery_service.conf` file, for example, `/home/config/discovery/discovery_service.conf`.
     -   `username` - Username credential for your {{site.data.keyword.discoveryshort}} service.
-    -   `password` - Password credential for your {{site.data.keyword.discoveryshort}} service.
+    -   `apikey` - Credential for your {{site.data.keyword.discoveryshort}} service.
 
     There are other optional settings in this file that may be set as appropriate to your environment. See [Configuring Service Options](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options) for detailed information about setting these values.
 
@@ -240,8 +240,7 @@ Default options can be changed directly by opening the `config/discovery/discove
 -   **`collection_id`** - Name of the document collection that you set up in the {{site.data.keyword.discoveryshort}} service.
 -   **`api_version`** - Internal use only. Date of the last API version change.   
 -   **`configuration_id`** - The filename of the configuration file that the {{site.data.keyword.discoveryshort}} service uses.
--   **`username`** - Username to authenticate to the location of your crawled document collection.   
--   **`password`** - Password to authenticate to the location of your crawled document collection.
+-   **`apikey`** - Credential to authenticate to the location of your crawled document collection.
 
 The {{site.data.keyword.discoveryshort}} Service Output Adapter can send statistics in order for {{site.data.keyword.IBM}} to better understand and serve its users. The following options can be set for the `send_stats` variable:
 
