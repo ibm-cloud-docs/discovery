@@ -2,7 +2,9 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-03-07"
+
+subcollection: discovery
 
 ---
 
@@ -39,12 +41,12 @@ With SDU, you annotate fields within your documents to train custom conversion m
 {: #doctypes}
 
 Supported document types for Smart Document Understanding: 
--  Lite plans: PDF, Word, PowerPoint, Excel
--  Advanced plans: PDF, Word, PowerPoint, Excel, PNG, TIFF, JPG
+-  Lite plans: PDF, Word, PowerPoint, Excel, JSON\*, HTML\*
+-  Advanced plans: PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
 
-Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
+\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
 
-JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
 
 Supported browsers: Chrome and Firefox.
 
@@ -113,10 +115,10 @@ author | Name of author (or authors).
 footer | Use this tag to denote meta-information about the document (such as the page number or references), that appear at the bottom of the page.
 header | Use this tag to denote meta-information about the document that appears at the top of the page.
 question | In a Q/A pair (often in an FAQ), the question.
-subtitle | The secondary title of the document being annotated. Use this label only once per document.
+subtitle | The secondary title of the document being annotated. 
 table_of_contents | Use this tag on listings in the document table of contents.
 text | Use this tag for standard copy text, including paragraphs, definitions, or any set of words that is not a title, part of a table, answer, author, subtitle, header, or a footer. 
-title | The main title of the document being annotated. Use this label only once per document.
+title | The main title of the document being annotated.
 
 ## How to annotate a table
 {: #tables}
