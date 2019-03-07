@@ -2,7 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-03-07"
+
+subcollection: discovery
 
 ---
 
@@ -27,11 +29,13 @@ lastupdated: "2019-02-08"
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# Disaster recovery
+# High availability and disaster recovery
 {: #recovery}
 
-Disaster recovery for {{site.data.keyword.discoveryfull}} is possible with proper data, query, model, configuration, and file backups. It is anticipated that you would use those backups to restore to a new {{site.data.keyword.discoveryshort}} instance in a different Data Center (also known as a region/location - for example, Dallas, Houston, Washington, DC, London). 
+{{site.data.keyword.discoveryfull}} supports high availability with no single point of failure. In addition, it is the customer’s responsibility to back up your {{site.data.keyword.discoveryshort}} data in support of your own disaster recovery plan so that you can re-create your service.
 {: shortdesc}
+
+{{site.data.keyword.discoveryshort}} traffic is load-balanced across multiple zones in a region. Each zone is a data center in the same region. See [How do I ensure zero downtime? ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#zero-downtime){: new_window} for more information.
 
 ## Backing up your data in Watson Discovery
 {: #backup}

@@ -2,7 +2,9 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-03-07"
+
+subcollection: discovery
 
 ---
 
@@ -48,8 +50,16 @@ Consider the following when you are ready to add documents to your collection:
 -   The sample documents are not automatically added to the collection. You must add them if you want them as part of your collection. (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)
 -   Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 -   When creating a collection, you select the document language (English is the default). See [Language support](/docs/services/discovery/language-support.html) for the list of languages. Your documents will be enriched in the selected language. Do not mix languages within the same collection.
--   You can add Microsoft Word, PDF, HTML, and JSON documents your collections. **Note:** PDFs that are scanned image files can not be converted and enriched. (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)
--   For supported document types for Smart Document Understanding, see [Supported document types and browsers](/docs/services/discovery/sdu.html#doctypes).
+-   The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
+
+Collection | Lite plans | Advanced plans 
+---------------- | ------------------------------ | ------------------------------------------- 
+Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/discovery/sdu.html#22jan19){: new_window} | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
+Collections created after the release of [SDU](/docs/services/discovery/sdu.html) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
+    
+\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+
+\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
 -   The documents in your collection will be converted using the current configuration, unless you choose a different configuration file. For information about creating a configuration file, see [Custom configuration](/docs/services/discovery/building.html#custom-configuration). (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery/sdu.html).)
 -   When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you decide later that you would like to switch a collection to a different configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration file. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. (If using [Smart Document Understanding](/docs/services/discovery/sdu.html), you will be prompted to re-upload your documents after you click the **Apply changes to collection** button.)
 -   You cannot specify the `data type` (For example: `text` or `date`) of fields. During document ingestion, if a field is detected that does not yet exist in the index, {{site.data.keyword.discoveryshort}} will automatically detect the `data type` of that field based on the value of the field for the first document indexed.

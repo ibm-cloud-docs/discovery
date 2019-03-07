@@ -2,7 +2,9 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-07"
+
+subcollection: discovery
 
 ---
 
@@ -68,13 +70,17 @@ The following general requirements apply to all data sources:
 -  You will need to know which resources of the data source to crawl. This can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring a source using the {{site.data.keyword.discoveryshort}} tooling.
 -  If using the {{site.data.keyword.discoveryshort}} tooling, a collection can be configured with a single data source. If using the API, documents from multiple data sources can be sent into a single collection.
 -  Crawling a data source will use resources (API calls) of the data source. The number of API calls depends on the number of documents that need to be crawled. An appropriate level of service license (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
--  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
-    -  Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/discovery/sdu.html#22jan19){: new_window}: Microsoft Word, PDF, HTML, JSON
-    -  Collections created after the release of [SDU](/docs/services/discovery/sdu.html):
-       -  Lite plans: PDF, Word, PowerPoint, Excel
-       -  Advanced plans: PDF, Word, PowerPoint, Excel, PNG, TIFF, JPG
-    Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted. JSON and HTML documents are supported by {{site.data.keyword.discoveryshort}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API.
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is re-crawled, new documents are added, updated document are modified to the current version, and deleted documents remain as the version last stored.
+-  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
+
+Collection | Lite plans | Advanced plans 
+---------------- | ------------------------------ | ------------------------------------------- 
+Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU) ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/discovery/sdu.html#22jan19){: new_window} | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
+Collections created after the release of [SDU](/docs/services/discovery/sdu.html) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
+    
+\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+
+\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
 
 ## Box
 {: #connectbox}

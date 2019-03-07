@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-09-25"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-07"
+
+subcollection: discovery
 
 ---
 
@@ -54,7 +56,7 @@ If you already have an Advanced plan, and would like to upgrade it to a larger p
 
 For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/services/discovery/pricing-details.html#advanced).
 
-You can upgrade your Advanced plan size, but you can't downsize to a smaller size. Available Advanced plan sizes are: 
+Available Advanced plan sizes are: 
 
 Plan size | Label  
 --------- | ------ 
@@ -70,6 +72,7 @@ XX-Large | XXL
 - Querying and indexing can proceed during upgrading. The time required for upgrading depends on a number of factors. You can poll your environment using the API while the upgrade completes.
 - Moving from one level of Advanced to another does not require the creation of new instances. 
 - Once the upgrade is complete, you will be billed at the new plan rate.
+- If you later find that you need a smaller plan size, you should set up the appropriate plan size, migrate your data, then cancel the larger plan. 
 
 ## Upgrading to a Premium plan
 {: #premium}

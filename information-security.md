@@ -4,6 +4,8 @@ copyright:
   years: 2015, 2018, 2019
 lastupdated: "2019-01-10"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
