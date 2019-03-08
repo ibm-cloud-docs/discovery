@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Iniciación a la creación de consultas
+{: #getting-started-with-querying}
 
 En esta guía de aprendizaje, vamos a aprender a escribir algunos tipos de consultas en {{site.data.keyword.discoveryshort}}.
 {: shortdesc}
