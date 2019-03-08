@@ -18,6 +18,7 @@ lastupdated: "2017-11-08"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Migrando do AlchemyData News
+{: #migrate-adn}
 
 Uma nova versão do {{site.data.keyword.discoverynewsfull}} lançada em **31 de julho de 2017**. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) para obter uma descrição desta coleção.
 
