@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Melhorando a relevância dos resultados com a API
+{: #improving-result-relevance-with-the-api}
 
 É possível treinar o serviço do {{site.data.keyword.discoveryshort}} para melhorar a relevância dos resultados da consulta para sua organização ou área de assunto específica. Ao fornecer uma instância do {{site.data.keyword.discoveryshort}} com *dados de treinamento*, o serviço usa técnicas Watson de aprendizado de máquina para encontrar sinais em seu conteúdo e nas perguntas. Em seguida, o serviço reordena os resultados da consulta para exibir os resultados mais relevantes na parte superior. À medida que você inclui mais dados de treinamento, a instância de serviço se torna mais precisa e sofisticada na ordenação dos resultados que ela retorna.
 {: shortdesc}
