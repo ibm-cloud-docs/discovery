@@ -18,6 +18,7 @@ lastupdated: "2017-11-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Beziehungstypen
+{: #relation-types}
 
 In der folgenden Tabelle sind die möglichen Beziehungstypen aufgelistet, die durch die Aufbereitung für die [Beziehungsextraktion](/docs/services/discovery/building.html#relation-extraction) zurückgegeben werden.
 {: shortdesc}
