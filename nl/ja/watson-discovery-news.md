@@ -18,6 +18,7 @@ lastupdated: "2018-09-05"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News
+{: #watson-discovery-news}
 
 {{site.data.keyword.discoverynewsfull}} は {{site.data.keyword.discoveryshort}} に付属しています。 {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} は、**キーワード抽出**、**エンティティー抽出**、**セマンティック役割抽出**、**センチメント分析**、**関係抽出**、および**カテゴリー分類**の各コグニティブ洞察によって事前にエンリッチされた索引付きデータ・セットです (エンリッチメントについて詳しくは、『[エンリッチメントの追加](building.html#adding-enrichments)』を参照してください)。 クロール日付および公開日付もメタデータとして追加されます。 過去 60 日間のニュース・データの履歴検索が可能です。 {{site.data.keyword.discoverynewsfull}} を使用して何を作成できるのかを示すデモを[ここ ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://discovery-news-demo.ng.bluemix.net/){: new_window} で見ることができます。
 
