@@ -18,6 +18,7 @@ lastupdated: "2018-08-08"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 與 Watson Knowledge Studio 整合
+{: #integrating-with-wks}
 
 您可以透過 {{site.data.keyword.knowledgestudiofull}} 來整合自訂模型與 {{site.data.keyword.discoveryshort}} 服務，以提供自訂實體和關係強化。
 {: shortdesc}
