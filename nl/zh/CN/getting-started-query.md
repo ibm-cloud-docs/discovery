@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 查询入门
+{: #getting-started-with-querying}
 
 在本教程中，我们将学习如何在 {{site.data.keyword.discoveryshort}} 中编写几种不同类型的查询。
 {: shortdesc}
