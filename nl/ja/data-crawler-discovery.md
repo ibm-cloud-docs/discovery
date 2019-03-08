@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler の構成
+{: #configuring-the-data-crawler}
 
 リポジトリーをクロールするように Data Crawler をセットアップするには、適切な入力アダプターを `crawler.conf` ファイルで指定した上で、リポジトリー固有の情報を入力アダプター構成ファイルで構成する必要があります。
 {: shortdesc}
