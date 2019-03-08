@@ -18,6 +18,7 @@ lastupdated: "2018-08-08"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Integration mit Watson Knowledge Studio
+{: #integrating-with-wks}
 
 Sie können ein angepasstes Modell aus {{site.data.keyword.knowledgestudiofull}} mit dem {{site.data.keyword.discoveryshort}}-Service integrieren, um angepasste Aufbereitungen für Entitäten und Beziehungen bereitzustellen.
 {: shortdesc}
