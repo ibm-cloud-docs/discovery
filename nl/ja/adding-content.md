@@ -18,6 +18,7 @@ lastupdated: "2018-08-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # コンテンツの追加
+{: #addcontent}
 
 文書のアップロードに使用する方法は、どのように決めますか?
 {: shortdesc}
