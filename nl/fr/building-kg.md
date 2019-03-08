@@ -18,6 +18,7 @@ lastupdated: "2018-06-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery Knowledge Graph
+{: #kg}
 
 Les graphiques Knowledge Graph sont bien plus que de simples données et informations ; ils établissent des connexions entre vos données dans des documents et génèrent de nouvelles connaissances. Nous fournissons la technologie d'intelligence artificielle qui crée automatiquement des graphiques Knowledge Graph personnalisés à partir de données non structurées en extrayant et en éclaircissant des entités et des relations, en enrichissant des relations à l'aide de techniques algorithmiques et en classant des résultats à l'aide d'algorithmes appropriés. Les graphiques Knowledge Graph peuvent fonctionner comme le "concentrateur de connaissance" de votre société et peuvent être utilisés pour les moteurs de recherche, de récapitulation et de recommandation d'entreprise, d'autres processus de prise de décision, par exemple, la détection de fraudes, de pertes ou d'abus. L'utilisation d'un modèle personnalisé (créé dans {{site.data.keyword.knowledgestudioshort}}) dans le processus de création de graphiques Knowledge Graph peut vous permettre de générer des graphiques Knowledge Graph applicables à certains domaines, tels que la finance, la technologie, la sécurité, l'intelligence, la santé et beaucoup d'autres. Voir [Intégration à {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html) pour plus d'informations sur l'intégration de {{site.data.keyword.discoveryshort}} à {{site.data.keyword.knowledgestudioshort}}.
 
