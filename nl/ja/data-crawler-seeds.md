@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # コネクターとシードのオプションの構成
+{: #configuring-connector-and-seed-options}
 
 データをクロールするとき、情報のダウンロードを開始するために、Crawler はまず、データ・リポジトリーのタイプ (コネクター) とユーザー指定の開始位置 (シード) を識別します。
 {: shortdesc}
