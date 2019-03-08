@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # カテゴリー階層
+{: #cathierarchy}
 
 以下の表に、カテゴリーの分類エンリッチメントから返されるカテゴリーを示します。 この情報が記載されたスプレッドシートは、こちらの <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> からダウンロードできます。
 {: shortdesc}
