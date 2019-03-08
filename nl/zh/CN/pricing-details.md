@@ -18,6 +18,7 @@ lastupdated: "2018-08-17"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Discovery 价格套餐
+{: #discovery-pricing-plans}
 
 {{site.data.keyword.discoveryfull}} 服务提供了三种套餐 - **轻量**、**高级**和**高端** - 用于提供不同级别的资源和功能以满足您的需求。
 {: shortdesc}
