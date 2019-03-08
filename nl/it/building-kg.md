@@ -18,6 +18,7 @@ lastupdated: "2018-06-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery Knowledge Graph
+{: #kg}
 
 I grafi della conoscenza vanno oltre i soli dati e informazioni, effettuando le connessioni all'interno dei tuoi dati nei documenti e generando nuove conoscenze. Forniamo la tecnologia IA che crea automaticamente grafi della conoscenza personalizzati da dati non strutturati estraendo e rimuovendo l'ambiguità delle entità e delle relazioni, arricchendo le relazioni utilizzando tecniche algoritmiche e classificando i risultati utilizzando algoritmi di pertinenza. I grafi della conoscenza possono funzionare come "hub di conoscenza" per la tua azienda e possono essere utilizzati per la ricerca aziendale, il riepilogo, i motori di raccomandazione, altri processi decisionali - ad esempio, rilevando frodi, sprechi o abusi. L'utilizzo di un modello personalizzato (creato in {{site.data.keyword.knowledgestudioshort}}) nel processo di creazione del grafo della conoscenza, può aiutare a creare i KG specifici del dominio con applicabilità in domini come finanziario, tecnologia, sicurezza, intelligence, salute e molti altri. Consulta [Integrazione con {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html) per ulteriori informazioni sull'integrazione di {{site.data.keyword.discoveryshort}} con {{site.data.keyword.knowledgestudioshort}}.
 
