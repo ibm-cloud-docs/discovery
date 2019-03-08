@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler 구성
+{: #configuring-the-data-crawler}
 
 저장소를 크롤링하기 위해 Data Crawler를 설정하려면 `crawler.conf` 파일에 적절한 입력 어댑터를 지정한 후 입력 어댑터 구성 파일에 있는 저장소 특정 정보를 구성해야 합니다.
 {: shortdesc}
