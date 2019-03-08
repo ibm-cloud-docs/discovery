@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 照会入門
+{: #getting-started-with-querying}
 
 このチュートリアルでは、{{site.data.keyword.discoveryshort}} での、いくつかの異なるタイプの照会の作成方法について学習します。
 {: shortdesc}
