@@ -18,6 +18,7 @@ lastupdated: "2017-11-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 關係類型
+{: #relation-types}
 
 下表列出[關係擷取](/docs/services/discovery/building.html#relation-extraction)強化所傳回的可能關係類型。
 {: shortdesc}
