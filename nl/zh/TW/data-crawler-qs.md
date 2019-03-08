@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 開始使用資料搜索器
+{: #getting-started-with-the-data-crawler}
 
 本主題說明如何使用資料搜索器從本端檔案系統汲取檔案，來與 {{site.data.keyword.discoveryfull}} 服務搭配使用。
 {: shortdesc}
