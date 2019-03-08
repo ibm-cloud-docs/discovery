@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configurazione del data crawler
+{: #configuring-the-data-crawler}
 
 Per configurare il data crawler per indicizzare il tuo repository, devi specificare l'adattatore di input appropriato nel file `crawler.conf` e quindi configurare le informazioni specifiche del repository nei file di configurazione dell'adattatore di input.
 {: shortdesc}
