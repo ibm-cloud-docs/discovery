@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 搜索資料儲存庫
+{: #crawling-your-data-repository}
 
 在適當地配置搜索器選項之後，您可以針對資料儲存庫執行搜索。
 {: shortdesc}
