@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler konfigurieren
+{: #configuring-the-data-crawler}
 
 Um Data Crawler für die Crawlersuche in Ihrem Repository zu konfigurieren, müssen Sie den geeigneten Eingabeadapter in der Datei `crawler.conf` angeben und anschließend repositoryspezifische Informationen in den Konfigurationsdateien für den Eingabeadapter konfigurieren.
 {: shortdesc}
