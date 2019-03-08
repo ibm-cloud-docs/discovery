@@ -18,6 +18,7 @@ lastupdated: "2018-01-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Konfigurationsreferenz
+{: #configref}
 
 Sie können in JSON eine eigene {{site.data.keyword.discoveryshort}}-Konfiguration für das Einpflegen erstellen, falls für Ihre Daten spezielle Anforderungen an die [Konvertierung](#conversion), [Aufbereitung](#enrichment) oder [Normalisierung](#normalization) gelten.
 {: shortdesc}
