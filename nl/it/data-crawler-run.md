@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Indicizzazione del tuo repository di dati
+{: #crawling-your-data-repository}
 
 Dopo che le opzioni del crawler sono state tutte configurate correttamente, puoi eseguire un'indicizzazione sul tuo repository di dati.
 {: shortdesc}
