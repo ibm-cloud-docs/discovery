@@ -18,6 +18,7 @@ lastupdated: "2018-10-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # リリース・ノート
+{: #release-notes}
 
 リリース・ノートは、前回のリリース以降に {{site.data.keyword.discoveryfull}} サービスに加えられた変更について説明します。
 {: shortdesc}
