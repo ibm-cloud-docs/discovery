@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Rastreo de su repositorio de datos
+{: #crawling-your-data-repository}
 
 Después de haber configurado correctamente las opciones del rastreador, podrá ejecutar un rastreo en el repositorio de datos.
 {: shortdesc}
