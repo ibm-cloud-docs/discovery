@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 配置 Data Crawler
+{: #configuring-the-data-crawler}
 
 要设置 Data Crawler 来搜寻存储库，必须在 `crawler.conf` 文件中指定相应的输入适配器，然后在输入适配器配置文件中配置特定于存储库的信息。
 {: shortdesc}
