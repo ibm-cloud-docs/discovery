@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Connector und Seedoptionen konfigurieren
+{: #configuring-connector-and-seed-options}
 
 Bei einer Crawlersuche in den Daten ermittelt der Crawler zuerst den Typ des Datenrepositorys (also den Connector) und die benutzerdefinierte Startposition (den Seed), bevor er mit dem Herunterladen von Informationen beginnt.
 {: shortdesc}
