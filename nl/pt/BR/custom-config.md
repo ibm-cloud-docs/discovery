@@ -18,6 +18,7 @@ lastupdated: "2018-01-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Referência de configuração
+{: #configref}
 
 Será possível criar sua própria configuração de ingestão do {{site.data.keyword.discoveryshort}} no
 JSON se seus dados tiverem necessidades especiais de [conversão](#conversion),
