@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # ツールを使用した結果関連性の改善
+{: #improving-result-relevance-with-the-tooling}
 
 {{site.data.keyword.discoveryfull}} サービスでトレーニングを使用して、自然言語照会の関連性を改善することができます。 {{site.data.keyword.discoveryshort}} ツールまたは {{site.data.keyword.discoveryshort}} API のいずれかを使用して、プライベート・コレクションをトレーニングすることができます。 API を使用したい場合は、[API を使用した照会結果関連性の改善](/docs/services/discovery/train.html)を参照してください。
 {: shortdesc}
