@@ -18,6 +18,7 @@ lastupdated: "2018-06-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery Knowledge Graph
+{: #kg}
 
 Knowledge Graph(KG)는 문서 전반에서 데이터 내 연결을 작성하고 새로운 지식을 생성함으로써 데이터 및 정보 이상의 것을 제공합니다. 엔티티와 관계를 추출하고 이들의 모호성을 제거하며, 알고리즘 기술을 통해 관계를 강화하고, 관련성 알고리즘을 통해 결과의 순위를 지정하여 구조화되지 않은 데이터에서 자동으로 사용자 정의 Knowledge Graph를 작성하는 AI 기술을 제공합니다. Knowledge Graph는 회사에 대한 "지식 허브"로의 기능을 수행할 수 있으며 엔터프라이즈 검색, 요약, 권장 엔진, 기타 의사 결정 프로세스(예: 부정 행위, 낭비 또는 남용)에 사용될 수 있습니다. Knowledge Graph 작성 프로세스의 사용자 정의 모델({{site.data.keyword.knowledgestudioshort}}에서 작성됨)을 사용하면 재무, 기술, 보안, 인텔리전스, 의료 등과 같은 도메인에 적용할 수 있는 도메인 특정 KG를 빌드할 수 있습니다. {{site.data.keyword.discoveryshort}}와 {{site.data.keyword.knowledgestudioshort}}의 통합에 대한 자세한 정보는 [{{site.data.keyword.knowledgestudiofull}}와 통합](/docs/services/discovery/integrate-wks.html)을 참조하십시오.
 
