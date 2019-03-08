@@ -18,6 +18,7 @@ lastupdated: "2018-10-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 조회 개념
+{: #query-concepts}
 
 {{site.data.keyword.discoveryfull}} 서비스는 강력한 컨텐츠 검색 기능을 제공합니다. 컨텐츠가 {{site.data.keyword.discoveryshort}} 서비스를 통해 업로드되고 강화된 후 조회를 빌드하거나 {{site.data.keyword.discoveryshort}}를 고유한 프로젝트에 통합하거나 {{site.data.keyword.watson}} Explorer Application Builder를 사용하여 사용자 정의 애플리케이션을 작성할 수 있습니다.
 {: shortdesc}
