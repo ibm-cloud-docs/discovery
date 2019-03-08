@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Upgrade del tuo piano
+{: #upgrading-your-plan}
 
 Il servizio {{site.data.keyword.discoveryfull}} offre tre piani che forniscono diversi livelli di risorse e funzionalità per soddisfare i tuoi bisogni.
 {: shortdesc}
