@@ -18,6 +18,7 @@ lastupdated: "2018-08-08"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 与 Watson Knowledge Studio 集成
+{: #integrating-with-wks}
 
 可以将 {{site.data.keyword.knowledgestudiofull}} 中的定制模型与 {{site.data.keyword.discoveryshort}} 服务集成，以提供定制实体和关系扩充项。
 {: shortdesc}
