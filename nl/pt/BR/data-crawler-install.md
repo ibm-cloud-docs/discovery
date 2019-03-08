@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Fazendo download e instalando o Data Crawler
+{: #downloading-and-installing-the-data-crawler}
 
 O Data Crawler coleta os dados brutos que são eventualmente utilizados para formar resultados da procura
 para o serviço do {{site.data.keyword.discoveryshort}}. Ao efetuar crawl nos repositórios de dados, o
