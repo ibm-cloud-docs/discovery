@@ -18,6 +18,7 @@ lastupdated: "2018-08-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Ajout de contenu
+{: #addcontent}
 
 Comment choisir la méthode à utiliser pour télécharger le document ?
 {: shortdesc}
