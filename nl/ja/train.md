@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # API を使用した結果関連性の改善
+{: #improving-result-relevance-with-the-api}
 
 {{site.data.keyword.discoveryshort}} サービスをトレーニングして、特定の組織またはサブジェクト・エリアの照会結果の関連性を改善することができます。 {{site.data.keyword.discoveryshort}} インスタンスに*トレーニング・データ* を提供すると、本サービスは Watson の機械学習技法を使用して、コンテンツおよび質問に含まれるシグナルを検出します。 次に、本サービスは照会結果を並べ替えて、最も関連性の高い結果を先頭に表示します。 さらにトレーニング・データを追加するにしたがって、サービス・インスタンスが返す結果の順序付けがより正確で洗練されたものになります。
 {: shortdesc}
