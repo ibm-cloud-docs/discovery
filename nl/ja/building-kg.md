@@ -18,6 +18,7 @@ lastupdated: "2018-06-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery Knowledge Graph
+{: #kg}
 
 ナレッジ・グラフは、さまざまな文書にあるデータを関連付けて新しいナレッジを生成することにより、単なるデータや情報を上回る価値を生み出します。 IBM は非構造化データからカスタム・ナレッジ・グラフを自動的に作成する AI テクノロジーを提供しています。これは、エンティティーと関係を抽出してあいまいさを除去し、アルゴリズム手法を使用して関係をエンリッチし、さらに関連性アルゴリズムを使用して結果をランク付けすることによって行われます。 Knowledge Graph は企業の「ナレッジ・ハブ」として機能し、エンタープライズに対応した検索、要約、推奨の各エンジンや、その他の意思決定プロセス (例えば、不正、無駄、悪用の検出など) に使用できます。 {{site.data.keyword.knowledgestudioshort}} で作成したカスタム・モデルを Knowledge Graph の作成プロセスで使用すると、金融、テクノロジー、セキュリティー、インテリジェンス、医療などの領域やその他多くの領域に適用可能な、領域固有のナレッジ・グラフの構築に役立ちます。 {{site.data.keyword.knowledgestudioshort}} と {{site.data.keyword.discoveryshort}} の統合について詳しくは、『[{{site.data.keyword.knowledgestudiofull}} との統合](/docs/services/discovery/integrate-wks.html)』を参照してください。
 
