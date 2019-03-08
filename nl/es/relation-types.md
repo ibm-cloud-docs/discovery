@@ -18,6 +18,7 @@ lastupdated: "2017-11-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Tipos de relación
+{: #relation-types}
 
 En la siguiente tabla hay una lista de los posibles tipos de relación que devuelve el enriquecimiento de [Extracción de relaciones](/docs/services/discovery/building.html#relation-extraction).
 {: shortdesc}
