@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Exécution de votre référentiel de données
+{: #crawling-your-data-repository}
 
 Une fois les options d'exploration correctement configurés, vous pouvez exécuter un moteur d'exploration sur votre référentiel de données.
 {: shortdesc}
