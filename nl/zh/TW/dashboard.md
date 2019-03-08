@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 使用效能儀表板來檢視度量值及改善查詢結果
+{: #performance-dashboard}
 
 {{site.data.keyword.discoveryshort}} 工具中的「效能」儀表板可用來檢視查詢度量值，以及改善查詢結果（包括查詢相關性）。
 
