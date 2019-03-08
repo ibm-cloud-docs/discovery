@@ -18,6 +18,7 @@ lastupdated: "2017-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Adición de contenido con Data Crawler
+{: #adding-content-with-data-crawler}
 
 El rastreador de datos permite automatizar la carga de contenido en el servicio {{site.data.keyword.discoveryshort}}.
 {: shortdesc}
