@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 下载并安装 Data Crawler
+{: #downloading-and-installing-the-data-crawler}
 
 Data Crawler 可收集最终用于构成 {{site.data.keyword.discoveryshort}} 服务搜索结果的原始数据。搜寻数据存储库时，搜寻器将从用户指定的种子 URL 开始下载文档和元数据。搜寻器会在层次结构中发现文档，或发现从种子 URL 链接的文档，然后将这些文档排队以等待检索。
 {: shortdesc}
