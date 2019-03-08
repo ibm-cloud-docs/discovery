@@ -18,6 +18,7 @@ lastupdated: "2018-01-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 구성 참조
+{: #configref}
 
 데이터에 특수 [변환](#conversion), [인리치먼트](#enrichment) 또는 [정규화](#normalization) 요구사항이 있는 경우 JSON으로 고유한 {{site.data.keyword.discoveryshort}} 수집 구성을 작성할 수 있습니다.
 {: shortdesc}
