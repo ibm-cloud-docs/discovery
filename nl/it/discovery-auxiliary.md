@@ -17,7 +17,8 @@ lastupdated: "2018-02-28"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Archivi Discovery 
+# Archivi Discovery
+{: #discovery-archives}
 
 Questo argomento contiene le informazioni sulle funzioni di {{site.data.keyword.discoveryshort}} che sono state sostituite con opzioni più recenti.
 {: tip}
