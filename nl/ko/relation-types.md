@@ -18,6 +18,7 @@ lastupdated: "2017-11-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 관계 유형
+{: #relation-types}
 
 다음 표는 [관계 추출](/docs/services/discovery/building.html#relation-extraction) 인리치먼트로 리턴되는 가능한 관계 유형을 나열합니다.
 {: shortdesc}
