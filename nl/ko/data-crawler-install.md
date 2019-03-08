@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler 다운로드 및 설치
+{: #downloading-and-installing-the-data-crawler}
 
 Data Crawler는 결국 {{site.data.keyword.discoveryshort}} 서비스에 대한 검색 결과를 구성하는 데 사용되는 원시 데이터를 수집합니다. 데이터 저장소를 크롤링할 때 크롤러는 사용자가 지정한 seed URL로 시작하는 문서 및 메타데이터를 다운로드합니다. 크롤러는 계층 구조의 문서를 발견하고(그렇지 않으면 seed URL에서 연결됨) 재검색을 위해 해당 문서를 큐에 넣습니다.
 {: shortdesc}
