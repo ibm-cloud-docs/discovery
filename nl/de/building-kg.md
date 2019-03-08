@@ -18,6 +18,7 @@ lastupdated: "2018-06-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery Knowledge Graph
+{: #kg}
 
 Wissensdiagramme bilden weitaus mehr als Daten und Informationen ab, denn sie stellen dokumentübergreifende Verbindungen in Ihren Daten her und generieren neue Erkenntnisse. Mithilfe der bereitgestellten AI-Technologie werden angepasste Wissensdiagramme automatisch aus unstrukturierten Daten erstellt. Hierzu werden Entitäten und Beziehungen extrahiert und vereindeutigt, die Beziehungen unter Verwendung von algorithmischen Verfahren aufbereitet und die Ergebnisse mithilfe von Relevanzalgorithmen in eine Rangordnung gebracht. Wissensdiagramme können als 'Wissenszentrum' für Ihr Unternehmen dienen und für Unternehmenssuche, Auswertung, Recommendation-Engines und andere Entscheidungsfindungsprozesse genutzt werden (z. B. Erkennung von Betrug, Verschwendung oder Missbrauch). Die Verwendung eines (in {{site.data.keyword.knowledgestudioshort}} erstellten) angepassten Modells beim Erstellungsprozess für das Wissensdiagramm kann für die Erstellung von domänenspezifischen Wissensdiagrammen hilfreich sein, die in Bereichen wie Finanzwesen, Technologie, Sicherheit, Informationsbeschaffung, Gesundheitswesen und vielen anderen anwendbar sind. Weitere Informationen zum Integrieren von {{site.data.keyword.discoveryshort}} mit {{site.data.keyword.knowledgestudioshort}} finden Sie unter [Integration mit {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
 
