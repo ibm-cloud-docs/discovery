@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # プランのアップグレード
+{: #upgrading-your-plan}
 
 {{site.data.keyword.discoveryfull}} サービスでは、お客様のニーズに合わせて異なるレベルのリソースと機能を選択できるように 3 つのプランが用意されています。
 {: shortdesc}
