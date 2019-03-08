@@ -18,6 +18,7 @@ lastupdated: "2018-09-05"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News
+{: #watson-discovery-news}
 
 {{site.data.keyword.discoverynewsfull}}는 {{site.data.keyword.discoveryshort}}에 포함되어 있습니다. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}}는 **키워드 추출**, **엔티티 추출**, **감성 역할 추출**, **감성 분석**, **관계 추출** 및 **카테고리 분류**의 코그너티브 통찰로 사전 강화되는 인덱싱된 데이터 세트입니다. (인리치먼트에 대해 자세히 알아보려면 [인리치먼트 추가](building.html#adding-enrichments)를 참조하십시오.) 추가 메타데이터(크롤링 날짜 및 발행 날짜)도 추가됩니다. 뉴스 데이터에 대한 이전 60일 동안의 히스토리 검색이 가능합니다. [여기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://discovery-news-demo.ng.bluemix.net/){: new_window}에서 {{site.data.keyword.discoverynewsfull}}를 사용하여 무엇을 빌드할 수 있는지에 대한 데모를 보십시오.
 
