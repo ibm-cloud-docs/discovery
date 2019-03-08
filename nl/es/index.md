@@ -17,7 +17,8 @@ lastupdated: "2018-09-07"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Acerca de 
+# Acerca de
+{: #about}
 
 {{site.data.keyword.discoveryfull}} permite crear con rapidez aplicaciones cognitivas de exploración basadas en la nube, que son capaces de desvelar conocimiento útil oculto en datos no estructurados - incluido en sus propios datos, así como en datos públicos de terceros.
 {: shortdesc}
