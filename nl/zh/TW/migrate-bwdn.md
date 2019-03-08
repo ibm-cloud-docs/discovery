@@ -18,6 +18,7 @@ lastupdated: "2018-01-16"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 從 Watson Discovery News Original 移轉
+{: #migrate-bwdn}
 
 新版本的 {{site.data.keyword.discoverynewsshort}} 在 **2017 年 7 月 31 日**初次亮相。原始版本已重新命名為 {{site.data.keyword.discoverynewsshort}} Original，並且在 **2018 年 1 月 15 日**已從服務下架。如果您嘗試存取 {{site.data.keyword.discoverynewsshort}} Origianl，您會收到 `410 GONE` 訊息。
 {: shortdesc}
