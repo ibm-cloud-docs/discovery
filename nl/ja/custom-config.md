@@ -18,6 +18,7 @@ lastupdated: "2018-01-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 構成リファレンス
+{: #configref}
 
 ご使用のデータに、[変換](#conversion)、[エンリッチメント](#enrichment)、[正規化](#normalization) に関する特別なニーズがある場合は、独自の {{site.data.keyword.discoveryshort}} 取り込み構成を JSON で作成できます。
 {: shortdesc}
