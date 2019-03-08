@@ -18,6 +18,7 @@ lastupdated: "2017-10-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 實體類型和子類型
+{: #entity-types-and-subtypes}
 
 下表列出「實體擷取」強化所傳回的可能實體類型和子類型。您可以在這裡下載含有此資訊的試算表：<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示" class="style-scope doc-content"></a>。
 {: shortdesc}
