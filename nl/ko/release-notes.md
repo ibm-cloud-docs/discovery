@@ -18,6 +18,7 @@ lastupdated: "2018-10-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 릴리스 정보
+{: #release-notes}
 
 릴리스 정보는 이전 릴리스 이후에 발생한 {{site.data.keyword.discoveryfull}} 서비스의 변경사항에 대한 정보를 제공합니다.
 {: shortdesc}
