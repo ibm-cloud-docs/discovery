@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configuration des options de connecteur et de point de départ
+{: #configuring-connector-and-seed-options}
 
 Lorsqu'il explore des données, le moteur d'exploration identifie d'abord le type de référentiel de données (connecteur) et l'emplacement de départ spécifié par l'utilisateur (point de départ) pour commencer à télécharger des informations.
 {: shortdesc}
