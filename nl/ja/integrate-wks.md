@@ -18,6 +18,7 @@ lastupdated: "2018-08-08"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Knowledge Studio との統合
+{: #integrating-with-wks}
 
 {{site.data.keyword.knowledgestudiofull}} のカスタム・モデルを {{site.data.keyword.discoveryshort}} サービスと統合して、カスタムのエンティティーおよび関係のエンリッチメントを提供することができます。
 {: shortdesc}
