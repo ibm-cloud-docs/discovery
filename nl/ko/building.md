@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 서비스 구성
+{: #configservice}
 
 {{site.data.keyword.discoveryshort}} 서비스를 빌드하면 고유한 데이터를 강화한 후 조회 가능 양식으로 전달하여 유용한 통찰을 확보할 수 있습니다.
 {: shortdesc}
