@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 配置連接器和種子選項
+{: #configuring-connector-and-seed-options}
 
 搜索資料時，「搜索器」會先識別資料儲存庫的類型（連接器），以及使用者指定的起始位置（種子）來開始下載資訊。
 {: shortdesc}
