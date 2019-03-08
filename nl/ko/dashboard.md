@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 성능 대시보드에서 메트릭 보기 및 조회 결과 개선
+{: #performance-dashboard}
 
 {{site.data.keyword.discoveryshort}} 도구의 성능 대시보드를 사용하여 조회 메트릭을 보고 조회 관련성 등의 조회 결과를 향상시킬 수 있습니다.
 
