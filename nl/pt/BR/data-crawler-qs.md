@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Introdução ao Data Crawler
+{: #getting-started-with-the-data-crawler}
 
 Este tópico explica como usar o Data Crawler para alimentar arquivos de seu sistema de arquivos local,
 para uso com o serviço do {{site.data.keyword.discoveryfull}}.
