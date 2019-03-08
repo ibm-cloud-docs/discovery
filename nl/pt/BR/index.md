@@ -18,6 +18,7 @@ lastupdated: "2018-09-07"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Sobre
+{: #about}
 
 O {{site.data.keyword.discoveryfull}} permite construir rapidamente aplicativos de
 exploração cognitivos baseados em nuvem que desbloqueiam insights acionáveis ocultos em dados não estruturados,
