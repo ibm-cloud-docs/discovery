@@ -18,6 +18,7 @@ lastupdated: "2017-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Incluindo conteúdo com o Data Crawler
+{: #adding-content-with-data-crawler}
 
 O Data Crawler permite automatizar o upload de conteúdo para o
 {{site.data.keyword.discoveryshort}} Service.
