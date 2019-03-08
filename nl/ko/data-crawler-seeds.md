@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 커넥터 및 seed 옵션 구성
+{: #configuring-connector-and-seed-options}
 
 데이터를 크롤링하는 경우 크롤러는 먼저 데이터 저장소의 유형(커넥터)과 사용자가 지정한 시작 위치(seed)를 식별하여 정보의 다운로드를 시작합니다.
 {: shortdesc}
