@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configuración del servicio
+{: #configservice}
 
 La creación de un servicio {{site.data.keyword.discoveryshort}} hará posible obtener conocimientos útiles mediante el enriquecimiento de sus propios datos y luego entregarlo en un formato capaz de ser consultado.
 {: shortdesc}
