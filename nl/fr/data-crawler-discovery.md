@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configuration de Data Crawler
+{: #configuring-the-data-crawler}
 
 Pour configurer Data Crawler dans le but d'explorer votre référentiel, vous devez spécifier l'adaptateur d'entrée approprié dans le fichier `crawler.conf`, puis configurer les informations spécifiques au référentiel dans les fichiers de configuration d'adaptateur d'entrée.
 {: shortdesc}
