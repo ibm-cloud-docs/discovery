@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # Tutoriel : Migration à partir du service Retrieve and Rank
+{: #migrate-rnr}
 
 Migration à partir du service {{site.data.keyword.retrieveandrankshort}} vers le service {{site.data.keyword.discoveryfull}}. Il s'agit d'une suite du tutoriel d'initiation à Cranfield.
 
