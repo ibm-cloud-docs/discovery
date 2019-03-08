@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configurando o Data Crawler
+{: #configuring-the-data-crawler}
 
 Para configurar o Data Crawler para efetuar crawl em seu repositório, deve-se especificar o adaptador
 de entrada apropriado no arquivo `crawler.conf` e, em seguida, configurar as
