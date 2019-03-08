@@ -19,6 +19,7 @@ lastupdated: "2017-10-03"
 
 
 # Migración desde Watson Document Conversion y Retrieve and Rank
+{: #migrate-dcs-rr}
 
 {{site.data.keyword.documentconversionfull}} y {{site.data.keyword.retrieveandrankfull}} están en desuso y han sido reemplazadas por {{site.data.keyword.discoveryfull}}. De forma habitual, estos dos servicios se utilizan de forma conjunta para ingerir, clasificar y, a continuación, proporcionar resultados a las aplicaciones de usuario. Este documento se proporciona para guiarle a través del proceso de migración desde {{site.data.keyword.documentconversionshort}} y {{site.data.keyword.retrieveandrankshort}} a {{site.data.keyword.discoveryshort}}.
 
