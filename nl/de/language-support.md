@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Sprachunterstützung
+{: #language-support}
 
 Der {{site.data.keyword.discoveryfull}}-Service bietet zwei Stufen der Sprachunterstützung, nämlich eine **Basisunterstützung** und eine **vollständige Unterstützung**.
 {: shortdesc}
