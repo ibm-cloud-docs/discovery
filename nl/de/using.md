@@ -18,6 +18,7 @@ lastupdated: "2018-10-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Abfragekonzepte
+{: #query-concepts}
 
 Der {{site.data.keyword.discoveryfull}}-Service bietet leistungsfähige Funktionen für die Inhaltssuche. Nachdem Ihr Inhalt hochgeladen und durch den {{site.data.keyword.discoveryshort}}-Service aufbereitet wurde, können Sie Abfragen erstellen und dann {{site.data.keyword.discoveryshort}} in Ihre eigenen Projekte integrieren oder mit {{site.data.keyword.watson}} Explorer Application Builder eine angepasste Anwendung erstellen.
 {: shortdesc}
