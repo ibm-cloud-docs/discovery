@@ -18,6 +18,7 @@ lastupdated: "2018-08-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Adición de contenido
+{: #addcontent}
 
 ¿Cómo decido el método que tengo que utilizar para cargar documentos?
 {: shortdesc}
