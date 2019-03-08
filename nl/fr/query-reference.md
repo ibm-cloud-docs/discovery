@@ -18,6 +18,7 @@ lastupdated: "2018-10-04"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Référence de requête
+{: #query-reference}
 
 Le service {{site.data.keyword.discoveryfull}} offre des fonctions de recherche de contenu puissantes par l'intermédiaire de requêtes. Une fois votre contenu téléchargé et enrichi par le service {{site.data.keyword.discoveryshort}}, vous pouvez créer des requêtes, intégrer {{site.data.keyword.discoveryshort}} dans vos propres projets ou créer une application personnalisée en utilisant {{site.data.keyword.watson}} Explorer Application Builder.
 {: shortdesc}
