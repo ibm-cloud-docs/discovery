@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 利用 API 來改善結果相關性
+{: #improving-result-relevance-with-the-api}
 
 您可以訓練 {{site.data.keyword.discoveryshort}} 服務，以改善特定組織或主題區域的查詢結果的相關性。當您提供*訓練資料* 給 {{site.data.keyword.discoveryshort}} 實例時，該服務會使用機器學習 Watson 技術來尋找內容及問題中的信號。之後，該服務會將查詢結果重新排序，將最相關的結果顯示在最上面。當您新增更多訓練資料時，該服務實例在其傳回的結果順序上會變得更準確。
 {: shortdesc}
