@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Scaricamento e installazione del data crawler
+{: #downloading-and-installing-the-data-crawler}
 
 Il data crawler raccoglie i dati non elaborati che vengono eventualmente utilizzati per formare i risultati della ricerca per il servizio {{site.data.keyword.discoveryshort}}. Quando indicizzi i repository di dati, il crawler scarica i documenti e i metadati, a partire da un URL seed specificato dall'utente. Il crawler rileva i documenti in una gerarchia o altrimenti collegati dall'URL seed e li accoda per il richiamo.
 {: shortdesc}
