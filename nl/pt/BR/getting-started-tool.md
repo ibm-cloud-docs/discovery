@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # Informações Iniciando
+{: #getting-started}
 
 Neste curto tutorial, apresentamos o conjunto de ferramentas do
 {{site.data.keyword.discoveryshort}}
