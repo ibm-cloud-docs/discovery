@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Natural Language Understanding으로 인리치먼트 마이그레이션
+{: #migrate-nlu}
 
 **2017년 7월 18일**에 {{site.data.keyword.discoveryfull}}는 {{site.data.keyword.nlushort}}(NLU)이라는 새 인리치먼트 기술을 도입하였습니다. {{site.data.keyword.alchemylanguageshort}} 인리치먼트는 **2018년 3월 1일**부터 더 이상 사용되지 않습니다.
 {: shortdesc}
