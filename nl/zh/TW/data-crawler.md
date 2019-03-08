@@ -18,6 +18,7 @@ lastupdated: "2017-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 使用資料搜索器新增內容
+{: #adding-content-with-data-crawler}
 
 資料搜索器可讓您將內容自動上傳至 {{site.data.keyword.discoveryshort}} 服務。
 {: shortdesc}
