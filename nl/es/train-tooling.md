@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Mejora de la relevancia de los resultados con el conjunto de herramientas
+{: #improving-result-relevance-with-the-tooling}
 
 Las consultas de lenguaje natural se pueden mejorar en el servicio {{site.data.keyword.discoveryfull}} con el entrenamiento. Puede entrenar sus recopilaciones privadas con el conjunto de herramientas de {{site.data.keyword.discoveryshort}} o con las API de {{site.data.keyword.discoveryshort}}. Consulte [Mejora de la relevancia de los resultados de las consultas con la API](/docs/services/discovery/train.html) si prefiere utilizar las API.
 {: shortdesc}
