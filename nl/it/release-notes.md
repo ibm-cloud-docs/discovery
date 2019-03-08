@@ -18,6 +18,7 @@ lastupdated: "2018-10-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Note sulla release
+{: #release-notes}
 
 Le note sulla release forniscono informazioni sulle modifiche apportate al servizio {{site.data.keyword.discoveryfull}} successivamente alla release precedente.
 {: shortdesc}
