@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # Introduzione
+{: #getting-started}
 
 In questa breve esercitazione, introdurremo la strumentazione {{site.data.keyword.discoveryshort}} e illustreremo il processo di creazione di una raccolta dati privata e la sua ricerca.
 {: shortdesc}
