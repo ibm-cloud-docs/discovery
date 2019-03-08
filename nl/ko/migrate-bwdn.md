@@ -18,6 +18,7 @@ lastupdated: "2018-01-16"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News Original에서 마이그레이션
+{: #migrate-bwdn}
 
 **2017년 7월 31일**에 {{site.data.keyword.discoverynewsshort}}의 새 버전이 발표되었습니다. 원본 버전의 이름이 {{site.data.keyword.discoverynewsshort}} Original로 변경되고 **2018년 1월 15일** 서비스부터 더 이상 사용되지 않습니다. {{site.data.keyword.discoverynewsshort}} Original에 액세스하려고 시도하면 `410 GONE` 메시지를 받게 됩니다.
 {: shortdesc}
