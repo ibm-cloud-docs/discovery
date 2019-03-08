@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # 튜토리얼: Retrieve and Rank에서 마이그레이션
+{: #migrate-rnr}
 
 {{site.data.keyword.retrieveandrankshort}}에서 {{site.data.keyword.discoveryfull}} 서비스로의 마이그레이션입니다. Cranfield 시작하기 튜토리얼의 연장선입니다.
 
