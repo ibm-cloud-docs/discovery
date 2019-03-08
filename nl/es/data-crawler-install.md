@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Descarga e instalación de Data Crawler
+{: #downloading-and-installing-the-data-crawler}
 
 Data Crawler recopila los datos sin procesar que al final se acaban utilizando para generar resultados de búsquedas para el servicio {{site.data.keyword.discoveryshort}}. Cuando el rastreador rastrea repositorios de datos, descarga documentos y metadatos, tomando como punto de partida un URL semilla que especifica el usuario. El rastreador descubre documentos en una jerarquía, o enlazados desde el URL semilla, y coloca en cola dichos documentos para recuperarlos.
 {: shortdesc}
