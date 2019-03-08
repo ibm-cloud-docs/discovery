@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Introduzione all'esecuzione di query
+{: #getting-started-with-querying}
 
 In questa esercitazione, impareremo a scrivere alcuni tipi diversi di query in {{site.data.keyword.discoveryshort}}.
 {: shortdesc}
