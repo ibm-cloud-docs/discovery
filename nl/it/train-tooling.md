@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Miglioramento della pertinenza dei risultati con la strumentazione
+{: #improving-result-relevance-with-the-tooling}
 
 La pertinenza dei risultati della query in linguaggio naturale può essere migliorata nel servizio {{site.data.keyword.discoveryfull}} con la formazione. Puoi formare le tue raccolte private utilizzando la strumentazione {{site.data.keyword.discoveryshort}} oppure le API {{site.data.keyword.discoveryshort}}. Vedi [Miglioramento della pertinenza dei tuoi risultati della query con l'API](/docs/services/discovery/train.html) se preferisci utilizzare le API.
 {: shortdesc}
