@@ -18,6 +18,7 @@ lastupdated: "2018-10-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 版本注意事項
+{: #release-notes}
 
 版本注意事項提供自舊版以來 {{site.data.keyword.discoveryfull}} 服務變更的相關資訊。
 {: shortdesc}
