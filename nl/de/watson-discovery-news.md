@@ -18,6 +18,7 @@ lastupdated: "2018-09-05"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News
+{: #watson-discovery-news}
 
 {{site.data.keyword.discoverynewsfull}} ist in {{site.data.keyword.discoveryshort}} enthalten. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} ist ein indexierter Datenbestand, der vorab mit den folgenden kognitiven Erkenntnissen aufbereitet wurde: **Schlüsselwortextraktion**, **Entitätsextraktion**, **Semantikrollenextraktion**, **Stimmungsanalyse**, **Beziehungsextraktion** und **Kategorieklassifizierung**. (Weitere Informationen zu Aufbereitungen finden Sie unter [Aufbereitungen hinzufügen](building.html#adding-enrichments).) Auch die folgenden zusätzlichen Metadaten werden hinzugefügt: Suchlaufdatum und Veröffentlichungsdatum. Eine Archivsuche ist für die Nachrichtendaten der letzten 60 Tage verfügbar. Was Sie mit {{site.data.keyword.discoverynewsfull}} erstellen können, wird in einer [Demo ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://discovery-news-demo.ng.bluemix.net/){: new_window} gezeigt.
 
