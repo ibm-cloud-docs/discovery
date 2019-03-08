@@ -18,6 +18,7 @@ lastupdated: "2017-10-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # エンティティー・タイプとサブタイプ
+{: #entity-types-and-subtypes}
 
 以下の表に、エンティティー抽出のエンリッチメントで戻される可能性があるエンティティー・タイプとサブタイプをリストします。 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> で、この情報を含むスプレッドシートをダウンロードできます。
 {: shortdesc}
