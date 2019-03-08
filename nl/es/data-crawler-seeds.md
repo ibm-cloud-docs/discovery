@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configuración del conector y las opciones de semilla
+{: #configuring-connector-and-seed-options}
 
 Al rastrear datos, el rastreador primero identifica el tipo de repositorio de datos (conector) y la ubicación inicial especificada por el usuario (semilla) para empezar a descargar información.
 {: shortdesc}
