@@ -18,6 +18,7 @@ lastupdated: "2018-10-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Smart Document Understanding
+{: #sdu}
 
 Smart Document Understanding (SDU) ist eine neue Methode, um Ihre Dokumente in {{site.data.keyword.discoveryfull}} zu annotieren. 
 
