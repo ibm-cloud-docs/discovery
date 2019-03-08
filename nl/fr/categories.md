@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Hiérarchie de catégories
+{: #cathierarchy}
 
 Le tableau ci-après présente les catégories qui sont renvoyées par l'enrichissement Category Classification. Vous pouvez télécharger une feuille de calcul contenant ces informations à partir d'ici : <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe" class="style-scope doc-content"></a>.
 {: shortdesc}
