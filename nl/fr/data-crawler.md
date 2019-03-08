@@ -18,6 +18,7 @@ lastupdated: "2017-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Ajout de contenu à l'aide de Data Crawler
+{: #adding-content-with-data-crawler}
 
 Data Crawler vous permet d'automatiser le téléchargement de contenu dans le service {{site.data.keyword.discoveryshort}}.
 {: shortdesc}
