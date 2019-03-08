@@ -18,6 +18,7 @@ lastupdated: "2017-10-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Tipos e subtipos de entidade
+{: #entity-types-and-subtypes}
 
 As tabelas a seguir listam os possíveis tipos e subtipos de entidade que são retornados pelo
 enriquecimento Extração de Entidade. É possível fazer download de uma planilha com essas informações aqui:
