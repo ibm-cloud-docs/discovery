@@ -18,6 +18,7 @@ lastupdated: "2018-09-07"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Informazioni
+{: #about}
 
 {{site.data.keyword.discoveryfull}} rende possibile creare rapidamente applicazioni di esplorazione basate sul cloud e cognitive che sbloccano le informazioni approfondite azionabili nascoste nei dati non strutturati - inclusi i tuoi dati di proprietà, nonché i dati di terze parti pubblici.
 {: shortdesc}
