@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # 入门
+{: #getting-started}
 
 在此简短教程中，我们将介绍 {{site.data.keyword.discoveryshort}} 工具，然后完成创建专用数据集合并对其进行搜索的过程。
 {: shortdesc}
