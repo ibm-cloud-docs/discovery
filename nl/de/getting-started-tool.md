@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # Einführung
+{: #getting-started}
 
 In diesem kurzen Lernprogramm werden die {{site.data.keyword.discoveryshort}}-Tools vorgestellt. Sie werden durch den Prozess für die Erstellung einer privaten Datensammlung geführt und erfahren, wie Sie diese durchsuchen können.
 {: shortdesc}
