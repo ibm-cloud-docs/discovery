@@ -18,6 +18,7 @@ lastupdated: "2017-10-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Tipos y subtipos de entidad
+{: #entity-types-and-subtypes}
 
 En la siguiente tabla hay una lista de los posibles tipos y subtipos de entidad devueltos por el enriquecimiento de Extracción de entidades. Puede descargar aquí una hoja de cálculo con esta información: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>.
 {: shortdesc}
