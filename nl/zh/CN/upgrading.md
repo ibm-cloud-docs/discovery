@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 升级套餐
+{: #upgrading-your-plan}
 
 {{site.data.keyword.discoveryfull}} 服务提供了三种套餐，用于提供不同级别的资源和功能以满足您的需求。
 {: shortdesc}
