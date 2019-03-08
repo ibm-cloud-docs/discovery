@@ -18,6 +18,7 @@ lastupdated: "2018-08-08"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Integrando-se com o Watson Knowledge Studio
+{: #integrating-with-wks}
 
 É possível integrar um modelo customizado do {{site.data.keyword.knowledgestudiofull}} com o
 serviço do {{site.data.keyword.discoveryshort}} para fornecer enriquecimentos customizados de entidade
