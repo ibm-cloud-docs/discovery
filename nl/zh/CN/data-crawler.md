@@ -18,6 +18,7 @@ lastupdated: "2017-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 使用 Data Crawler 添加内容
+{: #adding-content-with-data-crawler}
 
 通过 Data Crawler，您可自动将内容上传到 {{site.data.keyword.discoveryshort}} 服务。
 {: shortdesc}
