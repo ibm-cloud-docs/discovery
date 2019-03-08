@@ -18,6 +18,7 @@ lastupdated: "2018-06-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery 知识图
+{: #kg}
 
 知识图不仅仅是通过在文档的数据之间建立连接并生成新知识来提供数据和信息。我们提供了 AI 技术来自动根据非结构化数据创建定制知识图，具体方法是抽取实体和关系并对其消歧，使用算法方法扩充关系，然后使用相关性算法对结果排名。知识图可以充当公司的“知识中心”，用于企业搜索、摘要、推荐引擎和其他决策过程 - 例如检测欺诈、浪费或滥用情况。在知识图创建过程中使用定制模型（在 {{site.data.keyword.knowledgestudioshort}} 中创建）可以帮助构建特定于领域的知识图，使这些知识图适用于财务、技术、安全性、情报、医疗卫生等诸多领域。请参阅[与 {{site.data.keyword.knowledgestudiofull}} 集成](/docs/services/discovery/integrate-wks.html)，以获取有关将 {{site.data.keyword.discoveryshort}} 与 {{site.data.keyword.knowledgestudioshort}} 集成的更多信息。
 
