@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # 教程：从 Retrieve and Rank 迁移
+{: #migrate-rnr}
 
 从 {{site.data.keyword.retrieveandrankshort}} 迁移到 {{site.data.keyword.discoveryfull}} 服务。这是《Cranfield 入门教程》的附加部分。
 
