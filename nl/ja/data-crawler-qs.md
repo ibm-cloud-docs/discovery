@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler を使い始める
+{: #getting-started-with-the-data-crawler}
 
 このトピックでは、{{site.data.keyword.discoveryfull}} サービスで使用するために、データ・クローラーを用いてファイルをローカル・ファイル・システムから取り込む方法を説明します。
 {: shortdesc}
