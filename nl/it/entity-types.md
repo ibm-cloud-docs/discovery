@@ -18,6 +18,7 @@ lastupdated: "2017-10-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Tipi e sottotipi di entità
+{: #entity-types-and-subtypes}
 
 Le seguenti tabelle elencano i possibili tipi e sottotipi di entità che vengono restituiti dall'arricchimento dell'Entity Extraction. Puoi scaricare il foglio di calcolo con queste informazioni qui: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a>.
 {: shortdesc}
