@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Aufbereitungen auf Natural Language Understanding (NLU) migrieren
+{: #migrate-nlu}
 
 Am **18. Juli 2017** wurde für {{site.data.keyword.discoveryfull}} eine neue Aufbereitungstechnologie namens {{site.data.keyword.nlushort}} (NLU) eingeführt. {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen werden seit dem **1. März 2018** nicht weiter unterstützt.
 {: shortdesc}
