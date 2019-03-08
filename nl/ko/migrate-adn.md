@@ -18,6 +18,7 @@ lastupdated: "2017-11-08"
 {:swift: .ph data-hd-programlang='swift'}
 
 # AlchemyData News에서 마이그레이션
+{: #migrate-adn}
 
 **2017년 7월 31일**에 {{site.data.keyword.discoverynewsfull}}의 새 버전이 발표되었습니다. 이 콜렉션에 대한 설명은 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html)를 참조하십시오.
 
