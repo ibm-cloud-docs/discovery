@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configurando opções do conector e de valor inicial
+{: #configuring-connector-and-seed-options}
 
 Ao efetuar crawl de dados, o crawler primeiramente identifica o tipo de repositório de dados (conector)
 e o local de início especificado pelo usuário (valor inicial) para começar o download de informações.
