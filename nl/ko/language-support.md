@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 언어 지원
+{: #language-support}
 
 {{site.data.keyword.discoveryfull}} 서비스는 **기본** 및 **전체**의 두 가지 언어 지원 레벨을 제공합니다.
 {: shortdesc}
