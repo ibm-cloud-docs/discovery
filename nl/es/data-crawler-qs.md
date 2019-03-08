@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Iniciación a Data Crawler
+{: #getting-started-with-the-data-crawler}
 
 Este tema explica cómo utilizar el rastreador de datos para ingerir archivos desde su sistema de archivos local, para utilizar con el servicio {{site.data.keyword.discoveryfull}}.
 {: shortdesc}
