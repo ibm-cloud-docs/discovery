@@ -19,6 +19,7 @@ lastupdated: "2017-10-03"
 
 
 # Migrando do Watson Document Conversion e do Retrieve and Rank
+{: #migrate-dcs-rr}
 
 O {{site.data.keyword.documentconversionfull}} e o
 {{site.data.keyword.retrieveandrankfull}}
