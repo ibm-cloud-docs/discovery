@@ -18,6 +18,7 @@ lastupdated: "2018-09-07"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 정보
+{: #about}
 
 {{site.data.keyword.discoveryfull}}를 통해 고유한 전용 데이터와 공용 및 써드파티 데이터를 포함하여 구조화되지 않은 데이터에 숨겨진 실행 가능한 통찰을 잠금 해제하는 코그너티브, 클라우드 기반 탐색 애플리케이션을 빠르게 빌드할 수 있습니다.
 {: shortdesc}
