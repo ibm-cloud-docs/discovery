@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Amélioration de la pertinence des résultats à l'aide de l'API
+{: #improving-result-relevance-with-the-api}
 
 Vous pouvez former le service {{site.data.keyword.discoveryshort}} afin d'améliorer la pertinence des résultats de requête pour votre organisation ou votre domaine. Lorsque vous fournissez des *données de formation* à une instance {{site.data.keyword.discoveryshort}}, le service utilise des techniques Watson d'apprentissage automatique pour retrouver des signaux dans votre contenu et vos questions. Ensuite, le service réorganise les résultats de requête afin d'afficher en premier ceux qui sont les plus pertinents. A mesure que vous ajoutez des données de formation, l'instance de service devient plus précise et plus sophistiquée dans l'organisation des résultats qu'elle renvoie.
 {: shortdesc}
