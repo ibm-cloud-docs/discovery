@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # 指導教學：從 Retrieve and Rank 移轉
+{: #migrate-rnr}
 
 從 {{site.data.keyword.retrieveandrankshort}} 移轉至 {{site.data.keyword.discoveryfull}} 服務。「Cranfield 入門指導教學」的延續
 
