@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # チュートリアル: Retrieve and Rank からのマイグレーション
+{: #migrate-rnr}
 
 {{site.data.keyword.retrieveandrankshort}} から {{site.data.keyword.discoveryfull}} サービスへのマイグレーション。 Cranfield 入門チュートリアルの続き。
 
