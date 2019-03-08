@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 開始使用查詢
+{: #getting-started-with-querying}
 
 在本指導教學中，我們將學習如何在 {{site.data.keyword.discoveryshort}} 中撰寫一些不同類型的查詢。
 {: shortdesc}
