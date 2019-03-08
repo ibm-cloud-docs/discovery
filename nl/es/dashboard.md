@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Visualización de métricas y mejora de los resultados de consulta con el panel de control de rendimiento
+{: #performance-dashboard}
 
 El panel de control de rendimiento del conjunto de herramientas de {{site.data.keyword.discoveryshort}} puede utilizarse para visualizar métricas de consulta y para mejorar resultados de consulta, incluida la relevancia de consultas.
 
