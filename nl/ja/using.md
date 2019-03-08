@@ -18,6 +18,7 @@ lastupdated: "2018-10-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 照会の概念
+{: #query-concepts}
 
 {{site.data.keyword.discoveryfull}} サービスは、強力なコンテンツ検索機能を提供します。 {{site.data.keyword.discoveryshort}} サービスによってコンテンツがアップロードされ、エンリッチされたら、照会を作成することができます。また、その後、{{site.data.keyword.discoveryshort}} をプロジェクトに統合したり、{{site.data.keyword.watson}} Explorer Application Builder を使用してカスタム・アプリケーションを作成したりできます。
 {: shortdesc}
