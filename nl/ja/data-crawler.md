@@ -18,6 +18,7 @@ lastupdated: "2017-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler を使用したコンテンツの追加
+{: #adding-content-with-data-crawler}
 
 データ・クローラーを使用すると、{{site.data.keyword.discoveryshort}} サービスへのコンテンツのアップロードを自動化できます。
 {: shortdesc}
