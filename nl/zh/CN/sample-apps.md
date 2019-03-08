@@ -18,6 +18,7 @@ lastupdated: "2018-09-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 样本应用程序
+{: #sample-apps}
 
 通过以下样本应用程序和实验室，可了解有关 {{site.data.keyword.discoveryfull}} 的更多信息。
 {: shortdesc}
