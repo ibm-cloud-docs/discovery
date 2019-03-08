@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 도구로 결과 관련성 향상
+{: #improving-result-relevance-with-the-tooling}
 
 자연어 조회 결과의 관련성은 도구를 사용하여 {{site.data.keyword.discoveryfull}} 서비스에서 향상될 수 있습니다. {{site.data.keyword.discoveryshort}} 도구 또는 {{site.data.keyword.discoveryshort}} API를 사용하여 개인용 콜렉션을 훈련시킬 수 있습니다. API 사용을 선호하는 경우 [API로 조회 결과의 관련성 향상](/docs/services/discovery/train.html)을 참조하십시오.
 {: shortdesc}
