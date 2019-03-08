@@ -18,6 +18,7 @@ lastupdated: "2017-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler로 컨텐츠 추가
+{: #adding-content-with-data-crawler}
 
 Data Crawler를 사용하면 {{site.data.keyword.discoveryshort}} 서비스에 대한 컨텐츠의 업로드를 자동화할 수 있습니다.
 {: shortdesc}
