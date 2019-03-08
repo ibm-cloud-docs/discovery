@@ -18,6 +18,7 @@ lastupdated: "2018-09-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 샘플 앱
+{: #sample-apps}
 
 다음 샘플 애플리케이션 및 랩에서 {{site.data.keyword.discoveryfull}}에 대해 자세히 알아보십시오.
 {: shortdesc}
