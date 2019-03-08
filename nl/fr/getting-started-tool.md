@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # Initiation
+{: #getting-started}
 
 Dans ce bref tutoriel, nous allons vous présenter les outils {{site.data.keyword.discoveryshort}} et vous montrer comment créer une collection de données privées et comment effectuer des recherches dans cette dernière.
 {: shortdesc}
