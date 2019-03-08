@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Einführung in die Ausführung von Abfragen
+{: #getting-started-with-querying}
 
 In diesem Lernprogramm erfahren Sie, wie Sie ein paar unterschiedliche Abfragetypen in {{site.data.keyword.discoveryshort}} schreiben.
 {: shortdesc}
