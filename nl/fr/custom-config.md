@@ -18,6 +18,7 @@ lastupdated: "2018-01-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Référence de configuration
+{: #configref}
 
 Vous pouvez créer votre propre configuration d'ingestion {{site.data.keyword.discoveryshort}} dans JSON si vos données ont des besoins [conversion](#conversion), [enrichment](#enrichment) ou [normalization](#normalization) spécifiques.
 {: shortdesc}
