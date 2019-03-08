@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Natural Language Understanding へのエンリッチメントのマイグレーション
+{: #migrate-nlu}
 
 **2017 年 7 月 18 日**以降、{{site.data.keyword.nlushort}} (NLU) という名前の新しいエンリッチメント・テクノロジーが {{site.data.keyword.discoveryfull}} に導入されました。 {{site.data.keyword.alchemylanguageshort}} エンリッチメントは、**2018 年 3 月 1 日**に非推奨になりました。
 {: shortdesc}
