@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 카테고리 계층 구조
+{: #cathierarchy}
 
 다음 표는 카테고리 분류 인리치먼트로 리턴되는 카테고리를 표시합니다. <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘" class="style-scope doc-content"></a>에서 이 정보가 포함된 스프레드시트를 다운로드할 수 있습니다.
 {: shortdesc}
