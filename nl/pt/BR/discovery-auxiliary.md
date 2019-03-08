@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Archives do Discovery
+{: #discovery-archives}
 
 Este tópico contém informações sobre os recursos do {{site.data.keyword.discoveryshort}} que foram substituídos pelas opções mais recentes.
 {: tip}
