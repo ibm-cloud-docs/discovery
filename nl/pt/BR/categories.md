@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Hierarquia de categorias
+{: #cathierarchy}
 
 A tabela a seguir mostra as categorias que são retornadas pelo enriquecimento de Classificação de
 Categoria. É possível fazer download de uma planilha com essas informações aqui:
