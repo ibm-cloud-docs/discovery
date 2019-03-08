@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # Esercitazione: migrazione da Retrieve and Rank
+{: #migrate-rnr}
 
 Migrazione da {{site.data.keyword.retrieveandrankshort}} al servizio {{site.data.keyword.discoveryfull}}. Una continuazione dell'esercitazione introduttiva a Cranfield
 
