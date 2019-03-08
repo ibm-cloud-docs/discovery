@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # Iniciación
+{: #getting-started}
 
 En esta breve guía de aprendizaje, introduciremos el conjunto de herramientas de {{site.data.keyword.discoveryshort}} y recorreremos el proceso de creación de una recopilación de datos privados en los que buscar.
 {: shortdesc}
