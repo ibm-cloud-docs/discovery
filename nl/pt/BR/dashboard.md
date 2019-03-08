@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Visualizando métricas e melhorando os resultados da consulta com o painel Desempenho
+{: #performance-dashboard}
 
 O painel Desempenho no conjunto de ferramentas do {{site.data.keyword.discoveryshort}} pode ser usado para visualizar métricas de consulta, bem como melhorar os resultados da consulta, incluindo a relevância da consulta.
 
