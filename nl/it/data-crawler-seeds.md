@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configurazione delle opzioni seed e connettore
+{: #configuring-connector-and-seed-options}
 
 Quando indicizzi i dati, il crawler identifica prima il tipo di repository di dati (connettore) e l'ubicazione di partenza specificata dall'utente (seed) per iniziare a scaricare le informazioni.
 {: shortdesc}
