@@ -18,6 +18,7 @@ lastupdated: "2018-10-04"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Referencia de consultas
+{: #query-reference}
 
 El servicio {{site.data.keyword.discoveryfull}} ofrece potentes funciones de búsqueda de contenido a través de las consultas. Después de que el contenido se haya cargado y el servicio {{site.data.keyword.discoveryshort}} lo haya enriquecido, puede crear consultas, integrar {{site.data.keyword.discoveryshort}} en sus propios proyectos o crear una aplicación personalizada utilizando {{site.data.keyword.watson}} Explorer Application Builder.
 {: shortdesc}
