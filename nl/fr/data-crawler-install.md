@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Téléchargement et installation de Data Crawler
+{: #downloading-and-installing-the-data-crawler}
 
 Data Crawler collecte les données brutes qui seront finalement utilisées pour constituer les résultats de recherche du service {{site.data.keyword.discoveryshort}}. Lors de l'exploration des référentiels de données, le moteur d'exploration télécharge des documents et des métadonnées en commençant par une adresse URL de départ spécifiée par l'utilisateur. Le moteur d'exploration découvre des documents dans une hiérarchie, ou liés à partir de l'adresse URL de départ, et les place en file d'attente en vue d'une extraction.
 {: shortdesc}
