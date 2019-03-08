@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 升級方案
+{: #upgrading-your-plan}
 
 {{site.data.keyword.discoveryfull}} 服務提供三個方案，提供不同層次的資源及功能來符合您的需求。
 {: shortdesc}
