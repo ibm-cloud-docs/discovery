@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Amélioration de la pertinence des résultats à l'aide des outils
+{: #improving-result-relevance-with-the-tooling}
 
 La pertinence des résultats d'une requête en langage naturel peut être améliorée dans le service {{site.data.keyword.discoveryfull}} à l'aide d'une formation. Vous pouvez former vos collections privées à l'aide des outils {{site.data.keyword.discoveryshort}} ou des API {{site.data.keyword.discoveryshort}}. Si vous préférez utiliser les API, voir [Amélioration de la pertinence des résultats de requête à l'aide de l'API](/docs/services/discovery/train.html).
 {: shortdesc}
