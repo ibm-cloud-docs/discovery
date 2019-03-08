@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Discovery 保存檔
+{: #discovery-archives}
 
 本主題包含已取代為較新選項的 {{site.data.keyword.discoveryshort}} 特性相關資訊。
 {: tip}
