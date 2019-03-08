@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Jerarquía de categorías
+{: #cathierarchy}
 
 En la siguiente tabla se muestran las categorías que devuelve el enriquecimiento de Clasificación de categorías. Puede descargar aquí una hoja de cálculo con esta información: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>.
 {: shortdesc}
