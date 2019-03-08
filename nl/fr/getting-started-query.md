@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Initiation à l'écriture de requêtes
+{: #getting-started-with-querying}
 
 Dans ce tutoriel, vous apprendrez à écrire un petit nombre de différents types de requête dans {{site.data.keyword.discoveryshort}}.
 {: shortdesc}
