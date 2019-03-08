@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 使用工具改进结果相关性
+{: #improving-result-relevance-with-the-tooling}
 
 在 {{site.data.keyword.discoveryfull}} 服务中，自然语言查询结果的相关性可以通过训练来改进。您可以使用 {{site.data.keyword.discoveryshort}} 工具或 {{site.data.keyword.discoveryshort}} API 来训练专用集合。如果您希望使用 API，请参阅[使用 API 改进查询结果的相关性](/docs/services/discovery/train.html)。
 {: shortdesc}
