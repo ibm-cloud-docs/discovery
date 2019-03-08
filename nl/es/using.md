@@ -18,6 +18,7 @@ lastupdated: "2018-10-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Conceptos de consultas
+{: #query-concepts}
 
 El servicio {{site.data.keyword.discoveryfull}} ofrece potentes funciones de búsqueda de contenido. Una vez el contenido se ha cargado y el servicio {{site.data.keyword.discoveryshort}} lo ha enriquecido, puede crear consultas, integrar {{site.data.keyword.discoveryshort}} en sus propios proyectos o crear una aplicación personalizada utilizando {{site.data.keyword.watson}} Explorer Application Builder.
 {: shortdesc}
