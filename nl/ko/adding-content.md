@@ -18,6 +18,7 @@ lastupdated: "2018-08-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 컨텐츠 추가
+{: #addcontent}
 
 사용할 문서 업로드 메소드를 결정하는 방법
 {: shortdesc}
