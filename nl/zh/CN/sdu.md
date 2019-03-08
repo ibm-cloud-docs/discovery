@@ -18,6 +18,7 @@ lastupdated: "2018-10-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 智能文档理解
+{: #sdu}
 
 智能文档理解 (SDU) 是在 {{site.data.keyword.discoveryfull}} 中注释文档的新方法。 
 
