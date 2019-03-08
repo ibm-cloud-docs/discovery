@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # サービスの構成
+{: #configservice}
 
 {{site.data.keyword.discoveryshort}} サービスを構築すると、独自のデータをエンリッチし、それを照会可能な形式で送信することによって、有用な洞察を得られるようになります。
 {: shortdesc}
