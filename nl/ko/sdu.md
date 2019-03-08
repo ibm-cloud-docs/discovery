@@ -18,6 +18,7 @@ lastupdated: "2018-10-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # SDU(Smart Document Understanding)
+{: #sdu}
 
 SDU(Smart Document Understanding)는 {{site.data.keyword.discoveryfull}}에서 문서의 어노테이션을 작성하는 새로운 방법입니다. 
 
