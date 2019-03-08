@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler 入门
+{: #getting-started-with-the-data-crawler}
 
 本主题说明如何使用 Data Crawler 从本地文件系统中摄入文件，以用于 {{site.data.keyword.discoveryfull}} 服务。
 {: shortdesc}
