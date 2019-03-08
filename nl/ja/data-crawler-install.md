@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler のダウンロードとインストール
+{: #downloading-and-installing-the-data-crawler}
 
 Data Crawler は、最終的に {{site.data.keyword.discoveryshort}} サービスの検索結果を作成するために使用される生データを収集します。 クローラーがデータ・リポジトリーをクロールする際は、ユーザー指定のシード URL から開始して文書とメタデータをダウンロードします。 クローラーは階層内の文書またはシード URL からリンクされた文書を検出し、取得するためにこれらの文書をエンキューします。
 {: shortdesc}
