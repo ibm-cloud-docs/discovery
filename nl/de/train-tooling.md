@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Ergebnisrelevanz mithilfe der Tools verbessern
+{: #improving-result-relevance-with-the-tooling}
 
 Die Relevanz der Ergebnisse von Abfragen in natürlicher Sprache kann im {{site.data.keyword.discoveryfull}}-Service mit einem Training verbessert werden. Sie können das Training für Ihre privaten Sammlungen entweder mit den {{site.data.keyword.discoveryshort}}-Tools oder den {{site.data.keyword.discoveryshort}}-APIs durchführen. Wenn Sie die APIs verwenden möchten, lesen Sie den Abschnitt [Relevanz von Abfrageergebnissen mithilfe der API verbessern](/docs/services/discovery/train.html).
 {: shortdesc}
