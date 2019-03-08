@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # パフォーマンス・ダッシュボードを使用したメトリックの表示および照会結果の改善
+{: #performance-dashboard}
 
 {{site.data.keyword.discoveryshort}} ツールのパフォーマンス・ダッシュボードを使用して、照会メトリックを表示したり、照会の関連性などの照会結果を改善したりすることができます。
 
