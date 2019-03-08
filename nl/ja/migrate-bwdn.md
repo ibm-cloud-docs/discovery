@@ -18,6 +18,7 @@ lastupdated: "2018-01-16"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News Original からのマイグレーション
+{: #migrate-bwdn}
 
 {{site.data.keyword.discoverynewsshort}} の新しいバージョンが **2017 年 7 月 31 日**に公開されました。 元のバージョンは {{site.data.keyword.discoverynewsshort}} Original に名前変更され、**2018 年 1 月 15 日**にサービスを廃止しました。{{site.data.keyword.discoverynewsshort}} Original にアクセスしようとすると、メッセージ `410 GONE` を受け取ります。
 {: shortdesc}
