@@ -18,6 +18,7 @@ lastupdated: "2018-08-17"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Planes de precios de Discovery
+{: #discovery-pricing-plans}
 
 El servicio {{site.data.keyword.discoveryfull}} ofrece tres planes, **Lite**, **Avanzado** y **Premium**, que proporcionan distintos niveles de recursos y prestaciones para adaptarse a sus necesidades.
 {: shortdesc}
