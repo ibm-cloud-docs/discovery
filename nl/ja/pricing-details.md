@@ -18,6 +18,7 @@ lastupdated: "2018-08-17"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Discovery の料金プラン
+{: #discovery-pricing-plans}
 
 {{site.data.keyword.discoveryfull}} サービスでは、お客様のニーズに合わせて異なるレベルのリソースと機能を選択できるように、**ライト**、**拡張**、および**プレミアム**の 3 つのプランが用意されています。
 {: shortdesc}
