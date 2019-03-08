@@ -17,7 +17,8 @@ lastupdated: "2017-08-18"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Gerarchia delle categorie 
+# Gerarchia delle categorie
+{: #cathierarchy}
 
 La seguente tabella mostra le categorie restituite dall'arricchimento Category Classification. Puoi scaricare il foglio di calcolo con queste informazioni qui: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a>.
 {: shortdesc}
