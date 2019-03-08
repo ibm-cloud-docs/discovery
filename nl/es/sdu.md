@@ -18,6 +18,7 @@ lastupdated: "2018-10-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Comprensión de documentos inteligentes
+{: #sdu}
 
 La comprensión de documentos inteligentes (SDU) es una nueva forma de anotar los documentos en {{site.data.keyword.discoveryfull}}. 
 
