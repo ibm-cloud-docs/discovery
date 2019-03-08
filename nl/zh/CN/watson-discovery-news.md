@@ -18,6 +18,7 @@ lastupdated: "2018-09-05"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News
+{: #watson-discovery-news}
 
 {{site.data.keyword.discoverynewsfull}} 随附于 {{site.data.keyword.discoveryshort}}。{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} 是一个已建立索引的数据集，已使用以下认知洞察进行预扩充：**关键字抽取**、**实体抽取**、**语义角色抽取**、**观点分析**、**关系抽取**和**类别分类**。（要了解有关扩充项的更多信息，请参阅[添加扩充项](building.html#adding-enrichments)。）此外，还添加了以下其他元数据：搜寻日期和发布日期。历史搜索可用于搜索过去 60 天的新闻数据。请在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://discovery-news-demo.ng.bluemix.net/){: new_window} 查看可以使用 {{site.data.keyword.discoverynewsfull}} 构建的内容的演示。
 
