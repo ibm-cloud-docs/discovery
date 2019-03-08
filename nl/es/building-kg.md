@@ -18,6 +18,7 @@ lastupdated: "2018-06-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery Knowledge Graph
+{: #kg}
 
 Los gráficos de conocimientos van más allá de la información y los datos creando conexiones dentro de los datos a través de documentos y generando nuevo conocimiento. IBM proporciona una tecnología de inteligencia artificial que de forma automática crea gráficos de conocimiento personalizados a partir de datos no estructurados extrayendo y desambiguando entidades y relaciones, enriqueciendo las relaciones con la ayuda de técnicas algorítmicas y clasificando los resultados utilizando algoritmos de relevancia. Los gráficos de conocimiento pueden funcionar como el "centro de conocimientos" de su empresa y se pueden utilizar para la búsqueda empresarial, para resumir información, para motores de recomendación y para otros procesos de toma de decisiones como, por ejemplo, la detección de fraudes, despilfarros o abusos. La utilización de un modelo personalizado (que se crea en {{site.data.keyword.knowledgestudioshort}}) en el proceso de creación de Knowledge Graph, puede ayudar a crear gráficos de conocimiento específicos de dominios que se pueden aplicar en dominios como, por ejemplo, el financiero, el tecnológico, el de la seguridad, el de la inteligencia o el de la salud, entre muchos otros. Consulte [Integración con {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html) para obtener más información sobre la integración de {{site.data.keyword.discoveryshort}} con {{site.data.keyword.knowledgestudioshort}}.
 
