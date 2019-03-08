@@ -18,6 +18,7 @@ lastupdated: "2018-10-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Notes sur l'édition
+{: #release-notes}
 
 Les notes sur l'édition fournissent des informations relatives aux modifications apportées au service {{site.data.keyword.discoveryfull}} depuis l'édition précédente.
 {: shortdesc}
