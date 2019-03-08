@@ -18,6 +18,7 @@ lastupdated: "2018-10-04"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 照会リファレンス
+{: #query-reference}
 
 {{site.data.keyword.discoveryfull}} サービスは、照会を介して強力なコンテンツ検索機能を提供します。 コンテンツがアップロードされ、{{site.data.keyword.discoveryshort}} サービスによってエンリッチされた後は、照会を作成したり、{{site.data.keyword.discoveryshort}} を独自プロジェクトに統合したり、{{site.data.keyword.watson}} Explorer Application Builder を使用してカスタム・アプリケーションを作成したりできます。
 {: shortdesc}
