@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Miglioramento della pertinenza dei risultati con l'API
+{: #improving-result-relevance-with-the-api}
 
 Puoi formare il servizio {{site.data.keyword.discoveryshort}} per migliorare la pertinenza dei risultati della query per la tua organizzazione o la tua area di settore specifiche. Quando fornisci un'istanza {{site.data.keyword.discoveryshort}} con *dati di formazione*, il servizio utilizza le tecniche Watson di machine learning per trovare segnali nel tuo contenuto e nelle tue domande. Il servizio riordina quindi i risultati della query per visualizzare i risultati più pertinenti per primi. Man mano che aggiungi ulteriori dati di formazione, l'istanza del servizio diventa più accurata e sofisticata nell'ordinamento dei risultati che restituisce.
 {: shortdesc}
