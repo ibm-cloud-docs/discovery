@@ -18,6 +18,7 @@ lastupdated: "2017-10-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 实体类型和子类型
+{: #entity-types-and-subtypes}
 
 下表列出了“实体抽取”扩充项返回的可能实体类型和子类型。您可以在以下位置下载包含这些信息的电子表格：<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a>。
 {: shortdesc}
