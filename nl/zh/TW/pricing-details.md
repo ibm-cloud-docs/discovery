@@ -18,6 +18,7 @@ lastupdated: "2018-08-17"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Discovery 定價方案
+{: #discovery-pricing-plans}
 
 {{site.data.keyword.discoveryfull}} 服務提供三個方案：**精簡**、**進階**及**超值**，它們提供不同層次的資源及功能以符合您的需求。
 {: shortdesc}
