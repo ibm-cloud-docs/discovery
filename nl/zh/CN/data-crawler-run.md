@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 搜寻数据存储库
+{: #crawling-your-data-repository}
 
 搜寻器选项全部正确配置后，即可以对数据存储库运行搜寻。
 {: shortdesc}
