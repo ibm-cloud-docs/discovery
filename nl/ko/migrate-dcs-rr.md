@@ -19,6 +19,7 @@ lastupdated: "2017-10-03"
 
 
 # Watson Document Conversion 및 Retrieve and Rank에서 마이그레이션
+{: #migrate-dcs-rr}
 
 {{site.data.keyword.documentconversionfull}} 및 {{site.data.keyword.retrieveandrankfull}}는 더 이상 사용되지 않으므로 {{site.data.keyword.discoveryfull}}로 대체되었습니다. 일반적으로, 이 두 서비스는 함께 사용되어 수집하고 순위를 지정한 후 애플리케이션에 결과를 전달합니다. 이 문서는 {{site.data.keyword.documentconversionshort}} 및 {{site.data.keyword.retrieveandrankshort}}에서 {{site.data.keyword.discoveryshort}}로의 마이그레이션 프로세스를 통해 사용자를 안내하기 위해 제공됩니다.
 
