@@ -18,6 +18,7 @@ lastupdated: "2018-08-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 新增內容
+{: #addcontent}
 
 如何決定要使用哪一種文件上傳方法？
 {: shortdesc}
