@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Introduzione al data crawler
+{: #getting-started-with-the-data-crawler}
 
 Questo argomento spiega come utilizzare il data crawler per inserire i file dal tuo file system locale, da utilizzare con il servizio {{site.data.keyword.discoveryfull}}.
 {: shortdesc}
