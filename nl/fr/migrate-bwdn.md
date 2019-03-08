@@ -18,6 +18,7 @@ lastupdated: "2018-01-16"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Migration à partir de Watson Discovery News Original
+{: #migrate-bwdn}
 
 Une nouvelle version de {{site.data.keyword.discoverynewsshort}} a débuté le **31 juillet 2017**. La version d'origine a été renommée {{site.data.keyword.discoverynewsshort}} Original et retirée du service le **15 janvier 2018**. Si vous tentez d'accéder à {{site.data.keyword.discoverynewsshort}} Original, vous recevrez le message `410 GONE`.
 {: shortdesc}
