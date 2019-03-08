@@ -18,6 +18,7 @@ lastupdated: "2017-10-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Types et sous-types d'entité
+{: #entity-types-and-subtypes}
 
 Les tableaux ci-après répertorient les types et sous-types d'entité qui peuvent être renvoyés par l'enrichissement Entity Extraction. Vous pouvez télécharger une feuille de calcul contenant ces informations à partir d'ici : <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe" class="style-scope doc-content"></a>.
 {: shortdesc}
