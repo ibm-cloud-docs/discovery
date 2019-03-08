@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 下載並安裝資料搜索器
+{: #downloading-and-installing-the-data-crawler}
 
 「資料搜索器」會收集最後用來形成 {{site.data.keyword.discoveryshort}} 服務搜尋結果的原始資料。搜索資料儲存庫時，搜索器會從使用者指定的種子 URL 開始，下載文件及 meta 資料。搜索器會探索階層中的文件，或者探索以其他方式從種子 URL 鏈結的文件，並將這些文件放入佇列以進行擷取。
 {: shortdesc}
