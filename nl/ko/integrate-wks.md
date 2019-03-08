@@ -18,6 +18,7 @@ lastupdated: "2018-08-08"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Knowledge Studio와 통합
+{: #integrating-with-wks}
 
 {{site.data.keyword.knowledgestudiofull}}의 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 서비스와 통합하여 사용자 정의 엔티티와 관계 인리치먼트를 제공할 수 있습니다.
 {: shortdesc}
