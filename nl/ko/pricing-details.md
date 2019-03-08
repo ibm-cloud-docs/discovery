@@ -18,6 +18,7 @@ lastupdated: "2018-08-17"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Discovery 가격 책정 플랜
+{: #discovery-pricing-plans}
 
 {{site.data.keyword.discoveryfull}} 서비스는 사용자의 요구에 맞게 서로 다른 레벨의 리소스와 기능을 제공하는 세가지 플랜 **라이트**, **고급** 및 **프리미엄**을 제공합니다.
 {: shortdesc}
