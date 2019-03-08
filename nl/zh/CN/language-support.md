@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 语言支持
+{: #language-support}
 
 {{site.data.keyword.discoveryfull}} 服务提供两个级别的语言支持：**基本**和**完全**。
 {: shortdesc}
