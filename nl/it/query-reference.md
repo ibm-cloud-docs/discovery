@@ -18,6 +18,7 @@ lastupdated: "2018-10-04"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Guida di riferimento per le query
+{: #query-reference}
 
 Il servizio {{site.data.keyword.discoveryfull}} offre potenti funzionalità di ricerca di contenuto tramite le query. Dopo che il tuo contenuto è stato caricato e arricchito dal servizio {{site.data.keyword.discoveryshort}}, puoi creare delle query e integrare {{site.data.keyword.discoveryshort}} nei tuoi progetti oppure creare un'applicazione personalizzata utilizzando il {{site.data.keyword.watson}} Explorer Application Builder.
 {: shortdesc}
