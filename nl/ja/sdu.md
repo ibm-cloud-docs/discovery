@@ -18,6 +18,7 @@ lastupdated: "2018-10-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Smart Document Understanding
+{: #sdu}
 
 Smart Document Understanding (SDU) は、{{site.data.keyword.discoveryfull}} 内で文書に注釈を付けるための新しい方法です。 
 
