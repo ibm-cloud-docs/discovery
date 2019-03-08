@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 配置資料搜索器
+{: #configuring-the-data-crawler}
 
 若要設定「資料搜索器」來搜索儲存庫，您必須在 `crawler.conf` 檔案中指定適當的輸入配接器，然後在輸入配接器配置檔中配置儲存庫特有的資訊。
 {: shortdesc}
