@@ -18,6 +18,7 @@ lastupdated: "2017-11-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 関係タイプ
+{: #relation-types}
 
 以下の表に、[関係抽出](/docs/services/discovery/building.html#relation-extraction)エンリッチメントによって返される可能性のある関係タイプのリストを示します。
 {: shortdesc}
