@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 조회 시작하기
+{: #getting-started-with-querying}
 
 이 튜토리얼에서는 {{site.data.keyword.discoveryshort}}에서 몇 가지 다른 유형의 조회를 작성하는 방법에 대해 학습합니다.
 {: shortdesc}
