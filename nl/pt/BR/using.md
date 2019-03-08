@@ -18,6 +18,7 @@ lastupdated: "2018-10-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Conceitos de consulta
+{: #query-concepts}
 
 O serviço do {{site.data.keyword.discoveryfull}} oferece recursos poderosos de procura de
 conteúdo. Depois que seu conteúdo é transferido por upload e enriquecido pelo serviço do
