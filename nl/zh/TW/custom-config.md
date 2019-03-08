@@ -18,6 +18,7 @@ lastupdated: "2018-01-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 配置參考資料
+{: #configref}
 
 如果您的資料具有特殊的[轉換](#conversion)、[強化](#enrichment)或[正規化](#normalization)需求，您可以在 JSON 中建立自己的 {{site.data.keyword.discoveryshort}} 汲取配置。
 {: shortdesc}
