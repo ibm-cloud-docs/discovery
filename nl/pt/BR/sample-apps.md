@@ -18,6 +18,7 @@ lastupdated: "2018-09-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Aplicativos de amostra
+{: #sample-apps}
 
 Saiba mais sobre o {{site.data.keyword.discoveryfull}} por meio desses aplicativos de amostra e laboratórios.
 {: shortdesc}
