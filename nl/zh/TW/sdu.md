@@ -18,6 +18,7 @@ lastupdated: "2018-10-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 智慧型文件理解
+{: #sdu}
 
 「智慧型文件理解 (SDU)」是在 {{site.data.keyword.discoveryfull}} 內標註文件的新方法。 
 
