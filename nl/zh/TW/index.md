@@ -18,6 +18,7 @@ lastupdated: "2018-09-07"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 關於
+{: #about}
 
 {{site.data.keyword.discoveryfull}} 可讓您快速建置認知、雲端型探索應用程式，來揭露非結構化資料中所隱藏之可採取動作的見解 - 包括您自己的專屬資料，以及公用資料和協力廠商資料。
 {: shortdesc}
