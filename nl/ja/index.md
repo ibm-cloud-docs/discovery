@@ -18,6 +18,7 @@ lastupdated: "2018-09-07"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 製品情報
+{: #about}
 
 {{site.data.keyword.discoveryfull}} の使用により、ユーザー自身が所有するデータ、および公開データやサード・パーティー・データを含む非構造化データに隠された、すぐに実施可能な洞察のロックを解除する、コグニティブなクラウド・ベースの探査アプリケーションを素早く作成することができます。
 {: shortdesc}
