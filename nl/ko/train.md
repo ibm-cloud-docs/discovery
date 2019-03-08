@@ -18,6 +18,7 @@ lastupdated: "2018-09-06"
 {:swift: .ph data-hd-programlang='swift'}
 
 # API로 결과 관련성 향상
+{: #improving-result-relevance-with-the-api}
 
 {{site.data.keyword.discoveryshort}} 서비스를 훈련하여 특정 조직 또는 주제 영역에 대한 조회 결과의 관련성을 향상시킬 수 있습니다. *훈련 데이터*와 함께 {{site.data.keyword.discoveryshort}} 인스턴스를 제공하는 경우 서비스는 기계 학습 Watson 기술을 사용하여 컨텐츠 및 질문의 신호를 찾습니다. 그런 다음 서비스는 조회 결과를 다시 정렬하여 맨 위에 가장 관련성이 높은 결과를 표시합니다. 더 많은 훈련 데이터를 추가할수록 리턴하는 결과의 순위 지정 시 서비스 인스턴스가 좀 더 정확해지고 정교해집니다.
 {: shortdesc}
