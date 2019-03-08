@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # Guía de aprendizaje: Migración desde Retrieve and Rank
+{: #migrate-rnr}
 
 Migración desde {{site.data.keyword.retrieveandrankshort}} al servicio {{site.data.keyword.discoveryfull}}. Es una continuación de la guía de aprendizaje de iniciación de Cranfield.
 
