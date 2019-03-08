@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Initiation à Data Crawler
+{: #getting-started-with-the-data-crawler}
 
 Cette rubrique explique comment utiliser Data Crawler pour ingérer des fichiers à partir de votre système de fichiers local, dans le but de les utiliser avec le service {{site.data.keyword.discoveryfull}}.
 {: shortdesc}
