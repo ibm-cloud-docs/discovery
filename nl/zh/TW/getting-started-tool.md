@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # 開始使用
+{: #getting-started}
 
 在這個簡短的指導教學中，我們將介紹 {{site.data.keyword.discoveryshort}} 工具，並逐步完成建立及搜尋專用資料集合的處理程序。
 {: shortdesc}
