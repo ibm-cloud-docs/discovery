@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # 시작하기
+{: #getting-started}
 
 이 짧은 튜토리얼에서는 {{site.data.keyword.discoveryshort}} 도구를 소개하고 개별 데이터 콜렉션 작성 및 검색 프로세스를 진행합니다.
 {: shortdesc}
