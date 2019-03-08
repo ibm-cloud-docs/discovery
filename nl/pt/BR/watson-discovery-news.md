@@ -18,6 +18,7 @@ lastupdated: "2018-09-05"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News
+{: #watson-discovery-news}
 
 O {{site.data.keyword.discoverynewsfull}} é incluído com
 o {{site.data.keyword.discoveryshort}}. O {{site.data.keyword.watson}}
