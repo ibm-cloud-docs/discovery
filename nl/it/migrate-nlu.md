@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Migrazione degli arricchimenti a Natural Language Understanding
+{: #migrate-nlu}
 
 A partire dal **18 luglio 2017** {{site.data.keyword.discoveryfull}} ha introdotto una nuova tecnologia di arricchimento denominata {{site.data.keyword.nlushort}} (NLU). Gli arricchimenti {{site.data.keyword.alchemylanguageshort}} sono da considerare obsoleti a partire dal **1° marzo 2018**.
 {: shortdesc}
