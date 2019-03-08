@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Affichage de métriques et amélioration des résultats de requête avec le tableau de bord Performance
+{: #performance-dashboard}
 
 Le tableau de bord Performance des outils {{site.data.keyword.discoveryshort}} peut être utilisé pour afficher des métriques de requête, ainsi que pour améliorer les résultats de requête, notamment la pertinence de requête.
 
