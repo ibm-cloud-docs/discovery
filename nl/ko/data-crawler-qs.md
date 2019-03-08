@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler 시작하기
+{: #getting-started-with-the-data-crawler}
 
 이 절에서는 로컬 파일 시스템에서 파일을 수집하고, {{site.data.keyword.discoveryfull}} 서비스로 사용하기 위해 Data Crawler를 사용하는 방법에 대해 설명합니다.
 {: shortdesc}
