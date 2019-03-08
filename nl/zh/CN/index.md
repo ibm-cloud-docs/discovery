@@ -18,6 +18,7 @@ lastupdated: "2018-09-07"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 关于
+{: #about}
 
 {{site.data.keyword.discoveryfull}} 能够快速构建基于云的认知性浏览应用程序，用于挖掘非结构化数据中隐藏的可行性洞察，非结构化数据包括您自己的专有数据以及公共和第三方数据。
 {: shortdesc}
