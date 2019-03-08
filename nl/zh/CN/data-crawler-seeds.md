@@ -18,6 +18,7 @@ lastupdated: "2017-08-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 配置连接器和种子选项
+{: #configuring-connector-and-seed-options}
 
 搜寻数据时，搜寻器首先确定数据存储库（连接器）的类型和用户指定的起始位置（种子）以开始下载信息。
 {: shortdesc}
