@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Migration des enrichissements vers Natural Language Understanding
+{: #migrate-nlu}
 
 Le **18 juillet 2017**, {{site.data.keyword.discoveryfull}} a introduit une nouvelle technologie d'enrichissement, nommée {{site.data.keyword.nlushort}} (NLU). Les enrichissements {{site.data.keyword.alchemylanguageshort}} ont été dépréciés à la date du **1er mars 2018**.
 {: shortdesc}
