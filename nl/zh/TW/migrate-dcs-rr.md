@@ -19,6 +19,7 @@ lastupdated: "2017-10-03"
 
 
 # 從 Watson Document Conversion 及 Retrieve and Rank 移轉
+{: #migrate-dcs-rr}
 
 {{site.data.keyword.documentconversionfull}} 和 {{site.data.keyword.retrieveandrankfull}} 已淘汰並取代為 {{site.data.keyword.discoveryfull}}。一般而言，這兩項服務會一起使用，來進行汲取、分級，然後將結果遞送至應用程式。提供本文件是為了引導您完成從 {{site.data.keyword.documentconversionshort}} 及 {{site.data.keyword.retrieveandrankshort}} 移轉至 {{site.data.keyword.discoveryshort}} 的處理程序。
 
