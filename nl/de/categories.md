@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Kategoriehierarchie
+{: #cathierarchy}
 
 Die folgende Tabelle zeigt die Kategorien, die durch die Aufbereitung für die Kategorieklassifizierung zurückgegeben werden. Ein Arbeitsblatt mit diesen Informationen können Sie hier herunterladen: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link" class="style-scope doc-content"></a>.
 {: shortdesc}
