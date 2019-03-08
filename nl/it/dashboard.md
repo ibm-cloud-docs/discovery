@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Visualizzazione delle metriche e miglioramento dei risultati della query con il dashboard Performance
+{: #performance-dashboard}
 
 Il dashboard Performance nella strumentazione {{site.data.keyword.discoveryshort}} può essere utilizzato per visualizzare le metriche della query, nonché per migliorare i risultati della query, inclusa la rilevanza della query.
 
