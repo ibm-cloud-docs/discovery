@@ -18,6 +18,7 @@ lastupdated: "2018-06-09"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery Knowledge Graph
+{: #kg}
 
 知識圖不只有資料和資訊，還能夠在文件之間的資料內建立連接及產生新知識。我們提供的 AI 技術透過擷取及釐清實體和關係、使用演算技術強化關係，以及使用相關性演算法將結果進行分級，從非結構化資料中自動建立自訂知識圖。知識圖 (Knowledge Graph) 可以作為公司的「知識中心」，並可用於企業搜尋、摘要、推薦引擎、其他決策制定處理程序（例如，偵測詐騙、浪費或濫用）。在「知識圖」建立程序中使用自訂模型（在 {{site.data.keyword.knowledgestudioshort}} 中所建立）有助於在諸如財務、技術、安全、情報、醫療和其他許多領域中，建立具有適用性的領域專用 KG。如需將 {{site.data.keyword.discoveryshort}} 與 {{site.data.keyword.knowledgestudioshort}} 整合的相關資訊，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery/integrate-wks.html)。
 
