@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Data Crawler herunterladen und installieren
+{: #downloading-and-installing-the-data-crawler}
 
 Data Crawler erfasst Rohdaten, die später dann zur Bildung von Suchergebnissen für den {{site.data.keyword.discoveryshort}}-Service verwendet werden. Bei einer Crawlersuche in Datenrepositorys lädt der Crawler ausgehend von einer benutzerdefinierten Seed-URL Dokumente und Metadaten herunter. Der Crawler erkennt Dokumente in einer Hierarchie oder auf andere Weise mit der Seed-URL verbundene Dokumente und reiht sie zum Abruf ein.
 {: shortdesc}
