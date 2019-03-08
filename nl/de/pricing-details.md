@@ -18,6 +18,7 @@ lastupdated: "2018-08-17"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Preisstrukturpläne für Discovery
+{: #discovery-pricing-plans}
 
 Der {{site.data.keyword.discoveryfull}}-Service bietet drei Pläne: **Lite**, **Advanced** und **Premium**, die für Sie je nach Bedarf verschiedene Ebenen von Ressourcen und Funktionalität bereitstellen.
 {: shortdesc}
