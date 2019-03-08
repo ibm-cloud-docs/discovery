@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Archivos de Discovery
+{: #discovery-archives}
 
 Este tema contiene información sobre las características de {{site.data.keyword.discoveryshort}} que se han sustituido con opciones nuevas.
 {: tip}
