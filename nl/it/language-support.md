@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Supporto linguistico
+{: #language-support}
 
 Il servizio {{site.data.keyword.discoveryfull}} offre due livelli di supporto linguistico, **Di base** e **Completo**.
 {: shortdesc}
