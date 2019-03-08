@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # Tutorial: Migrando do Retrieve and Rank
+{: #migrate-rnr}
 
 Migrando do {{site.data.keyword.retrieveandrankshort}} para o serviço do {{site.data.keyword.discoveryfull}}. Uma continuação do Tutorial de Introdução ao Cranfield
 
