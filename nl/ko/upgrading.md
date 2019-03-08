@@ -18,6 +18,7 @@ lastupdated: "2018-09-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 사용자의 플랜 업데이트
+{: #upgrading-your-plan}
 
 {{site.data.keyword.discoveryfull}} 서비스는 사용자의 요구에 맞게 서로 다른 레벨의 리소스와 기능을 제공하는 세 가지 플랜을 제공합니다.
 {: shortdesc}
