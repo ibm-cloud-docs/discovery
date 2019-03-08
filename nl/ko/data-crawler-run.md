@@ -18,6 +18,7 @@ lastupdated: "2017-08-18"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 데이터 저장소 크롤링
+{: #crawling-your-data-repository}
 
 크롤러 옵션이 올바르게 구성된 후 데이터 저장소에 대해 크롤링을 실행할 수 있습니다.
 {: shortdesc}
