@@ -18,6 +18,7 @@ lastupdated: "2018-02-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 将扩充项迁移到 Natural Language Understanding
+{: #migrate-nlu}
 
 从 **2017 年 7 月 18 日**开始，{{site.data.keyword.discoveryfull}} 引入了名为 {{site.data.keyword.nlushort}} (NLU) 的新扩充技术。{{site.data.keyword.alchemylanguageshort}} 扩充项已于 **2018 年 3 月 1 日**废弃。
 {: shortdesc}
