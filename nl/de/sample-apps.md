@@ -18,6 +18,7 @@ lastupdated: "2018-09-10"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Beispielapps
+{: #sample-apps}
 
 Erfahren Sie anhand dieser Beispielanwendungen und Labs mehr über {{site.data.keyword.discoveryfull}}.
 {: shortdesc}
