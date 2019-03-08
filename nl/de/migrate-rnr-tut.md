@@ -19,6 +19,7 @@ lastupdated: "2018-06-09"
 
 
 # Lernprogramm: Aus Retrieve and Rank migrieren
+{: #migrate-rnr}
 
 Hier erfahren Sie, wie Sie aus {{site.data.keyword.retrieveandrankshort}} auf den {{site.data.keyword.discoveryfull}}-Service migrieren. Dieses Lernprogramm ist eine Fortsetzung des Lernprogramms für die Einführung in Cranfield.
 
