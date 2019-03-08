@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Service konfigurieren
+{: #configservice}
 
 Durch die Erstellung eines {{site.data.keyword.discoveryshort}}-Service können Sie nützliche Erkenntnisse erzielen, indem Sie Ihre eigenen Daten aufbereiten und anschließend in einem abfragefähigen Format übergeben.
 {: shortdesc}
