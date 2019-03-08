@@ -18,6 +18,7 @@ lastupdated: "2018-08-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Inhalt hinzufügen
+{: #addcontent}
 
 Wie entscheide ich mich für das zu nutzende Dokumentuploadverfahren?
 {: shortdesc}
