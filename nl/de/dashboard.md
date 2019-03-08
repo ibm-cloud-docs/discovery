@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Metriken anzeigen und Abfrageergebnisse mit dem Leistungsdashboard verbessern
+{: #performance-dashboard}
 
 Das Leistungsdashboard in den {{site.data.keyword.discoveryshort}}-Tools kann verwendet werden, um Abfragemetriken anzuzeigen und die Abfrageergebnisse, einschließlich der Abfragerelevanz, zu verbessern.
 
