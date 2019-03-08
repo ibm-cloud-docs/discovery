@@ -18,6 +18,7 @@ lastupdated: "2018-01-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Riferimento di configurazione
+{: #configref}
 
 Puoi creare la tua configurazione di inserimento {{site.data.keyword.discoveryshort}} in JSON se i tuoi dati hanno esigenze speciali di [conversione](#conversion), [arricchimento](#enrichment) o [normalizzazione](#normalization).
 {: shortdesc}
