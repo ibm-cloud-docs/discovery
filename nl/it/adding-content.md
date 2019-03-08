@@ -18,6 +18,7 @@ lastupdated: "2018-08-15"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Aggiunta di contenuto
+{: #addcontent}
 
 Come decido quale metodo di caricamento del documento utilizzare?
 {: shortdesc}
