@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Einführung in Data Crawler
+{: #getting-started-with-the-data-crawler}
 
 In diesem Abschnitt wird erläutert, wie Sie mit Data Crawler Dateien aus Ihrem lokalen Dateisystem einpflegen können, um sie mit dem {{site.data.keyword.discoveryfull}}-Service zu verwenden.
 {: shortdesc}
