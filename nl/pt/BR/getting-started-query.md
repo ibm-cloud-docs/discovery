@@ -18,6 +18,7 @@ lastupdated: "2018-05-21"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Introdução a consultas
+{: #getting-started-with-querying}
 
 Neste tutorial, iremos aprender como gravar alguns tipos diferentes de consultas no
 {{site.data.keyword.discoveryshort}}.
