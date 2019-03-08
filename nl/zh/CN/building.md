@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 配置服务
+{: #configservice}
 
 通过构建 {{site.data.keyword.discoveryshort}} 服务，可以扩充您自己的数据，然后以可查询的形式交付这些数据，从而获得有用的洞察。
 {: shortdesc}
