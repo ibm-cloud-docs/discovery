@@ -18,6 +18,7 @@ lastupdated: "2018-09-05"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News
+{: #watson-discovery-news}
 
 {{site.data.keyword.discoverynewsfull}} è incluso con {{site.data.keyword.discoveryshort}}.{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} è un insieme di dati indicizzato pre-arricchito con le seguenti analisi approfondite cognitive: **Keyword Extraction**, **Entity Extraction**, **Semantic Role Extraction**, **Sentiment Analysis**, **Relation Extraction** e **Category Classification**. (Per ulteriori informazioni sugli arricchimenti, vedi [Aggiunta di arricchimenti](building.html#adding-enrichments).) Vengono aggiunti anche i seguenti metadati aggiuntivi: data di indicizzazione e data di pubblicazione. La ricerca cronologica è disponibile per gli ultimi 60 giorni di dati di notizie. Vedi una demo di quello che puoi creare con {{site.data.keyword.discoverynewsfull}} [qui![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
