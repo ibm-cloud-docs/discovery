@@ -19,6 +19,7 @@ lastupdated: "2018-07-18"
 {:download: .download}
 
 # はじめに
+{: #getting-started}
 
 この短いチュートリアルでは、{{site.data.keyword.discoveryshort}} ツールの概要を説明し、プライベート・データ・コレクションを作成して検索するプロセスをご案内します。
 {: shortdesc}
