@@ -18,6 +18,7 @@ lastupdated: "2018-09-05"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Watson Discovery News
+{: #watson-discovery-news}
 
 {{site.data.keyword.discoverynewsfull}} 隨附於 {{site.data.keyword.discoveryshort}}。{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} 是已使用下列認知見解進行預先強化的已檢索資料集：**關鍵字擷取**、**實體擷取**、**語意角色擷取**、**觀感分析**、**關係擷取**及**種類分類**。（若要進一步瞭解強化，請參閱[新增強化](building.html#adding-enrichments)。）也新增了下列其他 meta 資料：搜索日期和發佈日期。過去 60 天的新聞資料可供歷程搜尋。請參閱[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://discovery-news-demo.ng.bluemix.net/){: new_window}，它示範使用 {{site.data.keyword.discoverynewsfull}} 可建置的內容。
 
