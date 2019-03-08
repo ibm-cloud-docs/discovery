@@ -19,6 +19,7 @@ lastupdated: "2017-10-03"
 
 
 # Watson の Document Conversion および Retrieve and Rank からのマイグレーション
+{: #migrate-dcs-rr}
 
 {{site.data.keyword.documentconversionfull}} および {{site.data.keyword.retrieveandrankfull}} は非推奨となり、{{site.data.keyword.discoveryfull}} に置き換えられています。 通常、これらの 2 つのサービスは、結果の取り込み、ランク付け、およびアプリケーションへの送信を行うために一緒に使用されます。 本資料は、{{site.data.keyword.documentconversionshort}} および {{site.data.keyword.retrieveandrankshort}} から {{site.data.keyword.discoveryshort}} へのマイグレーション・プロセスをご案内するために用意されています。
 
