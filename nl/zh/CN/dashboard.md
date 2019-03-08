@@ -18,6 +18,7 @@ lastupdated: "2018-06-25"
 {:swift: .ph data-hd-programlang='swift'}
 
 # 使用性能仪表板查看度量值并改进查询结果
+{: #performance-dashboard}
 
 {{site.data.keyword.discoveryshort}} 工具中的性能仪表板可用于查看查询度量值以及改进查询结果，包括查询相关性。
 
