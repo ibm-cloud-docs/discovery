@@ -18,6 +18,7 @@ lastupdated: "2018-07-03"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Configuración de Data Crawler
+{: #configuring-the-data-crawler}
 
 Para configurar Data Crawler para que rastree su repositorio, debe especificar el adaptador de entrada adecuado en el archivo `crawler.conf` y después configurar la información específica del repositorio en los archivos de configuración del adaptador de entrada.
 {: shortdesc}
