@@ -18,6 +18,7 @@ lastupdated: "2018-09-07"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Produktinformation
+{: #about}
 
 {{site.data.keyword.discoveryfull}} ermöglicht die schnelle Erstellung von kognitiven cloudbasierten Untersuchungsanwendungen, die verlässliche Einblicke in unstrukturierte Daten freigeben. Dies schließt Ihre eigenen proprietären Daten ebenso ein wie allgemein zugängliche Daten und Daten anderer Anbieter.
 {: shortdesc}
