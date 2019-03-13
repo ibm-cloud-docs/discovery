@@ -35,7 +35,7 @@ subcollection: discovery
 The Data Crawler collects the raw data that is eventually used to form search results for the {{site.data.keyword.discoveryshort}} service. When crawling data repositories, the crawler downloads documents and metadata, starting from a user-specified seed URL. The crawler discovers documents in a hierarchy, or otherwise linked from the seed URL, and enqueues these for retrieval.
 {: shortdesc}
 
-The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
 {: important}
 
 ## Prerequisites
@@ -77,7 +77,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 
     **Note:** References in the rest of this guide to files in the `config` directory, such as `config/crawler.conf`, refer to that file in your working directory, and NOT in the installed `{installation_directory}/share/examples/config` directory.
 
-1.  You are now ready to [configure the Data Crawler to connect to your repository](/docs/services/discovery/data-crawler-seeds.html)
+1.  You are now ready to [configure the Data Crawler to connect to your repository](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-connector-and-seed-options)
 
 ## Data Crawler structure
 {: #dc-structure}
@@ -97,5 +97,5 @@ The Data Crawler download places the following folders on your system:
 {: #dc-limitations}
 
 -   The Data Crawler may hang when running the Filesystem connector with an invalid or missing URL.
--   Configure the `urls_to_filter` value in the `crawler.conf` file, such that all the whitelist URLs or RegExes are included in a single RegEx expression. See [Configuring crawl options](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options) for more information.
+-   Configure the `urls_to_filter` value in the `crawler.conf` file, such that all the whitelist URLs or RegExes are included in a single RegEx expression. See [Configuring crawl options](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options) for more information.
 -   The path to the configuration file passed in the `--config -c` option must be a qualified path. That is, it must be in the relative formats `config/crawler.conf` or `./crawler.conf`, or absolute path `/path/to/config/crawler.conf`. Specifying just `crawler.conf` is only possible if the `orchestration_service.conf` file is in-lined instead of referenced using `include` in the `crawler.conf` file.

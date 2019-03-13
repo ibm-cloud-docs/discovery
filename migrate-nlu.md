@@ -35,9 +35,9 @@ subcollection: discovery
 Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU). {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**. 
 {: shortdesc}
 
-Any existing collections that utilize {{site.data.keyword.alchemylanguageshort}} enrichments must be migrated. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Enrichment comparison](/docs/services/discovery/migrate-nlu.html#enrichment-comparison).
+Any existing collections that utilize {{site.data.keyword.alchemylanguageshort}} enrichments must be migrated. For information on migrating collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Enrichment comparison](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-comparison).
 
-**Note:** For information about integrating with {{site.data.keyword.knowledgestudioshort}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
+**Note:** For information about integrating with {{site.data.keyword.knowledgestudioshort}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
 ## Enrichment comparison
 {: #enrichment-comparison}
@@ -55,12 +55,12 @@ The seven enrichments available in {{site.data.keyword.alchemylanguageshort}} an
 | Relation Extraction                   | relations                       |Semantic Role Extraction*                   |   semantic_roles*     |
  \* Name change
 
-For more information about {{site.data.keyword.nlushort}} enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments)
+For more information about {{site.data.keyword.nlushort}} enrichments, see [Adding enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)
 
 ## Overview of major changes
 {: #overview-nlu}
 
-- The JSON schema for {{site.data.keyword.nlushort}} enrichments differs from the one used in the {{site.data.keyword.alchemylanguageshort}} enrichments, for a full list of the changes to each enrichment, see: [Enrichment schema differences](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences).
+- The JSON schema for {{site.data.keyword.nlushort}} enrichments differs from the one used in the {{site.data.keyword.alchemylanguageshort}} enrichments, for a full list of the changes to each enrichment, see: [Enrichment schema differences](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences).
 - The _Taxonomy Classification_ ({{site.data.keyword.alchemylanguageshort}}) enrichment is now named _Category Classification_. Its JSON object name has been changed from `taxonomy` to `categories`.
 - The _Relation Extraction_ ({{site.data.keyword.alchemylanguageshort}}) enrichment is now named _Semantic Role Extraction_. Its JSON object name has been changed from `relations` to `semantic_roles`.
 - The JSON object name for _Sentiment Analysis_ has been changed from `docSentiment` to `sentiment`.
@@ -78,15 +78,15 @@ The **{{site.data.keyword.nlushort}}** default configuration file is named `Defa
 
 If you have created any custom configurations, you need to create new ones that use the {{site.data.keyword.nlushort}} enrichments. For instructions, see these docs:
 
-- [Tooling](/docs/services/discovery/building.html#custom-configuration)
+- [Tooling](/docs/services/discovery?topic=discovery-configservice#custom-configuration)
 - [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window}
 
 If you have existing collections that have either the {{site.data.keyword.alchemylanguageshort}} default configuration or a custom {{site.data.keyword.alchemylanguageshort}} configuration applied to them, you need to create a new collection, apply the {{site.data.keyword.nlushort}} configuration file (either the default configuration or a new custom configuration), and upload your documents. For instructions see these docs:
 
-- [Tooling](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)
+- [Tooling](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)
 - [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-a-collection){: new_window}
 
-For any queries you have created using the Discovery Query Language, you need to examine the JSON schema changes between {{site.data.keyword.alchemylanguageshort}} and {{site.data.keyword.nlushort}} and update your queries and Query URLs accordingly. See [Enrichment schema differences](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences) for details.
+For any queries you have created using the Discovery Query Language, you need to examine the JSON schema changes between {{site.data.keyword.alchemylanguageshort}} and {{site.data.keyword.nlushort}} and update your queries and Query URLs accordingly. See [Enrichment schema differences](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences) for details.
 
 ## Enrichment schema differences
 {: #enrichment-schema-differences}

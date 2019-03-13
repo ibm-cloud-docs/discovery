@@ -32,7 +32,7 @@ subcollection: discovery
 # Relation types
 {: #relation-types}
 
-The following table lists the possible relation types that are returned by the [Relation Extraction](/docs/services/discovery/building.html#relation-extraction) enrichment.
+The following table lists the possible relation types that are returned by the [Relation Extraction](/docs/services/discovery?topic=discovery-configservice#relation-extraction) enrichment.
 {: shortdesc}
 
 | Relation        | Description                                                                                                                                                                                                        |

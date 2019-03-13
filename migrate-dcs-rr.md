@@ -67,7 +67,7 @@ Before you begin the action of migrating, you must first [evaluate](#evaluate) t
 
 Most customers use {{site.data.keyword.documentconversionshort}} in conjunction with {{site.data.keyword.retrieveandrankshort}}. If you are not using {{site.data.keyword.documentconversionshort}} to convert content so that it can be stored in a searchable index, proceed to review [options for migrating standalone {{site.data.keyword.documentconversionshort}}](#dcs).
 
-If you originally used the {{site.data.keyword.retrieveandrankshort}} tutorial and based your own instance of the service on that tutorial, an extension of the tutorial ingesting the same data into {{site.data.keyword.discoveryshort}} can be found [here](/docs/services/discovery/migrate-rnr-tut.html).
+If you originally used the {{site.data.keyword.retrieveandrankshort}} tutorial and based your own instance of the service on that tutorial, an extension of the tutorial ingesting the same data into {{site.data.keyword.discoveryshort}} can be found [here](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr).
 
 **Note:** Conversion and enrichment functionality is included with {{site.data.keyword.discoveryshort}}. If you have used {{site.data.keyword.documentconversionshort}}, and/or {{site.data.keyword.nlushort}} to convert and enrich source HTML, PDF, or Microsoft Word documents these services are replaced by features within the {{site.data.keyword.discoveryshort}} service.
 
@@ -86,7 +86,7 @@ In order to migrate from the source content you will:
 
 If you can meet all of the migration criteria, it is recommended that you use this method to move to the {{site.data.keyword.discoveryshort}} service.
 
-To migrate your source content, modify the procedure described in [the migration tutorial](/docs/services/discovery/migrate-rnr-tut.html) to meet the specifics of your source data.
+To migrate your source content, modify the procedure described in [the migration tutorial](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) to meet the specifics of your source data.
 
 #### Migrating answer units
 {: #answerunit-dcs-rr}
@@ -94,7 +94,7 @@ To migrate your source content, modify the procedure described in [the migration
 If you created answer units using {{site.data.keyword.documentconversionshort}} choose one of the following options to migrate that content:
 
 -  if you have trained a ranker and need to migrate the ranking, you should take the content that was returned from {{site.data.keyword.documentconversionshort}} and ingest that into {{site.data.keyword.discoveryshort}}
--  if you don't have any training data to migrate, ingest the original source documents into {{site.data.keyword.discoveryshort}} using the [document segmentation feature](/docs/services/discovery/building.html#doc-segmentation)
+-  if you don't have any training data to migrate, ingest the original source documents into {{site.data.keyword.discoveryshort}} using the [document segmentation feature](/docs/services/discovery?topic=discovery-configservice#doc-segmentation)
 
 ### Migrating from indexed content
 {: #indexed}
@@ -125,7 +125,7 @@ In order to migrate from the ranking source content you will:
 
 If you can meet all of the migration criteria, it is recommended that you use this method to move training to the {{site.data.keyword.discoveryshort}} service.
 
-To migrate your training data, modify the procedure described in [the migration tutorial](/docs/services/discovery/migrate-rnr-tut.html) to meet the specifics of your source data.
+To migrate your training data, modify the procedure described in [the migration tutorial](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) to meet the specifics of your source data.
 
 ### Migrating training data from the service
 {: #extract-train}
@@ -251,7 +251,7 @@ As an example, the **Sample {{site.data.keyword.retrieveandrankshort}} Training 
 ## Language support
 {: #language}
 
-See the [language support table for {{site.data.keyword.discoveryshort}}](/docs/services/discovery/language-support.html). {{site.data.keyword.retrieveandrankshort}} features are primarily supported by **Basic** {{site.data.keyword.discoveryshort}} language support.
+See the [language support table for {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-language-support#language-support). {{site.data.keyword.retrieveandrankshort}} features are primarily supported by **Basic** {{site.data.keyword.discoveryshort}} language support.
 
 ## Migrating queries
 {: #queries}
@@ -277,12 +277,12 @@ The {{site.data.keyword.discoveryfull}} query language is different to the Solr 
 | `*` | `*` | Wildcard |
 | `~`(0 to 1) | [~n] | String variation |
 
-Consult the [Query concepts](/docs/services/discovery/using.html) and [Query reference](/docs/services/discovery/query-reference.html) documentation for detailed information about the {{site.data.keyword.discoveryfull}} query language.
+Consult the [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) and [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) documentation for detailed information about the {{site.data.keyword.discoveryfull}} query language.
 
 
 ## Standalone Watson Document Conversion service migration
 {: #dcs}
 
-If you are using {{site.data.keyword.documentconversionshort}} to help ingest content into {{site.data.keyword.retrieveandrankshort}}, then that functionality has evolved into a single service - {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} lets you easily convert, enrich, and ingest Microsoft Word, PDF, HTML, and JSON documents into a trainable and searchable index. This section is relevant to you if your use case doesn't involve storing the converted content in an index. If you are ingesting documents into an index, see [ingesting to the {{site.data.keyword.discoveryshort}} service](/docs/services/discovery/building.html).
+If you are using {{site.data.keyword.documentconversionshort}} to help ingest content into {{site.data.keyword.retrieveandrankshort}}, then that functionality has evolved into a single service - {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} lets you easily convert, enrich, and ingest Microsoft Word, PDF, HTML, and JSON documents into a trainable and searchable index. This section is relevant to you if your use case doesn't involve storing the converted content in an index. If you are ingesting documents into an index, see [ingesting to the {{site.data.keyword.discoveryshort}} service](/docs/services/discovery?topic=discovery-configservice#configservice).
 
 IBM no longer provides a service that is designed for standalone conversion of Microsoft Word, PDF, and HTML documents. If you are currently using the {{site.data.keyword.documentconversionshort}} service and do not ingest the output into an online indexed service (such as {{site.data.keyword.discoveryshort}}), it is recommended that you consider migrating to an open-source alternative such as [Apache Tika ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://tika.apache.org/){: new_window}.

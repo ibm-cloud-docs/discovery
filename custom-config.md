@@ -37,7 +37,7 @@ You can create your own {{site.data.keyword.discoveryshort}} ingestion configura
 
 The following sections detail the structure of this JSON and the object that can be defined in it.
 
-If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
 {: note}
 
 ## Configuration structure
@@ -97,7 +97,7 @@ Converting documents takes the original source format and using one or more step
 
 - **JSON** files are converted using the `json` options.
 
-If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
 {: note}
 
 These options are described in the following sections. After conversion has completed, [enrichment](#enrichment) and [normalization](#normalization) are performed before the content is stored.
@@ -105,7 +105,7 @@ These options are described in the following sections. After conversion has comp
 ### PDF
 {: #pdf}
 
-If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
 {: note}
 
 The `pdf` conversion object defines how PDF documents should be converted into HTML and has the following structure:
@@ -151,7 +151,7 @@ For an area of text to be identified as a heading it must match all of the param
 ### Word
 {: #word}
 
-If your collection was created using [Smart Document Understanding](/docs/services/discovery/sdu.html), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
 {: note}
 
 The `word` conversion object defines how PDF documents should be converted into HTML and has the following structure:
@@ -310,7 +310,7 @@ Each field that you want to create is defined by an object as follows:
 
 - `"css_selector" : string` *required* - a CSS selector expression that defines the area of content to be stored in a field.
 - `"type" : string` *required* - The type of field to be created, can be `string`, `date`
-For detailed information, see [Using CSS selectors to extract fields](/docs/services/discovery/building.md#using-css).
+For detailed information, see [Using CSS selectors to extract fields](/docs/services/discovery?topic=discovery-configservice#using-css).
 
 ### Segment
 {: #segment}
@@ -334,7 +334,7 @@ As an overview, when document segmentation is enabled the following cannot be sp
 -  `normalizations` cannot be specified as part of the configuration.
 -  The `extracted_fields` option of the `html` conversion cannot be specified as part of the configuration.
 
-For detailed information, see [Performing segmentation](/docs/services/discovery/building.html#performing-segmentation).
+For detailed information, see [Performing segmentation](/docs/services/discovery?topic=discovery-configservice#performing-segmentation).
 
 
 ### JSON
@@ -456,7 +456,7 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
 
 - `"enrichment" : string` - *required* - The type of enrichment to use on this field. To extract {{site.data.keyword.nlushort}} enrichments use `natural_language_understanding`, to perform Element Classification use `elements`.
 
-  **Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery/element-classification.html) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
+  **Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
 
 - `"source_field" : string` - *required* - The source field that will be enriched. This field must exist in your source after the `json_normalizations` operation has completed.
 - `"destination_field" : string` - *required* - The name of the container object where enrichments will be created.
@@ -470,7 +470,7 @@ When using Element Classification, each `elements` enrichment object must contai
 
 - `"model" : string` - *required* - The element extraction model to be used with on this document. Currently supported models are: `contract`
 
-**Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery/element-classification.html) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
+**Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
 
 ### Natural Language Understanding enrichments
 {: #nlu_enrichments}
@@ -508,12 +508,12 @@ The `entities` enrichment extracts instances of known entities such as people, p
 - `"mentions": boolean` - _optional_ - When `true`, the number of times that this entity is mentioned is recorded. The default is `false`.
 - `"mention_types": boolean` - _optional_ - When `true`, the mention type for each mention of this entity is stored. The default is `false`.
 - `"sentence_location": boolean` - _optional_ - When `true`, the sentence location of each entity mention is stored. The default is `false`.
-- `"model" : string` - _optional_ - When specified, the custom model is used to extract entities instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) for more information.
+- `"model" : string` - _optional_ - When specified, the custom model is used to extract entities instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks) for more information.
 
 ### keywords
 {: #nlu_keywords}
 
-The `keywords` enrichment extracts instances of significant words within the text. To understand the difference between keywords, concepts, and entities see: [Understanding the difference between Entities, Concepts, and Keywords](/docs/services/discovery/building.html#udbeck).
+The `keywords` enrichment extracts instances of significant words within the text. To understand the difference between keywords, concepts, and entities see: [Understanding the difference between Entities, Concepts, and Keywords](/docs/services/discovery?topic=discovery-configservice#udbeck).
 
 - `"sentiment" : boolean` - _optional_ - When `true`, sentiment analysis is performed on the extracted keyword in the context of the surrounding content.
 - `"emotion" : boolean` - _optional_ - When `true`, emotional tone analysis is performed on the extracted keyword in the context of the surrounding content.
@@ -541,7 +541,7 @@ The `sentiment` enrichment evaluates the overall sentiment level of entire docum
 
 The `relations` enrichment extracts known relationships between identified entities within the document. Optionally, a {{site.data.keyword.knowledgestudioshort}} custom model can be specified to extract custom relationships.
 
-- `"model" : string` - _optional_ - When specified, the custom model is used to extract relations instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) for more information.
+- `"model" : string` - _optional_ - When specified, the custom model is used to extract relations instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks) for more information.
 
 ## Normalization
 {: #normalization}

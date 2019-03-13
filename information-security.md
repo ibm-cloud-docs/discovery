@@ -62,7 +62,7 @@ With this API you can:
 - Label your data with a customer ID.
 - Delete all data for a specific customer ID, including related notices.
 
-Data is labeled by adding a `customer_id` of your choice (see restrictions in [How to label data](/docs/services/discovery/information-security.html#labeling)) to the optional `X-Watson-Metadata` header. {{site.data.keyword.discoveryshort}} can then delete it by `customer_id`.
+Data is labeled by adding a `customer_id` of your choice (see restrictions in [How to label data](/docs/services/discovery?topic=discovery-information-security#labeling)) to the optional `X-Watson-Metadata` header. {{site.data.keyword.discoveryshort}} can then delete it by `customer_id`.
 
 On any REST call, an optional header `X-Watson-Metadata` can be sent with semicolon separated `field=value` pairs, where currently only `customer_id` is persisted. By adding that `customer_id` in `X-Watson-Metadata` header, the request indicates that it contains data that belongs to this `customer_id`.
 
@@ -123,7 +123,7 @@ Adding a `customer_id` with the **GDPR Data Label** field will label the documen
 
 If any documents have already been crawled with the Data Crawler, you will need to re-crawl them to add the `X-Watson-Metadata` header and `customer_id`.
 
-1. Update your {{site.data.keyword.discoveryshort}} Data Crawler output adapter configuration to include the `customer_id`. See [Configuring the output adapter](/docs/services/discovery/data-crawler-discovery.html#output-adapter).
+1. Update your {{site.data.keyword.discoveryshort}} Data Crawler output adapter configuration to include the `customer_id`. See [Configuring the output adapter](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter).
 1. Schedule a crawl. The documents are submitted to {{site.data.keyword.discoveryshort}} using the `X-Watson-Metadata` header and the documents will be labeled with the configured `customer_id`.
 
 ## Deleting labeled data
@@ -131,7 +131,7 @@ If any documents have already been crawled with the Data Crawler, you will need 
 
 Data must be labeled with a `customer_id` in order to delete it later.
 
-1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery/information-security.html#pi_methods). Also see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}
+1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery?topic=discovery-information-security#pi_methods). Also see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}
 
 Deletions are performed asynchronously. You cannot track the progress of deletions.
 

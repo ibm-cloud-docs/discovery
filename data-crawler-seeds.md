@@ -35,7 +35,7 @@ subcollection: discovery
 When crawling data, the Crawler first identifies the type of data repository (connector) and the user-specified starting location (seed) to begin downloading information.
 {: shortdesc}
 
-The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
 {: important}
 
 **Important:** When using the Data Crawler, data repository security settings are ignored.
@@ -44,10 +44,10 @@ Seeds are the starting points of a crawl, and are used by the Data Crawler to re
 
 To crawl your data correctly, you must ensure that the Crawler is properly configured to read your data repository. The Data Crawler provides connectors to support data collection from the following repositories:
 
--   [Filesystem](/docs/services/discovery/data-crawler-seeds.html#configuring-filesystem-crawl-options)
--   [Databases, via JDBC](/docs/services/discovery/data-crawler-seeds.html#configuring-database-crawl-options)
--   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#configuring-cmis-crawl-options)
--   [SMB (Server Message Block), CIFS (Common Internet Filesystem), or Samba fileshares](/docs/services/discovery/data-crawler-seeds.html#configuring-smbcifssamba-crawl-options)
+-   [Filesystem](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-filesystem-crawl-options)
+-   [Databases, via JDBC](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-database-crawl-options)
+-   [CMIS (Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-cmis-crawl-options)
+-   [SMB (Server Message Block), CIFS (Common Internet Filesystem), or Samba fileshares](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 
 A connector configuration template is also provided, which allows you to customize a connector.
 
@@ -57,13 +57,13 @@ To configure your connector do the following:
 
 1.  Modify the values that are appropriate to your repository:
 
-    -   [Filesystem](/docs/services/discovery/data-crawler-seeds.html#filesystem-crawl-options)
-    -   [Databases, via JDBC](/docs/services/discovery/data-crawler-seeds.html#database-crawl-seed)
-    -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#cmis-crawl-options)
-    -   [SMB (Server Message Block), CIFS (Common Internet Filesystem), or Samba fileshares](/docs/services/discovery/data-crawler-seeds.html#smb-cifs-samba-crawl-options)
+    -   [Filesystem](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#filesystem-crawl-options)
+    -   [Databases, via JDBC](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#database-crawl-seed)
+    -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#cmis-crawl-options)
+    -   [SMB (Server Message Block), CIFS (Common Internet Filesystem), or Samba fileshares](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 1.  Save and close the file.
 1.  Repeat for the `-seed.conf` file in the `connectors/seeds` directory that corresponds to the repository you are connecting to (for example `filesystem-seed.conf` is the seed (where to connect to) configuration file for the filesystem connector) in a text editor.
-1.  Proceed to [configuring the Data Crawler to connect to {{site.data.keyword.discoveryshort}}](/docs/services/discovery/data-crawler-discovery.html).
+1.  Proceed to [configuring the Data Crawler to connect to {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-the-data-crawler).
 
 To access the in-product manual for the connector and seed configuration files, with the most up-to-date information, type the following commands from the Crawler installation directory:
 -   For connector configuration options:

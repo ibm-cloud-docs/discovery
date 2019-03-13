@@ -34,7 +34,7 @@ subcollection: discovery
 In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} API and go through the process of creating a private data collection and searching it.
 {: shortdesc}
 
-If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started](/docs/services/discovery/getting-started-tool.html).
+If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started](/docs/services/discovery?topic=discovery-getting-started#getting-started).
 {: tip}
 
 ## Before you begin
@@ -206,5 +206,5 @@ curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{c
 You successfully queried documents in the environment and collection you created. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings.
 
 - Read about the API in the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}
-- [Configure](/docs/services/discovery/building.html) your service
+- [Configure](/docs/services/discovery?topic=discovery-configservice#configservice) your service
 - Learn about [authenticating with IAM ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/services/watson/getting-started-iam.html#iam){: new_window}

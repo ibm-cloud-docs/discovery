@@ -35,7 +35,7 @@ subcollection: discovery
 The {{site.data.keyword.discoveryfull}} service offers three plans that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
 
-See [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery/pricing-details.html) and [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window} for details.
+See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) and [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window} for details.
 
 ## Upgrading your service
 {: #service}
@@ -54,7 +54,7 @@ To resize your plan from Lite to Advanced:
 
 If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#update-an-environment){: new_window}. 
 
-For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/services/discovery/pricing-details.html#advanced).
+For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#advanced).
 
 Available Advanced plan sizes are: 
 

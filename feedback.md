@@ -56,7 +56,7 @@ The `/api/v1/logs` endpoint supports the following {{site.data.keyword.discovery
 - offset
 - version
 
-For additional details on the function and syntax for the parameters see [Query parameters](/docs/services/discovery/query-parameters.html).
+For additional details on the function and syntax for the parameters see [Query parameters](/docs/services/discovery?topic=discovery-query-parameters#query-parameters).
 
 Example of searching logs for a natural language query that contains the term “train”:
 
@@ -96,10 +96,10 @@ Example query log:
 ```
 
 With query logs you can investigate the type of results returned to your end users and investigate ways to improve result quality using the approaches available in {{site.data.keyword.discoveryshort}}. For example: 
-- relevancy training, see [Improving result relevance with the API](/docs/services/discovery/train.html) and [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html)
-- [query operators](/docs/services/discovery/query-operators.html)
-- [query expansion](/docs/services/discovery/using.html#query-expansion)
-- custom configurations, see the [Configuration reference](/docs/services/discovery/custom-config.html#configref)
+- relevancy training, see [Improving result relevance with the API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) and [Improving result relevance with the tooling](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling)
+- [query operators](/docs/services/discovery?topic=discovery-query-operators#query-operators)
+- [query expansion](/docs/services/discovery?topic=discovery-query-concepts#query-expansion)
+- custom configurations, see the [Configuration reference](/docs/services/discovery?topic=discovery-configref#configref)
 
 ## Creating event logs
 {: #eventlogs}
