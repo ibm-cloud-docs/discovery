@@ -39,16 +39,16 @@ To migrate from {{site.data.keyword.discoverynewsshort}} Original to the new ver
 
   **Note:** {{site.data.keyword.discoverynewsshort}} Original was only available in instances of {{site.data.keyword.discoveryshort}} created before **31, July 2017** and was retired from service **15, January 2018**.
 
-See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) for a description of this collection.
+See [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for a description of this collection.
 
-For a description and information about querying {{site.data.keyword.discoverynewsshort}} Original, see [Watson Discovery News Original](/docs/services/discovery/discovery-auxiliary.html#watson-discovery-news-original).
+For a description and information about querying {{site.data.keyword.discoverynewsshort}} Original, see [Watson Discovery News Original](/docs/services/discovery?topic=discovery-discovery-archives#watson-discovery-news-original).
 
 ## Service comparison
 {: #service-bwdn}
 
 | {{site.data.keyword.discoverynewsshort}} Original         | {{site.data.keyword.discoverynewsshort}}           |
 |----------------------------------------|---------------------------------|
-| **{{site.data.keyword.discoverynewsshort}} Original** was pre-enriched with the following Alchemy Language enrichments: Keyword Extraction, Entity Extraction, Concept Tagging, Relation Extraction, Sentiment Analysis, and Taxonomy Classification. The following additional metadata was also added: crawl date, publication date, URL ranking, host rank, and anchor text.     | **{{site.data.keyword.discoverynewsshort}}** is pre-enriched with the following {{site.data.keyword.nlushort}}  (NLU) enrichments: Keyword Extraction, Entity Extraction, Semantic Role Extraction, Sentiment Analysis, Relations, and Category Classification. The following additional metadata is also added: crawl date and publication date. To learn more about NLU enrichments, see [Adding enrichments](/docs/services/discovery/building.html#adding-enrichments).                         |
+| **{{site.data.keyword.discoverynewsshort}} Original** was pre-enriched with the following Alchemy Language enrichments: Keyword Extraction, Entity Extraction, Concept Tagging, Relation Extraction, Sentiment Analysis, and Taxonomy Classification. The following additional metadata was also added: crawl date, publication date, URL ranking, host rank, and anchor text.     | **{{site.data.keyword.discoverynewsshort}}** is pre-enriched with the following {{site.data.keyword.nlushort}}  (NLU) enrichments: Keyword Extraction, Entity Extraction, Semantic Role Extraction, Sentiment Analysis, Relations, and Category Classification. The following additional metadata is also added: crawl date and publication date. To learn more about NLU enrichments, see [Adding enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments).                         |
 | **{{site.data.keyword.discoverynewsshort}} Original** was accessible through an environment that was unique to your service instance.                       | When using **{{site.data.keyword.discoverynewsshort}}**, all users query the same environment and collection. This means that all references to your environment and collection need to be changed.      |
 | In **{{site.data.keyword.discoverynewsshort}} Original**, you received information such as collection size, number of documents, etc. when retrieving the environment via the API.  | **{{site.data.keyword.discoverynewsshort}}** API does not return this information.                          |
 
@@ -109,7 +109,7 @@ You can query {{site.data.keyword.discoverynewsshort}} by using the API or one o
 1. Click on the {{site.data.keyword.discoverynewsshort}} tile to open the **Manage data** screen.
 1. Click **View data schema**, then **Build queries** to open the query builder.
 
-  Queries in {{site.data.keyword.discoverynewsshort}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery/using.html) and [Query Reference](/docs/services/discovery/query-reference.html).
+  Queries in {{site.data.keyword.discoverynewsshort}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) and [Query Reference](/docs/services/discovery?topic=discovery-query-reference#query-reference).
   {: tip}
 
 **Note:** Do not expect identical results to be returned for similar queries in {{site.data.keyword.discoverynewsshort}} Original and {{site.data.keyword.discoverynewsshort}}. Crawl time, sources, and enrichments all combine to return different results.

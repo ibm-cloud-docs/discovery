@@ -52,7 +52,7 @@ There will be data that will need to be recreated from scratch (for example, dat
 
 Your uploaded documents are converted and enriched, then stored in the search index. The search index is not recoverable in the case of a disaster, and therefore you should store a backup of all your source documents in a safe place.
 
-If you also import documents by doing scheduled crawls of external data sources, you should retain your data source credentials externally so that you can reestablish your data sources quickly. See [Connecting to data sources](/docs/services/discovery/connect.html#sources) for the list of available sources and the credentials needed for each one.
+If you also import documents by doing scheduled crawls of external data sources, you should retain your data source credentials externally so that you can reestablish your data sources quickly. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for the list of available sources and the credentials needed for each one.
 
 ### Configurations
 {: #backupconfigs}
@@ -101,7 +101,7 @@ If you are using expansions for query modification, you should backup your expan
 ### Tokenization dictionaries or stopwords
 {: #backupstopwords}
 
-If you use these capabilities, you will need to backup these files and store them locally. In the case of stopwords, backup the text file, and in the case of the tokenizations you should backup the JSON file. See [Creating custom tokenization dictionaries](/docs/services/discovery/using.html#tokenization) and [Defining stopwords](/docs/services/discovery/using.html#stopwords) for more information about each file type.
+If you use these capabilities, you will need to backup these files and store them locally. In the case of stopwords, backup the text file, and in the case of the tokenizations you should backup the JSON file. See [Creating custom tokenization dictionaries](/docs/services/discovery?topic=discovery-query-concepts#tokenization) and [Defining stopwords](/docs/services/discovery?topic=discovery-query-concepts#stopwords) for more information about each file type.
 
 ### Collection information
 {: #collectioninfo}
@@ -113,7 +113,7 @@ This is not required, but it is a good best practice to [retrieve the status](ht
 ### Smart Document Understanding models
 {: #backupsdu}
 
-If you are using Smart Document Understanding (SDU), you will have models associated with your configuration. To avoid loss of this information you should [export your models](/docs/services/discovery/sdu.html#import), back them up and store them locally. SDU models have the file extension of `.sdumodel`.
+If you are using Smart Document Understanding (SDU), you will have models associated with your configuration. To avoid loss of this information you should [export your models](/docs/services/discovery?topic=discovery-sdu#import), back them up and store them locally. SDU models have the file extension of `.sdumodel`.
 
 
 ## Restoring your data to a new Watson Discovery instance
@@ -125,21 +125,21 @@ Consider using your backups to restore to a new {{site.data.keyword.discoverysho
 To begin restoration, first start by reviewing your list of collections and associated data sources, as well as your file backups.
 
 -  Create your [environment](https://cloud.ibm.com/apidocs/discovery#create-an-environment) and [collections](https://cloud.ibm.com/apidocs/discovery#create-a-collection) using the saved configuration information. Ensure that the appropriate configuration is defined appropriately, and that the language for the collection is set properly. Failure to do so will delay getting your system back up and running.
--  If you had any custom configurations set up in {{site.data.keyword.discoveryshort}}, you'll need to [re-create those custom configurations](/docs/services/discovery/building.html#when-you-need-a-custom-configuration). 
--  Add back tokenization dictionaries or stopwords into the collections. See [Creating custom tokenization dictionaries](/docs/services/discovery/using.html#tokenization) and [Defining stopwords](/docs/services/discovery/using.html#stopwords).  
+-  If you had any custom configurations set up in {{site.data.keyword.discoveryshort}}, you'll need to [re-create those custom configurations](/docs/services/discovery?topic=discovery-configservice#when-you-need-a-custom-configuration). 
+-  Add back tokenization dictionaries or stopwords into the collections. See [Creating custom tokenization dictionaries](/docs/services/discovery?topic=discovery-query-concepts#tokenization) and [Defining stopwords](/docs/services/discovery?topic=discovery-query-concepts#stopwords).  
 -  If you had custom query expansion, you will need to [add your query expansions](https://cloud.ibm.com/apidocs/discovery#create-or-update-expansion-list) for each collection as well. 
--  If you were using any custom entity models from Watson Knowledge Studio (WKS) for enrichment, you'll need to [re-import that model](/docs/services/discovery/building.html#custom-entity-model) into your {{site.data.keyword.discoveryshort}} instance. 
+-  If you were using any custom entity models from Watson Knowledge Studio (WKS) for enrichment, you'll need to [re-import that model](/docs/services/discovery?topic=discovery-configservice#custom-entity-model) into your {{site.data.keyword.discoveryshort}} instance. 
 
 After you have your collections setup as before - then you will need to begin ingesting your source documents. Depending upon how you ingested your documents previously, you can do so using:
 -  The [API](https://cloud.ibm.com/apidocs/discovery#add-a-document)
--  A [connector](/docs/services/discovery/connect.html#sources) 
--  The [Data Crawler](/docs/services/discovery/data-crawler.html#adding-content-with-data-crawler)
+-  A [connector](/docs/services/discovery?topic=discovery-sources#sources) 
+-  The [Data Crawler](/docs/services/discovery?topic=discovery-adding-content-with-data-crawler#adding-content-with-data-crawler)
 -  or other method
 
 ### Restoring training data
 {: #restoretraining}
 
-After collections have been restored, you can begin the process of [recreating your relevancy training models](/docs/services/discovery/train.html#improving-result-relevance-with-the-api). 
+After collections have been restored, you can begin the process of [recreating your relevancy training models](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api). 
 
 Retrieve the training data you backed up, then:
 
@@ -151,16 +151,16 @@ Retrieve the training data you backed up, then:
 ### Restoring connections to external data sources
 {: #restoreconnections}
 
-In case of an unanticipated loss of data, you may lose your scheduled crawls of external data sources. See [Connecting to data sources](/docs/services/discovery/connect.html#sources) for the list of available sources.
+In case of an unanticipated loss of data, you may lose your scheduled crawls of external data sources. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for the list of available sources.
 
 To restore your external data, you'll need to reestablish your connections to these data sources, and then re-crawl them.
 
-Find the data source credentials you stored previously and follow the instructions [here](/docs/services/discovery/connect.html#sources). This will allow you to re-connect to your data sources, and get the data imported into {{site.data.keyword.discoveryshort}}.
+Find the data source credentials you stored previously and follow the instructions [here](/docs/services/discovery?topic=discovery-sources#sources). This will allow you to re-connect to your data sources, and get the data imported into {{site.data.keyword.discoveryshort}}.
 
 
 ### Restoring Smart Document Understanding models
 {: #restoresdu}
 
-To import a previously exported Smart Document Understanding (SDU) model follow the instructions [here](/docs/services/discovery/sdu.html#import). SDU models have the file extension of `.sdumodel`.
+To import a previously exported Smart Document Understanding (SDU) model follow the instructions [here](/docs/services/discovery?topic=discovery-sdu#import). SDU models have the file extension of `.sdumodel`.
 
 When importing an SDU existing model into a new collection, it is a good best practice to create the new collection and add one document, then import the model and upload the remainder of your documents.

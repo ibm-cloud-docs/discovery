@@ -32,7 +32,7 @@ subcollection: discovery
 # Migrating from AlchemyData News
 {: #migrate-adn}
 
-A new version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) for a description of this collection.
+A new version of {{site.data.keyword.discoverynewsfull}} debuted on **31, July 2017**. See [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for a description of this collection.
 
 AlchemyData News has been retired with a removal from service date of **7, March 2018**
 
@@ -43,7 +43,7 @@ The following differences are of note when moving from AlchemyData News to {{sit
 
 - {{site.data.keyword.discoveryshort}} charges for news queries by the query only. All fields are available for return with each result at no additional cost.
 - Each {{site.data.keyword.discoveryshort}} query can return up to a maximum of 50 results. An `offset` parameter is available so that you can page queries to whatever number of results you require.
-- {{site.data.keyword.discoveryshort}} additionally supports aggregations. See the [aggregations](/docs/services/discovery/query-reference.html#aggregations) section of the {{site.data.keyword.discoveryshort}} documentation for more information.
+- {{site.data.keyword.discoveryshort}} additionally supports aggregations. See the [aggregations](/docs/services/discovery?topic=discovery-query-reference#aggregations) section of the {{site.data.keyword.discoveryshort}} documentation for more information.
 - {{site.data.keyword.discoverynewsfull}} doesn't rank in the same way that AlchemyData News does. There is currently no field for ranking.
 - The query structure and the structure of data returned is different between {{site.data.keyword.discoverynewsshort}} and AlchemyData News. A good way to understand the JSON structure is to query for a single result in {{site.data.keyword.discoverynewsshort}} and inspect the result.
 - {{site.data.keyword.discoverynewsshort}} does not support XML output.
@@ -80,7 +80,7 @@ To launch the {{site.data.keyword.discoveryshort}} tooling and query {{site.data
 1. Click on the {{site.data.keyword.discoverynewsshort}} tile to open the **Manage data** screen.
 1. Click **View data schema**, then **Build queries** to open the query builder.
 
-  Queries in {{site.data.keyword.discoverynewsfull}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery/using.html) and [Query reference](/docs/services/discovery/query-reference.html).
+  Queries in {{site.data.keyword.discoverynewsfull}} are structured the same way as queries written for private data collections. See [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) and [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference).
   {: tip}
 
 Do not expect identical results to be returned for similar queries in AlchemyData News and {{site.data.keyword.discoverynewsfull}}. Crawl time, sources, and enrichments all combine to return different results.

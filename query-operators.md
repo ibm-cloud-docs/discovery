@@ -32,7 +32,7 @@ subcollection: discovery
 # Query operators
 {: #query-operators}
 
-Operators are the separators between different parts of a query. For the complete list of available operators, see the [Query reference](/docs/services/discovery/query-reference.html#operators).
+Operators are the separators between different parts of a query. For the complete list of available operators, see the [Query reference](/docs/services/discovery?topic=discovery-query-reference#operators).
 
 ## . \[JSON delimiter\]
 {: #delimiter}

@@ -32,7 +32,7 @@ subcollection: discovery
 # Query aggregations
 {: #query-aggregations}
 
-Aggregations return a set of data values. For the complete list of available aggregations, see the [Query reference](/docs/services/discovery/query-reference.html#aggregations).
+Aggregations return a set of data values. For the complete list of available aggregations, see the [Query reference](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ## term
 {: #term}

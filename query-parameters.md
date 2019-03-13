@@ -32,7 +32,7 @@ subcollection: discovery
 # Query parameters
 {: #query-parameters}
 
-The {{site.data.keyword.discoveryfull}} service offers powerful content search capabilities through queries. After your content is uploaded and enriched by the {{site.data.keyword.discoveryshort}} service, you can build queries, integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder. To get started with queries, see [Query concepts](/docs/services/discovery/using.html). For the complete list of parameters, see the [Query reference](/docs/services/discovery/query-reference.html#parameter-descriptions).
+The {{site.data.keyword.discoveryfull}} service offers powerful content search capabilities through queries. After your content is uploaded and enriched by the {{site.data.keyword.discoveryshort}} service, you can build queries, integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder. To get started with queries, see [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts). For the complete list of parameters, see the [Query reference](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
 {: shortdesc}
 
 **Search parameters**
@@ -44,12 +44,12 @@ The **results set** is the group of documents identified by the combined searche
 ## query
 {: #query}
 
-A query search returns all documents in your data set with full enrichments and full text in order of relevance. A query also excludes any documents that don't mention the query content. These queries are written using the [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html).
+A query search returns all documents in your data set with full enrichments and full text in order of relevance. A query also excludes any documents that don't mention the query content. These queries are written using the [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators).
 
 ## filter
 {: #filter}
 
-A cacheable query that excludes any documents that don't mention the query content. Filter search results are **not** returned in order of relevance. These queries are written using the [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html)
+A cacheable query that excludes any documents that don't mention the query content. Filter search results are **not** returned in order of relevance. These queries are written using the [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators)
 
 ### Differences between the filter and query parameters
 {: #filtervquery}
@@ -59,7 +59,7 @@ If you test the same search term on a small data set, you might find that the `f
 - Using a filter parameter alone will return search results in no specific order.
 - Using a query parameter alone will return search results in order of relevance.
 
-In large data sets, if you need results returned in order of relevance, you should combine the `filter` and `query` parameters, because using them together will improve performance. This is because the `filter` parameter will run first and cache results, then the `query` parameter will rank them. For an example of using filters and queries together, see [Building combined queries](/docs/services/discovery/using.html#building-combined-queries). Filters can also be used in aggregations.
+In large data sets, if you need results returned in order of relevance, you should combine the `filter` and `query` parameters, because using them together will improve performance. This is because the `filter` parameter will run first and cache results, then the `query` parameter will rank them. For an example of using filters and queries together, see [Building combined queries](/docs/services/discovery?topic=discovery-query-concepts#building-combined-queries). Filters can also be used in aggregations.
 
 When you write a query that includes both a `filter`, and an `aggregation`, `query`, or `natural_language_query` parameter; the `filter` parameters run first, after which any `aggregation`, `query`, or `natural_language_query` parameters run in parallel.
 
@@ -68,12 +68,12 @@ With a simple query, especially on a small data set, `filter` and `query` often 
 ## aggregation
 {: #aggregation}
 
-Aggregation queries return a count of documents matching a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see the [Aggregations table](/docs/services/discovery/query-aggregations.html). These aggregations are written using the [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html)
+Aggregation queries return a count of documents matching a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see the [Aggregations table](/docs/services/discovery?topic=discovery-query-aggregations#query-aggregations). These aggregations are written using the [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators)
 
 ## natural_language_query
 {: #nlq}
 
-A natural language query enables you to perform queries expressed in natural language, as might be received from an end user in a conversational or free-text interface - for example: "IBM Watson in healthcare". The parameter uses the entire input as the query text. It does **not** recognize operators. The `natural_language_query` parameter enables capabilities such as passage search and relevancy training. All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details. The maximum query string length for a natural language query is `2048`.
+A natural language query enables you to perform queries expressed in natural language, as might be received from an end user in a conversational or free-text interface - for example: "IBM Watson in healthcare". The parameter uses the entire input as the query text. It does **not** recognize operators. The `natural_language_query` parameter enables capabilities such as passage search and relevancy training. All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details. The maximum query string length for a natural language query is `2048`.
 
 **Structure parameters**
 
@@ -116,7 +116,7 @@ A boolean that specifies whether the service returns a set of the most relevant 
 The `passages` parameter can only be used on private collections. It cannot be used on the {{site.data.keyword.discoverynewsfull}} collection.
 {: tip}
 
-{{site.data.keyword.discoveryshort}} attempts to return passages that start at the beginning of a sentence and stop at the end using sentence boundary detection. To do so, it first searches for passages approximately the length specified in the [`passages.characters` parameter](/docs/services/discovery/query-parameters.html#passages_characters) (default `400`). It then expands each passage to the limit of twice the specified length in order to return full sentences. If your `passages.characters` parameter is short and/or the sentences in your documents are very long there may be no sentence boundaries close enough to return the full sentence without going over twice the requested length. In that case, {{site.data.keyword.discoveryshort}} stays within the limit of twice the `passages.characters` parameter, so the passage returned will not include the entire sentence and omit the beginning, end, or both.
+{{site.data.keyword.discoveryshort}} attempts to return passages that start at the beginning of a sentence and stop at the end using sentence boundary detection. To do so, it first searches for passages approximately the length specified in the [`passages.characters` parameter](/docs/services/discovery?topic=discovery-query-parameters#passages_characters) (default `400`). It then expands each passage to the limit of twice the specified length in order to return full sentences. If your `passages.characters` parameter is short and/or the sentences in your documents are very long there may be no sentence boundaries close enough to return the full sentence without going over twice the requested length. In that case, {{site.data.keyword.discoveryshort}} stays within the limit of twice the `passages.characters` parameter, so the passage returned will not include the entire sentence and omit the beginning, end, or both.
 
 Since sentence boundary adjustments expand passage size, you will see a substantial increase in average passage length. If your application has limited screen space, you may want to set a smaller value for `passages.characters` and/or truncate the passages that are returned by {{site.data.keyword.discoveryshort}}. Sentence boundary detection works for all supported languages and uses language-specific logic.
 
@@ -218,19 +218,19 @@ The JSON that is returned will be of the following format:
 ## deduplicate
 {: #deduplicate}
 
- A beta capability that excludes duplicate documents from {{site.data.keyword.discoverynewsfull}} collection query results based on the `title` field. See [Excluding duplicate documents from query results](/docs/services/discovery/query-parameters.html#deduplication).
+ A beta capability that excludes duplicate documents from {{site.data.keyword.discoverynewsfull}} collection query results based on the `title` field. See [Excluding duplicate documents from query results](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### deduplicate.field
 {: #deduplicate_field}
 
-A beta capability that excludes duplicate documents from your query results based on the specified `{field}`. See [Excluding duplicate documents from query results](/docs/services/discovery/query-parameters.html#deduplication).
+A beta capability that excludes duplicate documents from your query results based on the specified `{field}`. See [Excluding duplicate documents from query results](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### Excluding duplicate documents from query results
 {: #deduplication}
 
 If you are querying the {{site.data.keyword.discoverynewsfull}} collection, or your private data collection contains multiple identical (or near-identical) documents, you can exclude most of them from your query results using document deduplication.
 
-**Note:** Document deduplication is currently supported only as a beta capability. See [Beta features](/docs/services/discovery/release-notes.html#beta-features) in the Release notes for more information. This beta feature is currently supported in English only, see [Language support](/docs/services/discovery/language-support.html#feature-support) for details.
+**Note:** Document deduplication is currently supported only as a beta capability. See [Beta features](/docs/services/discovery?topic=discovery-release-notes#beta-features) in the Release notes for more information. This beta feature is currently supported in English only, see [Language support](/docs/services/discovery?topic=discovery-language-support#feature-support) for details.
 
 **Note:**  Each query is deduplicated independently, so deduplication across offsets is not supported.
 
@@ -271,7 +271,7 @@ If you prefer to deduplicate on a field other than `title`, use the following sy
 ## collection_ids
 {: #collection_ids}
 
-A comma-separated list of collections in the same environment that will be queried. This parameter is only valid when using the `environments/{environment_id}/query?` method. See [Querying multiple collections](/docs/services/discovery/using.html#multiple-collections) for more information.
+A comma-separated list of collections in the same environment that will be queried. This parameter is only valid when using the `environments/{environment_id}/query?` method. See [Querying multiple collections](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections) for more information.
 
 ```bash
 &collection_ids={id1},{id2}
@@ -281,7 +281,7 @@ A comma-separated list of collections in the same environment that will be queri
 ## similar
 {: #similar}
 
-Document similarity identifies documents that are similar to the documents listed in the `similar.document_ids` parameters. This can be further refined by specifing which fields will be considered for comparison using the `similar.fields` parameters. The default is `false`. See [Document similarity](/docs/services/discovery/using.html#doc-similarity) for more information.
+Document similarity identifies documents that are similar to the documents listed in the `similar.document_ids` parameters. This can be further refined by specifing which fields will be considered for comparison using the `similar.fields` parameters. The default is `false`. See [Document similarity](/docs/services/discovery?topic=discovery-query-concepts#doc-similarity) for more information.
 
 ```bash
 &similar=true

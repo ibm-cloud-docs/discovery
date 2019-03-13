@@ -35,7 +35,7 @@ subcollection: discovery
 This topic explains how to use the data crawler to ingest files from your local filesystem, to use with the {{site.data.keyword.discoveryfull}} service.
 {: shortdesc}
 
-The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery/connect.html) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
+The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
 {: important}
 
 Before attempting this task, create an instance of the {{site.data.keyword.discoveryshort}} service in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
@@ -47,7 +47,7 @@ Use the bash POST /v1/environments method to create an environment. Think of an 
 
 Replace `{apikey}` with your service credentials.
 
-(For more detailed information about using {apikey} credentials, see [Getting started with the API](/docs/services/discovery/getting-started.html).)
+(For more detailed information about using {apikey} credentials, see [Getting started with the API](/docs/services/discovery?topic=discovery-gs-api#gs-api).)
 
 ```bash
 curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"

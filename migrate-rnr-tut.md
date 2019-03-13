@@ -45,9 +45,9 @@ The process for users migrating data from {{site.data.keyword.retrieveandranksho
 1. Migrate the collection data.
 2. Migrate the training data.
 
-When migrating your trained collection data, what is **most** important is _to keep the document ids the same_. This is because your training data uses those ids to reference the ground truth, and if the ids are changed in moving from {{site.data.keyword.retrieveandrankshort}} to {{site.data.keyword.discoveryshort}} then the reranking is going to be completely off (or training might not even start). {{site.data.keyword.discoveryshort}} allows you to specify the document ID in the API upload process, so this problem can be avoided by following the guidelines in this document.  The {{site.data.keyword.retrieveandrankshort}} Training data is usually stored in a `csv` file. In this tutorial, this `csv` file is used to upload the sample training data into {{site.data.keyword.discoveryshort}}.  Migration of training data exported from the {{site.data.keyword.retrieveandrankshort}} tooling is detailed in [migrating training data from the service](/docs/services/discovery/migrate-dcs-rr.html#extract-train).
+When migrating your trained collection data, what is **most** important is _to keep the document ids the same_. This is because your training data uses those ids to reference the ground truth, and if the ids are changed in moving from {{site.data.keyword.retrieveandrankshort}} to {{site.data.keyword.discoveryshort}} then the reranking is going to be completely off (or training might not even start). {{site.data.keyword.discoveryshort}} allows you to specify the document ID in the API upload process, so this problem can be avoided by following the guidelines in this document.  The {{site.data.keyword.retrieveandrankshort}} Training data is usually stored in a `csv` file. In this tutorial, this `csv` file is used to upload the sample training data into {{site.data.keyword.discoveryshort}}.  Migration of training data exported from the {{site.data.keyword.retrieveandrankshort}} tooling is detailed in [migrating training data from the service](/docs/services/discovery?topic=discovery-migrate-dcs-rr#extract-train).
 
-This tutorial assumes {{site.data.keyword.retrieveandrankshort}} was setup similar to the [{{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial](/docs/services/retrieve-and-rank/getting-started.html) and uses the migrate from source path described [here](/docs/services/discovery/migrate-dcs-rr.html#source). See [Evaluate your migration path to Watson Discovery service](/docs/services/discovery/migrate-dcs-rr.html#evaluate) for other migration options.
+This tutorial assumes {{site.data.keyword.retrieveandrankshort}} was setup similar to the [{{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial](/docs/services/retrieve-and-rank/getting-started.html) and uses the migrate from source path described [here](/docs/services/discovery?topic=discovery-migrate-dcs-rr#source). See [Evaluate your migration path to Watson Discovery service](/docs/services/discovery?topic=discovery-migrate-dcs-rr#evaluate) for other migration options.
 
 To complete the tutorial, you need the following:
 
@@ -60,7 +60,7 @@ To complete the tutorial, you need the following:
 
 The following pre-requisites are necessary before beginning this tutorial:
 
--  This tutorial assumes you have already created a {{site.data.keyword.discoveryshort}} instance, if you need directions on how to create a {{site.data.keyword.discoveryshort}} instance, please refer to the [following tutorial](/docs/services/discovery/getting-started.html).
+-  This tutorial assumes you have already created a {{site.data.keyword.discoveryshort}} instance, if you need directions on how to create a {{site.data.keyword.discoveryshort}} instance, please refer to the [following tutorial](/docs/services/discovery?topic=discovery-gs-api#gs-api).
 
 -  This tutorial assumes that you have your service credentials.
    -  When in the Watson {{site.data.keyword.discoveryshort}} service on {{site.data.keyword.Bluemix_notm}}, click **Service credentials**.

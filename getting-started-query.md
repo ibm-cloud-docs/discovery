@@ -36,8 +36,8 @@ In this tutorial, we will learn how to write a few different types of queries in
 {: shortdesc}
 
 For more information about writing queries, see:
-- [Query concepts](/docs/services/discovery/using.html)
-- [Query reference](/docs/services/discovery/query-reference.html) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
+- [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts)
+- [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
 
 These example queries are built using the {{site.data.keyword.discoveryshort}} tooling. If you'd like to use the API instead, add the query parameters to your API call. For more information and examples, see the Queries section of the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window}.
 
@@ -57,7 +57,7 @@ In some browsers, the link open in a new window instead of saving locally. If th
 
 Let's start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To understand how to build a query using the {{site.data.keyword.discoveryshort}} Query Language, it helps to be familiar with the JSON produced by {{site.data.keyword.discoveryshort}} after it enriches the documents in your collection.
 
-1.  [Launch the {{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery/getting-started-tool.html#launch-the-tooling). On the **Manage data** screen, choose the {{site.data.keyword.IBM_notm}} Press Releases collection.
+1.  [Launch the {{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery?topic=discovery-getting-started#launch-the-tooling). On the **Manage data** screen, choose the {{site.data.keyword.IBM_notm}} Press Releases collection.
 
 1.  Review the insights Watson discovered in your enriched documents.
 
@@ -86,7 +86,7 @@ Let's start out by writing a query that will find the concept `Cloud computing` 
 
 1.  Click **Run query**. There should be one match (`"matching_results": 1`). Copy the **Query URL** at the top of the **Summary** or **JSON** tab to use in your application.
 
-**Bonus:** Under **More options**, you have the option to turn on passage retrieval with the **Include relevant passages** radio button. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. See [Passages](/docs/services/discovery/query-parameters.html#passages) for more information. Passage retrieval is not available for the {{site.data.keyword.discoveryshort}} News collection.
+**Bonus:** Under **More options**, you have the option to turn on passage retrieval with the **Include relevant passages** radio button. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information. Passage retrieval is not available for the {{site.data.keyword.discoveryshort}} News collection.
 
 If you'd like to check out a few pre-built queries, click the **Use a sample query** button.
 {: tip}
@@ -153,7 +153,7 @@ Try building this aggregation - it will return the top 10 concepts in the {{site
 ## Step 6: Build a query in Watson Discovery News
 {: #querying-step6}
 
-{{site.data.keyword.discoverynewsshort}}, is a public data set that has been pre-enriched with cognitive insights. It is included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) for more information about this collection.
+{{site.data.keyword.discoverynewsshort}}, is a public data set that has been pre-enriched with cognitive insights. It is included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for more information about this collection.
 
 You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
@@ -172,4 +172,4 @@ The following example query returns the top 10 articles in {{site.data.keyword.d
 
 **Note:** The maximum number of results returned for a Watson Discovery News query is `50`.
 
-News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. To turn on deduplication, under **More options**, choose **Exclude duplicate results**. To learn more about this beta capability, see [Excluding duplicate documents from query results](/docs/services/discovery/query-parameters.html#deduplication).
+News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. To turn on deduplication, under **More options**, choose **Exclude duplicate results**. To learn more about this beta capability, see [Excluding duplicate documents from query results](/docs/services/discovery?topic=discovery-query-parameters#deduplication).

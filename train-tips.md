@@ -32,7 +32,7 @@ subcollection: discovery
 # Relevancy training tips
 {: #relevancy-tips}
 
- Answers to common questions about training a collection and explanations of common error and warning messages. For more information on improving the relevancy of natural language queries, see [Improving result relevance with the tooling](/docs/services/discovery/train-tooling.html) and [Improving result relevance with the API](/docs/services/discovery/train.html).
+ Answers to common questions about training a collection and explanations of common error and warning messages. For more information on improving the relevancy of natural language queries, see [Improving result relevance with the tooling](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling) and [Improving result relevance with the API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api).
 {: shortdesc}
 
 ## Understanding training
@@ -89,12 +89,12 @@ curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/a
 ```
 {: pre}
 
-Other API operations are listed in [Performing other training-data query operations](/docs/services/discovery/train.html#training-data-operations).
+Other API operations are listed in [Performing other training-data query operations](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#training-data-operations).
 
 ### How do I interpret the `confidence` score that appears in natural language query results after training?
 {: #interpret-confidence}
 
-See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for more information.  
+See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for more information.  
 
 ## Interpreting Errors and Warnings
 {: #interpreting-errors}

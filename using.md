@@ -40,22 +40,22 @@ The {{site.data.keyword.discoveryfull}} service offers powerful content search c
 
 When you create a query or filter, {{site.data.keyword.discoveryshort}} looks at each result and tries to match the paths you have defined. When matches occur, they are added to the results set. When creating a query, you can be as vague or as specific as you want. The more specific the query, the more targeted the results.
 
-You also have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. By default, up to 10 passages of around 400 characters each will be returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See [Passages](/docs/services/discovery/query-parameters.html#passages) for more information on how passages are identified.
+You also have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. By default, up to 10 passages of around 400 characters each will be returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See [Passages](//docs/services/discovery?topic=discovery-query-parameters#passages) for more information on how passages are identified.
 
   You can write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling or the API.
   {: tip}
 
-All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery/train-tooling.html#confidence) for details.
+All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
 
 {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
 You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available in the API-only, and will increase the character limit of a query to 10,000 characters. See [Long collection queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-collection-queries){: new_window} and [Long environment queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-environment-queries){: new_window} for details.
 
-{{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html#kg) for more information.
+{{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg) for more information.
 
 For more information about writing queries, see:
-- [Getting started with querying tutorial](/docs/services/discovery/getting-started-query.html)
-- [Query reference](/docs/services/discovery/query-reference.html) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
+- [Getting started with querying tutorial](/docs/services/discovery?topic=discovery-getting-started-with-querying#getting-started-with-querying)
+- [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
 
 ## The Discovery data schema
 {: #discovery-schema}
@@ -102,29 +102,29 @@ Your query would be structured like this:
 
 ![Example query structure](images/query_structure2.png)
 
-  Operators that evaluate a field (`<=` , `>=`, `<`, `>`) require a `number` or `date` as the value. Using quotations around a value always makes it a `string`. Therefore `score>=0.5` is a valid query and `score>="0.5"` is not. See [Query operators](/docs/services/discovery/query-operators.html) for a complete list of operators.
+  Operators that evaluate a field (`<=` , `>=`, `<`, `>`) require a `number` or `date` as the value. Using quotations around a value always makes it a `string`. Therefore `score>=0.5` is a valid query and `score>="0.5"` is not. See [Query operators](/docs/services/discovery?topic=discovery-query-operators#query-operators) for a complete list of operators.
   {: tip}
 
 Considerations:
 
-- Not sure when to query on an entity, concept, or keyword? See [Understanding the difference between Entities, Concepts, and Keywords](/docs/services/discovery/building.html#udbeck).
+- Not sure when to query on an entity, concept, or keyword? See [Understanding the difference between Entities, Concepts, and Keywords](/docs/services/discovery?topic=discovery-configservice#udbeck).
 
-- **Note:**  After you click **Run query** and open the **JSON** tab, you will notice that query highlighting is turned on by default. This will add a `highlight` field to your query results. Within the `highlight` field, the words that match your query will be wrapped in HTML `<em>` (emphasis) tags. See the [Query parameters](/docs/services/discovery/query-parameters.html#highlight) for details.
+- **Note:**  After you click **Run query** and open the **JSON** tab, you will notice that query highlighting is turned on by default. This will add a `highlight` field to your query results. Within the `highlight` field, the words that match your query will be wrapped in HTML `<em>` (emphasis) tags. See the [Query parameters](/docs/services/discovery?topic=discovery-query-parameters#highlight) for details.
 
 ## Building combined queries
 {: #building-combined-queries}
 
-You can combine query parameters together to build more targeted queries. For example, you can use the both the `filter` and `query` parameters together. For more information about filtering vs. querying, see [Differences between the filter and query parameters](/docs/services/discovery/query-parameters.html#filtervquery).
+You can combine query parameters together to build more targeted queries. For example, you can use the both the `filter` and `query` parameters together. For more information about filtering vs. querying, see [Differences between the filter and query parameters](/docs/services/discovery?topic=discovery-query-parameters#filtervquery).
 
 ## How to structure an aggregation
 {: #structure-aggregation}
 
-Aggregations return a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see [Aggregations](/docs/services/discovery/query-reference.html#aggregations).
+Aggregations return a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see [Aggregations](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ![Example aggregation query structure](images/aggregation_structure.png)
 
 This example aggregation will find all of the `concepts` in your collection.
-The delimiter in this query is `.` and the operator is `()`, see [Query operators](/docs/services/discovery/query-operators.html) to learn about other operators available in the {{site.data.keyword.discoveryshort}} Query Language.
+The delimiter in this query is `.` and the operator is `()`, see [Query operators](/docs/services/discovery?topic=discovery-query-operators#query-operators) to learn about other operators available in the {{site.data.keyword.discoveryshort}} Query Language.
 
 ### Example aggregation queries
 {: #example-aggregations}
@@ -161,9 +161,9 @@ Additionally, any subsequent operation will further restrict the result set that
 ## Querying Watson Discovery News
 {: #querying-news}
 
-{{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) for more information about this collection.
+{{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for more information about this collection.
 
-You can query this collection using natural language queries, for example "IBM Watson partnerships", or the {{site.data.keyword.discoveryshort}} Query Language. To learn more about natural language queries, see the [Natural language query](/docs/services/discovery/query-parameters.html#nlq).
+You can query this collection using natural language queries, for example "IBM Watson partnerships", or the {{site.data.keyword.discoveryshort}} Query Language. To learn more about natural language queries, see the [Natural language query](/docs/services/discovery?topic=discovery-query-parameters#nlq).
 
 You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
@@ -182,7 +182,7 @@ If using the {{site.data.keyword.discoveryshort}} Query Language, you can includ
 This example will query for a keyword within a specific date range. The time zone information is not required:
 - `enriched_text.keywords.text:"olympics", publication_date<=2018-02-15T00:00:00Z, publication_date>=2018-02-01T00:00:00Z`
 
-News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. You can manage this using deduplication. To learn more about this beta capability, see [Excluding duplicate documents from query results](/docs/services/discovery/query-parameters.html#deduplication).
+News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. You can manage this using deduplication. To learn more about this beta capability, see [Excluding duplicate documents from query results](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ## Querying multiple collections
 {: #multiple-collections}
@@ -194,7 +194,7 @@ You can query multiple collections in the same environment by using the `environ
 -  `passages` are supported when querying multiple collections.
 -  `collection_id` is returned as part of each result object. This field specifies the collection where the result was found.
 -  The {{site.data.keyword.discoverynewsshort}} is part of the `system` environment and cannot be included in multiple collection queries.
--  Individual collection relevancy training does not affect ranking of results when querying multiple collections. To rerank results returned when querying multiple collections implement [Continuous Relevancy Training](/docs/services/discovery/continuous-training.html).
+-  Individual collection relevancy training does not affect ranking of results when querying multiple collections. To rerank results returned when querying multiple collections implement [Continuous Relevancy Training](/docs/services/discovery?topic=discovery-crt#crt).
 -  Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
 
 See the [multiple collection query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-documents-in-multiple-collections){: new_window} for more information.
@@ -257,7 +257,7 @@ Unidirectional example:
 Notes about query expansion:
 
 -  Multi-token query expansion is not supported.
--  Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery/pricing-details.html) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and seven term strings.
+-  Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and seven term strings.
 
 ```JSON
  {
@@ -292,7 +292,7 @@ Notes about query expansion:
 -  To disable query expansion, delete the query expansion list.
 -  You cannot currently upload or delete a query expansion list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
 -  Query expansion is performed on the `query` and `multiple collection query` methods. Query expansion is not performed on Knowledge Graph queries.
--  Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is expanded individually.
+-  Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections), each collection is expanded individually.
 -  Query expansions are applied at query time, not during indexing, so the query expansion list can be updated without the need to re-ingest your documents.
 -  Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
 
@@ -328,7 +328,7 @@ This list contains all the default English stopwords <a target="_blank" href="ht
 -  Japanese: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_ja.txt" download>custom_stopwords_ja.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 -  Spanish: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_es.txt" download>custom_stopwords_es.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. 
 
-See [Language support](/docs/services/discovery/language-support.html#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. Several supported languages do not have a default stopwords list.
+See [Language support](/docs/services/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. Several supported languages do not have a default stopwords list.
 
 See the [stopwords API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-stopword-list){: new_window} for the API commands to upload and delete custom stopword lists.
 
@@ -415,7 +415,7 @@ With this custom dictionary, you can create rules with a single token. In this e
 -  To disable tokenization, delete the tokenization dictionary and reingest your documents.
 -  You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
 -  Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
--  Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/services/discovery/using.html#multiple-collections), each collection is tokenized individually.
+-  Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections), each collection is tokenized individually.
 -  Do not upload or delete a tokenization dictionary at the same time documents are being ingested into your collection. 
 
 ## Document similarity
@@ -433,4 +433,4 @@ Example query with `similar.fields` added:
 
 `curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
 
-See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} and [query parameters](/docs/services/discovery/query-parameters.html#similar) for more information.
+See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} and [query parameters](/docs/services/discovery?topic=discovery-query-parameters#similar) for more information.

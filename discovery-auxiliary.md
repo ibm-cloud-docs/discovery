@@ -38,16 +38,16 @@ This topic contains information about {{site.data.keyword.discoveryshort}} featu
 ## AlchemyLanguage enrichments
 {: #AlchemyLanguage-enrichments}
 
-{{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html#migrate-nlu).
+{{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery?topic=discovery-migrate-nlu#migrate-nlu).
 
 ## Watson Discovery News Original
 {: #watson-discovery-news-original}
 
-{{site.data.keyword.discoverynewsfull}} Original was retired from service **15 January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) for more information.
-For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery/migrate-bwdn.html).
+{{site.data.keyword.discoverynewsfull}} Original was retired from service **15 January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for more information.
+For information on migrating, see [Migrating from Watson Discovery News Original](/docs/services/discovery?topic=discovery-migrate-bwdn#migrate-bwdn).
 
 ### Querying Watson Discovery News Original
 {: #querying-wds-original}
 
-{{site.data.keyword.discoverynewsfull}} Original was retired from service **15 January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html) for more information. For information on querying the new version, see [Querying Watson Discovery News](/docs/services/discovery/using.html#querying-news).
+{{site.data.keyword.discoverynewsfull}} Original was retired from service **15 January 2018**. A new version of {{site.data.keyword.discoverynewsfull}} is available, see [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for more information. For information on querying the new version, see [Querying Watson Discovery News](/docs/services/discovery?topic=discovery-query-concepts#querying-news).
 
