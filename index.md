@@ -59,7 +59,7 @@ For information about {{site.data.keyword.Bluemix_notm}} security, see the [{{si
 ## Browser support and prerequisites
 {: #browser-support-and-prerequisites}
 
-For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview/prereqs.html#prereqs){: new_window}.
+For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview?topic=overview-prereqs-platform#prereqs){: new_window}.
 
 ## Watson Discovery News
 {: #wds}
@@ -83,5 +83,5 @@ The {{site.data.keyword.discoveryshort}} service tooling has been designed to sa
     - [Getting started with the {{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started)
     - [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/services/discovery?topic=discovery-gs-api#gs-api)
 - The {{site.data.keyword.discoveryshort}} service supports a number of SDKs to simplify the development of applications. The SDKs are available for many popular programming languages and platforms, including Node.js, Java, and Python. All SDKs are available from the [watson-developer-cloud namespace ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/watson-developer-cloud){: new_window} on GitHub.
-    - For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs](https://cloud.ibm.com/docs/services/watson/getting-started-sdks.html#sdks).
+    - For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-using-sdks#sdks){: new_window}.
     - For detailed information about all methods of the Node, Java, and Python SDKs, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}.

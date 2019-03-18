@@ -59,7 +59,7 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
 
 In a bash shell or equivalent environment, such as Cygwin with the `curl` application installed, use the `POST /v1/environments` method to create an environment. Think of an environment as the warehouse where you are storing all your boxes of documents.
 
-This tutorial uses an API key to authenticate. For production uses, make sure that you review the API key [best practices](/docs/services/watson/apikey-bp.html#api-bp).
+This tutorial uses an API key to authenticate. For production uses, make sure that you review the API key [best practices ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-api-key-bp#api-bp){: new_window}.
 {: important}
 
 1.  Issue the following command to create an environment that is called `my-first-environment`. Replace `{apikey}` and `{url}` with the API key and URL you copied earlier:

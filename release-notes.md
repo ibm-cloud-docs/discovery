@@ -266,8 +266,8 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 
    In the Sydney location, you use IAM access tokens with the {{site.data.keyword.discoveryshort}} service for
 
-    -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens](/docs/services/watson/getting-started-iam.html).
-    -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](/docs/resources/instance_migration.html).
+    -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iam){: new_window}.
+    -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/resources?topic=resources-migrate#migrate){: new_window}.
 
     All new and existing service instances in other regions continue to use service credentials (`apikey:{apikey_value}`) for authentication.
 
@@ -276,7 +276,8 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 
 When you use IAM access tokens, you authenticate before you send a request to the {{site.data.keyword.discoveryshort}} service.
 
-1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key](/docs/services/watson/getting-started-iam.html#iamtoken).
+
+1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: new_window}.
 1.  Pass the IAM access token to the {{site.data.keyword.discoveryshort}} service by using the `Authorization` header. In the header, indicate that the access token is a `Bearer` token by specifying `Authorization: Bearer {access_token}`.
 
     The following simple cURL example uses an access token:
@@ -288,7 +289,7 @@ When you use IAM access tokens, you authenticate before you send a request to th
     ```
     {: pre}
 
-    For more information, see [Using a token to authenticate](/docs/services/watson/getting-started-iam.html#use_token).
+    For more information, see [Using a token to authenticate ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#use_token){: new_window}.
 
 ### Refreshing an IAM access token
 {: #iam-refreshing}
@@ -308,7 +309,7 @@ IAM access tokens that you generate have the following structure. You use the va
 
 Access tokens have a limited time to live. The `expires_in` field indicates how long the token lasts, in this case one hour. The `expiration` field shows when the token expires as a UNIX timestamp that specifies the number of seconds since January 1, 1970 (midnight UTC/GMT).
 
-In your application, check the access token's expiration time before you use it to make an authenticated request. If it is expired, you must refresh the access token before you can use it. You use the value of the `refresh_token` field to refresh the access token. For more information, see [Refreshing a token](/docs/services/watson/getting-started-iam.html#refresh_token).
+In your application, check the access token's expiration time before you use it to make an authenticated request. If it is expired, you must refresh the access token before you can use it. You use the value of the `refresh_token` field to refresh the access token. For more information, see [Refreshing a token ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: new_window}.
 
 
 ## 11 May 2018
