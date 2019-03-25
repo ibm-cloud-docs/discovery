@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -42,7 +42,7 @@ API requests require a version parameter that takes a date in the format `versio
 
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
-The current version is `2019-01-01`.
+The current version is `2019-03-25`.
 
 ## Beta features
 {: #beta-features}
@@ -54,6 +54,18 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 25 March 2019
+{: #25mar19}
+
+- The version string for all API calls has changed to `2019-03-25` from `2019-01-01`
+
+- The `title` field is now extracted from HTML documents as a top-level field during conversion. See [HTML conversion](/docs/services/discovery?topic=discovery-configservice#html-conversion). This `title` field will be also be included in each segment of any documents split using document segmentation, see [Splitting documents with document segmentation](/docs/services/discovery?topic=discovery-configservice#doc-segmentation) for an example. This may improve the `confidence` score for query results, and may change the `passages` returned, because the `title` may be returned as part of a passage. Existing collections will need to be reindexed to extract the `title` field.
+
+The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-03-25` (it currently uses `2018-08-01`), so the `title` will not be extracted when ingesting HTML documents by uploading or using the Web Crawl connector in the {{site.data.keyword.discoveryshort}} tooling.
+{: note}
+
+- Arrays can now be enriched (previously, arrays could not be enriched). When using Smart Document Understanding, this means that you can now enrich both default (for example: `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`) and custom fields. Previously, you were limited to enriching only the `text` field.
 
 ## 21 March 2019
 {: #21mar19}

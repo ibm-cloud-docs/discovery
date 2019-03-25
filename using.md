@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-22"
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -40,7 +40,7 @@ The {{site.data.keyword.discoveryfull}} service offers powerful content search c
 
 When you create a query or filter, {{site.data.keyword.discoveryshort}} looks at each result and tries to match the paths you have defined. When matches occur, they are added to the results set. When creating a query, you can be as vague or as specific as you want. The more specific the query, the more targeted the results.
 
-You also have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. By default, up to 10 passages of around 400 characters each will be returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See [Passages](//docs/services/discovery?topic=discovery-query-parameters#passages) for more information on how passages are identified.
+You also have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. By default, up to 10 passages of around 400 characters each will be returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information on how passages are identified.
 
   You can write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling or the API.
   {: tip}
@@ -214,7 +214,7 @@ You can expand the scope of a query beyond exact matches - for example, you can 
 
 You can define two types of expansions:
 -  **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR vehicle`).
--  **unidirectional** - the `input_terms` in the query will be replaced by the `expanded_terms`. For example, a query for `banana` could expand to `plaintain` and `fruit`. `input_terms` are not used as part of the resulting query. In the previous `banana` example, the query `banana` would be converted to `plantain` OR `fruit` and not contain the original term.
+-  **unidirectional** - the `input_terms` in the query will be replaced by the `expanded_terms`. For example, a query for `banana` could expand to `plantain` and `fruit`. `input_terms` are not used as part of the resulting query. In the previous `banana` example, the query `banana` would be converted to `plantain` OR `fruit` and not contain the original term.
 
 This file can be used as a starting point when building a query expansion list:
 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. You can modify this file to create your custom query expansion list.

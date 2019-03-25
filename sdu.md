@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -48,8 +48,6 @@ Supported document types for Smart Document Understanding:
 
 \*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
 
-Supported browsers: Chrome and Firefox.
-
 ## Using the Smart Document Understanding editor
 {: #annotate}
 
@@ -79,9 +77,6 @@ If you have not yet created a {{site.data.keyword.discoveryshort}} instance and 
    If you did not upload any documents earlier, return to the **Overview** screen by clicking the name of your collection in the upper left, or click the ![Manage Data](/images/icon_yourData.png) icon and choose your collection. Drag and drop documents into your collection, or click **browse from computer**. After you have done an initial upload, the **Upload documents** button will appear on the upper right.
    {: important}
 
-   When using Smart Document Understanding, only the `text` field can be enriched. Do not attempt to enrich any other field.
-   {: important}
-
 1. Open the **Identify fields** tab. A maximum of twenty (20) documents from your collection will automatically load in the Smart Document Understanding editor.
 
 The toolbar at the top will allow you to:
@@ -106,7 +101,7 @@ See [Best practices for annotating documents and tables](/docs/services/discover
    - To clear a change, click the **Clear change** button on the toolbar.
 1. Click **Submit**.
    **Note:** As you annotate, Watson is learning and will start predicting annotations. Continue annotating until Watson correctly and consistently identifies fields.
-1. When you have completed annotating, click **Apply changes to collection.** The **Upload your documents** screen opens. Re-upload the documents in your collection. After uploading is complete, you will be redirected to the **Manage Data** screen.
+1. When you have completed annotating, click **Apply changes to collection.** The **Upload your documents** screen opens. Re-upload the documents in your collection. After uploading is complete, you will be redirected to the **Overview** screen.
 
 Field | Definition  
 ------ | ------ 
@@ -141,7 +136,7 @@ See [Best practices for annotating documents and tables](/docs/services/discover
    **Note:** As you annotate tables, Watson is learning and will start predicting annotations.
 1. Second, label the content within the table.
 1. When you have completed annotating the table, click **Done annotating**.
-1. Click **Apply changes to collection.** The **Upload your documents** screen opens. Re-upload the documents in your collection. After uploading is complete, you will be redirected to the **Manage Data** screen.
+1. Click **Apply changes to collection.** The **Upload your documents** screen opens. Re-upload the documents in your collection. After uploading is complete, you will be redirected to the **Overview** screen.
 
 Use this video as a guide ![table annotation video](images/SDU_table_demo.gif){: gif}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-04"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -119,6 +119,8 @@ The `passages` parameter can only be used on private collections. It cannot be u
 {{site.data.keyword.discoveryshort}} attempts to return passages that start at the beginning of a sentence and stop at the end using sentence boundary detection. To do so, it first searches for passages approximately the length specified in the [`passages.characters` parameter](/docs/services/discovery?topic=discovery-query-parameters#passages_characters) (default `400`). It then expands each passage to the limit of twice the specified length in order to return full sentences. If your `passages.characters` parameter is short and/or the sentences in your documents are very long there may be no sentence boundaries close enough to return the full sentence without going over twice the requested length. In that case, {{site.data.keyword.discoveryshort}} stays within the limit of twice the `passages.characters` parameter, so the passage returned will not include the entire sentence and omit the beginning, end, or both.
 
 Since sentence boundary adjustments expand passage size, you will see a substantial increase in average passage length. If your application has limited screen space, you may want to set a smaller value for `passages.characters` and/or truncate the passages that are returned by {{site.data.keyword.discoveryshort}}. Sentence boundary detection works for all supported languages and uses language-specific logic.
+
+You can adjust the fields in the documents over which passage retrieval searches with the [`passages.fields`](/docs/services/discovery?topic=discovery-query-parameters#passages_fields) parameter.
 
 The `passages` parameter returns matching passages (`passage_text`), as well as the `score`, `document_id`, the name of the field the passage was extracted from (`field`), and the starting and ending characters of the passage text within the field (`start_offset` and `end_offset`), as shown in the following example. The query is shown at the top of the example.
 

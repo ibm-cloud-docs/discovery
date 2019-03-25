@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -32,10 +32,26 @@ subcollection: discovery
 # High availability and disaster recovery
 {: #recovery}
 
-{{site.data.keyword.discoveryfull}} supports high availability with no single point of failure. In addition, it is the customer’s responsibility to back up your {{site.data.keyword.discoveryshort}} data in support of your own disaster recovery plan so that you can re-create your service.
+{{site.data.keyword.discoveryfull}} is highly available within multiple {{site.data.keyword.cloud_notm}} locations (for example, Dallas and Washington, DC). However, recovering from potential disasters that affect an entire location requires planning and preparation.
 {: shortdesc}
 
-{{site.data.keyword.discoveryshort}} traffic is load-balanced across multiple zones in a region. Each zone is a data center in the same region. See [How do I ensure zero downtime? ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/overview?topic=overview-zero-downtime#zero-downtime){: new_window} for more information.
+You are responsible for understanding your configuration, customization, and usage of the service. You are also responsible for being ready to re-create an instance of the service in a new location and to restore your data in any location. See [How do I ensure zero downtime? ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/overview?topic=overview-zero-downtime#zero-downtime){: new_window} for more information.
+
+## High availability
+{: #ha}
+
+{{site.data.keyword.discoveryfull}} supports high availability with no single point of failure. The service achieves high availability automatically and transparently by using the multi-zone region (MZR) feature provided by {{site.data.keyword.cloud_notm}}.
+
+{{site.data.keyword.cloud_notm}} enables multiple zones that do not share a single point of failure within a single location. It also provides automatic load balancing across the zones within a region.
+
+## Disaster recovery
+{: #dr}
+
+Disaster recovery can become an issue if an {{site.data.keyword.cloud_notm}} location experiences a significant failure that includes the potential loss of data. Because MZR is not available across locations, you must wait for IBM to bring a location back online if it becomes unavailable. If underlying data services are compromised by the failure, you must also wait for IBM to restore those data services.
+
+If a catastrophic failure occurs, IBM might not be able to recover data from database backups. In this case, you need to restore your data to return your service instance to its most recent state. You can restore the data to the same or to a different location.
+
+Your disaster recovery plan includes knowing, preserving, and being prepared to restore all data that is maintained on {{site.data.keyword.cloud_notm}}. 
 
 ## Backing up your data in Watson Discovery
 {: #backup}

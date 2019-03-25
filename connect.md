@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -255,11 +255,15 @@ When connecting to an IBM Cloud Object Storage source, the following credentials
 -  `access_key_id` - `access_key_id` obtained when the IBM Cloud Object Storage instance was created.
 -  `secret_access_key` - `secret_access_key` to sign requests obtained when the IBM Cloud Object storage instance was created.
 
+IAM authentication is not currently supported for this connector. You need to set up HMAC authentication before you configure this connector. See [Service Credentials](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials) for instructions.
+{: important}
+
 After this information is entered, you can choose how often you'd like to sync your data and select the buckets you want to sync to.
 
 Other items to note when crawling IBM Cloud Object Storage:
 
 -  This connector doesn't support crawling private endpoints.
+-  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations] (/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#select-regions-and-endpoints).
 -  There is a slight performance issue if all buckets are selected. In this case, there may be a delay before the documents complete indexing.
 
 ## Using the tooling
