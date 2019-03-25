@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -228,6 +228,7 @@ Default HTML settings:
 - Exclude these tag attributes: **`EVENT_ACTIONS`**
 - Keep content that matches this/these XPath(s): no default
 - Exclude content that matches this/these XPath(s): no default
+- The **`title`** will be extracted as a top-level field. (`2019-03-25` or later API version string.)
 
 After making any changes, click **Apply and Save**.
 
@@ -793,7 +794,7 @@ Specify values for the new fields as follows:
 -   `CSS_selector_expression` — The CSS selector that is to be run against the input HTML to extract the fields. The expression can have one or more matches.
 
     Valid CSS selectors are those specified by the [JSoup parser ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} and its [selector syntax ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window}. A short list is provided at [Common selectors](/docs/services/discovery?topic=discovery-configservice#common-selectors).
--   `field_type` — Either `array` or `string`. If the field type is not specified, it defaults to `array`. Note that type `string` can be enriched, but information stored in an `array` cannot be enriched unless the array's items are first extracted into text fields.
+-   `field_type` — Either `array` or `string`. If the field type is not specified, it defaults to `array`. Both the `string` and `array` types can be enriched.
 
 **Warning:** If a CSS selector matches both a parent node and one or more of its children, the text content of the nodes will be duplicated in the JSON output.
 
@@ -1001,7 +1002,7 @@ Considerations:
 
   - Documents will segment each time the specified HTML tag is detected. Consequently, segmentation could lead to malformed HTML because the documents could be split before closing tags and after opening tags.
 
-  - HTML, PDF, and Word metadata, as well as any custom metadata, is extracted and included in the index with each segment. Every segment of a document will include identical metadata.
+  - HTML, PDF, and Word metadata; the title; plus any custom metadata, is extracted and included in the index with each segment. Every segment of a document will include identical metadata.
 
   - Document segmentation is not supported when the **Element Classification** (`elements`) enrichment is specified.
 
@@ -1051,6 +1052,7 @@ Original HTML document:
 ```
 <html>
  <head>
+  <title>My Document</title>
  </head>
  <body>
   first line
@@ -1074,19 +1076,21 @@ The first document segment will look like this:
 ```json
 {
   "id": "94c686c3-a790-4d8d-ba42-2bddf01b311c",
-  "segment_metadata": {
+  "result_metadata": {
     "parent_id": "94c686c3-a790-4d8d-ba42-2bddf01b311c",
     "segment": 1,
     "total_segments": 3
   },
+  "text": "This is the text that falls under heading 1 and should be therefore split into its own segment."
+  },
   "extracted_metadata": {
-    "title": "Heading 1",
     "sha1": "45ede479df67d78f2205ea7e714843375d3029c0",
     "filename": "doc-with-different-heading-levels.html",
-    "file_type": "html"
+    "file_type": "html",
+    "title": "My Document"
   },
-  "text": "This is the text that falls under heading 1 and should be therefore split into its own segment.",
-  "html": "<div name=\"section 2\">This is the text that falls under <b>heading 1</b> and should be therefore split into its own segment."
+  "title": "My Document",
+  "html": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><html>\n<head>"
 }
 ```
 {: codeblock}
@@ -1094,13 +1098,14 @@ The first document segment will look like this:
 All segments will include an:
 
   - `id` - The `id` of this segment.
+  - `title` - The `title` field is extracted from the HTML `title` field. (`2019-03-25` or later API version string.)
   - `segment_metadata` section which contains:
     - `parent_id` - The `parent_id` is the id of the original document. For the first segment, the `id` and `parent_id` will be identical.
     - `segment` - The number of this segment.
     - `total_segments` - The total number of segments the document was split into.
   - `extracted_metadata` section which contains:
-    - `title` - The `title` field is extracted from the content of the heading tag in that segment (for example, `Chapter 1`). If the first segment does not include a heading tag, the `title` will be `no-title`.
     - `sha1` - Corresponds to the original document.
+    - `title` - The `title` field is extracted from the HTML `title` field. (`2019-03-25` or later API version string.)
     - `filename` - Corresponds to the original document.
     - `file_type`- Corresponds to the original document.
   - `text` field

@@ -82,5 +82,5 @@ There are a number of features that enhance query results. The following feature
 
 The makeup of the documents in a private collection can also impact query performance:
 1.  **Total number of documents** - Performance may be affected when approaching the upper limits of `Number of Documents` for Advanced plan sizes. 
-1.  **Size of documents** - Very large documents (those several MB in size) require movement of a  large amount of data per request, which can negatively impact performance especially when using passage retrieval and relevancy training. 
+1.  **Size of documents** - Very large documents (those several MB in size) require movement of a large amount of data per request, which can negatively impact performance especially when using passage retrieval and relevancy training. 
 1.  **Number of enrichments** - Enrichments add complexity to documents by adding a significant number of nested fields. If an enrichment is not necessary for your use case, consider disabling it at ingestion time. Enrichments are not directly used for `natural_language_query` search relevance. See [Adding enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments) for more about information on enrichments.

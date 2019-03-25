@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-06"
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -86,7 +86,7 @@ Let's start out by writing a query that will find the concept `Cloud computing` 
 
 1.  Click **Run query**. There should be one match (`"matching_results": 1`). Copy the **Query URL** at the top of the **Summary** or **JSON** tab to use in your application.
 
-**Bonus:** Under **More options**, you have the option to turn on passage retrieval with the **Include relevant passages** radio button. Passages are short, relevant excerpts extracted from the full documents returned by your query. These targeted passages are extracted from the `text` fields of the documents in your collection. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information. Passage retrieval is not available for the {{site.data.keyword.discoveryshort}} News collection.
+**Bonus:** Under **More options**, you have the option to turn on passage retrieval with the **Include relevant passages** radio button. Passages are short, relevant excerpts extracted from the full documents returned by your query. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information. Passage retrieval is not available for the {{site.data.keyword.discoveryshort}} News collection.
 
 If you'd like to check out a few pre-built queries, click the **Use a sample query** button.
 {: tip}

@@ -38,7 +38,7 @@ Migrating from {{site.data.keyword.retrieveandrankshort}} to the {{site.data.key
 ## Overview
 {: #overview-rnr}
 
-This tutorial guides you through the process of creating and training a {{site.data.keyword.discoveryfull}} Service with sample data. This tutorial uses the same data set used in the [{{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial](/docs/services/retrieve-and-rank/getting-started.html), but you can use the same approach to create a service instance that uses your own data.
+This tutorial guides you through the process of creating and training a {{site.data.keyword.discoveryfull}} service with sample data. 
 
 The process for users migrating data from {{site.data.keyword.retrieveandrankshort}} to {{site.data.keyword.discoveryshort}} consists of two main steps.
 
@@ -47,7 +47,7 @@ The process for users migrating data from {{site.data.keyword.retrieveandranksho
 
 When migrating your trained collection data, what is **most** important is _to keep the document ids the same_. This is because your training data uses those ids to reference the ground truth, and if the ids are changed in moving from {{site.data.keyword.retrieveandrankshort}} to {{site.data.keyword.discoveryshort}} then the reranking is going to be completely off (or training might not even start). {{site.data.keyword.discoveryshort}} allows you to specify the document ID in the API upload process, so this problem can be avoided by following the guidelines in this document.  The {{site.data.keyword.retrieveandrankshort}} Training data is usually stored in a `csv` file. In this tutorial, this `csv` file is used to upload the sample training data into {{site.data.keyword.discoveryshort}}.  Migration of training data exported from the {{site.data.keyword.retrieveandrankshort}} tooling is detailed in [migrating training data from the service](/docs/services/discovery?topic=discovery-migrate-dcs-rr#extract-train).
 
-This tutorial assumes {{site.data.keyword.retrieveandrankshort}} was setup similar to the [{{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial](/docs/services/retrieve-and-rank/getting-started.html) and uses the migrate from source path described [here](/docs/services/discovery?topic=discovery-migrate-dcs-rr#source). See [Evaluate your migration path to Watson Discovery service](/docs/services/discovery?topic=discovery-migrate-dcs-rr#evaluate) for other migration options.
+This tutorial assumes {{site.data.keyword.retrieveandrankshort}} was setup similar to the {{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial and uses the migrate from source path described [here](/docs/services/discovery?topic=discovery-migrate-dcs-rr#source). See [Evaluate your migration path to Watson Discovery service](/docs/services/discovery?topic=discovery-migrate-dcs-rr#evaluate) for other migration options.
 
 To complete the tutorial, you need the following:
 

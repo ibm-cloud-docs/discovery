@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-09-07"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-25"
 
 subcollection: discovery
 
@@ -50,11 +50,16 @@ How does {{site.data.keyword.discoveryshort}} do it? By using data analysis comb
 - Apply additional enrichments such as concepts, relations, and sentiment through {{site.data.keyword.nlushort}} (NLU).
 - Simplify development while still providing direct access to APIs.
 
+You can also use Smart Document Understanding (SDU) to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. See [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) for more information.
+
 For information about language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/services/discovery?topic=discovery-language-support#language-support).
 
 For information about {{site.data.keyword.Bluemix_notm}} security, see the [{{site.data.keyword.Bluemix_notm}} Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
 
 {{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg) for more information.
+
+US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans. See
+[Enabling EU and HIPAA supported settings ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: new_window} for more information.
 
 ## Browser support and prerequisites
 {: #browser-support-and-prerequisites}
