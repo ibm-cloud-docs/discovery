@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-08-18"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Kategoriehierarchie
 {: #cathierarchy}
 
-Die folgende Tabelle zeigt die Kategorien, die durch die Aufbereitung für die Kategorieklassifizierung zurückgegeben werden. Ein Arbeitsblatt mit diesen Informationen können Sie hier herunterladen: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link" class="style-scope doc-content"></a>.
+Die folgende Tabelle zeigt die Kategorien, die durch die Aufbereitung 'Kategorieklassifizierung' zurückgegeben werden. Ein Arbeitsblatt mit diesen Informationen können Sie hier herunterladen: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link"></a>.
 {: shortdesc}
 
 | Ebene 1                   | Ebene 2                                | Ebene 3                                | Ebene 4                        | Ebene 5                       |

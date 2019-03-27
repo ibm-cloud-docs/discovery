@@ -1,27 +1,42 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Crawlersuche für das Datenrepository durchführen
 {: #crawling-your-data-repository}
 
 Nachdem alle Crawleroptionen ordnungsgemäß konfiguriert worden sind, können Sie eine Crawlersuche für Ihr Datenrepository ausführen.
 {: shortdesc}
+
+Data Crawler sollte nur zum Durchsuchen von Dateifreigaben oder Datenbanken verwendet werden, in allen anderen Fällen sollten Sie den entsprechenden {{site.data.keyword.discoveryshort}}-Connector verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery?topic=discovery-sources#sources). Data Crawler wird nicht mehr unterstützt, falls Sie ihn mit einer Datenquelle verwenden, die von den {{site.data.keyword.discoveryshort}}-Connectoren unterstützt wird.
+{: important}
 
 Führen Sie den Crawler nur dann als Benutzer `root` aus, wenn Sie auf Dateien zugreifen müssen, die nur vom Benutzer `root` gelesen werden können.
 {: tip}
@@ -31,6 +46,7 @@ Führen Sie den Befehl `crawler` aus.
 Der Crawler gibt daraufhin eine Dokumentation aus, in der die möglichen Aktionen erläutert sind. Sie können eine Testcrawlersuche oder eine reguläre Crawlersuche ausführen. Außerdem stehen weitere Optionen für die Crawlersuche zur Verfügung.
 
 ## Testcrawlersuche ausführen
+{: #running-test-crawl}
 
 Führen Sie den Befehl `crawler testit` aus.
 
@@ -43,6 +59,7 @@ Der Pfad zu der Konfigurationsdatei, der in der Option `--config` übergeben wir
 Des Weiteren können Sie als Option für den Befehl 'testit' die Anzahl der eingereihten URLs begrenzen, die angezeigt werden. Beispiel: `crawler testit --limit [anzahl]`.
 
 ## Crawlersuche ausführen
+{: #running-crawl}
 
 Führen Sie den Befehl `crawler crawl` aus.
 
@@ -53,6 +70,7 @@ Sie können auch eine angepasste Konfigurationsdatei als Option für den Befehl 
 Der Pfad zu der Konfigurationsdatei, der in der Option `--config` übergeben wird, muss ein qualifizierter Pfad sein. Er muss somit in relativen Formaten angegeben werden, z. B. `config/myconfigfile.conf` oder `./myconfigfile.conf`, bzw. als absoluter Pfad wie `/path/to/config/myconfigfile.conf`.
 
 ## Crawlersuche erneut starten
+{: #restarting-crawl}
 
 Führen Sie den Befehl `crawler restart` aus.
 
@@ -63,6 +81,7 @@ Sie können auch eine angepasste Konfigurationsdatei als Option für den Befehl 
 Der Pfad zu der Konfigurationsdatei, der in der Option `--config` übergeben wird, muss ein qualifizierter Pfad sein. Er muss somit in relativen Formaten angegeben werden, z. B. `config/myconfigfile.conf` oder `./myconfigfile.conf`, bzw. als absoluter Pfad wie `/path/to/config/myconfigfile.conf`.
 
 ## Crawlersuche wiederaufnehmen
+{: #resuming-crawl}
 
 Führen Sie den Befehl `crawler resume` aus.
 
@@ -73,6 +92,7 @@ Sie können auch eine angepasste Konfigurationsdatei als Option für den Befehl 
 Der Pfad zu der Konfigurationsdatei, der in der Option `--config` übergeben wird, muss ein qualifizierter Pfad sein. Er muss somit in relativen Formaten angegeben werden, z. B. `config/myconfigfile.conf` oder `./myconfigfile.conf`, bzw. als absoluter Pfad wie `/path/to/config/myconfigfile.conf`.
 
 ## Crawlersuche aktualisieren
+{: #refresh-crawl}
 
 Führen Sie den Befehl `crawler refresh` aus.
 

@@ -4,28 +4,40 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-02-28"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Aufbereitungen auf Natural Language Understanding (NLU) migrieren
 {: #migrate-nlu}
 
-Am **18. Juli 2017** wurde für {{site.data.keyword.discoveryfull}} eine neue Aufbereitungstechnologie namens {{site.data.keyword.nlushort}} (NLU) eingeführt. {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen werden seit dem **1. März 2018** nicht weiter unterstützt.
+Am **18. Juli 2017** wurde für {{site.data.keyword.discoveryfull}} eine neue Aufbereitungstechnologie namens {{site.data.keyword.nlushort}} (NLU) eingeführt. {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen werden seit dem **1. März 2018** nicht weiter unterstützt. 
 {: shortdesc}
 
-Alle vorhandenen Sammlungen, die {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwenden, müssen migriert werden. Informationen zum Migrieren von Sammlungen und Konfigurationsdateien, die die {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwenden, finden Sie unter [Vergleich von Aufbereitungen](/docs/services/discovery/migrate-nlu.html#enrichment-comparison).
+Alle vorhandenen Sammlungen, die {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwenden, müssen migriert werden. Informationen zum Migrieren von Sammlungen und Konfigurationsdateien, die die {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwenden, finden Sie unter [Vergleich von Aufbereitungen](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-comparison).
 
-**Hinweis:** Informationen zur Integration mit {{site.data.keyword.knowledgestudioshort}} finden Sie unter [Integration mit {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
+**Hinweis:** Informationen zur Integration mit {{site.data.keyword.knowledgestudioshort}} finden Sie unter [Integration mit {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
 ## Vergleich von Aufbereitungen
 {: #enrichment-comparison}
@@ -43,37 +55,41 @@ In {{site.data.keyword.alchemylanguageshort}} und {{site.data.keyword.nlushort}}
 | Beziehungsextraktion                   | relations                       |Semantikrollenextraktion*                   |   semantic_roles*     |
  \* Namensänderung
 
-Zusätzliche Angaben über {{site.data.keyword.nlushort}}-Aufbereitungen enthält der Abschnitt [Aufbereitungen hinzufügen](/docs/services/discovery/building.html#adding-enrichments).
+Zusätzliche Angaben über {{site.data.keyword.nlushort}}-Aufbereitungen enthält der Abschnitt [Aufbereitungen hinzufügen](/docs/services/discovery?topic=discovery-configservice#adding-enrichments).
 
 ## Wichtigste Änderungen im Überblick
+{: #overview-nlu}
 
-- Das JSON-Schema für {{site.data.keyword.nlushort}}-Aufbereitungen unterscheidet sich von dem bei den {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwendet Schema. Eine vollständige Liste der Änderungen an den einzelnen Aufbereitungen finden Sie unter [Unterschiede beim Aufbereitungsschema](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences).
+- Das JSON-Schema für {{site.data.keyword.nlushort}}-Aufbereitungen unterscheidet sich von dem bei den {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen verwendet Schema. Eine vollständige Liste der Änderungen an den einzelnen Aufbereitungen finden Sie unter [Unterschiede beim Aufbereitungsschema](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences).
 - Die Aufbereitung für die _Taxonomieklassifizierung_ ({{site.data.keyword.alchemylanguageshort}}) heißt jetzt _Kategorieklassifizierung_. Ihr JSON-Objektname wurde von `taxonomy` in `categories` geändert.
 - Die Aufbereitung für die _Beziehungsextrakion_ ({{site.data.keyword.alchemylanguageshort}}) heißt jetzt _Semantikrollenextraktion_. Ihr JSON-Objektname wurde von `relations` in `semantic_roles` geändert.
 - Der JSON-Objektname für die _Stimmungsanalyse_ wurde von `docSentiment` in `sentiment` geändert.
 - Der JSON-Objektname für die _Emotionsanalyse_ wurde von `docEmotions` in `emotion` geändert.
 
 ## Konfigurationsdateiänderungen
+{: #config-nlu}
 
 Die **{{site.data.keyword.alchemylanguageshort}}**-Standardkonfigurationsdatei (in den Tools `Standardkonfiguration` genannt) wendete die folgenden Aufbereitungen auf das Textfeld Ihrer Dokumente an: **Entitätsextraktion**, **Schlüsselwortextraktion**, **Taxonomieklassifizierung**, **Konzepttagging**, **Beziehungsextraktion** und **Stimmungsanalyse**. Die Datei beinhaltet auch Standarddokumentkonvertierungen, die auf Schriftstilen und -größen basieren.
 
 Die **{{site.data.keyword.nlushort}}**-Standardkonfigurationsdatei heißt `Standardkonfiguration mit NLU` und hat die folgenden Aufbereitungen auf das Textfeld Ihrer Dokumente angewendet: **Entitätsextraktion**, **Stimmungsanalyse**, **Kategorieklassifizierung** und **Konzepttagging**. Die Datei beinhaltet auch Standarddokumentkonvertierungen, die auf Schriftstilen und -größen basieren. Diese Dokumentkonvertierungen sind mit denen in der {{site.data.keyword.alchemylanguageshort}}-Standardkonfigurationsdatei identisch.
 
 ## Konfigurationen, Sammlungen und Abfragen migrieren
+{: #migrateconfig-nlu}
 
 Falls Sie angepasste Konfigurationen erstellt haben, müssen Sie neue Konfigurationen erstellen, die die {{site.data.keyword.nlushort}}-Aufbereitungen verwenden. Entsprechende Anweisungen enthalten die folgenden Dokumente:
 
-- [Tools](/docs/services/discovery/building.html#custom-configuration)
-- [API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#add_configuration){: new_window}
+- [Tools](/docs/services/discovery?topic=discovery-configservice#custom-configuration)
+- [API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window}
 
 Falls Sammlungen vorhanden sind, auf die entweder die {{site.data.keyword.alchemylanguageshort}}-Standardkonfiguration oder eine angepasste {{site.data.keyword.alchemylanguageshort}}-Konfiguration angewendet werden, müssen Sie eine neue Sammlung erstellen, die {{site.data.keyword.nlushort}}-Konfigurationsdatei (entweder die Standardkonfiguration oder eine neue angepasste Konfiguration) anwenden und Ihre Dokumente hochladen. Entsprechende Anweisungen enthalten die folgenden Dokumente:
 
-- [Tools](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)
-- [API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#create-collection){: new_window}
+- [Tools](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)
+- [API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/discovery#create-a-collection){: new_window}
 
-Für alle Abfragen, die Sie unter Verwendung der Discovery-Abfragesprache erstellt haben, müssen Sie die Änderungen des JSON-Schemas zwischen {{site.data.keyword.alchemylanguageshort}} und {{site.data.keyword.nlushort}} untersuchen und Ihre Abfragen sowie Abfrage-URLs entsprechend ändern. Details können Sie dem Abschnitt [Unterschiede beim Aufbereitungsschema](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences) entnehmen.
+Für alle Abfragen, die Sie unter Verwendung der Discovery-Abfragesprache erstellt haben, müssen Sie die Änderungen des JSON-Schemas zwischen {{site.data.keyword.alchemylanguageshort}} und {{site.data.keyword.nlushort}} untersuchen und Ihre Abfragen sowie Abfrage-URLs entsprechend ändern. Details können Sie dem Abschnitt [Unterschiede beim Aufbereitungsschema](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences) entnehmen.
 
 ## Unterschiede beim Aufbereitungsschema
+{: #enrichment-schema-differences}
 
 Die folgende Tabelle zeigt die Unterschiede beim JSON-Schema für {{site.data.keyword.nlushort}}-Aufbereitungen und {{site.data.keyword.alchemylanguageshort}}-Aufbereitungen.
 

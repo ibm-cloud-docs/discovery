@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 커넥터 및 seed 옵션 구성
 {: #configuring-connector-and-seed-options}
@@ -23,18 +35,19 @@ lastupdated: "2017-08-25"
 데이터를 크롤링하는 경우 크롤러는 먼저 데이터 저장소의 유형(커넥터)과 사용자가 지정한 시작 위치(seed)를 식별하여 정보의 다운로드를 시작합니다.
 {: shortdesc}
 
+Data Crawler는 파일 공유 또는 데이터베이스를 크롤링하기 위해서만 사용되어야 합니다. 기타 모든 경우에는 적합한 {{site.data.keyword.discoveryshort}} 커넥터를 사용해야 합니다. 자세한 사항은 [데이터 소스에 연결](/docs/services/discovery?topic=discovery-sources#sources)을 참조하십시오. {{site.data.keyword.discoveryshort}} 커넥터에서 지원되는 데이터 소스를 사용하여 Data Crawler를 사용하는 경우 Data Crawler에 대한 지원이 더 이상 제공되지 않습니다.
+{: important}
+
 **중요:** Data Crawler를 사용할 때 데이터 저장소 보안 설정은 무시됩니다.
 
-seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데이터를 검색하기 위해 Data Crawler에서 사용합니다. 일반적으로 seed는 URL을 구성하여 프로토콜 기반 리소스(예: 파일 공유, SMB 공유, 데이터베이스 및 여러 프로토콜에서 액세스할 수 있는 기타 데이터 저장소)에 액세스합니다. 또한 seed URL마다 기능이 다릅니다. 또한 seed가 저장소에 특정하게 지정되어 고객 관계 관리(CRM) 시스템, 제품 수명 주기(PLC) 시스템, 컨텐츠 관리 시스템(CMS), 클라우드 기반 애플리케이션 및 웹 데이터베이스 애플리케이션과 같은 특정 써드파티 애플리케이션의 크롤링을 사용으로 설정할 수도 있습니다.
+seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데이터를 검색하기 위해 Data Crawler에서 사용합니다. 일반적으로 seed는 URL을 구성하여 프로토콜 기반 리소스(예: 파일 공유, SMB 공유, 데이터베이스 및 여러 프로토콜에서 액세스할 수 있는 기타 데이터 저장소)에 액세스합니다. 또한 seed URL마다 기능이 다릅니다. 또한 seed가 저장소에 특정하게 지정되어 고객 관계 관리(CRM) 시스템, 제품 수명 주기(PLC) 시스템, 컨텐츠 관리 시스템(CMS), 클라우드 기반 애플리케이션 및 웹 데이터베이스 애플리케이션과 같은 특정 서드파티 애플리케이션의 크롤링을 사용으로 설정할 수도 있습니다.
 
 데이터를 올바르게 크롤링하려면 크롤러가 적절하게 구성되어 데이터 저장소를 읽는지 확인해야 합니다. Data Crawler는 다음 저장소에서 데이터 콜렉션을 지원하기 위해 커넥터를 제공합니다.
 
--   [파일 시스템](/docs/services/discovery/data-crawler-seeds.html#configuring-filesystem-crawl-options)
--   [JDBC를 통한 데이터베이스](/docs/services/discovery/data-crawler-seeds.html#configuring-database-crawl-options)
--   [CMIS(Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#configuring-cmis-crawl-options)
--   [SMB(Server Message Block), CIFS(Common Internet Filesystem) 또는 Samba 파일 시스템](/docs/services/discovery/data-crawler-seeds.html#configuring-smbcifssamba-crawl-options)
--   [SharePoint 및 SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#configuring-sharepoint-crawl-options)
--   [Box](/docs/services/discovery/data-crawler-seeds.html#configuring-box-crawl-options)
+-   [파일 시스템](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-filesystem-crawl-options)
+-   [JDBC를 통한 데이터베이스](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-database-crawl-options)
+-   [CMIS(Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-cmis-crawl-options)
+-   [SMB(Server Message Block), CIFS(Common Internet Filesystem) 또는 Samba 파일 시스템](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 
 커넥터 구성 템플리트도 제공되며, 이를 통해 사용자가 커넥터를 사용자 정의할 수 있습니다.
 
@@ -44,15 +57,13 @@ seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데�
 
 1.  저장소에 적합한 값을 수정하십시오.
 
-    -   [파일 시스템](/docs/services/discovery/data-crawler-seeds.html#filesystem-crawl-options)
-    -   [JDBC를 통한 데이터베이스](/docs/services/discovery/data-crawler-seeds.html#database-crawl-seed)
-    -   [CMIS(Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#cmis-crawl-options)
-    -   [SMB(Server Message Block), CIFS(Common Internet Filesystem) 또는 Samba 파일 시스템](/docs/services/discovery/data-crawler-seeds.html#smb-cifs-samba-crawl-options)
-    -   [SharePoint 및 SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#sharepoint-crawl-options)
-    -   [Box](/docs/services/discovery/data-crawler-seeds.html#box-crawl-options)
+    -   [파일 시스템](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#filesystem-crawl-options)
+    -   [JDBC를 통한 데이터베이스](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#database-crawl-seed)
+    -   [CMIS(Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#cmis-crawl-options)
+    -   [SMB(Server Message Block), CIFS(Common Internet Filesystem) 또는 Samba 파일 시스템](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 1.  파일을 저장한 후 닫으십시오.
 1.  텍스트 편집기에서 사용자가 연결 중인 저장소에 해당하는 `connectors/seeds` 디렉토리에 있는 `-seed.conf` 파일(예를 들어, `filesystem-seed.conf`는 파일 시스템 커넥터에 대한 seed(연결되는 위치) 구성 파일임)을 여십시오.
-1.  [{{site.data.keyword.discoveryshort}}에 연결하도록 Data Crawler 구성](/docs/services/discovery/data-crawler-discovery.html)으로 계속 진행하십시오.
+1.  [{{site.data.keyword.discoveryshort}}에 연결하도록 Data Crawler 구성](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-the-data-crawler)으로 계속 진행하십시오.
 
 최신 정보를 포함하는, 커넥터 및 seed 구성 파일에 대한 제품 내 매뉴얼에 액세스하려면 크롤러 설치 디렉토리에서 다음 명령을 입력하십시오.
 -   커넥터 구성 옵션의 경우:
@@ -72,7 +83,11 @@ seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데�
 
 파일 시스템 커넥터를 통해 Data Crawler 설치에 로컬인 파일을 크롤링할 수 있습니다.
 
+수많은 파일을 {{site.data.keyword.discoveryshort}}에 업로드할 수 있는 다른 옵션은 GitHub의 [discovery-files ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM/discovery-files){: new_window}입니다.
+{: note}
+
 ### 파일 시스템 커넥터 구성
+{: #filesystem-connector}
 
 다음은 파일 시스템 커넥터를 사용하는 데 필요한 기본 구성 옵션입니다. 이 값을 설정하려면 `config/connectors/filesystem.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 수정하십시오.
 
@@ -82,6 +97,7 @@ seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데�
 -   **`classname`** - 커넥터에 대한 Java 클래스 이름입니다. 이 커넥터를 사용하기 위한 값은 `plugin:filesystem.plugin@filesystem`이어야 합니다.
 
 ### 파일 시스템 크롤링 seed 구성
+{: #filesystem-crawl-seed}
 
 다음 값은 파일 시스템 크롤링 seed 파일에 대해 구성될 수 있습니다. 이 값을 설정하려면 `config/seeds/filesystem-seed.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 지정하십시오.
 
@@ -89,10 +105,11 @@ seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데�
 
     **참고:** URL은 `sdk-fs://`로 시작되어야 합니다. 예를 들어, `/home/watson/mydocs`를 크롤링하려면 이 URL의 값은 `sdk-fs:///home/watson/mydocs`가 되어야 합니다. 세 번째 `/`가 필수입니다!
 
-    Linux, UNIX 및 UNIX와 유사한 컴퓨터 시스템에서 사용하는 파일 시스템은 데이터를 포함하지 않으므로 크롤링할 수는 없으나 디바이스 또는 I/O 액세스 지점으로 작동하는 특수한 유형의 파일(예: 블록 및 문자 디바이스 노드와 이름 지정된 파이프를 나타내는 파일)을 포함할 수 있습니다. 이러한 파일에 대한 크롤링을 시도하면 크롤링 중에 오류가 생성됩니다. 이 오류가 발생하지 않도록 하려면  UNIX 또는 UNIX와 유사한 파일 시스템의 최상위 레벨 크롤링에서 `/dev` 디렉토리를 제외해야 합니다. 크롤링 중인 시스템에 존재하는 경우 일시적인 파일 및 시스템 정보가 포함된 임시 시스템 디렉토리(예: `/proc`, `/sys` 및 `/tmp`)도 제외해야 합니다.   **`hops`** - 내부 사용 전용입니다.   **`default-allow`** - 내부 사용 전용입니다.
+    Linux, UNIX 및 UNIX와 유사한 컴퓨터 시스템에서 사용하는 파일 시스템은 데이터를 포함하지 않으므로 크롤링할 수는 없으나 디바이스 또는 I/O 액세스 지점으로 작동하는 특수한 유형의 파일(예: 블록 및 문자 디바이스 노드와 이름 지정된 파이프를 나타내는 파일)을 포함할 수 있습니다. 이러한 파일에 대한 크롤링을 시도하면 크롤링 중에 오류가 생성됩니다. 이 오류가 발생하지 않도록 하려면 UNIX 또는 UNIX와 유사한 파일 시스템의 최상위 레벨 크롤링에서 `/dev` 디렉토리를 제외해야 합니다. 크롤링 중인 시스템에 존재하는 경우 일시적인 파일 및 시스템 정보가 포함된 임시 시스템 디렉토리(예: `/proc`, `/sys` 및 `/tmp`)도 제외해야 합니다.   **`hops`** - 내부 사용 전용입니다.   **`default-allow`** - 내부 사용 전용입니다.
     {: tip}
 
 ## 데이터베이스 크롤링 옵션 구성
+{: #database-crawl}
 
 데이터베이스 커넥터를 통해 사용자 정의 SQL 명령을 실행하고 행(레코드)당 하나의 문서 및 열(필드)당 하나의 컨텐츠 요소를 작성하여 데이터베이스를 크롤링할 수 있습니다. 고유 키로 사용할 열 및 각 레코드의 마지막 수정 날짜를 나타내는 시간소인이 포함된 열을 지정할 수 있습니다. 커넥터는 지정된 데이터베이스에서 모든 레코드를 검색하고 SQL문에 있는 특정 테이블, 결합 등으로 제한될 수도 있습니다.
 
@@ -107,7 +124,7 @@ seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데�
 
 커넥터가 지정된 데이터베이스와 테이블에서 모든 레코드를 검색합니다.
 
-***JDBC 드라이버*** - 데이터베이스 커넥터는 Oracle JDBC(Java Database Connectivity) 드라이버 버전 1.5와 함께 제공됩니다. Data Crawler와 함께 제공된 모든 써드파티 JDBC 드라이버는 Data Crawler 설치의 `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` 디렉토리에 위치하며, 필요에 따라 추가, 제거 및 수정할 수 있습니다. 또한 `crawler.conf` 파일의 `extra_jars_dir` 설정을 사용하여 다른 위치를 지정할 수도 있습니다.
+***JDBC 드라이버*** - 데이터베이스 커넥터는 Oracle JDBC(Java Database Connectivity) 드라이버 버전 1.5와 함께 제공됩니다. Data Crawler와 함께 제공된 모든 서드파티 JDBC 드라이버는 Data Crawler 설치의 `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` 디렉토리에 위치하며, 필요에 따라 추가, 제거 및 수정할 수 있습니다. 또한 `crawler.conf` 파일의 `extra_jars_dir` 설정을 사용하여 다른 위치를 지정할 수도 있습니다.
 
 ***DB2 JDBC 드라이버*** - Data Crawler는 라이센싱 문제로 인해 DB2용 JDBC 드라이버와 함께 제공되지 않습니다. 그러나 DB2 설치를 크롤링할 수 있도록 JDBC 지원을 설치한 모든 DB2 설치에는 Data Crawler에 필요한 JAR 파일이 포함됩니다. DB2 인스턴스를 크롤링하려면 데이터베이스 커넥터가 이 파일을 사용할 수 있도록 Data Crawler 설치의 적절한 디렉토리에 이를 복사해야 합니다. DB2 설치를 크롤링하기 위해 Data Crawler를 사용으로 설정하려면 DB2 설치 시 `db2jcc.jar` 및 라이센스(일반적으로, `db2jcc_license_cu.jar`) JAR 파일을 찾고 해당 파일을 Data Crawler 설치 디렉토리의 `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` 하위 디렉토리에 복사하거나 `crawler.conf` 파일의 `extra_jars_dir` 설정을 사용하여 다른 위치를 지정할 수 있습니다.
 
@@ -118,6 +135,7 @@ seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데�
 1.  아카이브 파일에서 추출된 디렉토리로 변경하고 이 디렉토리에서 Data Crawler 설치 디렉토리의 `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` 하위 디렉토리로 JAR 파일을 복사하거나, `crawler.conf` 파일의 `extra_jars_dir` 설정을 사용하여 다른 위치에 지정할 수 있습니다.
 
 ### 데이터베이스 커넥터 구성
+{: #database-connector}
 
 다음은 데이터베이스 커넥터를 사용하는 데 필요한 기본 구성 옵션입니다. 이 값을 설정하려면 config/connectors/database.conf 파일을 열고 유스 케이스에 특정한 다음 값을 수정하십시오.
 
@@ -161,6 +179,7 @@ seed는 크롤러의 시작점이며 커넥터로 식별된 리소스에서 데�
 CMIS(Content Management Interoperability Services) 커넥터를 통해 CMIS 사용 CMS(컨텐츠 관리 시스템) 저장소(예: Alfresco, Documentum 또는 {{site.data.keyword.IBM}} Content Manager)를 크롤링하고 이 저장소에 포함된 데이터를 인덱싱할 수 있습니다.
 
 ### CMIS 커넥터 구성
+{: #cmis-connector}
 
 다음은 CMIS 커넥터를 사용하는 데 필요한 기본 구성 옵션입니다. 이 값을 설정하려면 `config/connectors/cmis.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 지정하십시오.
 
@@ -169,10 +188,7 @@ CMIS(Content Management Interoperability Services) 커넥터를 통해 CMIS 사�
 -   **`dns`** - 사용되지 않는 옵션입니다.
 -   **`classname`** - 커넥터에 대한 Java 클래스 이름입니다. 이 커넥터에 `plugin:cmis-v1.1.plugin@connector`를 사용하십시오.
 -   **`logging-config`** - 로깅 옵션을 구성하기 위해 사용되는 파일을 지정합니다. `log4j` XML 문자열로 형식화되어야 합니다.
--   **`endpoint`** - CMIS 호환 저장소의 서비스 엔드포인트 URL입니다. 예를 들어, SharePoint의 URL 구조는 다음과 같습니다.
-
-    -   AtomPub 바인딩의 경우: `http://yourserver/_vti_bin/cmis/rest?getRepositories`
-    -   WebServices 바인딩의 경우: `http://yourserver/_vti_bin/cmissoapwsdl.aspx`
+-   **`endpoint`** - CMIS 호환 저장소의 서비스 엔드포인트 URL입니다. 
 -   **`username`** - 컨텐츠에 액세스하는 데 사용되는 CMIS 저장소 사용자의 사용자 이름입니다. 이 사용자는 크롤링하고 인덱싱할 모든 대상 폴더 및 문서에 대한 액세스 권한이 있어야 합니다.
 -   **`password`** - 컨텐츠에 액세스하는 데 사용되는 CMIS 저장소의 비밀번호입니다. 비밀번호는 암호화되지 않고 일반 텍스트로 제공되어야 합니다.
 -   **`repositoryid`** - 특정 저장소에 대한 컨텐츠에 액세스하는 데 사용되는 CMIS 저장소의 ID입니다.
@@ -191,6 +207,7 @@ CMIS(Content Management Interoperability Services) 커넥터를 통해 CMIS 사�
 -   **`ssl-version`** - SSL의 버전을 지정하여 HTTPS 연결에 사용합니다. 기본적으로 사용 가능한 가장 강력한 프로토콜이 사용됩니다.
 
 ### CMIS 크롤링 seed 구성
+{: #cmis-crawl-seed}
 
 다음 값은 CMIS 크롤링 seed 파일에 대해 구성될 수 있습니다. 이 값을 설정하려면 `config/seeds/cmis-seed.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 수정하십시오.
 
@@ -206,6 +223,7 @@ CMIS(Content Management Interoperability Services) 커넥터를 통해 CMIS 사�
 Samba 커넥터를 통해 SMB(Server Message Block) 및 CIFS(Common Internet filesystem) 파일 공유를 크롤링할 수 있습니다. 이 파일 공유 유형은 Windows 네트워크에 일반적인 유형이며 오픈 소스 프로젝트 Samba를 통해서도 제공됩니다.
 
 ### Samba 커넥터 구성
+{: #smb-cifs-samba-crawl-connector}
 
 다음은 Samba 커넥터를 사용하는 데 필요한 기본 구성 옵션입니다. 이 값을 설정하려면 `config/connectors/samba.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 지정하십시오.
 
@@ -231,6 +249,7 @@ Samba 커넥터를 통해 SMB(Server Message Block) 및 CIFS(Common Internet fil
 -   **`enqueue-persistence`** - 사용되지 않는 옵션입니다.
 
 ### Samba 크롤링 seed 구성
+{: #smb-cifs-samba-crawl-seed}
 
 다음 값은 Samba 크롤링 seed 파일에 대해 구성될 수 있습니다. 이 값을 설정하려면 `config/seeds/samba-seed.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 지정하십시오.
 
@@ -245,125 +264,3 @@ Samba 커넥터를 통해 SMB(Server Message Block) 및 CIFS(Common Internet fil
 
 -   **`hops`** - 내부 사용 전용입니다.
 -   **`default-allow`** - 내부 사용 전용입니다.
-
-## SharePoint 크롤링 옵션 구성
-{: #sharepoint-crawl-options}
-
-**중요:** SharePoint 커넥터에는 Microsoft SharePoint Server 2007(MOSS 2007), SharePoint Server 2010, SharePoint Server 2013 또는 SharePoint Online이 필요합니다.
-
-SharePoint 커넥터를 통해 SharePoint 오브젝트를 크롤링하고 여기에 포함된 정보를 인덱싱할 수 있습니다. 문서, 사용자 프로파일, 사이트 콜렉션, 블로그, 목록 항목, 멤버십 목록, 디렉토리 페이지 등과 같은 오브젝트는 연관된 메타데이터를 사용하여 인덱싱될 수 있습니다. 목록 항목 및 문서의 경우 인덱스에 첨부 파일이 포함될 수 있습니다.
-
-SharePoint 커넥터는 특정 유형(블로그, 문서, 사용자 프로파일 등)에 관계 없이 모든 SharePoint 오브젝트의 `noindex` 속성을 준수합니다. 결과마다 하나의 문서가 리턴됩니다.
-{: tip}
-
-**중요:** SharePoint 사이트를 크롤링하는 데 사용하는 SharePoint 계정에는 최소한 전체 읽기 액세스 권한이 있어야 합니다.
-
-### SharePoint 커넥터 구성
-
-다음은 SharePoint 커넥터를 사용하는 데 필요한 기본 구성 옵션입니다. 이 값을 설정하려면 `config/connectors/sharepoint.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 수정하십시오.
-
--   **`protocol`** - 크롤링에 사용되는 커넥터 프로토콜의 이름입니다. 이 커넥터를 사용하기 위한 값은 `io-sp`입니다.
--   **`collection`** - 이 속성은 임시 파일의 압축을 푸는 데 사용됩니다.
--   **`classname`** - 커넥터에 대한 Java 클래스 이름입니다. 이 커넥터에 `plugin:io-sharepoint.plugin@connector`를 사용하십시오.
--   **`logging-config`** - 로깅 옵션을 구성하기 위해 사용되는 파일을 지정합니다. `log4j` XML 문자열로 형식화되어야 합니다.
--   **`seed-url-type`** - 제공된 seed URL이 가리키는 SharePoint 오브젝트 유형 즉, 사이트 콜렉션 또는 웹 애플리케이션(가상 서버라고도 함)을 식별합니다.
-
-    -   `Site Collections` - seed URL 유형이 Site Collections로 설정되는 경우 URL로 참조된 사이트 콜렉션의 하위만 크롤링됩니다.
-    -   `Web Applications` - seed URL 유형이 Web Applications로 설정된 경우 각 URL로 참조된 웹 애플리케이션에 속하는 모든 사이트 콜렉션(및 하위)이 크롤링됩니다.
--   **`auth-type`** - SharePoint 서버에 접속할 때 사용하는 인증 메커니즘으로, `BASIC`, `NTLM2`, `KERBEROS` 또는 `CBA`입니다. 기본 인증 유형은 `NTLM2`입니다.
--   **`spUser`** - 컨텐츠에 액세스하는 데 사용되는 SharePoint 사용자의 사용자 이름입니다. 이 사용자는 크롤링하고 인덱싱할 모든 대상 사이트 및 목록에 대한 액세스 권한이 있어야 하며, 연관된 권한을 검색하고 분석할 수 있어야 합니다. `MYDOMAIN\\Administrator`와 같은 도메인 이름으로 입력하는 것이 좋습니다.
--   **`spPassword`** - 컨텐츠에 액세스하는 데 사용되는 SharePoint 사용자의 비밀번호입니다. Data Crawler와 함께 제공된 vcrypt 프로그램을 사용하여 비밀번호를 암호화해야 합니다.
--   **`cba-sts`** - 크롤링 사용자를 인증하려고 하는 STS(Security Token Service) 엔드포인트의 URL입니다. ADFS를 사용한 SharePoint 온프레미스의 경우 ADFS 엔드포인트여야 합니다. 인증 유형이 CBA(Claims Based Authentication)로 설정된 경우 이 필드는 필수입니다.
--   **`cba-realm`** - STS에서 보안 토큰을 요청할 때 사용할 릴레이하는 당사자 신뢰 ID입니다. "AppliesTo" 값 또는 "Realm"으로 알려져 있기도 합니다. SharePoint Online의 경우 SharePoint Online 인스턴스의 루트에 대한 URL(예: `https://mycompany.sharepoint.com`)이어야 합니다. ADFS의 경우 SharePoint와 ADFS 간에 릴레이하는 당사자 신뢰에 대한 ID 값(예: `"urn:SHAREPOINT:adfs"`)입니다.
--   **`everyone-group`** - 지정된 경우 이 그룹 이름은 모두에게 액세스 권한을 제공해야 할 때 ACL에서 사용됩니다. 이 필드는 사용자 프로파일 크롤링이 사용 가능할 때 필수입니다.
-
-    **참고:** 보안은 검색 및 순위 지정 서비스에서 고려되지 않습니다.
-
--   **`user-profile-master-url`** - 커넥터가 사용자 프로파일에 대한 링크를 빌드하는 데 사용하는 기본 URL입니다. 사용자 프로파일의 표시 양식을 가리키도록 구성되어야 합니다. `%FIRST_SEED%` 토큰이 발생하면 첫 번째 seed URL로 대체됩니다. 사용자 프로파일 크롤링이 사용으로 설정된 경우 필수입니다.
--   **`urls`** - 크롤링할 SharePoint 웹 애플리케이션 또는 사이트 콜렉션의 HTTP URL 목록이며, 줄 바꾸기로 구분됩니다.
--   **`ehcache-config`** - 사용되지 않는 옵션입니다.
--   **`method`** - 매개변수가 전달되는 메소드(`GET` 또는 `POST`)입니다.
--   **`cache-types`** - 사용되지 않는 옵션입니다.
--   **`cache-size`** - 사용되지 않는 옵션입니다.
--   **`enable-acl`** - SharePoint 사용자 프로파일의 크롤링을 사용합니다. 값은 `true` 또는 `false`이며, 기본값은 `false`입니다.
-
-### SharePoint 크롤링 seed 구성
-
-다음 추가 값은 SharePoint 크롤링 seed 파일에 대해 구성될 수 있습니다. 이 값을 설정하려면 `config/seeds/sharepoint-seed.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 지정하십시오.
-
--   **`url`** - 크롤링할 SharePoint 웹 애플리케이션 또는 사이트 콜렉션의 URL 목록이며, 줄 바꾸기로 구분됩니다. 예:
-
-    ```
-    io-sp://a.com
-    io-sp://b.com:83/site
-    io-sp://c.com/site2
-    ```
-    {: codeblock}
-
-    이 사이트의 하위 사이트도 크롤링됩니다(기타 크롤링 규칙으로 제외되지 않는 경우).
-
--   **`filter-url`** - 크롤링할 SharePoint 웹 애플리케이션 또는 사이트 콜렉션의 URL 목록이며, 줄 바꾸기로 구분됩니다. 예:
-
-    ```
-    http://a.com
-    http://b.com:83/site
-    http://c.com/site2
-    ```
-    {: codeblock}
-
--   **`hops`** - 내부 사용 전용입니다.
--   **`n-concurrent-requests`** - 내부 사용 전용입니다.
--   **`delay`** - 내부 사용 전용입니다.
--   **`default-allow`** - 내부 사용 전용입니다.
--   **`seed-protocol`** - 사이트 콜렉션의 하위에 대한 seed 프로토콜을 설정합니다. 사이트 콜렉션의 프로토콜이 SSL, HTTP 또는 HTTPS인 경우 필수입니다. 이 값은 사이트 콜렉션의 프로토콜과 동일하게 설정되어야 합니다.
-
-## Box 크롤링 옵션 구성
-
-Box 커넥터를 통해 엔터프라이즈 Box 인스턴스를 크롤링하고 여기에 포함된 정보를 인덱싱할 수 있습니다.
-
-### Box 커넥터 구성
-
-다음은 Box 커넥터를 사용하는 데 필요한 기본 구성 옵션입니다. 이 값을 설정하려면 `config/connectors/box.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 수정하십시오.
-
--   **`protocol`** - 크롤링에 사용되는 커넥터 프로토콜의 이름입니다. 이 커넥터를 사용하기 위한 값은 `box`입니다.
--   **`classname`** - 커넥터에 대한 Java 클래스 이름입니다. 이 커넥터에 `plugin:box.plugin@connector`를 사용하십시오.
--   **`logging-config`** - 로깅 옵션을 구성하기 위해 사용되는 파일을 지정합니다. `log4j` XML 문자열로 형식화되어야 합니다.
--   **`box-crawl-seed-url`** - Box의 기본 URL입니다. 이 커넥터의 값은 `box://app.box.com/`입니다.
-
-    다른 유형의 URL을 크롤링할 수 있습니다. 예를 들면, 다음과 같습니다.
-
-    -   전체 엔터프라이즈를 크롤링할 경우: `box://app.box.com/`
-    -   특정 폴더를 크롤링할 경우: `box://app.box.com/user/USER_ID/folder/FOLDER_ID/FolderName`
-    -   특정 사용자를 크롤링할 경우: `box://app.box.com/user/USER_ID`
--   **`client-id`** - Box 애플리케이션을 작성할 때 Box에서 제공된 클라이언트 ID를 입력하십시오.
--   **`client-secret`** - Box 애플리케이션을 작성할 때 Box에서 제공된 클라이언트 시크릿을 입력하십시오.
--   **`path-to-private-key`** - Box와의 통신을 위해 생성된 개인-공용 키 쌍의 일부인 개인 키의 위치로, 로컬 파일 시스템에 있습니다.
--   **`kid`** - 공용 키 ID를 지정하십시오. Box와의 통신을 위해 설정된 개인-공용 키 쌍의 나머지 절반입니다.
--   **`enterprise-id`** - 애플리케이션의 권한이 부여된 엔터프라이즈입니다. 엔터프라이즈 ID는 Box 관리자 콘솔의 기본 페이지에 나열됩니다.
--   **`enable-acl`** - 내부 사용 전용입니다. 크롤링된 데이터에 대한 ACL 검색을 사용합니다.
--   **`user-agent`** - 문서를 크롤링할 때 서버에 전송되는 헤더입니다.
--   **`method`** - 매개변수가 전달되는 메소드(`GET` 또는 `POST`)입니다.
--   **`url-logging`** - 크롤링된 URL이 로깅되는 범위입니다. 가능한 값은 다음과 같습니다.
-
-    -   `full-logging` - URL에 대한 모든 정보를 로깅합니다.
-    -   `refined-logging` - 커넥터가 올바르게 작동하고 크롤러 로그를 찾는 데 필요한 정보만 로깅합니다. 이는 기본값입니다.
-    -   `minimal-logging` - 커넥터가 올바르게 작동하는 데 필요한 최소한의 정보만 로깅합니다.
-
-    이 옵션을 `minimal-logging`으로 설정하면 로깅된 데이터의 양을 최소화하는 데 관련된 더 작은 I/O로 인해 로그 크기가 줄어들고 성능이 일부 향상됩니다.
--   **`ssl-version`** - SSL의 버전을 지정하여 HTTPS 연결에 사용합니다. 기본적으로 사용 가능한 가장 강력한 프로토콜이 사용됩니다.
-
-### Box 크롤링 seed 구성
-{: #box-crawl-options}
-
-다음 추가 값은 Box 크롤링 seed 파일에 대해 구성될 수 있습니다. 이 값을 설정하려면 `config/seeds/box-seed.conf` 파일을 열고 유스 케이스에 특정한 다음 값을 지정하십시오.
-
--   **`url`** - 크롤링의 시작점으로 사용할 URL입니다. 기본값은 `box://app.box.com/`입니다.
--   **`default-allow`** - 내부 사용 전용입니다.
-
-## 제한사항
-
-Box 커넥터에는 일부 제한사항이 있습니다.
-
--   파일의 주석 또는 태스크가 검색되지 않습니다.
--   Notes 컨텐츠 본문이 JSON으로 검색됩니다. Notes 데이터의 추가 변환이 필요할 수 있습니다.
--   Test-It을 통해 개별 문서를 검색할 수 없습니다. Test-It을 통해 seed URL, 폴더 URL 및 사용자 URL만 검색할 수 있습니다.

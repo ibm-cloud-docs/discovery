@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Konfigurationsreferenz
 {: #configref}
@@ -23,7 +35,9 @@ lastupdated: "2018-01-23"
 Sie können in JSON eine eigene {{site.data.keyword.discoveryshort}}-Konfiguration für das Einpflegen erstellen, falls für Ihre Daten spezielle Anforderungen an die [Konvertierung](#conversion), [Aufbereitung](#enrichment) oder [Normalisierung](#normalization) gelten.
 {: shortdesc}
 
- Die folgenden Abschnitte zeigen diese JSON-Konfiguration und das Objekt, das in ihr definiert werden kann, im Detail.
+Die folgenden Abschnitte zeigen diese JSON-Konfiguration und das Objekt, das in ihr definiert werden kann, im Detail.
+
+Falls Ihre Sammlung unter Verwendung von [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) erstellt wurde, werden die aufgelisteten PDF- und Word-Konvertierungseinstellungen nicht verwendet, weshalb Änderungen an diesen Konvertierungseinstellungen ignoriert werden.{: note}
 
 ## Konfigurationsstruktur
 {: #structure}
@@ -82,10 +96,16 @@ Bei der Konvertierung von Dokumenten wird das ursprüngliche Quellenformat als E
 
 - **JSON**-Dateien werden unter Verwendung der Optionen von `json` konvertiert.
 
+Falls Ihre Sammlung unter Verwendung von [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) erstellt wurde, werden die aufgelisteten PDF- und Word-Konvertierungseinstellungen nicht verwendet, weshalb Änderungen an diesen Konvertierungseinstellungen ignoriert werden.
+{: note}
+
 Diese Optionen sind in den nachfolgenden Abschnitten beschrieben. Nach Abschluss der Konvertierung werden die [Aufbereitung](#enrichment) und die [Normalisierung](#normalization) durchgeführt, bevor der Inhalt gespeichert wird.
 
 ### PDF
 {: #pdf}
+
+Falls Ihre Sammlung unter Verwendung von [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) erstellt wurde, werden die aufgelisteten PDF- und Word-Konvertierungseinstellungen nicht verwendet, weshalb Änderungen an diesen Konvertierungseinstellungen ignoriert werden.
+{: note}
 
 Das Konvertierungsobjekt `pdf` definiert, wie PDF-Dokumente in HTML konvertiert werden müssen, und besitzt die folgende Struktur:
 
@@ -129,6 +149,9 @@ Damit ein Textbereich als Überschrift erkannt wird, muss er allen Parametern en
 
 ### Word
 {: #word}
+
+Falls Ihre Sammlung unter Verwendung von [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) erstellt wurde, werden die aufgelisteten PDF- und Word-Konvertierungseinstellungen nicht verwendet, weshalb Änderungen an diesen Konvertierungseinstellungen ignoriert werden.
+{: note}
 
 Das Konvertierungsobjekt `word` definiert, wie Word-Dokumente in HTML konvertiert werden müssen, und besitzt die folgende Struktur:
 
@@ -236,30 +259,37 @@ Jedes Element im Array `styles` gibt eine Überschriftsebene aus den Microsoft W
 {: codeblock}
 
 #### exclude_tags_completely
+{: #configref_exclude_completely}
 
 `"exclude_tags_completely" : array`: Ein Array der HTML-Tags, die ausgeschlossen werden. Es enthält den Tag, den Inhalt und alle definierten Tagattribute.
 
 #### exclude_tags_keep_content
+{: #configref_exclude_tags_keep_content}
 
 `"exclude_tags_keep_content" : array`: Ein Array von HTML-Tagnamen, in denen die Taginformationen entfernt werden. Dies führt dazu, dass der HTML-Tag und alle Tagattribute verkürzt werden. Der Inhalt des Tags wird nur dann weiter verkürzt, wenn dies angegeben wird. Falls Sie beispielsweise `exclude_tags_keep_content` für den HTML-Tag `span` angeben, wird `<span class="info">Einige <strong>Informationen</strong></span>` auf `Einige <strong>Informationen</strong>` gekürzt.
 
 #### exclude_content
+{: #configref_exclude_content}
 
 `"xpaths" : array`: Ein Array aus XPath-Angaben, die den entfernten Inhalt angeben. Wenn dieser Wert festgelegt ist, werden alle mit einer der XPath-Angaben übereinstimmenden Elemente aus der Ausgabe entfernt.
 
 #### keep_content
+{: #configref_keep_content}
 
 `"xpaths" : array`: Ein Array aus XPath-Angaben, die den konvertierten Inhalt angeben. Wenn dieser Wert festgelegt ist, werden alle mit einer der XPath-Angaben übereinstimmenden Elemente in die Ausgabe einbezogen. Die durch diesen Parameter angegebenen Einschlüsse werden nach allen Verarbeitungen verarbeitet, die durch `exclude_content` angegeben sind.
 
 #### exclude_tag_attributes
+{: #configref_exclude_tag_attributes}
 
 `"exclude_tag_attributes" : array`: Ein Array von HTML-Attributnamen, die durch die Konvertierung unabhängig davon entfernt werden, in welchem HTML-Tag sie vorhanden sind. **Hinweis:** Sie erhalten eine Fehlernachricht, wenn Sie sowohl `exclude_tag_attributes` als auch `keep_tag_attributes` in derselben Konfiguration angeben; es kann nur ein Attribut pro Konfiguration angegeben werden. Falls vorhanden, muss `keep_tag_attributes` vollständig aus der Konfiguration entfernt werden; das Attribut kann nicht als leeres Array vorhanden sein.
 
 #### keep_tag_attributes
+{: #configref_keep_tag_attributes}
 
 `"keep_tag_attributes" : array`: Ein Array von HTML-Attributnamen, die durch die Konvertierung beibehalten werden. **Hinweis:** Sie erhalten eine Fehlernachricht, wenn Sie sowohl `keep_tag_attributes` als auch `exclude_tag_attributes` in derselben Konfiguration angeben; es kann nur ein Attribut pro Konfiguration angegeben werden. Falls vorhanden, muss `exclude_tag_attributes` vollständig aus der Konfiguration entfernt werden; das Attribut kann nicht als leeres Array vorhanden sein.
 
 #### extracted_fields
+{: #configref_extracted}
 
 Dieses Objekt definiert Inhalt aus dem HTML-Quelltext, der bei der Konvertierung in ein separates JSON-Feld extrahiert werden soll. Der Inhalt wird mithilfe von CSS-Selektoren angegeben.
 
@@ -279,7 +309,7 @@ Jedes Feld, das Sie erstellen wollen, wird wie folgt durch ein Objekt definiert:
 
 - `"css_selector" : string` *(erforderlich)*: Ein CSS-Selektorausdruck, der den in einem Feld zu speichernden Bereich des Inhalts definiert.
 - `"type" : string` *(erforderlich)*: Der Typ des zu erstellenden Feldes, möglich sind `string`, `date`.
-Ausführliche Informationen finden Sie unter [Felder mittels CSS-Selektoren extrahieren](/docs/services/discovery/building.md#using-css).
+Ausführliche Informationen finden Sie unter [Felder mittels CSS-Selektoren extrahieren](/docs/services/discovery?topic=discovery-configservice#using-css).
 
 ### Segmentierung
 {: #segment}
@@ -303,7 +333,7 @@ Wenn die Dokumentsegmentierung aktiviert ist, kann generell Folgendes nicht ange
 -  `normalizations` kann nicht als Teil der Konfiguration angegeben werden.
 -  Die Option `extracted_fields` der Konvertierung für `html` kann nicht als Teil der Konfiguration angegeben werden.
 
-Ausführliche Informationen enthält der Abschnitt [Segmentierung ausführen](/docs/services/discovery/building.html#performing-segmentation).
+Ausführliche Informationen enthält der Abschnitt [Segmentierung ausführen](/docs/services/discovery?topic=discovery-configservice#performing-segmentation).
 
 
 ### JSON
@@ -425,7 +455,7 @@ Vor der Aufbereitung können Sie eine Normalisierung der eingepflegten JSON-Date
 
 - `"enrichment" : string` *(erforderlich)*: Der Typ der Aufbereitung, die für dieses Feld verwendet werden soll. Um {{site.data.keyword.nlushort}}-Aufbereitungen zu extrahieren, verwenden Sie `natural_language_understanding`, zur Ausführung der Elementklassifizierung verwenden Sie `elements`.
 
-  **Hinweis:** Bei Verwendung der Aufbereitung `elements` müssen unbedingt die unter [Elementklassifizierung](/docs/services/discovery/element-classification.html) angegebenen Anleitungen befolgt werden. Insbesondere können nur PDF-Dateien eingepflegt werden, wenn diese Aufbereitung angegeben ist.
+  **Hinweis:** Bei Verwendung der Aufbereitung `elements` müssen unbedingt die unter [Elementklassifizierung](/docs/services/discovery?topic=discovery-element-classification#element-classification) angegebenen Anleitungen befolgt werden. Insbesondere können nur PDF-Dateien eingepflegt werden, wenn diese Aufbereitung angegeben ist.
 
 - `"source_field" : string` *(erforderlich)*: Das Quellenfeld, das aufbereitet wird. Dieses Feld muss in der Quelle vorhanden sein, nachdem die Operation `json_normalizations` abgeschlossen wurde.
 - `"destination_field" : string` *(erforderlich)*: Der Name des Containerobjekts, in dem die Aufbereitungen erstellt werden.
@@ -433,28 +463,33 @@ Vor der Aufbereitung können Sie eine Normalisierung der eingepflegten JSON-Date
   **Hinweis:** In Ihrer Konfiguration definierte Feldnamen müssen die Rahmenbedingung erfüllen, die im Abschnitt [Anforderungen für Feldnamen](#field_reqs) definiert sind.
 
 ### Aufbereitungen für die Elementklassifizierung
+{: #element_classification_enrichments}
 
 Bei Verwendung der Elementklassifizierung muss jedes Aufbereitungsobjekt `elements` ein Objekt `"options": {}` mit den folgenden angegebenen Parametern enthalten:
 
 - `"model" : string` *(erforderlich)*: Das Elementextraktionsmodell, das bei diesem Dokument verwendet werden soll. Gegenwärtig wird das Modell `contract` unterstützt.
 
-**Hinweis:** Bei Verwendung der Aufbereitung `elements` müssen unbedingt die unter [Elementklassifizierung](/docs/services/discovery/element-classification.html) angegebenen Anleitungen befolgt werden. Insbesondere können nur PDF-Dateien eingepflegt werden, wenn diese Aufbereitung angegeben ist.
+**Hinweis:** Bei Verwendung der Aufbereitung `elements` müssen unbedingt die unter [Elementklassifizierung](/docs/services/discovery?topic=discovery-element-classification#element-classification) angegebenen Anleitungen befolgt werden. Insbesondere können nur PDF-Dateien eingepflegt werden, wenn diese Aufbereitung angegeben ist.
 
 ### Aufbereitungen von Natural Language Understanding (NLU)
+{: #nlu_enrichments}
 
 Bei Verwendung von {{site.data.keyword.nlushort}} muss jedes Objekt im Array `enrichments` ebenfalls ein Objekt `"options": { "features": { } }` enthalten, das eine oder mehrere der folgenden Aufbereitungen enthält:
 
 ### categories
+{: #nlu_categories}
 
 Die Aufbereitung `categories` gibt alle allgemeinen Kategorien im eingepflegten Dokument an. Diese Aufbereitung besitzt keine Optionen und muss als leeres Objekt `"categories" : {}` angegeben werden.
 
 ### concepts
+{: #nlu_concepts}
 
 Die Aufbereitung `concepts` ermittelt anhand anderer im Text vorhandenen Konzepte und Entitäten diejenigen Konzepte, die dem Eingabetext zugeordnet sind.
 
 - `"limit" : INT` *(erforderlich)*: Die maximale Anzahl von Konzepten, die aus dem eingepflegten Dokument extrahiert werden sollen.
 
 ### emotion
+{: #nlu_emotion}
 
 Die Aufbereitung `emotion` wertet die emotionale Gesamttendenz, z. B. `anger` (= Wut) eines vollständigen Dokuments oder angegebener Zielzeichenfolgen im gesamten Dokument aus. Diese Aufbereitung kann nur für Inhalt in englischer Sprache verwendet werden.
 
@@ -462,6 +497,7 @@ Die Aufbereitung `emotion` wertet die emotionale Gesamttendenz, z. B. `anger` (=
 - `"targets" : array ` _(optional)_: Eine durch Kommas getrennte Liste der Zielzeichenfolgen, deren emotionaler Zustand im Dokument ausgewertet werden soll.
 
 ### entities
+{: #nlu_entities}
 
 Die Aufbereitung `entities` extrahiert Instanzen bekannter Entitäten wie Personen, Orte und Organisationen. Optional kann ein angepasstes {{site.data.keyword.knowledgestudioshort}}-Modell angegeben werden, um angepasste Entitäten zu extrahieren.
 
@@ -471,17 +507,19 @@ Die Aufbereitung `entities` extrahiert Instanzen bekannter Entitäten wie Person
 - `"mentions": boolean` _(optional)_: Beim Wert `true` wird aufgezeichnet, wie häufig diese Entität erwähnt ist. Der Standardwert ist `false`.
 - `"mention_types": boolean` _(optional)_: Beim Wert `true` wird der Typ der Erwähnung für jede Erwähnung dieser Entität gespeichert. Der Standardwert ist `false`.
 - `"sentence_location": boolean` _(optional)_: Beim Wert `true` wird die Position des Satzes für jede Erwähnung der Entität gespeichert. Der Standardwert ist `false`.
-- `"model" : string` _(optional)_: Wenn diese Option angegeben ist, wird das angepasste Modell anstelle des öffentlichen Modells verwendet, um Entitäten zu extrahieren. Diese Option macht die Zuordnung eines angepassten {{site.data.keyword.knowledgestudioshort}}-Modells zu Ihrer Instanz von {{site.data.keyword.discoveryshort}} erforderlich. Weitere Informationen finden Sie unter [Integration mit Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html).
+- `"model" : string` _(optional)_: Wenn diese Option angegeben ist, wird das angepasste Modell anstelle des öffentlichen Modells verwendet, um Entitäten zu extrahieren. Diese Option macht die Zuordnung eines angepassten {{site.data.keyword.knowledgestudioshort}}-Modells zu Ihrer Instanz von {{site.data.keyword.discoveryshort}} erforderlich. Weitere Informationen finden Sie unter [Integration mit Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
 ### keywords
+{: #nlu_keywords}
 
-Die Aufbereitung `keywords` extrahiert Vorkommen von signifikanten Wörtern im Text. Informationen zu den Unterschieden zwischen den Aufbereitungen 'keywords', 'concepts' und 'entities' enthält der Abschnitt [Unterschiede zwischen Entitäten, Konzepten und Schlüsselwörtern](/docs/services/discovery/building.html#udbeck).
+Die Aufbereitung `keywords` extrahiert Vorkommen von signifikanten Wörtern im Text. Informationen zu den Unterschieden zwischen den Aufbereitungen 'keywords', 'concepts' und 'entities' enthält der Abschnitt [Unterschiede zwischen Entitäten, Konzepten und Schlüsselwörtern](/docs/services/discovery?topic=discovery-configservice#udbeck).
 
 - `"sentiment" : boolean` _(optional)_: Beim Wert `true` wird für das extrahierte Schlüsselwort im Kontext des es umgebenden Inhalts eine Stimmungsanalyse ausgeführt.
 - `"emotion" : boolean` _(optional)_: Beim Wert `true` wird eine Emotionstendenzanalyse für das extrahierte Schlüsselwort im Kontext des es umgebenden Inhalts ausgeführt.
 - `"limit" : INT` _(optional)_: Die maximale Anzahl von Schlüsselwörtern, die aus dem eingepflegten Dokument extrahiert werden sollen. Der Standardwert ist `50`.
 
 ### semantic_roles
+{: #nlu_semantic_roles}
 
 Die Aufbereitung `semantic_roles` identifiziert Satzkomponenten wie Subjekt, Aktion und Objekt im eingepflegten Text.
 
@@ -490,6 +528,7 @@ Die Aufbereitung `semantic_roles` identifiziert Satzkomponenten wie Subjekt, Akt
 - `"limit" : INT` _(optional)_: Die maximale Anzahl von Objekten des Typs `semantic_roles`, die aus dem eingepflegten Dokument extrahiert werden sollen, also die maximale Anzahl der zu analysierenden Sätze. Der Standardwert ist `50`.
 
 ### sentiment
+{: #nlu_sentiment}
 
 Die Aufbereitung `sentiment` wertet die Gesamtstimmung eines vollständigen Dokuments oder angegebener Zielzeichenfolgen im gesamten Dokument aus.
 
@@ -497,10 +536,11 @@ Die Aufbereitung `sentiment` wertet die Gesamtstimmung eines vollständigen Doku
 - `"targets" : array ` _(optional)_: Eine durch Kommas getrennte Liste der Zielzeichenfolgen, deren Stimmung im Dokument ausgewertet werden soll.
 
 ### relations
+{: #nlu_relations}
 
 Die Aufbereitung `relations` extrahiert bekannte Beziehungen zwischen identifizierten Entitäten im Dokument. Optional kann ein angepasstes {{site.data.keyword.knowledgestudioshort}}-Modell angegeben werden, um angepasste Beziehungen zu extrahieren.
 
-- `"model" : string` _(optional)_: Wenn diese Option angegeben ist, wird das angepasste Modell anstelle des öffentlichen Modells verwendet, um Beziehungen zu extrahieren. Diese Option macht die Zuordnung eines angepassten {{site.data.keyword.knowledgestudioshort}}-Modells zu Ihrer Instanz von {{site.data.keyword.discoveryshort}} erforderlich. Weitere Informationen finden Sie unter [Integration mit Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html).
+- `"model" : string` _(optional)_: Wenn diese Option angegeben ist, wird das angepasste Modell anstelle des öffentlichen Modells verwendet, um Beziehungen zu extrahieren. Diese Option macht die Zuordnung eines angepassten {{site.data.keyword.knowledgestudioshort}}-Modells zu Ihrer Instanz von {{site.data.keyword.discoveryshort}} erforderlich. Weitere Informationen finden Sie unter [Integration mit Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
 ## Normalisierung
 {: #normalization}

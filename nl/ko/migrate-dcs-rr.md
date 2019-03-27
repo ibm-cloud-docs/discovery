@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-03"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 
 # Watson Document Conversion 및 Retrieve and Rank에서 마이그레이션
@@ -26,6 +38,7 @@ lastupdated: "2017-10-03"
 {{site.data.keyword.discoveryfull}}는 좀 더 강력한 조회 인터페이스, 간소화된 데이터 수집, 향상된 훈련 관리 및 증가된 스케일을 제공합니다. {{site.data.keyword.discoveryshort}}에서는 지원 에이전트 보조, 조직 지식 관리 검색 및 연구 지원을 포함한 {{site.data.keyword.retrieveandrankshort}}로의 많은 동일한 코어 유스 케이스를 다룹니다. 이는 {{site.data.keyword.retrieveandrankshort}} 사용자에게 직면한 다수의 도전 과제로 빌드되었으며 많은 문제를 다룹니다. 또한 {{site.data.keyword.discoveryshort}}는 추가 관련성 결과를 찾기 위한 단락 검색 및 개선된 검색 알고리즘을 포함하여 {{site.data.keyword.retrieveandrankshort}}에 사용할 수 없는 정보 검색에 대한 새 기능도 제공합니다.
 
 **기능 비교**
+{: #features-dcs-rr}
 
 |기능 | {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
@@ -54,7 +67,7 @@ lastupdated: "2017-10-03"
 
 대부분의 고객은 {{site.data.keyword.retrieveandrankshort}}와 함께 {{site.data.keyword.documentconversionshort}}을 사용합니다. 컨텐츠가 검색 가능한 인덱스로 저장될 수 있도록 {{site.data.keyword.documentconversionshort}}을 사용하지 않고 컨텐츠를 변환하는 경우 [독립형 {{site.data.keyword.documentconversionshort}}을 마이그레이션하는 옵션](#dcs) 검토로 계속 진행하십시오.
 
-{{site.data.keyword.retrieveandrankshort}} 튜토리얼을 원래 사용했으며 사용하며 해당 튜토리얼에 따라 서비스의 고유한 인스턴스를 선택한 경우 동일한 데이터를 {{site.data.keyword.discoveryshort}}에 수집하는 튜토리얼의 확장은 [여기](/docs/services/discovery/migrate-rnr-tut.html)에서 찾을 수 있습니다.
+{{site.data.keyword.retrieveandrankshort}} 튜토리얼을 원래 사용했으며 사용하며 해당 튜토리얼에 따라 서비스의 고유한 인스턴스를 선택한 경우 동일한 데이터를 {{site.data.keyword.discoveryshort}}에 수집하는 튜토리얼의 확장은 [여기](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)에서 찾을 수 있습니다.
 
 **참고:** 변환 및 인리치먼트 기능은 {{site.data.keyword.discoveryshort}}에 포함되어 있습니다. {{site.data.keyword.documentconversionshort}} 및/또는 {{site.data.keyword.nlushort}}을 사용하여 소스 HTML, PDF 또는 Microsoft Word 문서를 변환하고 강화한 경우 이 서비스는 {{site.data.keyword.discoveryshort}} 서비스 내의 기능으로 대체됩니다.
 
@@ -73,14 +86,15 @@ lastupdated: "2017-10-03"
 
 모든 마이그레이션 기준을 충족시킬 수 있는 경우 {{site.data.keyword.discoveryshort}} 서비스로 이동하는 데 이 메소드를 사용하는 것이 좋습니다.
 
-소스 컨텐츠를 마이그레이션하려면 [마이그레이션 튜토리얼](/docs/services/discovery/migrate-rnr-tut.html)에 설명된 프로시저를 수정하여 소스 데이터의 세부사항을 충족해야 합니다.
+소스 컨텐츠를 마이그레이션하려면 [마이그레이션 튜토리얼](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)에 설명된 프로시저를 수정하여 소스 데이터의 세부사항을 충족해야 합니다.
 
 #### 마이그레이션 응답 단위
+{: #answerunit-dcs-rr}
 
 {{site.data.keyword.documentconversionshort}}을 사용하여 응답 단위를 작성한 경우 해당 컨텐츠를 마이그레이션하는 다음 옵션 중 하나를 선택하십시오.
 
 -  순위 지정자를 훈련시켰으며 순위 지정을 마이그레이션해야 하는 경우 {{site.data.keyword.documentconversionshort}}에서 리턴된 컨텐츠를 가져오고 이를 {{site.data.keyword.discoveryshort}}로 수집해야 합니다.
--  마이그레이션하기 위한 훈련 데이터가 없는 경우 [문서 세분화 기능](/docs/services/discovery/building.html#doc-segmentation)을 사용하여 원래의 소스 문서를 {{site.data.keyword.discoveryshort}}로 수집하십시오.
+-  마이그레이션하기 위한 훈련 데이터가 없는 경우 [문서 세분화 기능](/docs/services/discovery?topic=discovery-configservice#doc-segmentation)을 사용하여 원래의 소스 문서를 {{site.data.keyword.discoveryshort}}로 수집하십시오.
 
 ### 인덱싱된 컨텐츠에서 마이그레이션
 {: #indexed}
@@ -94,9 +108,10 @@ lastupdated: "2017-10-03"
 
 문서가 [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} 메소드(비어 있는 조회 `q=*:*`)를 사용하여 서비스에서 추출됩니다. 리턴된 문서의 수가 실제 최대 리턴 수(대부분의 콜렉션당 `200`)보다 클 수 있습니다. 이 경우, 모든 문서를 수집하는 데 적절한 [페이징 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window}을 사용하여 다중 호출을 수행해야 합니다.
 
-지정된 **ID**가 사용된 문서는 [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} 메소드를 사용하여 {{site.data.keyword.discoveryshort}} 서비스에 업로드됩니다. 각 문서 업로드는 개별 API 호출입니다.
+지정된 **ID**가 사용된 문서는 [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} 메소드를 사용하여 {{site.data.keyword.discoveryshort}} 서비스에 업로드됩니다. 각 문서 업로드는 개별 API 호출입니다.
 
 ## 훈련 데이터 마이그레이션
+{: #trainingdata-dcs-rr}
 
 결과를 마이그레이션한 후 다음 단계는 컨텐츠에 대해 작성한 훈련 데이터를 마이그레이션하는 것입니다. 훈련 데이터를 마이그레이션하는 두 옵션 즉, 소스(`csv`)에서 마이그레이션 및 서비스에서 마이그레이션이 있습니다. `csv` 파일에서 훈련 데이터를 업로드했으며 해당 파일에 대한 액세스 권한을 계속 보유하고 있는 경우 소스에서 마이그레이션해야 합니다. {{site.data.keyword.retrieveandrankshort}} 도구를 사용했거나 원래 `csv` 파일에 대한 액세스 권한이 없으면 서비스에서 마이그레이션해야 합니다.
 
@@ -110,7 +125,7 @@ lastupdated: "2017-10-03"
 
 모든 마이그레이션 기준을 충족시킬 수 있는 경우 {{site.data.keyword.discoveryshort}} 서비스로 훈련을 이동하는 데 이 메소드를 사용하는 것이 좋습니다.
 
-훈련 데이터를 마이그레이션하려면 [마이그레이션 튜토리얼](/docs/services/discovery/migrate-rnr-tut.html)에 설명된 프로시저를 수정하여 소스 데이터의 세부사항을 충족해야 합니다.
+훈련 데이터를 마이그레이션하려면 [마이그레이션 튜토리얼](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)에 설명된 프로시저를 수정하여 소스 데이터의 세부사항을 충족해야 합니다.
 
 ### 서비스에서 훈련 데이터 마이그레이션
 {: #extract-train}
@@ -236,7 +251,7 @@ lastupdated: "2017-10-03"
 ## 언어 지원
 {: #language}
 
-[{{site.data.keyword.discoveryshort}}를 위한 언어 지원](/docs/services/discovery/language-support.html)을 참조하십시오. {{site.data.keyword.retrieveandrankshort}} 기능은 주로 **기본** {{site.data.keyword.discoveryshort}} 언어 지원으로 지원됩니다.
+[{{site.data.keyword.discoveryshort}}를 위한 언어 지원](/docs/services/discovery?topic=discovery-language-support#language-support)을 참조하십시오. {{site.data.keyword.retrieveandrankshort}} 기능은 주로 **기본** {{site.data.keyword.discoveryshort}} 언어 지원으로 지원됩니다.
 
 ## 조회 마이그레이션
 {: #queries}
@@ -262,12 +277,12 @@ lastupdated: "2017-10-03"
 | `*` | `*` |와일드카드 |
 |`~`(0 - 1) |[~n] |문자열 변형 |
 
-{{site.data.keyword.discoveryfull}} 조회 언어에 대한 자세한 정보는 [조회 개념](/docs/services/discovery/using.html) 및 [조회 참조](/docs/services/discovery/query-reference.html) 문서를 참조하십시오.
+{{site.data.keyword.discoveryfull}} 조회 언어에 대한 자세한 정보는 [조회 개념](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) 및 [조회 참조](/docs/services/discovery?topic=discovery-query-reference#query-reference) 문서를 참조하십시오.
 
 
 ## 독립형 Watson Document Conversion 서비스 마이그레이션
 {: #dcs}
 
-{{site.data.keyword.documentconversionshort}}을 사용하여 컨텐츠를 {{site.data.keyword.retrieveandrankshort}}에 수집하는 경우 해당 기능이 단일 서비스인 {{site.data.keyword.discoveryshort}}로 발전했습니다. {{site.data.keyword.discoveryshort}}를 통해 Microsoft Word, PDF, HTML 및 JSON 문서를 훈련 가능하고 검색 가능한 인덱스로 쉽게 변환, 강화 및 수집할 수 있습니다. 유스 케이스가 인덱스에 변환된 컨텐츠 저장을 포함하지 않는 경우 이 절은 사용자와 관련이 있습니다. 인덱스에 문서를 수집하는 경우 [{{site.data.keyword.discoveryshort}} 서비스에 수집](/docs/services/discovery/building.html)을 참조하십시오.
+{{site.data.keyword.documentconversionshort}}을 사용하여 컨텐츠를 {{site.data.keyword.retrieveandrankshort}}에 수집하는 경우 해당 기능이 단일 서비스인 {{site.data.keyword.discoveryshort}}로 발전했습니다. {{site.data.keyword.discoveryshort}}를 통해 Microsoft Word, PDF, HTML 및 JSON 문서를 훈련 가능하고 검색 가능한 인덱스로 쉽게 변환, 강화 및 수집할 수 있습니다. 유스 케이스가 인덱스에 변환된 컨텐츠 저장을 포함하지 않는 경우 이 절은 사용자와 관련이 있습니다. 인덱스에 문서를 수집하는 경우 [{{site.data.keyword.discoveryshort}} 서비스에 수집](/docs/services/discovery?topic=discovery-configservice#configservice)을 참조하십시오.
 
 IBM은 더 이상 Microsoft Word, PDF 및 HTML 문서의 독립형 변환을 위해 설계된 서비스를 제공하지 않습니다. 현재 {{site.data.keyword.documentconversionshort}} 서비스를 사용 중이고 온라인 인덱싱된 서비스(예: {{site.data.keyword.discoveryshort}})에 출력을 수집하지 않는 경우 [Apache Tika ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://tika.apache.org/){: new_window}와 같은 오픈 소스 대체로의 마이그레이션을 고려하십시오.

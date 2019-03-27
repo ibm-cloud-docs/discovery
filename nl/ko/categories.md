@@ -4,26 +4,38 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-08-18"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 카테고리 계층 구조
 {: #cathierarchy}
 
-다음 표는 카테고리 분류 인리치먼트로 리턴되는 카테고리를 표시합니다. <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘" class="style-scope doc-content"></a>에서 이 정보가 포함된 스프레드시트를 다운로드할 수 있습니다.
+다음 표는 카테고리 분류 인리치먼트로 리턴되는 카테고리를 표시합니다. <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a>에서 이 정보가 포함된 스프레드시트를 다운로드할 수 있습니다.
 {: shortdesc}
 
-|레벨  1                   |레벨 2                                |레벨 3                                |레벨 4                        |레벨 5                       |
+|레벨 1                   |레벨 2                                |레벨 3                                |레벨 4                        |레벨 5                       |
 |---------------------------|----------------------------------------|----------------------------------------|--------------------------------|-------------------------------|
 |예술 및 오락     |서적 및 문학                   |베스트셀러                           |                                |                               |
 |예술 및 오락     |서적 및 문학                   |어린이 책                       |                                |                               |
@@ -480,7 +492,7 @@ lastupdated: "2017-08-18"
 |취미 및 관심 분야     |게임                                  |도박                               |                                |                               |
 |취미 및 관심 분야     |게임                                  |복권                                |                                |                               |
 |취미 및 관심 분야     |게임                                  |역할극 게임                     |                                |                               |
-|취미 및 관심 분야     |게임                                  |비디오 및 컴퓨터 게임               |                                |                               |
+|취미 및 관심 분야     |게임                                  |동영상 및 컴퓨터 게임               |                                |                               |
 |취미 및 관심 분야     |출간                      |프리랜서 쓰기 작업                      |                                |                               |
 |취미 및 관심 분야     |출간                      |대본 제작                          |                                |                               |
 |취미 및 관심 분야     |출간                      |                                        |                                |                               |
@@ -934,22 +946,22 @@ lastupdated: "2017-08-18"
 |기술 및 컴퓨팅  |가전제품                   |게임 시스템 및 콘솔              |플레이스테이션                    |                               |
 |기술 및 컴퓨팅  |가전제품                   |게임 시스템 및 콘솔              |엑스박스                           |                               |
 |기술 및 컴퓨팅  |가전제품                   |게임 시스템 및 콘솔              |                                |                               |
-|기술 및 컴퓨팅  |가전제품                   |가정용 비디오 및 DVD                     |                                |                               |
+|기술 및 컴퓨팅  |가전제품                   |가정용 동영상 및 DVD                     |                                |                               |
 |기술 및 컴퓨팅  |가전제품                   |휴대용 오락 기기                 |                                |                               |
 |기술 및 컴퓨팅  |가전제품                   |라디오                                 |                                |                               |
 |기술 및 컴퓨팅  |가전제품                   |전화기                             |휴대전화                  |스마트폰                  |
 |기술 및 컴퓨팅  |가전제품                   |전화기                             |휴대전화                  |                               |
 |기술 및 컴퓨팅  |가전제품                   |전화기                             |                                |                               |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |DVD 및 셋톱 박스         |                               |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |홈 씨어터 시스템           |                               |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |프로젝터                     |                               |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |TV                    |HDTV                         |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |TV                    |LCD TV                       |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |TV                    |플라즈마 TV                    |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |TV                    |                               |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |비디오 플레이어 및 레코더    |블루레이 플레이어 및 레코더 |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |비디오 플레이어 및 레코더    |DVD 플레이어 및 레코더     |
-|기술 및 컴퓨팅  |가전제품                   |TV 및 비디오 장비                 |                                |                               |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |DVD 및 셋톱 박스         |                               |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |홈 씨어터 시스템           |                               |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |프로젝터                     |                               |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |TV                    |HDTV                         |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |TV                    |LCD TV                       |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |TV                    |플라즈마 TV                    |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |TV                    |                               |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |동영상 플레이어 및 레코더    |블루레이 플레이어 및 레코더 |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |동영상 플레이어 및 레코더    |DVD 플레이어 및 레코더     |
+|기술 및 컴퓨팅  |가전제품                   |TV 및 동영상 장비                 |                                |                               |
 |기술 및 컴퓨팅  |가전제품                   |                                        |                                |                               |
 |기술 및 컴퓨팅  |데이터 센터                           |                                        |                                |                               |
 |기술 및 컴퓨팅  |전자 부품                  |                                        |                                |                               |
@@ -1006,7 +1018,7 @@ lastupdated: "2017-08-18"
 |기술 및 컴퓨팅  |프로그래밍 언어                  |                                        |                                |                               |
 |기술 및 컴퓨팅  |소프트웨어                               |데이터베이스                              |                                |                               |
 |기술 및 컴퓨팅  |소프트웨어                               |전자 출판                     |                                |                               |
-|기술 및 컴퓨팅  |소프트웨어                               |데스크탑 비디오                          |                                |                               |
+|기술 및 컴퓨팅  |소프트웨어                               |데스크탑 동영상                          |                                |                               |
 |기술 및 컴퓨팅  |소프트웨어                               |그래픽 소프트웨어                      |애니메이션                      |                               |
 |기술 및 컴퓨팅  |소프트웨어                               |그래픽 소프트웨어                      |                                |                               |
 |기술 및 컴퓨팅  |소프트웨어                               |온라인 컨퍼런싱                       |                                |                               |

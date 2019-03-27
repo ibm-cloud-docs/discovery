@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-03"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 
 # Von Watson Document Conversion und Retrieve and Rank migrieren
@@ -26,6 +38,7 @@ lastupdated: "2017-10-03"
 {{site.data.keyword.discoveryfull}} bietet eine leistungsfähigere Abfrageschnittstelle, eine vereinfachte Dateneinpflegung, ein verbessertes Trainingsmanagement sowie eine größere Skalierung. {{site.data.keyword.discoveryshort}} deckt viele der Hauptanwendungsfälle wie {{site.data.keyword.retrieveandrankshort}} ab, zu denen die Agentenunterstützung, die Suche in unternehmenseigenen Wissensdatenbanken und die Recherchenunterstützung gehören. Bei der Konzeption wurden viele Herausforderungen bedacht, die sich für Benutzer von {{site.data.keyword.retrieveandrankshort}} ergaben, und viele dieser Probleme gelöst. {{site.data.keyword.discoveryshort}} bietet außerdem neue Funktionen für den Informationsabruf, die in {{site.data.keyword.retrieveandrankshort}} nicht verfügbar waren, beispielsweise der Passagenabruf und verbesserte Suchalgorithmen zur Ermittlung relevanterer Ergebnisse.
 
 **Featurevergleich**
+{: #features-dcs-rr}
 
 | Feature | {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
@@ -54,7 +67,7 @@ Bevor Sie mit der Migration beginnen, müssen Sie zunächst die Daten [evaluiere
 
 Viele Kunden verwenden {{site.data.keyword.documentconversionshort}} in Kombination mit {{site.data.keyword.retrieveandrankshort}}. Falls Sie {{site.data.keyword.documentconversionshort}} nicht zum Konvertieren von Inhalt verwendet, damit er in einem durchsuchbaren Index gespeichert werden kann, fahren Sie mit der Prüfung der [Migrationsoptionen für eigenständige {{site.data.keyword.documentconversionshort}}-Instanzen](#dcs) fort.
 
-Falls Sie anfangs das Lernprogramm für {{site.data.keyword.retrieveandrankshort}} verwendet haben und Ihre eigene Instanz auf dem Service in diesem Lernprogramm basiert, finden Sie [hier](/docs/services/discovery/migrate-rnr-tut.html) eine Erweiterung des Lernprogramms, mit der dieselben Daten in {{site.data.keyword.discoveryshort}} eingepflegt werden.
+Falls Sie anfangs das Lernprogramm für {{site.data.keyword.retrieveandrankshort}} verwendet haben und Ihre eigene Instanz auf dem Service in diesem Lernprogramm basiert, finden Sie [hier](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) eine Erweiterung des Lernprogramms, mit der dieselben Daten in {{site.data.keyword.discoveryshort}} eingepflegt werden.
 
 **Hinweis:** Die Konvertierungs- und Aufbereitungsfunktionalität ist in {{site.data.keyword.discoveryshort}} enthalten. Falls Sie {{site.data.keyword.documentconversionshort}} und/oder {{site.data.keyword.nlushort}} verwendet haben, um HTML-, PDF- oder Microsoft Word-Quellendokumente zu konvertieren und aufzubereiten, werden diese Services durch Features im {{site.data.keyword.discoveryshort}}-Service ersetzt.
 
@@ -73,14 +86,15 @@ Eine vom Quelleninhalt ausgehende Migration setzt Folgendes voraus:
 
 Falls Sie alle Migrationsbedingungen erfüllen, empfiehlt sich die Verwendung dieses Verfahrens für die Umstellung auf den {{site.data.keyword.discoveryshort}}-Service.
 
-Zur Migration des Quelleninhalts ändern Sie die im [Migrationslernprogramm](/docs/services/discovery/migrate-rnr-tut.html) beschriebene Prozedur so, dass die Spezifikationen Ihrer Quellendaten erfüllt werden.
+Zur Migration des Quelleninhalts ändern Sie die im [Migrationslernprogramm](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) beschriebene Prozedur so, dass die Spezifikationen Ihrer Quellendaten erfüllt werden.
 
 #### Antworteinheiten migrieren
+{: #answerunit-dcs-rr}
 
 Falls Sie mit {{site.data.keyword.documentconversionshort}} Antworteinheiten erstellt haben, verwenden Sie zur Migration dieses Inhalts eine der folgenden Optionen:
 
 -  Falls Sie eine Einstufungskomponente trainiert haben und die Einstufung migrieren müssen, sollten Sie den von {{site.data.keyword.documentconversionshort}} zurückgegebenen Inhalt in {{site.data.keyword.discoveryshort}} einpflegen.
--  Falls keine Trainingsdaten migriert werden müssen, pflegen Sie die Originalquellendokumente in {{site.data.keyword.discoveryshort}} mit dem [Feature für die Dokumentsegmentierung](/docs/services/discovery/building.html#doc-segmentation) ein.
+-  Falls keine Trainingsdaten migriert werden müssen, pflegen Sie die Originalquellendokumente in {{site.data.keyword.discoveryshort}} mit dem [Feature für die Dokumentsegmentierung](/docs/services/discovery?topic=discovery-configservice#doc-segmentation) ein.
 
 ### Aus indexiertem Inhalt migrieren
 {: #indexed}
@@ -94,9 +108,10 @@ Sie sollten die Migration ausgehend vom indexierten Inhalt in {{site.data.keywor
 
 Dokumente werden aus dem Service mit der Methode [/v1/solr_clusters/{solr-cluster-id}/solr/\{sammlungsname\}/select ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} unter Verwendung einer leeren Abfrage `q=*:*` extrahiert. Die Anzahl der zurückgegebenen Dokumente kann größer als die maximale Rückgabeanzahl in der Praxis sein (bei den meisten Sammlungen `200`). Wenn dies der Fall ist, sollten mehrere Aufrufe mit einer entsprechenden [Seitenaufteilung ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} erfolgen, um alle Dokumente zu erfassen.
 
-Dokumente mit angegebenen **IDs** werden in den {{site.data.keyword.discoveryshort}}-Service mit der Methode [/v1/environments/\{umgebungs-id\}/collections/\{sammlungs-id\}/documents/\{dokument-id\} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} hochgeladen. Jeder Dokumentupload ist ein separater API-Aufruf.
+Dokumente mit angegebenen **IDs** werden in den {{site.data.keyword.discoveryshort}}-Service mit der Methode [/v1/environments/\{umgebungs-id\}/collections/\{sammlungs-id\}/documents/\{dokument-id\} ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} hochgeladen. Jeder Dokumentupload ist ein separater API-Aufruf.
 
 ## Trainingsdaten migrieren
+{: #trainingdata-dcs-rr}
 
 Nachdem Sie Ihre Ergebnisse migriert haben, müssen Sie als Nächstes alle Trainingsdaten migrieren, die für den Inhalt erstellt wurden. Zur Migration von Trainingsdaten gibt es zwei Möglichkeiten, nämlich die Migration aus der Quelle (`csv`) und die Migration aus dem Service. Falls Sie Trainingsdaten aus einer `CSV`-Datei hochgeladen haben und noch auf diese Datei zugreifen können, sollten Sie diese Quelle für die Migration verwenden. Falls Sie die {{site.data.keyword.retrieveandrankshort}}-Tools verwendet haben oder nicht mehr auf die ursprüngliche `CSV`-Datei zugreifen können, sollten Sie die Migration ausgehend vom Service durchführen.
 
@@ -110,7 +125,7 @@ Eine vom Einstufungsquelleninhalt ausgehende Migration setzt Folgendes voraus:
 
 Falls Sie alle Migrationsbedingungen erfüllen, empfiehlt sich die Verwendung dieses Verfahrens für die Umstellung des Trainings auf den {{site.data.keyword.discoveryshort}}-Service.
 
-Zur Migration der Trainingsdaten ändern Sie die im [Migrationslernprogramm](/docs/services/discovery/migrate-rnr-tut.html) beschriebene Prozedur so, dass die Spezifikationen Ihrer Quellendaten erfüllt werden.
+Zur Migration der Trainingsdaten ändern Sie die im [Migrationslernprogramm](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) beschriebene Prozedur so, dass die Spezifikationen Ihrer Quellendaten erfüllt werden.
 
 ### Trainingsdaten aus dem Service migrieren
 {: #extract-train}
@@ -236,7 +251,7 @@ Die oben aufgeführten **Beispieltrainingsdaten von {{site.data.keyword.retrieve
 ## Sprachunterstützung
 {: #language}
 
-Entsprechende Informationen können Sie der [Sprachunterstützungstabelle für {{site.data.keyword.discoveryshort}}](/docs/services/discovery/language-support.html) entnehmen. Features von {{site.data.keyword.retrieveandrankshort}} werden primär durch die **Basissprachunterstützung** von {{site.data.keyword.discoveryshort}} unterstützt.
+Entsprechende Informationen können Sie der [Sprachunterstützungstabelle für {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-language-support#language-support) entnehmen. Features von {{site.data.keyword.retrieveandrankshort}} werden primär durch die **Basissprachunterstützung** von {{site.data.keyword.discoveryshort}} unterstützt.
 
 ## Abfragen migrieren
 {: #queries}
@@ -262,12 +277,12 @@ Die {{site.data.keyword.discoveryfull}}-Abfragesprache unterscheidet sich von de
 | `*` | `*` | Platzhalter |
 | `~`(0 to 1) | [~n] | Zeichenfolgenvariante |
 
-Unter [Abfragekonzepte](/docs/services/discovery/using.html) und [Abfragereferenz](/docs/services/discovery/query-reference.html) finden Sie ausführliche Informationen zur {{site.data.keyword.discoveryfull}}-Abfragesprache.
+Unter [Abfragekonzepte](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) und [Abfragereferenz](/docs/services/discovery?topic=discovery-query-reference#query-reference) finden Sie ausführliche Informationen zur {{site.data.keyword.discoveryfull}}-Abfragesprache.
 
 
 ## Eigenständigen Watson Document Conversion-Service migrieren
 {: #dcs}
 
-Falls Sie {{site.data.keyword.documentconversionshort}} verwenden, um das Einpflegen von Inhalt in {{site.data.keyword.retrieveandrankshort}} zu unterstützen, wurde diese Funktionalität zu einem einzigen Service weiterentwickelt: {{site.data.keyword.discoveryshort}}. Mit {{site.data.keyword.discoveryshort}} können Sie Microsoft Word-, PDF-, HTML- und JSON-Dokumente ohne großen Aufwand konvertieren, aufbereiten und in einen trainierbaren und durchsuchbaren Index einpflegen. Dieser Abschnitt ist für Sie relevant, wenn Ihr Anwendungsfall keine Speicherung des konvertierten Inhalts in einem Index einbezieht. Falls Sie Dokumente in einen Index einpflegen, lesen Sie den Abschnitt [Daten in den {{site.data.keyword.discoveryshort}}-Service einpflegen](/docs/services/discovery/building.html).
+Falls Sie {{site.data.keyword.documentconversionshort}} verwenden, um das Einpflegen von Inhalt in {{site.data.keyword.retrieveandrankshort}} zu unterstützen, wurde diese Funktionalität zu einem einzigen Service weiterentwickelt: {{site.data.keyword.discoveryshort}}. Mit {{site.data.keyword.discoveryshort}} können Sie Microsoft Word-, PDF-, HTML- und JSON-Dokumente ohne großen Aufwand konvertieren, aufbereiten und in einen trainierbaren und durchsuchbaren Index einpflegen. Dieser Abschnitt ist für Sie relevant, wenn Ihr Anwendungsfall keine Speicherung des konvertierten Inhalts in einem Index einbezieht. Falls Sie Dokumente in einen Index einpflegen, lesen Sie den Abschnitt [Daten in den {{site.data.keyword.discoveryshort}}-Service einpflegen](/docs/services/discovery?topic=discovery-configservice#configservice).
 
 IBM stellt keinen Service mehr bereit, der für die eigenständige Konvertierung von Microsoft Word-, PDF- und HTML-Dokumenten geeignet ist. Falls Sie gegenwärtig den {{site.data.keyword.documentconversionshort}}-Service verwenden und die Ausgabe nicht in einen online indexierten Service (z. B. {{site.data.keyword.discoveryshort}}) einpflegen, empfiehlt es sich, die Migration auf eine Open-Source-Alternative wie [Apache Tika ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://tika.apache.org/){: new_window} in Erwägung zu ziehen.

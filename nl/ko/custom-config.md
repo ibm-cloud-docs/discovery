@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 구성 참조
 {: #configref}
@@ -23,7 +35,10 @@ lastupdated: "2018-01-23"
 데이터에 특수 [변환](#conversion), [인리치먼트](#enrichment) 또는 [정규화](#normalization) 요구사항이 있는 경우 JSON으로 고유한 {{site.data.keyword.discoveryshort}} 수집 구성을 작성할 수 있습니다.
 {: shortdesc}
 
- 다음 절에서는 이 JSON의 구조 및 JSON으로 정의할 수 있는 오브젝트에 대해 자세히 설명합니다.
+다음 절에서는 이 JSON의 구조 및 JSON으로 정의할 수 있는 오브젝트에 대해 자세히 설명합니다.
+
+콜렉션이 [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu)을 사용하여 작성된 경우 나열된 PDF 및 Word 변환 설정은 사용되지 않으므로 변환 설정 변경은 무시됩니다.
+{: note}
 
 ## 구성의 구조
 {: #structure}
@@ -82,10 +97,16 @@ lastupdated: "2018-01-23"
 
 - **JSON** 파일은 `json` 옵션을 사용하여 변환됩니다.
 
+콜렉션이 [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu)을 사용하여 작성된 경우 나열된 PDF 및 Word 변환 설정은 사용되지 않으므로 변환 설정 변경은 무시됩니다.
+{: note}
+
 이러한 옵션은 다음 절에서 설명됩니다. 변환이 완료된 후 컨텐츠가 저장되기 전에 [인리치먼트](#enrichment) 및 [정규화](#normalization)가 수행됩니다.
 
 ### PDF
 {: #pdf}
+
+콜렉션이 [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu)을 사용하여 작성된 경우 나열된 PDF 및 Word 변환 설정은 사용되지 않으므로 변환 설정 변경은 무시됩니다.
+{: note}
 
 `pdf` 변환 오브젝트는 PDF 문서가 HTML로 변환되어야 하는 방법을 정의하며 다음과 같은 구조로 되어 있습니다.
 
@@ -129,6 +150,9 @@ PDF 파일을 변환할 때 각 표제 레벨의 크기, 글꼴 및 스타일을
 
 ### Word
 {: #word}
+
+콜렉션이 [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu)을 사용하여 작성된 경우 나열된 PDF 및 Word 변환 설정은 사용되지 않으므로 변환 설정 변경은 무시됩니다.
+{: note}
 
 `word` 변환 오브젝트는 PDF 문서가 HTML로 변환되어야 하는 방법을 정의하며 다음과 같은 구조로 되어 있습니다.
 
@@ -236,30 +260,37 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
 {: codeblock}
 
 #### exclude_tags_completely
+{: #configref_exclude_completely}
 
 `"exclude_tags_completely" : array` - 제외할 HTML 태그 이름의 배열입니다. 여기에는 태그, 컨텐츠 및 지정된 모든 태그 속성이 포함됩니다.
 
 #### exclude_tags_keep_content
+{: #configref_exclude_tags_keep_content}
 
 `"exclude_tags_keep_content" : array` - 태그 정보가 제거된 HTML 태그 이름의 배열입니다. 결과적으로 HTML 태그 및 태그 속성이 스트라이프됩니다. 태그의 컨텐츠가 지정되지 않으면 더 이상 스트라이프되지 않습니다. 예를 들어, `span` HTML 태그에 `exclude_tags_keep_content`를 지정하는 경우 `<span class="info">일부 <strong>정보</strong></span>`가 `일부 <strong>정보</strong>`로 스트라이프됩니다.
 
 #### exclude_content
+{: #configref_exclude_content}
 
 `"xpaths" : array` - 제거되는 컨텐츠를 식별하는 XPaths의 배열입니다. 이 값이 설정되면 XPaths 중 하나와 일치하는 항목이 출력에서 제거됩니다.
 
 #### keep_content
+{: #configref_keep_content}
 
 `"xpaths" : array` - 변환되는 컨텐츠를 식별하는 XPaths의 배열입니다. 이 값이 설정되면 XPaths 중 하나와 일치하는 항목이 출력에 포함됩니다. 이 매개변수로 지정된 포함은 `exclude_content`로 지정된 처리 후에 처리됩니다.
 
 #### exclude_tag_attributes
+{: #configref_exclude_tag_attributes}
 
 `"exclude_tag_attributes" : array` - HTML 속성이 표시되는 HTML 태그와 관계 없이 변환으로 제거되는 HTML 속성 이름의 배열입니다. **참고:** 동일한 구성에서 `exclude_tag_attributes` 및 `keep_tag_attributes`를 모두 지정하면 오류 메시지를 받습니다. 구성당 하나만 지정할 수 있습니다. `keep_tag_attributes`가 있는 경우 구성에서 완전히 제거해야 합니다. 비어 있는 배열로 존재할 수는 없습니다.
 
 #### keep_tag_attributes
+{: #configref_keep_tag_attributes}
 
 `"keep_tag_attributes" : array` - 변환으로 유지되는 HTML 속성 이름의 배열입니다. **참고:** 동일한 구성에서 `keep_tag_attributes` 및 `exclude_tag_attributes`를 모두 지정하면 오류 메시지를 받습니다. 구성당 하나만 지정할 수 있습니다. `exclude_tag_attributes`가 있는 경우 구성에서 완전히 제거해야 합니다. 비어 있는 배열로 존재할 수는 없습니다.
 
 #### extracted_fields
+{: #configref_extracted}
 
 이 오브젝트는 변환의 일부로 개별 JSON 필드로 추출될 HTML 소스의 컨텐츠를 정의합니다. 컨텐츠는 CSS 선택기를 사용하여 식별됩니다.
 
@@ -279,7 +310,7 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
 
 - `"css_selector" : string` *필수* - 필드에 저장할 컨텐츠의 영역을 정의하는 CSS 선택기 표현식입니다.
 - `"type" : string` *필수* - 작성할 필드의 유형으로, `string`, `date`가 해당될 수 있습니다.
-자세한 정보는 [CSS 선택기를 사용하여 필드 추출](/docs/services/discovery/building.md#using-css)을 참조하십시오.
+자세한 정보는 [CSS 선택기를 사용하여 필드 추출](/docs/services/discovery?topic=discovery-configservice#using-css)을 참조하십시오.
 
 ### 세그먼트
 {: #segment}
@@ -303,7 +334,7 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
 -  `normalizations`는 구성의 일부로 지정될 수 없습니다.
 -  `html` 변환의 `extracted_fields` 옵션은 구성의 일부로 변환될 수 없습니다.
 
-자세한 정보는 [세그먼트화 수행](/docs/services/discovery/building.html#performing-segmentation)을 참조하십시오.
+자세한 정보는 [세그먼트화 수행](/docs/services/discovery?topic=discovery-configservice#performing-segmentation)을 참조하십시오.
 
 
 ### JSON
@@ -425,7 +456,7 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
 
 - `"enrichment" : string` - *필수* - 이 필드에 사용할 인리치먼트의 유형입니다. {{site.data.keyword.nlushort}} 인리치먼트를 추출하려면 `natural_language_understanding`을 사용하고, 요소 분류를 수행하려면 `elements`를 사용하십시오.
 
-  **참고:** `elements` 인리치먼트를 사용하는 경우 [요소 분류](/docs/services/discovery/element-classification.html) 문서에 지정된 가이드라인을 따르는 것이 중요합니다. 특히 이 인리치먼트가 지정될 때는 PDF 파일만 수집할 수 있습니다.
+  **참고:** `elements` 인리치먼트를 사용하는 경우 [요소 분류](/docs/services/discovery?topic=discovery-element-classification#element-classification) 문서에 지정된 가이드라인을 따르는 것이 중요합니다. 특히 이 인리치먼트가 지정될 때는 PDF 파일만 수집할 수 있습니다.
 
 - `"source_field" : string` - *필수* - 강화될 소스 필드입니다. 이 필드는 `json_normalizations` 오퍼레이션이 완료된 후 소스에 존재해야 합니다.
 - `"destination_field" : string` - *필수* - 인리치먼트가 작성될 컨테이너 오브젝트의 이름입니다.
@@ -433,28 +464,33 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
   **참고:** 구성에 정의된 필드 이름은 [필드 이름 요구사항](#field_reqs)에 정의된 제한사항을 충족해야 합니다.
 
 ### 요소 분류 인리치먼트
+{: #element_classification_enrichments}
 
 요소 분류를 사용할 때 각 `elements` 인리치먼트 오브젝트에는 지정된 다음 매개변수와 함께 `"options": {}` 오브젝트가 포함되어야 합니다.
 
 - `"model" : string` - *필수* - 이 문서에 사용될 요소 추출 모델입니다. 현재 지원되는 모델은 `contract`입니다.
 
-**참고:** `elements` 인리치먼트를 사용하는 경우 [요소 분류](/docs/services/discovery/element-classification.html) 문서에 지정된 가이드라인을 따르는 것이 중요합니다. 특히 이 인리치먼트가 지정될 때는 PDF 파일만 수집할 수 있습니다.
+**참고:** `elements` 인리치먼트를 사용하는 경우 [요소 분류](/docs/services/discovery?topic=discovery-element-classification#element-classification) 문서에 지정된 가이드라인을 따르는 것이 중요합니다. 특히 이 인리치먼트가 지정될 때는 PDF 파일만 수집할 수 있습니다.
 
 ### Natural Language Understanding(NLU) 인리치먼트
+{: #nlu_enrichments}
 
 {{site.data.keyword.nlushort}}을 사용할 때 `enrichments` 배열 내의 각 오브젝트는 다음 인리치먼트 중 하나 이상이 포함된 `"options": { "features": { } }` 오브젝트도 포함해야 합니다.
 
 ### categories
+{: #nlu_categories}
 
 `categories` 인리치먼트는 수집된 문서의 일반 카테고리를 식별합니다. 이 인리치먼트는 옵션을 포함하지 않으며 비어 있는 오브젝트 `"categories" : {}`로 지정되어야 합니다.
 
 ### concepts
+{: #nlu_concepts}
 
 `concepts` 인리치먼트는 해당 텍스트에 있는 기타 개념 및 엔티티를 기반으로 입력 텍스트가 연관되는 개념을 찾습니다.
 
 - `"limit" : INT` - *필수* - 수집된 문서에서 추출할 최대 개념의 수입니다.
 
 ### emotion
+{: #nlu_emotion}
 
 `emotion` 인리치먼트는 전체 문서의 전반적인 감정적 어조(예: `anger`) 또는 전체 문서의 지정된 대상 문자열을 평가합니다. 이 인리치먼트는 영어 컨텐츠에서만 사용될 수 있습니다.
 
@@ -462,6 +498,7 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
 - `"targets" : array ` _선택사항_ - 문서 내의 감정 상태를 평가할 대상 문자열의 배열이며, 쉼표로 구분됩니다.
 
 ### entities
+{: #nlu_entities}
 
 `entities` 인리치먼트는 알려진 엔티티(예: 사람, 위치 및 조직)의 인스턴스를 추출합니다. 선택적으로, 사용자 정의 엔티티를 추출하는 데 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델을 지정할 수 있습니다.
 
@@ -471,17 +508,19 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
 - `"mentions": boolean` - _선택사항_ - `true`이면 이 엔티티가 언급된 횟수가 기록됩니다. 기본값은 `false`입니다.
 - `"mention_types": boolean` - _선택사항_ - `true`이면 이 엔티티의 각 언급에 대한 언급 유형이 저장됩니다. 기본값은 `false`입니다.
 - `"sentence_location": boolean` - _선택사항_ - `true`이면 각 엔티티 언급의 문장 위치가 저장됩니다. 기본값은 `false`입니다.
-- `"model" : string` - _선택사항_ - 지정되면 공용 모델 대신 사용자 정의 모델이 엔티티를 추출하는 데 사용됩니다. 이 옵션에서는 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델이 {{site.data.keyword.discoveryshort}}의 인스턴스와 연관되어야 합니다. 자세한 정보는 [Watson Knowledge Studio와 통합](/docs/services/discovery/integrate-wks.html)을 참조하십시오.
+- `"model" : string` - _선택사항_ - 지정되면 공용 모델 대신 사용자 정의 모델이 엔티티를 추출하는 데 사용됩니다. 이 옵션에서는 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델이 {{site.data.keyword.discoveryshort}}의 인스턴스와 연관되어야 합니다. 자세한 정보는 [Watson Knowledge Studio와 통합](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)을 참조하십시오.
 
 ### keywords
+{: #nlu_keywords}
 
-`keywords` 인리치먼트는 텍스트 내 중요 단어의 인스턴스를 추출합니다. 키워드, 개념 및 엔티티 간의 차이점을 이해하려면 [엔티티, 개념 및 키워드 간의 차이점 이해](/docs/services/discovery/building.html#udbeck)를 참조하십시오.
+`keywords` 인리치먼트는 텍스트 내 중요 단어의 인스턴스를 추출합니다. 키워드, 개념 및 엔티티 간의 차이점을 이해하려면 [엔티티, 개념 및 키워드 간의 차이점 이해](/docs/services/discovery?topic=discovery-configservice#udbeck)를 참조하십시오.
 
 - `"sentiment" : boolean` - _선택사항_ - `true`이면 감성 분석이 주변 컨텐츠의 컨텍스트에 있는 추출된 키워드에서 수행됩니다.
 - `"emotion" : boolean` - _선택사항_ - `true`이면 감정적 어조 분석이 주변 컨텐츠의 컨텍스트에 있는 추출된 키워드에서 수행됩니다.
 - `"limit" : INT` - _선택사항_ - 수집된 문서에서 추출할 최대 키워드의 수입니다. 기본값은 `50`입니다.
 
 ### semantic_roles
+{: #nlu_semantic_roles}
 
 `semantic_roles` 인리치먼트는 수집된 텍스트 내 문장 컴포넌트(예: 주체, 동작 및 객체)를 식별합니다.
 
@@ -490,6 +529,7 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
 - `"limit" : INT` - _선택사항_ - 수집된 문서에서 구문 분석하기 위한 문장을 추출할 최대 `semantic_roles` 오브젝트의 수입니다. 기본값은 `50`입니다.
 
 ### sentiment
+{: #nlu_sentiment}
 
 `sentiment` 인리치먼트는 전체 문서의 전체 감성 레벨 또는 전체 문서의 지정된 대상 문자열을 평가합니다.
 
@@ -497,10 +537,11 @@ Microsoft Word 변환 오브젝트는 PDF 변환 오브젝트와 유사한 방�
 - `"targets" : array ` _선택사항_ - 문서 내의 감성을 평가할 대상 문자열의 배열이며, 쉼표로 구분됩니다.
 
 ### relations
+{: #nlu_relations}
 
 `relations` 인리치먼트는 문서 내 식별된 엔티티 간의 알려진 관계를 추출합니다. 선택적으로, 사용자 정의 관계를 추출하는 데 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델을 지정할 수 있습니다.
 
-- `"model" : string` - _선택사항_ - 지정되면 공용 모델 대신 사용자 정의 모델이 관계를 추출하는 데 사용됩니다. 이 옵션에서는 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델이 {{site.data.keyword.discoveryshort}}의 인스턴스와 연관되어야 합니다. 자세한 정보는 [Watson Knowledge Studio와 통합](/docs/services/discovery/integrate-wks.html)을 참조하십시오.
+- `"model" : string` - _선택사항_ - 지정되면 공용 모델 대신 사용자 정의 모델이 관계를 추출하는 데 사용됩니다. 이 옵션에서는 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델이 {{site.data.keyword.discoveryshort}}의 인스턴스와 연관되어야 합니다. 자세한 정보는 [Watson Knowledge Studio와 통합](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)을 참조하십시오.
 
 ## 정규화
 {: #normalization}

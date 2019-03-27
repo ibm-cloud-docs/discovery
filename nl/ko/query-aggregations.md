@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-05-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 조회 집계
 {: #query-aggregations}
 
-집계에서는 데이터 값 세트를 리턴합니다. 사용 가능한 집계의 전체 목록은 [조회 참조](/docs/services/discovery/query-reference.html#aggregations)를 참조하십시오.
+집계에서는 데이터 값 세트를 리턴합니다. 사용 가능한 집계의 전체 목록은 [조회 참조](/docs/services/discovery?topic=discovery-query-reference#aggregations)를 참조하십시오.
 
 ## term
 {: #term}
@@ -34,7 +46,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filter
-{: #filter}
+{: #aggfilter}
 
 앞서 수행하는 집계 조회의 문서 세트 범위를 좁히는 수정자입니다. 이 예제는 개념 클라우드 컴퓨팅을 포함하는 문서 세트를 필터링합니다.
 
@@ -95,7 +107,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
   - `anomaly` - 출력의 결과 배열에서 비정상적인 지점에 있습니다. 이상 항목 필드에는 비정상적인 작동의 정도를 나타내는 `float` 데이터 유형의 값이 있습니다. 이상 항목 필드의 값이 `1`에 가까울수록 결과가 비정상적일 가능성이 큽니다.
 
   - `results` 배열의 각 오브젝트에서 `key` 및 `key_as_string`은 UNIX 시간소인(초)에 해당합니다.
-  - 이상 항목 스코어가 조회 전반이 아닌 단일 조회에 관련됩니다.
+  - 이상 항목 스코어가 원래의 조회에만 관련됩니다.
 
 ```json
 "type": "timeslice",
@@ -139,6 +151,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
 {: codeblock}
 
 #### 이상 항목 발견의 제한사항
+{: #anomaly-limitations}
 
 - 이상 항목 발견은 현재 최상위 레벨 `timeslice` 집계에서만 사용 가능합니다. 하위 레벨(중첩됨) 집계에 사용할 수 없습니다.
 - 제공된 `timeslice` 집계에서 이상 항목 발견으로 처리할 수 있는 최대 지점 수는 `1500`입니다.

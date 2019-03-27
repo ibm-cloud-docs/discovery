@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-06-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Watson Discovery Knowledge Graph
 {: #kg}
 
-Wissensdiagramme bilden weitaus mehr als Daten und Informationen ab, denn sie stellen dokumentübergreifende Verbindungen in Ihren Daten her und generieren neue Erkenntnisse. Mithilfe der bereitgestellten AI-Technologie werden angepasste Wissensdiagramme automatisch aus unstrukturierten Daten erstellt. Hierzu werden Entitäten und Beziehungen extrahiert und vereindeutigt, die Beziehungen unter Verwendung von algorithmischen Verfahren aufbereitet und die Ergebnisse mithilfe von Relevanzalgorithmen in eine Rangordnung gebracht. Wissensdiagramme können als 'Wissenszentrum' für Ihr Unternehmen dienen und für Unternehmenssuche, Auswertung, Recommendation-Engines und andere Entscheidungsfindungsprozesse genutzt werden (z. B. Erkennung von Betrug, Verschwendung oder Missbrauch). Die Verwendung eines (in {{site.data.keyword.knowledgestudioshort}} erstellten) angepassten Modells beim Erstellungsprozess für das Wissensdiagramm kann für die Erstellung von domänenspezifischen Wissensdiagrammen hilfreich sein, die in Bereichen wie Finanzwesen, Technologie, Sicherheit, Informationsbeschaffung, Gesundheitswesen und vielen anderen anwendbar sind. Weitere Informationen zum Integrieren von {{site.data.keyword.discoveryshort}} mit {{site.data.keyword.knowledgestudioshort}} finden Sie unter [Integration mit {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
+Wissensdiagramme bilden weitaus mehr als Daten und Informationen ab, denn sie stellen dokumentübergreifende Verbindungen in Ihren Daten her und generieren neue Erkenntnisse. Mithilfe der bereitgestellten AI-Technologie werden angepasste Wissensdiagramme automatisch aus unstrukturierten Daten erstellt. Hierzu werden Entitäten und Beziehungen extrahiert und vereindeutigt, die Beziehungen unter Verwendung von algorithmischen Verfahren aufbereitet und die Ergebnisse mithilfe von Relevanzalgorithmen in eine Rangordnung gebracht. Wissensdiagramme können als 'Wissenszentrum' für Ihr Unternehmen dienen und für Unternehmenssuche, Auswertung, Recommendation-Engines und andere Entscheidungsfindungsprozesse genutzt werden (z. B. Erkennung von Betrug, Verschwendung oder Missbrauch). Die Verwendung eines (in {{site.data.keyword.knowledgestudioshort}} erstellten) angepassten Modells beim Erstellungsprozess für das Wissensdiagramm kann für die Erstellung von domänenspezifischen Wissensdiagrammen hilfreich sein, die in Bereichen wie Finanzwesen, Technologie, Sicherheit, Informationsbeschaffung, Gesundheitswesen und vielen anderen anwendbar sind. Weitere Informationen zum Integrieren von {{site.data.keyword.discoveryshort}} mit {{site.data.keyword.knowledgestudioshort}} finden Sie unter 'integrating-with-watson-knowledge-studio'.
 
 
 Zwei RESTful-Endpunkte, die zu {{site.data.keyword.discoveryfull}} hinzugefügt werden, bieten die Möglichkeit, nach vereindeutigten, aufbereiteten Entitäten und Beziehungen zwischen Dokumenten in unstrukturierten Dokumentsammlungen zu suchen. Die Suchergebnisse können in eine nach Relevanz oder Beliebtheit aufgestellte Rangordnung gebracht werden. Neben einem Suchtoken können die APIs optional eines oder mehrere Kontextwörter bzw. Passagen verwenden, die das Auffinden von relevanteren Entitäten und Beziehungen innerhalb des automatisch erstellten umfangreichen Wissensdiagramms ermöglichen.
@@ -33,19 +45,21 @@ Dieses verbundene Diagramm aus Wissen und Einstufungsverfahren unterstützt die 
 
 -  Vereindeutigte Entitäten durch Verwendung eines Tokens für die unscharfe Suche sowie optional von Typinformationen und Kontext. Beispiel: Die Suche nach `Steve` im Kontext `Apple` gibt `Steve Jobs` als relevantestes Ergebnis zurück, während die Suche nach `Steve` im Kontext `Microsoft` als relevantestes Ergebnis `Steve Ballmer` zurückgibt.
 -  Nach Relevanz angeordnete Beziehungen durch die Eingabe eines Tokens für die unscharfe Suche und von Kontext (optional). Die Relevanzeinstufung verwendet die globalen Eigenschaften des Diagramms, um spezifischere Informationen zutage zu fördern. Beispiel: Die Suche nach Beziehungen für `Obama` im Kontext `health` gibt `Affordable Care Act` und andere verwandte Entitäten zurück.
--  Dokumentübergreifende Inferenzen und Aggregationen durch die Abfrage von Entitäten und Beziehungen in einem verbundenen Wissensdiagramm. Beispiele für solche Abfragen: In welcher Verbindung steht Person X zu Person Y? Wie stark weichen die Datenzugriffsmuster des Mitarbeiters X von der Norm ab? Welchen Einflussbereich besitzt Person X?
+-  Dokumentübergreifende Inferenzen und Aggregationen durch die Abfrage von Entitäten und Beziehungen in einem verbundenen Wissensdiagramm. Beispiele für solche Abfragen: In welcher Verbindung steht Person X zu Person Y? Welchen Einflussbereich besitzt Person X?
 
 ## Voraussetzungen für den Service
+{: #kg_servreq}
 
 In der Betaversion sind die Funktionalität der Komponente 'Knowledge Graph' für das Wissensdiagramm und die zugehörigen Methoden nur für Serviceinstanzen verfügbar, die **Advanced**-Pläne, **Premium**-Pläne und alle Dedicated-Umgebungen abonniert haben.
 
-Dieses Beta-Feature wird derzeit nur in Englisch unterstützt. Details hierzu finden Sie unter [Sprachunterstützung](/docs/services/discovery/language-support.html#feature-support).
+Dieses Beta-Feature wird derzeit nur in Englisch unterstützt. Details hierzu finden Sie unter [Sprachunterstützung](/docs/services/discovery?topic=discovery-language-support#feature-support).
 
 ## Voraussetzungen für die Datensammlung
+{: #kg_collreq}
 
 {{site.data.keyword.discoveryshort}} verwendet Entitäten und Beziehungen, die zur Bildung des Wissensdiagramms aus eingepflegten Dokumenten extrahiert werden und Entitäts- sowie Beziehungsabfragen ermöglichen.
 
-**Hinweis:** [Entitätsähnlichkeit](/docs/services/discovery/building-kg.html#similarity), [Nachweis](/docs/services/discovery/building-kg.html#evidence) und [Kanonisierung und Filterung](/docs/services/discovery/building-kg.html#canonicalization) sind in allen Sammlungen verfügbar. Für Sammlungen, die vor dem `03-05-2018` erstellt wurden, müssen Sie die Dokumente erneut einpflegen, um diese Features zu verwenden.
+**Hinweis:** [Entitätsähnlichkeit](/docs/services/discovery?topic=discovery-kg#kg_similarity), [Nachweis](/docs/services/discovery?topic=discovery-kg#kg_evidence) und [Kanonisierung und Filterung](/docs/services/discovery?topic=discovery-kg#kg_canonicalization) sind in allen Sammlungen verfügbar. Für Sammlungen, die vor dem `03-05-2018` erstellt wurden, müssen Sie die Dokumente erneut einpflegen, um diese Features zu verwenden.
 
 **Hinweis:** Die Komponente 'Knowledge Graph' kann nur für private Datensammlungen verwendet werden; sie ist nicht zur Verwendung mit {{site.data.keyword.discoverynewsshort}} gedacht.
 
@@ -78,9 +92,9 @@ Diese Optionen **können nicht** mit den {{site.data.keyword.discoveryshort}}-To
 
 Erstellen Sie nach der Erstellung einer {{site.data.keyword.discoveryshort}}-Serviceinstanz wie folgt eine angepasste Konfiguration:
 
-1. Geben Sie den folgenden Befehl aus, um eine Umgebung namens `my-first-environment` zu erstellen. Ersetzen Sie `{wert_des_api-schlüssels}` durch den Wert des API-Schlüssels des Service:
+1. Geben Sie den folgenden Befehl ein, um eine Umgebung namens `my-first-environment` zu erstellen. Ersetzen Sie `{wert_des_api-schlüssels}` durch den Wert des API-Schlüssels des Service:
 
-   ```bash
+  ```bash
    curl -X POST -u "apikey":"{wert_des_api-schlüssels}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "api/v1/environments?version=2017-11-07"
    ```
    {: pre}
@@ -89,7 +103,7 @@ Erstellen Sie nach der Erstellung einer {{site.data.keyword.discoveryshort}}-Ser
 
    Sie benötigen den Wert für '{umgebungs-id}'. Stellen Sie sicher, dass diese ID zur späteren Verwendung gespeichert wird.
 
-1. Erstellen Sie anschließend die angepasste Konfiguration. Diese Prozedur setzt voraus, dass Sie die unter (https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json) verfügbare Konfiguration hochgeladen haben. Falls Sie eine eigene angepasste Konfiguration erstellen wollen, finden Sie in der Konfigurationsreferenz (/docs/services/discovery/custom-config.html) weitere Informationen.
+1. Erstellen Sie anschließend die angepasste Konfiguration. Diese Prozedur setzt voraus, dass Sie die unter (https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json) verfügbare Konfiguration hochgeladen haben. Wenn Sie eine eigene angepasste Konfiguration erstellen möchten, finden Sie weitere Informationen in der Konfigurationsreferenz: (/docs/services/discovery?topic=discovery-configref#configref).
 
    ```bash
    curl -X POST -u "apikey":"{wert_des_api-schlüssels}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{umgebungs-id}/configurations?version=2017-11-07"
@@ -103,22 +117,21 @@ Erstellen Sie nach der Erstellung einer {{site.data.keyword.discoveryshort}}-Ser
    ```
    {: pre}
 
-1. Nachdem die angepasste Konfiguration hochgeladen wurde, kann sie für jede von Ihnen erstellte Sammlung verwendet werden. Zum Hochladen von Dokumenten kann jede beliebige Methode eingesetzt werden, solange die angepasste Konfiguration angegeben ist. Falls Sie keine Erfahrungen mit dem Erstellen von Sammlungen und dem Hochladen von Dokumenten besitzen, finden Sie unter 'Einführung in die Tools' (/docs/services/discovery/getting-started-tool.html) weitere Informationen. Wenn Sie mit Schritt 3 (/docs/services/discovery/getting-started-tool.html#create-custom-configuration) fortfahren, wählen Sie 'Knowledge Graph-Konfiguration' aus, statt eine neue Konfiguration zu erstellen.
-
+1. Nachdem die angepasste Konfiguration hochgeladen wurde, kann sie für jede von Ihnen erstellte Sammlung verwendet werden. Zum Hochladen von Dokumenten kann jede beliebige Methode eingesetzt werden, solange die angepasste Konfiguration angegeben ist. Wenn Sie mit der Erstellung von Sammlungen und dem Hochladen von Dokumenten nicht vertraut sind, finden Sie unter 'Einführung in die Tools' (/docs/services/discovery?topic=discovery-getting-started#getting-started) weitere Informationen. Wenn Sie bei 'Schritt 3' (/docs/services/discovery?topic=discovery-getting-started#create-custom-configuration) ankommen, wählen Sie 'Knowledge Graph Configuration' aus, statt eine neue Konfiguration zu erstellen.
 ## Kanonisierung und Filterung
-{: #canonicalization}
+{: #kg_canonicalization}
 
-Alle Entitäten in Dokumenten, die ab dem 5. März 2018 eingepflegt wurden, werden automatisch mit kanonischen Namen normalisiert, die aus einem öffentlichen Wörterbuch abgeleitet wurden. Darüber hinaus werden alle Pronomen, die in Entitäten oder Beziehungen enthalten sind, z. B. `er`, `sie`, `ihr` oder `es`, automatisch vor dem Einpflegen in Knowledge Graph herausgefiltert. Dokumente, die vor dem 5. März 2018 eingepflegt wurden, umfassen diese Ebene von Kanonisierung und Filterung nicht; Sie sollten neue Sammlungen erstellen und Ihre Dokumente erneut einpflegen, um dieses Feature zu verwenden.
+Alle Entitäten in Dokumenten, die nach dem 5. März 2018 eingepflegt wurden, werden automatisch mit kanonischen Namen normalisiert, die aus einem öffentlichen Wörterbuch abgeleitet sind. Darüber hinaus werden alle Pronomen, die in Entitäten oder Beziehungen enthalten sind, z. B. `er`, `sie`, `ihr` oder `es`, automatisch vor dem Einpflegen in Knowledge Graph herausgefiltert. Dokumente, die vor dem 5. März 2018 eingepflegt wurden, umfassen diese Ebene von Kanonisierung und Filterung nicht; Sie sollten neue Sammlungen erstellen und Ihre Dokumente erneut einpflegen, um dieses Feature zu verwenden.
 
 Beim Erstellen einer Entitätsabfrage oder einer Beziehungsabfrage in Knowledge Graph können Sie entweder den kanonischen Namen oder den ursprünglichen Text der Entität in des Feld `text` der Methode `query_entities` oder `query_relations` eingeben.
 
 
-## Entitätsabfragen
-{: #entities}
+## Entitätsabfrage
+{: #kg_entities}
 
-Die Betaversion der Knowledge Graph-Entitätsabfrage unterstützt die kontextbasierte [Entitätsvereindeutigung](/docs/services/discovery/building-kg.html#disambiguation) und [Entitätsähnlichkeit](/docs/services/discovery/building-kg.html#similarity). Eine Knowledge Graph-Entitätsabfrage wird mit einer Anforderung POST für ein JSON-Objekt an den Endpunkt 'v1/environments/{umgebungs-id}/collections/{sammlungs-id}/query_entities' ausgeführt.
+Die Betaversion der Knowledge Graph-Entitätsabfrage unterstützt die kontextbasierten Abfragen der 'Entitätsvereindeutigung' (/docs/services/discovery?topic=discovery-kg#kg_disambiguation) und 'Entitätsähnlichkeit' (/docs/services/discovery?topic=discovery-kg#kg_similarity). Eine Knowledge Graph-Entitätsabfrage wird mit einer Anforderung POST für ein JSON-Objekt an den Endpunkt 'v1/environments/{umgebungs-id}/collections/{sammlungs-id}/query_entities' ausgeführt.
 
-Zur Abfrage von Entitäten können Sie die APIs oder die {{site.data.keyword.discoveryshort}}-Tools verwenden. Der Abschnitt 'Knowledge Graph mit Discovery-Tools abfragen' (/docs/services/discovery/building-kg.html#querying-kg) enthält Informationen zu den Tools.
+Zur Abfrage von Entitäten können Sie die APIs oder die {{site.data.keyword.discoveryshort}}-Tools verwenden. Der Abschnitt 'Knowledge Graph mit Discovery-Tools abfragen' (/docs/services/discovery?topic=discovery-kg#querying-kg) enthält Informationen zu den Tools.
 
 Das JSON-Objekt der Knowledge Graph-Entitätsabfrage verwendet das folgende Format:
 
@@ -139,15 +152,15 @@ Das JSON-Objekt der Knowledge Graph-Entitätsabfrage verwendet das folgende Form
 ```
 {: codeblock}
 
--  `"feature": Datentyp 'string' (erforderlich): Das zu verwendende Feature für die Entitätsabfrage. Folgende Features werden unterstützt: [Entitätsvereindeutigung](/docs/services/discovery/building-kg.html#disambiguation) und [Entitätsähnlichkeit](/docs/services/discovery/building-kg.html#similarity).
+-  `"feature": Datentyp 'string' (erforderlich): Das zu verwendende Feature für die Entitätsabfrage. Folgende Features werden unterstützt: 'Entitätsvereinigung' (/docs/services/discovery?topic=discovery-kg#kg_disambiguation) und 'Entitätsähnlichkeit' (/docs/services/discovery?topic=discovery-kg#kg_similarity).
 -  `"entity": {} (erforderlich): ein Objekt, das die zu vereindeutigenden Entitätsinformationen enthält.
    -  `"text": Datentyp 'string' (erforderlich): Der Entitätstyp, der vereindeutigt wird.
    -  `"type": Datentyp 'string' (optional): Der optionale Entitätstyp, in Bezug auf den die Vereindeutigung erfolgen soll. Wenn dieser Parameter nicht angegeben ist, werden alle Typen einbezogen.
    -  `"exact": Datentyp 'boolean' (optional): Beim Wert 'false' wird die implizite Vereindeutigung ausgeführt. Die implizite Vereindeutigung verwendet für jedes Eingabeentitätsobjekt jeweils die vereindeutigte Entität mit der größten Relevanz. Sollte für '"feature": "disambiguate"' auf 'false' gesetzt sein. Der Standardwert ist 'false'.
 -  `"context": {} (optional): Ein optionales Objekt, das kontextbezogene Voraussetzungen für die Vereindeutigung enthält.
-   -  `"text": Datentyp 'string' (optional): Der Entitätstext, der den Kontext für die abgefragte Entität und die auf dieser Zuordnung basierende Einstufung angibt. Beispiel: Falls Sie die Stadt London in England abfragen wollen, würde Ihre Abfrage nach 'London' mit dem Kontext 'England' suchen. Die Eingabe kann aus Namensteilen oder umfangreichen Passagen bestehen, die relevante Entitätsbegriffe enthalten. Multiple terms can be passed together.
+   -  `"text": Datentyp 'string' (optional): Der Entitätstext, der den Kontext für die abgefragte Entität und die auf dieser Zuordnung basierende Einstufung angibt. Beispiel: Falls Sie die Stadt London in England abfragen wollen, würde Ihre Abfrage nach 'London' mit dem Kontext 'England' suchen. Die Eingabe kann aus Namensteilen oder umfangreichen Passagen bestehen, die relevante Entitätsbegriffe enthalten. Mehrere Begriffe können gleichzeitig übergeben werden.
 -  `"count": Datentyp INT (optional): Die Anzahl der zurückzugebenden vereindeutigten Entitäten. Der Standardwert ist 10. Der maximale Wert ist 1000.
--  `"evidence_count": Datentyp INT (optional): Die Anzahl der Nachweisinstanzen, die für jede angegebene Entität zurückgegeben werden soll. Der Standardwert ist '0'. Der maximale Wert für das Feld 'evidence_count' ist 10.000 geteilt durch die Zahl, die im Feld 'count' angegeben ist. Eine ausführliche Beschreibung und Beispiele finden Sie im Abschnitt [Nachweis](/docs/services/discovery/building-kg.html#evidence) auf dieser Seite.
+-  `"evidence_count": Datentyp INT (optional): Die Anzahl der Nachweisinstanzen, die für jede angegebene Entität zurückgegeben werden soll. Der Standardwert ist '0'. Der maximale Wert für das Feld 'evidence_count' ist 10.000 geteilt durch die Zahl, die im Feld 'count' angegeben ist. Eine ausführliche Beschreibung und Beispiele finden Sie im Abschnitt 'Nachweis' (/docs/services/discovery?topic=discovery-kg#kg_evidence).
 
 Die Abfrage gibt Ergebnisse im folgenden Format zurück:
 
@@ -177,7 +190,7 @@ Falls keine Übereinstimmung gefunden wird, wird das folgende JSON-Objekt zurüc
 {: codeblock}
 
 ### Entitätsvereindeutigung
-{: #disambiguation}
+{: #kg_disambiguation}
 
 Bei Knowledge Graph-Entitätsabfragen kann die kontextbasierte Entitätsvereindeutigung verwendet werden. Basierend auf dem bereitgestellten Entitätstext und optionalem Kontexttext identifiziert die Vereindeutigung ('disambiguation') eindeutige Entitäten und gibt eine Liste der Entitäten zurück, deren Rangordnung auf den Kontextinformationen basiert.
 
@@ -187,7 +200,7 @@ Beispielsweise könnte das Vereindeutigen des Entitätstexts 'Steve' im Kontext 
 
 
 ### Entitätsähnlichkeit
-{: #similarity}
+{: #kg_similarity}
 
 Bei Knowledge Graph-Entitätsabfragen kann die kontextbasierte Erkennung von Entitätsähnlichkeiten verwendet werden. Basierend auf dem bereitgestellten Entitätstext und optionalem Kontexttext identifiziert 'similar_entities' eindeutige Entitäten und gibt eine Liste der Entitäten zurück, deren Rangordnung auf den Kontextinformationen basiert.
 
@@ -196,11 +209,11 @@ Eine Abfrage für die Entitätsähnlichkeit wird durch die Angabe von '"similar_
 Wenn Sie beispielsweise nach ähnlichen Entitäten wie 'Ford' im Kontext 'car' gesucht haben, könnten ähnliche Entitätsergebnisse 'GM', 'Toyota' und 'Nissan' enthalten.
 
 ## Beziehungsabfragen
-{: #relations}
+{: #kg_relations}
 
 Bei Knowledge Graph-Beziehungsabfragen wird die Suche nach den relevantesten Beziehungen basierend auf Eingabeentitäten unterstützt, wobei implizite Entitätsvereindeutigung, kontextbasierte Beziehungen, Sortierung nach Relevanzquote und Erwähnungsanzahl sowie Filterung nach Typen und Dokument-IDs verwendet werden können.
 
-Zur Abfrage von Beziehungen können Sie die APIs oder die {{site.data.keyword.discoveryshort}}-Tools verwenden. Der Abschnitt 'Knowledge Graph mit Discovery-Tools abfragen' (/docs/services/discovery/building-kg.html#querying-kg) enthält Informationen zu den Tools.
+Zur Abfrage von Beziehungen können Sie die APIs oder die {{site.data.keyword.discoveryshort}}-Tools verwenden. Der Abschnitt 'Knowledge Graph mit Discovery-Tools abfragen' (/docs/services/discovery?topic=discovery-kg#querying-kg) enthält Informationen zu den Tools.
 
 Eine Knowledge Graph-Beziehungsabfrage wird mit einer Anforderung POST für ein JSON-Objekt an den Endpunkt 'v1/environments/{umgebungs-id}/collections/{sammlungs-id}/query_relations' ausgeführt. Das JSON-Objekt der Knowledge Graph-Beziehungsabfrage verwendet das folgende Format:
 
@@ -242,7 +255,7 @@ Eine Knowledge Graph-Beziehungsabfrage wird mit einer Anforderung POST für ein 
    -  `"text": Datentyp 'string' (optional): Der Entitätstext, der den Kontext für die abgefragte Entität und die auf dieser Zuordnung basierende Einstufung angibt. Beispiel: Falls Sie die Stadt London in England abfragen wollen, würde Ihre Abfrage nach 'London' mit dem Kontext 'England' suchen. Die Eingabe kann aus Namensteilen oder umfangreichen Passagen bestehen, die relevante Entitätsbegriffe enthalten. Mehrere Begriffe können gleichzeitig übergeben werden.
 -  `"sort": Datentyp 'string' (optional): Die Sortiermethode für die Beziehungen. Der Wert kann 'score' (Quote) oder 'frequency' (Häufigkeit) lauten. Der Standardwert ist 'score'. Die Quote basiert auf der Relevanz von Beziehungen und Nachbarn der Eingabeentität und auf der Relevanz für den Kontext, falls der Kontext angegeben ist. Die Häufigkeit gibt an, wie oft jede Beziehung eindeutig identifiziert wird.
 -  `"filter": {} (optional): Ein Objekt, das die Beziehungstypen, Entitätstypen und speziellen Dokumente enthält, nach denen die Filterung für diese Abfrage erfolgen soll. Standardmäßig wird nichts ausgeschlossen.
-   -  `"relation_types": {}` (optional): Eine Liste der zu filternden Beziehungstypen.
+   -  `"relation_types": {} (optional): Eine Liste der zu filternden Beziehungstypen.
       -  `"exclude": [] (optional): Eine durch Kommas getrennte Liste von Beziehungstypen, die aus der Abfrage gefiltert werden sollen.
       -  `"include": [] (optional): Eine durch Kommas getrennte Liste von Beziehungstypen, die explizit in die Abfrage einbezogen werden sollen. Wenn dieser Parameter angegeben ist, gelten alle anderen Typen als ausgeschlossen.
    -  `"entity_types": {} (optional): Eine Liste von Entitätstypen zum Filtern von Nachbarn. Ist bei einer Eingabe von mehreren Entitäten nicht anwendbar, da kein neuer Nachbar zurückgegeben wird.
@@ -250,7 +263,7 @@ Eine Knowledge Graph-Beziehungsabfrage wird mit einer Anforderung POST für ein 
       -  `"include": [] (optional): Eine durch Kommas getrennte Liste von Entitätstypen, die explizit in die Abfrage einbezogen werden sollen. Wenn dieser Parameter angegeben ist, gelten alle anderen Typen als ausgeschlossen.
    -  `"document_ids": [] (optional): Eine durch Kommas getrennte Liste von Dokumenten, für die die Beziehungsabfrage ausgeführt werden soll.
 -  `"count": Datentyp INT (optional): Die zurückzugebende Anzahl von Beziehungen. Der Standardwert ist 10. Der maximale Wert ist 1000.
--  `"evidence_count": Datentyp INT (optional): Die Anzahl der Nachweisinstanzen, die für jede angegebene Beziehung zurückgegeben werden soll. Der Standardwert ist '0'. Der maximale Wert für das Feld 'evidence_count' ist 10.000 geteilt durch die Zahl, die im Feld 'count' angegeben ist. Eine ausführliche Beschreibung und Beispiele finden Sie im Abschnitt [Nachweis](/docs/services/discovery/building-kg.html#evidence) auf dieser Seite.
+-  `"evidence_count": Datentyp INT (optional): Die Anzahl der Nachweisinstanzen, die für jede angegebene Beziehung zurückgegeben werden soll. Der Standardwert ist '0'. Der maximale Wert für das Feld 'evidence_count' ist 10.000 geteilt durch die Zahl, die im Feld 'count' angegeben ist. Eine ausführliche Beschreibung und Beispiele finden Sie im Abschnitt 'Nachweis' (/docs/services/discovery?topic=discovery-kg#kg_evidence).
 
 Die Abfrage gibt Ergebnisse im folgenden Format zurück:
 
@@ -296,16 +309,16 @@ Falls keine Übereinstimmung gefunden wird, wird das folgende JSON-Objekt zurüc
 {: codeblock}
 
 ## Nachweis
-{: #evidence}
+{: #kg_evidence}
 
-Für einige Entitäts-oder Beziehungsabfragen kann es nützlich sein zu verstehen, wo die Verbindungen angegeben wurden. Durch den Nachweis der Verbindungen können Sie das Originaldokument referenzieren, die Ergebnisse transparenter gestalten oder noch entsprechend weiter vereindeutigen. Beginnend mit Sammlungen, die nach dem '03-05-2018' erstellt wurden, bietet sowohl der Endpunkt 'query_entities' als auch der Endpunkt 'query_relations' die Möglichkeit, einen entsprechenden Nachweis in den Ergebnissen zu liefern. Dieses Feature ist für Sammlungen verfügbar, die vor dem '03-05-2018' erstellt wurden; Dokumente müssen jedoch erneut eingepflegt werden, um dieses Feature für diese alten Sammlungen verwenden zu können.
+Für einige Entitäts- oder Beziehungsabfragen kann es nützlich sein zu wissen, wo die Verbindungen angegeben wurden. Durch den Nachweis der Verbindungen können Sie das Originaldokument referenzieren, die Ergebnisse transparenter gestalten oder noch entsprechend weiter vereindeutigen. Beginnend mit Sammlungen, die nach dem '03-05-2018' erstellt wurden, bietet sowohl der Endpunkt 'query_entities' als auch der Endpunkt 'query_relations' die Möglichkeit, einen entsprechenden Nachweis in den Ergebnissen zu liefern. Dieses Feature ist für Sammlungen verfügbar, die vor dem '03-05-2018' erstellt wurden; Dokumente müssen jedoch erneut eingepflegt werden, um dieses Feature für diese alten Sammlungen verwenden zu können.
 
-Der Nachweis wird geliefert, indem das Feld '"evidence_count": INT' zum Abfrageobjekt hinzugefügt wird. Diese Zahl gibt die Anzahl der Nachweiselemente an, die pro Antwortelement zurückgegeben werden. Wenn Sie beispielsweise '5' Antwortelemente für '"count":' und '"evidence_count": 2' angegeben haben, würde die Antwort insgesamt '10' Nachweiselemente (2 pro Antwortelement) enthalten. Die maximale Anzahl insgesamt von für eine einzelne Abfrage zurückgegebenen Nachweiselementen ist 10.000.
+Der Nachweis wird geliefert, indem das Feld '"evidence_count": INT' zum Abfrageobjekt hinzugefügt wird. Diese Zahl gibt die Anzahl der Nachweiselemente an, die pro Antwortelement zurückgegeben werden. Wenn Sie beispielsweise '5' Antwortelemente für '"count":' und '"evidence_count": 2' angegeben haben, würde die Antwort insgesamt '10' Nachweiselemente (2 pro Antwortelement) enthalten.  Die maximale Anzahl insgesamt von für eine einzelne Abfrage zurückgegebenen Nachweiselementen ist 10.000.
 
 In den Antworten für 'query_entities' enthält jedes Objekt im Array 'entities' die angegebene Anzahl von Objekten des Typs 'evidence'. Diese Objekte enthalten die 'document_id' des Dokuments, in dem der Nachweis gefunden wurde, in welchem Feld ('field') sich dieser Nachweis befand, die Position des Nachweises in diesem Feld und die genaue Position der angegebenen Entität.
 
 ```json
-    {
+{
       "text": "Steve Jobs",
       "type": "Person",
       "evidence": [
@@ -379,15 +392,15 @@ In 'query_relations' enthält jedes Objekt im Array 'relations' die angegebene A
 ```
 {: codeblock}
 
-## Knowledge Graph mit den Discovery-Tools abfragen
+## Knowledge Graph mit Discovery-Tools abfragen
 {: #querying-kg}
 
-Benutzer mit Serviceinstanzen, die den [**Advanced-Plan**] (/docs/services/discovery/building-kg.html#service-requirements) abonniert haben, können private Sammlungen mit Knowledge Graph unter Verwendung der {{site.data.keyword.discoveryshort}}-Tools abfragen.  
+Benutzer mit Serviceinstanzen, die den [**Advanced-Plan**] (/docs/services/discovery?topic=discovery-kg#kg_servreq) abonniert haben, können private Sammlungen mit Knowledge Graph unter Verwendung der {{site.data.keyword.discoveryshort}}-Tools abfragen.
 
 So greifen Sie in den {{site.data.keyword.discoveryshort}}-Tools auf die Knowledge Graph-Abfrage zu:
 
 1.  Klicken Sie auf das Symbol ! [Abfragesymbol] (images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} -->, um die Abfrageseite zu öffnen.
-2.  Wählen Sie Ihre Sammlung aus und klicken Sie auf 'Los geht's!'.
-3.  Wählen Sie in der Anzeige 'Abfragen erstellen' die Registerkarte 'Knowledge Graph' und anschließend 'Entitäten' oder 'Beziehungen' aus.
+1.  Wählen Sie Ihre Sammlung aus und klicken Sie auf 'Los geht's!'.
+1.  Wählen Sie in der Anzeige 'Abfragen erstellen' die Registerkarte 'Knowledge Graph' und anschließend 'Entitäten' oder 'Beziehungen' aus.
 
 **Note:** Nicht alle Knowledge Graph-Features sind verfügbar, wenn Sie die {{site.data.keyword.discoveryshort}}-Tools verwenden.

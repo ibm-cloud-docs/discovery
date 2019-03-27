@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-09-25"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Continuous Relevancy Training
 {: #crt}
@@ -29,7 +41,8 @@ lastupdated: "2018-09-25"
 So konfigurieren Sie Continuous Relevancy Training:
 
 - Continuous Relevancy Training kann nur auf der Umgebungsebene aktiviert werden. Abfragen müssen zum Abfragen einer oder mehrere Sammlungen entweder den Endpunkt `/api/v1/environment/{umgebungs-id}/query` oder `/api/v1/environments/{umgebungs-id}/query` verwenden.
-- Da {{site.data.keyword.discoveryshort}}-`Ereignisse` (Klicks) verwendet werden, um die benötigten Trainingsdaten zu erstellen, integrieren Sie zunächst die Ereignisüberwachung. Details finden Sie unter [Nutzungsüberwachung](/docs/services/discovery/feedback.html#usage).
+- Da {{site.data.keyword.discoveryshort}}-`Ereignisse` (Klicks) verwendet werden, um die benötigten Trainingsdaten zu erstellen, integrieren Sie zunächst die Ereignisüberwachung. Details finden Sie unter [Nutzungsüberwachung](/docs/services/discovery?topic=discovery-usage#usage).
+
 - Es werden mindestens 1000 Abfragen in natürlicher Sprache mit einem zugehörigen Klickereignis benötigt, damit Continuous Relevancy Training gestartet werden kann. Ereignisse und Protokolle werden für die gesamte Instanz 30 Tage lang aufbewahrt; die 1000 Klicks müssen daher während dieses Zeitraums erfasst werden.
 - Continuous Relevancy Training ist für die Advanced-Plangröße `Small` oder höher und für Premium-Pläne verfügbar. Für `Lite`-Pläne steht die Funktion nicht zur Verfügung.
 - Die Anzahl der Sammlungen für Continuous Relevancy Training ist auf `5` begrenzt. Das sich Continuous Relevancy Training auf mehrere Sammlungen bezieht, können sich sowohl Abfrage- als auch Trainingszeiten verlängern.
@@ -39,13 +52,13 @@ So verwenden Sie Continuous Relevancy Training:
 
 Sobald die Funktion trainiert wurde, können mit Continuous Relevancy Training die Ergebnisse einer Abfrage in natürlicher Sprache (`natural_language_query`) bei der Verwendung einer Abfrage auf Umgebungsebene beeinflusst werden. 
 
-Continuous Relevancy Training kann zur Abfragezeit verwendet werden, indem eine Abfrage in natürlicher Sprache (`natural_language_query`) mit mehreren Sammlungen in allen Sammlungen in Ihrer Umgebung ausgeführt wird. Anweisungen hierzu finden Sie unter [Mehrere Sammlungen abfragen](/docs/services/discovery/using.html#multiple-collections). 
+Continuous Relevancy Training kann zur Abfragezeit verwendet werden, indem eine Abfrage in natürlicher Sprache (`natural_language_query`) mit mehreren Sammlungen in allen Sammlungen in Ihrer Umgebung ausgeführt wird. Anweisungen hierzu finden Sie unter [Mehrere Sammlungen abfragen](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections). 
 
 **Hinweis:** Continuous Relevancy Training wirkt sich nicht auf Abfragen aus, die an einen trainierten oder nicht trainierten Abfrageaufruf auf Sammmlungsebene (`/v1/environments/{umgebungs-id}/collections/{sammlungs-id}/query`) gemacht wurde. 
 
 Überwachungsstatus:
 
-Der Status von Continuous Relevancy Training kann über den Endpunkt `/api/v1/environments` angezeigt werden. Weitere Informationen finden Sie in der [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api){: new_window}. Der Wert für `status` gibt Auskunft über den Status der Trainingsoperationen und informiert Sie darüber, ob Continuous Relevancy Training aktiv ist:
+Der Status von Continuous Relevancy Training kann über den Endpunkt `/api/v1/environments` angezeigt werden. Weitere Informationen finden Sie in der [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/discovery#get-environment-info){: new_window}. Der Wert für `status` gibt Auskunft über den Status der Trainingsoperationen und informiert Sie darüber, ob Continuous Relevancy Training aktiv ist:
 
 ```
 "search_status" : [

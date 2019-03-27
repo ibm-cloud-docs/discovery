@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 조회 연산자
 {: #query-operators}
 
-연산자는 조회의 서로 다른 부분 사이에 있는 구분 기호입니다. 사용 가능한 연산자의 전체 목록은 [조회 참조](/docs/services/discovery/query-reference.html#operators)를 참조하십시오.
+연산자는 조회의 서로 다른 부분 사이에 있는 구분 기호입니다. 사용 가능한 연산자의 전체 목록은 [조회 참조](/docs/services/discovery?topic=discovery-query-reference#operators)를 참조하십시오.
 
 ## . \[JSON 구분 기호\]
 {: #delimiter}
@@ -95,7 +107,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[구문 조회\]
 {: #phrase}
 
-구문 조회의 모든 컨텐츠는 이스케이프된 상태로 처리됩니다. 그러므로 구문 분석 내의 특수 문자가 구문 분석됩니다. 단, 구문 조회 내의 큰따옴표(`"`)는 제외되며 이스케이프되어야 합니다(`\"`). 전체 텍스트가 포함된 구문 조회, 순위 기반의 조회를 사용하십시오(부울 필터 연산자는 포함하지 않음). 구문 조회에 와일드카드(`*`)를 사용하지 마십시오. **참고**: 작은따옴표(`'`)는 지원되지 않습니다.
+구문 조회의 모든 컨텐츠는 이스케이프된 상태로 처리됩니다. 그러므로 구문 분석 내의 특수 문자가 구문 분석됩니다. 단, 구문 조회 내의 큰따옴표(`"`)는 제외되며 이스케이프되어야 합니다(`\"`). 전체 텍스트가 포함된 구문 조회, 순위 기반의 조회를 사용하십시오(부울 필터 연산자는 포함하지 않음). 구문 조회에 와일드카드(`*`)를 사용하지 마십시오. 
+
+작은따옴표(`'`)는 지원되지 않습니다.
+{: note}
 
 예:
 ```bash
@@ -198,6 +213,6 @@ title:*
 
 예:
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

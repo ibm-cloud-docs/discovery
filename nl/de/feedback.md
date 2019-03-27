@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-09-17"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Nutzungsüberwachung
 {: #usage}
 
-Sie können die Nutzung der {{site.data.keyword.discoveryshort}}-Instanz überwachen und verfolgen, um anhand dieser Daten Ihre Anwendungen besser verstehen und verbessern zu können. Die [Ereignis-API ![Symbol für externen](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} kann verwendet werden, um Protokolleinträge zu erstellen, die bestimmten Abfragen und Aktionen in natürlicher Sprache zugeordnet sind. Beispielsweise können Sie aufzeichnen, welche Dokumente in einer Ergebnismenge durch einen Benutzer "angeklickt" wurden und wann dieser Klick erfolgt ist.
+Sie können die Nutzung der {{site.data.keyword.discoveryshort}}-Instanz überwachen und verfolgen, um anhand dieser Daten Ihre Anwendungen besser verstehen und verbessern zu können. Die [Ereignis-API ![Symbol für externen](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/discovery#create-event){: new_window} kann verwendet werden, um Protokolleinträge zu erstellen, die bestimmten Abfragen und Aktionen in natürlicher Sprache zugeordnet sind. Beispielsweise können Sie aufzeichnen, welche Dokumente in einer Ergebnismenge durch einen Benutzer "angeklickt" wurden und wann dieser Klick erfolgt ist.
 
 **Hinweis:** Protokolle und Ereignisse werden nur für Abfragen in natürlicher Sprache in privaten Datensammlungen überwacht. Für {{site.data.keyword.discoverynewsfull}} werden keine Protokolle zusammengestellt.
 
@@ -44,7 +56,7 @@ Der Endpunkt `/api/v1/logs` unterstützt die folgenden {{site.data.keyword.disco
 - Parameter 'offset'
 - Parameter 'version'
 
-Zusätzliche Details zu der Funktion und der Syntax für die Parameter finden Sie unter [Abfrageparameter](/docs/services/discovery/query-parameters.html).
+Zusätzliche Details zu der Funktion und der Syntax für die Parameter finden Sie unter [Abfrageparameter](/docs/services/discovery?topic=discovery-query-parameters#query-parameters).
 
 Beispiel für das Durchsuchen von Protokollen nach einer Abfrage in natürlicher Sprache, die den Begriff "train" enthält:
 
@@ -84,10 +96,10 @@ Beispielabfrageprotokoll:
 ```
 
 Mit Abfrageprotokollen können Sie den Typ der Ergebnisse untersuchen, die an Ihre Endbenutzer zurückgegeben werden, und untersuchen, wie die Ergebnisqualität mithilfe der in {{site.data.keyword.discoveryshort}} verfügbaren Methoden verbessert werden kann. Beispiel: 
-- Relevanztraining, siehe [Ergebnisrelevanz mithilfe der API verbessern](/docs/services/discovery/train.html) und [Ergebnisrelevanz mithilfe der Tools verbessern](/docs/services/discovery/train-tooling.html)
-- [Abfrageoperatoren](/docs/services/discovery/query-operators.html)
-- [Abfrageerweiterung](/docs/services/discovery/using.html#query-expansion)
-- Angepasste Konfigurationen, siehe [Konfigurationsreferenz](/docs/services/discovery/custom-config.html)
+- Relevanztraining, siehe [Ergebnisrelevanz mithilfe der API verbessern](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) und [Ergebnisrelevanz mithilfe der Tools verbessern](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling)
+- [Abfrageoperatoren](/docs/services/discovery?topic=discovery-query-operators#query-operators)
+- [Abfrageerweiterung](/docs/services/discovery?topic=discovery-query-concepts#query-expansion)
+- Angepasste Konfigurationen, siehe [Konfigurationsreferenz](/docs/services/discovery?topic=discovery-configref#configref)
 
 ## Ereignisprotokolle erstellen
 {: #eventlogs}
@@ -104,6 +116,6 @@ Sie können diese API überall hinzufügen, wo Benutzer mit Ihren Ergebnissen in
 `"session_token": "1_LKczxWGEWx59fYD0_VV8HFUpb6"`
 
 Um ein Ereignis aufzuzeichnen, nehmen Sie einen POST an den Endpunkt `/api/v1/events` vor. Details finden Sie im Abschnitt zur
-[Ereignis-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window}.
+[Ereignis-API ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/discovery#create-event){: new_window}.
 
 Nachdem ein Ereignis aufgezeichnet wurde, kann es mit dem Endpunkt `/api/v1/logs` wieder herausgelesen werden. Verknüpfen Sie Ereignisse mit der zugehörigen Abfrage unter Verwendung des Werts für `session_token`.

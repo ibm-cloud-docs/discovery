@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-26"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-10"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Informationssicherheit
 {: #information-security}
@@ -28,7 +40,7 @@ Jeder Kunde ist für die Einhaltung der geltenden Gesetze und Vorschriften, eins
 
 Die hierin beschriebenen Produkte, Services und sonstigen Funktionen eignen sich nicht für alle Kundensituationen und sind möglicherweise nur eingeschränkt verfügbar. IBM erteilt keine Rechts- oder Steuerberatung und gibt keine Garantie bezüglich der Konformität von IBM Produkten oder Services mit den geltenden Gesetzen und Vorschriften.
 
-Sie benötigen GDPR-Unterstützung für erstellte {{site.data.keyword.cloud}} {{site.data.keyword.watson}}-Ressourcen?
+Sie benötigen DSGVO-Unterstützung für erstellte {{site.data.keyword.cloud}} {{site.data.keyword.watson}}-Ressourcen?
 
 -   Innerhalb der Europäischen Union: Siehe [Unterstützung für in der Europäischen Union erstellte IBM Cloud Watson-Ressourcen anfordern](/docs/services/watson/getting-started-gdpr-sar.html#request-EU).
 -   Außerhalb der Europäischen Union: Siehe [Unterstützung für Ressourcen außerhalb der Europäischen Region anfordern](/docs/services/watson/getting-started-gdpr-sar.html#request-non-EU).
@@ -50,7 +62,7 @@ Mit dieser API können Sie:
 - Ihre Daten mit einer Kunden-ID kennzeichnen.
 - Alle Daten für eine bestimmte Kunden-ID, einschließlich der zugehörigen Hinweise, löschen.
 
-Die Kennzeichnung der Daten erfolgt durch Hinzufügen einer Kunden-ID (`customer_id`) Ihrer Wahl (Einschränkungen hierzu unter [Vorgehensweise beim Kennzeichnen von Daten](/docs/services/discovery/information-security.html#labeling)) für den optionalen Header `X-Watson-Metadata`. {{site.data.keyword.discoveryshort}} kann die Daten dann nach `Kunden-ID` löschen.
+Die Kennzeichnung der Daten erfolgt durch Hinzufügen einer Kunden-ID (`customer_id`) Ihrer Wahl (Einschränkungen hierzu unter [Vorgehensweise beim Kennzeichnen von Daten](/docs/services/discovery?topic=discovery-information-security#labeling)) für den optionalen Header `X-Watson-Metadata`. {{site.data.keyword.discoveryshort}} kann die Daten dann nach `Kunden-ID` löschen.
 
 Bei jedem REST-Aufruf kann ein optionaler Header `X-Watson-Metadata` mit durch Semikolon getrennte `field=value`-Paare gesendet werden, wobei gegenwärtig nur `customer_id` als persistent definiert wird. Durch das Hinzufügen des Werts für `customer_id` im Header `X-Watson-Metadata` zeigt die Anforderung an, dass sie Daten enthält, die zu dieser `Kunden-ID` gehören.
 
@@ -100,18 +112,18 @@ Einschränkungen:
 ### Daten mit den Discovery-Tools kennzeichnen
 {: #labelingtooling}
 
-Die Daten können bei der Verwendung der {{site.data.keyword.discoveryshort}}-Tools mit dem Feld `customer_id` gekennzeichnet werden. Klicken Sie auf ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> und geben Sie die `Kunden-ID` im Feld für die **DSGVO-Datenkennzeichnung** ein. Sobald dieses Feld festgelegt wurde, werden alle mit dieser Browsersitzung hochgeladenen Daten mit dem angegebenen Wert für `customer_id` gekennzeichnet; dieses Feld muss manuell geändert werden, wenn die zugehörige Kunden-ID geändert wird.
+Die Daten können bei der Verwendung der {{site.data.keyword.discoveryshort}}-Tools mit dem Feld `customer_id` gekennzeichnet werden. Klicken Sie auf ![Umgebungsdetails](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> und geben Sie im Feld **DSGVO-Datenkennzeichnung** die `Kunden-ID` ein. Sobald dieses Feld festgelegt wurde, werden alle mit dieser Browsersitzung hochgeladenen Daten mit dem angegebenen Wert für `customer_id` gekennzeichnet; dieses Feld muss manuell geändert werden, wenn die zugehörige Kunden-ID geändert wird.
 
-Durch das Hinzufügen einer `Kunden-ID` für das Feld für die **DSGVO-Datenkennzeichnung** werden die Dokumente, Hinweise, Knowledge Graph-Entitäten, Knowledge Graph-Beziehungen und Trainingsdaten in dieser URL-Domäne von diesem Punkt ab gekennzeichnet, einschließlich der einzelnen Instanzen unter dieser Domäne. Alle Aktionen (einschließlich Dokumentuploads), die in den {{site.data.keyword.discoveryshort}}-Tools vor dem Hinzufügen des Feldes für die **GDPR-Datenkennzeichnung** durchgeführt wurden, werden nicht gekennzeichnet.
+Durch das Hinzufügen einer `Kunden-ID` für das Feld für die **DSGVO-Datenkennzeichnung** werden die Dokumente, Hinweise, Knowledge Graph-Entitäten, Knowledge Graph-Beziehungen und Trainingsdaten in dieser URL-Domäne von diesem Punkt ab gekennzeichnet, einschließlich der einzelnen Instanzen unter dieser Domäne. Alle Aktionen (einschließlich Dokumentuploads), die in den {{site.data.keyword.discoveryshort}}-Tools vor dem Hinzufügen des Feldes für die **DSGVO-Datenkennzeichnung** durchgeführt wurden, werden nicht gekennzeichnet.
 
-**Hinweis:** Wenn Sie Domänen wechseln, Browser wechseln, den Browsercache leeren oder eine anonyme Sitzung starten, nachdem Sie Ihre `Kunden-ID` im Feld für die **GDPR-Datenbezeichnung** der {{site.data.keyword.discoveryshort}}-Tools angegeben haben, wird die `Kunden-ID` nicht beibehalten und Ihre Daten werden nicht gekennzeichnet. Wenn Sie Domänen oder Browser wechseln müssen, geben Sie die `Kunden-ID` erneut im Feld für die **GDPR-Datenkennzeichnung** ein.
+**Hinweis:** Wenn Sie Domänen wechseln, Browser wechseln, den Browsercache leeren oder eine anonyme Sitzung starten, nachdem Sie Ihre `Kunden-ID` im Feld für die **DSGVO-Datenbezeichnung** der {{site.data.keyword.discoveryshort}}-Tools angegeben haben, wird die `Kunden-ID` nicht beibehalten und Ihre Daten werden nicht gekennzeichnet. Wenn Sie Domänen oder Browser wechseln müssen, geben Sie die `Kunden-ID` erneut im Feld für die **DSGVO-Datenkennzeichnung** ein.
 
 ### Dokumente mit Data Crawler kennzeichnen
 {: #labelingdc}
 
 Wenn für Dokumente bereits eine Crawlersuche mit Data Crawler durchgeführt wurde, müssen Sie diese Dokumente erneut durchsuchen, um den Header `X-Watson-Metadata` und das Feld `customer_id` hinzuzufügen.
 
-1. Aktualisieren Sie die {{site.data.keyword.discoveryshort}} Data Crawler-Ausgabeadapterkonfiguration so, dass sie die `Kunden-ID` enthält. Weitere Informationen finden Sie unter [Ausgabeadapter konfigurieren](/docs/services/discovery/data-crawler-discovery.html#output-adapter).
+1. Aktualisieren Sie die {{site.data.keyword.discoveryshort}} Data Crawler-Ausgabeadapterkonfiguration so, dass sie die `Kunden-ID` enthält. Weitere Informationen finden Sie unter [Ausgabeadapter konfigurieren](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter).
 1. Planen Sie eine Crawlersuche. Die Dokumente werden unter Verwendung des Headers `X-Watson-Metadata` an {{site.data.keyword.discoveryshort}} übergeben und die Dokumente werden mit der konfigurierten `customer_id` gekennzeichnet.
 
 ## Gekennzeichnete Daten löschen
@@ -119,9 +131,11 @@ Wenn für Dokumente bereits eine Crawlersuche mit Data Crawler durchgeführt wur
 
 Die Daten müssen mit einer `customer_id` gekennzeichnet sein, damit sie später gelöscht werden können.
 
-1. Verwenden Sie die Operation `DELETE /v1/user_data` und geben Sie die `customer_id` der Daten an, die Sie löschen wollen. Mit `DELETE /v1/user_data` werden alle Daten gelöscht, die einer bestimmten `customer_id` in dieser Serviceinstanz zugeordnet sind, wie unter [Methoden, die das Kennzeichnen von Daten unterstützen](/docs/services/discovery/information-security.html#pi_methods) angegeben. Weitere Informationen finden Sie auch in der [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html#delete-user-data){: new_window}.
+1. Verwenden Sie die Operation `DELETE /v1/user_data` und geben Sie die `customer_id` der Daten an, die Sie löschen wollen. Mit `DELETE /v1/user_data` werden alle Daten gelöscht, die einer bestimmten `customer_id` in dieser Serviceinstanz zugeordnet sind, wie unter [Methoden, die das Kennzeichnen von Daten unterstützen](/docs/services/discovery?topic=discovery-information-security#pi_methods) angegeben. Weitere Informationen finden Sie auch in der [API-Referenz ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}.
 
 Löschungen werden asynchron ausgeführt. Sie können den Fortschritt von Löschungen nicht verfolgen.
+
+Um sicherzustellen, dass aller gekennzeichneter Inhalt korrekt entfernt wurde, sollte der Befehl `user_delete` ausgeführt werden, nachdem die Zählungen `processing` und `pending` für alle Sammlungen in Ihrer Umgebung den Wert `0` zurückgegeben haben.
 
 Wenn eine nicht vorhandene `customer_id` bereitgestellt wird, wird nichts gelöscht, es wird jedoch eine Antwort des Typs `200 - OK` zurückgegeben.
 

@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Data Crawler herunterladen und installieren
 {: #downloading-and-installing-the-data-crawler}
@@ -23,10 +35,11 @@ lastupdated: "2018-07-03"
 Data Crawler erfasst Rohdaten, die später dann zur Bildung von Suchergebnissen für den {{site.data.keyword.discoveryshort}}-Service verwendet werden. Bei einer Crawlersuche in Datenrepositorys lädt der Crawler ausgehend von einer benutzerdefinierten Seed-URL Dokumente und Metadaten herunter. Der Crawler erkennt Dokumente in einer Hierarchie oder auf andere Weise mit der Seed-URL verbundene Dokumente und reiht sie zum Abruf ein.
 {: shortdesc}
 
-Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die Crawlersuche in Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
-{: tip}
+Data Crawler sollte nur zum Durchsuchen von Dateifreigaben oder Datenbanken verwendet werden, in allen anderen Fällen sollten Sie den entsprechenden {{site.data.keyword.discoveryshort}}-Connector verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery?topic=discovery-sources#sources). Data Crawler wird nicht mehr unterstützt, falls Sie ihn mit einer Datenquelle verwenden, die von den {{site.data.keyword.discoveryshort}}-Connectoren unterstützt wird.
+{: important}
 
 ## Voraussetzungen
+{: #dc-prerequisites}
 
 -   Java Runtime Environment Version 8 oder höher
 
@@ -37,8 +50,9 @@ Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die
 -   Mindestens 2 GB Hauptspeicher auf dem Linux-System
 
 ## Data Crawler herunterladen und installieren
+{: #dc-download-install}
 
-1.  Öffnen Sie einen Browser und melden Sie sich bei Ihrem [{{site.data.keyword.Bluemix}}-Konto ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net){: new_window} an.
+1.  Öffnen Sie einen Browser und melden Sie sich bei Ihrem [{{site.data.keyword.Bluemix}}-Konto ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://{DomainName}/){: new_window} an.
 
 1.  Wählen Sie in Ihrem {{site.data.keyword.Bluemix_notm}}-Dashboard den {{site.data.keyword.discoveryshort}}-Service aus, den Sie zuvor erstellt haben.
 
@@ -63,9 +77,10 @@ Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die
 
     **Hinweis:** In diesen Anleitungen beziehen sich Verweise auf Dateien im Verzeichnis `config` (z. B. `config/crawler.conf`) auf diese Datei in Ihrem Arbeitsverzeichnis und NICHT im installierten Verzeichnis `{installationsverzeichnis}/share/examples/config`.
 
-1.  Jetzt können Sie [Data Crawler für die Verbindung zu Ihrem Repository konfigurieren](/docs/services/discovery/data-crawler-seeds.html).
+1.  Jetzt können Sie [Data Crawler für die Verbindung zu Ihrem Repository konfigurieren](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-connector-and-seed-options).
 
 ## Struktur von Data Crawler
+{: #dc-structure}
 
 Beim Download von Data Crawler werden die folgenden Ordner in Ihrem System abgelegt:
 
@@ -79,7 +94,8 @@ Beim Download von Data Crawler werden die folgenden Ordner in Ihrem System abgel
     -   `man`: Enthält die produktinternen Handbuchseiten mit der Dokumentation für den Crawler.
 
 ## Bekannte Einschränkungen in diesem Release
+{: #dc-limitations}
 
 -   Data Crawler wird möglicherweise blockiert, wenn der Dateisystemconnector mit einer ungültigen oder fehlenden URL ausgeführt wird.
--   Konfigurieren Sie den Wert für `urls_to_filter` in der Datei `crawler.conf` so, dass alle Whitelist-URLs oder regulären Ausdrücke in einem einzigen RegEx-Ausdruck enthalten sind. Weitere Informationen finden Sie unter [Optionen für Crawlersuche konfigurieren](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options).
+-   Konfigurieren Sie den Wert für `urls_to_filter` in der Datei `crawler.conf` so, dass alle Whitelist-URLs oder regulären Ausdrücke in einem einzigen RegEx-Ausdruck enthalten sind. Weitere Informationen finden Sie unter [Optionen für Crawlersuche konfigurieren](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options).
 -   Der Pfad zur Konfigurationsdatei, der in der Option `--config -c` übergeben wird, muss ein qualifizierter Pfad sein. Er muss somit in den relativen Formaten `config/crawler.conf` oder `./crawler.conf` bzw. als absoluter Pfad wie `/path/to/config/crawler.conf` angegeben werden. Die Angabe von lediglich `crawler.conf` ist nur dann möglich, wenn die Datei `orchestration_service.conf` integriert ist, statt mit `include` in der `crawler.conf` Datei referenziert zu sein.

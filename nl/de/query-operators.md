@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Abfrageoperatoren
 {: #query-operators}
 
-Operatoren trennen die einzelnen Bestandteile einer Abfrage voneinander. Eine vollständige Liste der verfügbaren Operatoren enthält die [Abfragereferenz](/docs/services/discovery/query-reference.html#operators).
+Operatoren trennen die einzelnen Bestandteile einer Abfrage voneinander. Eine vollständige Liste der verfügbaren Operatoren enthält die [Abfragereferenz](/docs/services/discovery?topic=discovery-query-reference#operators).
 
 ## . \[JSON-Begrenzer\]
 {: #delimiter}
@@ -95,7 +107,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[Ausdrucksabfrage\]
 {: #phrase}
 
-Der gesamte Inhalt einer Ausdrucksabfrage wird so verarbeitet, wie er mit Escapezeichen versehen ist. Daher werden keine Sonderzeichen innerhalb einer Ausdrucksabfrage analysiert. Hiervon ausgenommen sind Anführungszeichen (`"`) in einer Ausdrucksabfrage, die mit Escapezeichen versehen werden müssen (`\"`). Verwenden Sie Ausdrucksabfragen bei einstufungsbasierten Volltextabfragen und nicht bei booleschen Filteroperationen. Verwenden Sie in Ausdrucksabfragen keine Platzhalter (`*`). **Hinweis**: Einfache Anführungszeichen (`'`) werden nicht unterstützt.
+Der gesamte Inhalt einer Ausdrucksabfrage wird so verarbeitet, wie er mit Escapezeichen versehen ist. Daher werden keine Sonderzeichen innerhalb einer Ausdrucksabfrage analysiert. Hiervon ausgenommen sind Anführungszeichen (`"`) in einer Ausdrucksabfrage, die mit Escapezeichen versehen werden müssen (`\"`). Verwenden Sie Ausdrucksabfragen bei einstufungsbasierten Volltextabfragen und nicht bei booleschen Filteroperationen. Verwenden Sie in Ausdrucksabfragen keine Platzhalter (`*`). 
+
+Einfache Anführungszeichen (`'`) werden nicht unterstützt.
+{: note}
 
 Beispiel:
 ```bash
@@ -198,6 +213,6 @@ Wird verwendet, um alle Ergebnisse zurückzugeben, die das angegebene `Feld` nic
 
 Beispiel:
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

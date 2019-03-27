@@ -2,20 +2,32 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-11-29"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 샘플 앱
 {: #sample-apps}
@@ -33,8 +45,7 @@ lastupdated: "2018-09-10"
 Airbnb 목록에서 공개적으로 사용 가능한 리뷰를 사용하여, 인사이트를 시각화하기 위해 개별 UI 컴포넌트를 사용하는 방법을 보여줍니다. 데이터 세트를 전환하여 사용자 고유의 유스 케이스에 맞게 쉽게 적용할 수 있습니다.
   - [코드 가져오기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM/watson-discovery-ui?cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-Get-the-Code){: new_window}
   - [데모 보기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.youtube.com/watch?v=5EEmQwcjUa4&cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-View-the-Video){: new_window}
-  - [앱 시도 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://watson-discovery-ui-demo.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  
+    
 [인사이트를 위한 엔터프라이즈 데이터 마이닝 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://ibm.biz/minedatapattern){: new_window}
 Watson Node.js SDK를 통해 Watson Discovery 서비스를 사용하여 데이터를 가져오고 강화합니다. 데이터를 탐색하여 패턴, 동향 및 실행 가능한 인사이트를 찾을 수 있습니다.
   - [코드 가져오기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM/watson-discovery-analyze-data-breaches?cm_sp=IBMCode-_-import-enrich-and-gain-insight-from-data-_-Get-the-Code){: new_window}
@@ -75,10 +86,4 @@ IBM Watson Node.js SDK를 사용하여 대화식 상호작용, 화 감지, 자�
   - [코드 가져오기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://github.com/IBM/watson-banking-chatbot?cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-Get-the-Code){: new_window}
   - [데모 보기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.youtube.com/watch?v=Jxi7U7VOMYg&cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-View-the-Demo){: new_window}
   - [앱 시도 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://create-a-cognitive-banking-chatbot-hnike.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  - [스타터 킷에서 빌드 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-   
-[검색 랩 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://ibm.biz/watsondiscoverylab){: new_window}
-이 랩에서는 Discovery 서비스에 개인용 콜렉션을 작성하고 콜렉션을 조회하는 방법을 알아봅니다.
-
-[Discovery 뉴스 랩 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://ibm.biz/discoverynewslab){: new_window}
-이 랩에서는 조회를 빌드하여 Watson Discovery 뉴스 인사이트 엔진에 대한 작업을 수행합니다.
+  - [스타터 킷에서 빌드 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}

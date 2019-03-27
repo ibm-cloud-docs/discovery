@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Data Crawler 구성
 {: #configuring-the-data-crawler}
@@ -23,8 +35,8 @@ lastupdated: "2018-07-03"
 저장소를 크롤링하기 위해 Data Crawler를 설정하려면 `crawler.conf` 파일에 적절한 입력 어댑터를 지정한 후 입력 어댑터 구성 파일에 있는 저장소 특정 정보를 구성해야 합니다.
 {: shortdesc}
 
-{{site.data.keyword.discoveryshort}} 도구 또는 API를 사용하여 Box, Salesforce 및 Microsoft SharePoint Online 데이터 소스를 크롤링할 수 있습니다. 자세한 정보는 [데이터 소스에 연결](/docs/services/discovery/connect.html)을 참조하십시오.
-{: tip}
+Data Crawler는 파일 공유 또는 데이터베이스를 크롤링하기 위해서만 사용되어야 합니다. 기타 모든 경우에는 적합한 {{site.data.keyword.discoveryshort}} 커넥터를 사용해야 합니다. 자세한 사항은 [데이터 소스에 연결](/docs/services/discovery?topic=discovery-sources#sources)을 참조하십시오. {{site.data.keyword.discoveryshort}} 커넥터에서 지원되는 데이터 소스를 사용하여 Data Crawler를 사용하는 경우 Data Crawler에 대한 지원이 더 이상 제공되지 않습니다.
+{: important}
 
 이 단계에 나열된 변경사항을 수행하기 전에 `{installation_directory}/share/examples/config` 디렉토리의 컨텐츠를 시스템의 작업 디렉토리(예: `/home/config`)로 복사하여 작업 디렉토리를 작성했는지 확인하십시오.
 
@@ -51,7 +63,7 @@ lastupdated: "2018-07-03"
         ```
         {: codeblock}
 
-    이 파일에는 사용자의 환경에 적합하도록 설정할 수 있는 기타 선택적 설정이 있습니다. 값 설정에 대한 자세한 정보는 [크롤링 옵션 구성](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options), [입력 어댑터 구성](/docs/services/discovery/data-crawler-discovery.html#input-adapter), [출력 어댑터 구성](/docs/services/discovery/data-crawler-discovery.html#output-adapter) 및 [추가 크롤링 관리 옵션](/docs/services/discovery/data-crawler-discovery.html#additional-crawl-management-options)을 참조하십시오.
+    이 파일에는 사용자의 환경에 적합하도록 설정할 수 있는 기타 선택적 설정이 있습니다. 값 설정에 대한 자세한 정보는 [크롤링 옵션 구성](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [입력 어댑터 구성](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [출력 어댑터 구성](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter) 및 [추가 크롤링 관리 옵션](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options)을 참조하십시오.
 
 1.  텍스트 편집기에서 `discovery/discovery_service.conf` 파일을 여십시오. 이전에 {{site.data.keyword.Bluemix}}에서 작성했던 {{site.data.keyword.discoveryshort}} 서비스에 특정한 다음 값을 수정하십시오.
 
@@ -60,11 +72,11 @@ lastupdated: "2018-07-03"
     -   `configuration_id` - {{site.data.keyword.discoveryshort}} 서비스 구성 ID입니다.
     -   `configuration` - 이 `discovery_service.conf` 파일의 전체 경로 위치입니다(예: `/home/config/discovery/discovery_service.conf`).
     -   `username` - {{site.data.keyword.discoveryshort}} 서비스에 대한 사용자 이름 인증 정보입니다.
-    -   `password` - {{site.data.keyword.discoveryshort}} 서비스에 대한 비밀번호 인증 정보입니다.
+    -   `apikey` - {{site.data.keyword.discoveryshort}} 서비스에 대한 인증 정보입니다. 
 
-    이 파일에는 사용자의 환경에 적합하도록 설정할 수 있는 기타 선택적 설정이 있습니다. 값 설정에 대한 자세한 정보는 [서비스 옵션 구성](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options)을 참조하십시오.
+    이 파일에는 사용자의 환경에 적합하도록 설정할 수 있는 기타 선택적 설정이 있습니다. 값 설정에 대한 자세한 정보는 [서비스 옵션 구성](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options)을 참조하십시오.
 
-1.  이러한 파일을 수정하면 데이터를 크롤링할 준비가 됩니다. 계속하려면 [데이터 저장소 크롤링](/docs/services/discovery/data-crawler-run.html#crawling-your-data-repository)으로 진행하십시오.
+1.  이러한 파일을 수정하면 데이터를 크롤링할 준비가 됩니다. 계속하려면 [데이터 저장소 크롤링](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository)으로 진행하십시오.
 
 ## 크롤링 옵션 구성
 {: #configuring-crawl-options}
@@ -97,7 +109,6 @@ lastupdated: "2018-07-03"
 
     **참고:** 커넥터 프레임워크 `lib/java` 디렉토리에 상대적입니다.
 
-    -   SharePoint 커넥터를 사용할 때 이 값은 `oakland`여야 합니다.
     -   데이터베이스 커넥터를 사용할 때 이 값은 `database`여야 합니다.
 
     기타 커넥터를 사용할 때 이 값을 비어 있는 상태로 둘 수 있습니다(예: empty string "").
@@ -231,8 +242,7 @@ output_directory - "/tmp/crawler-test-output"`
 -   **`collection_id`** - {{site.data.keyword.discoveryshort}} 서비스에서 설정한 문서 콜렉션의 이름입니다.
 -   **`api_version`** - 내부 사용 전용입니다. 마지막으로 API 버전이 변경된 날짜입니다.   
 -   **`configuration_id`** - {{site.data.keyword.discoveryshort}} 서비스에서 사용하는 구성 파일의 파일 이름입니다.
--   **`username`** - 크롤링된 문서 콜렉션의 위치를 인증하는 사용자 이름입니다.   
--   **`password`** - 크롤링된 문서 콜렉션의 위치를 인증하는 비밀번호입니다.
+-   **`apikey`** - 크롤링된 문서 콜렉션의 위치를 인증하는 인증 정보입니다. 
 
 {{site.data.keyword.discoveryshort}} 서비스 출력 어댑터는 {{site.data.keyword.IBM}}이 사용자를 좀 더 이해하고 사용자에게 더 나은 서비스를 제공하기 위해 통계를 전송할 수 있습니다. `send_stats` 변수에 설정될 수 있는 옵션은 다음과 같습니다.
 

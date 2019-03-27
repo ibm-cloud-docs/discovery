@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-06"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 블로그 및 웨비나
 {: #resources}
@@ -23,12 +35,12 @@ lastupdated: "2018-08-06"
 블로그 게시물, 웨비나 및 기타 리소스에서 {{site.data.keyword.discoveryfull}}에 대해 자세히 알아보십시오.
 {: shortdesc}
 
-Watson Discovery를 사용하여 패턴과 경향을 식별하고 보다 나은 의사결정을 유도하는 통찰력을 얻기 위한 방법을 자세히 알아보려면 [Watson Discovery 개요 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://ibm.biz/wds_architecture){: new_window}를 참조하십시오.
+Watson Discovery를 사용하여 패턴과 경향을 식별하고 보다 나은 의사결정을 유도하는 인사이트를 얻기 위한 방법을 자세히 알아보려면 [Watson Discovery 개요 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://ibm.biz/wds_architecture){: new_window}를 참조하십시오.
 
 ## 블로그 게시물
 {: #blogs}
 
-- [Watson Discovery 가격 책정 변경 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/blogs/bluemix/2018/06/pricing-changes-watson-discovery/){: new_window}
+- [Watson Discovery 가격 변경 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/blogs/bluemix/2018/06/pricing-changes-watson-discovery/){: new_window}
 
 - [Watson Discovery를 사용하여 영화 리뷰에 대한 예측 모델을 구축하는 방법 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.topcoder.com/blog/how-ibm-discovery-can-be-used-to-build-prediction-models-for-movie-reviews/){: new_window}
 
