@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-26"
 
 subcollection: discovery
 
@@ -65,7 +65,7 @@ If you have not yet created a {{site.data.keyword.discoveryshort}} instance and 
 1. On the **Manage Data** screen, click the **Upload your own data** button and create a new Private collection in {{site.data.keyword.discoveryshort}}.
 1. If you wish, drag and drop documents into your collection, or click **browse from computer** to upload documents. After the upload is complete, this information displays:
    -  The fields identified from your documents.
-   -  Enrichments applied to your documents. The Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging enrichments are automatically applied to the `text` field by {{site.data.keyword.discoveryshort}} (unless you are importing documents using a connector). You can add (or remove) additional enrichments to the `text` field.
+   -  Enrichments applied to your documents. The Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging enrichments are automatically applied to the `text` field by {{site.data.keyword.discoveryshort}} (unless you are importing documents using a connector). You can add (or remove) additional enrichments to the `text` (and other) fields.
    -  Pre-built queries you can run immediately.
 1. Click **Configure data** on the upper right. 
 1. On the **Configure data** screen, there will be three tabs: **Identify fields**, **Manage fields**, and **Enrich fields**.
