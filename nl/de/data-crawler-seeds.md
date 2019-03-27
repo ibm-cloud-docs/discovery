@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Connector und Seedoptionen konfigurieren
 {: #configuring-connector-and-seed-options}
@@ -23,18 +35,19 @@ lastupdated: "2017-08-25"
 Bei einer Crawlersuche in den Daten ermittelt der Crawler zuerst den Typ des Datenrepositorys (also den Connector) und die benutzerdefinierte Startposition (den Seed), bevor er mit dem Herunterladen von Informationen beginnt.
 {: shortdesc}
 
+Data Crawler sollte nur zum Durchsuchen von Dateifreigaben oder Datenbanken verwendet werden, in allen anderen Fällen sollten Sie den entsprechenden {{site.data.keyword.discoveryshort}}-Connector verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery?topic=discovery-sources#sources). Data Crawler wird nicht mehr unterstützt, falls Sie ihn mit einer Datenquelle verwenden, die von den {{site.data.keyword.discoveryshort}}-Connectoren unterstützt wird.
+{: important}
+
 **Wichtig:** Bei Verwendung von Data Crawler werden Sicherheitseinstellungen für das Datenrepository ignoriert.
 
 Seeds sind der Ausgangspunkt einer Crawlersuche und werden von Data Crawler verwendet, um Daten aus der Ressource abzurufen, die durch den Connector angegeben ist. Seeds konfigurieren normalerweise URLs für den Zugriff auf protokollbasierte Ressourcen wie Dateifreigaben, SMB-Freigaben, Datenbanken und andere Datenrepositorys, die für verschiedene Protokolle zugänglich sind. Unterschiedliche Seed-URLs können darüber hinaus unterschiedliche Leistungsmerkmale aufweisen. Seeds können ebenfalls repositoryspezifisch sein, was eine Crawlersuche in bestimmten Anwendungen anderer Anbieter (z. B. Systemen für das Customer-Relationship-Management, Systemen für das Produktlebenszyklusmanagement, Content-Management-Systemen, cloudbasierten Anwendungen und Webdatenbankanwendungen) ermöglicht.
 
 Damit die Crawlersuche für Ihre Daten korrekt ausgeführt wird, müssen Sie sicherstellen, dass der Crawler für das Lesen Ihres Datenrepositorys ordnungsgemäß konfiguriert wurde. Data Crawler stellt Connectors bereit, damit die Datensammlung aus den folgenden Repositorys unterstützt wird:
 
--   [Dateisystem](/docs/services/discovery/data-crawler-seeds.html#configuring-filesystem-crawl-options)
--   [Datenbanken (über JDBC)](/docs/services/discovery/data-crawler-seeds.html#configuring-database-crawl-options)
--   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#configuring-cmis-crawl-options)
--   [SMB- (Server Message Block), CIFS- (Common Internet Filesystem) oder Samba-Dateifreigaben](/docs/services/discovery/data-crawler-seeds.html#configuring-smbcifssamba-crawl-options)
--   [SharePoint und SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#configuring-sharepoint-crawl-options)
--   [Box](/docs/services/discovery/data-crawler-seeds.html#configuring-box-crawl-options)
+-   [Dateisystem](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-filesystem-crawl-options)
+-   [Datenbanken (über JDBC)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-database-crawl-options)
+-   [CMIS (Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-cmis-crawl-options)
+-   [SMB- (Server Message Block), CIFS- (Common Internet Filesystem) oder Samba-Dateifreigaben](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 
 Es gibt außerdem eine Connectorkonfigurationsvorlage, mit deren Hilfe Sie einen Connector anpassen können.
 
@@ -44,15 +57,13 @@ So konfigurieren Sie Ihren Connector:
 
 1.  Ändern Sie die entsprechenden Werte für Ihr Repository:
 
-    -   [Dateisystem](/docs/services/discovery/data-crawler-seeds.html#filesystem-crawl-options)
-    -   [Datenbanken (über JDBC)](/docs/services/discovery/data-crawler-seeds.html#database-crawl-seed)
-    -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#cmis-crawl-options)
-    -   [SMB- (Server Message Block), CIFS- (Common Internet Filesystem) oder Samba-Dateifreigaben](/docs/services/discovery/data-crawler-seeds.html#smb-cifs-samba-crawl-options)
-    -   [SharePoint und SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#sharepoint-crawl-options)
-    -   [Box](/docs/services/discovery/data-crawler-seeds.html#box-crawl-options)
+    -   [Dateisystem](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#filesystem-crawl-options)
+    -   [Datenbanken (über JDBC)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#database-crawl-seed)
+    -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#cmis-crawl-options)
+    -   [SMB- (Server Message Block), CIFS- (Common Internet Filesystem) oder Samba-Dateifreigaben](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 1.  Speichern und schließen Sie die Datei.
 1.  Wiederholen Sie die Schritte in einem Texteditor für die Datei `-seed.conf` in dem Verzeichnis `connectors/seeds`, das dem zu verbindenden Repository entspricht (beispielsweise ist `filesystem-seed.conf` die Konfigurationsdatei für den Seed, also das Ziel der Verbindung, für den Dateisystemconnector).
-1.  Fahren Sie mit dem [Konfigurieren von Data Crawler für die Verbindung zu {{site.data.keyword.discoveryshort}}](/docs/services/discovery/data-crawler-discovery.html) fort.
+1.  Fahren Sie mit dem [Konfigurieren von Data Crawler für die Verbindung zu {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-the-data-crawler) fort.
 
 Um auf das produktinterne Handbuch für die Connector- und Seedkonfigurationsdateien zuzugreifen, das die neuesten Informationen enthält, geben Sie die folgenden Befehle im Installationsverzeichnis des Crawlers ein:
 -   Zum Aufrufen von Informationen zu den Connectorkonfigurationsoptionen:
@@ -72,7 +83,11 @@ Um auf das produktinterne Handbuch für die Connector- und Seedkonfigurationsdat
 
 Mit dem Dateisystemconnector können Sie Dateien durchsuchen, die sich an einer aus Sicht der Data Crawler-Installation lokalen Position befinden.
 
+Eine weitere Option zum Hochladen einer großen Anzahl von Dateien in {{site.data.keyword.discoveryshort}} ist [discovery-files ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM/discovery-files){: new_window} auf GitHub.
+{: note}
+
 ### Dateisystemconnector konfigurieren
+{: #filesystem-connector}
 
 Für die Verwendung des Dateisystemconnectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/filesystem.conf` und ändern Sie die folgenden Werte Ihren Anwendungsfällen entsprechend:
 
@@ -82,6 +97,7 @@ Für die Verwendung des Dateisystemconnectors werden die folgenden Basiskonfigur
 -   **`classname`**: Der Java-Klassenname für den Connector. Für diesen Connector muss der Wert `plugin:filesystem.plugin@filesystem` verwendet werden.
 
 ### Seed für Crawlersuche in Dateisystemen konfigurieren
+{: #filesystem-crawl-seed}
 
 Die folgenden Werte können in der Datei konfiguriert werden, die den Seed für die Crawlersuche in Dateisystemen definiert. Zum Festlegen dieser Werte öffnen Sie die Datei `config/seeds/filesystem-seed.conf` und geben Sie die folgenden Werte Ihren Anwendungsfällen entsprechend an:
 
@@ -93,6 +109,7 @@ Die folgenden Werte können in der Datei konfiguriert werden, die den Seed für 
     {: tip}
 
 ## Optionen für die Crawlersuche in Datenbanken konfigurieren
+{: #database-crawl}
 
 Mit dem Datenbankconnector können Sie eine Datenbank durchsuchen, indem Sie einen angepassten SQL-Befehl ausführen und ein Dokument pro Zeile (Datensatz) sowie ein Inhaltselement pro Spalte (Feld) erstellen. Sie können eine als eindeutigen Schlüssel zu verwendende Spalte sowie eine Spalte mit einer Zeitmarke angeben, die das letzte Änderungsdatum für jeden Datensatz angibt. Der Connector ruft alle Datensätze aus der angegebenen Datenbank ab und kann in der SQL-Anweisung auch auf bestimmte Tabellen, Verknüpfungen usw. beschränkt werden.
 
@@ -118,6 +135,7 @@ Der Connector ruft alle Datensätze aus der angegebenen Datenbank und Tabelle ab
 1.  Wechseln Sie in das Verzeichnis, das aus der Archivdatei extrahiert wurde, und kopieren Sie die JAR-Datei aus diesem Verzeichnis in das Unterverzeichnis `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` Ihres Data Crawler-Installationsverzeichnisses. Alternativ können Sie mit der Einstellung `extra_jars_dir` in der Datei `crawler.conf` auch eine andere Position angeben.
 
 ### Datenbankconnector konfigurieren
+{: #database-connector}
 
 Für die Verwendung des Datenbankconnectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/database.conf` und ändern Sie die folgenden Werte Ihren Anwendungsfällen entsprechend:
 
@@ -161,6 +179,7 @@ Die folgenden Werte können in der Datei konfiguriert werden, die den Seed für 
 Mit dem Connector für CMIS (Content Management Interoperability Services) können Sie CMIS-fähige Repositorys von Content-Management-Systemen (CMS-Repositorys) durchsuchen (z. B. Alfresco, Documentum oder {{site.data.keyword.IBM}} Content Manager) und die in ihnen enthaltenen Daten indexieren.
 
 ### CMIS-Connector konfigurieren
+{: #cmis-connector}
 
 Für die Verwendung des CMIS-Connectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/cmis.conf` und geben Sie die folgenden Werte Ihren Anwendungsfällen entsprechend an:
 
@@ -169,10 +188,7 @@ Für die Verwendung des CMIS-Connectors werden die folgenden Basiskonfigurations
 -   **`dns`**: Nicht verwendete Option.
 -   **`classname`**: Der Java-Klassenname für den Connector. Verwenden Sie für diesen Connector den Wert `plugin:cmis-v1.1.plugin@connector`.
 -   **`logging-config`**: Gibt die Datei an, die zum Konfigurieren der Protokollierungsoptionen verwendet wird; der Wert muss als XML-Zeichenfolge gemäß `log4j` formatiert sein.
--   **`endpoint`**: Die Serviceendpunkt-URL eines CMIS-konformen Repositorys. Die URL-Strukturen für SharePoint lauten beispielsweise wie folgt:
-
-    -   Für AtomPub-Bindung: `http://yourserver/_vti_bin/cmis/rest?getRepositories`
-    -   Für WebServices-Bindung: `http://yourserver/_vti_bin/cmissoapwsdl.aspx`
+-   **`endpoint`**: Die Serviceendpunkt-URL eines CMIS-konformen Repositorys. 
 -   **`username`**: Der Benutzername des CMIS-Repositorybenutzers, mit dem auf den Inhalt zugegriffen wird. Dieser Benutzer muss Zugriff auf alle Zielordner und -dokumente besitzen, die durchsucht und indexiert werden sollen.
 -   **`password`**: Das Kennwort des CMIS-Repositorys, das für den Zugriff auf den Inhalt verwendet wird. Das Kennwort darf NICHT verschlüsselt sein und sollte als einfacher Text angegeben werden.
 -   **`repositoryid`**: Die ID des CMIS-Repositorys, die für den Zugriff auf den Inhalt in diesem speziellen Repository verwendet wird.
@@ -191,6 +207,7 @@ Für die Verwendung des CMIS-Connectors werden die folgenden Basiskonfigurations
 -   **`ssl-version`**: Gibt eine für HTTPS-Verbindungen zu verwendende SSL-Version an. Standardmäßig wird das strengste verfügbare Protokoll verwendet.
 
 ### Seed für CMIS-Crawlersuche konfigurieren
+{: #cmis-crawl-seed}
 
 Die folgenden Werte können in der Datei konfiguriert werden, die den Seed für die CMIS-Crawlersuche definiert. Zum Festlegen dieser Werte öffnen Sie die Datei `config/seeds/cmis-seed.conf` und ändern Sie die folgenden Werte Ihren Anwendungsfällen entsprechend:
 
@@ -206,6 +223,7 @@ Die folgenden Werte können in der Datei konfiguriert werden, die den Seed für 
 Mit dem Samba-Connector können Sie Dateifreigaben von Server Message Block (SMB) und Common Internet Filesystem (CIFS) durchsuchen. Dieser Dateifreigabetyp ist in Windows-Netzen gängig und wird auch durch das Open-Source-Projekt 'Samba' bereitgestellt.
 
 ### Samba-Connector konfigurieren
+{: #smb-cifs-samba-crawl-connector}
 
 Für die Verwendung des Samba-Connectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/samba.conf` und geben Sie die folgenden Werte Ihren Anwendungsfällen entsprechend an:
 
@@ -231,6 +249,7 @@ Für die Verwendung des Samba-Connectors werden die folgenden Basiskonfiguration
 -   **`enqueue-persistence`**: Nicht verwendete Option.
 
 ### Seed für Samba-Crawlersuche konfigurieren
+{: #smb-cifs-samba-crawl-seed}
 
 Die folgenden Werte können in der Datei konfiguriert werden, die den Seed für die Samba-Crawlersuche definiert. Zum Festlegen dieser Werte öffnen Sie die Datei `config/seeds/samba-seed.conf` und geben Sie die folgenden Werte Ihren Anwendungsfällen entsprechend an:
 
@@ -245,125 +264,3 @@ Die folgenden Werte können in der Datei konfiguriert werden, die den Seed für 
 
 -   **`hops`**: Nur zur internen Verwendung.
 -   **`default-allow`**: Nur zur internen Verwendung.
-
-## Optionen für die Crawlersuche in SharePoint konfigurieren
-{: #sharepoint-crawl-options}
-
-**Wichtig:** Der SharePoint-Connector erfordert Microsoft SharePoint Server 2007 (MOSS 2007), SharePoint Server 2010, SharePoint Server 2013 oder SharePoint Online.
-
-Mit dem SharePoint-Connector können Sie SharePoint-Objekte durchsuchen und die in ihnen enthaltenen Informationen indexieren. Ein Objekt wie ein Dokument, ein Benutzerprofil, eine Siteerfassung, ein Blog, ein Listeneintrag, eine Mitgliederliste, eine Verzeichnisseite und anderes kann mit den zugehörigen Metadaten indexiert werden. Für Listeneinträge und Dokumente können Indizes Anhänge einbeziehen.
-
-Der SharePoint-Connector beachtet das Attribut `noindex` bei allen SharePoint-Objekten ungeachtet ihres jeweiligen Typs (Blogs, Dokumente, Benutzerprofile usw.). Für jedes Ergebnis wird ein einzelnes Dokument zurückgegeben.
-{: tip}
-
-**Wichtig:** Das SharePoint-Konto, das Sie für die Crawlersuche in Ihren SharePoint-Sites verwenden, muss mindestens umfassende Leseberechtigungen besitzen.
-
-### SharePoint-Connector konfigurieren
-
-Für die Verwendung des SharePoint-Connectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/sharepoint.conf` und ändern Sie die folgenden Werte Ihren Anwendungsfällen entsprechend:
-
--   **`protocol`**: Der Name des Connectorprotokolls, das für die Crawlersuche verwendet wird. Für diesen Connector muss der Wert `io-sp` verwendet werden.
--   **`collection`**: Dieses Attribut wird zum Entpacken von temporären Dateien verwendet.
--   **`classname`**: Der Java-Klassenname für den Connector. Verwenden Sie für diesen Connector den Wert `plugin:io-sharepoint.plugin@connector`.
--   **`logging-config`**: Gibt die Datei an, die zum Konfigurieren der Protokollierungsoptionen verwendet wird; der Wert muss als XML-Zeichenfolge gemäß `log4j` formatiert sein.
--   **`seed-url-type`**: Gibt an, auf welchen Typ von SharePoint-Objekt die angegebenen Seed-URLs verweisen. Möglich sind Siteerfassungen oder Webanwendungen (werden auch als 'virtuelle Server' bezeichnet).
-
-    -   `Site Collections`: Falls 'Site Collections' als Typ der Seed-URL angegeben ist, werden nur die untergeordneten Elemente der Siteerfassung durchsucht, die durch die URL referenziert wird.
-    -   `Web Applications`: Falls 'Web Applications' als Typ der Seed-URL angegeben ist, werden alle Siteerfassungen (und deren untergeordnete Elemente) durchsucht, die zu den durch die einzelnen URLs referenzierten Webanwendungen gehören.
--   **`auth-type`**: Das Authentifizierungsverfahren, das beim Herstellen der Verbindung zum SharePoint-Server verwendet werden soll: `BASIC`, `NTLM2`, `KERBEROS` oder `CBA`. Der Standardauthentifizierungstyp ist `NTLM2`.
--   **`spUser`**: Der Benutzername des Sharepoint-Benutzers, mit dem auf den Inhalt zugegriffen wird. Dieser Benutzer muss Zugriff auf alle Zielsites und -listen besitzen, die durchsucht und indexiert werden sollen, und muss die zugehörigen Berechtigungen abrufen und auflösen können. Er sollte nach Möglichkeit mit dem Domänennamen eingegeben werden, z. B. `MYDOMAIN\\Administrator`.
--   **`spPassword`**: Das Kennwort des Sharepoint-Benutzers, mit dem auf den Inhalt zugegriffen wird. Das Kennwort muss mit dem Programm 'vcrypt', das mit Data Crawler ausgeliefert wird, verschlüsselt werden.
--   **`cba-sts`**: Die URL für den Endpunkt von Security Token Service (STS), für den der Benutzer der Crawlersuche authentifiziert werden soll. Bei einer lokalen SharePoint-Instanz mit ADFS sollte dies der ADFS-Endpunkt sein. Falls als Authentifizierungstyp 'CBA' (Claims Based Authentication, anspruchsbasierte Authentifizierung) festgelegt ist, ist dieses Feld erforderlich.
--   **`cba-realm`**: Die Trust-ID der übergebenden Partei, die verwendet werden soll, wenn ein Sicherheitstoken von STS angefordert wird. Dieses Feld wird manchmal als 'AppliesTo-Wert' oder als 'Realm' bezeichnet. Bei SharePoint Online sollte dies die URL für das Stammverzeichnis der SharePoint Online-Instanz sein (z. B. `https://mycompany.sharepoint.com`). Bei ADFS ist dies der ID-Wert für den Trust der übertragenden Partei zwischen SharePoint und ADFS (z. B. `"urn:SHAREPOINT:adfs"`).
--   **`everyone-group`**: Wenn diese Option angegeben ist, wird dieser Gruppenname in den ACLs verwendet, wenn jeder den Zugriff erhalten soll. Dieses Feld ist erforderlich, wenn die Crawlersuche für Benutzerprofile aktiviert ist.
-
-    **Hinweis:** Die Sicherheit wird durch den Service für Abruf und Einstufung nicht beachtet.
-
--   **`user-profile-master-url`**: Die Basis-URL, die der Connector für die Erstellung von Links zu Benutzerprofilen verwendet. Der Wert sollte so konfiguriert sein, dass er auf das Anzeigeformular für Benutzerprofile verweist. Falls das Token `%FIRST_SEED%` festgestellt wird, wird es durch die erste Seed-URL ersetzt. Diese Option ist erforderlich, wenn die Crawlersuche für Benutzerprofile aktiviert ist.
--   **`urls`**: Eine durch Zeilenumbrüche getrennte Liste mit HTTP-URLs von SharePoint-Webanwendungen oder -Siteerfassungen, die durchsucht werden sollen.
--   **`ehcache-config`**: Nicht verwendete Option.
--   **`method`**: Die Methode (`GET` oder `POST`), mit der Parameter übergeben werden.
--   **`cache-types`**: Nicht verwendete Option.
--   **`cache-size`**: Nicht verwendete Option.
--   **`enable-acl`** - Aktiviert die Crawlersuche für SharePoint-Benutzerprofile; Werte sind `true` oder `false`; der Standardwert ist `false`.
-
-### Seed für SharePoint-Crawlersuche konfigurieren
-
-Die folgenden zusätzlichen Werte können in der Datei konfiguriert werden, die den Seed für die SharePoint-Crawlersuche definiert. Zum Festlegen dieser Werte öffnen Sie die Datei `config/seeds/sharepoint-seed.conf` und geben Sie die folgenden Werte Ihren Anwendungsfällen entsprechend an:
-
--   **`url`**: Eine durch Zeilenumbrüche getrennte Liste mit URLs von SharePoint-Webanwendungen oder -Siteerfassungen, die durchsucht werden sollen. Beispiel:
-
-    ```
-    io-sp://a.com
-    io-sp://b.com:83/site
-    io-sp://c.com/site2
-    ```
-    {: codeblock}
-
-    Die Untersites dieser Sites werden ebenfalls durchsucht (sofern sie nicht durch andere Crawlersuchregeln ausgeschlossen sind).
-
--   **`filter-url`**: Eine durch Zeilenumbrüche getrennte Liste mit URLs von SharePoint-Webanwendungen oder -Siteerfassungen, die durchsucht werden sollen. Beispiel:
-
-    ```
-    http://a.com
-    http://b.com:83/site
-    http://c.com/site2
-    ```
-    {: codeblock}
-
--   **`hops`**: Nur zur internen Verwendung.
--   **`n-concurrent-requests`**: Nur zur internen Verwendung.
--   **`delay`**: Nur zur internen Verwendung.
--   **`default-allow`**: Nur zur internen Verwendung.
--   **`seed-protocol`**: Legt das Seedprotokoll für untergeordnete Elemente der Siteerfassung fest. Ist erforderlich, wenn die Siteerfassung das Protokoll SSL, HTTP oder HTTPS verwendet. Dieser Wert muss mit dem Protokoll der Siteerfassung identisch sein.
-
-## Optionen für die Box-Crawlersuche konfigurieren
-
-Mit dem Box-Connector können Sie Ihre Enterprise Box-Instanz durchsuchen und die in ihr enthaltenen Informationen indexieren.
-
-### Box-Connector konfigurieren
-
-Für die Verwendung des Box-Connectors werden die folgenden Basiskonfigurationsoptionen benötigt. Zum Festlegen dieser Werte öffnen Sie die Datei `config/connectors/box.conf` und ändern Sie die folgenden Werte Ihren Anwendungsfällen entsprechend:
-
--   **`protocol`**: Der Name des Connectorprotokolls, das für die Crawlersuche verwendet wird. Für diesen Connector muss der Wert `box` verwendet werden.
--   **`classname`**: Der Java-Klassenname für den Connector. Verwenden Sie für diesen Connector den Wert `plugin:box.plugin@connector`.
--   **`logging-config`**: Gibt die Datei an, die zum Konfigurieren der Protokollierungsoptionen verwendet wird; der Wert muss als XML-Zeichenfolge gemäß `log4j` formatiert sein.
--   **`box-crawl-seed-url`**: Die Basis-URL für Box. Der Wert ist bei diesem Connector `box://app.box.com/`.
-
-    Sie können die Crawlersuche für unterschiedliche Typen von URLs durchführen. Beispiele:
-
-    -   Crawlersuche für ein gesamtes Unternehmen durchführen: `box://app.box.com/`
-    -   Crawlersuche für einen bestimmten Ordner durchführen: `box://app.box.com/user/BENUTZER-ID/folder/ORDNER-ID/ORDNERNAME`
-    -   Crawlersuche für einen bestimmten Benutzer durchführen: `box://app.box.com/user/BENUTZER-ID/`
--   **`client-id`**: Geben Sie die Client-ID an, die von Box bereitgestellt wurde, als Sie Ihre Box-Anwendung erstellt haben.
--   **`client-secret`**: Geben Sie den geheimen Clientschlüssel an, der von Box bereitgestellt wurde, als Sie Ihre Box-Anwendung erstellt haben.
--   **`path-to-private-key`**: Dies ist die Position (im lokalen Dateisystem) des privaten Schlüssels, der Teil des Schlüsselpaares aus privaten und öffentlichem Schlüssel ist, das für die Kommunikation mit Box generiert wurde.
--   **`kid`**: Geben Sie die ID des öffentlichen Schlüssels an. Dies ist die andere Hälfte des Schlüsselpaares aus privatem und öffentlichem Schlüssel, das für die Kommunikation mit Box generiert wurde.
--   **`enterprise-id`**: Das Unternehmen, in dem Ihre Anwendung autorisiert wurde. Die Unternehmens-ID wird auf der Hauptseite der Box-Administratorkonsole aufgelistet.
--   **`enable-acl`**: Nur zur internen Verwendung. Ermöglicht den Abruf von ACLs für durchsuchte Daten.
--   **`user-agent`**: Ein Header, der beim Durchsuchen von Dokumenten an den Server gesendet wird.
--   **`method`**: Die Methode (`GET` oder `POST`), mit der Parameter übergeben werden.
--   **`url-logging`**: Der Umfang für die Protokollierung der durchsuchten URLs. Mögliche Werte:
-
-    -   `full-logging`: Alle Informationen zur URL werden protokolliert.
-    -   `refined-logging`: Nur die Informationen, die zum Durchsuchen des Crawlerprotokolls und für eine ordnungsgemäße Funktion des Connectors erforderlich sind, werden protokolliert. Dies ist der Standardwert.
-    -   `minimal-logging`: Nur ein Minimum der Informationen, die für die ordnungsgemäße Funktion des Connectors erforderlich sind, werden konfiguriert.
-
-    Wenn Sie für diese Option den Wert `minimal-logging` festlegen, verringert sich die Größe der Protokolle und Sie erzielen eine leichte Leistungsverbesserung, da durch die Reduzierung der protokollierten Datenmenge weniger Ein-/Ausgabeoperationen erfoderlich sind.
--   **`ssl-version`**: Gibt eine für HTTPS-Verbindungen zu verwendende SSL-Version an. Standardmäßig wird das strengste verfügbare Protokoll verwendet.
-
-### Seed für Box-Crawlersuche konfigurieren
-{: #box-crawl-options}
-
-Die folgenden zusätzlichen Werte können in der Datei konfiguriert werden, die den Seed für die Box-Crawlersuche definiert. Zum Festlegen dieser Werte öffnen Sie die Datei `config/seeds/box-seed.conf` und geben Sie die folgenden Werte Ihren Anwendungsfällen entsprechend an:
-
--   **`url`**: Die URL, die aus Ausgangspunkt für die Crawlersuche verwendet werden soll. Der Standardwert ist `box://app.box.com/`.
--   **`default-allow`**: Nur zur internen Verwendung.
-
-## Einschränkungen
-
-Für den Box-Connector bestehen einige Einschränkungen:
-
--   Kommentare oder Tasks für Dateien werden nicht abgerufen.
--   Der Hauptteil von Notes-Inhalt wird als JSON abgerufen. Möglicherweise ist eine zusätzliche Konvertierung für Notes-Daten erforderlich.
--   Einzelne Dokumente können nicht über TestIt abgerufen werden. Nur Seed-URLs, Ordner-URLs und Benutzer-URLs können über TestIt abgerufen werden.

@@ -2,20 +2,32 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-11-29"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Beispielapps
 {: #sample-apps}
@@ -33,8 +45,7 @@ Einfaches Extrahieren von Bewertungsdaten als unformatierter Text. Sie durchlauf
 Verwendet öffentlich verfügbare Bewertungen für Airbnb-Listings, um zu veranschaulichen, wie einzelne UI-Komponenten zum Visualisieren von Einblicken verwendet werden können. Sie können das Dataset dann ganz einfach umschalten, um es an Ihre eigenen Anwendungsfälle anzupassen.
   - [Code abrufen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM/watson-discovery-ui?cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-Get-the-Code){: new_window}
   - [Demo anzeigen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.youtube.com/watch?v=5EEmQwcjUa4&cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-View-the-Video){: new_window}
-  - [App testen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://watson-discovery-ui-demo.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  
+    
 [Mining für Unternehmensdaten für Insights durchführen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://ibm.biz/minedatapattern){: new_window}
 Verwenden Sie das Watson Node.js-SDK, um Ihre Daten mit dem Watson Discovery-Service zu importieren und aufzubereiten. Anschließend können Sie die Daten durchsuchen, um Muster, Trends und verwertbare Erkenntnisse zu ermitteln.
   - [Code abrufen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM/watson-discovery-analyze-data-breaches?cm_sp=IBMCode-_-import-enrich-and-gain-insight-from-data-_-Get-the-Code){: new_window}
@@ -75,10 +86,4 @@ Erstellen Sie mit dem IBM Watson Node.js-SDK einen Webbenutzerschnittstellen-Cha
   - [Code abrufen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://github.com/IBM/watson-banking-chatbot?cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-Get-the-Code){: new_window}
   - [Demo anzeigen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.youtube.com/watch?v=Jxi7U7VOMYg&cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-View-the-Demo){: new_window}
   - [App testen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://create-a-cognitive-banking-chatbot-hnike.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  - [Aus Starter-Kit erstellen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-   
-[Discovery-Lab ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://ibm.biz/watsondiscoverylab){: new_window}
-In diesem Lab erstellen Sie eine private Sammlung im Discovery-Service und erfahren, wie Sie die Sammlung abfragen.
-
-[Discovery News-Lab ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](http://ibm.biz/discoverynewslab){: new_window}
-In diesem Lab arbeiten Sie mit der Insights-Engine von Watson Discovery News, indem Sie Abfragen erstellen.
+  - [Aus Starter-Kit erstellen ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}

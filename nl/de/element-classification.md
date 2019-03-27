@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Elementklassifizierung
 {: #element-classification}
@@ -40,9 +52,9 @@ Die Elementklassifizierung gibt ein JSON-Objekt zurück, das Folgendes enthält:
 -  Ein Array des Typs `tables`, das die im Eingabedokument angegebenen Tabellen aufgliedert.
 -  Ein Objekt des Typs `document_structure`, in dem Abschnittstitel und führende Sätze aufgelistet sind, die im Eingabedokument angegeben sind.
 -  Ein Array des Typs `parties`, in dem die Parteien, Rollen, Adressen und Kontakte von Parteien aufgelistet sind, die im Eingabedokument angegeben sind.
--  Arrays, die `effective_dates` und `contract_amounts` definieren.
+-  Arrays, die `effective_dates`,`contract_amounts` und `termination_dates` definieren.
 
-Dieses Beta-Feature wird derzeit nur in Englisch unterstützt. Details hierzu finden Sie unter [Sprachunterstützung](/docs/services/discovery/language-support.html#feature-support).
+Dieses Beta-Feature wird derzeit nur in Englisch unterstützt. Details hierzu finden Sie unter [Sprachunterstützung](/docs/services/discovery?topic=discovery-language-support#feature-support).
 
 
 ## Voraussetzungen der Klassifizierung
@@ -55,19 +67,19 @@ Damit Dokumente mithilfe der Elementklassifizierung klassifiziert werden können
    **Hinweis:** Ob eine PDF-Datei im Textformat vorliegt, können Sie ermitteln, indem Sie das Dokument in einer PDF-Anzeigefunktion öffnen und mit dem Tool **Textauswahl** ein einzelnes Wort auswählen. Falls Sie kein einzelnes Wort im Dokument auswählen können, kann die Datei nicht analysiert werden.
 -  Die Dateien sind nicht größer als 50 MB.
 -  Geschützte (also nur mit einem Kennwort zu öffnende) PDF-Dateien sowie PDF-Dateien mit eingeschränkter Bearbeitung (bei denen zur Bearbeitung ein Kennwort erforderlich ist) können nicht analysiert werden.
--  Die {{site.data.keyword.discoveryshort}}-Tools enthalten eine Konfiguration mit dem Namen **Standardvertragskonfiguration**, die verwendet werden kann, um Ihre Sammlung von PDF-Dokumenten aufzubereiten. Sie haben auch die Möglichkeit, eine angepasste Konfiguration zu erstellen, die die Aufbereitung für `elements` enthält. Weitere Informationen finden Sie unter [Voraussetzungen für die Datensammlung](/docs/services/discovery/element-classification.html#element-collection).
+-  Die {{site.data.keyword.discoveryshort}}-Tools enthalten eine Konfiguration mit dem Namen **Standardvertragskonfiguration**, die verwendet werden kann, um Ihre Sammlung von PDF-Dokumenten aufzubereiten. Sie haben auch die Möglichkeit, eine angepasste Konfiguration zu erstellen, die die Aufbereitung für `elements` enthält. Weitere Informationen finden Sie unter [Voraussetzungen für die Datensammlung](/docs/services/discovery?topic=discovery-element-classification#element-collection).
 -  Bei **Lite**-Plänen können maximal 500 Seiten pro Monat verarbeitet werden.
 -  Nicht verfügbar in **Dedicated**-Umgebungen.
 -  Die Normalisierung nach der Aufbereitung kann bei Verwendung der Elementklassifizierung nicht ausgeführt werden.
 
-**Hinweis:** Die Datei für die **Standardvertragskonfiguration** wurde am 25. September 2018 aktualisiert. Wenn Sie diese Konfiguration vor diesem Datum auf eine Sammlung angewendet haben, finden Sie in den [Releaseinformationen](/docs/services/discovery/release-notes.html#25sept) die Informationen zum Aktualisieren Ihrer Sammlung.
+**Hinweis:** Die Datei für die **Standardvertragskonfiguration** wurde am 25. September 2018 aktualisiert. Wenn Sie diese Konfiguration vor diesem Datum auf eine Sammlung angewendet haben, finden Sie in den [Releaseinformationen](/docs/services/discovery?topic=discovery-release-notes#25sept) die Informationen zum Aktualisieren Ihrer Sammlung.
 
 ## Voraussetzungen für die Datensammlung
 {: #element-collection}
 
 Damit die Elementklassifizierung verwendet werden kann, muss Ihre Sammlung so konfiguriert sein, dass sie bestimmten Anforderungen entspricht.
 
-Die {{site.data.keyword.discoveryshort}}-Tools enthalten eine Konfiguration mit dem Namen **Standardvertragskonfiguration**, die vorkonfiguriert wurde, um PDF-Dokumente mit der Aufbereitung für die **Elementklassifizierung** und anderen erforderlichen Optionen aufzubereiten. Sie können diese Konfiguration auswählen, wenn Sie Ihre Sammlung erstellen. Das JSON für diese Konfiguration lautet:
+Die {{site.data.keyword.discoveryshort}}-Tools enthalten eine Konfiguration mit dem Namen **Standardvertragskonfiguration**, die vorkonfiguriert wurde, um PDF-Dokumente mit der Aufbereitung **Elementklassifizierung** und anderen erforderlichen Optionen aufzubereiten. Sie können diese Konfiguration auswählen, wenn Sie Ihre Sammlung erstellen. Das JSON für diese Konfiguration lautet:
 
 ```json
  {
@@ -115,9 +127,10 @@ Falls Sie eine angepasste Konfigurationsdatei erstellen möchten, konfigurieren 
 ```
 {: codeblock}
 
-Nachdem Sie die `Standardvertragskonfiguration` in den Tools ausgewählt haben, können Sie Ihre Dokumente hochladen. Falls Sie keine Erfahrungen mit dem Erstellen von Sammlungen und dem Hochladen von Dokumenten besitzen, finden Sie unter [Einführung in die Tools](/docs/services/discovery/getting-started-tool.html) entsprechende Informationen.
+Nachdem Sie die `Standardvertragskonfiguration` in den Tools ausgewählt haben, können Sie Ihre Dokumente hochladen. Falls Sie keine Erfahrungen mit dem Erstellen von Sammlungen und dem Hochladen von Dokumenten besitzen, finden Sie unter [Einführung in die Tools](/docs/services/discovery?topic=discovery-getting-started#getting-started) entsprechende Informationen.
 
 ## Klassifizierte Elemente
+{: #classified-elements}
 
 Nachdem ein Dokument mit der Elementklassifizierung klassifiziert wurde, wird es mit einem Array `elements` als Teil des durchsuchbaren Dokuments zurückgegeben.
 
@@ -158,14 +171,17 @@ Jedes Objekt im Array `elements` beschreibt ein Element des Vertrages, das von {
 Jedes Element verfügt über fünf wichtige Abschnitte:
 -  `location`: Die Indizes `begin` und `end`, die die Position des Elements im Eingabedokument angeben.
 -  `text`: Der Text des klassifizierten Elements.
--  `types`: Ein Array, das null oder mehr Objekte des Typs `label` enthält. Jedes `label`-Objekt enthält ein Feld `nature`, das die Auswirkung des Elements auf die angegebene Partei (z. B. `Right` oder `Exclusion`) aufführt, und ein Feld `party`, das die vom Element betroffenen Parteien oder Parteien angibt. Weitere Informationen finden Sie unter [types](/docs/services/discovery/parsing.html#contract_types) im Abschnitt mit den [Informationen zum Parsing von Verträgen](/docs/services/discovery/parsing.html#contract_parsing).
--  `categories`: Ein Array, das null oder mehr Objekte des Typs `label` enthält. Der Wert jedes Objekts `label` gibt eine funktionale Kategorie an, in die das angegebene Element fällt. Weitere Informationen finden Sie unter [Kategorien](/docs/services/discovery/parsing.html#contract_categories) im Abschnitt mit den [Informationen zum Parsing von Verträgen](/docs/services/discovery/parsing.html#contract_parsing).
--  `attribute`: Ein Array, das null oder mehr Objekte auflistet, die Attribute des Elements definieren. Zu den gegenwärtig unterstützten Attributtypen zählen `Location` (geografische Position oder Region, auf die durch das Element verwiesen wird), `DateTime` (Datum, Uhrzeit, Datumsbereich oder Zeitbereich, der/die durch das Element angegeben wir) und `Currency` (Währungswerte und -einheiten). Jedes Objekt im Array `attributes` enthält auch den Text und die Position des identifizierten Elements. Die Position wird durch die Indizes `begin` und `end` des Texts im Eingabedokument definiert. Weitere Informationen finden Sie unter [attributes](/docs/services/discovery/parsing.html#attributes) im Abschnitt mit den [Informationen zum Parsing von Verträgen](/docs/services/discovery/parsing.html#contract_parsing).
+-  `types`: Ein Array, das null oder mehr Objekte des Typs `label` enthält. Jedes `label`-Objekt enthält ein Feld `nature`, das die Auswirkung des Elements auf die angegebene Partei (z. B. `Right` oder `Exclusion`) aufführt, und ein Feld `party`, das die vom Element betroffenen Parteien oder Parteien angibt. Weitere Informationen finden Sie unter [types](/docs/services/discovery?topic=discovery-contract_parsing#contract_types) im Abschnitt mit den [Informationen zum Parsing von Verträgen](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing).
+-  `categories`: Ein Array, das null oder mehr Objekte des Typs `label` enthält. Der Wert jedes Objekts `label` gibt eine funktionale Kategorie an, in die das angegebene Element fällt. Weitere Informationen finden Sie unter [Kategorien](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories) im Abschnitt mit den [Informationen zum Parsing von Verträgen](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing).
+-  `attribute`: Ein Array, das null oder mehr Objekte auflistet, die Attribute des Elements definieren. Zu den gegenwärtig unterstützten Attributtypen zählen `Location` (geografische Position, auf die durch das Element verwiesen wird), `DateTime` (Datum, Uhrzeit, Datumsbereich oder Zeitbereich, der/die durch das Element angegeben wird) und `Currency` (Währungswerte und -einheiten). Jedes Objekt im Array `attributes` enthält auch den Text und die Position des identifizierten Elements. Die Position wird durch die Indizes `begin` und `end` des Texts im Eingabedokument definiert. Weitere Informationen finden Sie unter [Attribute](/docs/services/discovery?topic=discovery-contract_parsing#attributes) in [Parsing von Verträgen](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing).
 
-Darüber hinaus enthält jedes Objekt in den Arrays `types` und `categories` ein Array des Typs `provenance_ids`. Die im Array `provenance_ids` aufgelisteten Werte sind Hashwerte, die Sie an IBM senden können, um Feedback zu geben oder Unterstützung für den Teil der Analyse zu erhalten, der sich auf das Element bezieht.
+Darüber hinaus enthält jedes Objekt in den Arrays `types` und `categories` ein Array des Typs `provenance_ids`. Die im Array `provenance_ids` aufgelisteten Werte sind Hashwerte, die Sie an IBM senden können, um Feedback zu geben oder Unterstützung für den Teil der Analyse zu erhalten, der sich auf das Element bezieht. 
 
-**Hinweis**: Einige Sätze fallen unter keinen Typ oder unter keine Kategorie. In diesem Fall werden die Arrays `types` und `categories` vom Service als leere Objekte zurückgegeben.
+Einige Sätze fallen unter keinen Typ und keine Kategorie. In diesem Fall werden die Arrays `types` und `categories` vom Service als leere Objekte zurückgegeben.
+{: note}
 
-**Hinweis:** Einige Sätze decken mehrere Themen ab. In diesem Fall gibt der Service mehrere Gruppen von Objekten des Typs `types` und `categories` zurück.
+Einige Sätze decken mehrere Themen ab. In diesem Fall gibt der Service mehrere Gruppen von Objekten der Typen `types` und `categories` zurück.
+{: note}
 
-**Hinweis**: Einige Sätze enthalten keine identifizierbaren Attribute. In diesem Fall gibt der Service das Array `attributes` als leere Objekte zurück.
+Einige Sätze enthalten keine identifizierbaren Attribute. In diesem Fall gibt der Service das Array `attributes` als leeres Objekt zurück.
+{: note}

@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-05-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Abfrageaggregationen
 {: #query-aggregations}
 
-Aggregationen geben eine Gruppe von Datenwerten zurück. Eine vollständige Liste der verfügbaren Aggregationen enthält die [Abfragereferenz](/docs/services/discovery/query-reference.html#aggregations).
+Aggregationen geben eine Gruppe von Datenwerten zurück. Eine vollständige Liste der verfügbaren Aggregationen enthält die [Abfragereferenz](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ## term
 {: #term}
@@ -34,7 +46,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filter
-{: #filter}
+{: #aggfilter}
 
 Ein Modifikator, der die Dokumentgruppe der Aggregationsabfrage eingrenzt, der er vorangestellt ist. Das folgende Beispiel filtert die Gruppe der Dokumente heraus, die das Konzept 'Cloud computing' enthalten.
 
@@ -95,7 +107,7 @@ Falls Sie `anomaly:true` bei der Aggregation des Typs `timeslice` angeben, enth�
   - Ein Feld `anomaly` an den Stellen im Ergebnisarray der Ausgabe, die eine Anomalie darstellen. Das Feld 'anomaly' enthält einen Wert mit dem Datentyp `float`, der das Ausmaß für die Verhaltensanomalie angibt. Je näher der Wert des Feldes 'anomaly' an `1` liegt, desto größer ist die Wahrscheinlichkeit, dass das Ergebnis eine Anomalie darstellt.
 
   - Die Felder `key` und `key_as_string` in jedem Objekt des Arrays `results` entsprechen einer in Sekunden angegebenen UNIX-Zeitmarke.
-  - Die Anomaliebewertung bezieht sich auf eine einzelne Abfrage und wird nicht abfrageübergreifend ermittelt.
+  - Die Anomaliebewertung bezieht sich nur auf die ursprüngliche Abfrage.
 
 ```json
 "type": "timeslice",
@@ -139,6 +151,7 @@ Falls Sie `anomaly:true` bei der Aggregation des Typs `timeslice` angeben, enth�
 {: codeblock}
 
 #### Einschränkungen bei der Anomalieerkennung
+{: #anomaly-limitations}
 
 - Die Anomalieerkennung ist gegenwärtig nur für Aggregationen der höchsten Ebene mit dem Parameter `timeslice` verfügbar. In untergeordneten (also verschachtelten) Aggregationen kann sie nicht verwendet werden.
 - Die maximale Anzahl der Punkte, die durch die Anomalieerkennung in einer Aggregation des Typs `timeslice` verarbeitet werden können, beträgt `1500`.

@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-10-04"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Abfrageparameter
 {: #query-parameters}
 
-Der {{site.data.keyword.discoveryfull}}-Service bietet durch Abfragen leistungsfähige Funktionen für die Inhaltssuche. Nachdem Ihr Inhalt hochgeladen und durch den {{site.data.keyword.discoveryshort}}-Service aufbereitet wurde, können Sie Abfragen erstellen und {{site.data.keyword.discoveryshort}} in Ihre eigenen Projekte integrieren oder mit {{site.data.keyword.watson}} Explorer Application Builder eine angepasste Anwendung erstellen. Lesen Sie zur Vorbereitung für die Verwendung von Abfragen zunächst den Abschnitt [Abfragekonzepte](/docs/services/discovery/using.html). Eine vollständige Liste der Parameter enthält die [Abfragereferenz](/docs/services/discovery/query-reference.html#parameter-descriptions).
+Der {{site.data.keyword.discoveryfull}}-Service bietet durch Abfragen leistungsfähige Funktionen für die Inhaltssuche. Nachdem Ihr Inhalt hochgeladen und durch den {{site.data.keyword.discoveryshort}}-Service aufbereitet wurde, können Sie Abfragen erstellen und {{site.data.keyword.discoveryshort}} in Ihre eigenen Projekte integrieren oder mit {{site.data.keyword.watson}} Explorer Application Builder eine angepasste Anwendung erstellen. Lesen Sie zur Vorbereitung für die Verwendung von Abfragen zunächst den Abschnitt [Abfragekonzepte](/docs/services/discovery?topic=discovery-query-concepts#query-concepts). Eine vollständige Liste der Parameter enthält die [Abfragereferenz](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
 {: shortdesc}
 
 **Suchparameter**
@@ -32,12 +44,12 @@ Die **Ergebnismenge** ist die Gruppe der Dokumente, die durch die kombinierten S
 ## Parameter 'query'
 {: #query}
 
-Eine Suche mit dem Parameter 'query' gibt alle Dokumente in Ihrem Datenbestand mit vollständigen Aufbereitungen und dem vollständigen Text in der Reihenfolge ihrer Relevanz zurück. Eine Abfrage schließt außerdem alle Dokumente aus, in denen der Abfrageinhalt nicht erwähnt wird. Derartige Abfragen werden in der [{{site.data.keyword.discoveryshort}}](/docs/services/discovery/query-operators.html)-Abfragesprache geschrieben.
+Eine Suche mit dem Parameter 'query' gibt alle Dokumente in Ihrem Datenbestand mit vollständigen Aufbereitungen und dem vollständigen Text in der Reihenfolge ihrer Relevanz zurück. Eine Abfrage schließt außerdem alle Dokumente aus, in denen der Abfrageinhalt nicht erwähnt wird. Derartige Abfragen werden in der [{{site.data.keyword.discoveryshort}}-Abfragesprache geschrieben](/docs/services/discovery?topic=discovery-query-operators#query-operators).
 
 ## filter
 {: #filter}
 
-Dieser Parameter gibt eine zwischenspeicherbare Abfrage an, die alle Dokumente ausschließt, in denen der Abfrageinhalt nicht erwähnt wird. Ergebnisse der Filtersuche werden **nicht** in der Reihenfolge ihrer Relevanz zurückgegeben. Derartige Abfragen werden in der [{{site.data.keyword.discoveryshort}}-Abfragesprache](/docs/services/discovery/query-operators.html) geschrieben.
+Dieser Parameter gibt eine zwischenspeicherbare Abfrage an, die alle Dokumente ausschließt, in denen der Abfrageinhalt nicht erwähnt wird. Ergebnisse der Filtersuche werden **nicht** in der Reihenfolge ihrer Relevanz zurückgegeben. Derartige Abfragen werden in der [{{site.data.keyword.discoveryshort}}-Abfragesprache](/docs/services/discovery?topic=discovery-query-operators#query-operators) geschrieben.
 
 ### Unterschiede zwischen den Parametern 'query' und 'filter'
 {: #filtervquery}
@@ -47,7 +59,7 @@ Falls Sie denselben Suchbegriff für einen kleinen Datenbestand testen, stellen 
 - Wenn lediglich ein Parameter 'filter' verwendet wird, werden die Suchergebnisse nicht in einer bestimmten Reihenfolge zurückgegeben.
 - Wenn lediglich ein Parameter 'query' verwendet wird, werden die Suchergebnise in der Reihenfolge ihrer Relevanz zurückgegeben.
 
-Wenn Sie bei großen Datenbeständen die Rückgabe der Ergebnisse in der Reihenfolge ihrer Relevanz benötigen, sollten Sie die Parameter `filter` und `query` kombinieren, da ihre gemeinsame Verwendung die Leistung verbessert. Dies liegt daran, dass zunächst der Parameter `filter` zur Anwendung kommt und die Ergebnisse zwischengespeichert werden, die danach durch den Parameter `query` in eine Rangordnung gebracht werden. Ein Beispiel für die kombinierte Verwendung von Filtern und Abfragen finden Sie unter [Kombinierte Abfragen erstellen](/docs/services/discovery/using.html#building-combined-queries). Filter können auch in Aggregationen verwendet werden.
+Wenn Sie bei großen Datenbeständen die Rückgabe der Ergebnisse in der Reihenfolge ihrer Relevanz benötigen, sollten Sie die Parameter `filter` und `query` kombinieren, da ihre gemeinsame Verwendung die Leistung verbessert. Dies liegt daran, dass zunächst der Parameter `filter` zur Anwendung kommt und die Ergebnisse zwischengespeichert werden, die danach durch den Parameter `query` in eine Rangordnung gebracht werden. Ein Beispiel für die kombinierte Verwendung von Filtern und Abfragen finden Sie unter [Kombinierte Abfragen erstellen](/docs/services/discovery?topic=discovery-query-concepts#building-combined-queries). Filter können auch in Aggregationen verwendet werden.
 
 Wenn Sie eine Abfrage schreiben, die sowohl einen Parameter `filter` als auch einen Parameter `aggregation`, `query` oder `natural_language_query` enthält, wird zuerst der Parameter `filter` ausgeführt. Anschließend werden alle gegebenenfalls definierten Parameter `aggregation`, `query` oder `natural_language_query` parallel ausgeführt.
 
@@ -56,12 +68,12 @@ Für eine einfache Abfrage geben die Parameter `filter` und `query`, insbesonder
 ## Parameter 'aggregation'
 {: #aggregation}
 
-Aggregationsabfragen geben die Anzahl von Dokumenten zurück, die mit einer Gruppe von Datenwerten übereinstimmen, beispielsweise wichtige Schlüsselwörter, Gesamtstimmung von Entitäten und anderes. Eine vollständige Liste der Aggregationsoptionen enthält die [Tabelle 'Aggregationen'](/docs/services/discovery/query-aggregations.html). Diese Aggregationen werden in der [{{site.data.keyword.discoveryshort}}-Abfragesprache](/docs/services/discovery/query-operators.html) geschrieben.
+Aggregationsabfragen geben die Anzahl von Dokumenten zurück, die mit einer Gruppe von Datenwerten übereinstimmen, beispielsweise wichtige Schlüsselwörter, Gesamtstimmung von Entitäten und anderes. Eine vollständige Liste der Aggregationsoptionen enthält die [Tabelle 'Aggregationen'](/docs/services/discovery?topic=discovery-query-aggregations#query-aggregations). Diese Aggregationen werden in der [{{site.data.keyword.discoveryshort}}-Abfragesprache](/docs/services/discovery?topic=discovery-query-operators#query-operators) geschrieben.
 
 ## Parameter 'natural_language_query'
 {: #nlq}
 
-Bei einer Abfrage in natürlicher Sprache können Sie die Abfrage in natürlicher Sprache ausdrücken, also so, wie sie von einem Endbenutzer in einer dialogorientierten Schnittstelle oder einer Schnittstelle für Text mit freiem Format empfangen werden könnte (z. B. 'IBM Watson im Gesundheitswesen'). Der Parameter verwendet die gesamte Eingabe als Abfragetext. Operatoren werden **nicht** erkannt. Der Parameter `natural_language_query` ermöglicht die Verwendung von Funktionen wie Passagensuche und Relevanztraining. Sammlungen, für die ein Training durchgeführt wurde, geben im Ergebnis für eine Abfrage in natürlicher Sprache eine Konfidenzbewertung (Feld `confidence`) zurück. Details enthält der Abschnitt [Konfidenzbewertung](/docs/services/discovery/train-tooling.html#confidence). Die maximale Länge der Abfragezeichenfolge für eine Abfrage in natürlicher Sprache ist `2048`.
+Bei einer Abfrage in natürlicher Sprache können Sie die Abfrage in natürlicher Sprache ausdrücken, also so, wie sie von einem Endbenutzer in einer dialogorientierten Schnittstelle oder einer Schnittstelle für Text mit freiem Format empfangen werden könnte (z. B. 'IBM Watson im Gesundheitswesen'). Der Parameter verwendet die gesamte Eingabe als Abfragetext. Operatoren werden **nicht** erkannt. Der Parameter `natural_language_query` ermöglicht die Verwendung von Funktionen wie Passagensuche und Relevanztraining. Alle privaten Sammlungen geben in den meisten Fällen eine `confidence`-Bewertung in den Abfrageergebnissen zurück. Details enthält der Abschnitt [Konfidenzbewertung](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence). Die maximale Länge der Abfragezeichenfolge für eine Abfrage in natürlicher Sprache ist `2048`.
 
 **Strukturparameter**
 
@@ -92,7 +104,7 @@ Der Parameter `sort` kann gegenwärtig nur bei der API verwendet werden; in den 
 ## Parameter 'bias'
 {: #bias}
 
-Passt die Suchergebnisse an, um bestimmte Ergebnisse zu beeinflussen, z. B. Dokumente, die zuletzt veröffentlicht wurden. Der Parameter `bias` muss entweder auf ein Feld vom Typ `date` oder auf ein Feld vom Typ `number` gesetzt sein, z. B. `bias=publication_date` oder `bias=field_1`. Wenn ein Feld `date` angegeben wird, werden die zurückgegebenen Ergebnisse auf Feldwerte ausgerichtet, die dem aktuellen Datum näher liegen. Wenn ein Feld `number` angegeben wird, werden die Ergebnisse auf höhere Feldwerte ausgerichtet. Dieser Parameter kann nicht in derselben Abfrage wie der Parameter `sort` verwendet werden.
+Passt die Suchergebnisse an, um bestimmte Ergebnisse zu beeinflussen, z. B. Dokumente, die zuletzt veröffentlicht wurden. Der Parameter `bias` muss entweder auf ein Feld vom Typ `date` oder auf ein Feld vom Typ `number` gesetzt sein, z. B. `bias=publication_date` oder `bias=field_1`.  Wenn ein Feld `date` angegeben wird, werden die zurückgegebenen Ergebnisse auf Feldwerte ausgerichtet, die dem aktuellen Datum näher liegen. Wenn ein Feld `number` angegeben wird, werden die Ergebnisse auf höhere Feldwerte ausgerichtet. Dieser Parameter kann nicht in derselben Abfrage wie der Parameter `sort` verwendet werden.
 
 Der Parameter `bias` steht derzeit nur für die API zur Verfügung; er ist nicht über die Tools verfügbar.
 
@@ -104,7 +116,7 @@ Dieser boolesche Parameter gibt an, ob der Service eine Gruppe mit den relevante
 Der Parameter `passages` kann nur für private Sammlungen verwendet werden. Seine Verwendung für die Sammlung '{{site.data.keyword.discoverynewsfull}}' ist nicht möglich.
 {: tip}
 
-{{site.data.keyword.discoveryshort}} versucht mittels Erkennung von Satzgrenzen, Passagen zurückzugeben, deren Anfang der Beginn eines Satzes und deren Ende das Satzende ist. Hierzu wird zunächst nach Passagen gesucht, deren Länge ungefähr dem im [Parameter `passages.characters`](/docs/services/discovery/query-parameters.html#passages_characters) angegebenen Wert entspricht (Standardwert ist `400`). Anschließend wird jede Passage bis auf das Doppelte der angegebenen Länge erweitert, damit vollständige Sätze zurückgegeben werden. Falls der Parameter `passages.characters` auf einen kleinen Wert festgelegt ist und/oder die Sätze in Ihren Dokumenten sehr lang sind, gibt es möglicherweise keine Satzgrenzen, die so eng sind, dass der vollständige Satz ohne Überschreitung des doppelten Wertes für die angeforderte Länge zurückgegeben werden kann. In diesem Fall bleibt {{site.data.keyword.discoveryshort}} innerhalb der Grenze gemäß dem doppelten Wert des Parameters `passages.characters`; die zurückgegebene Passage enthält somit nicht den gesamten Satz und der Anfang und/oder das Ende fehlt.
+{{site.data.keyword.discoveryshort}} versucht mittels Erkennung von Satzgrenzen, Passagen zurückzugeben, deren Anfang der Beginn eines Satzes und deren Ende das Satzende ist. Hierzu wird zunächst nach Passagen gesucht, deren Länge ungefähr dem im [Parameter `passages.characters`](/docs/services/discovery?topic=discovery-query-parameters#passages_characters) angegebenen Wert entspricht (Standardwert ist `400`). Anschließend wird jede Passage bis auf das Doppelte der angegebenen Länge erweitert, damit vollständige Sätze zurückgegeben werden. Falls der Parameter `passages.characters` auf einen kleinen Wert festgelegt ist und/oder die Sätze in Ihren Dokumenten sehr lang sind, gibt es möglicherweise keine Satzgrenzen, die so eng sind, dass der vollständige Satz ohne Überschreitung des doppelten Wertes für die angeforderte Länge zurückgegeben werden kann. In diesem Fall bleibt {{site.data.keyword.discoveryshort}} innerhalb der Grenze gemäß dem doppelten Wert des Parameters `passages.characters`; die zurückgegebene Passage enthält somit nicht den gesamten Satz und der Anfang und/oder das Ende fehlt.
 
 Da sich bei einer Anpassung der Satzgrenzen die Größe der Passagen erhöht, ergibt sich eine erhebliche Vergrößerung der durchschnittlichen Passagenlänge. Falls der Anzeigebereich Ihrer Anwendung begrenzt ist, kann es sinnvoll sein, einen kleineren Wert für den Parameter `passages.characters` festzulegen und/oder die von {{site.data.keyword.discoveryshort}} zurückgegebenen Passagen abzuschneiden. Die Erkennung von Satzgrenzen funktioniert bei allen unterstützten Sprachen und verwendet sprachspezifische Logik.
 
@@ -149,7 +161,7 @@ Eine durch Kommas getrennte Liste der Felder im Index, aus denen die Passagen en
 ### Parameter 'passages.count'
 {: #passages_count}
 
-Die maximale Anzahl der zurückzugebenden Passagen. Die Suche gibt weniger Ergebnisse zurück, falls die gefundene Gesamtzahl diesen Wert unterschreitet. Der Standardwert ist `10`. Der maximale Wert ist `100`.
+Die maximale Anzahl der zurückzugebenden Passagen. Die Suche gibt weniger Passagen zurück, wenn die gefundene Gesamtzahl diesen Wert unterschreitet. Der Standardwert ist `10`. Der maximale Wert ist `100`.
 
 ### Parameter 'passages.characters'
 {: #passages_characters}
@@ -206,19 +218,19 @@ Die JSON-Rückgabe besitzt das folgende Format:
 ## Parameter 'deduplicate'
 {: #deduplicate}
 
- Diese Betafunktionalität schließt Dokumentduplikate aus Abfrageergebnissen für die Sammlung '{{site.data.keyword.discoverynewsfull}}' aus. Basis hierfür ist der Wert des Feldes `title`. Weitere Informationen enthält der Abschnitt [Doppelte Dokumente aus Abfrageergebnissen ausschließen](/docs/services/discovery/query-parameters.html#deduplication).
+ Diese Betafunktionalität schließt Dokumentduplikate aus Abfrageergebnissen für die Sammlung '{{site.data.keyword.discoverynewsfull}}' aus. Basis hierfür ist der Wert des Feldes `title`. Weitere Informationen enthält der Abschnitt [Doppelte Dokumente aus Abfrageergebnissen ausschließen](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### Parameter 'deduplicate.field'
 {: #deduplicate_field}
 
-Diese Betafunktionalität schließt Dokumentduplikate aus Abfrageergebnissen aus. Basis hierfür ist das anstelle von `{feld}` angegebene Feld. Weitere Informationen enthält der Abschnitt [Doppelte Dokumente aus Abfrageergebnissen ausschließen](/docs/services/discovery/query-parameters.html#deduplication).
+Diese Betafunktionalität schließt Dokumentduplikate aus Abfrageergebnissen aus. Basis hierfür ist das anstelle von `{feld}` angegebene Feld. Weitere Informationen enthält der Abschnitt [Doppelte Dokumente aus Abfrageergebnissen ausschließen](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### Doppelte Dokumente aus Abfrageergebnissen ausschließen
 {: #deduplication}
 
 Falls Sie die Sammlung '{{site.data.keyword.discoverynewsfull}}' abfragen oder Ihre private Datensammlung mehrere identische (oder nahezu identische) Dokumente enthält, können Sie mithilfe der Dokumentdeduplizierung einen Großteil dieser Dokumente aus den Abfrageergebnissen ausschließen.
 
-**Hinweis:** Die Dokumentdeduplizierung wird gegenwärtig nur als Betafunktionalität unterstützt. Weitere Informationen enthält der Abschnitt [Features als Betaversion](/docs/services/discovery/release-notes.html#beta-features) in den Releaseinformationen. Dieses Beta-Feature wird derzeit nur in Englisch unterstützt. Details hierzu finden Sie unter [Sprachunterstützung](/docs/services/discovery/language-support.html#feature-support).
+**Hinweis:** Die Dokumentdeduplizierung wird gegenwärtig nur als Betafunktionalität unterstützt. Weitere Informationen enthält der Abschnitt [Features als Betaversion](/docs/services/discovery?topic=discovery-release-notes#beta-features) in den Releaseinformationen. Dieses Beta-Feature wird derzeit nur in Englisch unterstützt. Details hierzu finden Sie unter [Sprachunterstützung](/docs/services/discovery?topic=discovery-language-support#feature-support).
 
 **Hinweis:** Jede Abfrage wird unabhängig dedupliziert. Eine offsetübergreifende Deduplizierung wird daher nicht unterstützt.
 
@@ -236,6 +248,7 @@ Zur Anwendung der Deduplizierung verwenden Sie die folgende Syntax in Ihrer Abfr
 Bei der Deduplizierung enthält die JSON-Antwort die Angabe `"duplicates_removed": x`; hierbei steht `x` für die Anzahl der Dokumente, die aus den Ergebnissen entfernt wurden.
 
 #### Dokumente in Watson Discovery News deduplizieren
+{: #deduplicatewds}
 
 Neue Artikel können für mehrere Nachrichtenausgaben syndiziert werden. {{site.data.keyword.discoverynewsfull}} nimmt alle diese Artikel auf, was zu doppelten Artikeln führt. Dies bedeutet, dass eine Abfrage von {{site.data.keyword.discoverynewsfull}} potenziell identische oder nahezu identische Artikel in Abfrageergebnissen zurückgibt. Bei Verwendung der Deduplizierung werden die meisten doppelten Artikel aus Ihren Suchabfragen entfernt.
 
@@ -258,7 +271,7 @@ Falls Sie für die Deduplizierung ein anderes Feld als `title` zugrunde legen wo
 ## Parameter 'collection_ids'
 {: #collection_ids}
 
-Eine durch Kommas getrennte Liste von Sammlungen in derselben Umgebung, die abgefragt werden. Dieser Parameter ist nur bei Verwendung der Methode `environments/{umgebungs-id}/query?` verfügbar. Weitere Informationen finden Sie unter [Mehrere Sammlungen abfragen](/docs/services/discovery/using.html#multiple-collections).
+Eine durch Kommas getrennte Liste von Sammlungen in derselben Umgebung, die abgefragt werden. Dieser Parameter ist nur bei Verwendung der Methode `environments/{umgebungs-id}/query?` verfügbar. Weitere Informationen finden Sie unter [Mehrere Sammlungen abfragen](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections).
 
 ```bash
 &collection_ids={id1},{id2}
@@ -268,7 +281,7 @@ Eine durch Kommas getrennte Liste von Sammlungen in derselben Umgebung, die abge
 ## Parameter 'similar'
 {: #similar}
 
-Die Dokumentähnlichkeit identifiziert Dokumente, die den Dokumenten ähneln, die in den Parametern `similar.document_ids` aufgelistet sind. Dies kann noch weiter optimiert werden, indem Sie angeben, welche Felder für einen Vergleich mithilfe der Parameter `similar.fields` herangezogen werden sollen. Der Standardwert ist `false`. Weitere Informationen finden Sie unter [Dokumentähnlichkeit](/docs/services/discovery/using.html#doc-similarity).
+Die Dokumentähnlichkeit identifiziert Dokumente, die den Dokumenten ähneln, die in den Parametern `similar.document_ids` aufgelistet sind. Dies kann noch weiter optimiert werden, indem Sie angeben, welche Felder für einen Vergleich mithilfe der Parameter `similar.fields` herangezogen werden sollen. Der Standardwert ist `false`. Weitere Informationen finden Sie unter [Dokumentähnlichkeit](/docs/services/discovery?topic=discovery-query-concepts#doc-similarity).
 
 ```bash
 &similar=true

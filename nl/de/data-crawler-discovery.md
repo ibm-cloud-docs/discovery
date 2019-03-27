@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Data Crawler konfigurieren
 {: #configuring-the-data-crawler}
@@ -23,8 +35,8 @@ lastupdated: "2018-07-03"
 Um Data Crawler für die Crawlersuche in Ihrem Repository zu konfigurieren, müssen Sie den geeigneten Eingabeadapter in der Datei `crawler.conf` angeben und anschließend repositoryspezifische Informationen in den Konfigurationsdateien für den Eingabeadapter konfigurieren.
 {: shortdesc}
 
-Sie können die {{site.data.keyword.discoveryshort}}-Tools oder die API für die Crawlersuche in Box-, Salesforce- und Microsoft SharePoint Online-Datenquellen verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery/connect.html).
-{: tip}
+Data Crawler sollte nur zum Durchsuchen von Dateifreigaben oder Datenbanken verwendet werden, in allen anderen Fällen sollten Sie den entsprechenden {{site.data.keyword.discoveryshort}}-Connector verwenden. Weitere Informationen finden Sie unter [Verbindung zu Datenquellen herstellen](/docs/services/discovery?topic=discovery-sources#sources). Data Crawler wird nicht mehr unterstützt, falls Sie ihn mit einer Datenquelle verwenden, die von den {{site.data.keyword.discoveryshort}}-Connectoren unterstützt wird.
+{: important}
 
 Bevor Sie die in den folgenden Schritten aufgeführten Änderungen vornehmen, müssen Sie sicherstellen, dass Sie Ihr Arbeitsverzeichnis erstellt haben, indem Sie den Inhalt des Verzeichnisses `{installationsverzeichnis}/share/examples/config` in ein Arbeitsverzeichnis auf Ihrem System kopiert haben (z. B. `/home/config`).
 
@@ -51,7 +63,7 @@ Die angegebenen Werte sind die Standardwerte in `config/crawler.conf` und konfig
         ```
         {: codeblock}
 
-    In dieser Datei gibt es weitere, optionale Einstellungen, die gemäß Ihrer Umgebung festgelegt werden können. Ausführliche Informationen zum Festlegen dieser Werte finden Sie unter [Optionen für die Crawlersuche konfigurieren](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options), [Eingabeadapter konfigurieren](/docs/services/discovery/data-crawler-discovery.html#input-adapter), [Ausgabeadapter konfigurieren](/docs/services/discovery/data-crawler-discovery.html#output-adapter) und [Zusätzliche Optionen für die Verwaltung der Crawlersuche](/docs/services/discovery/data-crawler-discovery.html#additional-crawl-management-options).
+    In dieser Datei gibt es weitere, optionale Einstellungen, die gemäß Ihrer Umgebung festgelegt werden können. Ausführliche Informationen zum Festlegen dieser Werte finden Sie unter [Optionen für die Crawlersuche konfigurieren](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [Eingabeadapter konfigurieren](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Ausgabeadapter konfigurieren](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter) und [Zusätzliche Optionen für die Verwaltung der Crawlersuche](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options).
 
 1.  Öffnen Sie die Datei `discovery/discovery_service.conf` in einem Texteditor. Ändern Sie die folgenden Werte für den entsprechenden {{site.data.keyword.discoveryshort}}-Service, den Sie zuvor in {{site.data.keyword.Bluemix}} erstellt haben:
 
@@ -60,11 +72,11 @@ Die angegebenen Werte sind die Standardwerte in `config/crawler.conf` und konfig
     -   `configuration_id`: Geben Sie die Konfigurations-ID für Ihren {{site.data.keyword.discoveryshort}}-Service an.
     -   `configuration`: Geben Sie den vollständigen Pfad dieser Datei `discovery_service.conf` an, z. B. `/home/config/discovery/discovery_service.conf`.
     -   `username`: Geben Sie den Benutzernamen des Berechtigungsnachweises für Ihren {{site.data.keyword.discoveryshort}}-Service an.
-    -   `password`: Geben Sie das Kennwort des Berechtigungsnachweises für Ihren {{site.data.keyword.discoveryshort}}-Service an.
+    -   `apikey` - Berechtigungsnachweis für Ihren {{site.data.keyword.discoveryshort}}-Service.
 
-    Diese Datei enthält weitere, optionale Einstellungen, die Sie gemäß Ihrer Umgebung festlegen können. Detaillierte Informationen zum Festlegen dieser Werte finden Sie unter [Serviceoptionen konfigurieren](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options).
+    Diese Datei enthält weitere, optionale Einstellungen, die Sie gemäß Ihrer Umgebung festlegen können. Detaillierte Informationen zum Festlegen dieser Werte finden Sie unter [Serviceoptionen konfigurieren](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options).
 
-1.  Nachdem Sie diese Dateien geändert haben, können Sie eine Crawlersuche für Ihre Daten ausführen. Fahren Sie mit dem Abschnitt [Crawlersuche für Datenrepository ausführen](/docs/services/discovery/data-crawler-run.html#crawling-your-data-repository) fort.
+1.  Nachdem Sie diese Dateien geändert haben, können Sie eine Crawlersuche für Ihre Daten ausführen. Fahren Sie mit dem Abschnitt [Crawlersuche für Datenrepository ausführen](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository) fort.
 
 ## Optionen für die Crawlersuche konfigurieren
 {: #configuring-crawl-options}
@@ -97,7 +109,6 @@ In dieser Datei können die folgenden Optionen festgelegt werden:
 
     **Hinweis:** Diese Angabe ist relativ zum Verzeichnis `lib/java` des Connector-Frameworks.
 
-    -   Dieser Wert muss bei Verwendung des SharePoint-Connectors `oakland` lauten.
     -   Dieser Wert muss bei Verwendung des Datenbankconnectors `database` lauten.
 
     Bei Verwendung anderer Connectors können Sie diesen Wert leer lassen (also die leere Zeichenfolge "" verwenden).
@@ -231,8 +242,7 @@ Standardoptionen können Sie direkt ändern, indem Sie die Datei `config/discove
 -   **`collection_id`**: Der Name der Dokumentsammlung, den Sie im {{site.data.keyword.discoveryshort}}-Service festgelegt haben.
 -   **`api_version`**: Nur zur internen Verwendung. Das Datum für die letzte Änderung der API-Version.   
 -   **`configuration_id`**: Der Dateiname der Konfigurations-ID, die vom {{site.data.keyword.discoveryshort}}-Service verwendet wird.
--   **`username`**: Der Benutzername für die Authentifizierung bei der Position Ihrer durchsuchten Dokumentsammlung.   
--   **`password`**: Das Kennwort für die Authentifizierung bei der Position Ihrer durchsuchten Dokumentsammlung.
+-   **`apikey`** - Berechtigungsnachweis für die Authentifizierung bei der Position Ihrer durchsuchten Dokumentsammlung.
 
 Der Ausgabeadapter für den {{site.data.keyword.discoveryshort}}-Service kann Statistikdaten senden, damit {{site.data.keyword.IBM}} durch die Erzielung von weiteren Erkenntnissen einen besseren Service für die Benutzer bereitstellen kann. Die folgenden Optionen können für die Variable `send_stats` festgelegt werden:
 
