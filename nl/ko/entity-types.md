@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 엔티티 유형 및 하위 유형
 {: #entity-types-and-subtypes}
 
-다음 표에서는 엔티티 추출 인리치먼트로 리턴되는 가능한 엔티티 유형 및 하위 유형이 나열됩니다. <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘" class="style-scope doc-content"></a>에서 이 정보가 포함된 스프레드시트를 다운로드할 수 있습니다.
+다음 표에서는 엔티티 추출 인리치먼트로 리턴되는 가능한 엔티티 유형 및 하위 유형이 나열됩니다. <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a>에서 이 정보가 포함된 스프레드시트를 다운로드할 수 있습니다.
 {: shortdesc}
 
 
@@ -59,7 +71,7 @@ lastupdated: "2017-10-09"
 ## 엔티티 하위 유형
 {: #entity-subtypes}
 
-|엔티티 하위 유형                      |
+|엔티티 하위 유형                     |
 |-------------------------------------|
 |AbusedSubstance                     |
 |Academic                            |
@@ -320,7 +332,7 @@ lastupdated: "2017-10-09"
 |MilitaryPerson                      |
 |MilitaryPost                        |
 |MilitaryUnit                        |
-|모델                               |
+|Model                               |
 |Monarch                             |
 |Mountain                            |
 |MultipartTVEpisode                  |

@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-26"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-10"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 정보 보안
 {: #information-security}
@@ -41,7 +53,7 @@ IBM은 클라이언트와 파트너에게 혁신적인 데이터 개인정보 �
 
 IBM은 GDPR 준수를 향한 여정에서 클라이언트와 파트너에게 혁신적인 데이터 개인정보 보호, 보안 및 통제 솔루션을 제공하기 위해 최선을 다하고 있습니다.
 
-[[여기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](../../icons/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/gdpr)에서 규제 준수 과정을 지원하는 IBM 고유의 GDPR 준비 과정과 GDPR 기능 및 오퍼링에 대해 자세히 알아보십시오.{: new_window}.
+[여기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](../../icons/launch-glyph.svg "외부 링크 아이콘")(http://www.ibm.com/gdpr)에서 규제 준수 과정을 지원하는 IBM 고유의 GDPR 준비 과정과 GDPR 기능 및 오퍼링에 대해 자세히 알아보십시오. {: new_window}.
 
 ## {{site.data.keyword.discoveryshort}}의 데이터 레이블 지정 및 삭제
 {: #gdpr-discovery}
@@ -53,7 +65,7 @@ IBM은 GDPR 준수를 향한 여정에서 클라이언트와 파트너에게 혁
 - 고객 ID로 데이터의 레이블을 지정합니다.
 - 관련 주의사항을 포함하여 특정 고객 ID에 대한 모든 데이터를 삭제합니다.
 
-사용자가 선택한 `customer_id`([데이터 레이블 지정 방법](/docs/services/discovery/information-security.html#labeling)의 지시사항 참조)를 선택적 `X-Watson-Metadata` 헤더에 추가하여 데이터 레이블을 지정합니다. 그런 다음 {{site.data.keyword.discoveryshort}}는 `customer_id`로 데이터를 삭제할 수 있습니다.
+사용자가 선택한 `customer_id`([데이터 레이블 지정 방법](/docs/services/discovery?topic=discovery-information-security#labeling)의 지시사항 참조)를 선택적 `X-Watson-Metadata` 헤더에 추가하여 데이터 레이블을 지정합니다. 그런 다음 {{site.data.keyword.discoveryshort}}는 `customer_id`로 데이터를 삭제할 수 있습니다.
 
 REST 호출에서는 선택적 `X-Watson-Metadata`를 세미콜론으로 구분된 `field=value` 쌍과 함께 보낼 수 있습니다. 현재 `customer_id`만 유지됩니다. 해당 `customer_id`를 `X-Watson-Metadata` 헤더에 추가하여 요청은 이 `customer_id`에 속한 데이터를 포함하고 있음을 표시합니다.
 
@@ -103,7 +115,7 @@ REST 호출에서는 선택적 `X-Watson-Metadata`를 세미콜론으로 구분�
 ### Discovery 도구를 사용하여 데이터 레이블 지정
 {: #labelingtooling}
 
-{{site.data.keyword.discoveryshort}} 도구를 사용하는 경우 `customer_id` 필드를 사용하여 데이터 레이블을 지정할 수 있습니다. ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} -->를 클릭하고 **GDPR 데이터 레이블** 필드에 `customer_id`를 입력하십시오. 이 필드를 설정하면 이 브라우저 세션을 사용하여 업로드한 모든 데이터에 대해 `customer_id`를 사용하여 레이블이 지정됩니다. 연관된 고객 ID가 변경되면 이 필드를 수동으로 변경해야 합니다.
+{{site.data.keyword.discoveryshort}} 도구를 사용하는 경우 `customer_id` 필드를 사용하여 데이터 레이블을 지정할 수 있습니다. ![환경 세부사항](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} -->을 클릭하고 **GDPR 데이터 레이블** 필드에 `customer_id`를 입력하십시오. 이 필드를 설정하면 이 브라우저 세션을 사용하여 업로드한 모든 데이터에 대해 `customer_id`를 사용하여 레이블이 지정됩니다. 연관된 고객 ID가 변경되면 이 필드를 수동으로 변경해야 합니다.
 
 **GDPR 데이터 레이블** 필드에 `customer_id`를 추가하면 해당 시점 이후부터 해당 도메인 아래의 각 인스턴스를 포함하여 도메인 내에 있는 문서, 주의사항, Knowledge Graph 엔티티, Knowledge Graph 관계 및 훈련 데이터의 레이블이 지정됩니다. **GDPR 데이터 레이블** 필드를 추가하기 전에 {{site.data.keyword.discoveryshort}} 에서 발생한 조치(문서 업로드 포함)에는 레이블이 지정되지 않습니다.
 
@@ -114,7 +126,7 @@ REST 호출에서는 선택적 `X-Watson-Metadata`를 세미콜론으로 구분�
 
 Data Crawler를 사용하여 문서를 이미 크롤링한 경우 `X-Watson-Metadata` 헤더 및 `customer_id`를 추가하려면 문서를 다시 크롤링해야 합니다.
 
-1. `customer_id`를 포함하도록 {{site.data.keyword.discoveryshort}} Data Crawler 출력 어댑터 구성을 업데이트하십시오. [출력 어댑터 구성](/docs/services/discovery/data-crawler-discovery.html#output-adapter)을 참조하십시오.
+1. `customer_id`를 포함하도록 {{site.data.keyword.discoveryshort}} Data Crawler 출력 어댑터 구성을 업데이트하십시오. [출력 어댑터 구성](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter)을 참조하십시오.
 1. 크롤링을 스케줄하십시오. 문서는 `X-Watson-Metadata` 헤더를 사용하여 {{site.data.keyword.discoveryshort}}에 제출되고 구성된 `customer_id`로 레이블이 지정됩니다.
 
 ## 레이블 지정된 데이터 삭제
@@ -122,9 +134,11 @@ Data Crawler를 사용하여 문서를 이미 크롤링한 경우 `X-Watson-Meta
 
 나중에 삭제하려면 데이터가 `customer_id`로 레이블이 지정되어 있어야 합니다.
 
-1. `DELETE /v1/user_data` 오퍼레이션을 사용하고 삭제할 데이터의 `customer_id`를 제공하십시오. `DELETE /v1/user_data`는 [데이터 레이블 지정을 지원하는 메소드](/docs/services/discovery/information-security.html#pi_methods)에서 지정된 대로 서비스 인스턴스 내에서 특별한 `customer_id`와 연관된 모든 데이터를 삭제합니다. [API 참조 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html#delete-user-data){: new_window}도 참조하십시오.
+1. `DELETE /v1/user_data` 오퍼레이션을 사용하고 삭제할 데이터의 `customer_id`를 제공하십시오. `DELETE /v1/user_data`는 [데이터 레이블 지정을 지원하는 메소드](/docs/services/discovery?topic=discovery-information-security#pi_methods)에서 지정된 대로 서비스 인스턴스 내에서 특별한 `customer_id`와 연관된 모든 데이터를 삭제합니다. [API 참조 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}도 참조하십시오.
 
 삭제는 비동기식으로 수행됩니다. 삭제 진행 상태를 추적할 수 없습니다.
+
+레이블된 모든 컨텐츠가 올바르게 제거되었는지 확인하려면 사용자 환경에서 모든 콜렉션에 대한 `processing` 및 `pending` 수가 `0`을 리턴한 후 `user_delete`를 실행해야 합니다. 
 
 비공존 `customer_id`를 제공하는 경우 아무 것도 삭제되지 않지만 `200 - OK`의 응답이 리턴됩니다.
 

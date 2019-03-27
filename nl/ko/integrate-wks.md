@@ -1,26 +1,38 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-08-08"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-08"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Watson Knowledge Studio와 통합
 {: #integrating-with-wks}
 
-{{site.data.keyword.knowledgestudiofull}}의 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 서비스와 통합하여 사용자 정의 엔티티와 관계 인리치먼트를 제공할 수 있습니다.
+{{site.data.keyword.knowledgestudiofull}}의 하나 이상의 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 서비스와 통합하여 사용자 정의 엔티티와 관계 인리치먼트를 제공할 수 있습니다.
 {: shortdesc}
 
 산업 또는 과학 전문 분야와 같은 특정 집중 분야에만 사용되는 정보를 사용하여 {{site.data.keyword.discoveryshort}} 서비스의 문서 개선 기능을 적용할 수 있는 유연성을 제공합니다. 인리치먼트 모델의 공용 데이터와 고유한 독점적 데이터를 모두 사용할 수 있습니다.
@@ -28,13 +40,15 @@ lastupdated: "2018-08-08"
 서비스 API 또는 {{site.data.keyword.discoveryshort}} 도구를 사용하여 {{site.data.keyword.knowledgestudioshort}} 모델을 {{site.data.keyword.discoveryshort}} 서비스와 통합할 수 있습니다.
 
 ## 시작하기 전에
+{: #wks-beforeintegration}
 
-{{site.data.keyword.knowledgestudioshort}}의 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 서비스와 통합하기 전에 {{site.data.keyword.knowledgestudioshort}}를 사용하여 모델을 작성하고 배치해야 합니다. 모델 작성 및 배치에 대한 정보는 [{{site.data.keyword.knowledgestudioshort}} 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window}를 참조하십시오. 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 서비스와 통합하려면 배치된 모델의 고유 ID가 필요합니다.
+{{site.data.keyword.knowledgestudioshort}}의 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 서비스와 통합하기 전에 {{site.data.keyword.knowledgestudioshort}}를 사용하여 모델을 작성하고 배치해야 합니다. 모델 작성 및 배치에 대한 정보는 [{{site.data.keyword.knowledgestudioshort}} 문서 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window}를 참조하십시오. 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 서비스와 통합하려면 배치된 모델의 고유 ID가 필요합니다.
 
 ## 사용자 정의 모델을 API와 통합
+{: #integrate-customAPI}
 
-1.  [환경 나열 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#list_environments){: new_window}에 설명된 대로 {{site.data.keyword.discoveryshort}}의 ID를 가져오십시오. 환경 ID를 확인하십시오.
-1.  [구성 나열 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#list_configurations){: new_window}에 설명된 대로 현재 {{site.data.keyword.discoveryshort}} 구성의 ID를 나열하십시오. {{site.data.keyword.knowledgestudiofull}} 사용자 정의 모델과 통합할 구성의 ID를 확인하십시오.
+1.  [환경 나열 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/discovery#list_environments){: new_window}에 설명된 대로 {{site.data.keyword.discoveryshort}}의 ID를 가져오십시오. 환경 ID를 확인하십시오.
+1.  [구성 나열 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/discovery#list_configurations){: new_window}에 설명된 대로 현재 {{site.data.keyword.discoveryshort}} 구성의 ID를 나열하십시오. {{site.data.keyword.knowledgestudiofull}} 사용자 정의 모델과 통합할 구성의 ID를 확인하십시오.
 1.  bash 쉘 또는 이와 동등한 환경(예: Windows용 Cygwin)에서 다음 명령을 실행하여 현재 {{site.data.keyword.discoveryshort}} 구성의 사본을 다운로드하십시오. `{environment_id}` 및 `{configuration_id}`를 이전의 두 단계에서 기록한 ID로 대체하십시오.
 
     ```bash
@@ -85,6 +99,9 @@ lastupdated: "2018-08-08"
 
     1.  `{watson_knowledge_studio_model_ID}`에 대해 "시작하기 전에"에서 설명된 대로 {{site.data.keyword.knowledgestudioshort}} 모델의 고유 ID를 대체하여 다음과 같이 파일을 업데이트하십시오.
 
+        API를 사용하여 둘 이상의 사용자 정의 모델을 동일한 필드에 적용할 수 있습니다. [다중 사용자 정의 모델 통합](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-multiplecustom)의 예를 참조하십시오. [Watson {{site.data.keyword.discoveryshort}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg)도 통합하는 경우 단일 인리치먼트 오브젝트에서 엔티티와 관계를 모두 강화하기 위해 동일한 모델을 사용해야 합니다.
+        {: note}
+
         ```json
         "enrichments": [
         {
@@ -107,7 +124,7 @@ lastupdated: "2018-08-08"
                         "limit": 8
                     },
                     "relations": {
-                      "model": "{watson_knowledge_studio_model_ID}"
+                        "model": "{watson_knowledge_studio_model_ID}"
                     }
                 }
             }
@@ -133,9 +150,58 @@ lastupdated: "2018-08-08"
 
     두 명령은 업데이트된 구성 파일의 컨텐츠를 리턴합니다.
 
-## 사용자 정의 모델을 Discovery 도구와 통합
+### 다중 사용자 정의 모델 통합 
+{: #integrate-multiplecustom}
 
-[엔티티 추출](/docs/services/discovery/building.html#entity-extraction) 또는 [관계 추출](/docs/services/discovery/building.html#relation-extraction) 인리치먼트에 대한 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 도구와 통합할 수 있습니다.
+API를 사용하여 둘 이상의 사용자 정의 모델을 동일한 필드에 적용할 수 있습니다. [사용자 정의 모델을 API와 통합](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI)의 단계를 따르고 지침으로 여기의 예를 사용하십시오. [Watson {{site.data.keyword.discoveryshort}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg)도 통합하는 경우 단일 인리치먼트 오브젝트에서 엔티티와 관계를 모두 강화하기 위해 동일한 모델을 사용해야 합니다. 지침으로 `"destination_field": "enriched_text"`의 예를 참조하십시오.
+
+{{site.data.keyword.discoveryshort}} 도구를 사용하여 다중 사용자 정의 모델을 적용할 수 없습니다. 엔티티 및 관계 인리치먼트만 사용자 정의할 수 있습니다. 
+
+동일한 각 `source_field`마다 다른 `destination_field`를 지정해야 합니다. 또한 각 `source_field`는 고유한 모델로 강화되어야 합니다. 예를 들어, 다중 사용자 정의 모델을 `text`의 `source_field`에 적용하고 `model` `{watson_knowledge_studio_model_ID}`을 `entities` 환경에 적용하는 경우 `entities` 인리치먼트를 위해 해당 모델을 다시 사용하지 말아야 합니다.
+{: tip}
+
+
+```json
+   "enrichments": [
+   {
+        "source_field": "text",
+        "destination_field": "enriched_text",
+        "enrichment": "natural_language_understanding",
+        "options": {
+            "features": {
+                "entities": {
+                    "model": "{watson_knowledge_studio_model_ID}"
+                },
+                "relations": {
+                    "model": "{watson_knowledge_studio_model_ID}"
+            }
+        }
+    }
+},
+   {
+        "source_field": "text",
+        "destination_field": "enriched_text_2",
+        "enrichment": "natural_language_understanding",
+        "options": {
+            "features": {
+                "entities": {
+                    "model": "{watson_knowledge_studio_model_ID_b}"
+            },
+                "relations": {
+                    "model": "{watson_knowledge_studio_model_ID_c}"
+            }
+        }
+    }
+}]
+```
+{: codeblock}    
+
+## 사용자 정의 모델을 Discovery 도구와 통합
+{: #integrate-customtooling}
+
+[엔티티 추출](/docs/services/discovery?topic=discovery-configservice#entity-extraction) 또는 [관계 추출](/docs/services/discovery?topic=discovery-configservice#relation-extraction) 인리치먼트에 대한 {{site.data.keyword.knowledgestudioshort}} 사용자 정의 모델을 {{site.data.keyword.discoveryshort}} 도구와 통합할 수 있습니다.
+
+{{site.data.keyword.discoveryshort}} 도구를 사용하여 다중 사용자 정의 모델을 동일한 필드에 적용할 수 없습니다. API를 사용하여 둘 이상의 사용자 정의 모델을 동일한 필드에 적용할 수 있습니다. [사용자 정의 모델을 API와 통합](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI)을 참조하십시오.
 
 1. {{site.data.keyword.knowledgestudioshort}} 모델의 `Model ID`를 가져오십시오.
 1. {{site.data.keyword.discoveryshort}} 도구에서 왼쪽 상단에 있는 **데이터 관리** 아이콘을 클릭하여 **데이터 관리** 화면을 연 다음 콜렉션을 작성하거나 여십시오. **참고:** 기존 콜렉션을 선택한 경우 비어 있어야 합니다. 그렇지 않은 경우 새 구성 파일을 작성한 후 해당 문서를 다시 수집해야 합니다.
@@ -146,8 +212,7 @@ lastupdated: "2018-08-08"
 
 문서가 데이터 콜렉션에 업로드되면 해당 콜렉션에 대해 선택한 구성 파일을 사용하여 문서가 변환되고 강화됩니다. 문서가 업로드된 후 기존 콜렉션을 새 구성 파일로 전환한 경우 업로드된 문서는 원래의 구성 파일에 의해 변환된 상태로 유지됩니다. 구성 파일을 전환한 후 업로드된 모든 문서는 새 구성 파일을 사용합니다. **전체** 콜렉션에서 새 구성 파일을 사용하려면 새 콜렉션을 작성하고 새 구성 파일을 선택한 다음 모든 문서를 다시 업로드해야 합니다.
 
-**참고:** 인리치먼트에 하나의 {{site.data.keyword.knowledgestudiofull}} 모델만 지정할 수 있습니다.
-
 ## 다음 단계
+{: #wks-nextsteps}
 
 새 구성으로 {{site.data.keyword.discoveryshort}} 서비스를 사용하여 개인 데이터를 수집하십시오. 업데이트된 구성으로 수집한 문서는 사용자 정의 모델의 데이터를 사용하여 자동으로 강화됩니다.

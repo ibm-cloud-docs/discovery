@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-09-17"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 사용 모니터링
 {: #usage}
 
-{{site.data.keyword.discoveryshort}} 인스턴스의 사용을 모니터 및 추적하고 이 데이터를 사용하여 애플리케이션을 이해하고 향상시킬 수 있습니다. [이벤트 API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window}를 사용하여 특정 자연어 조회 및 조치와 연관된 로그 항목을 작성할 수 있습니다. 예를 들어 결과 세트에서 사용자가 "클릭"한 문서 및 언제 클릭되었는지를 기록할 수 있습니다.
+{{site.data.keyword.discoveryshort}} 인스턴스의 사용을 모니터 및 추적하고 이 데이터를 사용하여 애플리케이션을 이해하고 향상시킬 수 있습니다. [이벤트 API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/discovery#create-event){: new_window}를 사용하여 특정 자연어 조회 및 조치와 연관된 로그 항목을 작성할 수 있습니다. 예를 들어 결과 세트에서 사용자가 "클릭"한 문서 및 언제 클릭되었는지를 기록할 수 있습니다.
 
 **참고:** 로그 및 이벤트는 개인용 데이터 콜렉션의 자연어 조회에 대해서만 모니터됩니다. {{site.data.keyword.discoverynewsfull}}에서는 로그가 수집되지 않습니다.
 
@@ -44,7 +56,7 @@ lastupdated: "2018-09-17"
 - offset
 - version
 
-매개변수의 기능 및 구문에 대한 추가 세부사항은 [조회 매개변수](/docs/services/discovery/query-parameters.html)를 참조하십시오.
+매개변수의 기능 및 구문에 대한 추가 세부사항은 [조회 매개변수](/docs/services/discovery?topic=discovery-query-parameters#query-parameters)를 참조하십시오.
 
 다음은 용어 “train”이 포함된 자연어 조회에 대한 로그 검색 예입니다.
 
@@ -84,10 +96,10 @@ lastupdated: "2018-09-17"
 ```
 
 조회 로그를 사용하여 일반 사용자에게 리턴되는 결과 유형을 조사하고 {{site.data.keyword.discoveryshort}}에서 사용 가능한 접근 방식을 통해 결과 품질을 향상시킬 수 있는 방법을 조사할 수 있습니다. 예: 
-- 관련성 훈련, [API를 사용하여 결과 관련성 향상](/docs/services/discovery/train.html) 및 [도구를 사용하여 결과 관련성 향상](/docs/services/discovery/train-tooling.html)
-- [조회 연산자](/docs/services/discovery/query-operators.html)
-- [조회 확장](/docs/services/discovery/using.html#query-expansion)
-- 사용자 정의 구성, [구성 참조](/docs/services/discovery/custom-config.html)를 참조하십시오.
+- 관련성 훈련, [API를 사용하여 결과 관련성 향상](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) 및 [도구를 사용하여 결과 관련성 향상](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling)
+- [조회 연산자](/docs/services/discovery?topic=discovery-query-operators#query-operators)
+- [조회 확장](/docs/services/discovery?topic=discovery-query-concepts#query-expansion)
+- 사용자 정의 구성, [구성 참조](/docs/services/discovery?topic=discovery-configref#configref)를 참조하십시오.
 
 ## 이벤트 로그 작성
 {: #eventlogs}
@@ -103,7 +115,6 @@ lastupdated: "2018-09-17"
 `"matching_results": 179,`
 `"session_token": "1_LKczxWGEWx59fYD0_VV8HFUpb6"`
 
-이벤트를 기록하려면 `/api/v1/events` 엔드포인트에 POST를 작성하십시오. 
-세부사항은 [이벤트 API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window}를 참조하십시오.
+이벤트를 기록하려면 `/api/v1/events` 엔드포인트에 POST를 작성하십시오. 세부사항은 [이벤트 API ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://{DomainName}/apidocs/discovery#create-event){: new_window}를 참조하십시오.
 
 이벤트가 기록되면 `/api/v1/logs` 엔드포인트를 사용하여 다시 읽을 수 있습니다. `session_token`을 사용하여 연관된 조회에 이벤트를 결합하십시오.
