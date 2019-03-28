@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-08"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # サービスの構成
 {: #configservice}
@@ -25,17 +37,17 @@ lastupdated: "2018-07-03"
 
 {{site.data.keyword.discoveryshort}} サービスに独自のコンテンツを追加する前に、希望する方法でコンテンツが処理されるように、このサービスを構成する必要があります。
 
-最初のステップは、サービスの基本パラメーターを構成することです ([文書のためのサービスの準備](/docs/services/discovery/building.html#preparing-the-service-for-your-documents))。これには、環境の作成とその環境内での 1 つ以上のコレクションの作成が含まれます。 コレクションを作成すると、デフォルトのセット ([デフォルト構成](/docs/services/discovery/building.html#the-default-configuration)) が自動的に提供されます。 これらのデフォルトを受け入れる場合は、コンテンツのアップロード ([コンテンツの追加](/docs/services/discovery/adding-content.html)) に進むことができます。
+最初のステップは、サービスの基本パラメーターを構成することです ([文書のためのサービスの準備](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents))。これには、環境の作成とその環境内での 1 つ以上のコレクションの作成が含まれます。 
 
-なお、1 つ以上のカスタム構成を指定したい場合もあります (「[カスタム構成が必要な場合](/docs/services/discovery/building.html#when-you-need-a-custom-configuration)」を参照)。 このような場合には、次のことを行う必要があります。
+[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) の導入前に作成したコレクションに、1 つ以上のカスタム構成を指定したいことがあります (『[カスタム構成が必要な場合](/docs/services/discovery?topic=discovery-configservice#when-you-need-a-custom-configuration)』を参照)。このような場合には、次のことを行う必要があります。
 
 -   いくつかのサンプル・コンテンツ (ファイルの代表的な文書) を識別します
--   コンテンツをアップロードします ([サンプル文書のアップロード](/docs/services/discovery/building.html#uploading-sample-documents))
--   変換プロセスを調整します ([サンプル文書の変換](/docs/services/discovery/building.html#converting-sample-documents))
--   エンリッチメントを定義します ([エンリッチメントの追加](/docs/services/discovery/building.html#adding-enrichments))
--   結果を正規化します ([データの正規化](/docs/services/discovery/building.html#normalizing-data))
+-   コンテンツをアップロードします ([サンプル文書のアップロード](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents))
+-   変換プロセスを調整します ([サンプル文書の変換](/docs/services/discovery?topic=discovery-configservice#converting-sample-documents))
+-   エンリッチメントを定義します ([エンリッチメントの追加](/docs/services/discovery?topic=discovery-configservice#adding-enrichments))
+-   結果を正規化します ([データの正規化](/docs/services/discovery?topic=discovery-configservice#normalizing-data))
 
-    カスタム構成を作成したら、文書をアップロードできます ([コンテンツの追加](/docs/services/discovery/adding-content.html))。
+    カスタム構成を作成したら、文書をアップロードできます ([コンテンツの追加](/docs/services/discovery?topic=discovery-addcontent#addcontent))。
 
 ## 文書のためのサービスの準備
 {: #preparing-the-service-for-your-documents}
@@ -44,27 +56,33 @@ lastupdated: "2018-07-03"
 
 -   **環境** — 環境とは、コンテンツのために {{site.data.keyword.discoveryshort}} サービスで用意するストレージ・スペースの量のことです。 {{site.data.keyword.discoveryshort}} サービスのインスタンスごとに最大 1 つの環境を作成できます。
 
-    「ライト」、「拡張」、「プレミアム」のプランから選択できます。詳しくは、[{{site.data.keyword.discoveryshort}} カタログ ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} および『[{{site.data.keyword.discoveryshort}} の料金プラン](/docs/services/discovery/pricing-details.html)』を参照してください。ソース・ファイルはファイル・サイズ制限の対象外であり、索引付けられた変換後の JSON のみがサイズ制限の対象になります。
+    「ライト」、「拡張」、「プレミアム」のプランから選択できます。詳しくは、[{{site.data.keyword.discoveryshort}} カタログ ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/services/discovery){: new_window} および『[{{site.data.keyword.discoveryshort}} の料金プラン](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans)』を参照してください。 ソース・ファイルはプラン・サイズ制限の対象外であり、索引付けられた変換後の JSON のみがサイズ制限の対象になります。
 
 -   **コレクション** — コレクションは、環境内のコンテンツのグループです。 コンテンツをアップロードするには、少なくとも 1 つのコレクションを作成する必要があります。
 
-    コレクションはプライベート・データで構成されますが、{{site.data.keyword.discoveryshort}} によって、事前にエンリッチされたパブリック・データ・セットの {{site.data.keyword.discoverynewsshort}} も組み込まれます。 これを使用して洞察を照会できます。例えば、ニュース・アラートやイベント検出、ニュースにおけるトピックのトレンド把握などで、これらをアプリケーションに統合できます。
+    コレクションはプライベート・データで構成されますが、{{site.data.keyword.discoveryshort}} によって、事前にエンリッチされたパブリック・データ・セットの {{site.data.keyword.discoverynewsshort}} も組み込まれます。 
 
-    {{site.data.keyword.discoveryshort}} には、コグニティブな洞察によって事前にエンリッチされた公開データ・セット、{{site.data.keyword.discoverynewsshort}} も含まれています。詳しくは、[Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) を参照してください。{{site.data.keyword.discoverynewsshort}} 構成を調整したり、このコレクションに文書を追加したりすることはできません。 {{site.data.keyword.discoverynewsshort}} を使用して何を作成できるのかを示すデモを[ここ ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://discovery-news-demo.ng.bluemix.net/){: new_window} で見ることができます。
+    {{site.data.keyword.discoveryshort}} には、コグニティブな洞察によって事前にエンリッチされた公開データ・セット、{{site.data.keyword.discoverynewsshort}} も含まれています。 これを使用して洞察を照会できます。例えば、ニュース・アラートやイベント検出、ニュースにおけるトピックのトレンド把握などで、これらをアプリケーションに統合できます。 詳しくは、[Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) を参照してください。 {{site.data.keyword.discoverynewsshort}} 構成を調整したり、このコレクションに文書を追加したりすることはできません。 {{site.data.keyword.discoverynewsshort}} を使用して何を作成できるのかを示すデモを[ここ ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://discovery-news-demo.ng.bluemix.net/){: new_window} で見ることができます。
 
 {{site.data.keyword.discoveryshort}} ツールを使用して環境とプライベート・データ・コレクションを作成するには、以下を実行します。
 
-1.  **「データの管理」**画面で、![Cog](images/icon_settings.png) アイコンをクリックし、**「環境の作成」**を選択します。 これまでに選択した {{site.data.keyword.Bluemix_notm}} プランに基づいて環境が作成されます。 ご使用の環境の状況は、常にこのドロップダウンから確認できます。
+1.  **「データの管理 (Manage Data)」**画面で、右上にある ![環境](images/icon_settings.png) アイコンをクリックし、**「環境の作成 (Create environment)」**を選択します。これまでに選択した {{site.data.keyword.Bluemix_notm}} プランに基づいて環境が作成されます。 ご使用の環境の状況は、常にこのドロップダウンから確認できます。
 
 1.  環境の準備ができたら、**「独自のデータをアップロード (Upload your own data)」**ボタンをクリックし、**新しいコレクションに名前を付ける**ことができます。
 
-    デフォルトでは、構成ファイルは **Default Configuration** になります。 使用可能な別の構成ファイルがある場合は、そのファイルを選択できます。あるいは、後で新しい構成ファイルを作成して、そのファイルをこのコレクションに適用することも可能です。 また、このコレクションに追加する文書の言語 (英語、ドイツ語、スペイン語、アラビア語、日本語、フランス語、イタリア語、韓国語、またはブラジル・ポルトガル語) を選択できます。 各コレクションには 1 つの言語しか存在できません。 **「作成」** をクリックすると、データ・コレクションがタイルとして表示されます。
+     このコレクションに追加する文書の言語 (英語、ドイツ語、スペイン語、アラビア語、日本語、フランス語、イタリア語、韓国語、またはブラジル・ポルトガル語) を選択できます。 各コレクションには 1 つの言語しか存在できません。 **「作成」** をクリックすると、データ・コレクションがタイルとして表示されます。
 
-これで、環境とデータ・コレクションが準備できました。 デフォルトの構成ファイルを使用する場合は、[コンテンツの追加](/docs/services/discovery/adding-content.html)をすぐに開始できます。 しかし、追加のエンリッチメントと変換の設定を使用して {{site.data.keyword.discoveryshort}} 構成をカスタマイズする場合は、すぐには文書の追加を開始しないでください。カスタム構成ファイルの作成から始める必要があります。 「[ サービスの構成 ](/docs/services/discovery/building.html#custom-configuration)」を参照してください。
+これで、環境とデータ・コレクションが準備できました。 [コンテンツの追加](/docs/services/discovery?topic=discovery-addcontent#addcontent)をすぐに開始できます。 
 
-**注:** 文書がデータ・コレクションにアップロードされると、そのコレクション用に選択された構成ファイルを使用して文書が変換およびエンリッチされます。 後でコレクションを別の構成ファイルに切り替えたい場合、切り替えは可能ですが、既にアップロードされている文書は元の構成ファイルによって変換されたままとなります。 構成ファイルの切り替え後にアップロードされたすべての文書は、新しい構成ファイルを使用します。 コレクション**全体**で新しい構成を使用する場合は、新規コレクションを作成し、新しい構成ファイルを選択してから、すべての文書を再度アップロードすることが必要になります。 {{site.data.keyword.discoveryshort}} サービスは、アップロードした文書から変換したテキストを保管します。**PDF** ファイルおよび **Microsoft Word** ファイルに埋め込まれたイメージは、結果として返されません。
+しかし、追加のエンリッチメントと変換の設定を使用して {{site.data.keyword.discoveryshort}} 構成をカスタマイズしたい場合は、まだ文書を追加しないでください。まずは、カスタム構成ファイルを作成する必要があります。「[ サービスの構成 ](/docs/services/discovery?topic=discovery-configservice#custom-configuration)」を参照してください。
 
-{{site.data.keyword.discoveryshort}} ツールまたは API を使用して、Box、Salesforce、および Microsoft SharePoint Online データ・ソースをクロールできます。詳しくは、『[データ・ソースへの接続](/docs/services/discovery/connect.html)』を参照してください。
+[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) を使用して作成したコレクションでは、{{site.data.keyword.discoveryshort}} ツールを使用してエンリッチメントを調整できます。
+{: note}
+
+Smart Document Understanding のリリース前に作成したコレクションの場合、文書をデータ・コレクションにアップロードするときに、そのコレクション用に選択した構成ファイルを使用して文書が変換およびエンリッチされます。後で構成ファイルを変更することにした場合、それ自体は可能ですが、既にアップロードした文書は元の構成に従って変換されたままです。構成ファイルの切り替え後にアップロードされたすべての文書は、新しい構成ファイルを使用します。 コレクション**全体**で新しい構成を使用する場合は、新規コレクションを作成し、新しい構成ファイルを選択してから、すべての文書を再度アップロードすることが必要になります。 {{site.data.keyword.discoveryshort}} サービスは、アップロードした文書から変換したテキストを保管します。**PDF** ファイルおよび **Microsoft Word** ファイルに埋め込まれたイメージは、結果として返されません。 コレクションで [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) を使用している場合は、**「変更をコレクションに適用 (Apply changes to collection)」**ボタンをクリックすると、{{site.data.keyword.discoveryshort}} 内のエンリッチメントと変換に対するすべての変更がコレクション全体に適用されます。大規模なコレクションでは、変更の適用に時間がかかることがあります。  
+{: important}
+
+{{site.data.keyword.discoveryshort}} ツールまたは API を使用して、Box、Salesforce、Microsoft SharePoint Online、IBM Cloud オブジェクト・ストレージ、および Microsoft SharePoint 2016 のデータ・ソースをクロールしたり、Web クロールを実行したりできます。詳しくは、『[データ・ソースへの接続](/docs/services/discovery?topic=discovery-sources#sources)』を参照してください。
 {: tip}
 
 ### デフォルト構成
@@ -72,44 +90,58 @@ lastupdated: "2018-07-03"
 
 {{site.data.keyword.discoveryshort}} サービスには、手動によるオプションの構成を必要とせずにデータの変換、エンリッチ、および正規化を行う標準の構成があります。
 
-**Default Configuration** という名前のデフォルト構成には、エンリッチメントに加えて、フォント・スタイルおよびサイズに基づいた標準の文書変換が含まれています。{{site.data.keyword.discoveryshort}} は、{{site.data.keyword.watson}} の 4 つのエンリッチメントであるエンティティーの抽出 (Entity Extraction)、センチメント分析 (Sentiment Analysis)、カテゴリーの分類 (Category Classification)、概念のタグ付け (Concept Tagging) によって収集されたセマンティック情報を使用して文書のテキスト・フィールドをエンリッチ (コグニティブ・メタデータを追加) します (4 つのエンリッチメントの詳細については、[こちら](/docs/services/discovery/building.html#adding-enrichments)を参照してください)。
+**デフォルト構成**ファイルは、[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) のリリース前に作成されたコレクションでのみ使用できます。ただし、Smart Document Understanding を使用する場合も、同じエンリッチメント、同じ HTML 変換および JSON 変換がデフォルトでコレクションに使用されます。
+{: note}
 
--   [Microsoft Word 変換](/docs/services/discovery/building.html#microsoft-word-conversion)
--   [PDF 変換](/docs/services/discovery/building.html#pdf-conversion)
--   [HTML 変換](/docs/services/discovery/building.html#html-conversion)
--   [JSON 変換](/docs/services/discovery/building.html#json-conversion)
+コレクションを作成すると、{{site.data.keyword.discoveryshort}} は、4 つの {{site.data.keyword.watson}} エンリッチメントによって収集されたセマンティック情報を使用して、文書の`テキスト`・フィールドをエンリッチ (コグニティブ・メタデータを追加すること) します。4 つのエンリッチメントとは、エンティティー抽出、センチメント分析、カテゴリー分類、概念タグ付けです (詳細については、[こちら](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)を参照してください)。フォントのスタイルとサイズに基づいた標準的な文書変換も適用されます。エンリッチメントは、後で**「概要」**タブを使用して調整できます。(この構成は、[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) のリリース前に作成されたコレクションでは **Default Configuration** という名前になっています。)
 
-{{site.data.keyword.discoveryshort}} ツールでは、**Default Contract Configuration** という名前のもう 1 つのデフォルト構成があります。これは、PDF 内の要素からパーティー、性質、およびカテゴリーを抽出するために使用できる要素の分類を使用してエンリッチするように構成されています。詳しくは、『[要素の分類](/docs/services/discovery/element-classification.html#element-collection)』を参照してください。
+デフォルトの変換は、以下のとおりです。
 
-カスタム構成を作成する場合は、 「[カスタム構成](/docs/services/discovery/building.html#custom-configuration)」を参照してください。
+-   [Microsoft Word 変換](/docs/services/discovery?topic=discovery-configservice#microsoft-word-conversion)
+-   [PDF 変換](/docs/services/discovery?topic=discovery-configservice#pdf-conversion)
+-   [HTML 変換](/docs/services/discovery?topic=discovery-configservice#html-conversion)
+-   [JSON 変換](/docs/services/discovery?topic=discovery-configservice#json-conversion)
+
+{{site.data.keyword.discoveryshort}} ツールを使用してコレクションを作成する場合、**Default Contract Configuration** という名前の構成を使用できます。これは、PDF 内の要素からパーティー、性質、およびカテゴリーを抽出するために使用できる要素の分類を使用してエンリッチするように構成されています。 詳しくは、[要素の分類](/docs/services/discovery?topic=discovery-element-classification#element-collection)を参照してください。この構成ファイルを使用する場合、Smart Document Understanding は使用できません。
+
+[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) のリリース前に作成したコレクションに対してカスタム構成を作成する場合は、『[カスタム構成](/docs/services/discovery?topic=discovery-configservice#custom-configuration)』を参照してください。
 
 ### カスタム構成が必要な場合
 {: #when-you-need-a-custom-configuration}
 
+この情報は、[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) のリリース前に作成されたコレクションにのみ適用されます。
+{: note}
+
 コンテンツから適切な情報を取得してユーザーに返すことが {{site.data.keyword.discoveryshort}} サービスの目的です。 その情報が何であるか、それをどのようにコンテンツに保管するかは、コンテンツの取り込みに使用する構成によって定義されます。 {{site.data.keyword.discoveryshort}} サービスが取り込めるコンテンツ・タイプは柔軟です。つまり、たとえ非構造化コンテンツが特定のフォーマットで保管されていても、そのコンテンツの構造は同じタイプの他のコンテンツの構造と一致する必要はありません。
 
 -   **私の文書は、デフォルト構成に対応する方法で構成されていないかもしれません。 *デフォルト設定が私の文書に適しているかどうか、どのような方法で確認できますか?***
-    -   デフォルトが機能するかどうかを確認する最も簡単な方法は、[サンプル文書のアップロード](/docs/services/discovery/building.html#uploading-sample-documents)によってテストすることです。 サンプルの JSON 結果が希望どおりであれば、追加の構成は必要ありません。
+    -   デフォルトが機能するかどうかを確認する最も簡単な方法は、[サンプル文書のアップロード](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents)によってテストすることです。 サンプルの JSON 結果が希望どおりであれば、追加の構成は必要ありません。
 -   **デフォルトのエンリッチメントが文書のテキスト・フィールドに追加されることを理解しています。 他のフィールドにエンリッチメントを追加できますか?**
-    -   もちろん、必要な任意の数のフィールドにエンリッチメントを追加できます。 詳しくは、「[エンリッチメントの追加](/docs/services/discovery/building.html#adding-enrichments)」を参照してください。
+    -   もちろん、必要な任意の数のフィールドにエンリッチメントを追加できます。 詳しくは、「[エンリッチメントの追加](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)」を参照してください。
 
 ## カスタム構成
 {: #custom-configuration}
 
+この情報は、[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) のリリース前に作成されたコレクションにのみ適用されます。
+{: note}
+
 {{site.data.keyword.discoveryshort}} ツールでカスタム構成を作成するには、プライベート・データ・コレクションを開き、**「データの管理」**画面で、使用する**構成**の名前の横にある**「切り替え (Switch)」**をクリックします。 **「構成の切り替え (Switch configuration)」**ダイアログで、**「新規構成の作成  (Create a new configuration)」**」をクリックします。
 
-新規構成ファイルに名前を付けると、その名前が構成画面の上部に表示されます。 この新規構成ファイルには、[デフォルト構成](/docs/services/discovery/building.html#the-default-configuration)ファイルの設定とエンリッチメントが自動的に組み込まれ、出発地点となります。
+新規構成ファイルに名前を付けると、その名前が構成画面の上部に表示されます。 この新規構成ファイルには、[デフォルト構成](/docs/services/discovery?topic=discovery-configservice#the-default-configuration)ファイルの設定とエンリッチメントが自動的に組み込まれ、出発地点となります。
 
 構成ファイルをカスタマイズする 3 つのステップは、**変換**、**エンリッチ**、**正規化**です。
 
-1.  [サンプル文書の変換](/docs/services/discovery/building.html#converting-sample-documents)
-1.  [エンリッチメントの追加](/docs/services/discovery/building.html#adding-enrichments)
-1.  [データの正規化](/docs/services/discovery/building.html#normalizing-data)
+1.  [サンプル文書の変換](/docs/services/discovery?topic=discovery-configservice#converting-sample-documents)
+1.  [エンリッチメントの追加](/docs/services/discovery?topic=discovery-configservice#adding-enrichments) (このタブは、Smart Document Configuration を使用する場合に使用できます。)
+1.  [データの正規化](/docs/services/discovery?topic=discovery-configservice#normalizing-data)
 
-構成について詳しくは、『[構成リファレンス](/docs/services/discovery/custom-config.html)』を参照してください。
+構成について詳しくは、『[構成リファレンス](/docs/services/discovery?topic=discovery-configref#configref)』を参照してください。
 
 ### サンプル文書のアップロード
 {: #uploading-sample-documents}
+
+この情報は、[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) のリリース前に作成されたコレクションにのみ適用されます。
+{: note}
 
 構成プロセスをより効率的にするために、Microsoft Word、HTML、JSON、PDF の各ファイルを合計 10 個まで文書セットの見本としてアップロードできます。 これらを**サンプル文書**と呼びます。 サンプル文書はコレクションには追加されず、文書に共通するフィールドを特定し、要件に沿ってこれらのフィールドをカスタマイズするためにのみ使用されます。
 
@@ -120,7 +152,7 @@ lastupdated: "2018-07-03"
 -   すべての文書は JSON に変換されてから、エンリッチおよび索引付けされます。
 -   Microsoft Word 文書と PDF 文書は、最初に HTML に変換されてから JSON に変換されます。
 -   HTML 文書は直接 JSON に変換されます。
--   サンプル文書の最大ファイル・サイズは 1 MB です。 サンプル文書は、ブラウザーのローカル・ローミング・データ・フォルダーに保管されます。サンプル文書を削除するには、**削除**アイコンをクリックします。
+-   サンプル文書の最大ファイル・サイズは 1 MB です。 サンプル文書は、ブラウザーのローカル・ローミング・データ・フォルダーに保管されます。 サンプル文書を削除するには、**削除**アイコンをクリックします。
 
 #### 適切なサンプル文書を選択するためのガイドライン
 
@@ -132,9 +164,12 @@ lastupdated: "2018-07-03"
 ### サンプル文書の変換
 {: #converting-sample-documents}
 
+この情報は、[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) のリリース前に作成されたコレクションにのみ適用されます。
+{: note}
+
 サンプル文書の変換とは、各入力タイプをどのように処理するのかを定義するプロセスです。 アップロードするコンテンツのファイル・タイプによって、考慮しなければならない変換ステップの数が異なります。
 
-開始する前に、[サンプル文書のアップロード](/docs/services/discovery/building.html#uploading-sample-documents)を行い、構成したいファイル・タイプのサンプル文書を右側のペインで開きます。
+開始する前に、[サンプル文書のアップロード](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents)を行い、構成したいファイル・タイプのサンプル文書を右側のペインで開きます。
 
 変換設定を行うために、ファイル・タイプをクリックします。
 
@@ -208,20 +243,23 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 ## エンリッチメントの追加
 {: #adding-enrichments}
 
-{{site.data.keyword.discoveryshort}} の[デフォルト構成](/docs/services/discovery/building.html#the-default-configuration)は、{{site.data.keyword.watson}} の 4 つの機能であるエンティティーの抽出 (Entity Extraction)、センチメント分析 (Sentiment Analysis)、カテゴリーの分類 (Category Classification)、概念のタグ付け (Concept Tagging) によって収集されたセマンティック情報を使用して、取り込まれた文書の`テキスト`・フィールドをエンリッチ (コグニティブ・メタデータを追加) します。 ({{site.data.keyword.watson}} エンリッチメントは全部で 9 個あります。残りは、キーワードの抽出 (Keyword Extraction)、関係の抽出 (Relation Extraction)、感情分析 (Emotion Analysis)、要素の分類 (Element Classification)、意味役割抽出 (Semantic Role Extraction) です。)
+{{site.data.keyword.discoveryshort}} の[デフォルト構成](/docs/services/discovery?topic=discovery-configservice#the-default-configuration)は、{{site.data.keyword.watson}} の 4 つの機能であるエンティティーの抽出 (Entity Extraction)、センチメント分析 (Sentiment Analysis)、カテゴリーの分類 (Category Classification)、概念のタグ付け (Concept Tagging) によって収集されたセマンティック情報を使用して、取り込まれた文書の`テキスト`・フィールドをエンリッチ (コグニティブ・メタデータを追加) します。 ({{site.data.keyword.watson}} エンリッチメントは全部で 9 個あります。残りは、キーワードの抽出 (Keyword Extraction)、関係の抽出 (Relation Extraction)、感情分析 (Emotion Analysis)、要素の分類 (Element Classification)、意味役割抽出 (Semantic Role Extraction) です。)
 
 一部の {{site.data.keyword.watson}} エンリッチメントは、特定のプランまたは環境では使用できない場合があります。
 
-**重要:** エンリッチメントのために選択された各 JSON フィールドの最初の 50,000 文字のみがエンリッチされます。
+{{site.data.keyword.knowledgestudiofull}} の 1 つ以上のカスタム・モデルを {{site.data.keyword.discoveryshort}} サービスと統合して、カスタム・エンティティーと関係のエンリッチメントを提供することもできます。[Watson Knowledge Studio との統合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)を参照してください。
 
-**注:** {{site.data.keyword.alchemylanguageshort}} エンリッチメントは 2018 年 3 月 1 日に非推奨になりました。{{site.data.keyword.alchemylanguageshort}} エンリッチメントを使用している既存のコレクションがある場合は、{{site.data.keyword.nlushort}} エンリッチメントにマイグレーションする必要があります。{{site.data.keyword.alchemylanguageshort}} エンリッチメントを利用する既存のコレクションおよび構成ファイルのマイグレーションについて詳しくは、『[{{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html)へのエンリッチメントのマイグレーション』を参照してください。
+エンリッチメントのために選択された各 JSON フィールドの最初の 50,000 文字のみがエンリッチされます。
+{: important}
 
-別のエンリッチメントを`テキスト`・フィールドに追加したり、別のフィールドをエンリッチしたりすることで、文書をさらに増強することができます。 これを行うには、{{site.data.keyword.discoveryshort}} ツールを使用して、[カスタム構成を作成](/docs/services/discovery/building.html#custom-configuration)し、エンリッチするフィールドを選択して、使用可能な {{site.data.keyword.nlushort}} エンリッチメントのリストからいずれかを選択します。
+**注:** {{site.data.keyword.alchemylanguageshort}} エンリッチメントは 2018 年 3 月 1 日に非推奨になりました。 {{site.data.keyword.alchemylanguageshort}} エンリッチメントを使用している既存のコレクションがある場合は、{{site.data.keyword.nlushort}} エンリッチメントにマイグレーションする必要があります。 {{site.data.keyword.alchemylanguageshort}} エンリッチメントを利用する既存のコレクションおよび構成ファイルのマイグレーションについて詳しくは、『[{{site.data.keyword.nlushort}}](/docs/services/discovery?topic=discovery-migrate-nlu#migrate-nlu)へのエンリッチメントのマイグレーション』を参照してください。
+
+別のエンリッチメントを`テキスト`・フィールドに追加したり、別のフィールドをエンリッチしたりすることで、文書をさらに増強することができます。 {{site.data.keyword.discoveryshort}} ツールで Smart Document Understanding を使用してこれを行うには、**「フィールドのエンリッチ (Enrich fields)」**タブを開きます。Smart Document Understanding より前に作成されたコレクションについてこれを行うには、[カスタム構成を作成](/docs/services/discovery?topic=discovery-configservice#custom-configuration)し、エンリッチするフィールドを選択して、使用可能な {{site.data.keyword.nlushort}} エンリッチメントのリストからいずれかを選択します。
 
 ### エンティティーの抽出
 {: #entity-extraction}
 
-入力テキスト内に存在する人、場所、組織などの項目を返します。 エンティティーの抽出により、分析されるテキストの主題やコンテキストを理解するのに役立つセマンティック・ナレッジがコンテンツに追加されます。エンティティー抽出技法は、高度な統計アルゴリズムと自然言語処理テクノロジーに基づき、複数言語分析や、コンテキストに依存するあいまいさ除去をサポートする、業界でユニークなものです。エンティティーのタイプとサブタイプの完全なリストについては、[こちら](/docs/services/discovery/entity-types.html)を参照してください。 また、{{site.data.keyword.knowledgestudiofull}} を使用して [カスタム・エンティティー・モデル](/docs/services/discovery/building.html#custom-entity-model)を作成して追加することもできます。
+入力テキスト内に存在する人、場所、組織などの項目を返します。 エンティティーの抽出により、分析されるテキストの主題やコンテキストを理解するのに役立つセマンティック・ナレッジがコンテンツに追加されます。 エンティティー抽出技法は、高度な統計アルゴリズムと自然言語処理テクノロジーに基づき、複数言語分析や、コンテキストに依存するあいまいさ除去をサポートする、業界でユニークなものです。 エンティティーのタイプとサブタイプの完全なリストについては、[こちら](/docs/services/discovery?topic=discovery-entity-types-and-subtypes#entity-types-and-subtypes)を参照してください。また、{{site.data.keyword.knowledgestudiofull}} を使用して [カスタム・エンティティー・モデル](/docs/services/discovery?topic=discovery-configservice#custom-entity-model)を作成して追加することもできます。
 
 例として、エンティティーの抽出でエンリッチされた文書の一部を以下に示します。
 
@@ -281,23 +319,23 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 
 上の例では、`enriched_text.entities.type` にアクセスすることにより、エンティティー・タイプを照会できます。
 
-**センチメント**のエンリッチメントが選択されていなくても、エンティティー・タイプの `sentiment` が算出されます。 センチメントのスコアについて詳しくは、「[センチメント分析](/docs/services/discovery/building.html#sentiment-analysis)」を参照してください。
+**センチメント**のエンリッチメントが選択されていなくても、エンティティー・タイプの `sentiment` が算出されます。 センチメントのスコアについて詳しくは、「[センチメント分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)」を参照してください。
 
 `relevance` スコアの範囲は `0.0` から `1.0` までです。 スコアが高いほど、エンティティーの関連性が高くなります。 `disambiguation` フィールドにはエンティティーに関するあいまいさ除去の情報があり、エンティティーの `subtype` 情報やリソースのリンク先 (存在する場合) が含まれています。 `count` は、文書内でエンティティーが言及された回数です。
 
 #### カスタム・エンティティー・モデルの使用
 {: #custom-entity-model}
 
-カスタム・エンリッチ・モデルを作成する場合は、{{site.data.keyword.knowledgestudiofull}} で作成することができ、{{site.data.keyword.discoveryshort}} ツールの `カスタム・モデル ID (Custom Model ID)` ボックスに ID を追加することで、モデルを {{site.data.keyword.discoveryshort}} にインポートします。 {{site.data.keyword.knowledgestudiofull}} との統合について詳しくは、「[{{site.data.keyword.knowledgestudiofull}} との統合](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio)」を参照してください。 カスタムの {{site.data.keyword.knowledgestudiofull}} モデルによって、デフォルトの「エンティティーの抽出」エンリッチメントがオーバーライドされます。
+カスタム・エンリッチ・モデルを作成する場合は、{{site.data.keyword.knowledgestudiofull}} で作成することができ、{{site.data.keyword.discoveryshort}} ツールの `カスタム・モデル ID (Custom Model ID)` ボックスに ID を追加することで、モデルを {{site.data.keyword.discoveryshort}} にインポートします。 {{site.data.keyword.knowledgestudiofull}} との統合について詳しくは、「[{{site.data.keyword.knowledgestudiofull}} との統合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)」を参照してください。 カスタムの {{site.data.keyword.knowledgestudiofull}} モデルによって、デフォルトの「エンティティーの抽出」エンリッチメントがオーバーライドされます。
 
 **注:** 1 つのエンリッチメントには、1 つの {{site.data.keyword.knowledgestudiofull}} モデルのみ割り当てることができます。
 
 ### 関係の抽出
 {: #relation-extraction}
 
-2 つのエンティティーが関連付けられている場合に認識し、関係のタイプを識別します。 また、{{site.data.keyword.knowledgestudiofull}} を使用して[カスタム関係モデル](/docs/services/discovery/building.html#custom-relation-model)を作成して追加することもできます。
+2 つのエンティティーが関連付けられている場合に認識し、関係のタイプを識別します。 また、{{site.data.keyword.knowledgestudiofull}} を使用して[カスタム関係モデル](/docs/services/discovery?topic=discovery-configservice#custom-relation-model)を作成して追加することもできます。
 
-関係タイプの完全なリストについては、[こちら](/docs/services/discovery/relation-types.html)を参照してください。
+関係タイプの完全なリストについては、[こちら](/docs/services/discovery?topic=discovery-relation-types#relation-types)を参照してください。
 
 例として、関係抽出でエンリッチされた文書の一部を以下に示します。
 
@@ -347,14 +385,14 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 
 上の例では、`enriched_text.relations.type` にアクセスすることにより、関係タイプを照会できます。
 
-関係のあるエンティティーが `arguments` にリストされます。 関係の抽出エンリッチメントによって識別できるエンティティー・タイプについては、[こちら](/docs/services/discovery/relation-types.html#specific-entity-types)を参照してください。
+関係のあるエンティティーが `arguments` にリストされます。 関係の抽出エンリッチメントによって識別できるエンティティー・タイプについては、[こちら](/docs/services/discovery?topic=discovery-relation-types#specific-entity-types)を参照してください。
 
 `score` の範囲は `0.0` から `1.0` までです。 スコアが高いほど、関係の関連性が高くなります。
 
 #### カスタム関係モデルの使用
 {: #custom-relation-model}
 
-カスタム・エンリッチ・モデルを作成する場合は、{{site.data.keyword.knowledgestudiofull}} で作成することができ、{{site.data.keyword.discoveryshort}} ツールの `カスタム・モデル ID (Custom Model ID)` ボックスに ID を追加することで、モデルを {{site.data.keyword.discoveryshort}} にインポートします。 {{site.data.keyword.knowledgestudiofull}} との統合について詳しくは、「[{{site.data.keyword.knowledgestudiofull}} との統合](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio)」を参照してください。 カスタムの {{site.data.keyword.knowledgestudiofull}} モデルによって、デフォルトの「関係の抽出」エンリッチメントがオーバーライドされます。
+カスタム・エンリッチ・モデルを作成する場合は、{{site.data.keyword.knowledgestudiofull}} で作成することができ、{{site.data.keyword.discoveryshort}} ツールの `カスタム・モデル ID (Custom Model ID)` ボックスに ID を追加することで、モデルを {{site.data.keyword.discoveryshort}} にインポートします。 {{site.data.keyword.knowledgestudiofull}} との統合について詳しくは、「[{{site.data.keyword.knowledgestudiofull}} との統合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)」を参照してください。 カスタムの {{site.data.keyword.knowledgestudiofull}} モデルによって、デフォルトの「関係の抽出」エンリッチメントがオーバーライドされます。
 
 **注:** 1 つのエンリッチメントには、1 つの {{site.data.keyword.knowledgestudiofull}} モデルのみ割り当てることができます。
 
@@ -420,13 +458,14 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 
 上の例では、`enriched_text.keywords.text` にアクセスすることにより、キーワード・テキストを照会できます。
 
-**センチメント**のエンリッチメントが選択されていなくても、キーワードの `sentiment` が算出されます。 センチメントのスコアについて詳しくは、「[センチメント分析](/docs/services/discovery/building.html#sentiment-analysis)」を参照してください。
+**センチメント**のエンリッチメントが選択されていなくても、キーワードの `sentiment` が算出されます。 センチメントのスコアについて詳しくは、「[センチメント分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)」を参照してください。
 
 `relevance` スコアの範囲は `0.0` から `1.0` までです。 スコアが高いほど、キーワードの関連性が高くなります。
 
 ### カテゴリーの分類
+{: #category-classification}
 
-入力テキスト、HTML、または Web ベースのコンテンツを最大 5 階層の深さのタクソノミーに分類します。 階層を深めるほど、より正確で役に立つサブセグメントにまでコンテンツを分類できます カテゴリーの完全なリストについては、[こちら](/docs/services/discovery/categories.html)を参照してください。
+入力テキスト、HTML、または Web ベースのコンテンツを最大 5 階層の深さのタクソノミーに分類します。 階層を深めるほど、より正確で役に立つサブセグメントにまでコンテンツを分類できます カテゴリーの完全なリストについては、[こちら](/docs/services/discovery?topic=discovery-cathierarchy#cathierarchy)を参照してください。
 
 例として、カテゴリーの分類でエンリッチされた文書の一部を以下に示します。
 
@@ -453,12 +492,12 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 
 上の例では、`enriched_text.categories.label` にアクセスすることにより、カテゴリー・ラベルを照会できます。
 
-`label` は検出されたカテゴリーです。 階層レベルはスラッシュで区切ります。 そのカテゴリーの `score` は、`0.0` から `1.0` の範囲です。スコアが高いほど、当該カテゴリーの信頼度が高くなります。
+`label` は検出されたカテゴリーです。 階層レベルはスラッシュで区切ります。 そのカテゴリーの `score` は、`0.0` から `1.0` の範囲です。 スコアが高いほど、当該カテゴリーの信頼度が高くなります。
 
 ### 概念のタグ付け
 {: #concept-tagging}
 
-入力テキストと関連付けられた概念を、そのテキスト内に存在する他の概念およびエンティティーに基づいて識別します。概念のタグ付けは、概念の関連性を理解し、テキスト内で直接参照されない概念を識別することができます。例えば、記事で CERN とヒッグス粒子が取り上げられている場合、概念 API 関数は、「大型ハドロン衝突型加速器」という用語がページ内で明示的に言及されていなくても、その用語を概念として識別します。概念のタグ付けにより、単なる基本的なキーワード識別よりも、入力コンテンツの高レベルの分析が可能になります。
+入力テキストと関連付けられた概念を、そのテキスト内に存在する他の概念およびエンティティーに基づいて識別します。 概念のタグ付けは、概念の関連性を理解し、テキスト内で直接参照されない概念を識別することができます。 例えば、記事で CERN とヒッグス粒子が取り上げられている場合、概念 API 関数は、「大型ハドロン衝突型加速器」という用語がページ内で明示的に言及されていなくても、その用語を概念として識別します。 概念のタグ付けにより、単なる基本的なキーワード識別よりも、入力コンテンツの高レベルの分析が可能になります。
 
 例として、概念のタグ付けでエンリッチされた文書の一部を以下に示します。
 
@@ -486,8 +525,9 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 `relevance` スコアの範囲は `0.0` から `1.0` までです。 スコアが高いほど、概念の関連性が高くなります。 該当がある場合は、リソースへのリンクも提供されます。
 
 ### 意味役割抽出
+{: #semantic-role-extraction}
 
-入力コンテンツの文内の主語、動作、目的語の関係を識別します。関係情報は、購買シグナル、キー・イベント、およびその他の重要なアクションを自動的に識別するために使用できます。
+入力コンテンツの文内の主語、動作、目的語の関係を識別します。 関係情報は、購買シグナル、キー・イベント、およびその他の重要なアクションを自動的に識別するために使用できます。
 
 例として、意味役割抽出でエンリッチされた文書の一部を以下に示します。
 
@@ -569,14 +609,14 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 
 上記の例では、`enriched_text.relations.subject.text` にアクセスすることで、関係の主語のテキストを照会できます。
 
-**センチメント**のエンリッチメントが選択されていなくても、関係の `sentiment` が算出されます。 センチメントのスコアについて詳しくは、「[センチメント分析](/docs/services/discovery/building.html#sentiment-analysis)」を参照してください。 **エンティティー**と**キーワード**のエンリッチメントも選択していなければ、(例に示したような) `entities` および `keywords` は抽出されません。これらのエンリッチメントについて詳しくは、「[ エンティティーの抽出 ](/docs/services/discovery/building.html#entity-extraction)」と「[ キーワードの抽出 ](/docs/services/discovery/building.html#keyword-extraction)」を参照してください。
+**センチメント**のエンリッチメントが選択されていなくても、関係の `sentiment` が算出されます。 センチメントのスコアについて詳しくは、[センチメント分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)を参照してください。**エンティティー**と**キーワード**のエンリッチメントも選択していなければ、(例に示したような) `entities` および `keywords` は抽出されません。 これらのエンリッチメントについて詳しくは、[エンティティーの抽出](/docs/services/discovery?topic=discovery-configservice#entity-extraction)と[キーワードの抽出](/docs/services/discovery?topic=discovery-configservice#keyword-extraction)を参照してください。
 
 関係を含むすべての文について、`subject`、`action`、および `object` が抽出されます。
 
 ### センチメント分析
 {: #sentiment-analysis}
 
-分析中のコンテンツ内の姿勢、意見、または感情を識別します。{{site.data.keyword.discoveryshort}} サービスは、文書内の全体的なセンチメント、ユーザーが指定したターゲットのセンチメント、エンティティー・レベルのセンチメント、引用レベルのセンチメント、方向性のセンチメント、キーワード・レベルのセンチメントを計算できます。これらの機能を組み合わせて、ソーシャル・メディアのモニターからトレンド分析まで、さまざまなユース・ケースをサポートします。
+分析中のコンテンツ内の姿勢、意見、または感情を識別します。 {{site.data.keyword.discoveryshort}} サービスは、文書内の全体的なセンチメント、ユーザーが指定したターゲットのセンチメント、エンティティー・レベルのセンチメント、引用レベルのセンチメント、方向性のセンチメント、キーワード・レベルのセンチメントを計算できます。 これらの機能を組み合わせて、ソーシャル・メディアのモニターからトレンド分析まで、さまざまなユース・ケースをサポートします。
 
 例として、センチメント分析でエンリッチされた文書の一部を以下に示します。
 
@@ -600,7 +640,7 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 ### 感情分析
 {: #emotion-analysis}
 
-英語のテキスト内に暗示された怒り、嫌悪、不安、喜び、悲しみを検出します。感情分析では、対象の句、エンティティー、またはキーワードに関連する感情を検出することや、コンテンツの全体的な感情のトーンを分析することができます。
+英語のテキスト内に暗示された怒り、嫌悪、不安、喜び、悲しみを検出します。 感情分析では、対象の句、エンティティー、またはキーワードに関連する感情を検出することや、コンテンツの全体的な感情のトーンを分析することができます。
 
 例として、感情分析でエンリッチされた文書の一部を以下に示します。
 
@@ -624,24 +664,26 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 
 上の例では、`enriched_text.emotion.document.emotion.joy` にアクセスすることにより、感情の `joy` を照会できます。
 
-感情分析ではテキストを分析し、`0.0` から `1.0` までの尺度で各感情 (怒り、嫌悪、不安、喜び、悲しみ) のスコアを計算します。感情のスコアが `0.5` 以上であると、その感情が検出されます (スコアが `0.5` を超えて高いほど、関連性が高くなります)。示されているスニペットでは、`joy` のスコアが 0.5 を超えるため、{{site.data.keyword.watson}} は喜びを検出しました。
+感情分析ではテキストを分析し、`0.0` から `1.0` までの尺度で各感情 (怒り、嫌悪、不安、喜び、悲しみ) のスコアを計算します。 感情のスコアが `0.5` 以上であると、その感情が検出されます (スコアが `0.5` を超えて高いほど、関連性が高くなります)。 示されているスニペットでは、`joy` のスコアが 0.5 を超えるため、{{site.data.keyword.watson}} は喜びを検出しました。
 
 **注:** 感情分析は英語でのみサポートされます。
 
 ### 要素の分類
 {: #elements}
 
-管理文書内の要素 (センテンス、リスト、表) を解析して、重要なタイプとカテゴリーを分類します。詳細については、「[要素の分類](/docs/services/discovery/element-classification.html)」を参照してください。
+管理文書内の要素 (センテンス、リスト、表) を解析して、重要なタイプとカテゴリーを分類します。詳細については、「[要素の分類](/docs/services/discovery?topic=discovery-element-classification#element-classification)」を参照してください。
+
+このエンリッチメントを使用する場合、[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) は使用できません。
 
 #### エンリッチメントの価格
 {: #enrichment-pricing}
 
-エンリッチメントの価格情報については、[{{site.data.keyword.Bluemix_notm}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} を参照してください。
+エンリッチメントの価格情報については、[{{site.data.keyword.Bluemix_notm}} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/catalog/services/discovery){: new_window} を参照してください。
 
 #### エンリッチメントの言語サポート
 {: #enrichment-language-support}
 
-エンリッチメントの言語サポートについては、「[{{site.data.keyword.discoveryshort}} の言語サポート](/docs/services/discovery/language-support.html)」を参照してください。
+エンリッチメントの言語サポートについては、「[{{site.data.keyword.discoveryshort}} の言語サポート](/docs/services/discovery?topic=discovery-language-support#language-support)」を参照してください。
 
 ### エンティティー、概念、およびキーワードの違いについて
 {: #udbeck}
@@ -691,6 +733,9 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 ## データの正規化
 {: #normalizing-data}
 
+この情報は、[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) のリリース前に作成されたコレクションにのみ適用されます。
+{: note}
+
 構成ファイルをカスタマイズする最後のステップは、正規化と呼ばれる最終的なクリーンアップを行うことです。
 
 {{site.data.keyword.discoveryshort}} ツールの**「正規化」**セクションでは、以下のことを行います。
@@ -700,7 +745,7 @@ PDF のフォント・サイズとフォント名は、文書内の見出しを 
 
 変更を行った後、**「適用して保存」**をクリックし、**「完了」**をクリックします。 **「データの管理」**画面に戻され、選択したコレクションにこの構成を提供できます。
 
-**注:** フィールドの`データ・タイプ` (例: `text` や `date`) を指定することはできません。文書の取り込み中に、索引にまだ存在しないフィールドが検出されると、{{site.data.keyword.discoveryshort}} は、索引付けられた最初の文書のそのフィールドの値に基づいて、そのフィールドの`データ・タイプ`を自動的に検出します。
+**注:** フィールドの`データ・タイプ` (例: `text` や `date`) を指定することはできません。 文書の取り込み中に、索引にまだ存在しないフィールドが検出されると、{{site.data.keyword.discoveryshort}} は、索引付けられた最初の文書のそのフィールドの値に基づいて、そのフィールドの`データ・タイプ`を自動的に検出します。
 
 **要素の分類**エンリッチメントを使用している場合、エンリッチメント後の正規化を実行することはできません。
 
@@ -745,12 +790,12 @@ Discovery API を介して CSS セレクターを使用することにより、�
 -   `field_name` — JSON 出力に追加されるフィールドの名前。
 -   `CSS_selector_expression` — フィールドを抽出するために、入力 HTML に対して実行される CSS セレクター。 式による一致が 1 つ以上になることがあります。
 
-    有効な CSS セレクターは、[JSoup パーサー ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} とその[セレクター構文![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window}によって指定されたものです。 簡略なリストが「[一般的なセレクター](/docs/services/discovery/building.html#common-selectors)」にあります。
+    有効な CSS セレクターは、[JSoup パーサー ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} とその[セレクター構文![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window}によって指定されたものです。 簡略なリストが「[一般的なセレクター](/docs/services/discovery?topic=discovery-configservice#common-selectors)」にあります。
 -   `field_type` — `array` または `string` です。 フィールド・タイプが指定されないと、デフォルトの `array` になります。 `string` タイプはエンリッチできますが、配列の項目を最初にテキスト・フィールドに抽出しておかない限り、`array` に保管された情報をエンリッチすることはできません。
 
 **警告:** CSS セレクターが、親ノードとその子 (1 つまたは複数) の両方に一致する場合、ノードのテキスト・コンテンツは JSON 出力で重複します。
 
-**注:** フィールド名は、「[フィールド名の要件](/docs/services/discovery/custom-config.html#field_reqs)」に定義された制限事項を満たしている必要があります。
+**注:** フィールド名は、「[フィールド名の要件](/docs/services/discovery?topic=discovery-configref#field_reqs)」に定義された制限事項を満たしている必要があります。
 
 次に示す JSON の文節は、Default Configuration の関連セクションです。このセクションに、CSS セレクター情報を追加します。
 
@@ -921,6 +966,7 @@ Discovery API を介して CSS セレクターを使用することにより、�
 抽出する HTML 要素を決定した後、その構成ファイルをさらに変更して、それらに適用するエンリッチメントを指定することができます。
 
 #### 一般的なセレクター
+{: #common-selectors}
 
 一般的な CSS セレクターを以下に示します。
 
@@ -933,7 +979,10 @@ Discovery API を介して CSS セレクターを使用することにより、�
 ## 文書セグメンテーションによる文書の分割
 {: #doc-segmentation}
 
-Word、PDF、および HTML の各文書を HTML の見出しタグに基づいてセグメントに分割できます。 一度分割されると、各セグメントは個別の文書となり、エンリッチおよび索引付けが個別に行われるようになります。照会によってこれらのセグメントが個別の文書として返されるので、文書は以下の目的で使用できます。
+Smart Document Understanding を使用する場合は、文書のセグメンテーションを使用せずに、[文書の分割](/docs/services/discovery?topic=discovery-sdu#splitting)を使用してください。
+{: note}
+
+Word、PDF、および HTML の各文書を HTML の見出しタグに基づいてセグメントに分割できます。 一度分割されると、各セグメントは個別の文書となり、エンリッチおよび索引付けが個別に行われるようになります。 照会によってこれらのセグメントが個別の文書として返されるので、文書は以下の目的で使用できます。
 
   - 文書の個々のセグメントに集約を実行します。 例えば、集約によって、指定のエンティティーへの言及を文書全体で 1 回のみカウントする代わりに、セグメントが言及するたびにカウントすることができます。
   - 文書ではなくセグメントに対して関連性のトレーニングを実行します。これによって結果の再ランク付けが改善されます。
@@ -944,20 +993,23 @@ Word、PDF、および HTML の各文書を HTML の見出しタグに基づい�
 
   - 文書あたりのセグメント数は `250` に制限されています。 `249` 個のセグメント以降に残っている文書コンテンツは、セグメント `250` に格納されます。
 
-  - 各セグメントは、計画した文書の制限に向けてカウントされます。 {{site.data.keyword.discoveryshort}} は、プランの制限に達するまでセグメントの索引付けを行います。文書制限については、『[Discovery の料金プラン](/docs/services/discovery/pricing-details.html)』を参照してください。
+  - 各セグメントは、計画した文書の制限に向けてカウントされます。 {{site.data.keyword.discoveryshort}} は、プランの制限に達するまでセグメントの索引付けを行います。 文書制限については、『[Discovery の料金プラン](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans)』を参照してください。
 
-  - 文書のセグメンテーションを使用しているときは、データの正規化 (「[データの正規化](/docs/services/discovery/building.html#normalizing-data)」を参照) および CSS セレクターを使用したフィールドの抽出 ([「CSS セレクターを使用したフィールドの抽出](/docs/services/discovery/building.html#using-css)」を参照) を行うことはできません。
+  - 文書のセグメンテーションを使用しているときは、データの正規化 (「[データの正規化](/docs/services/discovery?topic=discovery-configservice#normalizing-data)」を参照) および CSS セレクターを使用したフィールドの抽出 ([「CSS セレクターを使用したフィールドの抽出](/docs/services/discovery?topic=discovery-configservice#using-css)」を参照) を行うことはできません。
 
   - 文書は、指定された HTML タグが検出されるたびにセグメント化されます。 その結果、終了タグの前または開始タグの後で文書が分割されることがあり、セグメンテーションによって誤った形式の HTML になる可能性があります。
 
-  - HTML、PDF、および Word のメタデータ、およびすべてのカスタム・メタデータは、抽出され、各セグメントと共に索引に組み込まれます。文書の各セグメントには、同一のメタデータが含まれます。
+  - HTML、PDF、および Word のメタデータ、およびすべてのカスタム・メタデータは、抽出され、各セグメントと共に索引に組み込まれます。 文書の各セグメントには、同一のメタデータが含まれます。
 
   - **要素の分類** (`elements`) エンリッチメントが指定されている場合は文書のセグメンテーションはサポートされません。
 
-  - セグメント化された文書の再取り込みには、追加の考慮事項があります。『[セグメント化された文書の更新](/docs/services/discovery/building.html#update-seg)』を参照してください。
+  - セグメント化された文書の再取り込みには、追加の考慮事項があります。『[セグメント化された文書の更新](/docs/services/discovery?topic=discovery-configservice#update-seg)』を参照してください。
 
 ### セグメンテーションの実行
 {: #performing-segmentation}
+
+Smart Document Understanding を使用する場合は、文書のセグメンテーションを使用せずに、[文書の分割](/docs/services/discovery?topic=discovery-sdu#splitting)を使用してください。
+{: note}
 
 セグメンテーションは、`conversions` セクションの API を使用してセットアップされます。
 
@@ -980,6 +1032,7 @@ Word、PDF、および HTML の各文書を HTML の見出しタグに基づい�
 `selector_tags` は、文書のセグメント化に使用される見出しタグを指定する配列です。
 
 #### 例
+{: #example-segmentation}
 
 構成
 
@@ -1054,12 +1107,12 @@ Word、PDF、および HTML の各文書を HTML の見出しタグに基づい�
 ### セグメント化された文書の更新
 {: #update-seg}
 
-セグメント化された文書が更新され、再取り込みが必要な場合は、[文書の更新 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} メソッドを使用して置き換えることができます。
+セグメント化された文書が更新され、再取り込みが必要な場合は、[文書の更新 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} メソッドを使用して置き換えることができます。
 
 セグメント化された文書を更新する場合、`/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API の POST メソッドを使用し、`{document_id}` パス変数としていずれかの現行セグメントの `parent_id` フィールドを指定して、その文書をアップロードする必要があります。
 
-更新時には、更新版の文書のセクションの総数が元のものより少ない場合を除き、すべてのセグメントが上書きされます。これらの古いセグメントは索引に残り、API を使用して個別に削除できます。詳しくは、[API リファレンス ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} を参照してください) `notices` を照会することによって、作成されたセグメントの数を識別できます。各セグメントには `document_id` フィールドが与えられます。このフィールドは、順に、`{parent_id}`、下線、セグメント番号からなります。
+更新時には、更新版の文書のセクションの総数が元のものより少ない場合を除き、すべてのセグメントが上書きされます。 これらの古いセグメントは索引に残り、API を使用して個別に削除できます。 詳しくは、[API リファレンス ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#delete-a-document){: new_window} を参照してください) `notices` を照会することによって、作成されたセグメントの数を識別できます。 各セグメントには `document_id` フィールドが与えられます。このフィールドは、順に、`{parent_id}`、下線、セグメント番号からなります。
 
-更新する文書のいずれかのセグメントが関連性トレーニングのためにランク付けされている場合、まずその文書のすべてのセグメントを削除してから、更新された文書を新規文書として取り込む必要があります。これによってセグメントごとに新しい `document_id` が付与され、トレーニングされたセグメントはリトレーニングが必要になります。最初に古いコンテンツを削除しないと、トレーニングされた索引は不正確になります。
+更新する文書のいずれかのセグメントが関連性トレーニングのためにランク付けされている場合、まずその文書のすべてのセグメントを削除してから、更新された文書を新規文書として取り込む必要があります。 これによってセグメントごとに新しい `document_id` が付与され、トレーニングされたセグメントはリトレーニングが必要になります。 最初に古いコンテンツを削除しないと、トレーニングされた索引は不正確になります。
 
 あるいは、新規コンテンツのみを含む新規文書を作成し、それを個別に取り込むことを検討してください。

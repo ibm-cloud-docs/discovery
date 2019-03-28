@@ -4,28 +4,40 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-02-28"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Natural Language Understanding へのエンリッチメントのマイグレーション
 {: #migrate-nlu}
 
-**2017 年 7 月 18 日**以降、{{site.data.keyword.nlushort}} (NLU) という名前の新しいエンリッチメント・テクノロジーが {{site.data.keyword.discoveryfull}} に導入されました。 {{site.data.keyword.alchemylanguageshort}} エンリッチメントは、**2018 年 3 月 1 日**に非推奨になりました。
+**2017 年 7 月 18 日**以降、{{site.data.keyword.nlushort}} (NLU) という名前の新しいエンリッチメント・テクノロジーが {{site.data.keyword.discoveryfull}} に導入されました。 {{site.data.keyword.alchemylanguageshort}} エンリッチメントは、**2018 年 3 月 1 日**に非推奨になりました。 
 {: shortdesc}
 
-{{site.data.keyword.alchemylanguageshort}} エンリッチメントを使用する既存のコレクションはマイグレーションする必要があります。{{site.data.keyword.alchemylanguageshort}} エンリッチメントを使用するコレクションおよび構成ファイルのマイグレーションについては、[エンリッチメントの比較](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)を参照してください。
+{{site.data.keyword.alchemylanguageshort}} エンリッチメントを使用する既存のコレクションはマイグレーションする必要があります。 {{site.data.keyword.alchemylanguageshort}} エンリッチメントを使用するコレクションおよび構成ファイルのマイグレーションについては、[エンリッチメントの比較](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-comparison)を参照してください。
 
-**注:** {{site.data.keyword.knowledgestudioshort}} との統合については、[{{site.data.keyword.knowledgestudiofull}} との統合](/docs/services/discovery/integrate-wks.html)を参照してください。
+**注:** {{site.data.keyword.knowledgestudioshort}} との統合については、[{{site.data.keyword.knowledgestudiofull}} との統合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)を参照してください。
 
 ## エンリッチメントの比較
 {: #enrichment-comparison}
@@ -43,37 +55,41 @@ lastupdated: "2018-02-28"
 | 関係抽出 (Relation Extraction)                   | relations                       |意味役割抽出 (Semantic Role Extraction)*                   |   semantic_roles*     |
  \* 名前変更
 
-{{site.data.keyword.nlushort}} エンリッチメントについて詳しくは、[エンリッチメントの追加](/docs/services/discovery/building.html#adding-enrichments)を参照してください。
+{{site.data.keyword.nlushort}} エンリッチメントについて詳しくは、[エンリッチメントの追加](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)を参照してください。
 
 ## 主な変更点の概要
+{: #overview-nlu}
 
-- {{site.data.keyword.nlushort}} エンリッチメントの JSON スキーマは、{{site.data.keyword.alchemylanguageshort}} エンリッチメントで使用されているものと異なります。各エンリッチメントの変更の完全リストについては、[エンリッチメント・スキーマの相違点](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)を参照してください。
+- {{site.data.keyword.nlushort}} エンリッチメントの JSON スキーマは、{{site.data.keyword.alchemylanguageshort}} エンリッチメントで使用されているものと異なります。各エンリッチメントの変更の完全リストについては、[エンリッチメント・スキーマの相違点](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences)を参照してください。
 - _タクソノミー分類 (Taxonomy Classification) _ ({{site.data.keyword.alchemylanguageshort}}) エンリッチメントは、現在、_カテゴリー分類 (Category Classification)_ という名前になりました。 その JSON オブジェクト名は、`taxonomy` から `categories` に変更されました。
 - _関係抽出 (Relation Extraction)_ ({{site.data.keyword.alchemylanguageshort}}) エンリッチメントは、現在、_意味役割抽出 (Semantic Role Extraction)_ という名前になりました。 その JSON オブジェクト名は、`relations`から `semantic_roles` に変更されました。
 - _センチメント分析 (Sentiment Analysis)_ の JSON オブジェクト名は、`docSentiment` から `sentiment` に変更されました。
 - _感情分析 (Emotion Analysis)_ の JSON オブジェクト名は、`docEmotions` から `emotion` に変更されました。
 
 ## 構成ファイルの変更
+{: #config-nlu}
 
 **{{site.data.keyword.alchemylanguageshort}}** のデフォルト構成ファイル (ツールでは `Default configuration` という名前) は、文書のテキスト・フィールドに次のエンリッチメントを適用しました。** エンティティー抽出 (Entity Extraction)**、**キーワード抽出 (Keyword Extraction)**、**タクソノミー分類 (Taxonomy Classification)**、**概念のタグ付け (Concept Tagging)**、**関係抽出 (Relation Extraction)**、および**センチメント分析 (Sentiment Analysis)**。 このファイルには、フォントのスタイルとサイズに基づいた標準的な文書変換も含まれています。
 
-**{{site.data.keyword.nlushort}}** のデフォルト構成ファイルは `Default Configuration with  NLU` という名前で、文書のテキスト・フィールドに次のエンリッチメントが適用されます。**エンティティー抽出 (Entity Extraction)**、**センチメント分析 (Sentiment Analysis)**、**カテゴリー分類 (Category Classification)**、および**概念のタグ付け (Concept Tagging)**。このファイルには、フォントのスタイルとサイズに基づいた標準的な文書変換も含まれています。 これらの文書変換は、{{site.data.keyword.alchemylanguageshort}} デフォルト構成ファイルの文書変換とまったく同じです。
+**{{site.data.keyword.nlushort}}** のデフォルト構成ファイルは `Default Configuration with  NLU` という名前で、文書のテキスト・フィールドに次のエンリッチメントが適用されます。**エンティティー抽出 (Entity Extraction)**、**センチメント分析 (Sentiment Analysis)**、**カテゴリー分類 (Category Classification)**、および**概念のタグ付け (Concept Tagging)**。 このファイルには、フォントのスタイルとサイズに基づいた標準的な文書変換も含まれています。 これらの文書変換は、{{site.data.keyword.alchemylanguageshort}} デフォルト構成ファイルの文書変換とまったく同じです。
 
 ## 構成、コレクション、および照会のマイグレーション
+{: #migrateconfig-nlu}
 
 カスタム構成を作成した場合は、{{site.data.keyword.nlushort}} エンリッチメントを使用する新しいカスタム構成を作成する必要があります。 手順については、以下の資料を参照してください。
 
-- [ツール](/docs/services/discovery/building.html#custom-configuration)
-- [API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#add_configuration){: new_window}
+- [ツール](/docs/services/discovery?topic=discovery-configservice#custom-configuration)
+- [API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window}
 
 {{site.data.keyword.alchemylanguageshort}} のデフォルト構成、またはカスタム {{site.data.keyword.alchemylanguageshort}} 構成が適用された既存のコレクションがある場合は、新規コレクションを作成し、{{site.data.keyword.nlushort}} 構成ファイル (デフォルト構成または新規カスタム構成) を適用し、文書をアップロードする必要があります。 手順については、以下の資料を参照してください。
 
-- [ツール](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)
-- [API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#create-collection){: new_window}
+- [ツール](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)
+- [API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#create-a-collection){: new_window}
 
-Discovery 照会言語を使用して作成された照会については、{{site.data.keyword.alchemylanguageshort}} と {{site.data.keyword.nlushort}} の JSON スキーマの相違点を調べ、それに応じて照会と照会 URL を更新する必要があります。 詳しくは、[エンリッチメント・スキーマの相違点](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)を参照してください。
+Discovery 照会言語を使用して作成された照会については、{{site.data.keyword.alchemylanguageshort}} と {{site.data.keyword.nlushort}} の JSON スキーマの相違点を調べ、それに応じて照会と照会 URL を更新する必要があります。 詳しくは、[エンリッチメント・スキーマの相違点](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences)を参照してください。
 
 ## エンリッチメント・スキーマの相違点
+{: #enrichment-schema-differences}
 
 以下の表は、{{site.data.keyword.nlushort}} エンリッチメントと {{site.data.keyword.alchemylanguageshort}} エンリッチメントでの JSON スキーマの相違点を示しています。
 

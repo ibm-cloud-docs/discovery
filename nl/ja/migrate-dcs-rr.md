@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-03"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 
 # Watson の Document Conversion および Retrieve and Rank からのマイグレーション
@@ -26,6 +38,7 @@ lastupdated: "2017-10-03"
 {{site.data.keyword.discoveryfull}} は、より堅固な照会インターフェース、簡素化されたデータ取り込み、改善されたトレーニング管理、および拡大されたスケールを提供します。 {{site.data.keyword.discoveryshort}} は、サポート・エージェント支援、組織的知識ベース検索、および調査支援など、{{site.data.keyword.retrieveandrankshort}} と同じ多くのコア・ユースケースに対処しています。 {{site.data.keyword.retrieveandrankshort}} のユーザーが直面する多くの困難を念頭に置いて構築されており、それらの多くの問題に対処しています。 また、{{site.data.keyword.discoveryshort}} には、パッセージ取り出しや、より関連性の高い結果を検出するための改善された検索アルゴリズムなど、{{site.data.keyword.retrieveandrankshort}} では使用できなかった情報検索の新規機能も用意されています。
 
 **機能の比較**
+{: #features-dcs-rr}
 
 | 機能 | {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
@@ -54,7 +67,7 @@ lastupdated: "2017-10-03"
 
 多くのお客様は、{{site.data.keyword.documentconversionshort}} を {{site.data.keyword.retrieveandrankshort}} と併せて使用しています。 {{site.data.keyword.documentconversionshort}} を使用して、コンテンツを検索可能索引に保管できるように変換していない場合は、[スタンドアロンの {{site.data.keyword.documentconversionshort}} をマイグレーションするためのオプション](#dcs)の確認に進んでください。
 
-最初に {{site.data.keyword.retrieveandrankshort}} のチュートリアルを使用し、そのチュートリアルに基づいて独自のサービス・インスタンスを作成した場合は、同じデータを {{site.data.keyword.discoveryshort}} に取り込む、そのチュートリアルの拡張機能が[ここ](/docs/services/discovery/migrate-rnr-tut.html)にあります。
+最初に {{site.data.keyword.retrieveandrankshort}} のチュートリアルを使用し、そのチュートリアルに基づいて独自のサービス・インスタンスを作成した場合は、同じデータを {{site.data.keyword.discoveryshort}} に取り込む、そのチュートリアルの拡張機能が[ここ](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)にあります。
 
 **注:** 変換とエンリッチメントの機能は、{{site.data.keyword.discoveryshort}} に含まれています。 {{site.data.keyword.documentconversionshort}} と {{site.data.keyword.nlushort}}、またはそのいずれかを使用して、ソースの HTML 文書、PDF 文書、または Microsoft Word 文書を変換およびエンリッチした場合、それらのサービスは、{{site.data.keyword.discoveryshort}} サービス内の機能に置き換えられています。
 
@@ -73,14 +86,15 @@ lastupdated: "2017-10-03"
 
 マイグレーション基準をすべて満たすことができたら、以下の方法を使用して {{site.data.keyword.discoveryshort}} サービスに移動することをお勧めします。
 
-ソース・コンテンツをマイグレーションするには、[マイグレーション・チュートリアル](/docs/services/discovery/migrate-rnr-tut.html)で説明されている手順を、ご使用のソース・データの特性を満たすように変更します。
+ソース・コンテンツをマイグレーションするには、[マイグレーション・チュートリアル](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)で説明されている手順を、ご使用のソース・データの特性を満たすように変更します。
 
 #### 回答ユニットのマイグレーション
+{: #answerunit-dcs-rr}
 
 {{site.data.keyword.documentconversionshort}} を使用して回答ユニットを作成した場合は、そのコンテンツをマイグレーションするためのオプションを以下から選択してください。
 
 -  ランカーをトレーニングしており、ランキングのマイグレーションが必要な場合は、{{site.data.keyword.documentconversionshort}} から返されたコンテンツを {{site.data.keyword.discoveryshort}} に取り込む必要があります。
--  マイグレーションするトレーニング・データがない場合は、[文書セグメンテーション機能](/docs/services/discovery/building.html#doc-segmentation)を使用して、元のソース文書を {{site.data.keyword.discoveryshort}} に取り込みます。
+-  マイグレーションするトレーニング・データがない場合は、[文書セグメンテーション機能](/docs/services/discovery?topic=discovery-configservice#doc-segmentation)を使用して、元のソース文書を {{site.data.keyword.discoveryshort}} に取り込みます。
 
 ### 索引付きコンテンツからのマイグレーション
 {: #indexed}
@@ -94,9 +108,10 @@ lastupdated: "2017-10-03"
 
 文書は、ブランクの照会 `q=*:*` を使用する [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} メソッドを使用してサービスから抽出されます。 返される文書の数は、実用的な最大リターン数 (ほとんどのコレクションで `200`) より多くなる可能性があります。 その場合は、適切な [ページング![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} で複数の呼び出しを行い、すべての文書を収集する必要があります。
 
-指定された **ID** を持つ文書は、[/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} メソッドを使用して {{site.data.keyword.discoveryshort}} サービスにアップロードされます。 それぞれの文書アップロードは、別々の API 呼び出しです。
+指定された **ID** を持つ文書は、[/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} メソッドを使用して {{site.data.keyword.discoveryshort}} サービスにアップロードされます。 それぞれの文書アップロードは、別々の API 呼び出しです。
 
 ## トレーニング・データのマイグレーション
+{: #trainingdata-dcs-rr}
 
 結果をマイグレーションしたら、次のステップでは、コンテンツ用に作成されたすべてのトレーニング・データをマイグレーションします。 トレーニング・データのマイグレーションには、ソース (`csv`) からのマイグレーションと、サービスからのマイグレーションという 2 つのオプションがあります。 `csv` ファイルからトレーニング・データをアップロードし、まだそのファイルにアクセスできる場合は、ソースからマイグレーションします。 {{site.data.keyword.retrieveandrankshort}} ツールを使用した場合、または元の `csv` ファイルにアクセスできない場合は、サービスからマイグレーションする必要があります。
 
@@ -110,7 +125,7 @@ lastupdated: "2017-10-03"
 
 マイグレーション基準をすべて満たすことができたら、以下の方法を使用してトレーニングを {{site.data.keyword.discoveryshort}} サービスに移動することをお勧めします。
 
-トレーニング・データをマイグレーションするには、[マイグレーション・チュートリアル](/docs/services/discovery/migrate-rnr-tut.html)に記載されている手順を、ご使用のソース・データの特性を満たすように変更します。
+トレーニング・データをマイグレーションするには、[マイグレーション・チュートリアル](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)に記載されている手順を、ご使用のソース・データの特性を満たすように変更します。
 
 ### サービスからのトレーニング・データのマイグレーション
 {: #extract-train}
@@ -236,7 +251,7 @@ lastupdated: "2017-10-03"
 ## 言語サポート
 {: #language}
 
-[{{site.data.keyword.discoveryshort}} の言語サポート表](/docs/services/discovery/language-support.html)を参照してください。 {{site.data.keyword.retrieveandrankshort}} の機能は、主として**基本**の {{site.data.keyword.discoveryshort}} 言語サポートによってサポートされています。
+[{{site.data.keyword.discoveryshort}} の言語サポート表](/docs/services/discovery?topic=discovery-language-support#language-support)を参照してください。 {{site.data.keyword.retrieveandrankshort}} の機能は、主として**基本**の {{site.data.keyword.discoveryshort}} 言語サポートによってサポートされています。
 
 ## 照会のマイグレーション
 {: #queries}
@@ -262,12 +277,12 @@ lastupdated: "2017-10-03"
 | `*` | `*` | ワイルドカード |
 | `~`(0 から 1) | [~n] | 文字列変化 |
 
-{{site.data.keyword.discoveryfull}} 照会言語について詳しくは、[照会の概念](/docs/services/discovery/using.html)および[照会リファレンス](/docs/services/discovery/query-reference.html)の文書を参照してください。
+{{site.data.keyword.discoveryfull}} 照会言語について詳しくは、[照会の概念](/docs/services/discovery?topic=discovery-query-concepts#query-concepts)および[照会リファレンス](/docs/services/discovery?topic=discovery-query-reference#query-reference)の文書を参照してください。
 
 
 ## スタンドアロン Watson Document Conversion サービスのマイグレーション
 {: #dcs}
 
-{{site.data.keyword.retrieveandrankshort}} へのコンテンツの取り込みに役立つ {{site.data.keyword.documentconversionshort}} を使用している場合、その機能は単一サービスの {{site.data.keyword.discoveryshort}} に進化しました。 {{site.data.keyword.discoveryshort}} を使用すれば、Microsoft Word、PDF、HTML、および JSON の各文書を、トレーニング可能で検索可能な索引に容易に変換し、強化し、取り込むことができます。 ご使用のユースケースで、変換されたコンテンツの索引への保管が行われない場合、このセクションはお客様に関係があります。 文書を索引に取り込む場合は、[{{site.data.keyword.discoveryshort}} サービスへの取り込み](/docs/services/discovery/building.html)を参照してください。
+{{site.data.keyword.retrieveandrankshort}} へのコンテンツの取り込みに役立つ {{site.data.keyword.documentconversionshort}} を使用している場合、その機能は単一サービスの {{site.data.keyword.discoveryshort}} に進化しました。 {{site.data.keyword.discoveryshort}} を使用すれば、Microsoft Word、PDF、HTML、および JSON の各文書を、トレーニング可能で検索可能な索引に容易に変換し、強化し、取り込むことができます。 ご使用のユースケースで、変換されたコンテンツの索引への保管が行われない場合、このセクションはお客様に関係があります。 文書を索引に取り込む場合は、[{{site.data.keyword.discoveryshort}} サービスへの取り込み](/docs/services/discovery?topic=discovery-configservice#configservice)を参照してください。
 
 IBM では、Microsoft Word、PDF、および HTML の各文書のスタンドアロン変換用に設計されたサービスはもう提供していません。 現在 {{site.data.keyword.documentconversionshort}} サービスを使用していて、オンラインの索引付きサービス ({{site.data.keyword.discoveryshort}} など) に出力を取り込んでいない場合は、[Apache Tika ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://tika.apache.org/){: new_window} などのオープン・ソースの代替サービスへのマイグレーションを検討することをお勧めします。

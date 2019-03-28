@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-09-06"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-14"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # API を使用した結果関連性の改善
 {: #improving-result-relevance-with-the-api}
@@ -25,19 +37,21 @@ lastupdated: "2018-09-06"
 
 関連性トレーニングはオプションです。照会の結果がニーズを満たしている場合は、それ以上のトレーニングは不要です。 トレーニング用のユース・ケース作成の概要については、ブログ投稿 [How to get the most out of Relevancy Training ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window} を参照してください。
 
-トレーニング API に関する包括的な情報については、[API リファレンス ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・リンク")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window} を参照してください。
+トレーニング API に関する包括的な情報については、[API リファレンス ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・リンク")](https://{DomainName}/apidocs/discovery){: new_window} を参照してください。
 
-{{site.data.keyword.discoveryshort}} をトレーニングするために {{site.data.keyword.discoveryshort}} ツールを使用したい場合は、[ツールを使用した結果関連性の改善](/docs/services/discovery/train-tooling.html)を参照してください。
+{{site.data.keyword.discoveryshort}} をトレーニングするために {{site.data.keyword.discoveryshort}} ツールを使用したい場合は、[ツールを使用した結果関連性の改善](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling)を参照してください。
 
-**注:** 現在のところ、関連性トレーニングは、プライベート・コレクションにおける自然言語照会にのみ適用され、構造化された {{site.data.keyword.discoveryshort}} 照会言語の照会での使用はその対象にはなっていません。  {{site.data.keyword.discoveryshort}} 照会言語について詳しくは、[照会の概念](/docs/services/discovery/using.html)を参照してください。
+**注:** 現在のところ、関連性トレーニングは、プライベート・コレクションにおける自然言語照会にのみ適用され、構造化された {{site.data.keyword.discoveryshort}} 照会言語の照会での使用はその対象にはなっていません。  {{site.data.keyword.discoveryshort}} 照会言語について詳しくは、[照会の概念](/docs/services/discovery?topic=discovery-query-concepts#query-concepts)を参照してください。
 
-トレーニングされたコレクションは、自然言語照会の結果で `confidence` スコアを返します。詳しくは、[信頼度スコア](/docs/services/discovery/train-tooling.html#confidence)を参照してください。
+トレーニングされたコレクションは、自然言語照会の結果で `confidence` スコアを返します。 詳しくは、[信頼度スコア](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence)を参照してください。
 
-トレーニングの最小要件とトレーニングの制限については、[トレーニング・データ要件](/docs/services/discovery/train.html#reqs)を参照してください。
+カスタム・ストップワード・リストを追加すると、自然言語照会の結果の関連性を改善できる可能性があります。詳しくは、[ストップワードの定義](/docs/services/discovery?topic=discovery-query-concepts#stopwords)を参照してください。
 
-使用状況の追跡や、このデータをアプリケーションの理解と改善に役立てる方法について詳しくは、[使用状況のモニター](/docs/services/discovery/feedback.html)を参照してください。
+トレーニングの最小要件とトレーニングの制限については、[トレーニング・データ要件](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs)を参照してください。
 
-<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
+使用状況の追跡や、このデータをアプリケーションの理解と改善に役立てる方法について詳しくは、[使用状況のモニター](/docs/services/discovery?topic=discovery-usage#usage)を参照してください。
+
+<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) and the [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) for information about structured queries and natural language queries. -->
 
 Discovery インスタンスのトレーニングに必要なコンポーネントは、次のとおりです。
 
@@ -57,17 +71,18 @@ Discovery インスタンスのトレーニングに必要なコンポーネン�
 Discovery サービスから返される回答の関連性を効果的に向上させるためには、トレーニング・データが以下の**最小**品質基準を満たしている必要があります。 **最小**は**最適**を意味しないことに注意してください。 本サービスは、トレーニング・データを定期的に検査してこれらの要件が満たされているかどうかを判別し、変更内容に基づいてそれ自体を自動的に更新します。
 
 - コレクションのトレーニング・データ・セットは、少なくとも 49 個の固有のトレーニング照会 (つまり、照会と例のセット) を含んでいる必要があります。 コレクションのサイズと複雑さによっては、セット中のトレーニング照会の数が 49 を超えないと、Watson がコレクションに関連性トレーニングを適用できないことがあります。 Watson は、トレーニングのためにより多くの照会が必要な場合、フィードバックを提供します。
-- API を使用して関連性スコアを割り当てる場合: 各トレーニング照会の関連性スコアは、負でない整数でなければなりません。例えば、`0` で*関連性なし* を、`1` で*いくらか関連性あり* を、`2` で*高い関連性あり* を表します。ただし、最大の柔軟性を確保するため、本サービスでは、さまざまなスコアリング体系を試している上級ユーザー向けに、`0` から `100` までの範囲の負でない整数が許容されます。 使用する範囲に関わらず、トレーニング照会のセット中の最大の整数が、最大の関連性を表します。
-- ツールを使用して関連性の評価を割り当てる場合: {{site.data.keyword.discoveryshort}} ツールは、関連性スコア `0` を使用して*関連性なし* を表し、`10` で*関連性あり* を表します。使用可能な評価 `Relevant` および `Not relevant` の両方を結果に適用する必要があります。 `Relevant` 文書のみを評価すると、必要なデータが提供されません。  {{site.data.keyword.discoveryshort}} ツールと API の両方を使用して文書のスコア付けを行うことを計画しているか、または、API から始めてツールに移行することを計画している場合は、この `0` および `10` の関連性スコアを使用してください。
+- API を使用して関連性スコアを割り当てる場合: 各トレーニング照会の関連性スコアは、負でない整数でなければなりません。例えば、`0` で*関連性なし* を、`1` で*いくらか関連性あり* を、`2` で*高い関連性あり* を表します。 ただし、最大の柔軟性を確保するため、本サービスでは、さまざまなスコアリング体系を試している上級ユーザー向けに、`0` から `100` までの範囲の負でない整数が許容されます。 使用する範囲に関わらず、トレーニング照会のセット中の最大の整数が、最大の関連性を表します。
+- ツールを使用して関連性の評価を割り当てる場合: {{site.data.keyword.discoveryshort}} ツールは、関連性スコア `0` を使用して*関連性なし* を表し、`10` で*関連性あり* を表します。 使用可能な評価 `Relevant` および `Not relevant` の両方を結果に適用する必要があります。 `Relevant` 文書のみを評価すると、必要なデータが提供されません。  {{site.data.keyword.discoveryshort}} ツールと API の両方を使用して文書のスコア付けを行うことを計画しているか、または、API から始めてツールに移行することを計画している場合は、この `0` および `10` の関連性スコアを使用してください。
 - トレーニング照会には、対象範囲が広い Discovery サービスの最初の検索で取り出されることができるように、照会と望ましい回答との間で重なる用語がいくつか含まれている必要があります。
 
 **注:** Watson は、トレーニング・データを、パターンを学習するため、および汎用化するために使用し、個々のトレーニング照会を記憶するために使用するのではありません。 したがって、このサービスでは、同じトレーニング照会に対して常に同じ関連性結果が再現されるとは限りません。
 
 トレーニングは、以下の**最大**要件を超えることはできません。
   - 環境ごとに、トレーニングされたコレクションが 24 個を超えることはできません。
-  - 単一環境内では、トレーニング照会の数は 10,000 に制限され、照会ごとのサンプル数は最大 100 です。 
+  - 単一コレクション内では、トレーニング照会の数は 10,000 に制限され、照会ごとのサンプル数は最大 100 です。 
 
 ## トレーニング・データ・セットへの照会の追加
+{: #adding-a-query}
 
 コレクションのトレーニング・データのセットに照会を追加するには、`POST /v1/environments/{environment_id}/collections/{collection_id}/training_data` メソッドを使用します。 照会は、以下の形式の JSON オブジェクトとして指定されます。
 
@@ -91,7 +106,7 @@ Discovery サービスから返される回答の関連性を効果的に向上�
 
 - `query_id`: 照会の固有 ID。 このフィールドを指定しないと、サービスによって ID が自動的に生成されます。
 - `natural_language_query`: トレーニング・セットに適用される Discovery 自然言語照会。<!-- The `natural_language_query` parameter is preferred. -->
-- `filter`: 照会のフィルター (オプション)。『[照会リファレンス](/docs/services/discovery/query-reference.html#parameter-descriptions)』に説明があります。
+- `filter`: 照会のフィルター (オプション)。『[照会リファレンス](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions)』に説明があります。
 
     **注:** トレーニング・データ照会にフィルターを含める場合、トレーニングされたコレクションで自然言語照会を使用するときには、必ず同じフィルターを使用してください。 フィルタリングされたデータでコレクションをトレーニングするが、コレクションを照会するときに同じタイプのフィルターを使用しない場合、結果は予測不能になる可能性があります。
 
@@ -156,12 +171,13 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
 {: pre}
 
 ## トレーニング・データ照会への例の追加
+{: #adding-an-example}
 
 トレーニング・データ照会を作成した後、引き続き例を追加して、トレーニングの正確度を向上させることができます。 既存のトレーニング・データ照会に例を追加するには、`POST /v1/environments/{environment_id}/collections/{collection_id}/training_data/{query_id}` を使用します。
 
 トレーニング・データ照会に例を追加するには、以下のステップを実行します。
 
-1. [コレクションのトレーニング・データ照会のリスト表示 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window} によって、新しい例を追加する先のトレーニング・データ照会の照会 ID を取得します。
+1. [コレクションのトレーニング・データ照会のリスト表示 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window} によって、新しい例を追加する先のトレーニング・データ照会の照会 ID を取得します。
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2016-12-01"
@@ -205,7 +221,7 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
    ```
    {: pre}
 
-1. もう一度[コレクションのトレーニング・データ照会のリスト表示 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window} を行うことによって、新しい例がトレーニング・データ照会に追加されたことを検証します。
+1. もう一度[コレクションのトレーニング・データ照会のリスト表示 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window} を行うことによって、新しい例がトレーニング・データ照会に追加されたことを検証します。
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2016-12-01"
@@ -242,7 +258,7 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
    ```
    {: codeblock}
 
-1. [コレクション詳細のリスト表示 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#list-collection-details){: new_window} メソッドを使用し、`"training"`/`"available"` フィールドの値を調べて、トレーニングの状況を確認します。 トレーニング要求を満たすための十分な照会および例を追加した場合、このフィールドの値として `true` が返され、本サービスは自動的にこのトレーニング・データの使用を開始します。
+1. [コレクション詳細のリスト表示 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#get-collection-details){: new_window} メソッドを使用し、`"training"`/`"available"` フィールドの値を調べて、トレーニングの状況を確認します。 トレーニング要求を満たすための十分な照会および例を追加した場合、このフィールドの値として `true` が返され、本サービスは自動的にこのトレーニング・データの使用を開始します。
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2016-12-01"
@@ -292,18 +308,18 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
 
    結果の関連性が改善されない場合は、要件を満たす結果が得られるまで、さらにトレーニング照会を追加してください。
 
-トレーニングに関する追加ガイダンスについては、『[関連性トレーニングのヒント](/docs/services/discovery/train-tips.html#relevancy-tips)』を参照してください。   
+トレーニングに関する追加ガイダンスについては、『[関連性トレーニングのヒント](/docs/services/discovery?topic=discovery-relevancy-tips#relevancy-tips)』を参照してください。   
 
 ## その他のトレーニング・データ照会操作の実行
 {: #training-data-operations}
 
-[API リファレンス ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window} に記述されているように、他の API メソッドを使用して、トレーニング・データ照会の管理および保守を行うことができます。
+[API リファレンス ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery){: new_window} に記述されているように、他の API メソッドを使用して、トレーニング・データ照会の管理および保守を行うことができます。
 
- - [ for a collection ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}
- - [Delete all training data for a collection ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-all-training-data){: new_window}
- - [Display the contents of a specified training-data query  ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#show-td-query){: new_window}
- - [Delete a training-data query from the collection ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-td-query-example){: new_window}
- - [Change a training-data query example's relevance label or cross reference ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-example){: new_window}
- - [Delete an example document from a training-data query  ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-example){: new_window}
+ - [ for a collection ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
+ - [Delete all training data for a collection ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#delete-all-training-data){: new_window}
+ - [Display the contents of a specified training-data query  ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#get-details-about-a-query){: new_window}
+ - [Delete a training-data query from the collection ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-example-for-training-data-query){: new_window}
+ - [Change a training-data query example's relevance label or cross reference ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#change-label-or-cross-reference-for-example){: new_window}
+ - [Delete an example document from a training-data query  ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
 
- **エラーのモニター:** トレーニング・データのエラーは通知に含まれます。通知は、[通知照会 API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window} (`GET /v1/environments/{environment_id}/collections/{collection_id}/notices`) を使用してモニターできます。
+ **エラーのモニター:** トレーニング・データのエラーは通知に含まれます。通知は、[通知照会 API ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/apidocs/discovery#query-system-notices){: new_window} (`GET /v1/environments/{environment_id}/collections/{collection_id}/notices`) を使用してモニターできます。

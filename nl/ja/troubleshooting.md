@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # FAQ
 {: #faqs}
@@ -23,13 +35,14 @@ lastupdated: "2018-08-15"
 {{site.data.keyword.discoveryshort}} サービスに関するよくある質問。
 
 ## JSON 配列をアップロードできますか?
-{: #array} 
+{: #array}
+{: faq}
 
-JSON 配列はアップロードできます。ただし、各セクションを個別にアップロードする必要があります。例えば、以下の JSON をサービスにアップロードすることはできません。
+JSON 配列はアップロードできます。ただし、各セクションを個別にアップロードする必要があります。 例えば、以下の JSON をサービスにアップロードすることはできません。
 
-    ```json
-    [{
-      "accepted": 1,
+```json
+[{
+  "accepted": 1,
       "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
       "answerScore": "49",
       "authorUserId": "3",
@@ -44,8 +57,8 @@ JSON 配列はアップロードできます。ただし、各セクションを
       "userReputation": 4535,
       "username": "sachleen",
       "views": 3234
-    }, {
-      "accepted": 0,
+}, {
+  "accepted": 0,
       "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
       "answerScore": "24",
       "authorUserId": "3",
@@ -60,17 +73,17 @@ JSON 配列はアップロードできます。ただし、各セクションを
       "userReputation": 489,
       "username": "Matthew G.",
       "views": 3234
-    }]
-    ```
-    {: codeblock}
+}]
+```
+{: codeblock}
 
-    この情報を本サービスにアップロードするには、以下の例のように、配列を切断して各セクションをアップロードします。
+この情報を本サービスにアップロードするには、以下の例のように、配列を切断して各セクションをアップロードします。
 
-    セクション 1:
+セクション 1:
 
-    ```json
-    {
-      "accepted": 1,
+```json
+{
+  "accepted": 1,
       "answer": "You shouldn't have any issues keeping it on all the time however some thing to consider is any counters you may have like the use of millis code . From the Arduino docs on millis a This number will overflow go back to zero after approximately 50 days. blockquote So for projects that are on for long periods of time you may not see an issue immediately but something like this could pop up and cause errors down the road. ",
       "answerScore": "49",
       "authorUserId": "3",
@@ -85,15 +98,15 @@ JSON 配列はアップロードできます。ただし、各セクションを
       "userReputation": 4535,
       "username": "sachleen",
       "views": 3234
-    }
-    ```
-    {: codeblock}
+}
+```
+{: codeblock}
 
-    セクション 2:
+セクション 2:
 
-    ```json
-    {
-      "accepted": 0,
+```json
+{
+  "accepted": 0,
       "answer": "A couple of things to keep in mind outside of Sachleen's mention of Milli's Like any electronics heat can be disruptive. The micro controller itself isn't likely going to be a huge issue from the perspective of heat but other components like the power supply might cause issues. li If your code uses EEPROMWrite a be aware that the EEPROM is only rated for something in the neighbourhood of 100 000 writes. li ul ",
       "answerScore": "24",
       "authorUserId": "3",
@@ -108,6 +121,6 @@ JSON 配列はアップロードできます。ただし、各セクションを
       "userReputation": 489,
       "username": "Matthew G.",
       "views": 3234
-    }
-    ```
-    {: codeblock}
+}
+```
+{: codeblock}

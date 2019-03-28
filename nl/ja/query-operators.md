@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 照会演算子
 {: #query-operators}
 
-演算子は、照会のさまざまな部分の分離文字です。 使用可能な演算子の完全リストについては、[照会リファレンス](/docs/services/discovery/query-reference.html#operators)を参照してください。
+演算子は、照会のさまざまな部分の分離文字です。 使用可能な演算子の完全リストについては、[照会リファレンス](/docs/services/discovery?topic=discovery-query-reference#operators)を参照してください。
 
 ## . \[JSON delimiter\]
 {: #delimiter}
@@ -95,7 +107,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[Phrase query\]
 {: #phrase}
 
-句照会の内容はすべて、エスケープとして処理されます。 したがって、エスケープ処理 (`\"`) する必要がある、句照会内の二重引用符 (`"`) を除き、句内の特殊文字は解析されません。 句照会は、フルテキストおよびランク・ベースの照会で使用し、ブール値のフィルター操作では使用しないでください。 句照会ではワイルドカード (`*`) は使用しないでください。 **注**: 単一引用符 (`'`) はサポートされません。
+句照会の内容はすべて、エスケープとして処理されます。 したがって、エスケープ処理 (`\"`) する必要がある、句照会内の二重引用符 (`"`) を除き、句内の特殊文字は解析されません。 句照会は、フルテキストおよびランク・ベースの照会で使用し、ブール値のフィルター操作では使用しないでください。 句照会ではワイルドカード (`*`) は使用しないでください。 
+
+単一引用符 (`'`) はサポートされません。
+{: note}
 
 以下に例を示します。
 ```bash
@@ -198,6 +213,6 @@ title:*
 
 以下に例を示します。
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

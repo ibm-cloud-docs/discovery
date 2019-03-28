@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Element Classification
 {: #element-classification}
@@ -30,7 +42,7 @@ lastupdated: "2018-10-23"
 
 要素の分類では、機能が豊富な一連の組み込み自動化 Watson API を合わせて、プログラマチック PDF を入力し、セクション、リスト (番号および黒丸)、脚注、表を識別して、これらの項目を構造化された HTML 形式に変換します。 さらに、この構造化形式の分類は、ラベル付きの要素、タイプ、およびカテゴリーを含む JSON として注釈付けして出力されます。
 
-要素の分類は、送信時および保管時に暗号化を行って、データを安全に伝送します。 IBM クラウドのセキュリティーについては、[{{site.data.keyword.Bluemix_notm}}サービス記述書 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window} を参照してください。
+要素の分類は、送信時および保管時に暗号化を行って、データを安全に伝送します。 IBM Cloud のセキュリティーについては、[{{site.data.keyword.Bluemix_notm}}サービス記述書 ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window} を参照してください。
 
 要素の分類は、以下を含んでいる JSON オブジェクトを返します。
 
@@ -40,9 +52,9 @@ lastupdated: "2018-10-23"
 -  入力文書内で識別された表を細分化する `tables` 配列。
 -  入力文書内で識別されたセクション・タイトルとリード文をリストする `document_structure` オブジェクト。
 -  入力文書内で識別されたパーティーと、パーティーの役割、住所、および連絡先をリストする `parties` 配列。
--  `effective_dates` および `contract_amounts` を定義する配列。
+-  `effective_dates`、`contract_amounts`、および `termination_dates` を定義する配列。
 
-この機能は現在は英語でのみサポートされています。詳しくは、『[言語サポート](/docs/services/discovery/language-support.html#feature-support)』を参照してください。
+この機能は現在は英語でのみサポートされています。詳しくは、『[言語サポート](/docs/services/discovery?topic=discovery-language-support#feature-support)』を参照してください。
 
 
 ## 分類の要件
@@ -51,23 +63,23 @@ lastupdated: "2018-10-23"
 要素の分類を使用して文書を分類するには、構成文書とソース文書が以下の要件を満たしている必要があります
 
 -  分析されるファイルは PDF 形式です。
--  PDF コンテンツはテキスト形式です。スキャンされた文書は、OCR 処理されている場合でも解析できません。
+-  PDF コンテンツはテキスト形式です。 スキャンされた文書は、OCR 処理されている場合でも解析できません。
    **注:** PDF ビューアーで文書を開き、**「テキスト選択」**ツールを使用して 1 つの単語を選択することによって、PDF がテキストであるかを確認できます。 文書内で 1 つの単語を選択できない場合、そのファイルは解析できません。
 -  ファイルのサイズは 50 MB 以下です。
 -  保護された PDF (開くためにパスワードが必要) と編集制限付きの PDF (編集するためにパスワードが必要) は解析できません。
--  {{site.data.keyword.discoveryshort}} ツールに、PDF 文書のコレクションをエンリッチするために使用できる、**Default Contract Configuration** という名前の構成が含まれています。`elements` エンリッチメントを含んでいるカスタム構成を作成するというオプションもあります。詳しくは、『[コレクションの要件](/docs/services/discovery/element-classification.html#element-collection)』を参照してください。
+-  {{site.data.keyword.discoveryshort}} ツールに、PDF 文書のコレクションをエンリッチするために使用できる、**Default Contract Configuration** という名前の構成が含まれています。 `elements` エンリッチメントを含んでいるカスタム構成を作成するというオプションもあります。 詳しくは、『[コレクションの要件](/docs/services/discovery?topic=discovery-element-classification#element-collection)』を参照してください。
 -  **ライト**・プランでは、1 カ月当たり最大 500 ページを処理することができます。
 -  **専用**環境では使用できません。
 -  要素の分類の使用時には、エンリッチメント後の正規化を実行することはできません。
 
-**注:** **Default Contract Configuration** ファイルは、2018 年 9 月 25 日に更新されました。この日付よりも前にこの構成をコレクションに適用した場合、コレクションの更新について『[リリース・ノート](/docs/services/discovery/release-notes.html#25sept)』を参照してください。
+**注:** **Default Contract Configuration** ファイルは、2018 年 9 月 25 日に更新されました。 この日付よりも前にこの構成をコレクションに適用した場合、コレクションの更新について『[リリース・ノート](/docs/services/discovery?topic=discovery-release-notes#25sept)』を参照してください。
 
 ## コレクションの要件
 {: #element-collection}
 
 要素の分類を使用するには、特定の要件を満たすようにコレクションが構成されている必要があります。
 
-{{site.data.keyword.discoveryshort}} ツールに、**要素の分類**エンリッチメントおよび他の必要なオプションで PDF 文書をエンリッチするために事前構成されている、**Default Contract Configuration** という名前の構成が含まれています。コレクションを作成するときに、この構成を選択できます。この構成の JSON は次のとおりです。
+{{site.data.keyword.discoveryshort}} ツールに、**要素の分類**エンリッチメントおよび他の必要なオプションで PDF 文書をエンリッチするために事前構成されている、**Default Contract Configuration** という名前の構成が含まれています。 コレクションを作成するときに、この構成を選択できます。 この構成の JSON は次のとおりです。
 
 ```json
  {
@@ -115,9 +127,10 @@ lastupdated: "2018-10-23"
 ```
 {: codeblock}
 
-ツールで `Default Contract Configuration` を選択した後、文書をアップロードできます。コレクションの作成と文書のアップロードに精通していない場合は、[ツール入門](/docs/services/discovery/getting-started-tool.html)を参照してください。
+ツールで `Default Contract Configuration` を選択した後、文書をアップロードできます。 コレクションの作成と文書のアップロードに精通していない場合は、[ツール入門](/docs/services/discovery?topic=discovery-getting-started#getting-started)を参照してください。
 
 ## 分類された要素
+{: #classified-elements}
 
 文書は、要素の分類で索引付けされると、検索可能な文書の一部として `elements` 配列を含んで戻されます。
 
@@ -158,14 +171,17 @@ lastupdated: "2018-10-23"
 各要素には、以下の 5 つの重要なセクションがあります。
 -  `location`: 入力文書内の要素の位置を示す `begin` 索引と `end` 索引。
 -  `text`: 分類された要素のテキスト。
--  `types`: ゼロ個以上の `label` オブジェクトを含む配列。各 `label` オブジェクトには、識別されたパーティーへの要素の影響 (例: `Right` や `Exclusion`) をリストする `nature` フィールドと、要素の影響を受けるパーティーを識別する `party` フィールドが含まれます。追加情報については、[契約の解析](/docs/services/discovery/parsing.html#contract_parsing)の『[タイプ](/docs/services/discovery/parsing.html#contract_types)』を参照してください。
--  `categories`: ゼロ個以上の `label` オブジェクトを含む配列。各 `label` オブジェクトの値は、識別された要素が属している機能カテゴリーを示します。追加情報については、[契約の解析](/docs/services/discovery/parsing.html#contract_parsing)の『[カテゴリー](/docs/services/discovery/parsing.html#contract_categories)』を参照してください。
--  `attributes`: 要素の属性を定義するゼロ個以上のオブジェクトがリストされた配列。現在サポートされている属性タイプには、`Location` (要素によって参照されている地理的位置または地域)、`DateTime` (要素によって指定されている日付、時刻、日付範囲、または時刻範囲)、および `Currency` (通貨価値と通貨単位) があります。`attributes` 配列内の各オブジェクトには、識別された要素のテキストおよび位置も含まれます。位置は入力文書内のテキストの `begin` 索引と `end` 索引によって定義されます。追加情報については、[契約の解析](/docs/services/discovery/parsing.html#contract_parsing)の『[属性](/docs/services/discovery/parsing.html#attributes)』を参照してください。
+-  `types`: ゼロ個以上の `label` オブジェクトを含む配列。 各 `label` オブジェクトには、識別されたパーティーへの要素の影響 (例: `Right` や `Exclusion`) をリストする `nature` フィールドと、要素の影響を受けるパーティーを識別する `party` フィールドが含まれます。 追加情報については、[契約の解析](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing)の『[タイプ](/docs/services/discovery?topic=discovery-contract_parsing#contract_types)』を参照してください。
+-  `categories`: ゼロ個以上の `label` オブジェクトを含む配列。 各 `label` オブジェクトの値は、識別された要素が属している機能カテゴリーを示します。 追加情報については、[契約の解析](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing)の『[カテゴリー](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories)』を参照してください。
+-  `attributes`: 要素の属性を定義するゼロ個以上のオブジェクトがリストされた配列。 現在サポートされている属性タイプには、`Location` (要素によって参照されている地理的位置)、`DateTime` (要素によって指定されている日付、時刻、日付範囲、または時刻範囲)、および `Currency` (通貨価値と通貨単位) があります。 `attributes` 配列内の各オブジェクトには、識別された要素のテキストおよび位置も含まれます。位置は入力文書内のテキストの `begin` 索引と `end` 索引によって定義されます。 追加情報については、[契約の解析](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing)の『[属性](/docs/services/discovery?topic=discovery-contract_parsing#attributes)』を参照してください。
 
-さらに、`types` 配列および `categories` 配列内の各オブジェクトには、`provenance_ids` 配列が含まれます。`provenance_ids` 配列にリストされた値はハッシュ値であり、これを IBM に送信して、フィードバックを提供したり、要素と関連した分析部分についてのサポートを受けたりすることができます。
+さらに、`types` 配列および `categories` 配列内の各オブジェクトには、`provenance_ids` 配列が含まれます。 `provenance_ids` 配列にリストされた値はハッシュ値であり、これを IBM に送信して、フィードバックを提供したり、要素と関連した分析部分についてのサポートを受けたりすることができます。 
 
-**注:** センテンスによっては、どのようなタイプにもカテゴリーにも分類されないものもあります。その場合、このサービスは、`types` 配列と `categories` 配列を空オブジェクトとして返します。
+センテンスによっては、どのようなタイプにもカテゴリーにも分類されないものもあります。その場合、このサービスは、`types` 配列と `categories` 配列を空オブジェクトとして返します。
+{: note}
 
-**注:** センテンスによっては、複数のトピックを扱っているものもあります。その場合、このサービスは、`types` オブジェクトと `categories` オブジェクトのセットを複数返します。
+センテンスによっては、複数のトピックを扱っているものもあります。その場合、このサービスは、`types` オブジェクトと `categories` オブジェクトのセットを複数返します。
+{: note}
 
-**注:** センテンスによっては、識別可能な属性を含んでいないものもあります。その場合、このサービスは、`attributes` 配列を空オブジェクトとして返します。
+センテンスによっては、識別可能な属性を含んでいないものもあります。その場合、このサービスは、`attributes` 配列を空オブジェクトとして返します。
+{: note}

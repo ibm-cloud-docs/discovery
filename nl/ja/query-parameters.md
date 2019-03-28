@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-10-04"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 照会パラメーター
 {: #query-parameters}
 
-{{site.data.keyword.discoveryfull}} サービスは、照会を介して強力なコンテンツ検索機能を提供します。 コンテンツがアップロードされ、{{site.data.keyword.discoveryshort}} サービスによってエンリッチされた後は、照会を作成したり、{{site.data.keyword.discoveryshort}} を独自プロジェクトに統合したり、{{site.data.keyword.watson}} Explorer Application Builder を使用してカスタム・アプリケーションを作成したりできます。 照会を開始するには、[照会の概念](/docs/services/discovery/using.html)を参照してください。 パラメーターの完全リストについては、[照会リファレンス](/docs/services/discovery/query-reference.html#parameter-descriptions)を参照してください。
+{{site.data.keyword.discoveryfull}} サービスは、照会を介して強力なコンテンツ検索機能を提供します。 コンテンツがアップロードされ、{{site.data.keyword.discoveryshort}} サービスによってエンリッチされた後は、照会を作成したり、{{site.data.keyword.discoveryshort}} を独自プロジェクトに統合したり、{{site.data.keyword.watson}} Explorer Application Builder を使用してカスタム・アプリケーションを作成したりできます。 照会を開始するには、[照会の概念](/docs/services/discovery?topic=discovery-query-concepts#query-concepts)を参照してください。 パラメーターの完全リストについては、[照会リファレンス](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions)を参照してください。
 {: shortdesc}
 
 **検索パラメーター **
@@ -32,12 +44,12 @@ lastupdated: "2018-10-04"
 ## query
 {: #query}
 
-照会検索は、データ・セット内のすべての文書を、すべてのエンリッチメントとフルテキストを含めて、関連性の高い順に返します。 また、照会では、照会コンテンツに言及していない文書はすべて除外されます。 これらの照会は、[{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html) を使用して作成されます。
+照会検索は、データ・セット内のすべての文書を、すべてのエンリッチメントとフルテキストを含めて、関連性の高い順に返します。 また、照会では、照会コンテンツに言及していない文書はすべて除外されます。 これらの照会は、[{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators) を使用して作成されます。
 
 ## filter
 {: #filter}
 
-照会コンテンツに言及していないすべての文書を除外する、キャッシュ可能な照会。 フィルター検索結果は、関連性の高い順に**返されません**。 これらの照会は、[{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html) を使用して作成されます。
+照会コンテンツに言及していないすべての文書を除外する、キャッシュ可能な照会。 フィルター検索結果は、関連性の高い順に**返されません**。 これらの照会は、[{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators) を使用して作成されます。
 
 ### filter パラメーターと query パラメーターの相違点
 {: #filtervquery}
@@ -47,7 +59,7 @@ lastupdated: "2018-10-04"
 - filter パラメーターを単独で使用すると、検索結果は順不同で返されます。
 - query パラメーターを単独で使用すると、検索結果は関連性の高い順に返されます。
 
-大規模なデータ・セットでは、関連性の高い順に結果を返す必要がある場合は、`filter` パラメーターと `query` パラメーターを組み合わせてください。なぜなら、それらを一緒に使用するとパフォーマンスが向上するからです。 この理由は、最初に `filter` パラメーターが実行されて結果をキャッシュに入れ、次に `query` パラメーターがそれらをランク付けするためです。 filter と query を一緒に使用する例については、[結合された照会の作成](/docs/services/discovery/using.html#building-combined-queries)を参照してください。 filter は集約でも使用できます。
+大規模なデータ・セットでは、関連性の高い順に結果を返す必要がある場合は、`filter` パラメーターと `query` パラメーターを組み合わせてください。なぜなら、それらを一緒に使用するとパフォーマンスが向上するからです。 この理由は、最初に `filter` パラメーターが実行されて結果をキャッシュに入れ、次に `query` パラメーターがそれらをランク付けするためです。 filter と query を一緒に使用する例については、[結合された照会の作成](/docs/services/discovery?topic=discovery-query-concepts#building-combined-queries)を参照してください。 filter は集約でも使用できます。
 
 `filter` パラメーターと、`aggregation` パラメーター、`query` パラメーター、または `natural_language_query` パラメーターの両方を含む照会を作成すると、`filter` パラメーターが最初に実行され、その後、`aggregation`、`query`、または `natural_language_query` のいずれかのパラメーターが並行して実行されます。
 
@@ -56,12 +68,12 @@ lastupdated: "2018-10-04"
 ## aggregation
 {: #aggregation}
 
-集約照会は、一連のデータ値 (例えば、上位のキーワードやエンティティーの全体的なセンチメントなど) に一致する文書数を返します。 集約オプションの完全リストについては、[集約表](/docs/services/discovery/query-aggregations.html)を参照してください。 これらの集約は、[{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html) を使用して作成されます。
+集約照会は、一連のデータ値 (例えば、上位のキーワードやエンティティーの全体的なセンチメントなど) に一致する文書数を返します。 集約オプションの完全リストについては、[集約表](/docs/services/discovery?topic=discovery-query-aggregations#query-aggregations)を参照してください。 これらの集約は、[{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators) を使用して作成されます。
 
 ## natural_language_query
 {: #nlq}
 
-自然言語照会は、会話型またはフリー・テキストのインターフェース (例えば、「IBM Watson in healthcare」など) でエンド・ユーザーから受け取ったかのように、自然言語で表された照会の実行を可能にします。 このパラメーターは、入力全体を照会テキストとして使用します。 演算子は認識**されません**。 `natural_language_query` パラメーターは、パッセージ検索や関連性トレーニングなどの機能を可能にします。 トレーニングされたコレクションは、自然言語照会の結果で `confidence` スコアを返します。詳しくは、[信頼度スコア](/docs/services/discovery/train-tooling.html#confidence)を参照してください。自然言語照会の最大照会ストリングの長さは、`2048` です。
+自然言語照会は、会話型またはフリー・テキストのインターフェース (例えば、「IBM Watson in healthcare」など) でエンド・ユーザーから受け取ったかのように、自然言語で表された照会の実行を可能にします。 このパラメーターは、入力全体を照会テキストとして使用します。 演算子は認識**されません**。 `natural_language_query` パラメーターは、パッセージ検索や関連性トレーニングなどの機能を可能にします。 すべてのプライベート・コレクションは、ほとんどの場合、`confidence` スコアを照会結果に含めて返します。詳しくは、[信頼度スコア](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence)を参照してください。 自然言語照会の最大照会ストリングの長さは、`2048` です。
 
 **構造パラメーター**
 
@@ -92,19 +104,19 @@ lastupdated: "2018-10-04"
 ## bias
 {: #bias}
 
-検索結果を調整して、特定の結果になるようにバイアスをかけます (例えば、最近公開された文書など)。`bias` は、`date` タイプのフィールドまたは `number` タイプのフィールドに設定する必要があります。例えば、`bias=publication_date` または `bias=field_1` です。`date` タイプのフィールドが指定された場合、返される結果は、現在日付に近いフィールド値へとバイアスがかけられます。`number` タイプのフィールドが指定された場合、返される結果は、より大きいフィールド値へとバイアスがかけられます。このパラメーターは、`sort` パラメーターと同じ照会内では使用できません。
+検索結果を調整して、特定の結果になるようにバイアスをかけます (例えば、最近公開された文書など)。 `bias` は、`date` タイプのフィールドまたは `number` タイプのフィールドに設定する必要があります。例えば、`bias=publication_date` または `bias=field_1` です。  `date` タイプのフィールドが指定された場合、返される結果は、現在日付に近いフィールド値へとバイアスがかけられます。 `number` タイプのフィールドが指定された場合、返される結果は、より大きいフィールド値へとバイアスがかけられます。 このパラメーターは、`sort` パラメーターと同じ照会内では使用できません。
 
 `bias` パラメーターは、現在、API でのみ使用可能です。ツールからは使用できません。
 
 ## passages
 {: #passages}
 
-サービスが、`natural_language_query` パラメーターを使用する照会によって返された文書から、最も関連性の高い一連のパッセージを返すかどうかを指定するブール値。 パッセージは、照会によって返されたすべての文書から最適のテキスト・パッセージを判別するために、高度な Watson アルゴリズムによって生成されます。デフォルトは、`false` です。
+サービスが、`natural_language_query` パラメーターを使用する照会によって返された文書から、最も関連性の高い一連のパッセージを返すかどうかを指定するブール値。 パッセージは、照会によって返されたすべての文書から最適のテキスト・パッセージを判別するために、高度な Watson アルゴリズムによって生成されます。 デフォルトは、`false` です。
 
 `passages` パラメーターは、プライベート・コレクションでのみ使用できます。 {{site.data.keyword.discoverynewsfull}} コレクションでは使用できません。
 {: tip}
 
-{{site.data.keyword.discoveryshort}} は、文境界検出を使用して、文の先頭から始まり、末尾で終了するパッセージを返そうとします。 このために、まず [`passages.characters` パラメーター](/docs/services/discovery/query-parameters.html#passages_characters) (デフォルトは `400`) で指定された大体の長さのパッセージを検索します。 次に、完全な文を返すために、指定された長さの 2 倍の制限まで各パッセージを拡大します。 `passages.characters` パラメーターが短いか、文書内の文が非常に長い場合、またはその両方の場合は、要求された長さの 2 倍を超えないと、完全な文を返すために十分近い文境界がない可能性があります。 その場合、{{site.data.keyword.discoveryshort}} は `passages.characters` パラメーターの 2 倍の制限内に留まるため、返されるパッセージには文全体が含まれず、文の先頭、末尾、またはその両方が省略されることになります。
+{{site.data.keyword.discoveryshort}} は、文境界検出を使用して、文の先頭から始まり、末尾で終了するパッセージを返そうとします。 このために、まず [`passages.characters` パラメーター](/docs/services/discovery?topic=discovery-query-parameters#passages_characters) (デフォルトは `400`) で指定された大体の長さのパッセージを検索します。 次に、完全な文を返すために、指定された長さの 2 倍の制限まで各パッセージを拡大します。 `passages.characters` パラメーターが短いか、文書内の文が非常に長い場合、またはその両方の場合は、要求された長さの 2 倍を超えないと、完全な文を返すために十分近い文境界がない可能性があります。 その場合、{{site.data.keyword.discoveryshort}} は `passages.characters` パラメーターの 2 倍の制限内に留まるため、返されるパッセージには文全体が含まれず、文の先頭、末尾、またはその両方が省略されることになります。
 
 文境界の調整ではパッセージ・サイズが拡大されるため、平均パッセージの長さが大幅に増大されます。 アプリケーションの画面スペースが限られている場合は、`passages.characters` に設定する値を小さくするか、{{site.data.keyword.discoveryshort}} によって返されるパッセージを切り捨てるか、またはその両方を実行できます。 文境界検出は、サポートされるすべての言語で機能し、言語固有のロジックを使用します。
 
@@ -149,7 +161,7 @@ lastupdated: "2018-10-04"
 ### passages.count
 {: #passages_count}
 
-返されるパッセージの最大数。 それが検出された総数の場合、検索で返される数はこれより少なくなります。 デフォルトは `10` です。 最大は `100` です。
+返されるパッセージの最大数。 それが検出された総数の場合、検索で返されるパッセージの数はこれより少なくなります。デフォルトは `10` です。 最大は `100` です。
 
 ### passages.characters
 {: #passages_characters}
@@ -206,19 +218,19 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 ## deduplicate
 {: #deduplicate}
 
- `title` フィールドに基づいて、重複する文書を {{site.data.keyword.discoverynewsfull}} コレクション照会結果から除外するベータ機能。 [照会結果から重複する文書を除外](/docs/services/discovery/query-parameters.html#deduplication)を参照してください。
+ `title` フィールドに基づいて、重複する文書を {{site.data.keyword.discoverynewsfull}} コレクション照会結果から除外するベータ機能。 [照会結果から重複する文書を除外](/docs/services/discovery?topic=discovery-query-parameters#deduplication)を参照してください。
 
 ### deduplicate.field
 {: #deduplicate_field}
 
-指定された `{field}` に基づいて、重複する文書を照会結果から除外するベータ機能。 [照会結果から重複する文書を除外](/docs/services/discovery/query-parameters.html#deduplication)を参照してください。
+指定された `{field}` に基づいて、重複する文書を照会結果から除外するベータ機能。 [照会結果から重複する文書を除外](/docs/services/discovery?topic=discovery-query-parameters#deduplication)を参照してください。
 
 ### 照会結果から重複する文書を除外
 {: #deduplication}
 
 {{site.data.keyword.discoverynewsfull}} コレクションを照会している場合、またはプライベート・データ・コレクションに複数のまったく同じ (またはほぼ同一の) 文書が含まれている場合は、文書の重複排除を使用してそれらのほとんどを照会結果から除外できます。
 
-**注:** 文書の重複排除は、現在、ベータ機能としてのみサポートされています。 詳細情報については、リリース・ノートの「[ベータ版フィーチャー](/docs/services/discovery/release-notes.html#beta-features)」を参照してください。 このベータ版フィーチャーは、現在は英語でのみサポートされています。詳しくは、『[言語サポート](/docs/services/discovery/language-support.html#feature-support)』を参照してください。
+**注:** 文書の重複排除は、現在、ベータ機能としてのみサポートされています。 詳細情報については、リリース・ノートの「[ベータ版フィーチャー](/docs/services/discovery?topic=discovery-release-notes#beta-features)」を参照してください。 このベータ版フィーチャーは、現在は英語でのみサポートされています。詳しくは、『[言語サポート](/docs/services/discovery?topic=discovery-language-support#feature-support)』を参照してください。
 
 **注:** 各照会は個別に重複排除されるため、複数のオフセットでの重複排除はサポートされていません。
 
@@ -236,8 +248,9 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 重複排除を実行するとき、JSON 応答には `"duplicates_removed": x` が含まれます。ここで、`x` は、結果から削除する文書の数です。
 
 #### Watson Discovery News での文書の重複排除
+{: #deduplicatewds}
 
-ニュース記事はいくつかの報道機関に配信される可能性があり、{{site.data.keyword.discoverynewsfull}} はそれらの中から各記事を選出するため、記事が重複することがあります。これは、{{site.data.keyword.discoverynewsfull}} への照会の結果、複数の同じ記事またはほぼ同じ記事が返される可能性があることを意味します。重複排除を使用すると、ほとんどの重複する記事が検索照会から削除されます。
+ニュース記事はいくつかの報道機関に配信される可能性があり、{{site.data.keyword.discoverynewsfull}} はそれらの中から各記事を選出するため、記事が重複することがあります。 これは、{{site.data.keyword.discoverynewsfull}} への照会の結果、複数の同じ記事またはほぼ同じ記事が返される可能性があることを意味します。 重複排除を使用すると、ほとんどの重複する記事が検索照会から削除されます。
 
 {{site.data.keyword.discoveryshort}} は、`title` フィールドで近似照合を使用して重複排除を行うため、フィールドを指定する必要はありません。
 
@@ -258,7 +271,7 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 ## collection_ids
 {: #collection_ids}
 
-照会される同じ環境内のコレクションのコンマ区切りリスト。 このパラメーターは、`environments/{environment_id}/query?` メソッドを使用しているときにのみ有効です。 詳しくは、『[複数コレクションの照会](/docs/services/discovery/using.html#multiple-collections)』を参照してください。
+照会される同じ環境内のコレクションのコンマ区切りリスト。 このパラメーターは、`environments/{environment_id}/query?` メソッドを使用しているときにのみ有効です。 詳しくは、『[複数コレクションの照会](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections)』を参照してください。
 
 ```bash
 &collection_ids={id1},{id2}
@@ -268,7 +281,7 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 ## similar
 {: #similar}
 
-文書類似性は、`similar.document_ids` パラメーターにリストされた文書に類似した文書を識別します。`similar.fields` パラメーターを使用して、比較検討するフィールドを指定することで、さらに絞り込むことができます。デフォルトは、`false` です。 詳しくは、[文書類似性](/docs/services/discovery/using.html#doc-similarity)を参照してください。
+文書類似性は、`similar.document_ids` パラメーターにリストされた文書に類似した文書を識別します。 `similar.fields` パラメーターを使用して、比較検討するフィールドを指定することで、さらに絞り込むことができます。 デフォルトは、`false` です。 詳しくは、[文書類似性](/docs/services/discovery?topic=discovery-query-concepts#doc-similarity)を参照してください。
 
 ```bash
 &similar=true
@@ -278,7 +291,7 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 ### similar.document_ids
 {: #similar_document_ids}
 
-結果となる類似文書を検索するための基礎として使用される文書 ID のコンマ区切りリスト。`similar` パラメーターが `true` に設定されている場合、このパラメーターは必須です。
+結果となる類似文書を検索するための基礎として使用される文書 ID のコンマ区切りリスト。 `similar` パラメーターが `true` に設定されている場合、このパラメーターは必須です。
 
 ```bash
 &similar.document_ids={id1},{id2}
@@ -288,7 +301,7 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 ### similar.fields
 {: #similar_fields}
 
-類似文書を検索するために文書を比較するのに使用されるフィールドのコンマ区切りリスト (オプション)。このパラメーターは、`similar.document_ids` パラメーターも指定する場合にのみ使用できます。
+類似文書を検索するために文書を比較するのに使用されるフィールドのコンマ区切りリスト (オプション)。 このパラメーターは、`similar.document_ids` パラメーターも指定する場合にのみ使用できます。
 
 ```bash
 &similar.fields={field1},{field2}

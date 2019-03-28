@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # エンティティー・タイプとサブタイプ
 {: #entity-types-and-subtypes}
 
-以下の表に、エンティティー抽出のエンリッチメントで戻される可能性があるエンティティー・タイプとサブタイプをリストします。 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン" class="style-scope doc-content"></a> で、この情報を含むスプレッドシートをダウンロードできます。
+以下の表に、エンティティー抽出のエンリッチメントで戻される可能性があるエンティティー・タイプとサブタイプをリストします。 この情報が記載されたスプレッドシートは、こちらの <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a> からダウンロードできます。
 {: shortdesc}
 
 
