@@ -4,28 +4,40 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-05-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 照会の集約
 {: #query-aggregations}
 
-集約は、一連のデータ値を返します。 使用可能な集約の完全リストについては、[照会リファレンス](/docs/services/discovery/query-reference.html#aggregations)を参照してください。
+集約は、一連のデータ値を返します。 使用可能な集約の完全リストについては、[照会リファレンス](/docs/services/discovery?topic=discovery-query-reference#aggregations)を参照してください。
 
 ## term
 {: #term}
 
-選択したエンリッチメントの上位の値を (スコア順および頻度順に) 返します。 すべてのエンリッチメントは有効な値です。 オプションで、`count` を使用して、返す用語の数を指定できます。 `count` パラメーターのデフォルト値は 10 です。以下の例は、概念エンリッチメントでの最上位の値のフルテキストとエンリッチメントを返し、10 個の用語を返すことを指定します。
+選択したエンリッチメントの上位の値を (スコア順および頻度順に) 返します。 すべてのエンリッチメントは有効な値です。 オプションで、`count` を使用して、返す用語の数を指定できます。 `count` パラメーターのデフォルト値は 10 です。 以下の例は、概念エンリッチメントでの最上位の値のフルテキストとエンリッチメントを返し、10 個の用語を返すことを指定します。
 
 以下に例を示します。
 ```bash
@@ -34,7 +46,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filter
-{: #filter}
+{: #aggfilter}
 
 この修飾子が前に付いた集約照会の文書セットを絞り込みます。 以下の例は、フィルタリングでクラウド・コンピューティングの概念を含む文書セットを検出します。
 
@@ -95,7 +107,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
   - 出力の結果配列で変則的なポイント内の `anomaly` フィールド。 anomaly フィールドには、変則的な動作の大きさを示す `float` データ型の値が含まれます。 anomaly フィールドの値が `1` に近づけば近づくほど、結果が変則的である可能性が高くなります。
 
   - `results` 配列内の各オブジェクトの `key` と `key_as_string` は、UNIX タイム・スタンプ (秒単位) に対応しています。
-  - anomaly スコアは、照会全体ではなく、1 つの照会に関連しています。
+  - anomaly スコアは、元の照会にのみ関連しています。
 
 ```json
 "type": "timeslice",
@@ -139,6 +151,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
 {: codeblock}
 
 #### 異常検出の制限
+{: #anomaly-limitations}
 
 - 異常検出は、現在、最上位の `timeslice` 集約でのみ使用可能です。 下位 (ネストされた) 集約では使用できません。
 - ある特定の `timeslice` 集約で、異常検出によって処理できるポイントの最大数は `1500` です。

@@ -1,28 +1,40 @@
 ---
 
 copyright:
-years: 2018
-lastupdated: "2018-10-23"
+years: 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 出力スキーマについて
 {: #output_schema}
 
-「要素の分類」を使用して文書が取り込まれると、バージョン日付 `2018-10-15` 以降の場合、本サービスは以下のスキーマの JSON 出力を提供します。出力は、`enriched_html_elements` オブジェクト内に組み込まれます。 
+「要素の分類」を使用して文書が取り込まれると、バージョン日付 `2018-10-15` 以降の場合、本サービスは以下のスキーマの JSON 出力を提供します。 出力は、`enriched_html_elements` オブジェクト内に組み込まれます。 
 
-```
+```json
 {
   "document": {
     "title": string,
@@ -142,7 +154,18 @@ lastupdated: "2018-10-23"
           "row_header_texts_normalized": [ string ],
           "column_header_ids": [ string ],
           "column_header_texts": [ string ],
-          "column_header_texts_normalized": [ string ]
+          "column_header_texts_normalized": [ string ],
+          "attributes" : [
+             {
+               "type" : string,
+               "text" : string,
+               "location" : {
+                 "begin" : int,
+          "end" : int
+        }
+             },
+             ...
+           ]
         },
         ...
       ]
@@ -157,7 +180,7 @@ lastupdated: "2018-10-23"
           "begin": int,
           "end": int
         },
-        "level": int
+        "level": int,
         "element_locations": [
           {
             "begin": int,
@@ -190,6 +213,7 @@ lastupdated: "2018-10-23"
     {
       "party": string,
       "role": string,
+      "importance": string,
       "addresses": [
         {
           "text": string,
@@ -213,6 +237,7 @@ lastupdated: "2018-10-23"
   "effective_dates": [
     {
       "text": string,
+      "confidence_level": string,
       "location": { "begin": int, "end": int }
      },
      ...
@@ -220,12 +245,22 @@ lastupdated: "2018-10-23"
   "contract_amounts": [
     {
       "text": string,
+      "confidence_level": string,
+      "location": { "begin": int, "end": int }
+    },
+    ...
+  ],
+  "termination_dates": [
+    {
+      "text": string,
+      "confidence_level": string,
       "location": { "begin": int, "end": int }
     },
     ...
   ]
 }
 ```
+{: codeblock}
 
 スキーマは次のように配置されます。
 
@@ -233,30 +268,30 @@ lastupdated: "2018-10-23"
     - `title`: 文書のタイトル (検出された場合)。
     - `html`: HTML 形式で表される、入力文書のフルテキスト。
     - `hash`: 入力文書の MD5 ハッシュ。
-  - `model_id`: 文書の分類に使用される分析モデル。デフォルトは、`contracts` です。 
+  - `model_id`: サービスで使用する分析モデル。`/v1/element_classification` メソッドと `/v1/comparison` メソッドの場合、デフォルトは `contracts` です。`/v1/tables` メソッドの場合、デフォルトは `tables` です。これらのデフォルトは、単体メソッドにも、バッチ処理要求で使用するメソッドにも適用されます。
   - `model_version`: `model_id` パラメーターの値によって指定される分析モデルのバージョン。
   - `elements`: 本サービスによって検出された文書要素の配列。
     - `location`: 要素の `begin` 索引と `end` 索引によって定義される要素の位置。
     - `text`: 要素のテキスト。
     - `types`: 要素の種類とその影響を受ける対象者を記述した配列。
       - `label`: 以下の要素のペアを使用してタイプを定義するオブジェクト。
-        - `nature`: センテンスに必要なアクションのタイプ。現行値は、`Definition`、`Disclaimer`、`Exclusion`、`Obligation`、および `Right` です。
+        - `nature`: センテンスに必要なアクションのタイプ。 現行値は、`Definition`、`Disclaimer`、`Exclusion`、`Obligation`、および `Right` です。
         - `party`: センテンスが適用されるパーティーを識別するストリング。
       - `provenance_ids`: フィードバックを提供したりサポートを受けたりするために IBM に送信できる 1 つ以上のハッシュ値の配列。
     - `categories`: 要素が分類される機能カテゴリー、つまり要素の主題をリストした配列。
-      - `label`: 識別されたカテゴリーをリストしたストリング。[categories](/docs/services/discovery/parsing.html#contract_categories) のリストは、[契約の解析](/docs/services/discovery/parsing.html#contract_parsing)にあります。
+      - `label`: 識別されたカテゴリーをリストしたストリング。 [categories](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories) のリストは、[契約の解析](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing)にあります。
       - `provenance_ids`: フィードバックを提供したりサポートを受けたりするために IBM に送信できる 1 つ以上のハッシュ値の配列。
-    - `attributes`: 文書の属性を識別する配列。配列内の各オブジェクトは、以下の 3 つの要素で構成されます。
-      - `type`: 属性のタイプ。可能な値は、`Location`、`DateTime`、および `Currency` です。
+    - `attributes`: 文書の属性を識別する配列。 配列内の各オブジェクトは、以下の 3 つの要素で構成されます。
+      - `type`: 属性のタイプ。 取り得る値は、`Address`、`Currency`、`DateTime`、`Location`、`Organization`、および `Person` です。
       - `text`: 属性と関連付けられているテキスト。
       - `location`: 属性の `begin` 索引と `end` 索引によって定義される属性の位置。
   - `tables`\*: 入力文書内で識別された表を定義する配列。
     - `location`: 入力文書内の表の `begin` 索引と `end` 索引によって定義される現行表の位置。
     - `text`: 関連付けられたマークアップ・コンテンツなしの、入力文書にある現行表のテキスト・コンテンツ。
-    - `section_title`: 識別された場合、現行表を含んでいるセクション・タイトルの位置。セクション・タイトルが識別されない場合は空です。
+    - `section_title`: 識別された場合、現行表に含まれているセクション・タイトルの位置。セクション・タイトルが識別されない場合は空です。
       - `text`: 識別されたセクション・タイトルのテキスト。
       - `location`: セクション・タイトルの `begin` 索引と `end` 索引によって定義される、入力文書内でのセクション・タイトルの位置。
-    - `table_headers`: 現行表の他のすべてのセルにヘッダーとして適用可能な表レベルのセルの配列。それぞれの表ヘッダーは次の要素の集合として定義されます。
+    - `table_headers`: 現行表の他のすべてのセルにヘッダーとして適用可能な表レベルのセルの配列。 それぞれの表ヘッダーは次の要素の集合として定義されます。
       - `cell_id`: `tableHeader-x-y` という形式のストリング値。ここで `x` および `y` は元の入力文書内のセル値の開始オフセットと終了オフセットです。
       - `location`: セルの `begin` 索引と `end` 索引によって定義される、入力文書内でのセルの位置。
       - `text`: 関連付けられたマークアップ・コンテンツなしの、入力文書にあるセルのテキスト・コンテンツ。
@@ -264,7 +299,7 @@ lastupdated: "2018-10-23"
       - `row_index_end`: 現行表におけるセルの `row` 位置の `end` 索引。
       - `column_index_begin`: 現行表におけるセルの `column` 位置の `begin` 索引。
       - `column_index_end`: 現行表におけるセルの `column` 位置の `end` 索引。
-    - `column_headers`: 同じ列の他のセルにヘッダーとして適用可能な、 現行表の列レベルのセルの配列。それぞれの列ヘッダーは以下の集合として定義されます。
+    - `column_headers`: 同じ列の他のセルにヘッダーとして適用可能な、 現行表の列レベルのセルの配列。 それぞれの列ヘッダーは、以下の項目の集合として定義されます。
       - `cell_id`: `columnHeader-x-y` という形式のストリング値。ここで、`x` および `y` は、入力文書のこの列ヘッダー・セルの開始オフセットと終了オフセットです。
       - `location`: セルの `begin` 索引と `end` 索引によって定義される、入力文書内でのセルの位置。
       - `text`: 関連付けられたマークアップ・コンテンツなしの、入力文書にあるセルのテキスト・コンテンツ。
@@ -273,7 +308,7 @@ lastupdated: "2018-10-23"
       - `row_index_end`: 現行表におけるセルの `row` 位置の `end` 索引。
       - `column_index_begin`: 現行表におけるセルの `column` 位置の `begin` 索引。
       - `column_index_end`: 現行表におけるセルの `column` 位置の `end` 索引。
-    - `row_headers`: 同じ行の他のセルにヘッダーとして適用可能な、現行表の行レベルのセルの配列。それぞれの行ヘッダーは以下の集合として定義されます。
+    - `row_headers`: 同じ行の他のセルにヘッダーとして適用可能な、現行表の行レベルのセルの配列。 それぞれの行ヘッダーは、次の項目の集合として定義されます。
       - `cell_id`: `rowHeader-x-y` という形式のストリング値。ここで、`x` および `y` は、入力文書のこの行ヘッダー・セルの開始オフセットと終了オフセットです。
       - `location`: セルの `begin` 索引と `end` 索引によって定義される、入力文書内でのセルの位置。
       - `text`: 関連付けられたマークアップ・コンテンツなしの、入力文書にあるセルのテキスト・コンテンツ。
@@ -282,7 +317,7 @@ lastupdated: "2018-10-23"
       - `row_index_end`: 現行表におけるセルの `row` 位置の `end` 索引。
       - `column_index_begin`: 現行表におけるセルの `column` 位置の `begin` 索引。
       - `column_index_end`: 現行表におけるセルの `column` 位置の `end` 索引。
-    - `body_cells`: 対応する行ヘッダーと列ヘッダーが関連付けられている、表ヘッダー・セルでも列ヘッダー・セルでも行ヘッダー・セルでもない現行表のセルの配列。それぞれの本文セルは、次の要素の集合として定義されます。
+    - `body_cells`: 対応する行ヘッダーと列ヘッダーが関連付けられている、表ヘッダー・セルでも列ヘッダー・セルでも行ヘッダー・セルでもない現行表のセルの配列。それぞれの本文セルは、次の項目の集合として定義されます。
       - `cell_id`: `bodyCell-x-y` という形式のストリング値。ここで `x` および `y` は、入力文書内のこの本文セルの開始オフセットと終了オフセットです。
       - `location`: セルの `begin` 索引と `end` 索引によって定義される、入力文書内でのセルの位置。
       - `text`: 関連付けられたマークアップ・コンテンツなしの、入力文書にあるセルのテキスト・コンテンツ。
@@ -296,19 +331,24 @@ lastupdated: "2018-10-23"
       - `column_header_ids`: この本文セルに適用可能な列ヘッダーの `cell_id` 値の配列。
       - `column_header_texts`: この本文セルに適用可能な列ヘッダーの `text` 値の配列。
       - `column_header_texts_normalized`: カスタマイズ入力を指定した場合は、カスタマイズに従って正規化されたバージョンの列ヘッダー・テキスト。そうでない場合は、`column_header_texts` と同じ値。
+      - `attributes`: 文書の属性を識別する配列。 配列内の各オブジェクトは、以下の 3 つの要素で構成されます。
+        - `type`: 属性のタイプ。 取り得る値は、`Address`、`Currency`、`DateTime`、`Location`、`Organization`、および `Person` です。
+        - `text`: 属性と関連付けられているテキスト。
+        - `location`: 属性の `begin` 索引と `end` 索引によって定義される属性の位置。
   - `document_structure`: 入力文書の構造を記述したオブジェクト。
-    - `section_titles`: 入力文書内で検出されたセクションまたはサブセクションごとに 1 つのオブジェクトを含んだ配列。セクションおよびサブセクションはネストされずにフラット化され、要素の `begin` と `end` の値およびセクションの `level` 値を使用して元の状態に戻すことができます。
+    - `section_titles`: 入力文書内で検出されたセクションまたはサブセクションごとに 1 つのオブジェクトを含んだ配列。 セクションおよびサブセクションはネストされずにフラット化され、要素の `begin` と `end` の値およびセクションの `level` 値を使用して元の状態に戻すことができます。
       - `text`: セクション・タイトルをリストしたストリング (検出された場合)。
       - `location`: タイトルの `begin` 索引と `end` 索引によって定義される、入力文書内でのタイトルの位置。
-      - `level`: 入力文書内でセクションが配置されていたレベルを示す整数。例えば、`1` はトップレベル・セクションを表し、`2` は、レベル `1` セクション内のサブセクションを表します。
-      - `element_locations`: セクション内のセンテンスの `begin` 値と `end` 値を指定するオブジェクトを含んだ配列。
-    - `leading_sentences`: 対応するセクションまたはサブセクション内のリード文を詳述した配列であり、`section_titles` 配列と並列に配置され、セクションまたはサブセクションごとに 1 つのオブジェクトを含んだ配列。`section_titles` 配列と同様に、オブジェクトはネストされずにフラット化され、要素の `begin` と `end` の値または入力文書内の任意のレベル・マーカーを使用して元の状態に戻すことができます。
+      - `level`: 入力文書内でセクションが配置されていたレベルを示す整数。 <!--例えば、1 はトップレベル・セクションを表し、2 は、レベル 1 セクション内のサブセクションを表します。-->
+      - `element_locations`: セクション内のセンテンスの `begin` 値と `end` 値を示す配列。
+    - `leading_sentences`: 対応するセクションまたはサブセクション内のリード文を詳述した配列であり、`section_titles` 配列と並列に配置され、セクションまたはサブセクションごとに 1 つのオブジェクトを含んだ配列。 `section_titles` 配列と同様に、オブジェクトはネストされずにフラット化され、要素の `begin` と `end` の値または入力文書内の任意のレベル・マーカーを使用して元の状態に戻すことができます。
       - `text`: リード文をリストしたストリング (検出された場合)。
       - `location`: リード文の `begin` 索引と `end` 索引によって定義される、入力文書内でのリード文の位置。
-      - `element_locations`: セクション内のリード文の `begin` 値と `end` 値を指定するオブジェクトを含んだ配列。
+      - `element_locations`: セクション内のリード文の `begin` 値と `end` 値を示す配列。
   - `parties`: 本サービスによって識別されたパーティーを定義する配列。
     - `party`: パーティーを識別するストリング値。
     - `role`: パーティーの役割を識別するストリング値。
+    - `importance`: パーティーの重要度を表すストリング値。取り得る値は、`Primary` (主要なパーティー) および `Unknown` (主要でないパーティー) です。
     - `addresses`: アドレスを識別するオブジェクトの配列。
       - `text`: アドレスを含んだストリング。
       - `location`: アドレスの `begin` 索引と `end` 索引によって定義されるアドレスの位置。
@@ -317,12 +357,18 @@ lastupdated: "2018-10-23"
       - `role`: 識別された連絡先の役割をリストしたストリング。  
   - `effective_dates`: 文書の発効日を識別する配列。
     - `text`: ストリングとしてリストされる発効日。
-    - `location`: 日付の `begin` 索引と `end` 索引によって定義される日付の位置。
+    - `confidence_level`: 発効日の識別についての信頼度レベル。取り得る値は、`High`、`Medium`、`Low` です。
+    - `location`: 日付の `begin` 指標と `end` 指標によって定義される日付の位置。
   - `contract_amounts`: 文書内で識別された金額を識別する配列。
     - `text`: ストリングとしてリストされる契約金額。
+    - `confidence_level`: 契約金額の識別についての信頼度レベル。取り得る値は、`High`、`Medium`、`Low` です。    
     - `location`: 金額の `begin` 索引と `end` 索引によって定義される金額の位置。
+  - `termination_dates`: 文書の終了日を表す配列。
+    - `text`: ストリングとしてリストされる終了日。
+    - `confidence_level`: 終了日の識別についての信頼度レベル。取り得る値は、`High`、`Medium`、`Low` です。    
+    - `location`: 日付の `begin` 指標と `end` 指標によって定義される日付の位置。
 
 **\*表に関する注記:**
   - セルごとの行および列の索引値はゼロベースであり、`0` で始まります。
-  - `row_header_ids` 要素と `row_header_texts` 要素の配列内の複数の値は、行ヘッダーの階層を示しています。
-  - `column_header_ids` 要素と `column_header_texts` 要素の配列内の複数の値は、列ヘッダーの階層を示しています。
+  - `row_header_ids` 要素と `row_header_texts` 要素の配列内の複数の値は、想定される行ヘッダーの階層を示しています。
+  - `column_header_ids` 要素と `column_header_texts` 要素の配列内の複数の値は、想定される列ヘッダーの階層を示しています。

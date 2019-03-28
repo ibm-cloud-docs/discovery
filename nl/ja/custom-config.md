@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 構成リファレンス
 {: #configref}
@@ -23,7 +35,10 @@ lastupdated: "2018-01-23"
 ご使用のデータに、[変換](#conversion)、[エンリッチメント](#enrichment)、[正規化](#normalization) に関する特別なニーズがある場合は、独自の {{site.data.keyword.discoveryshort}} 取り込み構成を JSON で作成できます。
 {: shortdesc}
 
- 次のセクションでは、この JSON の構造とそれによって定義できるオブジェクトについて詳しく説明します。
+次のセクションでは、この JSON の構造とそれによって定義できるオブジェクトについて詳しく説明します。
+
+[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) を使用して作成したコレクションでは、リストしている PDF 変換と Word 変換の設定は使用されないので、これらの変換設定を変更しても無視されます。
+{: note}
 
 ## 構成の構造
 {: #structure}
@@ -82,10 +97,16 @@ lastupdated: "2018-01-23"
 
 - **JSON** ファイルは、`json` オプションを使用して変換されます。
 
+[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) を使用して作成したコレクションでは、リストしている PDF 変換と Word 変換の設定は使用されないので、これらの変換設定を変更しても無視されます。
+{: note}
+
 これらのオプションについては、以下のセクションで説明します。 変換の完了後、[エンリッチメント](#enrichment)と[正規化](#normalization)を実行してから、コンテンツを保存します。
 
 ### PDF
 {: #pdf}
+
+[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) を使用して作成したコレクションでは、リストしている PDF 変換と Word 変換の設定は使用されないので、これらの変換設定を変更しても無視されます。
+{: note}
 
 `pdf` 変換オブジェクトは PDF 文書を HTML に変換する方法を定義し、次に示す構造となっています。
 
@@ -129,6 +150,9 @@ PDF ファイルを変換するとき、各見出しレベルのサイズ、フ�
 
 ### Word
 {: #word}
+
+[Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) を使用して作成したコレクションでは、リストしている PDF 変換と Word 変換の設定は使用されないので、これらの変換設定を変更しても無視されます。
+{: note}
 
 `word` 変換オブジェクトは PDF 文書を HTML に変換する方法を定義し、次に示す構造となっています。
 
@@ -236,30 +260,37 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
 {: codeblock}
 
 #### exclude_tags_completely
+{: #configref_exclude_completely}
 
 `"exclude_tags_completely" : 配列` - 除外される HTML タグの名前の配列。 これには、タグ、コンテンツ、および定義されたすべてのタグ属性が含まれます。
 
 #### exclude_tags_keep_content
+{: #configref_exclude_tags_keep_content}
 
 `"exclude_tags_keep_content" : 配列` - タグ情報が削除される HTML タグの名前の配列。 これにより、HTML タグとすべてのタグ属性が除去されます。 タグの内容は、指定されない限り、それ以上は除去されません。 例えば、`span` HTML タグに `exclude_tags_keep_content` を指定すると、`<span class="info">Some <strong>Information</strong></span>` はタグが削除されて `Some <strong>Information</strong>` になります。
 
 #### exclude_content
+{: #configref_exclude_content}
 
 `"xpaths" : 配列` - 削除されるコンテンツを識別する XPath の配列。 この値を設定すると、いずれかの XPath に一致するものがすべて出力から削除されます。
 
 #### keep_content
+{: #configref_keep_content}
 
 `"xpaths" : 配列` - 変換されるコンテンツを識別する XPath の配列。 この値を設定すると、いずれかの XPath に一致するものがすべて出力に含められます。 このパラメーターの指定によって含められたものは、`exclude_content` で指定されたすべての処理の後で処理されます。
 
 #### exclude_tag_attributes
+{: #configref_exclude_tag_attributes}
 
-`"exclude_tag_attributes" : 配列` - 変換によって削除される HTML 属性の名前の配列。その HTML 属性がどの HTML タグに含まれるのかは問いません。 **注:** 同じ構成内で `exclude_tag_attributes` と `keep_tag_attributes` の両方を指定すると、エラー・メッセージを受け取ります。構成ごとに指定できるのは 1 つのみです。`keep_tag_attributes` がある場合は、構成から完全に削除する必要があります。空の配列として存在することはできません。
+`"exclude_tag_attributes" : 配列` - 変換によって削除される HTML 属性の名前の配列。その HTML 属性がどの HTML タグに含まれるのかは問いません。 **注:** 同じ構成内で `exclude_tag_attributes` と `keep_tag_attributes` の両方を指定すると、エラー・メッセージを受け取ります。構成ごとに指定できるのは 1 つのみです。 `keep_tag_attributes` がある場合は、構成から完全に削除する必要があります。空の配列として存在することはできません。
 
 #### keep_tag_attributes
+{: #configref_keep_tag_attributes}
 
-`"keep_tag_attributes" : 配列` - 変換によって保持される HTML 属性の名前の配列。 **注:** 同じ構成内で `keep_tag_attributes` と `exclude_tag_attributes` の両方を指定すると、エラー・メッセージを受け取ります。構成ごとに指定できるのは 1 つのみです。`exclude_tag_attributes` がある場合は、構成から完全に削除する必要があります。空の配列として存在することはできません。
+`"keep_tag_attributes" : 配列` - 変換によって保持される HTML 属性の名前の配列。 **注:** 同じ構成内で `keep_tag_attributes` と `exclude_tag_attributes` の両方を指定すると、エラー・メッセージを受け取ります。構成ごとに指定できるのは 1 つのみです。 `exclude_tag_attributes` がある場合は、構成から完全に削除する必要があります。空の配列として存在することはできません。
 
 #### extracted_fields
+{: #configref_extracted}
 
 このオブジェクトは、変換の一部として別の JSON フィールドに抽出される、HTML ソースの任意のコンテンツを定義します。 コンテンツは、CSS セレクターを使用して識別されます。
 
@@ -279,7 +310,7 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
 
 - `"css_selector" : ストリング` *必須* - フィールドに保存されるコンテンツの領域を定義する CSS セレクター式です。
 - `"type" : ストリング` *必須* - 作成するフィールドのタイプで、`string` または `date` を指定できます。
-詳しくは、「[CSS セレクターを使用したフィールドの抽出](/docs/services/discovery/building.md#using-css)」を参照してください。
+詳しくは、「[CSS セレクターを使用したフィールドの抽出](/docs/services/discovery?topic=discovery-configservice#using-css)」を参照してください。
 
 ### セグメント
 {: #segment}
@@ -303,7 +334,7 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
 -  `normalizations` を構成の一部として指定することはできません。
 -  `html` 変換の `extracted_fields` オプションを構成の一部として指定することはできません。
 
-詳しくは、「[セグメンテーションの実行](/docs/services/discovery/building.html#performing-segmentation)」を参照してください。
+詳しくは、「[セグメンテーションの実行](/docs/services/discovery?topic=discovery-configservice#performing-segmentation)」を参照してください。
 
 
 ### JSON
@@ -425,7 +456,7 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
 
 - `"enrichment" : ストリング` - *必須* - このフィールドに使用するエンリッチメントのタイプ。 {{site.data.keyword.nlushort}} エンリッチメントを抽出するには `natural_language_understanding` を使用し、要素の分類を実行するには `elements` を使用します。
 
-  **注:** `elements` エンリッチメントを使用するときは、「[要素の分類](/docs/services/discovery/element-classification.html)」文書で指定されたガイドラインに従うことが重要です。 特に、このエンリッチメントが指定されているときは、PDF ファイルのみ取り込むことができます。
+  **注:** `elements` エンリッチメントを使用するときは、「[要素の分類](/docs/services/discovery?topic=discovery-element-classification#element-classification)」文書で指定されたガイドラインに従うことが重要です。 特に、このエンリッチメントが指定されているときは、PDF ファイルのみ取り込むことができます。
 
 - `"source_field" : ストリング` - *必須* - エンリッチされるソース・フィールド。 このフィールドは、`json_normalizations` 操作が完了した後のソースに存在していなければなりません。
 - `"destination_field" : ストリング` - *必須* - エンリッチメントが作成されるコンテナー・オブジェクトの名前。
@@ -433,28 +464,33 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
   **注:** 構成で定義するフィールド名は、「[フィールド名の要件](#field_reqs)」で定義された制約事項に従う必要があります。
 
 ### 要素の分類エンリッチメント
+{: #element_classification_enrichments}
 
 要素の分類を使用するとき、各 `elements` エンリッチメント・オブジェクトは、次のパラメーターを指定した `"options": {}` オブジェクトを保持している必要があります。
 
 - `"model" : ストリング` - *必須* - この文書に使用する要素抽出モデル。 現在サポートされているモデルは `contract` です。
 
-**注:** `elements` エンリッチメントを使用するときは、「[要素の分類](/docs/services/discovery/element-classification.html)」文書で指定されたガイドラインに従うことが重要です。 特に、このエンリッチメントが指定されているときは、PDF ファイルのみ取り込むことができます。
+**注:** `elements` エンリッチメントを使用するときは、「[要素の分類](/docs/services/discovery?topic=discovery-element-classification#element-classification)」文書で指定されたガイドラインに従うことが重要です。 特に、このエンリッチメントが指定されているときは、PDF ファイルのみ取り込むことができます。
 
 ### Natural Language Understanding エンリッチメント
+{: #nlu_enrichments}
 
 {{site.data.keyword.nlushort}} を使用する場合、`enrichments` 配列内の各オブジェクトは、次のエンリッチメントを 1 つ以上含む `"options": { "features": { } }` オブジェクトも保持している必要があります。
 
 ### categories
+{: #nlu_categories}
 
 `categories` エンリッチメントは、取り込んだ文書内の一般的なカテゴリーを識別します。 このエンリッチメントはオプションを持たず、空のオブジェクト `"categories" : {}` として指定する必要があります。
 
 ### concepts
+{: #nlu_concepts}
 
 `concepts` エンリッチメントは、テキスト内に存在する他の概念とエンティティーに基づいて、入力テキストに関連付けられている概念を検出します。
 
 - `"limit" : 整数` - *必須* - 取り込んだ文書から抽出する概念の最大数。
 
 ### emotion
+{: #nlu_emotion}
 
 `emotion` エンリッチメントは、文書全体における、または文書内の指定されたターゲット・ストリングにおける総合的な感情トーン (例: `anger`) を評価します。 このエンリッチメントは、英語のコンテンツでのみ使用できます。
 
@@ -462,6 +498,7 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
 - `"targets" : 配列 ` _オプション_ - 文書内で感情の状態を評価するターゲット・ストリングのコンマ区切り配列。
 
 ### entities
+{: #nlu_entities}
 
 `entities` エンリッチメントは、既知のエンティティー (ユーザー、プレース、組織など) のインスタンスを抽出します。 オプションで、カスタム・エンティティーを抽出するために {{site.data.keyword.knowledgestudioshort}} カスタム・モデルを指定できます。
 
@@ -471,17 +508,19 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
 - `"mentions": ブール` - _オプション_ - `true` の場合、このエンティティーが言及された回数が記録されます。 デフォルトは、`false` です。
 - `"mention_types": ブール` - _オプション_ - `true` の場合、このエンティティーの各言及の言及タイプが保存されます。 デフォルトは、`false` です。
 - `"sentence_location": ブール` - _オプション_ - `true` の場合、各エンティティー言及のセンテンスの場所が保存されます。 デフォルトは、`false` です。
-- `"model" : ストリング` - _オプション_ - このオプションを指定すると、パブリック・モデルの代わりにカスタム・モデルを使用してエンティティーが抽出されます。 このオプションを使用するには、ご使用の {{site.data.keyword.discoveryshort}} のインスタンスに {{site.data.keyword.knowledgestudioshort}} カスタム・モデルが関連付けられている必要があります。 詳しくは、「[Watson Knowledge Studio との統合](/docs/services/discovery/integrate-wks.html)」を参照してください。
+- `"model" : ストリング` - _オプション_ - このオプションを指定すると、パブリック・モデルの代わりにカスタム・モデルを使用してエンティティーが抽出されます。 このオプションを使用するには、ご使用の {{site.data.keyword.discoveryshort}} のインスタンスに {{site.data.keyword.knowledgestudioshort}} カスタム・モデルが関連付けられている必要があります。 詳しくは、「[Watson Knowledge Studio との統合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)」を参照してください。
 
 ### keywords
+{: #nlu_keywords}
 
-`keywords` エンリッチメントは、テキスト内の重要な語を抽出します。 キーワード、概念、およびエンティティーの違いを理解するには、「[エンティティー、概念、およびキーワードの違いについて](/docs/services/discovery/building.html#udbeck)」を参照してください。
+`keywords` エンリッチメントは、テキスト内の重要な語を抽出します。 キーワード、概念、およびエンティティーの違いを理解するには、「[エンティティー、概念、およびキーワードの違いについて](/docs/services/discovery?topic=discovery-configservice#udbeck)」を参照してください。
 
 - `"sentiment" : ブール` - _オプション_ - `true` の場合、周囲のコンテンツの状況に応じて、抽出されたキーワードにセンチメント分析が実行されます。
 - `"emotion" : ブール` - _オプション_ - `true` の場合、周囲のコンテンツの状況に応じて、抽出されたキーワードに感情トーン分析が実行されます。
 - `"limit" : 整数` - _optional_ -  取り込んだ文書から抽出するキーワードの最大数。 デフォルトは `50` です。
 
 ### semantic_roles
+{: #nlu_semantic_roles}
 
 `semantic_roles` エンリッチメントは、取り込んだテキスト内のセンテンス・コンポーネント (サブジェクト、アクション、オブジェクトなど) を識別します。
 
@@ -490,6 +529,7 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
 - `"limit" : 整数` - _オプション_ - 取り込んだ文書から抽出する `semantic_roles` オブジェクト (解析するセンテンス) の最大数。 デフォルトは `50` です。
 
 ### sentiment
+{: #nlu_sentiment}
 
 `sentiment` エンリッチメントは、文書全体における、または文書内の指定されたターゲット・ストリングにおける総合的なセンチメント・レベルを評価します。
 
@@ -497,10 +537,11 @@ Microsoft Word 変換オブジェクトは、PDF 変換オブジェクトと同�
 - `"targets" : 配列 ` _オプション_ - 文書内のセンチメントを評価するターゲット・ストリングのコンマ区切り配列。
 
 ### relations
+{: #nlu_relations}
 
 `relations` エンリッチメントは、文書内の識別済みエンティティー間の既知の関係を抽出します。 オプションで、カスタム関係を抽出するために、{{site.data.keyword.knowledgestudioshort}} カスタム・モデルを指定できます。
 
-- `"model" : ストリング` - _オプション_ - このオプションを指定すると、パブリック・モデルの代わりにカスタム・モデルを使用して関係が抽出されます。 このオプションを使用するには、ご使用の {{site.data.keyword.discoveryshort}} のインスタンスに {{site.data.keyword.knowledgestudioshort}} カスタム・モデルが関連付けられている必要があります。 詳しくは、「[Watson Knowledge Studio との統合](/docs/services/discovery/integrate-wks.html)」を参照してください。
+- `"model" : ストリング` - _オプション_ - このオプションを指定すると、パブリック・モデルの代わりにカスタム・モデルを使用して関係が抽出されます。 このオプションを使用するには、ご使用の {{site.data.keyword.discoveryshort}} のインスタンスに {{site.data.keyword.knowledgestudioshort}} カスタム・モデルが関連付けられている必要があります。 詳しくは、「[Watson Knowledge Studio との統合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)」を参照してください。
 
 ## 正規化
 {: #normalization}

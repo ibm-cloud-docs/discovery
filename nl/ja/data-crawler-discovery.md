@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Data Crawler の構成
 {: #configuring-the-data-crawler}
@@ -23,8 +35,8 @@ lastupdated: "2018-07-03"
 リポジトリーをクロールするように Data Crawler をセットアップするには、適切な入力アダプターを `crawler.conf` ファイルで指定した上で、リポジトリー固有の情報を入力アダプター構成ファイルで構成する必要があります。
 {: shortdesc}
 
-{{site.data.keyword.discoveryshort}} ツールまたは API を使用して、Box、Salesforce、および Microsoft SharePoint Online データ・ソースをクロールできます。詳しくは、『[データ・ソースへの接続](/docs/services/discovery/connect.html)』を参照してください。
-{: tip}
+Data Crawler は、ファイル共有またはデータベースをクロールする場合にのみ使用してください。それ以外の場合は、適切な {{site.data.keyword.discoveryshort}} コネクターを使用してください。詳しくは、『[データ・ソースへの接続](/docs/services/discovery?topic=discovery-sources#sources)』を参照してください。 {{site.data.keyword.discoveryshort}} コネクターでサポートされているデータ・ソースで Data Crawler を使用する場合、Data Crawler に対する支援は行われなくなりました。
+{: important}
 
 以下のステップで示される変更を行う前に、`{installation_directory}/share/examples/config` ディレクトリーの内容をシステム上の作業ディレクトリー (例えば、`/home/config`) にコピーして作業ディレクトリーを作成してあることを確認してください。
 
@@ -51,7 +63,7 @@ lastupdated: "2018-07-03"
         ```
         {: codeblock}
 
-    このファイルには、ご使用の環境に応じて設定される可能性がある他のオプション設定があります。これらの値の設定について詳しくは、「[クロール・オプションの構成](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options)」、「[入力アダプターの構成](/docs/services/discovery/data-crawler-discovery.html#input-adapter)」、「[出力アダプターの構成](/docs/services/discovery/data-crawler-discovery.html#output-adapter)」、「[追加のクロール管理オプション](/docs/services/discovery/data-crawler-discovery.html#additional-crawl-management-options)」を参照してください。
+    このファイルには、ご使用の環境に応じて設定される可能性がある他のオプション設定があります。これらの値の設定について詳しくは、「[クロール・オプションの構成](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options)」、「[入力アダプターの構成](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter)」、「[出力アダプターの構成](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter)」、「[追加のクロール管理オプション](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options)」を参照してください。
 
 1.  テキスト・エディターで `discovery/discovery_service.conf` ファイルを開きます。 {{site.data.keyword.Bluemix}} で前に作成した {{site.data.keyword.discoveryshort}} サービス固有の以下の値を変更します。
 
@@ -60,11 +72,11 @@ lastupdated: "2018-07-03"
     -   `configuration_id` - {{site.data.keyword.discoveryshort}} サービスの構成 ID。
     -   `configuration` - この `discovery_service.conf` ファイルを示すフルパスのロケーション (例: `/home/config/discovery/discovery_service.conf`)。
     -   `username` - {{site.data.keyword.discoveryshort}} サービスのユーザー名資格情報。
-    -   `password` - {{site.data.keyword.discoveryshort}} サービスのパスワード資格情報。
+    -   `apikey` - {{site.data.keyword.discoveryshort}} サービスの資格情報。
 
-    このファイルには、ご使用の環境に応じて設定される可能性がある他のオプション設定があります。 これらの値の設定について詳しくは、「[サービス・オプションの構成](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options)」を参照してください。
+    このファイルには、ご使用の環境に応じて設定される可能性がある他のオプション設定があります。 これらの値の設定について詳しくは、「[サービス・オプションの構成](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options)」を参照してください。
 
-1.  これらのファイルを変更したら、データをクロールする準備が完了です。 引き続き、「[データ・リポジトリーのクロール](/docs/services/discovery/data-crawler-run.html#crawling-your-data-repository) 」に進んでください。
+1.  これらのファイルを変更したら、データをクロールする準備が完了です。 引き続き、「[データ・リポジトリーのクロール](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository) 」に進んでください。
 
 ## クロール・オプションの構成
 {: #configuring-crawl-options}
@@ -97,14 +109,13 @@ lastupdated: "2018-07-03"
 
     **注:** コネクター・フレームワークの `lib/java` ディレクトリーを基準にした相対パスです。
 
-    -   SharePoint コネクターを使用する場合、この値は `oakland` でなければなりません。
     -   データベース・コネクターを使用する場合、この値は `database` でなければなりません。
 
     その他のコネクターを使用する場合、この値は空 (空のストリング "") のままにすることができます。
 
--   **`urls_to_filter`** - クロールしてはならない URL のブラックリスト (正規表現形式)。Data Crawler は、指定された正規表現のいずれかに一致する URL をクロールしません。
+-   **`urls_to_filter`** - クロールしてはならない URL のブラックリスト (正規表現形式)。 Data Crawler は、指定された正規表現のいずれかに一致する URL をクロールしません。
 
-    `domain list` には、クロールできないドメインが含まれています。必要に応じてこれに追加してください。
+    `domain list` には、クロールできないドメインが含まれています。 必要に応じてこれに追加してください。
 
     `filetype list` には、オーケストレーション・サービスがサポートしていないファイル拡張子が含まれています。
 
@@ -231,8 +242,7 @@ output_directory - "/tmp/crawler-test-output"`
 -   **`collection_id`** - {{site.data.keyword.discoveryshort}} サービスでセットアップした文書コレクションの名前。
 -   **`api_version`** - 内部使用専用。 API バージョンの最終変更日。   
 -   **`configuration_id`** - {{site.data.keyword.discoveryshort}} サービスが使用する構成ファイルのファイル名。
--   **`username`** - クロールした文書コレクションの場所への認証を行うためのユーザー名。   
--   **`password`** - クロールした文書コレクションの場所への認証を行うためのパスワード。
+-   **`apikey`** - クロールした文書コレクションの場所への認証を行うための資格情報。
 
 {{site.data.keyword.discoveryshort}} Service 出力アダプターは、{{site.data.keyword.IBM}} がユーザーへの理解を深めてサービスを向上させるための統計を送信できます。 `send_stats` 変数には、以下のオプションを設定できます。
 

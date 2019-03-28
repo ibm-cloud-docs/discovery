@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Data Crawler のダウンロードとインストール
 {: #downloading-and-installing-the-data-crawler}
@@ -23,10 +35,11 @@ lastupdated: "2018-07-03"
 Data Crawler は、最終的に {{site.data.keyword.discoveryshort}} サービスの検索結果を作成するために使用される生データを収集します。 クローラーがデータ・リポジトリーをクロールする際は、ユーザー指定のシード URL から開始して文書とメタデータをダウンロードします。 クローラーは階層内の文書またはシード URL からリンクされた文書を検出し、取得するためにこれらの文書をエンキューします。
 {: shortdesc}
 
-{{site.data.keyword.discoveryshort}} ツールまたは API を使用して、Box、Salesforce、および Microsoft SharePoint Online データ・ソースをクロールできます。詳しくは、『[データ・ソースへの接続](/docs/services/discovery/connect.html)』を参照してください。
-{: tip}
+Data Crawler は、ファイル共有またはデータベースをクロールする場合にのみ使用してください。それ以外の場合は、適切な {{site.data.keyword.discoveryshort}} コネクターを使用してください。詳しくは、『[データ・ソースへの接続](/docs/services/discovery?topic=discovery-sources#sources)』を参照してください。 {{site.data.keyword.discoveryshort}} コネクターでサポートされているデータ・ソースで Data Crawler を使用する場合、Data Crawler に対する支援は行われなくなりました。
+{: important}
 
 ## 前提条件
+{: #dc-prerequisites}
 
 -   Java ランタイム環境バージョン 8 以上
 
@@ -37,8 +50,9 @@ Data Crawler は、最終的に {{site.data.keyword.discoveryshort}} サービ�
 -   少なくとも 2 GB の RAM (Linux システム)
 
 ## Data Crawler のダウンロードとインストール
+{: #dc-download-install}
 
-1.  ブラウザーを開いて、ご使用の [{{site.data.keyword.Bluemix}} アカウント ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net){: new_window} にログインします。
+1.  ブラウザーを開いて、[{{site.data.keyword.Bluemix}} アカウント ![外部リンク・アイコン](../../icons/launch-glyph.svg "外部リンク・アイコン")](https://{DomainName}/){: new_window} にログインします。
 
 1.  {{site.data.keyword.Bluemix_notm}} ダッシュボードで、前に作成した {{site.data.keyword.discoveryshort}} サービスを選択します。
 
@@ -63,9 +77,10 @@ Data Crawler は、最終的に {{site.data.keyword.discoveryshort}} サービ�
 
     **注:** 本書でこれ以降 `config` ディレクトリー内のファイル (`config/crawler.conf` など) について言及する場合は、インストールされた `{installation_directory}/share/examples/config` ディレクトリー内ではなく、作業ディレクトリー内の当該ファイルを指しています。
 
-1.  これで、[リポジトリーに接続するために Data Crawler を構成する](/docs/services/discovery/data-crawler-seeds.html)準備ができました。
+1.  これで、[リポジトリーに接続するために Data Crawler を構成する](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-connector-and-seed-options)準備ができました。
 
 ## Data Crawler の構造
+{: #dc-structure}
 
 Data Crawler のダウンロードによって、次のフォルダーがシステム上に作成されます。
 
@@ -79,7 +94,8 @@ Data Crawler のダウンロードによって、次のフォルダーがシス�
     -   `man` - 製品内マニュアル・ページでのクローラーの資料。
 
 ## 本リリースの既知の制限事項
+{: #dc-limitations}
 
 -   無効な URL または欠落した URL を使用して Filesystem コネクターを実行すると、Data Crawler がハングすることがあります。
--   すべてのホワイトリスト URL または RegEx が 1 つの RegEx 式に組み込まれるように、`crawler.conf` ファイル内の `urls_to_filter` 値を構成してください。 詳しくは、「[クロール・オプションの構成](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options)」を参照してください。
+-   すべてのホワイトリスト URL または RegEx が 1 つの RegEx 式に組み込まれるように、`crawler.conf` ファイル内の `urls_to_filter` 値を構成してください。 詳しくは、「[クロール・オプションの構成](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options)」を参照してください。
 -   `--config -c` オプションに渡される構成ファイルへのパスは、修飾されたパスにしてください。 つまり、そのパスを相対形式 (`config/crawler.conf` や `./crawler.conf`)、または絶対パス (`/path/to/config/crawler.conf`) にする必要があります。 `crawler.conf` のみを指定できるのは、`crawler.conf` ファイルで `include` を使用して参照せずに、`orchestration_service.conf` ファイルがインラインで記述されている場合です。
