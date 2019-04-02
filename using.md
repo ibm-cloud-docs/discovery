@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Query concepts
 {: #query-concepts}
 
-The {{site.data.keyword.discoveryfull}} service offers powerful content search capabilities. Once your content is uploaded and enriched by the {{site.data.keyword.discoveryshort}} service, you can build queries, then integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder.
+{{site.data.keyword.discoveryfull}} offers powerful content search capabilities. Once your content is uploaded and enriched by {{site.data.keyword.discoveryshort}}, you can build queries, then integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder.
 {: shortdesc}
 
   The queries you write will vary by collection, because all collections contain unique content.
@@ -85,6 +85,7 @@ Start out by getting to know the {{site.data.keyword.discoveryshort}} JSON. To u
 ### How to structure a basic query
 {: #structure-basic-query}
 
+<!-- Learn more topic WDS -->
 As you have noticed, the JSON is hierarchical, so queries need to be written using that same hierarchy. So if your JSON looks like this:
 
 ```json
@@ -119,6 +120,7 @@ You can combine query parameters together to build more targeted queries. For ex
 ## How to structure an aggregation
 {: #structure-aggregation}
 
+<!-- Learn more topic WDS -->
 Aggregations return a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see [Aggregations](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ![Example aggregation query structure](images/aggregation_structure.png)
@@ -407,6 +409,7 @@ With this custom dictionary, you can create rules with a single token. In this e
 
 -  Tokenization occurs at both index and query time.
 -  Tokens must be defined individually.
+-  Tokens and readings may not contain spaces or the `#` character.
 -  A standard tokenization dictionary is used on all collections. If your collection has already been indexed with that dictionary, you must reingest the documents in that collection after you upload a custom tokenization dictionary.
 -  Uploading a tokenization dictionary is only available for private collections on `Advanced` and `Premium` plans. 
 -  Only one tokenization dictionary can be uploaded per collection; if a second tokenization dictionary is uploaded, it will replace the first. If that collection already contained documents, you must reingest them for the new custom tokenization dictionary to be applied.

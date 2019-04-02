@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-08"
+  years: 2015, 2017, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -39,7 +39,7 @@ AlchemyData News has been retired with a removal from service date of **7, March
 ## Service comparison
 {: #service-adn}
 
-The following differences are of note when moving from AlchemyData News to {{site.data.keyword.discoverynewsshort}} in the {{site.data.keyword.discoveryshort}} service.
+The following differences are of note when moving from AlchemyData News to {{site.data.keyword.discoverynewsshort}} in {{site.data.keyword.discoveryshort}}.
 
 - {{site.data.keyword.discoveryshort}} charges for news queries by the query only. All fields are available for return with each result at no additional cost.
 - Each {{site.data.keyword.discoveryshort}} query can return up to a maximum of 50 results. An `offset` parameter is available so that you can page queries to whatever number of results you require.
@@ -52,19 +52,19 @@ The following differences are of note when moving from AlchemyData News to {{sit
 ## Authentication differences
 {: #auth-adn}
 
-The {{site.data.keyword.discoveryshort}} service uses the standard {{site.data.keyword.Bluemix_notm}} `username` and `password` credentials to access queries. This replaces the existing API key method that AlchemyData News used. All {{site.data.keyword.discoveryshort}} queries must be made with a username and password combination created by {{site.data.keyword.discoveryshort}} service instance.
+{{site.data.keyword.discoveryshort}} uses the standard {{site.data.keyword.Bluemix_notm}} `username` and `password` credentials to access queries. This replaces the existing API key method that AlchemyData News used. All {{site.data.keyword.discoveryshort}} queries must be made with a username and password combination created by a {{site.data.keyword.discoveryshort}} instance.
 
 Your service credentials can be managed by viewing the **Service Credentials** tab of your service within {{site.data.keyword.Bluemix_notm}}.
 
 ## Configuring a Discovery instance
 {: #config-adn}
 
-A {{site.data.keyword.discoveryshort}} service instance is created in the same way that you created your AlchemyData News instance.
+A {{site.data.keyword.discoveryshort}} instance is created in the same way that you created your AlchemyData News instance.
 
 1. Navigate to [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}, login, and select {{site.data.keyword.discoveryshort}} from the service catalog.
 1. Select the appropriate plan for your needs and click **Create**.
 
-  The {{site.data.keyword.discoveryshort}} service offers a Lite plan with 1000 available news queries per month. You can use an instance of this plan to identify equivalent queries without having to pay for them.
+  {{site.data.keyword.discoveryshort}} offers a Lite plan. See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) for details. You can use an instance of this plan to identify equivalent queries without having to pay for them.
   {: tip}
 
 1. Click on the **Service Credentials** tab and select **View Credentials** to identify the `url`, `username`, and `password` for this instance.

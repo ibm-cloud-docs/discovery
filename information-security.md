@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-10"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,6 +32,7 @@ subcollection: discovery
 # Information security
 {: #information-security}
 
+<!-- Learn more topic WDS -->
 IBM is committed to providing our clients and partners with innovative data privacy, security and governance solutions.
 {: shortdesc}
 
@@ -55,7 +56,7 @@ Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and 
 ## Labeling and deleting data in {{site.data.keyword.discoveryshort}}
 {: #gdpr-discovery}
 
-The {{site.data.keyword.discoveryshort}} service includes an API to label data per call.
+{{site.data.keyword.discoveryshort}} includes an API to label data per call.
 
 With this API you can:
 
@@ -66,7 +67,7 @@ Data is labeled by adding a `customer_id` of your choice (see restrictions in [H
 
 On any REST call, an optional header `X-Watson-Metadata` can be sent with semicolon separated `field=value` pairs, where currently only `customer_id` is persisted. By adding that `customer_id` in `X-Watson-Metadata` header, the request indicates that it contains data that belongs to this `customer_id`.
 
-`customer_id`s are unique within a single {{site.data.keyword.discoveryshort}} service instance. They are NOT unique per environment or collection. They should not include personal data.
+`customer_id`s are unique within a single {{site.data.keyword.discoveryshort}} instance. They are NOT unique per environment or collection. They should not include personal data.
 
 **Note:** Experimental and beta features are not intended for use with a production environment and therefore are not guaranteed to function as expected when labeling and deleting data. Experimental and beta features should not be used when implementing a solution that requires the labeling and deletion of data.
 

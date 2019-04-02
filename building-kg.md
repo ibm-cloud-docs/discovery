@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-09"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,8 @@ subcollection: discovery
 # Watson Discovery Knowledge Graph
 {: #kg}
 
-Knowledge graphs go beyond just data and information by making connections within your data across documents and generating new knowledge. We provide the AI technology that automatically creates custom knowledge graphs from unstructured data by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and ranking the results using relevance algorithms. Knowledge Graphs can function as the "knowledge hub" for your company and can be used for enterprise search, summarization, recommendation engines, other decision making processes - for example, detecting fraud, waste, or abuse. The use of a custom model (created in {{site.data.keyword.knowledgestudioshort}}) in the Knowledge Graph creation process, can help build domain specific KGs with applicability in domains such as financial, technology, security, intelligence, healthcare and many others. See integrating-with-watson-knowledge-studio for more information about integrating {{site.data.keyword.discoveryshort}} with {{site.data.keyword.knowledgestudioshort}}.
+<!-- Learn more topic WDS -->
+Knowledge graphs go beyond just data and information by making connections within your data across documents and generating new knowledge. We provide the AI technology that automatically creates custom knowledge graphs from unstructured data by extracting and disambiguating entities and relationships, enriching the relationships using algorithmic techniques and ranking the results using relevance algorithms. Knowledge Graphs can function as the "knowledge hub" for your company and can be used for enterprise search, summarization, recommendation engines, other decision making processes - for example, detecting fraud, waste, or abuse. The use of a custom model (created in {{site.data.keyword.knowledgestudioshort}}) in the Knowledge Graph creation process, can help build domain specific KGs with applicability in domains such as financial, technology, security, intelligence, healthcare and many others. See [Integrating with {{site.data.keyword.knowledgestudioshort}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks) for more information about integrating {{site.data.keyword.discoveryshort}} with {{site.data.keyword.knowledgestudioshort}}.
 
 
 Two RESTful end-points added to {{site.data.keyword.discoveryfull}} provide the ability to search for disambiguated, enriched entities and relations across documents in unstructured document collections. Search results can be rank ordered by relevance or popularity. In addition to a search token, the APIs can use optional context word(s) or passages that finds more relevant entities and relations within the large automatically created knowledge graph.
@@ -90,7 +91,7 @@ To use Knowledge Graph, your collection must be configured to meet specific requ
 
 These options **cannot be added** using the {{site.data.keyword.discoveryshort}} tooling, a custom configuration must be uploaded using the API. A copy of the default configuration modified to enrich the `text` field so that the collection can be used with knowledge graph with the public model is available [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json).
 
-Create a custom configuration as follows, after creating a {{site.data.keyword.discoveryshort}} service instance:
+Create a custom configuration as follows, after creating a {{site.data.keyword.discoveryshort}} instance:
 
 1. Issue the following command to create an environment that is called `my-first-environment`. Replace `{apikey_value}` with the value of your service's API key :
 

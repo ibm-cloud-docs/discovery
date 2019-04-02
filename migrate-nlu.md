@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-02-28"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,6 +32,7 @@ subcollection: discovery
 # Migrating enrichments to Natural Language Understanding
 {: #migrate-nlu}
 
+<!-- Learn more topic WDS -->
 Starting on **18 July, 2017** {{site.data.keyword.discoveryfull}} introduced a new enrichment technology, named {{site.data.keyword.nlushort}} (NLU). {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**. 
 {: shortdesc}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-16"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -82,11 +82,11 @@ Many fields have been removed as well, for example `blekko.hostrank`, `duplicate
 
 To move your queries from {{site.data.keyword.discoverynewsshort}} Original to the new {{site.data.keyword.discoverynewsshort}}, you need to modify all existing queries in the following ways:  
 
-- Change the environment ID that the query is calling. The news environment name has been standardized across all {{site.data.keyword.discoveryshort}} service instances to:
+- Change the environment ID that the query is calling. The news environment name has been standardized across all {{site.data.keyword.discoveryshort}} instances to:
 
   `system`  
 
-- Change the collection ID that the query is calling. The news collection name has been standardized across all {{site.data.keyword.discoveryshort}} service instances to:
+- Change the collection ID that the query is calling. The news collection name has been standardized across all {{site.data.keyword.discoveryshort}} instances to:
 
   `news`
 
@@ -181,7 +181,6 @@ discovery = DiscoveryV1(
 )  
 
 qopts = {'query': 'enriched_text.entities.text:IBM'}  
-my_query = discovery.query('system', 'news', qopts)  
-print(json.dumps(my_query, indent=2))  
+my_query = discovery.query('system', 'news', query='enriched_text.entities.text:IBM') print(json.dumps(my_query.result, indent=2))  
 ```
 {: codeblock}

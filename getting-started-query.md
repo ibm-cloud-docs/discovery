@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,6 +32,7 @@ subcollection: discovery
 # Getting started with querying
 {: #getting-started-with-querying}
 
+<!-- Learn more topic WDS -->
 In this tutorial, we will learn how to write a few different types of queries in the {{site.data.keyword.discoveryshort}} Query Language.
 {: shortdesc}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-11"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,8 @@ subcollection: discovery
 # Improving result relevance with the tooling
 {: #improving-result-relevance-with-the-tooling}
 
-The relevance of natural language query results can be improved in the {{site.data.keyword.discoveryfull}} service with training. You can train your private collections using either the {{site.data.keyword.discoveryshort}} tooling, or the {{site.data.keyword.discoveryshort}} APIs. See [Improving the relevance of your query results with the API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) if you would prefer to use the APIs.
+<!-- Learn more topic WDS -->
+The relevance of natural language query results can be improved in {{site.data.keyword.discoveryfull}} with training. You can train your private collections using either the {{site.data.keyword.discoveryshort}} tooling, or the {{site.data.keyword.discoveryshort}} APIs. See [Improving the relevance of your query results with the API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) if you would prefer to use the APIs.
 {: shortdesc}
 
 Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For an overview of building use cases for training, see the blog post [How to get the most out of Relevancy Training ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}.

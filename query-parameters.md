@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Query parameters
 {: #query-parameters}
 
-The {{site.data.keyword.discoveryfull}} service offers powerful content search capabilities through queries. After your content is uploaded and enriched by the {{site.data.keyword.discoveryshort}} service, you can build queries, integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder. To get started with queries, see [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts). For the complete list of parameters, see the [Query reference](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
+{{site.data.keyword.discoveryfull}} offers powerful content search capabilities through queries. After your content is uploaded and enriched by {{site.data.keyword.discoveryshort}}, you can build queries, integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder. To get started with queries, see [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts). For the complete list of parameters, see the [Query reference](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
 {: shortdesc}
 
 **Search parameters**
@@ -54,6 +54,7 @@ A cacheable query that excludes any documents that don't mention the query conte
 ### Differences between the filter and query parameters
 {: #filtervquery}
 
+<!-- Learn more topic WDS -->
 If you test the same search term on a small data set, you might find that the `filter` and `query` parameters return very similar (if not identical) results. However, there is a difference between the two parameters.
 
 - Using a filter parameter alone will return search results in no specific order.
