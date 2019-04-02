@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -51,6 +51,7 @@ Supported document types for Smart Document Understanding:
 ## Using the Smart Document Understanding editor
 {: #annotate}
 
+<!-- Learn more topic WDS -->
 The SDU editor is only available for new collections that contain supported document types and do not have the Element Classification enrichment applied. Existing Private collections will use the original configuration method. If you would like to use the SDU editor on an existing collection, you will need to create a new collection and upload those documents to it. If you do not want to use the SDU editor, you can set up your configuration using the API, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
 {: important}
 
@@ -152,6 +153,7 @@ multi-row header | Any row label that spans more than one row
 ## Splitting documents
 {: #splitting}
 
+<!-- Learn more topic WDS -->
 The **Manage fields** tab contains the option to **Improve query results by splitting your documents**. This option allows you to split your documents into segments based on a field name. Once split, each segment is a separate document that will be enriched, indexed, and returned as a separate query result. 
 
 Documents are split based on a single field name, for example: `title`, `author`, `question`. 

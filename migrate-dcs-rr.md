@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-03"
+  years: 2015, 2017, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -69,7 +69,7 @@ Most customers use {{site.data.keyword.documentconversionshort}} in conjunction 
 
 If you originally used the {{site.data.keyword.retrieveandrankshort}} tutorial and based your own instance of the service on that tutorial, an extension of the tutorial ingesting the same data into {{site.data.keyword.discoveryshort}} can be found [here](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr).
 
-**Note:** Conversion and enrichment functionality is included with {{site.data.keyword.discoveryshort}}. If you have used {{site.data.keyword.documentconversionshort}}, and/or {{site.data.keyword.nlushort}} to convert and enrich source HTML, PDF, or Microsoft Word documents these services are replaced by features within the {{site.data.keyword.discoveryshort}} service.
+**Note:** Conversion and enrichment functionality is included with {{site.data.keyword.discoveryshort}}. If you have used {{site.data.keyword.documentconversionshort}}, and/or {{site.data.keyword.nlushort}} to convert and enrich source HTML, PDF, or Microsoft Word documents these services are replaced by features within {{site.data.keyword.discoveryshort}}.
 
 ## Evaluate your migration path to Watson Discovery service
 {: #evaluate}
@@ -84,7 +84,7 @@ In order to migrate from the source content you will:
 -  need to have access to the original source files that the content was ingested from.
 -  need to programmatically extract the ID for each document (the result already has an ID before it is indexed)
 
-If you can meet all of the migration criteria, it is recommended that you use this method to move to the {{site.data.keyword.discoveryshort}} service.
+If you can meet all of the migration criteria, it is recommended that you use this method to move to {{site.data.keyword.discoveryshort}}.
 
 To migrate your source content, modify the procedure described in [the migration tutorial](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) to meet the specifics of your source data.
 
@@ -108,7 +108,7 @@ You should migrate from the indexed content in {{site.data.keyword.retrieveandra
 
 Documents are extracted from the service using the [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} method using a blank query `q=*:*`. The number of documents returned might be more than the practical maximum return count (`200` for most collections). If this is the case, multiple calls should be made with appropriate [paging ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} to collect all the documents.
 
-Documents with specified **ID's** are uploaded to the {{site.data.keyword.discoveryshort}} service using the [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} method. Each document upload is a separate API call.
+Documents with specified **ID's** are uploaded to {{site.data.keyword.discoveryshort}} using the [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} method. Each document upload is a separate API call.
 
 ## Migrating training data
 {: #trainingdata-dcs-rr}
@@ -123,7 +123,7 @@ In order to migrate from the ranking source content you will:
 - need to have access to the original source `csv` files that the training information was originally uploaded with.
 - ensure that the IDs of the trained documents when they are indexed in match the IDs of the trained documents when they were indexed in {{site.data.keyword.retrieveandrankshort}}.
 
-If you can meet all of the migration criteria, it is recommended that you use this method to move training to the {{site.data.keyword.discoveryshort}} service.
+If you can meet all of the migration criteria, it is recommended that you use this method to move training to {{site.data.keyword.discoveryshort}}.
 
 To migrate your training data, modify the procedure described in [the migration tutorial](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) to meet the specifics of your source data.
 
@@ -283,6 +283,6 @@ Consult the [Query concepts](/docs/services/discovery?topic=discovery-query-conc
 ## Standalone Watson Document Conversion service migration
 {: #dcs}
 
-If you are using {{site.data.keyword.documentconversionshort}} to help ingest content into {{site.data.keyword.retrieveandrankshort}}, then that functionality has evolved into a single service - {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} lets you easily convert, enrich, and ingest Microsoft Word, PDF, HTML, and JSON documents into a trainable and searchable index. This section is relevant to you if your use case doesn't involve storing the converted content in an index. If you are ingesting documents into an index, see [ingesting to the {{site.data.keyword.discoveryshort}} service](/docs/services/discovery?topic=discovery-configservice#configservice).
+If you are using {{site.data.keyword.documentconversionshort}} to help ingest content into {{site.data.keyword.retrieveandrankshort}}, then that functionality has evolved into a single service - {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} lets you easily convert, enrich, and ingest Microsoft Word, PDF, HTML, and JSON documents into a trainable and searchable index. This section is relevant to you if your use case doesn't involve storing the converted content in an index. If you are ingesting documents into an index, see [Configuring {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configservice#configservice).
 
 IBM no longer provides a service that is designed for standalone conversion of Microsoft Word, PDF, and HTML documents. If you are currently using the {{site.data.keyword.documentconversionshort}} service and do not ingest the output into an online indexed service (such as {{site.data.keyword.discoveryshort}}), it is recommended that you consider migrating to an open-source alternative such as [Apache Tika ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://tika.apache.org/){: new_window}.

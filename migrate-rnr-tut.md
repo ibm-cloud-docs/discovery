@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-09"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -33,12 +33,12 @@ subcollection: discovery
 # Tutorial: Migrating from Retrieve and Rank
 {: #migrate-rnr}
 
-Migrating from {{site.data.keyword.retrieveandrankshort}} to the {{site.data.keyword.discoveryfull}} service. A continuation of the Cranfield Getting Started Tutorial
+Migrating from {{site.data.keyword.retrieveandrankshort}} to {{site.data.keyword.discoveryfull}}. A continuation of the Cranfield Getting Started Tutorial
 
 ## Overview
 {: #overview-rnr}
 
-This tutorial guides you through the process of creating and training a {{site.data.keyword.discoveryfull}} service with sample data. 
+This tutorial guides you through the process of creating and training {{site.data.keyword.discoveryfull}} with sample data. 
 
 The process for users migrating data from {{site.data.keyword.retrieveandrankshort}} to {{site.data.keyword.discoveryshort}} consists of two main steps.
 
@@ -63,7 +63,7 @@ The following pre-requisites are necessary before beginning this tutorial:
 -  This tutorial assumes you have already created a {{site.data.keyword.discoveryshort}} instance, if you need directions on how to create a {{site.data.keyword.discoveryshort}} instance, please refer to the [following tutorial](/docs/services/discovery?topic=discovery-gs-api#gs-api).
 
 -  This tutorial assumes that you have your service credentials.
-   -  When in the Watson {{site.data.keyword.discoveryshort}} service on {{site.data.keyword.Bluemix_notm}}, click **Service credentials**.
+   -  From {{site.data.keyword.discoveryfull}} on {{site.data.keyword.Bluemix_notm}}, click **Service credentials**.
    -  Click **View credentials** under Actions.
    -  Copy the `apikey` value and make sure that the `url` value matches the one in the examples below, if it doesn't, replace it as well.
 
@@ -92,7 +92,7 @@ The following pre-requisites are necessary before beginning this tutorial:
     1.  Download the [cranfield-data.json ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-data.json){: new_window} file if you haven't already. This is the source of documents that are used in {{site.data.keyword.retrieveandrankshort}}. The Cranfield collection documents are in JSON format, which is the format {{site.data.keyword.retrieveandrankshort}} accepted and which works well for Watson {{site.data.keyword.discoveryshort}} as well.
         **Note:** {{site.data.keyword.discoveryshort}} does not require uploading the Solr schema. This is because {{site.data.keyword.discoveryshort}} infers the schema from the JSON structure automatically.
     1.  Download the Data upload script [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-upload.py){: new_window}. This script will upload the Cranfield json into {{site.data.keyword.discoveryshort}}.
-        The script reads through the JSON file and sends each individual JSON document to the {{site.data.keyword.discoveryshort}} service using a default configuration in {{site.data.keyword.discoveryshort}}.
+        The script reads through the JSON file and sends each individual JSON document to {{site.data.keyword.discoveryshort}} using a default configuration in {{site.data.keyword.discoveryshort}}.
         **Note:** The default configuration in {{site.data.keyword.discoveryshort}} provides similar settings to the default Solr config in {{site.data.keyword.retrieveandrankshort}}.
     1.  Issue the following command to upload the `cranfield-data-json` data to the `cranfield_collection` collection. replace `{apikey_value}`, `{path_to_file}`,  `{environment_id}`, `{collection_id}` with your information.  Note that there are additional options, -d for debug and –v for verbose output from curl.
 
@@ -158,7 +158,7 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 
    For each question, there is at least one identifier to an answer (the document ID). Each document ID includes a number to indicate how relevant the answer is to the question. The document ID points to the answer in the `cranfield-data.json` file that you uploaded to {{site.data.keyword.discoveryshort}} in the previous step.
 
-1.  Download the Training Data upload script. You will use this script to upload the training data into {{site.data.keyword.discoveryshort}}. The script transforms the `csv` file into a set of JSON queries and examples and sends them to the {{site.data.keyword.discoveryshort}} service using the [training data APIs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
+1.  Download the Training Data upload script. You will use this script to upload the training data into {{site.data.keyword.discoveryshort}}. The script transforms the `csv` file into a set of JSON queries and examples and sends them to {{site.data.keyword.discoveryshort}} using the [training data APIs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
     **Note:** {{site.data.keyword.discoveryshort}} manages training data within the service, so when generating new examples and training queries they can be stored in {{site.data.keyword.discoveryshort}} itself rather than as part of a separate CSV file that needs to be maintained.
 1.  Execute the training upload script to upload the training data into {{site.data.keyword.discoveryshort}}. Replace `{apikey_value}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` with your information. Note that there are additional options, `-d` for debug and `–v` for verbose output from curl.
 
@@ -172,7 +172,7 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 ## Search for documents
 {: #search-rnr}
 
-The {{site.data.keyword.discoveryshort}} service will automatically use a trained model to re-rank search results if available. When [an API call ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
+{{site.data.keyword.discoveryshort}} will automatically use a trained model to re-rank search results if available. When [an API call ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
 
 1.  You can search for documents in your collection by using a cURL command. Perform a query using the query API call to see unranked results. Replace `{apikey_value}`, `{environment_id}`, `{collection_id}`, with your own values.  The results returned will be unranked results, and will use the default {{site.data.keyword.discoveryshort}} ranking formulas. You can try other queries by opening the training data `csv` file and copying the value of the first column into the query parameter.
 

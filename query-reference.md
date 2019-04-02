@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-04"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Query reference
 {: #query-reference}
 
-The {{site.data.keyword.discoveryfull}} service offers powerful content search capabilities through queries. After your content is uploaded and enriched by the {{site.data.keyword.discoveryshort}} service, you can build queries, integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder.
+{{site.data.keyword.discoveryfull}} offers powerful content search capabilities through queries. After your content is uploaded and enriched by {{site.data.keyword.discoveryshort}}, you can build queries, integrate {{site.data.keyword.discoveryshort}} into your own projects, or create a custom application by using the {{site.data.keyword.watson}} Explorer Application Builder.
 {: shortdesc}
 
 For more information about writing queries, see:
@@ -80,6 +80,7 @@ You cannot query on field names that contain the following:
 ## Operators
 {: #operators}
 
+<!-- Learn more topic WDS -->
 Operators are the separators between different parts of a query. These are the available operators:
 
 | Operator | Description | Example |

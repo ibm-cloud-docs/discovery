@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -56,10 +56,10 @@ You need a service instance to start.
 ## Step 1: Launch the tooling
 {: #launch-the-tooling}
 
-After you create an instance of the {{site.data.keyword.discoveryshort}} service, you're taken to your list of services.
+After you create an instance of {{site.data.keyword.discoveryshort}}, you're taken to your list of services.
 {: hide-dashboard}
 
-1.  {: hide-dashboard} Click the {{site.data.keyword.discoveryshort}} service instance you created to go to the service dashboard.
+1.  {: hide-dashboard} Click the {{site.data.keyword.discoveryshort}} instance you created to go to the service dashboard.
 1.  On the **Manage** page, click **Launch tool**. If you're prompted to log in to the tooling, provide your {{site.data.keyword.cloud_notm}} credentials.
 
 <!-- To do: Add screenshot for developer console -->
@@ -139,4 +139,4 @@ Additional resources:
 ## Next steps
 {: #next-steps-tool}
 
-Now you have a functioning and populated {{site.data.keyword.discoveryshort}} service instance. You can now begin customizing your collection by adding more documents and enrichments, and annotating additional documents. See [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) for more information.
+Now you have a functioning and populated {{site.data.keyword.discoveryshort}} instance. You can now begin customizing your collection by adding more documents and enrichments, and annotating additional documents. See [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) for more information.

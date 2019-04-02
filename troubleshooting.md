@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-08-15"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # FAQs
 {: #faqs}
 
-Frequently asked questions about the {{site.data.keyword.discoveryshort}} service.
+Frequently asked questions about {{site.data.keyword.discoveryshort}}.
 
 ## Can I upload JSON arrays?
 {: #array}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -29,13 +29,13 @@ subcollection: discovery
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# Configuring your service
+# Configuring Discovery
 {: #configservice}
 
-Building a {{site.data.keyword.discoveryshort}} service will make it possible to gain useful insights by enriching your own data and then delivering it in a query-able form.
+Configuring {{site.data.keyword.discoveryshort}} will make it possible to gain useful insights by enriching your own data and then delivering it in a query-able form.
 {: shortdesc}
 
-Before you add your own content to the {{site.data.keyword.discoveryshort}} service, you should configure the service to process the content the way that you want.
+Before you add your own content to {{site.data.keyword.discoveryshort}}, you should configure it to process the content the way that you want.
 
 The first step is to configure the basic parameters of the service ([Preparing the service for your documents](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)), this includes creating an environment and creating one or more collections within that environment. 
 
@@ -52,9 +52,10 @@ If your collection was created before the introduction of [Smart Document Unders
 ## Preparing the service for your documents
 {: #preparing-the-service-for-your-documents}
 
-In the {{site.data.keyword.discoveryshort}} service, the content that you upload is stored in a collection that is part of your environment. You must create the environment and collection before you can upload your content.
+<!-- Learn more topic WDS -->
+In {{site.data.keyword.discoveryshort}}, the content that you upload is stored in a collection that is part of your environment. You must create the environment and collection before you can upload your content.
 
--   **Environment** — The environment defines the amount of storage space that you have for content in the {{site.data.keyword.discoveryshort}} service. A maximum of one environment can be created for each instance of the {{site.data.keyword.discoveryshort}} service.
+-   **Environment** — The environment defines the amount of storage space that you have for content in {{site.data.keyword.discoveryshort}}. A maximum of one environment can be created for each instance of {{site.data.keyword.discoveryshort}}.
 
     You have several plans (Lite, Advanced, Premium) to choose from, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}  and [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) for details. Your source files do not count against your plan size limit, only the size of the converted JSON that is indexed counts towards your size limit.
 
@@ -79,7 +80,7 @@ However, if you want to customize your {{site.data.keyword.discoveryshort}} conf
 If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), you may prefer to adjust your enrichments using the {{site.data.keyword.discoveryshort}} tooling.
 {: note}
 
-For collections created before the release of Smart Document Understanding: when documents are uploaded to a data collection, they are converted and enriched using the configuration file selected for that collection. If you decide later that you would like to change the configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. The {{site.data.keyword.discoveryshort}} service stores the converted text of the documents that you upload, embedded images in **PDF** and **Microsoft Word** files are not stored and will not be returned in results. If your collection is using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), any changes made to enrichments and conversion in the {{site.data.keyword.discoveryshort}} will be applied to the entire collection when you click the **Apply changes to collection** button. If you collection is large, applying the changes may take some time.  
+For collections created before the release of Smart Document Understanding: when documents are uploaded to a data collection, they are converted and enriched using the configuration file selected for that collection. If you decide later that you would like to change the configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. {{site.data.keyword.discoveryshort}} stores the converted text of the documents that you upload, embedded images in **PDF** and **Microsoft Word** files are not stored and will not be returned in results. If your collection is using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), any changes made to enrichments and conversion in the {{site.data.keyword.discoveryshort}} will be applied to the entire collection when you click the **Apply changes to collection** button. If you collection is large, applying the changes may take some time.  
 {: important}
 
 You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for more information.
@@ -88,7 +89,7 @@ You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box
 ### The default configuration
 {: #the-default-configuration}
 
-The {{site.data.keyword.discoveryshort}} service includes a standard configuration that will convert, enrich and normalize your data without requiring you to manually configure these options.
+{{site.data.keyword.discoveryshort}} includes a standard configuration that will convert, enrich and normalize your data without requiring you to manually configure these options.
 
 The **Default Configuration** file is only available in collections created before the release of [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu). However, when using Smart Document Understanding the same enrichments, and HTML and JSON conversions, will be used by default in your collections.
 {: note}
@@ -112,10 +113,9 @@ If you would like to create a custom configuration for collections created befor
 This information applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).
 {: note}
 
-Getting the right information out of your content and returning it to your users is the goal of the {{site.data.keyword.discoveryshort}} service. Identifying what that information is, and how it is stored in your content is defined by the configuration that you use to ingest the content. The content types that the {{site.data.keyword.discoveryshort}} service can ingest are flexible, meaning that even though your unstructured content is saved in a specific format, it is not required that the structure of that content match the structure of other content of the same type.
+Getting the right information out of your content and returning it to your users is the goal of {{site.data.keyword.discoveryshort}}. Identifying what that information is, and how it is stored in your content is defined by the configuration that you use to ingest the content. The content types that {{site.data.keyword.discoveryshort}} can ingest are flexible, meaning that even though your unstructured content is saved in a specific format, it is not required that the structure of that content match the structure of other content of the same type.
 
--   **I understand that my documents may not be structured in the way the default configuration expects. *How do I know if the default
-    settings are right for me?***
+-   **I understand that my documents may not be structured in the way the default configuration expects. *How do I     know if the default settings are right for me?***
     -   The easiest way to see if the default works for you is to test it by [Uploading sample documents](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents). If the sample JSON results meet your expectations, then no additional configuration is required.
 -   **I understand that default enrichments are added to the text field of my documents. Can I add additional enrichments to other fields?**
     -   Absolutely, you can add additional enrichments to as many fields as you wish. See [Adding enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments) for details.
@@ -141,6 +141,7 @@ For detailed information about configurations, see the [Configuration reference]
 ### Uploading sample documents
 {: #uploading-sample-documents}
 
+<!-- Learn more topic WDS -->
 This information applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).
 {: note}
 
@@ -245,11 +246,12 @@ After making any changes, click **Apply and Save**.
 ## Adding enrichments
 {: #adding-enrichments}
 
+<!-- Learn more topic WDS -->
 The {{site.data.keyword.discoveryshort}} [default configuration](/docs/services/discovery?topic=discovery-configservice#the-default-configuration) will enrich (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of nine {{site.data.keyword.watson}} enrichments available; the others are Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.)
 
 Some {{site.data.keyword.watson}} enrichments may not be available in certain plans or environments.
 
-You can also integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom entity and relations enrichments. See [Integrating with Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
+You can also integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with {{site.data.keyword.discoveryshort}} to provide custom entity and relations enrichments. See [Integrating with Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
 Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 {: important}
@@ -401,7 +403,7 @@ If you wish to create a custom enrichment model, you can do so in {{site.data.ke
 ### Keyword extraction
 {: #keyword-extraction}
 
-Important topics in your content that are typically used when indexing data, generating tag clouds, or when searching. The {{site.data.keyword.discoveryshort}} service automatically identifies supported languages in your input content, and then identifies and ranks keywords in that content.
+Important topics in your content that are typically used when indexing data, generating tag clouds, or when searching. {{site.data.keyword.discoveryshort}} automatically identifies supported languages in your input content, and then identifies and ranks keywords in that content.
 
 Example portion of a document enriched with Keyword Extraction:
 
@@ -618,7 +620,7 @@ The `subject`, `action`, and `object` are extracted for every sentence that cont
 ### Sentiment analysis
 {: #sentiment-analysis}
 
-Identifies attitude, opinions, or feelings in the content that is being analyzed. The {{site.data.keyword.discoveryshort}} service can calculate overall sentiment within a document, sentiment for user-specified targets, entity-level sentiment, quotation-level sentiment, directional-sentiment, and keyword-level sentiment. The combination of these capabilities supports a variety of use cases ranging from social media monitoring to trend analysis.
+Identifies attitude, opinions, or feelings in the content that is being analyzed. {{site.data.keyword.discoveryshort}} can calculate overall sentiment within a document, sentiment for user-specified targets, entity-level sentiment, quotation-level sentiment, directional-sentiment, and keyword-level sentiment. The combination of these capabilities supports a variety of use cases ranging from social media monitoring to trend analysis.
 
 Example portion of a document enriched with Sentiment Analysis:
 
@@ -949,7 +951,7 @@ If you load the following HTML document into a collection that uses an updated c
 ```
 {: codeblock}
 
-After the preceding HTML is ingested and enhanced, the {{site.data.keyword.discoveryshort}} service returns the following JSON:
+After the preceding HTML is ingested and enhanced, {{site.data.keyword.discoveryshort}} returns the following JSON:
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-08"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,17 +32,18 @@ subcollection: discovery
 # Integrating with Watson Knowledge Studio
 {: #integrating-with-wks}
 
-You can integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with the {{site.data.keyword.discoveryshort}} service to provide custom entity and relations enrichments.
+<!-- Learn more topic WDS -->
+You can integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with {{site.data.keyword.discoveryshort}} to provide custom entity and relations enrichments.
 {: shortdesc}
 
-This gives you the flexibility to apply the {{site.data.keyword.discoveryshort}} service's document-enhancing capabilities with information specific to areas of particular focus, such as industry or scientific discipline. You can use both public data and your own proprietary data in your enrichment model.
+This gives you the flexibility to apply {{site.data.keyword.discoveryshort}}'s document-enhancing capabilities with information specific to areas of particular focus, such as industry or scientific discipline. You can use both public data and your own proprietary data in your enrichment model.
 
-You can use the service API or the {{site.data.keyword.discoveryshort}} tooling to integrate a {{site.data.keyword.knowledgestudioshort}} model with the {{site.data.keyword.discoveryshort}} service.
+You can use the service API or the {{site.data.keyword.discoveryshort}} tooling to integrate a {{site.data.keyword.knowledgestudioshort}} model with {{site.data.keyword.discoveryshort}}.
 
 ## Before you begin
 {: #wks-beforeintegration}
 
-Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with the {{site.data.keyword.discoveryshort}} service, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/knowledge-studio?topic=knowledge-studio-wks_tutintro#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with the {{site.data.keyword.discoveryshort}} service.
+Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with {{site.data.keyword.discoveryshort}}, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/knowledge-studio?topic=knowledge-studio-wks_tutintro#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with {{site.data.keyword.discoveryshort}}.
 
 ## Integrating your custom model with the API
 {: #integrate-customAPI}
@@ -215,4 +216,4 @@ When documents are uploaded to a data collection, they are converted and enriche
 ## Next Steps
 {: #wks-nextsteps}
 
-Use the {{site.data.keyword.discoveryshort}} service with your new configuration to ingest private data. Documents you ingest with the updated configuration are automatically enriched with the data from your custom model.
+Use {{site.data.keyword.discoveryshort}} with your new configuration to ingest private data. Documents you ingest with the updated configuration are automatically enriched with the data from your custom model.

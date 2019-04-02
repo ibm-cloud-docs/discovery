@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Upgrading your plan
 {: #upgrading-your-plan}
 
-The {{site.data.keyword.discoveryfull}} service offers three plans that provide different levels of resources and capabilities to suit your needs.
+{{site.data.keyword.discoveryfull}} offers three plans that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
 
 See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) and [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window} for details.
@@ -43,8 +43,8 @@ See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discover
 To resize your plan from Lite to Advanced:
 
 1. Open the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}/dashboard). 
-1. Click on your {{site.data.keyword.discoveryshort}} service instance to open the {{site.data.keyword.discoveryshort}} service dashboard.
-1. From the **Manage** page of your {{site.data.keyword.discoveryshort}} service, click **Upgrade** to choose the Advanced plan. This will open the **Plan** page. Follow the steps to complete your upgrade. 
+1. Click on your {{site.data.keyword.discoveryshort}} instance to open the service dashboard.
+1. From the **Manage** page of {{site.data.keyword.discoveryshort}}, click **Upgrade** to choose the Advanced plan. This will open the **Plan** page. Follow the steps to complete your upgrade. 
 1. Return to the **Manage** page and click **Launch Tool** to open the {{site.data.keyword.discoveryshort}} tooling.
    - If you had never created an environment for your Lite plan before the upgrade to Advanced, click the ![Cog](images/icon_settings.png) icon and choose **Create environment**. A screen will display the options for your Advanced plan. Choose the one that fits your needs.  (`X-Small`, `Small`, `Medium-Small`, `Medium`, `Medium-Large`, `Large`, `X-Large`, `XX-Large`).
    - If you had created an environment for your Lite plan before the upgrade to Advanced, your new Advanced plan environment will be `Small` by default. 

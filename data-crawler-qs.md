@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,13 +32,13 @@ subcollection: discovery
 # Getting started with the Data Crawler
 {: #getting-started-with-the-data-crawler}
 
-This topic explains how to use the data crawler to ingest files from your local filesystem, to use with the {{site.data.keyword.discoveryfull}} service.
+This topic explains how to use the data crawler to ingest files from your local filesystem, to use with {{site.data.keyword.discoveryfull}}.
 {: shortdesc}
 
 The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
 {: important}
 
-Before attempting this task, create an instance of the {{site.data.keyword.discoveryshort}} service in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
+Before attempting this task, create an instance of {{site.data.keyword.discoveryshort}} in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
 
 ## Create an environment
 {: #dc-create-environment}
@@ -112,7 +112,7 @@ Download these documents:
     -   Minimum 2 GB RAM on the Linux system
 
 1.  Open a browser and log into your [{{site.data.keyword.Bluemix_notm}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){: new_window}.
-1.  From your {{site.data.keyword.Bluemix_notm}} Dashboard, select the {{site.data.keyword.discoveryshort}} service you previously created.
+1.  From your {{site.data.keyword.Bluemix_notm}} Dashboard, select the {{site.data.keyword.discoveryshort}} instance you previously created.
 1.  Under **Automate the upload of content to the Discovery service**, select the appropriate download link for your system (DEB, RPM, or ZIP) to download the Data Crawler.
 1.  As an administrator, use the appropriate commands to install the archive file that you downloaded:
 
@@ -135,7 +135,7 @@ Copy the contents of the `{installation_directory}/share/examples/config` direct
 ## Configure crawl options
 {: #dc-configure-crawl-options}
 
-To set up the Data Crawler to crawl your repository, you must specify which local system files you want to crawl, and which {{site.data.keyword.discoveryshort}} service to send the collection of crawled files to, once the crawl has been completed.
+To set up the Data Crawler to crawl your repository, you must specify which local system files you want to crawl, and which {{site.data.keyword.discoveryshort}} instance to send the collection of crawled files to, once the crawl has been completed.
 
 1.  **`filesystem-seed.conf`** - Open the `seeds/filesystem-seed.con` file in a text editor. Modify the `value` attribute directly under the `name-"url"` attribute to the file path that you want to crawl. For example: `value-"sdk-fs:///TMP/MY_TEST_DATA/"`
 
@@ -143,16 +143,16 @@ To set up the Data Crawler to crawl your repository, you must specify which loca
 
     Save and close the file.
 
-1.  **`discovery_service.conf`** - Open the `discovery/discovery_service.conf` file in a text editor. Modify the following values specific to the {{site.data.keyword.discoveryshort}} service you previously created on {{site.data.keyword.Bluemix_notm}}:
+1.  **`discovery_service.conf`** - Open the `discovery/discovery_service.conf` file in a text editor. Modify the following values specific to the {{site.data.keyword.discoveryshort}} instance you previously created on {{site.data.keyword.Bluemix_notm}}:
 
-    -   `environment_id` - Your {{site.data.keyword.discoveryshort}} service environment ID.
-    -   `collection_id` - Your {{site.data.keyword.discoveryshort}} service collection ID.
-    -   `configuration_id` - Your {{site.data.keyword.discoveryshort}} service configuration ID.
+    -   `environment_id` - Your {{site.data.keyword.discoveryshort}} environment ID.
+    -   `collection_id` - Your {{site.data.keyword.discoveryshort}} collection ID.
+    -   `configuration_id` - Your {{site.data.keyword.discoveryshort}} configuration ID.
     -   `configuration` - The full path location of this `discovery_service.conf` file, for example, `/home/config/discovery/discovery_service.conf`.
-    -   `apikey` - Credential for your {{site.data.keyword.discoveryshort}} service.
+    -   `apikey` - Your {{site.data.keyword.discoveryshort}} credential.
 1.  **`crawler.conf`** - Open the `config/crawler.conf` file in a text editor.
 
-    -   Set the `output_adapter` `class` and `config` options for the {{site.data.keyword.discoveryshort}} service as follows:
+    -   Set the `output_adapter` `class` and `config` options for {{site.data.keyword.discoveryshort}} as follows:
 
         ```bash
         class - "com.ibm.watson.crawler.discoveryserviceoutputadapter.DiscoveryServiceOutputAdapter"

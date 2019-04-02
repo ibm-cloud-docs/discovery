@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-19"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -45,9 +45,9 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
         The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
         If you're creating an instance for more robust use, then learn more about [resource groups ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/resources/bestpractice_rgs.html#bp_resourcegroups){: new_window}.
     1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
-    1.  Click **Create**. After you create an instance of the {{site.data.keyword.discoveryshort}} service, you're taken to your list of services.
+    1.  Click **Create**. After you create an instance of {{site.data.keyword.discoveryshort}}, you're taken to your list of services.
 - Copy the credentials to authenticate to your service instance:
-    1.  From the [resource list](https://{DomainName}/dashboard/), click on your {{site.data.keyword.discoveryshort}} service instance to go to the {{site.data.keyword.discoveryshort}} service dashboard page.
+    1.  From the [resource list](https://{DomainName}/dashboard/), click on your {{site.data.keyword.discoveryshort}} instance to go to the {{site.data.keyword.discoveryshort}} dashboard page.
     1.  On the **Manage** page, click **Show Credentials** to view your credentials.
     1.  Copy the `API Key` and `URL` values.
 

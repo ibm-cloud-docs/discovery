@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -35,7 +35,7 @@ subcollection: discovery
 {{site.data.keyword.discoveryfull}} makes it possible to rapidly build cognitive, cloud-based exploration applications that unlock actionable insights hidden in unstructured data — including your own proprietary data, as well as public and third-party data.
 {: shortdesc}
 
-This is the architecture of a complete {{site.data.keyword.discoveryshort}} service solution:
+This is the architecture of a complete {{site.data.keyword.discoveryshort}} solution:
 
 ![Discovery architecture diagram](images/discovery-flow.png)
 
@@ -71,14 +71,14 @@ For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browse
 
 {{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for more information. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
-The {{site.data.keyword.discoveryshort}} service is available on [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}
+{{site.data.keyword.discoveryshort}} is available on [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}
 
 ## Discovery tooling
 {: #discovery-tooling}
 
-The {{site.data.keyword.discoveryshort}} service includes a complete set of online tools - the {{site.data.keyword.discoveryshort}} tooling - to help you quickly setup an instance of the service and populate it with data.
+{{site.data.keyword.discoveryshort}} includes a complete set of online tools - the {{site.data.keyword.discoveryshort}} tooling - to help you quickly setup an instance of the service and populate it with data.
 
-The {{site.data.keyword.discoveryshort}} service tooling has been designed to save time by eliminating the need to use APIs to configure and populate your service. This lets your application developers concentrate on creating high value ways for end users to experience the {{site.data.keyword.discoveryshort}} service. See [Getting started with the tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started) for an introduction to the {{site.data.keyword.discoveryshort}} tooling.
+The {{site.data.keyword.discoveryshort}} tooling has been designed to save time by eliminating the need to use APIs to configure and populate your service. This lets your application developers concentrate on creating high value ways for end users to experience {{site.data.keyword.discoveryshort}}. See [Getting started with the tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started) for an introduction to the {{site.data.keyword.discoveryshort}} tooling.
 
 
 ## Next steps
@@ -87,6 +87,6 @@ The {{site.data.keyword.discoveryshort}} service tooling has been designed to sa
 - Get started with either the {{site.data.keyword.discoveryshort}} tooling or the {{site.data.keyword.discoveryshort}} API:
     - [Getting started with the {{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started)
     - [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/services/discovery?topic=discovery-gs-api#gs-api)
-- The {{site.data.keyword.discoveryshort}} service supports a number of SDKs to simplify the development of applications. The SDKs are available for many popular programming languages and platforms, including Node.js, Java, and Python. All SDKs are available from the [watson-developer-cloud namespace ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/watson-developer-cloud){: new_window} on GitHub.
+- {{site.data.keyword.discoveryshort}} supports a number of SDKs to simplify the development of applications. The SDKs are available for many popular programming languages and platforms, including Node.js, Java, and Python. All SDKs are available from the [watson-developer-cloud namespace ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/watson-developer-cloud){: new_window} on GitHub.
     - For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-using-sdks#sdks){: new_window}.
     - For detailed information about all methods of the Node, Java, and Python SDKs, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}.

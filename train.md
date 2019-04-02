@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Improving result relevance with the API
 {: #improving-result-relevance-with-the-api}
 
-You can train the {{site.data.keyword.discoveryshort}} service to improve the relevance of query results for your particular organization or subject area. When you provide a {{site.data.keyword.discoveryshort}} instance with *training data*, the service uses machine-learning Watson techniques to find signals in your content and questions. The service then reorders query results to display the most relevant results at the top. As you add more training data, the service instance becomes more accurate and sophisticated in the ordering of results it returns.
+You can train {{site.data.keyword.discoveryshort}} to improve the relevance of query results for your particular organization or subject area. When you provide a {{site.data.keyword.discoveryshort}} instance with *training data*, the service uses machine-learning Watson techniques to find signals in your content and questions. The service then reorders query results to display the most relevant results at the top. As you add more training data, the service instance becomes more accurate and sophisticated in the ordering of results it returns.
 {: shortdesc}
 
 Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For an overview of building use cases for training, see the blog post [How to get the most out of Relevancy Training ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-18"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Language support
 {: #language-support}
 
-The {{site.data.keyword.discoveryfull}} service offers two levels of language support, **Basic** and **Full**.
+{{site.data.keyword.discoveryfull}} offers two levels of language support, **Basic** and **Full**.
 {: shortdesc}
 
 | Language                         |  Support Level         |

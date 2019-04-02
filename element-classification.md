@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-15"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,6 +32,7 @@ subcollection: discovery
 # Element Classification
 {: #element-classification}
 
+<!-- Learn more topic WDS -->
 Element Classification makes it possible to rapidly parse through governing documents to convert, identify, & classify elements of importance. Using state of the art Natural Language Processing, party (who it refers to), nature (type of element), and category (specific class) are extracted from elements of a document.
 
 Element Classification is designed to provide:

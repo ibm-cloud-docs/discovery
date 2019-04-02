@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -46,7 +46,7 @@ How do I decide which document upload method to use?
 
 Consider the following when you are ready to add documents to your collection:
 
--   The maximum file size that can be uploaded to the {{site.data.keyword.discoveryshort}} service is 50MB.
+-   The maximum file size that can be uploaded to {{site.data.keyword.discoveryshort}} is 50MB.
 -   The sample documents are not automatically added to the collection. You must add them if you want them as part of your collection. (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).)
 -   Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 -   When creating a collection, you select the document language (English is the default). See [Language support](/docs/services/discovery?topic=discovery-language-support#language-support) for the list of languages. Your documents will be enriched in the selected language. Do not mix languages within the same collection.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -41,7 +41,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 ## Crawling data with the Data Crawler
 {: #dc-crawling}
 
-The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases) and push them to the cloud, to be used by the {{site.data.keyword.discoveryshort}} service.
+The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases) and push them to the cloud, to be used by {{site.data.keyword.discoveryshort}}.
 
 The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector for Box, SharePoint, Salesforce, IBM Cloud Object Storage, or web crawl. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
 {: important}
@@ -57,7 +57,7 @@ The Data Crawler is not intended to be a solution for uploading files from your 
 ## Using the Data Crawler
 {: #dc-using}
 
-1. [Configure the {{site.data.keyword.discoveryshort}} service](/docs/services/discovery?topic=discovery-configservice#configservice)
+1. [Configure {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configservice#configservice)
 1. [Download and install the Data Crawler](/docs/services/discovery?topic=discovery-downloading-and-installing-the-data-crawler#downloading-and-installing-the-data-crawler) on a supported Linux system that has access to the content that you want to crawl.
 1. [Connect the Data Crawler](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-connector-and-seed-options) to your content.
 1. [Configure the Data Crawler](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-the-data-crawler) to connect to the {{site.data.keyword.discoveryshort}} Service.

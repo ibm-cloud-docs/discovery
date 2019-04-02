@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-02"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Release notes
 {: #release-notes}
 
-The release notes provide information about changes to the {{site.data.keyword.discoveryfull}} service since the previous release.
+The release notes provide information about changes to {{site.data.keyword.discoveryfull}} since the previous release.
 {: shortdesc}
 
 ## Service API Versioning
@@ -54,6 +54,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 2 April 2019
+{: #2apr19}
+
+Beginning April 9, 2019, there will be an upgrade to {{site.data.keyword.discoveryfull}}. This upgrade will include changes to the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. This means score and confidence results may change following the upgrade. If your applications make use of the `score` or `confidence` fields directly, be prepared to update the application as necessary. See [Upgrading the infrastructure of the {{site.data.keyword.discoveryfull}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2019/03/announcement-for-the-ibm-watson-discovery-community/){: new_window} for details.
 
 ## 25 March 2019
 {: #25mar19}
@@ -151,7 +156,7 @@ Known issue:
 ## 14 December 2018
 {: #14dec18}
 
-You can now create {{site.data.keyword.discoveryshort}} service instances that are hosted in the London data center without syndication. Like all locations, the {{site.data.keyword.cloud}} London location (eu-gb) uses token-based Identity and Access Management (IAM) authentication. All new services instances that you create in this location use IAM authentication.
+You can now create {{site.data.keyword.discoveryshort}} instances that are hosted in the London data center without syndication. Like all locations, the {{site.data.keyword.cloud}} London location (eu-gb) uses token-based Identity and Access Management (IAM) authentication. All new services instances that you create in this location use IAM authentication.
 
 ## 12 December 2018
 {: #12dec18}
@@ -173,7 +178,7 @@ You can now create {{site.data.keyword.discoveryshort}} service instances that a
 ## 30 October 2018
 {: #30oct18}
 
-- The {{site.data.keyword.discoveryshort}} service now supports token-based Identity and Access Management (IAM) authentication in all regions. IAM uses access tokens rather than service credentials for authentication with a service. For more information about using IAM tokens with existing and new applications, see the [17 May 2018](#17May18) release update.
+- {{site.data.keyword.discoveryshort}} now supports token-based Identity and Access Management (IAM) authentication in all regions. IAM uses access tokens rather than service credentials for authentication with a service. For more information about using IAM tokens with existing and new applications, see the [17 May 2018](#17May18) release update.
 
 ## 25 October 2018
 {: #25oct18}
@@ -285,7 +290,7 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 
 -   The service now supports a new API authentication process for service instances for applications that are hosted in Sydney (**au-syd**) as of May 15, 2018. They will be enabled for applications that are hosted in other regions soon. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
 
-   In the Sydney location, you use IAM access tokens with the {{site.data.keyword.discoveryshort}} service for
+   In the Sydney location, you use IAM access tokens with {{site.data.keyword.discoveryshort}} for
 
     -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iam){: new_window}.
     -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/resources?topic=resources-migrate#migrate){: new_window}.
@@ -295,11 +300,11 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 ### Using an IAM access token to authenticate
 {: #iam-token}
 
-When you use IAM access tokens, you authenticate before you send a request to the {{site.data.keyword.discoveryshort}} service.
+When you use IAM access tokens, you authenticate before you send a request to {{site.data.keyword.discoveryshort}}.
 
 
 1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: new_window}.
-1.  Pass the IAM access token to the {{site.data.keyword.discoveryshort}} service by using the `Authorization` header. In the header, indicate that the access token is a `Bearer` token by specifying `Authorization: Bearer {access_token}`.
+1.  Pass the IAM access token to {{site.data.keyword.discoveryshort}} by using the `Authorization` header. In the header, indicate that the access token is a `Bearer` token by specifying `Authorization: Bearer {access_token}`.
 
     The following simple cURL example uses an access token:
 
@@ -869,7 +874,7 @@ The following notes apply specifically to the Data Crawler 1.3.0 release.
 The following notes apply specifically to the Data Crawler 1.2.5 release.
 [Update](/docs/services/discovery?topic=discovery-adding-content-with-data-crawler#adding-content-with-data-crawler)
 
--  The Data Crawler can optionally poll for document status immediately after uploading a file. This check is a part of the Crawler's concept of "uploading a document", so when this check is enabled, it is virtually impossible for the Crawler to upload concurrently more documents than what the {{site.data.keyword.discoveryshort}} service can process concurrently for the user.
+-  The Data Crawler can optionally poll for document status immediately after uploading a file. This check is a part of the Crawler's concept of "uploading a document", so when this check is enabled, it is virtually impossible for the Crawler to upload concurrently more documents than what {{site.data.keyword.discoveryshort}} can process concurrently for the user.
 
     A side effect of the `check_for_completion` feature is that the Crawler also can expose to the user why a document failed, when it failed. Any notices attached to a document that was successfully uploaded, but failed to process, are displayed in the Crawler log. The notices are not exported to a processable file, but IBM would welcome a feature suggestion for that.
 
@@ -890,7 +895,7 @@ The following notes describe issues that were identified after the GA release on
 ### General Availability release, 15 December 2016
 {: #15dec16}
 
-The following notes apply to the General Availability (GA) release of the {{site.data.keyword.discoveryfull}} service.
+The following notes apply to the General Availability (GA) release of {{site.data.keyword.discoveryfull}}.
 
 #### General notes
 {: #rn-general-notes}
@@ -906,7 +911,7 @@ See [API reference ![External link icon](../../icons/launch-glyph.svg "External 
 
     **Note:** The specific version is not enforced in the GA release, but it still must be listed to enable compatibility with future releases.
 
--   You can use the service with a custom model created with {{site.data.keyword.knowledgestudiofull}}. The custom model can be used to enrich ingested documents. You must use the API to integrate the custom model with the {{site.data.keyword.discoveryshort}} service; you cannot perform the integration by using the tooling.
+-   You can use the service with a custom model created with {{site.data.keyword.knowledgestudiofull}}. The custom model can be used to enrich ingested documents. You must use the API to integrate the custom model with {{site.data.keyword.discoveryshort}}; you cannot perform the integration by using the tooling.
 
 #### Data management
 {: #rn-data}
@@ -922,7 +927,7 @@ See [API reference ![External link icon](../../icons/launch-glyph.svg "External 
 [Update](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans)
 
 -   You can create only one environment per service instance to upload your own data.
--   {{site.data.keyword.discoveryshort}} service is located in a single availability zone (US South).
+-   {{site.data.keyword.discoveryshort}} is located in a single availability zone (US South).
 -   Dedicated and premium plans are not available at the current time.
 
 #### Environment sizing

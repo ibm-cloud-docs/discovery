@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-25"
+  years: 2015, 2018, 2019
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,6 +32,7 @@ subcollection: discovery
 # Viewing metrics and improving query results with the Performance dashboard
 {: #performance-dashboard}
 
+<!-- Learn more topic WDS -->
 The Performance dashboard in the {{site.data.keyword.discoveryshort}} tooling can be used to view query metrics, as well as improve query results, including query relevance.
 
 You can access the Performance dashboard by clicking the **View data metrics** icon on the left. The dashboard is not available in Premium or Dedicated environments.

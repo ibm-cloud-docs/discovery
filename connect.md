@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,10 +32,11 @@ subcollection: discovery
 # Connecting to Data Sources
 {: #sources}
 
-The {{site.data.keyword.discoveryshort}} service lets you connect to and crawl documents from remote sources.
+<!-- Learn more topic WDS -->
+{{site.data.keyword.discoveryshort}} lets you connect to and crawl documents from remote sources.
 {: shortdesc}
 
-You can connect to a data source and pull documents on a schedule (if desired) into the {{site.data.keyword.discoveryshort}} service by configuring a collection to associate with that source. Each collection can be configured with one data source if using the {{site.data.keyword.discoveryshort}} tooling, if using the API, you can send documents from multiple data sources into a single collection. The {{site.data.keyword.discoveryshort}} service pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by the {{site.data.keyword.discoveryshort}} service. The following types of data sources can be crawled:
+You can connect to a data source and pull documents on a schedule (if desired) into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. Each collection can be configured with one data source if using the {{site.data.keyword.discoveryshort}} tooling, if using the API, you can send documents from multiple data sources into a single collection. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by {{site.data.keyword.discoveryshort}}. The following types of data sources can be crawled:
 
 -  [Box](/docs/services/discovery?topic=discovery-sources#connectbox)
 -  [Salesforce](/docs/services/discovery?topic=discovery-sources#connectsf)
@@ -85,6 +86,7 @@ Collections created after the release of [SDU](/docs/services/discovery?topic=di
 ## Box
 {: #connectbox}
 
+<!-- Learn more topic WDS -->
 You'll need to create a new Box custom application to connect to {{site.data.keyword.discoveryfull}}. The Box application you create requires either Enterprise level or Application level access.
 
 -  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery?topic=discovery-sources#applevelbox) is recommended. You will need an administrator to approve your application.
@@ -178,6 +180,7 @@ Other items to consider when crawling Box:
 ## Salesforce
 {: #connectsf}
 
+<!-- Learn more topic WDS -->
 When connecting to a Salesforce source, ensure that the instance you plan to connect to is an Enterprise plan or higher.
 
 The following credentials are required to connect to a Salesforce source, they should be obtained from your Salesforce administrator:
@@ -195,6 +198,7 @@ Other items to note when crawling Salesforce:
 ## SharePoint Online
 {: #connectsp}
 
+<!-- Learn more topic WDS -->
 When connecting to a Microsoft SharePoint Online source, ensure that the instance you plan to connect to is an Enterprise (E1) plan or higher.
 
 The following credentials are required to connect to a SharePoint Online source, they should be obtained from your SharePoint administrator:
@@ -214,6 +218,7 @@ Other items to note when crawling Microsoft SharePoint Online:
 ## Web Crawl
 {: #connectwebcrawl}
 
+<!-- Learn more topic WDS -->
 This beta feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
 
 -  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
@@ -229,6 +234,7 @@ If you require different **Crawl settings** for other URLs, click **Add URL grou
 ## SharePoint 2016 On-Premise
 {: #connectsp_op}
 
+<!-- Learn more topic WDS -->
 Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premise data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery?topic=discovery-sources#gateway) for more information.
 {: note}
 
@@ -249,6 +255,7 @@ Other items to note when crawling Microsoft SharePoint 2016:
 ## IBM Cloud Object Storage
 {: #connectcos}
 
+<!-- Learn more topic WDS -->
 When connecting to an IBM Cloud Object Storage source, the following credentials are required. They should be obtained from your IBM Cloud Object Storage administrator:
 
 -  `endpoint` - The `endpoint` used to interact with IBM Cloud Object Storage data.
@@ -355,6 +362,7 @@ See [Information security](/docs/services/discovery?topic=discovery-information-
 ## Installing IBM Secure Gateway for on-premise data 
 {: #gateway}
 
+<!-- Learn more topic WDS -->
 To connect to an on-premise data source, you first need to download, install, and configure IBM Secure Gateway. After you have installed IBM Secure Gateway for your first on-premise data source, you won't need to repeat this process.
 
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.

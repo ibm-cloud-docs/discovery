@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,8 @@ subcollection: discovery
 # Discovery pricing plans
 {: #discovery-pricing-plans}
 
-The {{site.data.keyword.discoveryfull}} service offers three plans -- **Lite**, **Advanced**, and **Premium** -- that provide different levels of resources and capabilities to suit your needs.
+<!-- Learn more topic WDS -->
+{{site.data.keyword.discoveryfull}} offers three plans -- **Lite**, **Advanced**, and **Premium** -- that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
 
 **Private data use cases** have the following features, limits, and prices:

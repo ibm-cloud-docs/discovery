@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-01-28"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Downloading and installing the Data Crawler
 {: #downloading-and-installing-the-data-crawler}
 
-The Data Crawler collects the raw data that is eventually used to form search results for the {{site.data.keyword.discoveryshort}} service. When crawling data repositories, the crawler downloads documents and metadata, starting from a user-specified seed URL. The crawler discovers documents in a hierarchy, or otherwise linked from the seed URL, and enqueues these for retrieval.
+The Data Crawler collects the raw data that is eventually used to form search results for {{site.data.keyword.discoveryshort}}. When crawling data repositories, the crawler downloads documents and metadata, starting from a user-specified seed URL. The crawler discovers documents in a hierarchy, or otherwise linked from the seed URL, and enqueues these for retrieval.
 {: shortdesc}
 
 The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
@@ -54,7 +54,7 @@ The Data Crawler should only be used to crawl file shares or databases, in all o
 
 1.  Open a browser and log into your [{{site.data.keyword.Bluemix}} account ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/){: new_window}.
 
-1.  From your {{site.data.keyword.Bluemix_notm}} Dashboard, select the {{site.data.keyword.discoveryshort}} service you previously created.
+1.  From your {{site.data.keyword.Bluemix_notm}} dashboard, select the {{site.data.keyword.discoveryshort}} instance you previously created.
 
 1.  In the **Automate the upload of content to the Discovery service** section, click the appropriate link to download the Data Crawler for Linux in DEB, RPM, and ZIP formats.
 

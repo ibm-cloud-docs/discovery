@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-29"
 
 subcollection: discovery
 
@@ -50,7 +50,7 @@ The specified values are the defaults in `config/crawler.conf`, and configure th
 
     -   Set the `crawl_config_file` option to the `.conf` that you previously modified, for example: `connectors/filesystem.conf`.
     -   Set the `crawl_seed_file` option to the `-seed.conf` that you previously modified, for example: `seeds/filesystem-seed.conf`.
-    -   Set the `output_adapter` `class` and `config` options for the {{site.data.keyword.discoveryshort}} service as follows:
+    -   Set the `output_adapter` `class` and `config` options for {{site.data.keyword.discoveryshort}} as follows:
 
         ```
         class - "com.ibm.watson.crawler.discoveryserviceoutputadapter.DiscoveryServiceOutputAdapter"
@@ -65,14 +65,14 @@ The specified values are the defaults in `config/crawler.conf`, and configure th
 
     There are other optional settings in this file that may be set as appropriate to your environment, see: [Configuring crawl options](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [Configuring the input adapter](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Configuring the output adapter](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter), and [Additional crawl management options](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options) for detailed information about setting these values.
 
-1.  Open the `discovery/discovery_service.conf` file in a text editor. Modify the following values specific to the {{site.data.keyword.discoveryshort}} service you previously created on {{site.data.keyword.Bluemix}}:
+1.  Open the `discovery/discovery_service.conf` file in a text editor. Modify the following values specific to {{site.data.keyword.discoveryshort}} you previously created on {{site.data.keyword.Bluemix}}:
 
-    -   `environment_id` - Your {{site.data.keyword.discoveryshort}} service environment ID.
-    -   `collection_id` - Your {{site.data.keyword.discoveryshort}} service collection ID.
-    -   `configuration_id` - Your {{site.data.keyword.discoveryshort}} service configuration ID.
+    -   `environment_id` - Your {{site.data.keyword.discoveryshort}} environment ID.
+    -   `collection_id` - Your {{site.data.keyword.discoveryshort}} collection ID.
+    -   `configuration_id` - Your {{site.data.keyword.discoveryshort}} configuration ID.
     -   `configuration` - The full path location of this `discovery_service.conf` file, for example, `/home/config/discovery/discovery_service.conf`.
-    -   `username` - Username credential for your {{site.data.keyword.discoveryshort}} service.
-    -   `apikey` - Credential for your {{site.data.keyword.discoveryshort}} service.
+    -   `username` - Username credential for your {{site.data.keyword.discoveryshort}} instance.
+    -   `apikey` - Credential for your {{site.data.keyword.discoveryshort}} instance.
 
     There are other optional settings in this file that may be set as appropriate to your environment. See [Configuring Service Options](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options) for detailed information about setting these values.
 
@@ -219,7 +219,7 @@ output_directory - "/tmp/crawler-test-output"`
 ## Configuring service options
 {: #configuring-service-options}
 
-The {{site.data.keyword.discoveryshort}} service tells the crawler how to manage crawled files when using the {{site.data.keyword.discoveryfull}} service.
+{{site.data.keyword.discoveryshort}} tells the crawler how to manage crawled files when using {{site.data.keyword.discoveryfull}}.
 
 To access the in-product manual for the `discovery-service.conf` file, with the most up-to-date information, type the following command from the Crawler installation directory:
 
@@ -232,16 +232,16 @@ To access the in-product manual for the `discovery-service.conf` file, with the 
 Default options can be changed directly by opening the `config/discovery/discovery_service.conf` file, and specifying the following values specific to your use case:
 
 -   **`http_timeout`** - The timeout, in seconds, for the document read/index operation; the default is `125`.
--   **`proxy_host_port`** - (optional) When running the data crawler behind a firewall, you might need to set the proxy hostname and proxy port number in order for the data crawler to talk to the {{site.data.keyword.discoveryshort}} service. The default value for this option is an empty string and if you need to change it the value should be of the form `"<host>:<port>"`.
+-   **`proxy_host_port`** - (optional) When running the data crawler behind a firewall, you might need to set the proxy hostname and proxy port number in order for the data crawler to talk to {{site.data.keyword.discoveryshort}}. The default value for this option is an empty string and if you need to change it the value should be of the form `"<host>:<port>"`.
 -   **`concurrent_upload_connection_limit`** - The number of simultaneous connections allowed for uploading documents. The default is `2`.
 
     **Note:** When using the Orchestration Service Output Adapter, this number should be greater than, or equal to, the `output_limit` set when configuring crawl options.   
 
--   **`base_url`** - The URL to which your crawled documents will be sent. For the current release of the {{site.data.keyword.discoveryshort}} service, the value is `https://gateway.watsonplatform.net/discovery/api`.   
+-   **`base_url`** - The URL to which your crawled documents will be sent. For the current release of {{site.data.keyword.discoveryshort}}, the value is `https://gateway.watsonplatform.net/discovery/api`.   
 -   **`environment_id`** - The location of your crawled document collection at the base URL.   
--   **`collection_id`** - Name of the document collection that you set up in the {{site.data.keyword.discoveryshort}} service.
+-   **`collection_id`** - Name of the document collection that you set up in {{site.data.keyword.discoveryshort}}.
 -   **`api_version`** - Internal use only. Date of the last API version change.   
--   **`configuration_id`** - The filename of the configuration file that the {{site.data.keyword.discoveryshort}} service uses.
+-   **`configuration_id`** - The filename of the configuration file that {{site.data.keyword.discoveryshort}} uses.
 -   **`apikey`** - Credential to authenticate to the location of your crawled document collection.
 
 The {{site.data.keyword.discoveryshort}} Service Output Adapter can send statistics in order for {{site.data.keyword.IBM}} to better understand and serve its users. The following options can be set for the `send_stats` variable:
