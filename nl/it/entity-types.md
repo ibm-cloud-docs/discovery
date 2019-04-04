@@ -4,30 +4,42 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Tipi e sottotipi di entità
 {: #entity-types-and-subtypes}
 
-Le seguenti tabelle elencano i possibili tipi e sottotipi di entità che vengono restituiti dall'arricchimento dell'Entity Extraction. Puoi scaricare il foglio di calcolo con queste informazioni qui: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a>.
+Le seguenti tabelle elencano i possibili tipi e sottotipi di entità che vengono restituiti dall'arricchimento dell'Entity Extraction. Puoi scaricare il foglio di calcolo con queste informazioni qui: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a>.
 {: shortdesc}
 
 
-## Tipi di entità 
+## Tipi di entità
 {: #entity-types}
 
-| Tipo di entità      |
+| Tipo di entità       |
 |-------------------|
 | Anatomy           |
 | Award             |

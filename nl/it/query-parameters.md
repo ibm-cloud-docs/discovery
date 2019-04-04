@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-10-04"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Parametri di query
 {: #query-parameters}
 
-Il servizio {{site.data.keyword.discoveryfull}} offre potenti funzionalità di ricerca di contenuto tramite le query. Dopo che il tuo contenuto è stato caricato e arricchito dal servizio {{site.data.keyword.discoveryshort}}, puoi creare delle query e integrare {{site.data.keyword.discoveryshort}} nei tuoi progetti oppure creare un'applicazione personalizzata utilizzando il {{site.data.keyword.watson}} Explorer Application Builder. Per un'introduzione alle query, vedi [Concetti delle query](/docs/services/discovery/using.html). Per un elenco completo di parametri, vedi la [Guida di riferimento per le query](/docs/services/discovery/query-reference.html#parameter-descriptions).
+Il servizio {{site.data.keyword.discoveryfull}} offre potenti funzionalità di ricerca di contenuto tramite le query. Dopo che il tuo contenuto è stato caricato e arricchito dal servizio {{site.data.keyword.discoveryshort}}, puoi creare delle query e integrare {{site.data.keyword.discoveryshort}} nei tuoi progetti oppure creare un'applicazione personalizzata utilizzando il {{site.data.keyword.watson}} Explorer Application Builder. Per un'introduzione alle query, vedi [Concetti delle query](/docs/services/discovery?topic=discovery-query-concepts#query-concepts). Per un elenco completo di parametri, vedi la [Guida di riferimento per le query](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
 {: shortdesc}
 
 **Parametri di ricerca**
@@ -32,12 +44,12 @@ La **serie di risultati** è il gruppo di documenti identificato dalle ricerche 
 ## query
 {: #query}
 
-Una ricerca query restituisce tutti i documenti presenti nel tuo insieme di dati con gli arricchimenti completi e il testo completo in ordine di pertinenza. Una query esclude anche qualsiasi documento che non menziona il contenuto della query. Queste query vengono scritte utilizzando il [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html).
+Una ricerca query restituisce tutti i documenti presenti nel tuo insieme di dati con gli arricchimenti completi e il testo completo in ordine di pertinenza. Una query esclude anche qualsiasi documento che non menziona il contenuto della query. Queste query vengono scritte utilizzando il [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators).
 
 ## filter
 {: #filter}
 
-Una query memorizzabile in cache che esclude qualsiasi documento che non menziona il contenuto della query. I risultati della ricerca di filtro **non** vengono restituiti in ordine di pertinenza. Queste query vengono scritte utilizzando il [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html)
+Una query memorizzabile in cache che esclude qualsiasi documento che non menziona il contenuto della query. I risultati della ricerca di filtro **non** vengono restituiti in ordine di pertinenza. Queste query vengono scritte utilizzando il [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators)
 
 ### Differenze tra i parametri di filtro e di query
 {: #filtervquery}
@@ -47,7 +59,7 @@ Se verifichi lo stesso termine di ricerca su un piccolo insieme di dati, potrest
 - L'utilizzo del solo parametro filter restituirà i risultati della ricerca senza un ordine specifico.
 - L'utilizzo del solo parametro query restituirà i risultati della ricerca in ordine di pertinenza.
 
-In insiemi di dati di grandi dimensioni, se ti occorre che i risultati vengano restituiti in ordine di pertinenza, devi combinare i parametri `filter` e `query` perché utilizzarli insieme migliorerà le prestazioni. Ciò è dovuto al fatto che il parametro `filter` verrà eseguito per primo e memorizzerà in cache i risultati e il parametro `query` procederà quindi a classificarli. Per un esempio di utilizzo di filtri e query insieme, vedi [Creazione di query combinate](/docs/services/discovery/using.html#building-combined-queries). I filtri possono essere utilizzati anche nelle aggregazioni.
+In insiemi di dati di grandi dimensioni, se ti occorre che i risultati vengano restituiti in ordine di pertinenza, devi combinare i parametri `filter` e `query` perché utilizzarli insieme migliorerà le prestazioni. Ciò è dovuto al fatto che il parametro `filter` verrà eseguito per primo e memorizzerà in cache i risultati e il parametro `query` procederà quindi a classificarli. Per un esempio di utilizzo di filtri e query insieme, vedi [Creazione di query combinate](/docs/services/discovery?topic=discovery-query-concepts#building-combined-queries). I filtri possono essere utilizzati anche nelle aggregazioni.
 
 Quando scrivi una query che include sia un parametro `filter` sia un parametro `aggregation`, `query` o `natural_language_query`, i parametri `filter` vengono eseguiti per primi, dopo di che vengono eseguiti in parallelo gli eventuali parametri `aggregation`, `query` o `natural_language_query`.
 
@@ -56,12 +68,12 @@ Con una semplice query, in particolar modo su un piccolo insieme di dati, `filte
 ## aggregation
 {: #aggregation}
 
-Le query di tipo aggregazione (aggregation) restituiscono un conteggio dei documenti corrispondenti a un insieme di valori di dati, ad esempio le parole chiave principali, il parere generale delle entità e altro ancora. Per l'elenco completo di opzioni di aggregazione, vedi la [tabella delle aggregazioni](/docs/services/discovery/query-aggregations.html). Queste aggregazioni vengono scritte utilizzando il [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html)
+Le query di tipo aggregazione (aggregation) restituiscono un conteggio dei documenti corrispondenti a un insieme di valori di dati, ad esempio le parole chiave principali, il parere generale delle entità e altro ancora. Per l'elenco completo di opzioni di aggregazione, vedi la [tabella delle aggregazioni](/docs/services/discovery?topic=discovery-query-aggregations#query-aggregations). Queste aggregazioni vengono scritte utilizzando il [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators)
 
 ## natural_language_query
 {: #nlq}
 
-Una query in linguaggio naturale ti consente di eseguire delle query espresse in linguaggio naturale, come potrebbero essere ricevute da un utente finale in un'interfaccia colloquiale o in testo libero, ad esempio "IBM Watson nell'assistenza sanitaria". Il parametro utilizza l'intero input come testo della query. **Non** riconosce gli operatori. Il parametro `natural_language_query` abilita funzionalità quali la ricerca di passaggi e la formazione della pertinenza. Le raccolte formate restituiranno un punteggio `confidence` nel risultato di una query in linguaggio naturale. Per i dettagli, vedi [Punteggi di affidabilità](/docs/services/discovery/train-tooling.html#confidence).La lunghezza della stringa di query massima per una query in linguaggio naturale è `2048`.
+Una query in linguaggio naturale ti consente di eseguire delle query espresse in linguaggio naturale, come potrebbero essere ricevute da un utente finale in un'interfaccia colloquiale o in testo libero, ad esempio "IBM Watson nell'assistenza sanitaria". Il parametro utilizza l'intero input come testo della query. **Non** riconosce gli operatori. Il parametro `natural_language_query` abilita funzionalità quali la ricerca di passaggi e la formazione della pertinenza. Nella maggior parte dei casi, tutte le raccolte private restituiranno un punteggio di affidabilità (`confidence`) nei risultati della query. Per i dettagli, vedi [Punteggi di affidabilità](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence). La lunghezza della stringa di query massima per una query in linguaggio naturale è `2048`.
 
 **Parametri di struttura**
 
@@ -70,7 +82,7 @@ I parametri di struttura definiscono il contenuto e l'organizzazione dei documen
 ## count
 {: #count}
 
-Il numero di documenti che vuoi che venga restituito nella risposta. Il valore predefinito è `10`.Il valore massimo per i valori `count` e `offset` insieme in qualsiasi singola query è `10000`.
+Il numero di documenti che vuoi che venga restituito nella risposta. Il valore predefinito è `10`. Il valore massimo per i valori `count` e `offset` insieme in qualsiasi singola query è `10000`.
 
 ## offset
 {: #offset}
@@ -99,12 +111,12 @@ Il parametro `bias` è attualmente disponibile per l'utilizzo solo con l'API; no
 ## passages
 {: #passages}
 
-Un booleano che specifica se il servizio restituisce un insieme dei passaggi più pertinenti dai documenti restituiti da una query che utilizza il parametro `natural_language_query`.I passaggi sono generati da sofisticati algoritmi Watson per determinare i migliori passaggi di testo da tutti i documenti restituiti dalla query. Il valore predefinito è `false`.
+Un booleano che specifica se il servizio restituisce un insieme dei passaggi più pertinenti dai documenti restituiti da una query che utilizza il parametro `natural_language_query`. I passaggi sono generati da sofisticati algoritmi Watson per determinare i migliori passaggi di testo da tutti i documenti restituiti dalla query. Il valore predefinito è `false`.
 
 Il parametro `passages` può essere utilizzato solo su raccolte private. Non può essere utilizzato sulla raccolta {{site.data.keyword.discoverynewsfull}}.
 {: tip}
 
-{{site.data.keyword.discoveryshort}} prova a restituire passaggi con un inizio e una fine che coincidono con l'inizio e la fine di una frase utilizzando il rilevamento dei limiti della frase. Per eseguire tale operazione, cerca prima i passaggi approssimativamente della lunghezza specificata nel parametro [`passages.characters`](/docs/services/discovery/query-parameters.html#passages_characters) (valore predefinito `400`). Espande quindi ciascun passaggio al limite di due volte la lunghezza specificata al fine di restituire le frasi intere. Se il tuo parametro `passages.characters` è breve e/o le frasi nei tuoi documenti sono molto lunghe, potrebbe non esserci alcun limite della frase abbastanza prossimo alla restituzione dell'intera frase senza andare oltre il doppio della lunghezza richiesta. In tal caso, {{site.data.keyword.discoveryshort}} rimane entro il limite di due volte il parametro `passages.characters`, quindi il passaggio restituito non includerà l'intera frase e ometterà l'inizio, la fine o sia l'inizio che la fine.
+{{site.data.keyword.discoveryshort}} prova a restituire passaggi con un inizio e una fine che coincidono con l'inizio e la fine di una frase utilizzando il rilevamento dei limiti della frase. Per eseguire tale operazione, cerca prima i passaggi approssimativamente della lunghezza specificata nel parametro [`passages.characters`](/docs/services/discovery?topic=discovery-query-parameters#passages_characters) (valore predefinito `400`). Espande quindi ciascun passaggio al limite di due volte la lunghezza specificata al fine di restituire le frasi intere. Se il tuo parametro `passages.characters` è breve e/o le frasi nei tuoi documenti sono molto lunghe, potrebbe non esserci alcun limite della frase abbastanza prossimo alla restituzione dell'intera frase senza andare oltre il doppio della lunghezza richiesta. In tal caso, {{site.data.keyword.discoveryshort}} rimane entro il limite di due volte il parametro `passages.characters`, quindi il passaggio restituito non includerà l'intera frase e ometterà l'inizio, la fine o sia l'inizio che la fine.
 
 Poiché le regolazioni dei limiti della frase espandono la dimensione dei passaggi, vedrai un considerevole aumento della lunghezza media dei passaggi. Se la tua applicazione ha uno spazio su schermo limitato, sarebbe opportuno che impostassi un valore più piccolo per `passages.characters` e/o troncare i passaggi restituiti da {{site.data.keyword.discoveryshort}}. Il rilevamento dei limiti della frase funziona per tutte le lingue supportate e utilizza la logica specifica per la lingua.
 
@@ -149,7 +161,7 @@ Un elenco separato da virgole di campi nell'indice da cui verranno presi i passa
 ### passages.count
 {: #passages_count}
 
-Il numero massimo di passaggi da restituire. La ricerca restituirà un numero inferiore se tale numero è quello totale che è stato trovato. Il valore predefinito è `10`. Il massimo è `100`.
+Il numero massimo di passaggi da restituire. La ricerca restituirà un numero inferiore di passaggi se tale numero è quello totale che è stato trovato. Il valore predefinito è `10`. Il massimo è `100`.
 
 ### passages.characters
 {: #passages_characters}
@@ -206,19 +218,19 @@ Il JSON che viene restituito sarà del seguente formato:
 ## deduplicate
 {: #deduplicate}
 
- Una funzionalità beta che esclude i documenti duplicati dai risultati della query della raccolta {{site.data.keyword.discoverynewsfull}} in base al campo `title`. Vedi [Esclusione di documenti duplicati dai risultati della query](/docs/services/discovery/query-parameters.html#deduplication).
+ Una funzionalità beta che esclude i documenti duplicati dai risultati della query della raccolta {{site.data.keyword.discoverynewsfull}} in base al campo `title`. Vedi [Esclusione di documenti duplicati dai risultati della query](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### deduplicate.field
 {: #deduplicate_field}
 
-Una funzionalità beta che esclude i documenti duplicati dai tuoi risultati della query in base al `{field}` specificato. Vedi [Esclusione di documenti duplicati dai risultati della query](/docs/services/discovery/query-parameters.html#deduplication).
+Una funzionalità beta che esclude i documenti duplicati dai tuoi risultati della query in base al `{field}` specificato. Vedi [Esclusione di documenti duplicati dai risultati della query](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### Esclusione di documenti duplicati dai risultati della query
 {: #deduplication}
 
 Se stai eseguendo una query della raccolta {{site.data.keyword.discoverynewsfull}}, o se la tua raccolta di dati privata contiene più documenti identici (o quasi identici), puoi escludere la maggior parte di essi dai risultati della query utilizzando la deduplicazione dei documenti.
 
-**Nota:** la deduplicazione dei documenti è attualmente supportata solo come funzionalità beta. Per ulteriori informazioni, vedi [Funzioni beta](/docs/services/discovery/release-notes.html#beta-features) nelle note sulla release. Questa funzione beta è attualmente supportata solo in inglese; vedi [Supporto linguistico](/docs/services/discovery/language-support.html#feature-support) per i dettagli.
+**Nota:** la deduplicazione dei documenti è attualmente supportata solo come funzionalità beta. Per ulteriori informazioni, vedi [Funzioni beta](/docs/services/discovery?topic=discovery-release-notes#beta-features) nelle note sulla release. Questa funzione beta è attualmente supportata solo in inglese; vedi [Supporto linguistico](/docs/services/discovery?topic=discovery-language-support#feature-support) per i dettagli.
 
 **Nota:**  ciascuna query viene deduplicata indipendentemente quindi la deduplicazione su interi offset non è supportata.
 
@@ -236,6 +248,7 @@ Per applicare la deduplicazione, utilizza la seguente sintassi nella query.  Sos
 Quando viene eseguita la deduplicazione, la risposta JSON include `"duplicates_removed": x`, dove `x` è il numero di documenti rimosso dai risultati.
 
 #### Deduplicazione di documenti in Watson Discovery News
+{: #deduplicatewds}
 
 Gli articoli di notizie possono essere diffusi a diversi canali di notizie e {{site.data.keyword.discoverynewsfull}} rileverà ciascuno di essi, con una conseguente presenza di articoli duplicati. Ciò significa che una query a {{site.data.keyword.discoverynewsfull}} potrebbe, potenzialmente, restituire diversi articoli identici o quasi identici nei risultati della query. L'utilizzo della deduplicazione rimuoverà la maggior parte degli articoli duplicati dalle tue query di ricerca.
 
@@ -258,7 +271,7 @@ Se preferisci eseguire la deduplicazione su un campo diverso da `title`, utilizz
 ## collection_ids
 {: #collection_ids}
 
-Un elenco separato da virgole di raccolte nello stesso ambiente di cui verrà eseguita la query. Questo parametro è valido solo quando si utilizza il metodo `environments/{environment_id}/query?`. Per ulteriori informazioni, vedi [Query di più raccolte](/docs/services/discovery/using.html#multiple-collections).
+Un elenco separato da virgole di raccolte nello stesso ambiente di cui verrà eseguita la query. Questo parametro è valido solo quando si utilizza il metodo `environments/{environment_id}/query?`. Per ulteriori informazioni, vedi [Query di più raccolte](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections).
 
 ```bash
 &collection_ids={id1},{id2}
@@ -268,7 +281,7 @@ Un elenco separato da virgole di raccolte nello stesso ambiente di cui verrà es
 ## similar
 {: #similar}
 
-La similarità dei documenti identifica i documenti che sono simili ai documenti elencati nei parametri `similar.document_ids`. Tale operazione può essere ulteriormente perfezionata specificando quali campi saranno presi in considerazione per il confronto utilizzando i parametri `similar.fields`. Il valore predefinito è `false`. Per ulteriori informazioni, vedi [Similarità dei documenti](/docs/services/discovery/using.html#doc-similarity).
+La similarità dei documenti identifica i documenti che sono simili ai documenti elencati nei parametri `similar.document_ids`. Tale operazione può essere ulteriormente perfezionata specificando quali campi saranno presi in considerazione per il confronto utilizzando i parametri `similar.fields`. Il valore predefinito è `false`. Per ulteriori informazioni, vedi [Similarità dei documenti](/docs/services/discovery?topic=discovery-query-concepts#doc-similarity).
 
 ```bash
 &similar=true

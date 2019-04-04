@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-05-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Aggregazioni di query
 {: #query-aggregations}
 
-Le aggregazioni restituiscono una serie di valori di dati. Per l'elenco completo delle aggregazioni disponibili, vedi la [Guida di riferimento per le query](/docs/services/discovery/query-reference.html#aggregations).
+Le aggregazioni restituiscono una serie di valori di dati. Per l'elenco completo delle aggregazioni disponibili, vedi la [Guida di riferimento per le query](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ## term
 {: #term}
@@ -34,7 +46,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filter
-{: #filter}
+{: #aggfilter}
 
 Un modificatore che restringerà l'insieme di documenti della query di aggregazione che precede. Questo esempio applica un filtro che riduce l'insieme di documenti a quelli che includono il concetto "cloud computing".
 
@@ -95,7 +107,7 @@ Se specifichi `anomaly:true` con l'aggregazione `timeslice`, l'output include i 
   - Un campo `anomaly` nei punti anomali nell'array di risultati dell'output. Il campo anomaly ha un valore del tipo di dati `float` che indica la magnitudine della modalità di funzionamento anomala. Più prossimo a `1` è il valore del campo anomaly e maggiore è la probabilità che il risultato sia anomalo.
 
   - `key` e `key_as_string` in ciascuno degli oggetti nell'array `results` corrispondono a una data/ora UNIX espressa in secondi.
-  - Il punteggio di anomalia è relativo a una query, non a tutte le query.
+  - Il punteggio di anomalia è relativo solo alla query originale.
 
 ```json
 "type": "timeslice",
@@ -139,6 +151,7 @@ Se specifichi `anomaly:true` con l'aggregazione `timeslice`, l'output include i 
 {: codeblock}
 
 #### Limitazioni del rilevamento anomalie
+{: #anomaly-limitations}
 
 - Il rilevamento anomalie è attualmente disponibile solo su aggregazioni `timeslice` di livello superiore. Non è disponibile nelle aggregazioni di livello inferiore (nested).
 - Il numero massimo di punti che può essere elaborato dal rilevamento di anomalie in qualsiasi specifica aggregazione `timeslice` è `1500`.

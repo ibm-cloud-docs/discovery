@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-03"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 
 # Migrazione da Watson Document Conversion e Retrieve and Rank
@@ -26,6 +38,7 @@ lastupdated: "2017-10-03"
 {{site.data.keyword.discoveryfull}} fornisce un'interfaccia di query più robusta, l'inserimento dei dati semplificato, la gestione della formazione migliorata e il ridimensionamento aumentato. {{site.data.keyword.discoveryshort}} risolve molti degli stessi casi di utilizzo principali di {{site.data.keyword.retrieveandrankshort}} tra cui l'assistenza dell'agent di supporto, la ricerca della knowledge base organizzativa e l'assistenza alla ricerca. È stato creato tenendo conto di molte delle difficoltà affrontate dagli utenti di {{site.data.keyword.retrieveandrankshort}} e risolve molti di questi problemi. {{site.data.keyword.discoveryshort}} fornisce inoltre nuove funzionalità per il richiamo delle informazioni non disponibili in {{site.data.keyword.retrieveandrankshort}} incluso il richiamo dei passaggi e gli algoritmi di ricerca migliorati per trovare risultati più pertinenti.
 
 **Confronto delle funzioni**
+{: #features-dcs-rr}
 
 | Funzione | {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
@@ -54,7 +67,7 @@ Prima di iniziare l'azione di migrazione, devi prima [valutare](#evaluate) i dat
 
 La maggior parte dei clienti utilizza {{site.data.keyword.documentconversionshort}} insieme a {{site.data.keyword.retrieveandrankshort}}. Se non stai utilizzando {{site.data.keyword.documentconversionshort}} per convertire il contenuto in modo che possa essere archiviato in un indice ricercabile, procedi al controllo delle [opzioni per la migrazione di {{site.data.keyword.documentconversionshort}} autonomo](#dcs).
 
-Se in origine hai utilizzato l'esercitazione {{site.data.keyword.retrieveandrankshort}} e basato la tua istanza del servizio su tale esercitazione, un'estensione dell'esercitazione che inserisce gli stessi dati in {{site.data.keyword.discoveryshort}} può essere trovata [qui](/docs/services/discovery/migrate-rnr-tut.html).
+Se in origine hai utilizzato l'esercitazione {{site.data.keyword.retrieveandrankshort}} e basato la tua istanza del servizio su tale esercitazione, un'estensione dell'esercitazione che inserisce gli stessi dati in {{site.data.keyword.discoveryshort}} può essere trovata [qui](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr).
 
 **Nota:** la funzionalità di conversione e di arricchimento è inclusa con {{site.data.keyword.discoveryshort}}. Se hai utilizzato {{site.data.keyword.documentconversionshort}} e/o {{site.data.keyword.nlushort}} per convertire e arricchire i documenti HTML, PDF o Microsoft Word di origine; questi servizi vengono sostituiti dalle funzioni all'interno del servizio {{site.data.keyword.discoveryshort}}.
 
@@ -73,14 +86,15 @@ Per poter eseguire la migrazione dal contenuto di origine dovrai:
 
 Se puoi soddisfare tutti i criteri di migrazione, ti consigliamo di utilizzare questo metodo per passare al servizio {{site.data.keyword.discoveryshort}}.
 
-Per migrare il tuo contenuto di origine, modifica la procedura descritta nell'[esercitazione di migrazione](/docs/services/discovery/migrate-rnr-tut.html) per soddisfare le specifiche dei tuoi dati di origine.
+Per migrare il tuo contenuto di origine, modifica la procedura descritta nell'[esercitazione di migrazione](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) per soddisfare le specifiche dei tuoi dati di origine.
 
 #### Migrazione delle unità di risposta
+{: #answerunit-dcs-rr}
 
 Se hai creato delle unità di risposta utilizzando {{site.data.keyword.documentconversionshort}} scegli una delle seguenti opzioni per migrare tale contenuto:
 
 -  se hai formato un classificatore e devi migrare la classificazione, devi prendere il contenuto restituito da {{site.data.keyword.documentconversionshort}} e inserirlo in {{site.data.keyword.discoveryshort}}
--  se non hai dati di formazione da migrare, inserisci i documenti di origine iniziali in {{site.data.keyword.discoveryshort}} utilizzando la [funzione di suddivisione del documento](/docs/services/discovery/building.html#doc-segmentation)
+-  se non hai dati di formazione da migrare, inserisci i documenti di origine iniziali in {{site.data.keyword.discoveryshort}} utilizzando la [funzione di suddivisione del documento](/docs/services/discovery?topic=discovery-configservice#doc-segmentation)
 
 ### Migrazione dal contenuto indicizzato
 {: #indexed}
@@ -94,9 +108,10 @@ Devi eseguire la migrazione dal contenuto indicizzato in {{site.data.keyword.ret
 
 I documenti vengono estratti dal servizio utilizzando il metodo [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} utilizzando una query vuota `q=*:*`. Il numero di documenti restituiti potrebbe essere superiore al numero massimo possibile di restituzioni (`200` per la maggior parte delle raccolte). In questo caso, è necessario effettuare più chiamate con l'appropriato [paging ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} per raccogliere tutti i documenti.
 
-I documenti con gli **ID** specificati vengono caricati sul servizio {{site.data.keyword.discoveryshort}} utilizzando il metodo [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window}. Ogni caricamento di documento è una chiamata API separata.
+I documenti con gli **ID** specificati vengono caricati sul servizio {{site.data.keyword.discoveryshort}} utilizzando il metodo [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window}. Ogni caricamento di documento è una chiamata API separata.
 
 ## Migrazione dei dati di formazione
+{: #trainingdata-dcs-rr}
 
 Dopo aver migrato i tuoi risultati, il passo successivo è quello di migrare i dati di formazione che sono stati creati per il contenuto. Esistono due opzioni per migrare i dati di formazione: migrazione dall'origine (`csv`) e migrazione dal servizio. Se hai caricato i dati di formazione da un file `csv` e hai ancora accesso a quel file, devi eseguire la migrazione dall'origine. Se hai utilizzato la strumentazione {{site.data.keyword.retrieveandrankshort}} o non hai accesso al file `csv` originale devi eseguire la migrazione dal servizio.
 
@@ -110,7 +125,7 @@ Per poter eseguire la migrazione dal contenuto di origine della classificazione 
 
 Se puoi soddisfare tutti i criteri di migrazione, ti consigliamo di utilizzare questo metodo per passare la formazione al servizio {{site.data.keyword.discoveryshort}}.
 
-Per migrare i tuoi dati di formazione, modifica la procedura descritta nell'[esercitazione di migrazione](/docs/services/discovery/migrate-rnr-tut.html) per soddisfare le specifiche dei tuoi dati di origine.
+Per migrare i tuoi dati di formazione, modifica la procedura descritta nell'[esercitazione di migrazione](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) per soddisfare le specifiche dei tuoi dati di origine.
 
 ### Migrazione dei dati di formazione dal servizio
 {: #extract-train}
@@ -236,7 +251,7 @@ Ad esempio, il precedente **Esempio di dati di formazione {{site.data.keyword.re
 ## Supporto linguistico
 {: #language}
 
-Consulta la [tabella di supporto linguistico per {{site.data.keyword.discoveryshort}}](/docs/services/discovery/language-support.html). Le funzioni di {{site.data.keyword.retrieveandrankshort}} sono principalmente supportate dal supporto linguistico **Di base** {{site.data.keyword.discoveryshort}}.
+Consulta la [tabella di supporto linguistico per {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-language-support#language-support). Le funzioni di {{site.data.keyword.retrieveandrankshort}} sono principalmente supportate dal supporto linguistico **Di base** {{site.data.keyword.discoveryshort}}.
 
 ## Migrazione delle query
 {: #queries}
@@ -251,7 +266,7 @@ Il linguaggio di query {{site.data.keyword.discoveryfull}} è diverso dal lingua
 | `:` | `:` | Include |
 |  | `::` | Corrispondenza esatta |
 | `-{fieldname}:` | `:!` | Non include |
-|  | `::!` | Non è una corrispondenza esatta |
+|  | `::!` | Non una corrispondenza esatta |
 | ``\` | ``\` | Carattere di escape |
 | `""` | `""` | Query di frasi |
 | `()` | `()`, `[]` | Raggruppamento nidificato |
@@ -262,12 +277,12 @@ Il linguaggio di query {{site.data.keyword.discoveryfull}} è diverso dal lingua
 | `*` | `*` | Carattere jolly |
 | `~`(da 0 a 1) | [~n] | Variazione di stringa |
 
-Consulta la documentazione [Concetti delle query](/docs/services/discovery/using.html) e [Guida di riferimento per le query](/docs/services/discovery/query-reference.html) per informazioni dettagliate sul linguaggio di query {{site.data.keyword.discoveryfull}}.
+Consulta la documentazione [Concetti delle query](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) e [Guida di riferimento per le query](/docs/services/discovery?topic=discovery-query-reference#query-reference) per informazioni dettagliate sul linguaggio di query {{site.data.keyword.discoveryfull}}.
 
 
 ## Migrazione del servizio Watson Document Conversion autonomo
 {: #dcs}
 
-Se stai utilizzando {{site.data.keyword.documentconversionshort}} per inserire il contenuto in {{site.data.keyword.retrieveandrankshort}}, allora tale funzionalità si è evoluta in un unico servizio - {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} ti consente di convertire, arricchire e inserire i documenti Microsoft Word, PDF, HTML e JSON facilmente in un indice ricercabile e formabile. Questa sezione è importante se il tuo caso di utilizzo non implica l'archiviazione del contenuto convertito in un indice. Se stai inserendo i documenti in un indice, consulta [inserimento nel servizio {{site.data.keyword.discoveryshort}}](/docs/services/discovery/building.html).
+Se stai utilizzando {{site.data.keyword.documentconversionshort}} per inserire il contenuto in {{site.data.keyword.retrieveandrankshort}}, allora tale funzionalità si è evoluta in un unico servizio - {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} ti consente di convertire, arricchire e inserire i documenti Microsoft Word, PDF, HTML e JSON facilmente in un indice ricercabile e formabile. Questa sezione è importante se il tuo caso di utilizzo non implica l'archiviazione del contenuto convertito in un indice. Se stai inserendo i documenti in un indice, vedi il documento relativo all'[inserimento nel servizio {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configservice#configservice).
 
 IBM non fornisce più un servizio progettato per la conversione autonoma dei documenti Microsoft Word, PDF e HTML. Se al momento stai utilizzando il servizio {{site.data.keyword.documentconversionshort}} e non inserisci l'output in un servizio indicizzato online (come ad esempio {{site.data.keyword.discoveryshort}}), ti consigliamo di prendere in considerazione la migrazione a un open source alternativo come [Apache Tika ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://tika.apache.org/){: new_window}.
