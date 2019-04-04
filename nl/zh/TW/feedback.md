@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-09-17"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 使用情形監視
 {: #usage}
 
-您可以監視及追蹤 {{site.data.keyword.discoveryshort}} 實例的使用情形，並使用此資料來協助您瞭解及改善應用程式。[事件 API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} 可用來建立與特定自然語言查詢和動作相關聯的日誌項目。例如，您可以記錄使用者「點按」了結果集裡的哪些文件，以及何時進行點按。
+您可以監視及追蹤 {{site.data.keyword.discoveryshort}} 實例的使用情形，並使用此資料來協助您瞭解及改善應用程式。[事件 API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#create-event){: new_window} 可用來建立與特定自然語言查詢和動作相關聯的日誌項目。例如，您可以記錄使用者「點按」了結果集裡的哪些文件，以及何時進行點按。
 
 **附註：**僅針對專用資料集合的自然語言查詢監視日誌和事件。並不會在 {{site.data.keyword.discoverynewsfull}} 上收集任何日誌。
 
@@ -44,7 +56,7 @@ lastupdated: "2018-09-17"
 - offset
 - version
 
-如需參數功能和語法的其他詳細資料，請參閱[查詢參數](/docs/services/discovery/query-parameters.html)。
+如需參數功能和語法的其他詳細資料，請參閱[查詢參數](/docs/services/discovery?topic=discovery-query-parameters#query-parameters)。
 
 搜尋日誌中包含 "train" 一詞之自然語言查詢的範例：
 
@@ -84,10 +96,10 @@ lastupdated: "2018-09-17"
 ```
 
 透過查詢日誌，您可以調查傳回給一般使用者的結果類型，並探索如何利用 {{site.data.keyword.discoveryshort}} 中提供的方法來改善結果品質。例如： 
-- 相關性訓練，請參閱[利用 API 來改善結果相關性](/docs/services/discovery/train.html)及[利用工具來改善結果相關性](/docs/services/discovery/train-tooling.html)
-- [查詢運算子](/docs/services/discovery/query-operators.html)
-- [查詢擴展](/docs/services/discovery/using.html#query-expansion)
-- 自訂配置，請參閱[配置參考資料](/docs/services/discovery/custom-config.html)
+- 相關性訓練，請參閱[利用 API 來改善結果相關性](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api)及[利用工具來改善結果相關性](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling)
+- [查詢運算子](/docs/services/discovery?topic=discovery-query-operators#query-operators)
+- [查詢擴展](/docs/services/discovery?topic=discovery-query-concepts#query-expansion)
+- 自訂配置，請參閱[配置參考資料](/docs/services/discovery?topic=discovery-configref#configref)
 
 ## 建立事件日誌
 {: #eventlogs}
@@ -103,6 +115,6 @@ lastupdated: "2018-09-17"
 `"matching_results": 179,`
 `"session_token": "1_LKczxWGEWx59fYD0_VV8HFUpb6"`
 
-若要記錄事件，請對 `/api/v1/events` 端點發出 POST。如需詳細資料，請參閱[事件 API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window}。
+若要記錄事件，請對 `/api/v1/events` 端點發出 POST。如需詳細資料，請參閱[事件 API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#create-event){: new_window}。
 
 記錄事件之後，可以使用 `/api/v1/logs` 端點將它再讀取出來。請使用 `session_token`，將事件加入至相關聯的查詢中。

@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-08"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 配置服務
 {: #configservice}
@@ -25,17 +37,17 @@ lastupdated: "2018-07-03"
 
 在將您自己的內容新增至 {{site.data.keyword.discoveryshort}} 服務之前，您應該配置該服務依您想要的方式來處理此內容。
 
-首要步驟是配置該服務的基本參數（[為您的文件準備服務](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)），這包括建立環境，以及在該環境內建立一個以上的集合。當建立集合時，會自動提供一組預設值（[預設配置](/docs/services/discovery/building.html#the-default-configuration)）。如果您對這些預設值感到滿意，則可以繼續上傳內容（[新增內容](/docs/services/discovery/adding-content.html)）。
+首要步驟是配置該服務的基本參數（[為您的文件準備服務](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)），這包括建立環境，以及在該環境內建立一個以上的集合。 
 
-不過，您很可能想要指定一個以上的自訂配置（請參閱[當您需要自訂配置時](/docs/services/discovery/building.html#when-you-need-a-custom-configuration)）。如果是這種情況，您必須執行下列動作：
+如果您的集合是在導入[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前建立的，您可能會想要指定一或多個的自訂配置（請參閱[當您需要自訂配置時](/docs/services/discovery?topic=discovery-configservice#when-you-need-a-custom-configuration)）。如果是這種情況，您必須執行下列動作：
 
 -   識別某些範例內容（代表您檔案的文件）
--   上傳內容（[（上傳範例文件](/docs/services/discovery/building.html#uploading-sample-documents)）
--   調整轉換處理程序（[轉換範例文件](/docs/services/discovery/building.html#converting-sample-documents)）
--   定義強化（[新增強化](/docs/services/discovery/building.html#adding-enrichments)）
--   將結果正規化（[將資料正規化](/docs/services/discovery/building.html#normalizing-data)）
+-   上傳內容（[（上傳範例文件](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents)）
+-   調整轉換處理程序（[轉換範例文件](/docs/services/discovery?topic=discovery-configservice#converting-sample-documents)）
+-   定義強化（[新增強化](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)）
+-   將結果正規化（[將資料正規化](/docs/services/discovery?topic=discovery-configservice#normalizing-data)）
 
-    建立自訂配置之後，您可以上傳文件（[新增內容](/docs/services/discovery/adding-content.html)）。
+    建立自訂配置之後，您可以上傳文件（[新增內容](/docs/services/discovery?topic=discovery-addcontent#addcontent)）。
 
 ## 為您的文件準備服務
 {: #preparing-the-service-for-your-documents}
@@ -44,27 +56,33 @@ lastupdated: "2018-07-03"
 
 -   **環境** - 環境定義您在 {{site.data.keyword.discoveryshort}} 服務中提供給內容的儲存空間數量。對於 {{site.data.keyword.discoveryshort}} 服務的每一個實例，最多只能建立一個環境。
 
-    有幾個方案（精簡、進階、超值）可供您選擇，如需詳細資訊，請參閱 [{{site.data.keyword.discoveryshort}} 型錄 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} 及 [{{site.data.keyword.discoveryshort}} 定價方案](/docs/services/discovery/pricing-details.html)。您的原始檔不計入檔案大小限制，只有所檢索之已轉換 JSON 的大小才會計入大小限制。
+    有幾個方案（精簡、進階、超值）可供您選擇，如需詳細資訊，請參閱 [{{site.data.keyword.discoveryshort}} 型錄 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/services/discovery){: new_window} 及 [{{site.data.keyword.discoveryshort}} 定價方案](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans)。您的原始檔不計入方案大小限制，只有所檢索之已轉換 JSON 的大小才會計入大小限制。
 
 -   **集合** - 集合是您環境內的內容分組。您必須至少建立一個集合，才能上傳內容。
 
-    集合包含您的專用資料，但 {{site.data.keyword.discoveryshort}} 還包括 {{site.data.keyword.discoverynewsshort}} 這個預先強化的公用資料集。您可以使用它來查詢見解；例如：新聞警示、事件偵測及新聞中的熱門話題；您可以將其整合到應用程式中。
+    集合包含您的專用資料，但 {{site.data.keyword.discoveryshort}} 還包括 {{site.data.keyword.discoverynewsshort}} 這個預先強化的公用資料集。 
 
-    {{site.data.keyword.discoverynewsshort}} 是一個已利用認知見解預先強化的公用資料集，它也隨附於 {{site.data.keyword.discoveryshort}} 中。如需相關資訊，請參閱 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news)。您無法調整 {{site.data.keyword.discoverynewsshort}} 配置，或將文件新增至此集合中。請參閱[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://discovery-news-demo.ng.bluemix.net/){: new_window}，它示範使用 {{site.data.keyword.discoverynewsshort}} 可建置的內容。
+    {{site.data.keyword.discoverynewsshort}} 是一個已利用認知見解預先強化的公用資料集，它也隨附於 {{site.data.keyword.discoveryshort}} 中。您可以使用它來查詢見解；例如：新聞警示、事件偵測及新聞中的熱門話題；您可以將其整合到應用程式中。如需相關資訊，請參閱 [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news)。您無法調整 {{site.data.keyword.discoverynewsshort}} 配置，或將文件新增至此集合中。請參閱[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://discovery-news-demo.ng.bluemix.net/){: new_window}，它示範使用 {{site.data.keyword.discoverynewsshort}} 可建置的內容。
 
 若要使用 {{site.data.keyword.discoveryshort}} 工具來建立環境及專用資料集合，請執行下列動作：
 
-1.  在**管理資料**畫面上，按一下 ![齒輪](images/icon_settings.png) 圖示，並選擇**建立環境**。環境會根據您先前選取的 {{site.data.keyword.Bluemix_notm}} 方案而建立。一律可從這個下拉清單取得環境的狀態。
+1.  在**管理資料**畫面上，按一下右上方的 ![環境](images/icon_settings.png) 圖示，然後選擇**建立環境**。環境會根據您先前選取的 {{site.data.keyword.Bluemix_notm}} 方案而建立。一律可從這個下拉清單取得環境的狀態。
 
 1.  當環境備妥後，請按一下**上傳您自己的資料**按鈕，然後您可以**命名您的新集合**。
 
-    依預設，此配置檔將是 **Default Configuration**。如果您有另一個可用的配置檔，則可以選擇它，也可以稍後再建立新的配置檔，並將它套用至此集合。您也可以選取將新增至此集合的文件語言：英文、德文、西班牙文、阿拉伯文、日文、法文、義大利文、韓文或巴西葡萄牙文。每一個集合只能有一種語言。按一下**建立**之後，您的資料集合將顯示為磚。
+     您可以選取要新增至此集合的文件語言：英文、德文、西班牙文、阿拉伯文、日文、法文、義大利文、韓文或巴西葡萄牙文。每一個集合只能有一種語言。按一下**建立**之後，您的資料集合將顯示為磚。
 
-您的環境及資料集合已備妥！如果您要使用預設配置檔，就可以立即開始[新增內容](/docs/services/discovery/adding-content.html)。但是，如果您要使用其他的強化和轉換設定來自訂您的 {{site.data.keyword.discoveryshort}} 配置，就不應該立即開始新增文件，而應該開始建立自訂配置檔。請參閱[配置服務](/docs/services/discovery/building.html#custom-configuration)。
+您的環境及資料集合已備妥！您可以立即開始[新增內容](/docs/services/discovery?topic=discovery-addcontent#addcontent)。 
 
-**附註：**當文件上傳至資料集合時，會使用針對該集合所選擇的配置檔來轉換及強化文件。如果您稍後決定將集合切換至不同的配置檔，則可以執行該動作，但已上傳的文件仍透過原始配置檔轉換。在切換配置檔之後上傳的所有文件都會使用新的配置檔。如果您想要**整個**集合使用新的配置，則需要建立新的集合、選擇新的配置檔，然後重新上傳所有文件。{{site.data.keyword.discoveryshort}} 服務會儲存您所上傳文件的已轉換文字，但不會儲存 **PDF** 和 **Microsoft Word** 檔案中的內嵌影像，而且在結果中不會傳回它們。
+不過，如果您要使用其他的強化和轉換設定來自訂您的 {{site.data.keyword.discoveryshort}} 配置，就不應該立即開始新增文件，而應該開始建立自訂配置檔。請參閱[配置服務](/docs/services/discovery?topic=discovery-configservice#custom-configuration)。
 
-您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 來搜索 Box、Salesforce 及 Microsoft SharePoint Online 資料來源。如需相關資訊，請參閱[連接至資料來源](/docs/services/discovery/connect.html)。
+如果您的集合是使用[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)來建立的，您可能會比較想要使用 {{site.data.keyword.discoveryshort}} 工具來調整強化。
+{: note}
+
+針對在「智慧型文件理解」版本之前建立的集合：當文件上傳至資料集合時，會使用針對該集合所選取的配置檔來轉換及強化文件。如果您稍後決定您想要變更配置檔，您可以這麼做，但已上傳的文件仍是以原始配置來轉換。在切換配置檔之後上傳的所有文件都會使用新的配置檔。如果您想要**整個**集合使用新的配置，則需要建立新的集合、選擇新的配置檔，然後重新上傳所有文件。{{site.data.keyword.discoveryshort}} 服務會儲存您所上傳文件的已轉換文字，但不會儲存 **PDF** 和 **Microsoft Word** 檔案中的內嵌影像，而且在結果中不會傳回它們。如果您的集合是使用[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)，當您按一下**套用變更至集合**按鈕時，對 {{site.data.keyword.discoveryshort}} 中之強化和轉換所做的任何變更都會套用至整個集合。如果您的集合很大，套用變更可能會需要一些時間。  
+{: important}
+
+您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 來搜索 Box、Salesforce、Microsoft SharePoint Online、IBM Cloud Object Storage 和 Microsoft SharePoint 2016 資料來源，或是執行 Web 搜索。如需相關資訊，請參閱[連接至資料來源](/docs/services/discovery?topic=discovery-sources#sources)。
 {: tip}
 
 ### 預設配置
@@ -72,44 +90,58 @@ lastupdated: "2018-07-03"
 
 {{site.data.keyword.discoveryshort}} 服務包含標準配置，它將轉換、強化及正規化資料，而不需要您手動配置這些選項。
 
-名稱為 **Default Configuration** 的預設配置包含強化功能，以及根據字型樣式和大小的標準文件轉換。{{site.data.keyword.discoveryshort}} 將透過四個 {{site.data.keyword.watson}} 強化（「實體擷取」、「觀感分析」、「種類分類」及「概念標記」）所收集到的語意資訊來強化（新增認知 meta 資料至）文件的文字欄位（[這裡](/docs/services/discovery/building.html#adding-enrichments)可讓您進一步瞭解它們）。
+只有在[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)版本之前建立的集合中，才會有 **Default Configuration** 檔案。不過，使用「智慧型文件理解」時，您的集合中預設會使用相同的強化，以及 HTML 和 JSON 轉換。
+{: note}
 
--   [Microsoft Word 轉換](/docs/services/discovery/building.html#microsoft-word-conversion)
--   [PDF 轉換](/docs/services/discovery/building.html#pdf-conversion)
--   [HTML 轉換](/docs/services/discovery/building.html#html-conversion)
--   [JSON 轉換](/docs/services/discovery/building.html#json-conversion)
+當您建立集合時，{{site.data.keyword.discoveryshort}} 會透過四個 {{site.data.keyword.watson}} 強化（「實體擷取」、「觀感分析」、「種類分類」及「概念標記」）所收集到的語意資訊來強化（新增認知 meta 資料至）文件的 `text` 欄位（按一下[這裡](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)以進一步瞭解）。另外，也會套用以字型樣式和大小為依據的標準文件轉換。您稍後可以使用**概觀**標籤來調整強化。（在[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)版本之前建立的集合中，此配置名為 **Default Configuration**）。
 
-{{site.data.keyword.discoveryshort}} 工具提供名稱為 **Default Contract Configuration** 的第二個預設配置。它配置為使用「元素分類」來強化，您可利用該分類從 PDF 中的元素擷取參與方、本質及種類。如需詳細資料，請參閱[元素分類](/docs/services/discovery/element-classification.html#element-collection)。
+預設轉換：
 
-如果您想建立自訂配置，請參閱[自訂配置](/docs/services/discovery/building.html#custom-configuration)。
+-   [Microsoft Word 轉換](/docs/services/discovery?topic=discovery-configservice#microsoft-word-conversion)
+-   [PDF 轉換](/docs/services/discovery?topic=discovery-configservice#pdf-conversion)
+-   [HTML 轉換](/docs/services/discovery?topic=discovery-configservice#html-conversion)
+-   [JSON 轉換](/docs/services/discovery?topic=discovery-configservice#json-conversion)
+
+當您使用 {{site.data.keyword.discoveryshort}} 工具來建立集合時，可使用名為 **Default Contract Configuration** 的配置。它配置為使用「元素分類」來強化，您可利用該分類從 PDF 中的元素擷取參與方、本質及種類。如需詳細資料，請參閱[元素分類](/docs/services/discovery?topic=discovery-element-classification#element-collection)。如果使用此配置檔，則無法使用「智慧型文件理解」。
+
+如果您想要為在[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)版本之前建立的集合，建立自訂配置，請參閱[自訂配置](/docs/services/discovery?topic=discovery-configservice#custom-configuration)。
 
 ### 當您需要自訂配置時
 {: #when-you-need-a-custom-configuration}
 
+此資訊僅適用於在[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)版本之前建立的集合。
+{: note}
+
 從您的內容中取出正確的資訊，並將它傳回給您的使用者，這是 {{site.data.keyword.discoveryshort}} 服務的目標。識別資訊的內容，以及資訊儲存在內容中的方式，是由您用來汲取內容的配置所定義。{{site.data.keyword.discoveryshort}} 服務可以汲取的內容類型有彈性，也就是說，即使您的未結構化內容是以特定格式儲存，該內容的結構也不需要符合相同類型之其他內容的結構。
 
 -   **我瞭解無法以預設配置所預期的方式來建構我的文件。*我如何知道預設值是否適合我？***
-    -   要知道預設值是否適合您，最簡單的方法是透過[上傳範例文件](/docs/services/discovery/building.html#uploading-sample-documents)來測試它。如果範例 JSON 結果符合您的預期，則不需要其他配置。
+    -   要知道預設值是否適合您，最簡單的方法是透過[上傳範例文件](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents)來測試它。如果範例 JSON 結果符合您的預期，則不需要其他配置。
 -   **我瞭解預設的強化會新增至我的文件的文字欄位。我可以將其他強化新增至其他欄位嗎？**
-    -   當然，您可以將其他強化新增至您想要的任意數目的欄位。如需詳細資料，請參閱[新增強化](/docs/services/discovery/building.html#adding-enrichments)。
+    -   當然，您可以將其他強化新增至您想要的任意數目的欄位。如需詳細資料，請參閱[新增強化](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)。
 
 ## 自訂配置
 {: #custom-configuration}
 
+此資訊僅適用於在[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)版本之前建立的集合。
+{: note}
+
 若要在 {{site.data.keyword.discoveryshort}} 工具中建立自訂配置，請開啟「專用」資料集合，並在**管理資料**畫面上，按一下**配置**名稱旁的**切換**。在**切換配置**對話框上，按一下**建立新的配置**。
 
-為新的配置檔命名之後，該名稱會顯示在配置畫面的頂端。這個新的配置檔會自動包含[預設配置](/docs/services/discovery/building.html#the-default-configuration)檔案的設定及強化，讓您能夠開始進行。
+為新的配置檔命名之後，該名稱會顯示在配置畫面的頂端。這個新的配置檔會自動包含[預設配置](/docs/services/discovery?topic=discovery-configservice#the-default-configuration)檔案的設定及強化，讓您能夠開始進行。
 
 自訂配置檔的三個步驟如下：**轉換**、**強化**及**正規化**。
 
-1.  [轉換範例文件](/docs/services/discovery/building.html#converting-sample-documents)
-1.  [新增強化](/docs/services/discovery/building.html#adding-enrichments)
-1.  [將資料正規化](/docs/services/discovery/building.html#normalizing-data)
+1.  [轉換範例文件](/docs/services/discovery?topic=discovery-configservice#converting-sample-documents)
+1.  [新增強化](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)（使用「智慧型文件配置」時，才可使用此標籤。）
+1.  [將資料正規化](/docs/services/discovery?topic=discovery-configservice#normalizing-data)
 
-如需配置的詳細資訊，請參閱[配置參考資料](/docs/services/discovery/custom-config.html)。
+如需配置的詳細資訊，請參閱[配置參考資料](/docs/services/discovery?topic=discovery-configref#configref)。
 
 ### 上傳範例文件
 {: #uploading-sample-documents}
+
+此資訊僅適用於在[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)版本之前建立的集合。
+{: note}
 
 為了讓配置處理程序更有效率，您可以上傳多達 10 個 Microsoft Word、HTML、JSON 或 PDF 檔，來代表您的文件集。這些稱為**範例文件**。範例文件不會新增至集合中，它們只會用來識別文件的一般欄位，並根據您的需求自訂那些欄位。
 
@@ -132,9 +164,12 @@ lastupdated: "2018-07-03"
 ### 轉換範例文件
 {: #converting-sample-documents}
 
+此資訊僅適用於在[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)版本之前建立的集合。
+{: note}
+
 轉換範例文件的處理程序可讓您定義如何處理每一種輸入類型。您所上傳內容的檔案類型會指定您必須考量的轉換步驟數目。
 
-開始之前，請[上傳範例文件](/docs/services/discovery/building.html#uploading-sample-documents)，並在右側窗格中開啟您要配置之檔案類型的範例文件。
+開始之前，請[上傳範例文件](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents)，並在右側窗格中開啟您要配置之檔案類型的範例文件。
 
 若要瀏覽一遍「轉換」設定，請按一下全部的檔案類型。
 
@@ -208,28 +243,31 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ## 新增強化
 {: #adding-enrichments}
 
-{{site.data.keyword.discoveryshort}} [預設配置](/docs/services/discovery/building.html#the-default-configuration)將透過這四個 {{site.data.keyword.watson}} 功能（「實體擷取」、「觀感分析」、「種類分類」及「概念標記」）所收集的語意資訊來強化（新增認知 meta 資料至）所汲取文件的 `text` 欄位。（總共有九個可用的 {{site.data.keyword.watson}} 強化；其他是「關鍵字擷取」、「關係擷取」、「情緒分析」、「元素分類」及「語意角色擷取」。）
+{{site.data.keyword.discoveryshort}} [預設配置](/docs/services/discovery?topic=discovery-configservice#the-default-configuration)將透過這四個 {{site.data.keyword.watson}} 功能（「實體擷取」、「觀感分析」、「種類分類」及「概念標記」）所收集的語意資訊來強化（新增認知 meta 資料至）所汲取文件的 `text` 欄位。（總共有九個可用的 {{site.data.keyword.watson}} 強化；其他是「關鍵字擷取」、「關係擷取」、「情緒分析」、「元素分類」及「語意角色擷取」。）
 
 某些 {{site.data.keyword.watson}} 強化可能不適用於特定方案或環境。
 
-**重要事項：**針對所選取要強化的每一個 JSON 欄位，只會強化前 50,000 個字元。
+您也可以將 {{site.data.keyword.knowledgestudiofull}} 的一或多個自訂模型與 {{site.data.keyword.discoveryshort}} 服務整合，以提供自訂實體和關係強化。請參閱[與 Watson Knowledge Studio 整合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。
 
-**附註：**{{site.data.keyword.alchemylanguageshort}} 強化在 2018 年 3 月 1 日已淘汰。如果您有任何現有集合仍使用 {{site.data.keyword.alchemylanguageshort}} 強化，您必須移轉至 {{site.data.keyword.nlushort}} 強化。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化之現有集合及配置檔的相關資訊，請參閱[將強化移轉至 {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html)。
+針對所選取要強化的每個 JSON 欄位，只會強化前 50,000 個字元。
+{: important}
 
-您可以進一步擴增文件，方法是將更多的強化新增至 `text` 欄位，或強化其他欄位。若要使用 {{site.data.keyword.discoveryshort}} 工具來達成此目的，請[建立自訂配置](/docs/services/discovery/building.html#custom-configuration)，選擇您要強化的欄位，並從可用的 {{site.data.keyword.nlushort}} 強化清單中進行選取：
+**附註：**{{site.data.keyword.alchemylanguageshort}} 強化在 2018 年 3 月 1 日已淘汰。如果您有任何現有集合仍使用 {{site.data.keyword.alchemylanguageshort}} 強化，您必須移轉至 {{site.data.keyword.nlushort}} 強化。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化之現有集合及配置檔的相關資訊，請參閱[將強化移轉至 {{site.data.keyword.nlushort}}](/docs/services/discovery?topic=discovery-migrate-nlu#migrate-nlu)。
+
+您可以進一步擴增文件，方法是將更多的強化新增至 `text` 欄位，或強化其他欄位。若要在 {{site.data.keyword.discoveryshort}} 工具中使用「智慧型文件理解」來執行此作業，請開啟**強化欄位**標籤。若要為在「智慧型文件理解」之前建立的集合執行此作業，請[建立自訂配置](/docs/services/discovery?topic=discovery-configservice#custom-configuration)，選擇您要強化的欄位，並從可用的 {{site.data.keyword.nlushort}} 強化清單中選取適用選項：
 
 ### 實體擷取
 {: #entity-extraction}
 
-傳回在輸入文字中呈現的項目，例如人員、位置及組織。實體擷取會將語意知識新增至內容，以協助瞭解所分析文字的主旨及上下文。實體擷取技術是以更準確的統計演算法和自然語言處理程序技術為基礎，憑藉其對多國語言分析和上下文相關釐清的支援，在業界獨一無二。請在[這裡](/docs/services/discovery/entity-types.html)檢視實體類型及子類型的完整清單。您也可以使用 {{site.data.keyword.knowledgestudiofull}} 來建立及新增[自訂實體模型](/docs/services/discovery/building.html#custom-entity-model)。
+傳回在輸入文字中呈現的項目，例如人員、位置及組織。實體擷取會將語意知識新增至內容，以協助瞭解所分析文字的主旨及上下文。實體擷取技術是以更準確的統計演算法和自然語言處理程序技術為基礎，憑藉其對多國語言分析和上下文相關釐清的支援，在業界獨一無二。請在[這裡](/docs/services/discovery?topic=discovery-entity-types-and-subtypes#entity-types-and-subtypes)檢視實體類型及子類型的完整清單。您也可以使用 {{site.data.keyword.knowledgestudiofull}} 來建立及新增[自訂實體模型](/docs/services/discovery?topic=discovery-configservice#custom-entity-model)。
 
 使用「實體擷取」強化的文件的部分範例：
 
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-        "entities": [
+      "enriched_text": {
+      "entities": [
     {
       "count": 1,
            "sentiment": {
@@ -281,31 +319,31 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
 在前述範例中，您可以透過存取 `enriched_text.entities.type` 來查詢實體類型
 
-即使未選取**觀感**強化，也會計算實體類型的 `sentiment`。若要進一步瞭解觀感評分，請參閱[觀感分析](/docs/services/discovery/building.html#sentiment-analysis)。
+即使未選取**觀感**強化，也會計算實體類型的 `sentiment`。若要進一步瞭解觀感評分，請參閱[觀感分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)。
 
 `relevance` 評分範圍是從 `0.0` 到 `1.0`。評分越高，實體的相關性就越高。`disambiguation` 欄位包含實體的釐清資訊，其中包括實體 `subtype` 資訊，以及資源的鏈結（適用的話）。`count` 是文件中提及實體的次數。
 
 #### 使用自訂實體模型
 {: #custom-entity-model}
 
-如果您要建立自訂強化模型，則可以在 {{site.data.keyword.knowledgestudiofull}} 中執行這個動作，然後透過在 {{site.data.keyword.discoveryshort}} 工具的`自訂模型 ID` 方框中新增 ID，將模型匯入至 {{site.data.keyword.discoveryshort}}。如需與 {{site.data.keyword.knowledgestudiofull}} 整合的相關資訊，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio)。自訂 {{site.data.keyword.knowledgestudiofull}} 模型會置換預設的「實體擷取」強化。
+如果您要建立自訂強化模型，則可以在 {{site.data.keyword.knowledgestudiofull}} 中執行這個動作，然後透過在 {{site.data.keyword.discoveryshort}} 工具的`自訂模型 ID` 方框中新增 ID，將模型匯入至 {{site.data.keyword.discoveryshort}}。如需與 {{site.data.keyword.knowledgestudiofull}} 整合的相關資訊，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。自訂 {{site.data.keyword.knowledgestudiofull}} 模型會置換預設的「實體擷取」強化。
 
 **附註：**只能對強化指派一個 {{site.data.keyword.knowledgestudiofull}} 模型。
 
 ### 關係擷取
 {: #relation-extraction}
 
-辨識兩個實體何時相關，並識別關係的類型。您也可以使用 {{site.data.keyword.knowledgestudiofull}} 來建立及新增[自訂關係模型](/docs/services/discovery/building.html#custom-relation-model)。
+辨識兩個實體何時相關，並識別關係的類型。您也可以使用 {{site.data.keyword.knowledgestudiofull}} 來建立及新增[自訂關係模型](/docs/services/discovery?topic=discovery-configservice#custom-relation-model)。
 
-請在[這裡](/docs/services/discovery/relation-types.html)檢視關係類型的完整清單。
+請在[這裡](/docs/services/discovery?topic=discovery-relation-types#relation-types)檢視關係類型的完整清單。
 
 使用「關係擷取」強化的文件的部分範例：
 
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-        "relations": [
+      "enriched_text": {
+      "relations": [
       {
         "type": "locatedAt",
         "sentence": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
@@ -347,14 +385,14 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
 在前述範例中，您可以透過存取 `enriched_text.relations.type` 來查詢關係類型。
 
-相關實體會列在 `arguments` 中。您可以在[這裡](/docs/services/discovery/relation-types.html#specific-entity-types)找到「關係擷取」強化可以識別的實體類型。
+相關實體會列在 `arguments` 中。您可以在[這裡](/docs/services/discovery?topic=discovery-relation-types#specific-entity-types)找到「關係擷取」強化可以識別的實體類型。
 
 `score` 範圍是從 `0.0` 到 `1.0`。評分越高，關係的相關性就越高。
 
 #### 使用自訂關係模型
 {: #custom-relation-model}
 
-如果您要建立自訂強化模型，則可以在 {{site.data.keyword.knowledgestudiofull}} 中執行這個動作，然後透過在 {{site.data.keyword.discoveryshort}} 工具的`自訂模型 ID` 方框中新增 ID，將模型匯入至 {{site.data.keyword.discoveryshort}}。如需與 {{site.data.keyword.knowledgestudiofull}} 整合的相關資訊，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio)。自訂 {{site.data.keyword.knowledgestudiofull}} 模型會置換預設的「關係擷取」強化。
+如果您要建立自訂強化模型，則可以在 {{site.data.keyword.knowledgestudiofull}} 中執行這個動作，然後透過在 {{site.data.keyword.discoveryshort}} 工具的`自訂模型 ID` 方框中新增 ID，將模型匯入至 {{site.data.keyword.discoveryshort}}。如需與 {{site.data.keyword.knowledgestudiofull}} 整合的相關資訊，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。自訂 {{site.data.keyword.knowledgestudiofull}} 模型會置換預設的「關係擷取」強化。
 
 **附註：**只能對強化指派一個 {{site.data.keyword.knowledgestudiofull}} 模型。
 
@@ -368,8 +406,8 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ```json
   {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-        "keywords": [
+      "enriched_text": {
+      "keywords": [
         {
           "text": "Acme Corporation",
           "sentiment": {
@@ -420,21 +458,22 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
 在前述範例中，您可以透過存取 `enriched_text.keywords.text` 來查詢關鍵字
 
-即使未選取**觀感**強化，也會計算關鍵字的 `sentiment`。若要進一步瞭解觀感評分，請參閱[觀感分析](/docs/services/discovery/building.html#sentiment-analysis)。
+即使未選取**觀感**強化，也會計算關鍵字的 `sentiment`。若要進一步瞭解觀感評分，請參閱[觀感分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)。
 
 `relevance` 評分範圍是從 `0.0` 到 `1.0`。評分越高，關鍵字的相關性就越高。
 
 ### 種類分類
+{: #category-classification}
 
-將輸入文字、HTML 或 Web 型內容分類為多達五個層次的階層式分類架構。更深入的層次可讓您將內容分類為更精確且有用的子區段。請在[這裡](/docs/services/discovery/categories.html)檢視種類的完整清單。
+將輸入文字、HTML 或 Web 型內容分類為多達五個層次的階層式分類架構。更深入的層次可讓您將內容分類為更精確且有用的子區段。請在[這裡](/docs/services/discovery?topic=discovery-cathierarchy#cathierarchy)檢視種類的完整清單。
 
 使用「種類分類」強化的文件的部分範例：
 
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-        "categories": [
+      "enriched_text": {
+      "categories": [
         {
           "score": 0.361614,
           "label": "/business and industrial"
@@ -465,8 +504,8 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-        "concepts": [
+      "enriched_text": {
+      "concepts": [
         {
           "text": "Acme Corporation",
           "relevance": 0.91136,
@@ -486,6 +525,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 `relevance` 評分範圍是從 `0.0` 到 `1.0`。評分越高，概念的相關性就越高。有提供資源的鏈結（適用的話）。
 
 ### 語意角色擷取
+{: #semantic-role-extraction}
 
 識別輸入內容中句子內的主旨、動作及物件關係。關係資訊可用來自動識別購買信號、重要事件及其他重要動作。
 
@@ -569,7 +609,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
 在前述範例中，您可以透過存取 `enriched_text.relations.subject.text` 來查詢關係主旨文字
 
-即使未選取**觀感**強化，也會計算關係的 `sentiment`。若要進一步瞭解觀感評分，請參閱[觀感分析](/docs/services/discovery/building.html#sentiment-analysis)。除非您也選取**實體**和**關鍵字**強化，否則它不會擷取 `entities` 或 `keywords`（如下列範例所示）。如需那些強化的相關資訊，請參閱[實體擷取](/docs/services/discovery/building.html#entity-extraction)及[關鍵字擷取](/docs/services/discovery/building.html#keyword-extraction)。
+即使未選取**觀感**強化，也會計算關係的 `sentiment`。若要進一步瞭解觀感評分，請參閱[觀感分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)。除非您也選取**實體**和**關鍵字**強化，否則它不會擷取 `entities` 或 `keywords`（如下列範例所示）。如需那些強化的相關資訊，請參閱[實體擷取](/docs/services/discovery?topic=discovery-configservice#entity-extraction)及[關鍵字擷取](/docs/services/discovery?topic=discovery-configservice#keyword-extraction)。
 
 會針對包含關係的每個句子，擷取 `subject`、`action` 及 `object`。
 
@@ -583,8 +623,8 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-        "sentiment": {
+      "enriched_text": {
+      "sentiment": {
         "document": {
         "score": 0.459813,
         "label": "positive"
@@ -607,8 +647,8 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ```json
 {
   "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia.",
-    "enriched_text": {
-        "emotion": {
+      "enriched_text": {
+      "emotion": {
         "document": {
           "emotion": {
           "disgust": 0.102578,
@@ -631,17 +671,19 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ### 元素分類
 {: #elements}
 
-剖析控管文件中的元素（句子、清單、表格），以對重要類型和種類進行分類。如需相關資訊，請參閱[元素分類](/docs/services/discovery/element-classification.html)。
+剖析控管文件中的元素（句子、清單、表格），以對重要類型和種類進行分類。如需相關資訊，請參閱[元素分類](/docs/services/discovery?topic=discovery-element-classification#element-classification)。
+
+如果使用此強化，則無法使用[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)。
 
 #### 強化定價
 {: #enrichment-pricing}
 
-[{{site.data.keyword.Bluemix_notm}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} 有可用的強化定價資訊。
+[{{site.data.keyword.Bluemix_notm}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/services/discovery){: new_window} 有可用的強化定價資訊。
 
 #### 強化語言支援
 {: #enrichment-language-support}
 
-如需強化語言支援的相關資訊，請參閱 [{{site.data.keyword.discoveryshort}} 語言支援](/docs/services/discovery/language-support.html)。
+如需強化語言支援的相關資訊，請參閱 [{{site.data.keyword.discoveryshort}} 語言支援](/docs/services/discovery?topic=discovery-language-support#language-support)。
 
 ### 瞭解實體、概念及關鍵字之間的差異
 {: #udbeck}
@@ -690,6 +732,9 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
 ## 將資料正規化
 {: #normalizing-data}
+
+此資訊僅適用於在[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)版本之前建立的集合。
+{: note}
 
 自訂配置檔的最後一個步驟是執行最終清理，也稱為正規化。
 
@@ -745,12 +790,12 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 -   `field_name` - 將新增至 JSON 輸出的欄位名稱。
 -   `CSS_selector_expression` - 要對輸入 HTML 執行以擷取欄位的 CSS 選取器。表示式可以有一個以上的相符項。
 
-    有效的 CSS 選取器是 [JSoup 剖析器 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} 及其[選取器語法 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window} 所指定的那些選取器。[一般選取器](/docs/services/discovery/building.html#common-selectors)有提供簡短清單。
+    有效的 CSS 選取器是 [JSoup 剖析器 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} 及其[選取器語法 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window} 所指定的那些選取器。[一般選取器](/docs/services/discovery?topic=discovery-configservice#common-selectors)有提供簡短清單。
 -   `field_type` - `array` 或 `string`。如果未指定欄位類型，則其預設為 `array`。請注意，可以強化 `string` 類型，但無法強化儲存在 `array` 中的資訊，除非先將陣列的項目擷取到文字欄位中。
 
 **警告：**如果 CSS 選取器同時符合母節點及其一個以上的子節點，則節點的文字內容將重複出現在 JSON 輸出中。
 
-**附註：**欄位名稱必須符合[欄位名稱需求](/docs/services/discovery/custom-config.html#field_reqs)中定義的限制。
+**附註：**欄位名稱必須符合[欄位名稱需求](/docs/services/discovery?topic=discovery-configref#field_reqs)中定義的限制。
 
 下列 JSON 段落顯示您將 CSS 選取器資訊新增至其中的 Default Configuration 相關區段。
 
@@ -921,6 +966,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 決定要擷取哪些 HTML 元素之後，您可以進一步修改配置檔，以指定您要套用至其中的強化。
 
 #### 一般選取器
+{: #common-selectors}
 
 以下是一些一般 CSS 選取器：
 
@@ -933,6 +979,9 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ## 使用文件分段來分割文件
 {: #doc-segmentation}
 
+若是使用「智慧型文件理解」，請勿使用文件分段，而是使用[文件分割](/docs/services/discovery?topic=discovery-sdu#splitting)。
+{: note}
+
 您可以根據 HTML 標題標籤將 Word、PDF 及 HTML 文件分割為區段。分割之後，每一個區段都是個別的文件，會個別進行強化及檢索。由於查詢將以個別文件傳回這些區段，因此文件分段可以用來：
 
   - 對文件的個別區段執行聚集。例如，您的聚集會在每次區段提及特定實體時計算一次，而不是只對整份文件計算一次。
@@ -944,9 +993,9 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
   - 每份文件的區段數目限制為 `250`。在 `249` 個區段之後的所有其餘文件內容將儲存在區段 `250` 內。
 
-  - 每一個區段都計入您方案的文件限制內。{{site.data.keyword.discoveryshort}} 會進行區段檢索，直到達到方案限制為止。如需文件限制，請參閱 [Discovery 定價方案](/docs/services/discovery/pricing-details.html)。
+  - 每一個區段都計入您方案的文件限制內。{{site.data.keyword.discoveryshort}} 會進行區段檢索，直到達到方案限制為止。如需文件限制，請參閱 [Discovery 定價方案](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans)。
 
-  - 使用文件分段時，您不能將資料正規化（請參閱[將資料正規化](/docs/services/discovery/building.html#normalizing-data)）或使用 CSS 選取器擷取欄位（請參閱[使用 CSS 選取器來擷取欄位](/docs/services/discovery/building.html#using-css)）。
+  - 使用文件分段時，您不能將資料正規化（請參閱[將資料正規化](/docs/services/discovery?topic=discovery-configservice#normalizing-data)）或使用 CSS 選取器擷取欄位（請參閱[使用 CSS 選取器來擷取欄位](/docs/services/discovery?topic=discovery-configservice#using-css)）。
 
   - 每次偵測到指定的 HTML 標籤時，都會對文件進行分段。因此，分段可能會導致形態異常的 HTML，因為文件可能會在結束（右）標籤之前及開啟（左）標籤之後分割。
 
@@ -954,10 +1003,13 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 
   - 指定**元素分類**（`elements`）強化時，不支援文件分段。
 
-  - 重新汲取分段文件有其他考量，請參閱[更新分段文件](/docs/services/discovery/building.html#update-seg)。
+  - 重新汲取分段文件有其他考量，請參閱[更新分段文件](/docs/services/discovery?topic=discovery-configservice#update-seg)。
 
 ### 執行分段
 {: #performing-segmentation}
+
+若是使用「智慧型文件理解」，請勿使用文件分段，而是使用[文件分割](/docs/services/discovery?topic=discovery-sdu#splitting)。
+{: note}
 
 在 `conversions` 區段中，透過 API 來設定分段。
 
@@ -980,6 +1032,7 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 `selector_tags` 是一個陣列，其指定可以用來將文件分段的標題標籤。
 
 #### 範例
+{: #example-segmentation}
 
 配置：
 
@@ -1054,11 +1107,11 @@ PDF 字型大小及字型名稱用來將文件中的標題適當地轉換成 H1�
 ### 更新分段文件
 {: #update-seg}
 
-如果已更新分段文件而需要加以重新汲取，可以使用[更新文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} 方法來取代它。
+如果已更新分段文件而需要加以重新汲取，可以使用[更新文件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} 方法來取代它。
 
 更新分段文件時，應該使用 `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API 的 POST 方法來上傳文件，並將其中一個現行區段的 `parent_id` 欄位內容指定為 `{document_id}` 路徑變數。
 
-更新時，將會改寫所有區段，除非該文件更新版本的區段總數少於原始版本。那些較舊的區段將保留在索引中，且可使用 API 進行個別刪除。如需詳細資料，請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window}。您可以查詢 `notices` 來識別已建立的區段數目。每個區段都有一個 `document_id` 欄位，其包含 `{parent_id}`，後面接著底線，再接著區段號碼。
+更新時，將會改寫所有區段，除非該文件更新版本的區段總數少於原始版本。那些較舊的區段將保留在索引中，且可使用 API 進行個別刪除。如需詳細資料，請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#delete-a-document){: new_window}。您可以查詢 `notices` 來識別已建立的區段數目。每個區段都有一個 `document_id` 欄位，其包含 `{parent_id}`，後面接著底線，再接著區段號碼。
 
 如果您要更新的文件有任何區段已分級為要進行相關性訓練，您必須先刪除該文件的所有區段，然後將已更新的文件汲取為新文件。這會導致每個區段有新的 `document_id`，而任何訓練過的區段都需要重新訓練。如果您不先刪除舊的內容，已訓練的索引會變得不正確。
 

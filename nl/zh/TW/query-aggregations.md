@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-05-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 查詢聚集
 {: #query-aggregations}
 
-聚集傳回一組資料值。如需可用聚集的完整清單，請參閱[查詢參考資料](/docs/services/discovery/query-reference.html#aggregations)。
+聚集傳回一組資料值。如需可用聚集的完整清單，請參閱[查詢參考資料](/docs/services/discovery?topic=discovery-query-reference#aggregations)。
 
 ## term
 {: #term}
@@ -34,7 +46,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filter
-{: #filter}
+{: #aggfilter}
 
 一個修飾元，它會縮減其後的聚集查詢的文件集。此範例會過濾成包含「雲端運算」概念的文件集。
 
@@ -95,7 +107,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
   - 在輸出結果陣列中異常之點的 `anomaly` 欄位。anomaly 欄位具有 `float` 資料類型的值，指出異常行為的強度。anomaly 欄位值越接近 `1`，結果越可能異常。
 
   - `results` 陣列中每一個物件的 `key` 和 `key_as_string` 都對應於 UNIX 時間戳記（以秒為單位）。
-  - 異常評分與一項查詢相關，而不是跨不同查詢。
+  - 異常評分僅與原始查詢相關。
 
 ```json
 "type": "timeslice",
@@ -139,6 +151,7 @@ timeslice(field:<date>,interval:<interval>,anomaly:true)`
 {: codeblock}
 
 #### 異常偵測的限制
+{: #anomaly-limitations}
 
 - 「異常偵測」目前只適用於最上層 `timellu` 聚集。它無法使用於低階（巢狀）聚集。
 - 任何給定的 `timeslice` 聚集中，可由異常偵測處理的點數目上限為 `1500`。

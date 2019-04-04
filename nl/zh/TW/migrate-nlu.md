@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-02-28"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 將強化移轉至 Natural Language Understanding
 {: #migrate-nlu}
@@ -23,9 +35,9 @@ lastupdated: "2018-02-28"
 從 **2017 年 7 月 18 日**開始，{{site.data.keyword.discoveryfull}} 引進了一項新的強化技術，名稱為 {{site.data.keyword.nlushort}} (NLU)。{{site.data.keyword.alchemylanguageshort}} 強化從 **2018 年 3 月 1 日**起已淘汰。
 {: shortdesc}
 
-任何利用 {{site.data.keyword.alchemylanguageshort}} 強化的現有集合都必須加以移轉。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化的集合和配置檔的相關資訊，請參閱[強化比較](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)。
+任何利用 {{site.data.keyword.alchemylanguageshort}} 強化的現有集合都必須加以移轉。如需移轉利用 {{site.data.keyword.alchemylanguageshort}} 強化的集合和配置檔的相關資訊，請參閱[強化比較](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-comparison)。
 
-**附註：**如需與 {{site.data.keyword.knowledgestudioshort}} 整合的相關資訊，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery/integrate-wks.html)。
+**附註：**如需與 {{site.data.keyword.knowledgestudioshort}} 整合的相關資訊，請參閱[與 {{site.data.keyword.knowledgestudiofull}} 整合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。
 
 ## 強化比較
 {: #enrichment-comparison}
@@ -45,37 +57,41 @@ lastupdated: "2018-02-28"
 
 
 
-如需 {{site.data.keyword.nlushort}} 強化的相關資訊，請參閱[新增強化](/docs/services/discovery/building.html#adding-enrichments)
+如需 {{site.data.keyword.nlushort}} 強化的相關資訊，請參閱[新增強化](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)
 
 ## 主要變更概觀
+{: #overview-nlu}
 
-- {{site.data.keyword.nlushort}} 強化的 JSON 綱目與 {{site.data.keyword.alchemylanguageshort}} 強化所使用的綱目不同，如需每一項強化的完整變更清單，請參閱：[強化綱目差異](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)。
+- {{site.data.keyword.nlushort}} 強化的 JSON 綱目與 {{site.data.keyword.alchemylanguageshort}} 強化所使用的綱目不同，如需每一項強化的完整變更清單，請參閱：[強化綱目差異](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences)。
 - _分類架構分類_ ({{site.data.keyword.alchemylanguageshort}}) 強化現在已命名為_種類分類_。它的 JSON 物件名稱已從 `taxonomy` 變更為 `categories`。
 - _關係擷取_ ({{site.data.keyword.alchemylanguageshort}}) 強化現在已命名為_語意角色擷取_。它的 JSON 物件名稱已從 `relations` 變更為 `semantic_roles`。
 - _觀感分析_ 的 JSON 物件名稱已從 `docSentiment` 變更為 `sentiment`。
 - _情緒分析_ 的 JSON 物件名稱已從 `docEmotions` 變更為 `emotion`。
 
 ## 配置檔變更
+{: #config-nlu}
 
 **{{site.data.keyword.alchemylanguageshort}}** 預設配置檔（在工具中名稱為 `Default configuration`）已將下列強化套用至您文件的文字欄位：**實體擷取**、**關鍵字擷取**、**分類架構分類**、**概念標記**、**關係擷取**及**觀感分析**。此檔案也包括基於字型樣式及大小的標準文件轉換。
 
 **{{site.data.keyword.nlushort}}** 預設配置檔名稱為 `Default Configuration with NLU`，它會將下列強化套用至您文件的文字欄位：**實體擷取**、**觀感分析**、**種類分類**及**概念標記**。此檔案也包括基於字型樣式及大小的標準文件轉換。這些文件轉換與 {{site.data.keyword.alchemylanguageshort}} 預設配置檔中的轉換相同。
 
 ## 移轉配置、集合及查詢
+{: #migrateconfig-nlu}
 
 如果您已建立任何自訂配置，則需要建立使用 {{site.data.keyword.nlushort}} 強化的新配置。如需指示，請參閱下列文件：
 
-- [工具](/docs/services/discovery/building.html#custom-configuration)
-- [API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#add_configuration){: new_window}
+- [工具](/docs/services/discovery?topic=discovery-configservice#custom-configuration)
+- [API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window}
 
 如果您的現有集合中已套用 {{site.data.keyword.alchemylanguageshort}} 預設配置或自訂 {{site.data.keyword.alchemylanguageshort}} 配置，則需要建立新的集合、套用 {{site.data.keyword.nlushort}} 配置檔（預設配置或新的自訂配置），以及上傳文件。如需指示，請參閱下列文件：
 
-- [工具](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)
-- [API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#create-collection){: new_window}
+- [工具](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)
+- [API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#create-a-collection){: new_window}
 
-對於您使用「Discovery 查詢語言」建立的任何查詢，您需要檢查 {{site.data.keyword.alchemylanguageshort}} 與 {{site.data.keyword.nlushort}} 之間的 JSON 綱目變更，並據此更新您的查詢和查詢 URL。如需詳細資料，請參閱[強化綱目差異](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)。
+對於您使用「Discovery 查詢語言」建立的任何查詢，您需要檢查 {{site.data.keyword.alchemylanguageshort}} 與 {{site.data.keyword.nlushort}} 之間的 JSON 綱目變更，並據此更新您的查詢和查詢 URL。如需詳細資料，請參閱[強化綱目差異](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences)。
 
 ## 強化綱目差異
+{: #enrichment-schema-differences}
 
 下表顯示 {{site.data.keyword.nlushort}} 強化與 {{site.data.keyword.alchemylanguageshort}} 強化的 JSON 綱目之間的差異。
 

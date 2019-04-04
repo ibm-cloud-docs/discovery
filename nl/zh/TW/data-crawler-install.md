@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 下載並安裝資料搜索器
 {: #downloading-and-installing-the-data-crawler}
@@ -23,22 +35,24 @@ lastupdated: "2018-07-03"
 「資料搜索器」會收集最後用來形成 {{site.data.keyword.discoveryshort}} 服務搜尋結果的原始資料。搜索資料儲存庫時，搜索器會從使用者指定的種子 URL 開始，下載文件及 meta 資料。搜索器會探索階層中的文件，或者探索以其他方式從種子 URL 鏈結的文件，並將這些文件放入佇列以進行擷取。
 {: shortdesc}
 
-您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 來搜索 Box、Salesforce 及 Microsoft SharePoint Online 資料來源。如需相關資訊，請參閱[連接至資料來源](/docs/services/discovery/connect.html)。
-{: tip}
+「資料搜索器」應該只用來搜索檔案共用或資料庫，針對所有其他用途，您應使用適當的 {{site.data.keyword.discoveryshort}} 連接器。如需詳細資訊，請參閱[連接至資料來源](/docs/services/discovery?topic=discovery-sources#sources)。如果您將「資料搜索器」用於 {{site.data.keyword.discoveryshort}} 連接器支援的資料來源，則不再為其提供協助。
+{: important}
 
 ## 必要條件
+{: #dc-prerequisites}
 
 -   Java Runtime Environment 第 8 版或更新版本
 
-    `JAVA_HOME` 環境變數必須正確設定，或是完全不設定，才能執行搜索器。
+`JAVA_HOME` 環境變數必須正確設定，或是完全不設定，才能執行搜索器。
     {: tip}
 -   Red Hat Enterprise Linux 6 或 7，或 Ubuntu Linux 15 或 16。為了達到最佳效能，「資料搜索器」應該在自己的 Linux 實例上執行，不論它是虛擬機器、容器還是硬體。
 
 -   Linux 系統上最少有 2 GB RAM
 
 ## 下載並安裝資料搜索器
+{: #dc-download-install}
 
-1.  開啟瀏覽器，並登入 [{{site.data.keyword.Bluemix}} 帳戶 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net){: new_window}。
+1.  開啟瀏覽器，並登入 [{{site.data.keyword.Bluemix}} 帳戶 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/){: new_window}。
 
 1.  從 {{site.data.keyword.Bluemix_notm}} 儀表板，選取您先前建立的 {{site.data.keyword.discoveryshort}} 服務。
 
@@ -63,9 +77,10 @@ lastupdated: "2018-07-03"
 
     **附註：**本手冊其餘部分提及 `config` 目錄中的檔案（例如 `config/crawler.conf`）時，是指您工作目錄中的該檔案，而「非」已安裝之 `{installation_directory}/share/examples/config` 目錄中的檔案。
 
-1.  現在您可以[配置資料搜索器以連接至儲存庫](/docs/services/discovery/data-crawler-seeds.html)
+1.  現在您可以[配置資料搜索器以連接至儲存庫](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-connector-and-seed-options)
 
 ## 資料搜索器結構
+{: #dc-structure}
 
 「資料搜索器」下載會將下列資料夾放置在您的系統上：
 
@@ -79,7 +94,8 @@ lastupdated: "2018-07-03"
     -   `man` - 產品內的說明頁搜索器文件。
 
 ## 此版本的已知限制
+{: #dc-limitations}
 
 -   使用無效或遺漏的 URL 執行「檔案系統」連接器時，「資料搜索器」可能會當掉。
--   在 `crawler.conf` 檔案中配置 `urls_to_filter` 值，使所有白名單 URL 或正規表示式都包含在單一正規表示式中。如需相關資訊，請參閱[配置搜索選項](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options)。
+-   在 `crawler.conf` 檔案中配置 `urls_to_filter` 值，使所有白名單 URL 或正規表示式都包含在單一正規表示式中。如需相關資訊，請參閱[配置搜索選項](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options)。
 -   `--config -c` 選項中所傳入的配置檔路徑必須是限定的路徑。也就是說，它必須採用相對格式 `config/crawler.conf` 或 `./crawler.conf`，或絕對路徑 `/path/to/config/crawler.conf`。只有當 `orchestration_service.conf` 檔案是以行內方式指定，而非在 `crawler.conf` 檔案中使用 `include` 來參照時，才能只有指定 `crawler.conf`。

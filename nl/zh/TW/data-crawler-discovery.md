@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 配置資料搜索器
 {: #configuring-the-data-crawler}
@@ -23,8 +35,8 @@ lastupdated: "2018-07-03"
 若要設定「資料搜索器」來搜索儲存庫，您必須在 `crawler.conf` 檔案中指定適當的輸入配接器，然後在輸入配接器配置檔中配置儲存庫特有的資訊。
 {: shortdesc}
 
-您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 來搜索 Box、Salesforce 及 Microsoft SharePoint Online 資料來源。如需相關資訊，請參閱[連接至資料來源](/docs/services/discovery/connect.html)。
-{: tip}
+「資料搜索器」應該只用來搜索檔案共用或資料庫，針對所有其他用途，您應使用適當的 {{site.data.keyword.discoveryshort}} 連接器。如需詳細資訊，請參閱[連接至資料來源](/docs/services/discovery?topic=discovery-sources#sources)。如果您將「資料搜索器」用於 {{site.data.keyword.discoveryshort}} 連接器支援的資料來源，則不再為其提供協助。
+{: important}
 
 在進行這些步驟所列出的變更之前，請確定您已建立工作目錄，方法是將 `{installation_directory}/share/examples/config` 目錄的內容複製到系統上的工作目錄，例如 `/home/config`。
 
@@ -55,7 +67,7 @@ lastupdated: "2018-07-03"
         ```
         {: codeblock}
 
-    此檔案中還有其他選用性的設定，可依適合您環境的方式加以設定。如需關於設定這些值的詳細資訊，請參閱：[配置搜索選項](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options)、[配置輸入配接器](/docs/services/discovery/data-crawler-discovery.html#input-adapter)、[配置輸出配接器](/docs/services/discovery/data-crawler-discovery.html#output-adapter)及[其他搜索管理選項](/docs/services/discovery/data-crawler-discovery.html#additional-crawl-management-options)。
+    此檔案中還有其他選用性的設定，可依適合您環境的方式加以設定。如需關於設定這些值的詳細資訊，請參閱：[配置搜索選項](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options)、[配置輸入配接器](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter)、[配置輸出配接器](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter)及[其他搜索管理選項](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options)。
 
 1.  在文字編輯器中開啟 `discovery/discovery_service.conf` 檔案。修改您先前在 {{site.data.keyword.Bluemix}} 上建立之 {{site.data.keyword.discoveryshort}} 服務特有的下列值：
 
@@ -64,11 +76,11 @@ lastupdated: "2018-07-03"
     -   `configuration_id` - {{site.data.keyword.discoveryshort}} 服務配置 ID。
     -   `configuration` - 這個 `discovery_service.conf` 檔案的完整路徑位置，例如 `/home/config/discovery/discovery_service.conf`。
     -   `username` - {{site.data.keyword.discoveryshort}} 服務的使用者名稱認證。
-    -   `password` - {{site.data.keyword.discoveryshort}} 服務的密碼認證。
+    -   `apikey` - {{site.data.keyword.discoveryshort}} 服務的認證。
 
-    此檔案中還有其他選用性的設定，可依適合您環境的方式加以設定。如需關於設定這些值的詳細資訊，請參閱[配置服務選項](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options)。
+    此檔案中還有其他選用性的設定，可依適合您環境的方式加以設定。如需關於設定這些值的詳細資訊，請參閱[配置服務選項](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options)。
 
-1.  修改這些檔案之後，您就可以開始搜索資料。請前往[搜索資料儲存庫](/docs/services/discovery/data-crawler-run.html#crawling-your-data-repository)以繼續進行。
+1.  修改這些檔案之後，您就可以開始搜索資料。請前往[搜索資料儲存庫](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository)以繼續進行。
 
 ## 配置搜索選項
 {: #configuring-crawl-options}
@@ -101,7 +113,6 @@ lastupdated: "2018-07-03"
 
     **附註：**相對於連接器架構 `lib/java` 目錄。
 
-    -   使用 SharePoint 連接器時，此值必須為 `oakland`。
     -   使用「資料庫」連接器時，此值必須為 `database`。
 
     使用其他連接器時，您可以將此值保留為空白（亦即，空字串 ""）。
@@ -188,9 +199,9 @@ output_directory - "/tmp/crawler-test-output"`
 
     例如，延遲為 1 秒且指數基數為 2 的預設值，將導致第二次重試（第三次嘗試）延遲 2 秒而不是 1 秒，下一次則會延遲 4 秒。
 
-        `d(0) - 1 * (2 ^ 0)` - 1 second
-        `d(1) - 1 * (2 ^ 1)` - 2 seconds
-        `d(2) - 1 * (2 ^ 2)` - 4 seconds
+        `d(0) - 1 * (2 ^ 0)` - 1 秒
+        `d(1) - 1 * (2 ^ 1)` - 2 秒
+        `d(2) - 1 * (2 ^ 2)` - 4 秒
 
     因此，使用預設值時，會最多嘗試提交 10 次，並最多等待大約 1022 秒 - 比 17 分鐘再多一點。此時間為大約值，因為有增加額外的時間，以避免同時執行多個重新提交作業。這個「模糊」時間最長為 10%，因此前一個範例的最後一次重試最多可能延遲 7.7 秒。等待時間不包括連接至服務、上傳資料或等待回應等所耗費的時間。
 
@@ -206,11 +217,11 @@ output_directory - "/tmp/crawler-test-output"`
 
 -   **`logging.log4j.configuration_file`*** - 要用於記載的配置檔。在範例 `crawler.conf` 檔案中，此選項是定義在 `logging.log4j`，並且其預設值是 `log4j_custom.properties`。不論是使用 `.properties<­/MD:CODE> 檔或 `.conf` 檔，必須以類似方式定義此選項。   
 -   **`shutdown_timeout`** - 指定關閉應用程式之前的逾時值（分鐘）。預設值是 `10`。   
--   **`output_limit`** - 搜索器將嘗試同時傳送至輸出配接器的可檢索項目數量上限。這可以藉由可用來執行作業的核心數進一步限制。它指出任何指定時候都不會有超過 "x" 個可檢索項目傳送至輸出配接器以等待傳回。預設值是 `10`。   
+-   **`output_limit`** - 搜索器將嘗試同時傳送至輸出配接器的可檢索項目數量上限。這可以藉由可用來執行作業的核心數進一步限制。它指出任何指定時候都不會有超過 "x" 個傳送至輸出配接器的可檢索項目等待傳回。預設值是 `10`。   
 -   **`input_limit`** - 限制一次可向輸入配接器要求的 URL 數目。預設值為 `30`。   
 -   **`output_timeout`** - 在「資料搜索器」放棄對輸出配接器的要求，然後從輸出配接器佇列移除項目以容許更多處理之前的時間量（以秒為單位）。預設值是 `1200`。
 
-應該考量輸出配接器所加諸的限制，因為那些限制可能與這裡定義的限制相關。所定義的 `output_limit` 僅與一次可傳送至輸出配接器的可檢索物件數相關。一旦將可檢索物件傳送至輸出配接器後，它便「開始計時」，如 `output_timeout` 變數所定義。輸出配接器本身有可能具有節流控制，使得它無法處理所接收的諸多輸入。例如，編排輸出配接器可能有連線儲存區，可針對服務的 HTTP 連線進行配置。例如，如果它預設為 8，且如果您將 `output_limit` 設定為大於 8 的數字，則您會有開始計時的程序，在等候輪到它執行。接著您可能會遇到逾時。   
+    應該考量輸出配接器所加諸的限制，因為那些限制可能與這裡定義的限制相關。所定義的 `output_limit` 僅與一次可傳送至輸出配接器的可檢索物件數相關。一旦將可檢索物件傳送至輸出配接器後，它便「開始計時」，如 `output_timeout` 變數所定義。輸出配接器本身有可能具有節流控制，使得它無法處理所接收的諸多輸入。例如，編排輸出配接器可能有連線儲存區，可針對服務的 HTTP 連線進行配置。例如，如果它預設為 8，且如果您將 `output_limit` 設定為大於 8 的數字，則您會有開始計時的程序，在等候輪到它執行。接著您可能會遇到逾時。   
 -   **`num_threads`** - 可一次執行的平行執行緒數目。此值可以是整數（其直接指定平行執行緒的數目），也可以是格式為 `"xNUM"` 的字串（其指定可用處理器數量的乘數），例如 `"x1.5"`。預設值為 `"30"`
 
 ## 配置服務選項
@@ -239,8 +250,7 @@ output_directory - "/tmp/crawler-test-output"`
 -   **`collection_id`** - 您在 {{site.data.keyword.discoveryshort}} 服務中設定的文件集合名稱。
 -   **`api_version`** - 僅供內部使用。前次 API 版本變更的日期。   
 -   **`configuration_id`** - {{site.data.keyword.discoveryshort}} 服務所用配置檔的檔名。
--   **`username`** - 用來向所搜索文件集合位置進行鑑別的使用者名稱。   
--   **`password`** - 用來向所搜索文件集合位置進行鑑別的密碼。
+-   **`apikey`** - 用來向所搜索文件集合位置進行鑑別的認證。
 
 「{{site.data.keyword.discoveryshort}} 服務輸出配接器」可傳送統計資料，讓 {{site.data.keyword.IBM}} 能夠更充分地瞭解及服務其使用者。您可以為 `send_stats` 變數設定下列選項：
 

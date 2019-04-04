@@ -2,20 +2,32 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-11-29"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 範例應用程式
 {: #sample-apps}
@@ -33,8 +45,7 @@ lastupdated: "2018-09-10"
 使用公開提供的 Airbnb 清單檢閱，以示範如何使用個別使用者介面元件來視覺化見解。然後，您可以輕鬆切換資料集，以將其調整為您自己的使用案例。
   - [取得程式碼  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM/watson-discovery-ui?cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-Get-the-Code){: new_window}
   - [檢視示範  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.youtube.com/watch?v=5EEmQwcjUa4&cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-View-the-Video){: new_window}
-  - [嘗試應用程式  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://watson-discovery-ui-demo.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  
+    
 [發掘企業資料以取得見解 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://ibm.biz/minedatapattern){: new_window}
 使用 Watson Node.js SDK，可利用 Watson Discovery 服務來匯入及強化您的資料。然後，您可以探索資料以尋找型樣、趨勢及可採取動作的見解。
   - [取得程式碼  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM/watson-discovery-analyze-data-breaches?cm_sp=IBMCode-_-import-enrich-and-gain-insight-from-data-_-Get-the-Code){: new_window}
@@ -75,10 +86,4 @@ lastupdated: "2018-09-10"
   - [取得程式碼  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/IBM/watson-banking-chatbot?cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-Get-the-Code){: new_window}
   - [檢視示範  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.youtube.com/watch?v=Jxi7U7VOMYg&cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-View-the-Demo){: new_window}
   - [嘗試應用程式  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://create-a-cognitive-banking-chatbot-hnike.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  - [從入門範本套件建置  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-   
-[Discovery 實驗室  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://ibm.biz/watsondiscoverylab){: new_window}
-在這個實驗室中，您將於 Discovery 服務中建立專用集合，並學習如何查詢集合。
-
-[Discovery News 實驗室  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](http://ibm.biz/discoverynewslab){: new_window}
-在這個實驗室中，您將透過建置查詢來使用 Watson Discovery News Insights 引擎。
+  - [從入門範本套件建置  ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
