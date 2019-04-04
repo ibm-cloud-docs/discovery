@@ -4,25 +4,37 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Operadores de consulta
 {: #query-operators}
 
 Os operadores são os separadores entre diferentes partes de uma consulta. Para obter a lista completa de
 operadores disponíveis, consulte a
-[Referência de consulta](/docs/services/discovery/query-reference.html#operators).
+[Referência de consulta](/docs/services/discovery?topic=discovery-query-reference#operators).
 
 ## . \[JSON delimiter\]
 {: #delimiter}
@@ -101,8 +113,10 @@ title::"Dorothy said: \"There's no place like home\""
 Todos os conteúdos de uma consulta de frase são processados como escapados. Assim, nenhum caractere
 especial em uma consulta de frase é analisado, exceto as aspas duplas (`"`) dentro de uma
 consulta de frase, que devem ser escapadas (`\"`). Use consultas de frase com
-consultas de texto completo baseadas em classificação, não com as operações de filtro booleanas. Não use caracteres curingas (`*`) em consultas de frase. **Nota**: aspas
-simples (`'`) não são suportadas.
+consultas de texto completo baseadas em classificação, não com as operações de filtro booleanas. Não use caracteres curingas (`*`) em consultas de frase. 
+
+Aspas simples (`'`) não são suportadas.
+{: note}
 
 Por exemplo:
 ```bash
@@ -206,6 +220,6 @@ Usado para retornar todos os resultados que não incluem o `field` especificado.
 
 Por exemplo:
 ```bash
-title! *
+título:! *
 ```
 {: codeblock}

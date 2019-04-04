@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Introdução ao Data Crawler
 {: #getting-started-with-the-data-crawler}
@@ -24,44 +36,44 @@ Este tópico explica como usar o Data Crawler para alimentar arquivos de seu sis
 para uso com o serviço do {{site.data.keyword.discoveryfull}}.
 {: shortdesc}
 
+O Data Crawler deve ser usado apenas para efetuar crawl de compartilhamentos de arquivo ou bancos de dados; em todos os outros casos, é necessário usar o conector apropriado do {{site.data.keyword.discoveryshort}}. Veja [Conectando a origens de dados](/docs/services/discovery?topic=discovery-sources#sources) para obter detalhes. A assistência não será mais fornecida para o Data Crawler se você estiver usando-o com uma origem de dados suportada pelos conectores do {{site.data.keyword.discoveryshort}}.
+{: important}
+
 Antes de tentar esta tarefa, crie uma instância do serviço do {{site.data.keyword.discoveryshort}}
 no {{site.data.keyword.Bluemix}}. Para concluir este guia, será necessário usar as credenciais que
 estão associadas à instância do serviço que você criou.
 
-É possível usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou a API para efetuar crawl em origens de dados do Box, Salesforce e Microsoft SharePoint Online. Consulte [Conectando-se a origens de dados](/docs/services/discovery/connect.html) para obter mais informações.
-{: tip}
-
 ## Crie um ambiente
+{: #dc-create-environment}
 
 Use o método bash POST /v1/environments para criar um ambiente. Pense no ambiente como o warehouse em que você está armazenando todas as suas caixas de documentos. O exemplo a seguir cria um ambiente que é chamado `my-first-environment`:
 
-Substitua `{username}` e
-`{password}` pelas suas credenciais de serviço.
+Substitua  ` { `  por suas credenciais de serviço.
+
+(Para obter informações mais detalhadas sobre o uso de credenciais {apikey}, consulte [Introdução à API](/docs/services/discovery?topic=discovery-gs-api#gs-api).)
 
 ```bash
-curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
 ```
 {: pre}
 
 A API
-retorna uma resposta que inclui informações, como seu ID de ambiente, status do ambiente e quanto armazenamento o ambiente está usando. Não vá para a próxima etapa até que o status do ambiente seja `ready`. Ao criar o ambiente, se o status retornar `status:pending`, use o método `GET /v1/environments/{environment_id}` para verificar o status até que esteja pronto. Nesse exemplo, substitua `{username}` e `{password}` pelas suas credenciais
-de serviço e substitua `{environment_id}` pelo ID de ambiente que foi retornado quando você
-criou o ambiente.
+retorna uma resposta que inclui informações, como seu ID de ambiente, status do ambiente e quanto armazenamento o ambiente está usando. Não vá para a próxima etapa até que o status do ambiente seja `ready`. Ao criar o ambiente, se o status retornar `status:pending`, use o método `GET /v1/environments/{environment_id}` para verificar o status até que esteja pronto. Neste exemplo, substitua `{apikey}` por suas credenciais de serviço e substitua `{environment_id}` por seu ID de ambiente que foi retornado quando você criou o ambiente.
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2017-11-07
+curl -u "apikey: {1}/environments/ {2}{0}{1}{7}-11-07
 ```
 {: pre}
 
 ## Crie uma coleção
+{: #dc-create-collection}
 
 Em seguida, use o método `POST
 /v1/environments/{environment_id}/collections` para
 criar uma coleção. Pense em uma coleção como uma caixa na qual você armazena os documentos em seu ambiente. Este exemplo cria uma coleção que é chamada
 `my-first-collection` no ambiente que você criou na etapa anterior e usa a configuração padrão a seguir:
 
--   Substitua `{username}` e
-`{password}` pelas suas credenciais de serviço.
+-   Substitua  ` { `  por suas credenciais de serviço.
 -   Substitua `{environment_id}` pelo ID do ambiente que você criou na etapa 1.
 
 Antes de
@@ -70,7 +82,7 @@ localizar seu `configuration_id` padrão, use o método
 `GET /v1/environments/{environment_id}/configurations`:
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07
+curl -u "apikey: {1}/environments/ {2}{0}{1}{7}-11-07
 ```
 {: pre}
 
@@ -78,30 +90,31 @@ Depois de ter o ID de configuração padrão, use-o para criar sua
 coleção. Substitua `{configuration_id}` pelo ID de configuração padrão para o seu ambiente.
 
 ```bash
-curl -X POST -u "{username}":"{password}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07
+curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07
 ```
 {: pre}
 
 A API retorna uma resposta que inclui informações, como o ID e o status da coleção e a quantia de armazenamento que ela está usando. Não vá para a próxima etapa até que o status da sua coleção seja `online`. Ao criar a coleção, se o status retornar
 `status:pending`, use o método `GET /v1/environments/{environment_id}/collections/{collection_id}`
-para verificar o status até que ele seja ready. Neste exemplo, substitua `{username}` e
-`{password}` pelas suas credenciais de serviço, substitua `{environment_id}` pelo seu ID de ambiente
-e substitua `{collection_id}` pelo ID de coleção que foi retornado anteriormente nesta etapa.
+para verificar o status até que ele seja ready. Neste exemplo, substitua `{apikey}` por suas credenciais de serviço, substitua `{environment_id}` por seu ID de ambiente e substitua `{collection_id}` pelo ID de coleção que foi retornado anteriormente nessa etapa.
 
 ```bash
-curl -u "{username}":"{password}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07
+curl -u "apikey: {1}/environments/ {2}{0}{1}{7}-11-07
 ```
 {: pre}
 
 ## Faça download de documentos de exemplo
+{: #dc-download-documents}
+
 Faça download destes documentos:
 
--   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo" class="style-scope doc-content"></a>
--   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo" class="style-scope doc-content"></a>
--   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo" class="style-scope doc-content"></a>
--   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo" class="style-scope doc-content"></a>
+-   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo"></a>
+-   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo"></a>
+-   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo"></a>
+-   <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo"></a>
 
 ## Faça download e instale o Data Crawler
+{: #download-and-install-the-data-crawler}
 
 1.  Verifique seus pré-requisitos do sistema
 
@@ -112,9 +125,7 @@ deve ser configurada corretamente ou não deve ser configurada para executar o C
     -   Red Hat Enterprise Linux 6 ou 7 ou Ubuntu Linux 15 ou 16. Para obter um desempenho ideal, o Data Crawler deve executar em sua própria instância do Linux, seja uma máquina virtual, um contêiner ou um hardware.
     -   Mínimo de 2 GB RAM no Sistema Linux
 
-1.  Abra um navegador e efetue login na sua conta do
-[{{site.data.keyword.Bluemix_notm}}
-![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net){: new_window}.
+1.  Abra um navegador e efetue login [em sua conta do {{site.data.keyword.Bluemix_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/){: new_window}.
 1.  No seu painel do {{site.data.keyword.Bluemix_notm}}, selecione o serviço do {{site.data.keyword.discoveryshort}} criado anteriormente.
 1.  Em **Automatizar o upload de conteúdo para o serviço Discovery**, selecione o link de download apropriado para seu sistema (DEB, RPM ou ZIP) para fazer download do Data Crawler.
 1.  Como administrador, use os comandos apropriados para instalar o arquivo que transferido por download:
@@ -129,6 +140,7 @@ também pode ser incluído em sua variável de ambiente `PATH`.
     {: tip}
 
 ## Crie seu diretório ativo
+{: #dc-working-directory}
 
 Copie o conteúdo do diretório `{installation_directory}/share/examples/config`
 para um diretório ativo em seu sistema, por exemplo, `/home/config`.
@@ -138,6 +150,7 @@ para um diretório ativo em seu sistema, por exemplo, `/home/config`.
 **Observação:** as referências neste guia aos arquivos no diretório `config`, tal como `config/crawler.conf`, referem-se ao arquivo em seu diretório de trabalho e NÃO no diretório `{installation_directory}/share/examples/config` instalado.
 
 ## Configure opções de crawl
+{: #dc-configure-crawl-options}
 
 Para configurar o Data Crawler para efetuar crawl em seu repositório, deve-se especificar quais
 arquivos do sistema local que você deseja efetuar crawl e para qual
@@ -164,8 +177,7 @@ anteriormente no {{site.data.keyword.Bluemix_notm}}:
     -   `collection_id` - Seu ID de coleção do serviço do {{site.data.keyword.discoveryshort}}.
     -   `configuration_id` - Seu ID de configuração do serviço do {{site.data.keyword.discoveryshort}}.
     -   `configuration` - O local do caminho completo deste arquivo `discovery_service.conf`, por exemplo, `/home/config/discovery/discovery_service.conf`.
-    -   `username` - credencial de nome do usuário para seu serviço do {{site.data.keyword.discoveryshort}}.
-    -   `password` - Credencial de senha para seu serviço do {{site.data.keyword.discoveryshort}}.
+    -   ` apikey ` -Credencial para seu serviço do  {{site.data.keyword.discoveryshort}} .
 1.  **`crawler.conf`** - abra o
 arquivo `config/crawler.conf` em um editor de texto.
 
@@ -184,6 +196,7 @@ arquivo `config/crawler.conf` em um editor de texto.
 1.  Após modificar esses arquivos, você está pronto para efetuar crawl em seus dados.
 
 ## Efetue crawl de seus dados
+{: #dc-crawl}
 
 Execute o comando a seguir: `crawler crawl --config [config/crawler.conf]`
 
@@ -195,22 +208,23 @@ como `config/crawler.conf` ou `./crawler.conf` ou em um caminho
 absoluto, como `/path/to/config/crawler.conf`.
 
 ## Procure seus documentos
+{: #dc-search}
 
 Finalmente, use o método `GET /v1/environments/{environment_id}/collections/{collection_id}/query`
 para procurar sua coleção de documentos. O exemplo a seguir retorna
 todas as entidades que são chamadas `IBM`:
 
--   Substitua `{username}` e
-`{password}` pelas suas credenciais de serviço.
+-   Substitua  ` { `  por suas credenciais de serviço.
 -   Substitua `{environment_id}` pelo ID do ambiente que você criou na etapa 1.
 -   Substitua `{collection_id}` pelo ID da coleção que você criou na etapa 2.
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query-enriched_text.entities.text:IBM'
+curl -u "apikey:{apikey}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query-enriched_text.entities.text:IBM'
 ```
 {: pre}
 
 ## Resultados
+{: #dc-results}
 
 Agora você consultou documentos em um ambiente e criou sua coleção com sucesso. Agora é possível começar
 a customização incluindo mais documentos na coleção.

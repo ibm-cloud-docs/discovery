@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-09-06"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-14"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Melhorando a relevância dos resultados com a API
 {: #improving-result-relevance-with-the-api}
@@ -25,19 +37,21 @@ lastupdated: "2018-09-06"
 
 O treinamento de relevância é opcional; se os resultados das suas consultas atendem às suas necessidades, não é necessário treinamento adicional. Para obter uma visão geral dos casos de uso de construção, consulte a postagem do blog[Como aproveitar ao máximo o treinamento de relevância ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}.
 
-Para obter informações abrangentes sobre as APIs de treinamento, consulte a [Referência da API![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}.
+Para obter informações abrangentes sobre as APIs de treinamento, consulte a [Referência da API![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery){: new_window}.
 
-Se você preferir usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} para treinar o {{site.data.keyword.discoveryshort}}, consulte [Melhorando a relevância do resultado com o conjunto de ferramentas](/docs/services/discovery/train-tooling.html).
+Se você preferir usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} para treinar o {{site.data.keyword.discoveryshort}}, consulte [Melhorando a relevância do resultado com o conjunto de ferramentas](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling).
 
-**Observação:** o treinamento de relevância atualmente se aplica apenas a consultas de linguagem natural em coleções particulares. Ele não se destina a ser usado com consultas estruturadas da linguagem de consulta do {{site.data.keyword.discoveryshort}}.  Para saber mais sobre a linguagem de consulta do {{site.data.keyword.discoveryshort}}, consulte [Conceitos da consulta](/docs/services/discovery/using.html).
+**Observação:** o treinamento de relevância atualmente se aplica apenas a consultas de linguagem natural em coleções particulares. Ele não se destina a ser usado com consultas estruturadas da linguagem de consulta do {{site.data.keyword.discoveryshort}}.  Para saber mais sobre a linguagem de consulta do {{site.data.keyword.discoveryshort}}, consulte [Conceitos da consulta](/docs/services/discovery?topic=discovery-query-concepts#query-concepts).
 
-Coleções treinadas retornarão uma pontuação de `confidence` no resultado de uma consulta de linguagem natural. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter detalhes.
+Coleções treinadas retornarão uma pontuação de `confidence` no resultado de uma consulta de linguagem natural. Consulte [Pontuações de confiança](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) para obter detalhes.
 
-Consulte [Requisitos de dados de treinamento](/docs/services/discovery/train.html#reqs) para obter os requisitos mínimos para treinamento, bem como os limites de treinamento.
+A inclusão de uma lista de palavras vazias customizada pode melhorar a relevância dos resultados para consultas de língua natural. Consulte  [ Definindo as interrupções ](/docs/services/discovery?topic=discovery-query-concepts#stopwords)  para obter mais informações.
 
-Consulte [Monitoramento de uso](/docs/services/discovery/feedback.html) para obter detalhes sobre o uso de rastreamento e usando esses dados para ajudá-lo a entender e melhorar os seus aplicativos.
+Consulte [Requisitos de dados de treinamento](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs) para obter os requisitos mínimos para treinamento, bem como os limites de treinamento.
 
-<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
+Consulte [Monitoramento de uso](/docs/services/discovery?topic=discovery-usage#usage) para obter detalhes sobre o uso de rastreamento e usando esses dados para ajudá-lo a entender e melhorar os seus aplicativos.
+
+<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) and the [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) for information about structured queries and natural language queries. -->
 
 Os componentes necessários para treinar uma instância do Discovery incluem o seguinte:
 
@@ -65,9 +79,10 @@ Os dados de treinamento devem atender aos seguintes critérios **mínimos** de q
 
 O treinamento não pode exceder os requisitos **máximos** a seguir:
   - Não é possível exceder 24 coleções treinadas por ambiente.
-  - Dentro de um ambiente único, você está limitado a 10.000 consultas de treinamento, com um máximo de 100 exemplos por consulta. 
+  - Dentro de uma única coleção, você é limitado a 10.000 consultas de treinamento, com um máximo de 100 exemplos por consulta. 
 
 ## Incluindo uma consulta no conjunto de dados de treinamento
+{: #adding-a-query}
 
 Use o método `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data` para incluir uma consulta em conjunto de dados de treinamento de uma coleção. A consulta é especificada como um objeto JSON no formato a seguir:
 
@@ -91,7 +106,7 @@ Os valores neste objeto são os seguintes:
 
 - `query_id`: um ID exclusivo para a consulta. Se você não especificar esse campo, o serviço gerará automaticamente um ID.
 - `natural_language_query`: uma consulta de linguagem natural do Discovery que se aplica ao conjunto de treinamento. <!-- The `natural_language_query` parameter is preferred. -->
-- `filter`: um filtro opcional para a consulta, conforme descrito na [Referência de consulta](/docs/services/discovery/query-reference.html#parameter-descriptions).
+- `filter`: um filtro opcional para a consulta, conforme descrito na [Referência de consulta](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
 
     **Nota:** se você incluir filtros em suas consultas de dados de treinamento, certifique-se de usar os mesmos filtros ao usar consultas de linguagem natural em sua coleção treinada. Se você treinar a coleção com dados filtrados, mas não usar os mesmos tipos de filtros ao consultar a coleção, os resultados poderão ser imprevisíveis.
 
@@ -101,7 +116,7 @@ Os valores neste objeto são os seguintes:
    - `cross_reference`: um rótulo opcional, geralmente consistindo em um campo no documento referido, que "fixa" o documento e as informações do campo no local no evento em que o ID do documento muda, por exemplo, se um documento recém-alimentado recebe o mesmo ID. A especificação de um valor para `cross-reference` **não** vincula um documento a outro; em vez disso, ela assegura que o serviço retenha informações pertinentes do documento, caso o documento seja renomeado ou sobrescrito.
    - `relevante`: um número inteiro de `0` a `100`, inclusive, que indica a importância relativa da consulta para os dados de treinamento. Valores mais altos indicam maior relevância. Um valor de `0` indica nenhuma relevância para a consulta, enquanto que um valor de `100` indica relevância absoluta para a consulta.
 
-   **Nota:** embora o intervalo do parâmetro `relevance` seja de `0` a `100` para flexibilidade máxima, é possível usar um intervalo menor para simplificar exemplos de pontuação. Um intervalo padrão pode ser de `0` a `4` ou pode usar o intervalo inteiro, mas sempre usando incrementos de 20 (`0`, `20`, `40`, `60`, `80` e `100`). O conjunto de ferramentas do {{site.data.keyword.discoveryshort}} usa as pontuações de relevância de `0` para representar *não relevante* e `10` para representar *relevante*. Se você planeja pontuar seus documentos usando tanto o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} quanto a API ou planeja iniciar a API e mudar para o conjunto de ferramentas, use as pontuações de relevância `0` e `10`.
+   **Nota:** embora o intervalo do parâmetro `relevance` seja de `0` a `100` para flexibilidade máxima, é possível usar um intervalo menor para simplificar exemplos de pontuação. Um intervalo padrão pode ser de `0` a `4` ou é possível usar o intervalo inteiro, mas apenas em incrementos de 20 (`0`, `20`, `40`, `60`, `80` e `100`). O conjunto de ferramentas do {{site.data.keyword.discoveryshort}} usa as pontuações de relevância de `0` para representar *não relevante* e `10` para representar *relevante*. Se você planeja pontuar seus documentos usando tanto o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} quanto a API ou planeja iniciar a API e mudar para o conjunto de ferramentas, use as pontuações de relevância `0` e `10`.
 
 O objeto a seguir mostra uma consulta de dados de treinamento preenchida.
 
@@ -140,12 +155,13 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
 {: pre}
 
 ## Incluindo um exemplo em uma consulta de dados de treinamento
+{: #adding-an-example}
 
 Depois de criar uma consulta de dados de treinamento, é possível continuar a incluir exemplos para melhorar a precisão do treinamento. Use o método `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data/{query_id}` para incluir um exemplo em uma consulta de dados de treinamento existente.
 
 Execute as etapas a seguir para incluir exemplo em uma consulta de dados de treinamento.
 
-1. Obtenha o ID da consulta de dados de treinamento na qual deseja incluir um novo exemplo [listando as consultas de dados de treinamento da coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}:
+1. Obtenha o ID da consulta de dados de treinamento na qual deseja incluir um novo exemplo [listando as consultas de dados de treinamento da coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}:
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2016-12-01"
@@ -180,7 +196,7 @@ Execute as etapas a seguir para incluir exemplo em uma consulta de dados de trei
    ```
    {: pre}
 
-1. Verifique se o novo exemplo foi incluído na consulta de dados de treinamento [listando novamente as consultas de dados de treinamento da coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}:
+1. Verifique se o novo exemplo foi incluído na consulta de dados de treinamento [listando novamente as consultas de dados de treinamento da coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}:
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2016-12-01"
@@ -211,7 +227,7 @@ Execute as etapas a seguir para incluir exemplo em uma consulta de dados de trei
    ```
    {: codeblock}
 
-1. Verifique o status do treinamento usando o método [Listar detalhes da coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#list-collection-details){: new_window} e observando o valor do campo `"training"`/`"available"`. Quando você tiver incluído consultas e exemplos suficientes para atender aos requisitos de treinamento, o valor do campo retornará como `true` e o serviço começará a usar os dados de treinamento automaticamente.
+1. Verifique o status do treinamento usando o método [Listar detalhes da coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#get-collection-details){: new_window} e observando o valor do campo `"training"`/`"available"`. Quando você tiver incluído consultas e exemplos suficientes para atender aos requisitos de treinamento, o valor do campo retornará como `true` e o serviço começará a usar os dados de treinamento automaticamente.
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2016-12-01"
@@ -249,18 +265,18 @@ Execute as etapas a seguir para incluir exemplo em uma consulta de dados de trei
 
    Se a relevância de seus resultados não melhorar, inclua mais consultas de treinamento até que os resultados atendam seus requisitos.
 
-Para obter orientação de treinamento adicional, consulte [Dicas de treinamento de relevância](/docs/services/discovery/train-tips.html#relevancy-tips).   
+Para obter orientação de treinamento adicional, consulte [Dicas de treinamento de relevância](/docs/services/discovery?topic=discovery-relevancy-tips#relevancy-tips).   
 
 ## Executando outras operações de consulta de dados de treinamento
 {: #training-data-operations}
 
-É possível administrar e manter consultas de dados de treinamento usando outros métodos de API conforme descrito na [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}:
+É possível administrar e manter consultas de dados de treinamento usando outros métodos de API conforme descrito na [Referência da API ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery){: new_window}:
 
- - [Listar os dados de treinamento para uma coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}
- - [Excluir todos os dados de treinamento de uma coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-all-training-data){: new_window}
- - [Exibir o conteúdo de uma consulta de dados de treinamento especificada ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#show-td-query){: new_window}
- - [Excluir uma consulta de dados de treinamento da coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-td-query-example){: new_window}
- - [Mudar um rótulo relevância ou uma referência cruzada de um exemplo de consulta de dados de treinamento ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-example){: new_window}
- - [Excluir um documento de exemplo de uma consulta de dados de treinamento ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-example){: new_window}
+ - [Listar os dados de treinamento para uma coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
+ - [Excluir todos os dados de treinamento de uma coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#delete-all-training-data){: new_window}
+ - [Exibir o conteúdo de uma consulta de dados de treinamento especificada ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#get-details-about-a-query){: new_window}
+ - [Excluir uma consulta de dados de treinamento da coleção ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-example-for-training-data-query){: new_window}
+ - [Mudar um rótulo relevância ou uma referência cruzada de um exemplo de consulta de dados de treinamento ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#change-label-or-cross-reference-for-example){: new_window}
+ - [Excluir um documento de exemplo de uma consulta de dados de treinamento ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
 
- **Monitoramento de erro:** erros de dados de treinamento aparecem nos avisos, que podem ser monitorados usando a [API de avisos de consulta ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window} (`GET /v1/environments/{environment_id}/collections/{collection_id}/notices`).
+ **Monitoramento de erro:** erros de dados de treinamento aparecem nos avisos, que podem ser monitorados usando a [API de avisos de consulta ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#query-system-notices){: new_window} (`GET /v1/environments/{environment_id}/collections/{collection_id}/notices`).

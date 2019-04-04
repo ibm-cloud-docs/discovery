@@ -4,26 +4,38 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-10-04"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Parâmetros de consulta
 {: #query-parameters}
 
 O serviço do {{site.data.keyword.discoveryfull}} oferece poderosos recursos de pesquisa de conteúdo por meio de consultas. Após seu conteúdo ser transferido por upload e enriquecido pelo serviço do {{site.data.keyword.discoveryshort}}, será possível construir consultas, integrar o{{site.data.keyword.discoveryshort}} em seus próprios projetos ou criar um aplicativo customizado usando o {{site.data.keyword.watson}} Explorer Application Builder. Para obter uma introdução das consultas, veja [Conceitos
-de consulta](/docs/services/discovery/using.html). Para obter a lista completa de parâmetros, veja a
+de consulta](/docs/services/discovery?topic=discovery-query-concepts#query-concepts). Para obter a lista completa de parâmetros, veja a
 [Referência da
-consulta](/docs/services/discovery/query-reference.html#parameter-descriptions).
+consulta](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
 {: shortdesc}
 
 **Parâmetros de procura**
@@ -43,7 +55,7 @@ Uma consulta de procura retorna todos os documentos em seu conjunto de dados com
 completos e texto completo em ordem de relevância. Uma consulta também exclui quaisquer documentos que não
 mencionem o conteúdo da consulta. Essas consultas são gravadas usando o
 [{{site.data.keyword.discoveryshort}} Query
-Language](/docs/services/discovery/query-operators.html).
+Language](/docs/services/discovery?topic=discovery-query-operators#query-operators).
 
 ## filtro
 {: #filter}
@@ -51,7 +63,7 @@ Language](/docs/services/discovery/query-operators.html).
 Uma consulta armazenável em cache que exclui quaisquer documentos que não mencionem o conteúdo da consulta. Os resultados da procura de filtro **não** são retornados em ordem de relevância. Essas
 consultas são gravadas usando o
 [{{site.data.keyword.discoveryshort}} Query
-Language](/docs/services/discovery/query-operators.html)
+Language](/docs/services/discovery?topic=discovery-query-operators#query-operators)
 
 ### Diferenças entre os parâmetros de filtro e de consulta
 {: #filtervquery}
@@ -69,7 +81,7 @@ usá-los juntos melhora o desempenho. Isso ocorre porque primeiramente o parâme
 executado armazenando os resultados em cache e, em seguida, o parâmetro `query`
 os classifica. Para obter um exemplo de uso de filtros e de consultas juntos, consulte
 [Construindo consultas
-combinadas](/docs/services/discovery/using.html#building-combined-queries). Os filtros também podem ser usados em agregações.
+combinadas](/docs/services/discovery?topic=discovery-query-concepts#building-combined-queries). Os filtros também podem ser usados em agregações.
 
 Ao gravar uma consulta que inclua tanto um parâmetro `filter` quanto um
 parâmetro `aggregation`, `query` ou
@@ -90,10 +102,10 @@ grande.
 
 As consultas de agregação retornam uma contagem de documentos que correspondem um conjunto de valores de
 dados; por exemplo, palavras-chave principais, a impressão geral de entidades, etc. Para obter a lista completa de opções de agregação, consulte a
-[Tabela de agregações](/docs/services/discovery/query-aggregations.html). Essas agregações
+[Tabela de agregações](/docs/services/discovery?topic=discovery-query-aggregations#query-aggregations). Essas agregações
 são gravadas usando o
 [{{site.data.keyword.discoveryshort}} Query
-Language](/docs/services/discovery/query-operators.html)
+Language](/docs/services/discovery?topic=discovery-query-operators#query-operators)
 
 ## natural_language_query
 {: #nlq}
@@ -102,7 +114,7 @@ Uma consulta de linguagem natural permite executar consultas expressas em lingua
 recebida de um usuário final em uma interface de conversação ou de texto livre, por exemplo: "IBM
 Watson em assistência médica". O parâmetro usa a entrada inteira como o texto da consulta. Ele
 **não** reconhece operadores. O parâmetro `natural_language_query`
-permite recursos, como procura de passagem e treinamento de relevância. Coleções treinadas retornarão uma pontuação de `confidence` no resultado de uma consulta de linguagem natural. Consulte [Pontuações de confiança](/docs/services/discovery/train-tooling.html#confidence) para obter detalhes. O comprimento máximo da sequência de consultas para uma consulta de língua natural é `2048`.
+permite recursos, como procura de passagem e treinamento de relevância. Todas as coleções privadas retornarão uma pontuação de `confidence` nos resultados da consulta na maioria dos casos. Consulte [Pontuações de confiança](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) para obter detalhes. O comprimento máximo da sequência de consultas para uma consulta de língua natural é `2048`.
 
 **Parâmetros de estrutura**
 
@@ -146,7 +158,7 @@ não está disponível por meio do conjunto de ferramentas.
 ## Propensão
 {: #bias}
 
-Ajusta os resultados da procura com propensão a determinados resultados, por exemplo, documentos que foram publicados mais recentemente. O `bias` deve ser configurado para um campo de tipo `date` ou um campo de tipo `number`, por exemplo, `bias=publication_date` ou `bias=field_1`. Quando um campo de tipo `date` for especificado, os resultados retornados estarão propensos a valores de campo mais próximos da data atual. Quando um campo do tipo `number` for especificado, os resultados retornados estarão propensos a valores de campo mais altos. Esse parâmetro não pode ser usado na mesma consulta que o parâmetro `sort`.
+Ajusta os resultados da procura com propensão a determinados resultados, por exemplo, documentos que foram publicados mais recentemente. O `bias` deve ser configurado para um campo de tipo `date` ou um campo de tipo `number`, por exemplo, `bias=publication_date` ou `bias=field_1`.  Quando um campo de tipo `date` for especificado, os resultados retornados estarão propensos a valores de campo mais próximos da data atual. Quando um campo do tipo `number` for especificado, os resultados retornados estarão propensos a valores de campo mais altos. Esse parâmetro não pode ser usado na mesma consulta que o parâmetro `sort`.
 
 O parâmetro `bias` está atualmente disponível para uso somente com a API; ele não está disponível por meio do conjunto de ferramentas.
 
@@ -161,10 +173,7 @@ O parâmetro `passages` pode ser usado somente em coleções privadas. Ele não 
 {: tip}
 
 O {{site.data.keyword.discoveryshort}} tenta retornar passagens que começam no início de uma
-sentença e que param no término usando a detecção de limite de sentença. Para isso, primeiramente ele procura
-por passagens com aproximadamente o comprimento especificado no
-[parâmetro `passages.characters`](/docs/services/discovery/query-parameters.html#passages_characters)
-(padrão `400`). Em seguida, ele expande cada passagem para o limite de duas vezes o
+sentença e que param no término usando a detecção de limite de sentença. Para fazer isso, ele primeiro procura por passagens que tenham aproximadamente o comprimento especificado no [parâmetro `passages.characters`](/docs/services/discovery?topic=discovery-query-parameters#passages_characters) (o padrão é `400`). Em seguida, ele expande cada passagem para o limite de duas vezes o
 comprimento especificado para retornar sentenças completas. Se o seu
 parâmetro `passages.characters` é curto e/ou as sentenças em seus documentos são muito
 longas, talvez não haja limites de sentença próximas o
@@ -225,8 +234,7 @@ Uma lista separada por vírgula de campos no índice dos quais as passagens ser�
 ### passages.count
 {: #passages_count}
 
-O número máximo de passagens a serem retornadas. A procura retornará menos se esse for o número total
-localizado. O padrão é `10`. O máximo é `100`.
+O número máximo de passagens a serem retornadas. A procura retornará menos passagens, se esse for o número total localizado. O padrão é `10`. O máximo é `100`.
 
 ### passages.characters
 {: #passages_characters}
@@ -290,13 +298,13 @@ O JSON que é retornado será do seguinte formato:
 
  Um recurso beta que exclui documentos duplicados dos resultados da consulta de coleção do
 {{site.data.keyword.discoverynewsfull}}
-com base no campo `title`. Consulte [Excluindo documentos duplicados de resultados da consulta](/docs/services/discovery/query-parameters.html#deduplication).
+com base no campo `title`. Consulte [Excluindo documentos duplicados de resultados da consulta](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### deduplicate.field
 {: #deduplicate_field}
 
 Um recurso beta que exclui documentos duplicados dos resultados da consulta com base no
-`{field}` especificado. Consulte [Excluindo documentos duplicados de resultados da consulta](/docs/services/discovery/query-parameters.html#deduplication).
+`{field}` especificado. Consulte [Excluindo documentos duplicados de resultados da consulta](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### Excluindo documentos duplicados dos resultados da consulta
 {: #deduplication}
@@ -306,8 +314,8 @@ coleção de dados privados contiver múltiplos documentos idênticos (ou quase 
 excluir a maioria deles dos seus resultados da consulta usando a deduplicação de documento.
 
 **Nota:** a deduplicação de documentos é atualmente suportada apenas como um recurso
-beta. Consulte [Recursos beta](/docs/services/discovery/release-notes.html#beta-features) nas
-Notas sobre a liberação para obter mais informações. Esse recurso beta é atualmente suportado apenas em inglês. Consulte [Suporte ao idioma](/docs/services/discovery/language-support.html#feature-support) para obter detalhes.
+beta. Consulte [Recursos beta](/docs/services/discovery?topic=discovery-release-notes#beta-features) nas
+Notas sobre a liberação para obter mais informações. Esse recurso beta é atualmente suportado apenas em inglês. Consulte [Suporte ao idioma](/docs/services/discovery?topic=discovery-language-support#feature-support) para obter detalhes.
 
 **Nota:** cada consulta é deduplicada de forma independente, portanto, a
 deduplicação nas compensações não é suportada.
@@ -332,6 +340,7 @@ Ao deduplicar, a resposta JSON inclui `"duplicates_removed": x`, em que
 `x` é o número de documentos removidos dos resultados.
 
 #### Deduplicando documentos no Watson Discovery News
+{: #deduplicatewds}
 
 Os artigos de notícias podem ser organizados em vários meios de comunicação e {{site.data.keyword.discoverynewsfull}} escolherá cada um deles, resultando em artigos duplicados. Isso significa que uma consulta ao {{site.data.keyword.discoverynewsfull}} pode retornar potencialmente vários artigos idênticos ou quase idênticos nos resultados da consulta. O uso da deduplicação remove a maioria dos artigos duplicados de suas consultas de procura.
 
@@ -360,7 +369,7 @@ em sua consulta. Substitua `{field}` pelo nome do campo em que você deseja dedu
 {: #collection_ids}
 
 Uma lista separada por vírgula de coleções no mesmo ambiente que será consultado. Esse parâmetro é
-válido apenas ao usar o método `environments/{environment_id}/query?`. Veja [Consultando múltiplas coleções](/docs/services/discovery/using.html#multiple-collections) para obter mais informações.
+válido apenas ao usar o método `environments/{environment_id}/query?`. Veja [Consultando múltiplas coleções](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections) para obter mais informações.
 
 ```bash
 &collection_ids={id1},{id2}
@@ -371,7 +380,7 @@ válido apenas ao usar o método `environments/{environment_id}/query?`. Veja [C
 {: #similar}
 
 A similaridade do documento identifica documentos que são semelhantes aos documentos listados nos parâmetros `similar.document_ids`. Isso pode ser refinado ainda mais, especificando quais campos serão considerados para comparação usando os parâmetros `similar.fields`. O padrão
-é `false`. Consulte  [ Similaridade do documento ](/docs/services/discovery/using.html#doc-similarity)  para obter mais informações.
+é `false`. Consulte  [ Similaridade do documento ](/docs/services/discovery?topic=discovery-query-concepts#doc-similarity)  para obter mais informações.
 
 ```bash
 &similar=true

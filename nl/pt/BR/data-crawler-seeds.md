@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Configurando opções do conector e de valor inicial
 {: #configuring-connector-and-seed-options}
@@ -23,6 +35,9 @@ lastupdated: "2017-08-25"
 Ao efetuar crawl de dados, o crawler primeiramente identifica o tipo de repositório de dados (conector)
 e o local de início especificado pelo usuário (valor inicial) para começar o download de informações.
 {: shortdesc}
+
+O Data Crawler deve ser usado apenas para efetuar crawl de compartilhamentos de arquivo ou bancos de dados; em todos os outros casos, é necessário usar o conector apropriado do {{site.data.keyword.discoveryshort}}. Veja [Conectando a origens de dados](/docs/services/discovery?topic=discovery-sources#sources) para obter detalhes. A assistência não será mais fornecida para o Data Crawler se você estiver usando-o com uma origem de dados suportada pelos conectores do {{site.data.keyword.discoveryshort}}.
+{: important}
 
 **Importante:** ao utilizar o Data Crawler, as configurações de segurança do
 repositório de dados são ignoradas.
@@ -41,15 +56,12 @@ configurado corretamente para ler seu repositório de dados. O Data Crawler forn
 coleta de dados nos seguintes repositórios:
 
 -   [Sistema de
-arquivos](/docs/services/discovery/data-crawler-seeds.html#configuring-filesystem-crawl-options)
+arquivos](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-filesystem-crawl-options)
 -   [Bancos de
-dados, por meio de JDBC](/docs/services/discovery/data-crawler-seeds.html#configuring-database-crawl-options)
--   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#configuring-cmis-crawl-options)
+dados, por meio de JDBC](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-database-crawl-options)
+-   [CMIS (Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-cmis-crawl-options)
 -   [Compartilhamentos
-de arquivo SMB (Server Message Block), CIFS (Common Internet Filesystem) ou Samba](/docs/services/discovery/data-crawler-seeds.html#configuring-smbcifssamba-crawl-options)
--   [SharePoint
-e SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#configuring-sharepoint-crawl-options)
--   [Box](/docs/services/discovery/data-crawler-seeds.html#configuring-box-crawl-options)
+de arquivo SMB (Server Message Block), CIFS (Common Internet Filesystem) ou Samba](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 
 Um modelo de configuração do conector também é fornecido, o que permite customizar um conector.
 
@@ -61,23 +73,20 @@ conector do sistema de arquivos) em um editor de texto.
 
 1.  Modifique os valores que sejam apropriados para seu repositório:
 
-    -   [Sistema
-de arquivos](/docs/services/discovery/data-crawler-seeds.html#filesystem-crawl-options)
+    -   [Sistema de
+arquivos](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#filesystem-crawl-options)
     -   [Bancos de
-Dados, por meio de JDBC](/docs/services/discovery/data-crawler-seeds.html#database-crawl-seed)
-    -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#cmis-crawl-options)
+dados, por meio de JDBC](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#database-crawl-seed)
+    -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#cmis-crawl-options)
     -   [Compartilhamentos
-de arquivo SMB (Server Message Block), CIFS (Common Internet Filesystem) ou Samba](/docs/services/discovery/data-crawler-seeds.html#smb-cifs-samba-crawl-options)
-    -   [SharePoint
-e SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#sharepoint-crawl-options)
-    -   [Box](/docs/services/discovery/data-crawler-seeds.html#box-crawl-options)
+de arquivo SMB (Server Message Block), CIFS (Common Internet Filesystem) ou Samba](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 1.  Salve e feche o arquivo.
 1.  Repita para o arquivo `-seed.conf` no diretório `connectors/seeds`
 que corresponde ao repositório ao qual você está se conectando (por exemplo,
 `filesystem-seed.conf` é o arquivo de configuração de valor inicial (a que conectar-se)
 para o conector de sistema de arquivos) em um editor de texto.
 1.  Continue com [configurando o Data
-Crawler para conectar-se ao {{site.data.keyword.discoveryshort}}](/docs/services/discovery/data-crawler-discovery.html).
+Crawler para conectar-se ao {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-the-data-crawler).
 
 Para acessar o manual no produto para os arquivos de configuração do conector e de valor inicial, com as
 informações mais atualizadas, digite os seguintes comandos no diretório de instalação do Crawler:
@@ -99,7 +108,11 @@ informações mais atualizadas, digite os seguintes comandos no diretório de in
 O conector do sistema de arquivos permite efetuar o crawl de arquivos locais para a instalação do Data
 Crawler.
 
+Outra opção para fazer upload de grandes números de arquivos no {{site.data.keyword.discoveryshort}} é [discovery-files ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM/discovery-files){: new_window} no GitHub.
+{: note}
+
 ### Configurando o conector do sistema de arquivos
+{: #filesystem-connector}
 
 A seguir estão as opções de configuração básica que são necessárias para usar o conector do
 sistema de arquivos. Para configurar esses valores, abra o arquivo
@@ -113,6 +126,7 @@ seus casos de uso:
 usar esse conector deve ser `plugin:filesystem.plugin@filesystem`.
 
 ### Configurando o valor inicial de crawl do sistema de arquivos
+{: #filesystem-crawl-seed}
 
 Os valores a seguir podem ser configurados para o arquivo de valor inicial de crawl do sistema de
 arquivos. Para configurar esses valores, abra o arquivo `config/seeds/filesystem-seed.conf` e
@@ -136,6 +150,7 @@ e informações do sistema.   **`hops`** - Somente uso interno.   **`default-all
     {: tip}
 
 ## Configurando opções de crawl do banco de dados
+{: #database-crawl}
 
 O conector de banco de dados permite efetuar crawl de um banco de dados executando um comando SQL
 customizado e criando um documento por linha (registro) e um elemento de conteúdo por coluna (campo). É
@@ -192,6 +207,7 @@ do diretório de instalação do seu Data Crawler ou é possível usar a configu
 outro local.
 
 ### Configurando o conector do banco de dados
+{: #database-connector}
 
 A seguir estão as opções de configuração básica que são necessárias para usar o conector do banco de
 dados. Para configurar esses valores, abra o arquivo config/connectors/database.conf e modifique os
@@ -254,6 +270,7 @@ CMS (Content Management System) habilitados para CMIS, como Alfresco, Documentum
 {{site.data.keyword.IBM}} Content Manager, e indexar os dados que eles contêm.
 
 ### Configurando o conector CMIS
+{: #cmis-connector}
 
 A seguir estão as opções de configuração básica que são necessárias para usar o conector CMIS. Para
 configurar esses valores, abra o arquivo `config/connectors/cmis.conf` e defina os
@@ -266,10 +283,7 @@ valores a seguir, que são específicos para os casos de uso:
 `plugin:cmis-v1.1.plugin@connector` para esse conector.
 -   **`logging-config`** - Especifica o arquivo usado para configurar as opções de criação de log; ele deve ser formatado como uma sequência XML `log4j`.
 -   **`endpoint`** - a URL do terminal em serviço de um repositório
-compatível com CMIS. Por exemplo, as estruturas da URL para SharePoint são:
-
-    -   Para ligação AtomPub: `http://yourserver/_vti_bin/cmis/rest?getRepositories`
-    -   Para ligação de WebServices: `http://yourserver/_vti_bin/cmissoapwsdl.aspx`
+compatível com CMIS. 
 -   **`username`** - o nome do usuário do repositório
 CMIS usado para acessar o conteúdo. Esse usuário deve ter acesso a todas as pastas e documentos de destino a
 serem submetidos a crawl e indexados.
@@ -299,6 +313,7 @@ serão passados.
 -   **`ssl-version`** - Especifica uma versão de SSL para usar para conexões HTTPS. Por padrão, o protocolo mais forte disponível é usado.
 
 ### Configurando o valor inicial de crawl do CMIS
+{: #cmis-crawl-seed}
 
 Os valores a seguir podem ser configurados para o arquivo inicial de crawl do CMIS. Para configurar
 esses valores, abra o arquivo `config/seeds/cmis-seed.conf` e modifique os valores a seguir,
@@ -321,6 +336,7 @@ Common Internet Filesystem (CIFS). Esse tipo de compartilhamento é comum em red
 fornecido por meio do projeto de software livre Samba.
 
 ### Configurando o conector Samba
+{: #smb-cifs-samba-crawl-connector}
 
 A seguir estão as opções de configuração básica que são necessárias para usar o conector Samba. Para
 configurar esses valores, abra o arquivo `config/connectors/samba.conf` e defina os
@@ -364,6 +380,7 @@ serão enviadas em paralelo para um único endereço IP. O padrão é `1`.
 -   **`enqueue-persistence`** - opção não utilizada.
 
 ### Configurando o valor inicial de crawl do Samba
+{: #smb-cifs-samba-crawl-seed}
 
 Os valores a seguir podem ser configurados para o arquivo inicial de crawl do Samba. Para configurar
 esses valores, abra o arquivo `config/seeds/samba-seed.conf` e defina os valores a
@@ -381,182 +398,3 @@ compartilhamentos para efetuar crawl, por exemplo:
 
 -   **`hops`** - Somente uso interno.
 -   **`default-allow`** - Somente uso interno.
-
-## Configurando opções de crawl do SharePoint
-{: #sharepoint-crawl-options}
-
-**Importante:** o conector SharePoint requer o Microsoft SharePoint Server 2007 (MOSS
-2007), o SharePoint Server 2010, o SharePoint Server 2013 ou o SharePoint Online.
-
-O conector SharePoint permite efetuar crawl de objetos SharePoint e indexar as informações que eles contêm. Um objeto, como um documento, perfil do usuário, coleção de site, blog, item da lista, lista de associação,
-página de diretório, etc., pode ser indexado com seus metadados associados. Para obter itens e
-documentos da lista, os índices podem incluir anexos.
-
-O conector SharePoint respeita o atributo `noindex` em todos os objetos do
-SharePoint, independentemente de seu tipo específico (blogs, documentos, perfis de usuário, etc.). Um único
-documento é retornado para cada resultado.
-{: tip}
-
-**Importante:** a conta do SharePoint que você usa para efetuar crawl de seus sites do
-SharePoint deve ter pelo menos privilégios de acesso de leitura integral.
-
-### Configurando o conector SharePoint
-
-A seguir estão as opções de configuração básica que são necessárias para usar o conector SharePoint. Para configurar esses valores, abra o arquivo `config/connectors/sharepoint.conf` e modifique
-os valores a seguir, que são específicos para os casos de uso:
-
--   **`protocol`** - O nome do protocolo do conector usado para o crawl. O valor para usar esse conector é `io-sp`.
--   **`collection`** - Esse atributo é usado para descompactar arquivos temporários.
--   **`classname`** - Classe Java para o conector. Use
-`plugin:io-sharepoint.plugin@connector` para esse conector.
--   **`logging-config`** - Especifica o arquivo usado para configurar as opções de criação de log; ele deve ser formatado como uma sequência XML `log4j`.
--   **`seed-url-type`** - identifica para qual tipo de objeto
-SharePoint as URLs iniciais fornecidas apontam: coleções de sites ou aplicativos da web (também conhecidos como servidores
-virtuais).
-
-    -   `Site Collections` - se o Tipo de URL inicial for configurado para
-Site Collections, então somente os filhos da coleção de site referenciados pela URL serão submetidos a crawl.
-    -   `Web Applications` - se o tipo de URL inicial for configurado para Web
-Applications, então todas as coleções de site (incluindo seus filhos) pertencentes aos aplicativos da web
-referenciados por cada URL serão submetidas a crawl.
--   **`auth-type`** - o mecanismo de autenticação a ser usado ao
-entrar em contato com o servidor SharePoint: `BASIC`, `NTLM2`,
-`KERBEROS` ou `CBA`. O tipo de autenticação padrão é
-`NTLM2`.
--   **`spUser`** - o nome do usuário do SharePoint utilizado para
-acessar o conteúdo. Esse usuário deve ter acesso a todos os sites e listas de destino a serem submetidos a
-crawl e indexados e deve poder recuperar e resolver as permissões associadas. É melhor inseri-lo com o nome de
-domínio, como: `MYDOMAIN\\Administrator`.
--   **`spPassword`** - a senha do usuário do SharePoint utilizada
-para acessar o conteúdo. A senha deve ser criptografada usando o programa vcrypt enviado com o Data Crawler.
--   **`cba-sts`** - a URL para o terminal Security Token Service
-(STS) ao qual tentar autenticar o usuário de crawl. Para locais do SharePoint com ADFS, esse deve ser o
-terminal ADFS. Se o Tipo de Autenticação está configurado como CBA (Claims Based Authentication), então
-esse campo é obrigatório.
--   **`cba-realm`** - o identificador do Relying Party Trust
-a ser usado ao solicitar um token de segurança por meio do STS. Isso às vezes é conhecido como o
-valor "AppliesTo" ou o "Realm". Para o SharePoint Online, essa deve ser a URL para a raiz da instância do
-SharePoint Online (por exemplo, `https://mycompany.sharepoint.com`). Para o ADFS, esse é o
-valor do ID para o Relying Party Trust entre o SharePoint e o ADFS (por exemplo,
-`"urn:SHAREPOINT:adfs"`).
--   **`everyone-group`** - quando especificado, esse nome de grupo
-é usado nas ACLs quando o acesso deve ser fornecido a todos. Esse campo é obrigatório quando o crawl de perfis do usuário está ativado.
-
-    **Nota:** a segurança não é respeitada pelo serviço Retrieve and Rank.
-
--   **`user-profile-master-url`** - a URL base que o conector usa
-para construir links para perfis do usuário. Ela deve ser configurada para apontar para o formato de exibição
-para perfis do usuário. Se o token `%FIRST_SEED%` for encontrado, ele será substituído pela
-primeira URL inicial. Necessário quando o crawl de perfis do usuário está ativado.
--   **`urls`** - lista separada por quebras de linha de URLs de HTTP
-de aplicativos da web ou coleções de sites SharePoint para efetuar crawl.
--   **`ehcache-config`** - opção não utilizada.
--   **`method`** - O método (`GET` ou `POST`) pelo qual os parâmetros serão transmitidos.
--   **`cache-types`** - opção não utilizada.
--   **`cache-size`** - opção não utilizada.
--   **`enable-acl`** - ativa o crawl de perfis do usuário do
-SharePoint; os valores são `true` ou `false`; o valor padrão é
-`false`.
-
-### Configurando o valor inicial de crawl do SharePoint
-
-Os valores adicionais a seguir podem ser configurados para o arquivo inicial de crawl do SharePoint. Para configurar esses valores, abra o arquivo `config/seeds/sharepoint-seed.conf` e
-defina os valores a seguir, que são específicos para os casos de uso:
-
--   **`url`** - lista separada por quebras de linha de
-URLs de aplicativos da web ou de coleções de sites SharePoint para efetuar crawl. Por exemplo:
-
-    ```
-    io-sp://a.com
-    io-sp://b.com:83/site
-    io-sp://c.com/site2
-    ```
-    {: codeblock}
-
-    Os subsites desses sites também serão submetidos a crawl (a menos que sejam excluídos por outras
-regras de crawling).
-
--   **`filter-url`** - lista separada por quebras de linha de URLs
-de aplicativos da web ou de coleções de sites SharePoint para efetuar crawl. Por exemplo:
-
-    ```
-    http://a.com
-    http://b.com:83/site
-    http://c.com/site2
-    ```
-    {: codeblock}
-
--   **`hops`** - Somente uso interno.
--   **`n-concurrent-requests`** - somente para uso interno.
--   **`delay`** - somente para uso interno.
--   **`default-allow`** - Somente uso interno.
--   **`seed-protocol`** - configura o protocolo inicial para filhos
-da coleção de site. Necessário quando o protocolo de coleção de sites é SSL, HTTP ou HTTPS. Esse valor deve
-ser configurado da mesma forma que o protocolo da coleção de site.
-
-## Configurando opções de crawl do Box
-
-O Box Connector permite efetuar crawl da instância do Enterprise Box e indexar as informações que ele
-contém.
-
-### Configurando o Box Connector
-
-A seguir estão as opções de configuração básica que são necessárias para usar o Box Connector. Para
-configurar esses valores, abra o arquivo `config/connectors/box.conf` e modifique os valores
-a seguir, que são específicos para os casos de uso:
-
--   **`protocol`** - O nome do protocolo do conector usado para o crawl. O valor para usar esse conector é `caixa`.
--   **`classname`** - Classe Java para o conector. Use
-`plugin:box.plugin@connector` para esse conector.
--   **`logging-config`** - Especifica o arquivo usado para configurar as opções de criação de log; ele deve ser formatado como uma sequência XML `log4j`.
--   **`box-crawl-seed-url`** - a URL base para o Box. O valor para
-esse conector é `box://app.box.com/`.
-
-    É possível efetuar crawl de diferentes tipos de URLs, por exemplo:
-
-    -   Para efetuar crawl de uma empresa inteira: `box://app.box.com/`
-    -   Para efetuar crawl de uma pasta específica:
-`box://app.box.com/user/USER_ID/folder/FOLDER_ID/FolderName`
-    -   Para efetuar crawl de um usuário específico: `box://app.box.com/user/USER_ID/`
--   **`client-id`** - insira o ID do cliente fornecido pelo Box
-quando você criou o aplicativo Box.
--   **`client-secret`** - insira o segredo do cliente fornecido pelo
-Box quando você criou o aplicativo Box.
--   **`path-to-private-key`** - esse é o local, no sistema de
-arquivos local, da Chave Privada que faz parte do par de chaves pública-privada gerado para comunicação com o Box.
--   **`kid`** - especifique o ID da Chave Pública. Essa é a outra
-metade do par de chaves pública-privada gerado para comunicação com o Box.
--   **`enterprise-id`** - a empresa na qual seu aplicativo foi
-autorizado. O ID da Empresa é listado na página principal do Box Administration Console.
--   **`enable-acl`** - somente para uso interno. Permite
-recuperação de ACLs para dados submetidos a crawl.
--   **`user-agent`** - Um cabeçalho enviado ao servidor ao efetuar crawl em documentos.
--   **`method`** - O método (`GET` ou `POST`) pelo qual os parâmetros serão transmitidos.
--   **`url-logging`** - A extensão para a qual as URLs com crawl são registradas. Os valores possíveis são:
-
-    -   `full-logging` - Registre todas as informações sobre a URL.
-    -   `refined-logging` - Basta registrar as informações necessárias para navegar no log do crawler e para que o conector funcione corretamente; esse é o valor padrão.
-    -   `minimal-logging` - Basta registrar a quantidade mínima de informações necessárias para que o conector funcione corretamente.
-
-    Configurar essa opção como `minimal-logging` reduzirá o tamanho dos logs e ganhará um leve aumento de desempenho devido à E/S menor associada com a minimização da quantidade de dados que estão sendo registrados.
--   **`ssl-version`** - Especifica uma versão de SSL para usar para conexões HTTPS. Por padrão, o protocolo mais forte disponível é usado.
-
-### Configurando o valor inicial de crawl do Box
-{: #box-crawl-options}
-
-Os valores adicionais a seguir podem ser configurados para o arquivo inicial de crawl Box. Para
-configurar esses valores, abra o arquivo `config/seeds/box-seed.conf` e defina os
-valores a seguir, que são específicos para os casos de uso:
-
--   **`url`** - a URL a ser usada como o ponto de início do crawl. O valor padrão é `box://app.box.com/`.
--   **`default-allow`** - Somente uso interno.
-
-## Limitações
-
-O Box Connector possui algumas limitações:
-
--   Comentários ou Tarefas sobre arquivos não são recuperados.
--   O corpo do conteúdo do Notes é recuperado como JSON. A conversão adicional de dados do Notes pode
-ser necessária.
--   Documentos individuais não podem ser recuperados por meio de Test-It. Somente URLs iniciais,
-URLs de pasta e URLs do usuário podem ser recuperadas por meio de Test-It.

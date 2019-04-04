@@ -1,20 +1,20 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery/index.html" path="services/discovery"}
+{: .toc subcollection="discovery" audience="service" arm="1680411" href="/docs/services/discovery?topic=discovery-getting-started#getting-started" path="services/discovery"}
 Discovery
 
     {: .navgroup id="learn"}
     getting-started-tool.md
     index.md
     watson-discovery-news.md
-    
+
     {: topicgroup}
     Classificação de elementos
         element-classification.md
         schema.md
         parsing.md
-    
+
     building-kg.md
     sample-apps.md
     [Vídeos](https://ibm.biz/wds_videos)
@@ -27,8 +27,9 @@ Discovery
         getting-started-query.md
 
     building.md
-    connect.md
+    sdu.md
     adding-content.md
+    connect.md
 
     {: topicgroup}
     Usando o Data Crawler
@@ -67,11 +68,12 @@ Discovery
         migrate-dcs-rr.md
         migrate-rnr-tut.md
 
-    upgrading.md
+    recovery.md upgrading.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Referência da API](https://www.ibm.com/watson/developercloud/discovery/api)
+    [Referência da API
+](https://cloud.ibm.com/apidocs/discovery)
 
     {: topicgroup}
     White Papers
@@ -88,21 +90,11 @@ Discovery
     custom-config.md
     language-support.md
     information-security.md
+    qp.md
     additional-resources.md
     discovery-auxiliary.md
 
-    {: .topicgroup}
-    SDKs do Watson
-        [SDK do Android](https://github.com/watson-developer-cloud/android-sdk)
-        [SDK do Java](https://github.com/watson-developer-cloud/java-sdk)
-        [SDK do Node.js](https://github.com/watson-developer-cloud/node-sdk)
-        [SDK do Python](https://github.com/watson-developer-cloud/python-sdk)
-        [SDK do Ruby](https://github.com/watson-developer-cloud/ruby-sdk)
-        [SDK do .NET](https://github.com/watson-developer-cloud/dotnet-standard-sdk)
-        [SDK do OpenWhisk](https://github.com/watson-developer-cloud/openwhisk-sdk/)
-        [SDK do Salesforce](https://github.com/watson-developer-cloud/salesforce-sdk)
-        [SDK do Swift](https://github.com/watson-developer-cloud/swift-sdk)
-        [SDK do Unity](https://github.com/watson-developer-cloud/unity-sdk)
+    /watson/watson-using-sdks
 
     [Repositórios do Watson GitHub](https://github.com/watson-developer-cloud/)
     {: .navgroup-end}

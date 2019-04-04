@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Configurando o Data Crawler
 {: #configuring-the-data-crawler}
@@ -25,8 +37,8 @@ de entrada apropriado no arquivo `crawler.conf` e, em seguida, configurar as
 informações específicas do repositório nos arquivos de configuração do adaptador de entrada.
 {: shortdesc}
 
-É possível usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou a API para efetuar crawl em origens de dados do Box, Salesforce e Microsoft SharePoint Online. Consulte [Conectando-se a origens de dados](/docs/services/discovery/connect.html) para obter mais informações.
-{: tip}
+O Data Crawler deve ser usado apenas para efetuar crawl de compartilhamentos de arquivo ou bancos de dados; em todos os outros casos, é necessário usar o conector apropriado do {{site.data.keyword.discoveryshort}}. Veja [Conectando a origens de dados](/docs/services/discovery?topic=discovery-sources#sources) para obter detalhes. A assistência não será mais fornecida para o Data Crawler se você estiver usando-o com uma origem de dados suportada pelos conectores do {{site.data.keyword.discoveryshort}}.
+{: important}
 
 Antes de fazer as mudanças listadas nessas etapas, certifique-se de que você criou o seu
 diretório ativo copiando o conteúdo do diretório
@@ -62,12 +74,12 @@ você modificou anteriormente, por exemplo: `seeds/filesystem-seed.conf`.
     Há outras configurações opcionais neste arquivo que podem ser definidas conforme apropriado para
 seu ambiente, consulte:
 [Configurando
-opções de crawl](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options),
+opções de crawl](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options),
 [Configurando o adaptador de
-entrada](/docs/services/discovery/data-crawler-discovery.html#input-adapter), [Configurando
-o adaptador de saída](/docs/services/discovery/data-crawler-discovery.html#output-adapter) e
+entrada](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Configurando
+o adaptador de saída](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter) e
 [Opções
-adicionais de gerenciamento de crawl](/docs/services/discovery/data-crawler-discovery.html#additional-crawl-management-options) para obter informações detalhadas sobre como configurar esses
+adicionais de gerenciamento de crawl](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options) para obter informações detalhadas sobre como configurar esses
 valores.
 
 1.  Abra o arquivo `discovery/discovery_service.conf` em um editor de texto. Modifique
@@ -79,16 +91,16 @@ que você criou anteriormente no {{site.data.keyword.Bluemix}}:
     -   `configuration_id` - Seu ID de configuração do serviço do {{site.data.keyword.discoveryshort}}.
     -   `configuration` - O local do caminho completo deste arquivo `discovery_service.conf`, por exemplo, `/home/config/discovery/discovery_service.conf`.
     -   `username` - credencial de nome do usuário para seu serviço do {{site.data.keyword.discoveryshort}}.
-    -   `password` - Credencial de senha para seu serviço do {{site.data.keyword.discoveryshort}}.
+    -   ` apikey ` -Credencial para seu serviço do  {{site.data.keyword.discoveryshort}} .
 
     Há outras configurações opcionais neste arquivo que podem ser definidas conforme apropriado para
 seu ambiente. Consulte
 [Configurando
-opções de serviço](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options) para obter informações detalhadas sobre como configurar esses valores.
+opções de serviço](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options) para obter informações detalhadas sobre como configurar esses valores.
 
 1.  Após modificar esses arquivos, você está pronto para efetuar crawl em seus dados. Continue com
 [Efetuando crawl de
-seu repositório de dados](/docs/services/discovery/data-crawler-run.html#crawling-your-data-repository) para continuar.
+seu repositório de dados](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository) para continuar.
 
 ## Configurando opções de crawl
 {: #configuring-crawl-options}
@@ -137,7 +149,6 @@ colocá-los em um sistema de arquivos criptografados, mas esteja ciente das impl
 
     **Nota:** relativo ao diretório `lib/java` da estrutura do conector.
 
-    -   Este valor deve ser `oakland` ao usar o conector SharePoint.
     -   Este valor deve ser `database` ao usar o conector do banco de dados.
 
     É possível deixar esse valor vazio (ou seja, sequência vazia "") ao usar outros conectores.
@@ -272,8 +283,7 @@ As opções padrão podem ser mudadas diretamente abrindo o arquivo `config/disc
 -   **`collection_id`** - o nome da coleção de documentos que você configurou no serviço do {{site.data.keyword.discoveryshort}}.
 -   **`api_version`** - somente para uso interno. Data da última mudança de versão da API.   
 -   **`configuration_id`** - o nome do arquivo de configuração que o serviço do {{site.data.keyword.discoveryshort}} utiliza.
--   **`username`** - o nome de usuário para autenticar-se ao local de sua coleção de documento submetido crawl.   
--   **`password`** - a senha para autenticar-se ao local de sua coleção de documentos submetidos a crawl.
+-   **`apikey`** - Credencial para autenticar no local de sua coleção de documentos submetidos a crawl.
 
 O {{site.data.keyword.discoveryshort}} Service Output Adapter pode enviar estatísticas para que o {{site.data.keyword.IBM}} entenda e atenda melhor seus usuários. As opções a seguir podem ser configuradas para a variável `send_stats`:
 

@@ -4,24 +4,36 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-05-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Agregações de consultas
 {: #query-aggregations}
 
 As agregações retornam um conjunto de valores de dados. Para obter a lista completa de agregações
-disponíveis, consulte a [Referência de consulta](/docs/services/discovery/query-reference.html#aggregations).
+disponíveis, consulte a [Referência de consulta](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ## term
 {: #term}
@@ -37,7 +49,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filtro
-{: #filter}
+{: #aggfilter}
 
 Um modificador que limita o conjunto de documentos da consulta de agregação que o precede. Este exemplo
 filtra até o conjunto de documentos que incluem o conceito de computação em nuvem.
@@ -131,7 +143,7 @@ a magnitude do comportamento anômalo. Quanto mais próximo o valor do campo de 
 
   - O `key` e o `key_as_string` em cada um dos objetos na
 matriz `results` correspondem a um registro de data e hora do UNIX em segundos.
-  - A pontuação de anomalia é relativa a uma consulta, não a várias consultas.
+  - A pontuação de anomalia é relativa apenas à consulta original.
 
 ```json
 "type": "timeslice",
@@ -175,6 +187,7 @@ matriz `results` correspondem a um registro de data e hora do UNIX em segundos.
 {: codeblock}
 
 #### Limitações de detecção de anomalias
+{: #anomaly-limitations}
 
 - A detecção de anomalias está disponível atualmente somente em agregações `timeslice`
 de nível superior. Ela não está disponível em agregações de nível inferior (aninhadas).
