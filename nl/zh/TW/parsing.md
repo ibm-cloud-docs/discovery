@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-23"
+  years: 2017, 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 剖析合約
 {: #contract_parsing}
@@ -44,19 +56,35 @@ lastupdated: "2018-10-23"
 ## Parties
 {: #contract_parties}
 
-個別的 `parties` 陣列指定合約中列出的參與者。每個已識別的 `party` 物件會依名稱列出所識別的參與方，並與 `role` 相配，以將 `party` 物件的角色分類。針對合約可傳回的 `role` 值包括但不限於：
+`parties` 陣列指定合約中列出的參與者。每個 `party` 物件都會與其他提供參與方詳細資料的物件相關聯，包括：
+
+  - `role`：參與方的角色。其值列示在此清單後面的表格中。
+  - `importance`：參與方的重要性。可能的值包括代表主要參與方的 `Primary`，以及代表非主要參與方的 `Unknown`。
+  - `addresses`：用來識別位址的陣列。
+    - `text`：地址。
+    - `location`：地址的位置，如其 `begin` 和 `end` 索引所定義。
+  - `contacts`：此為陣列，定義在輸入文件中所識別的聯絡人名稱和角色。
+    - `name`：聯絡人的名稱。
+    - `role`：聯絡人的角色。
+
+針對合約可傳回的 `role` 值包括但不限於：
 
 | `role`           |說明                                                       |
 |:----------------:|-----------------------------------------------------------|
 |`Buyer`           |負責支付合約中所列商品或服務的參與方。|
-|`End User`        |將與所提供商品或服務互動的參與方，與 `Buyer` 明確有所區別。|
+|`End User`        |與所提供之商品或服務互動的參與方，與 `Buyer` 有明確區別。|
 |`None`            |未識別元素的任何參與方。|
 |`Supplier`        |負責提供合約中所列商品或服務的參與方。|
 
 ## Categories
 {: #contract_categories}
 
-`categories` 陣列定義句子的主題。目前支援的種類包括：
+`categories` 陣列定義句子的主題。 
+
+此表格中的種類和說明是以美國法律為依據，可能不適用於美國以外的行政管轄區域。
+{: important}
+
+目前支援的種類包括：
 
 | `categories`     |說明                                                       |
 |:----------------:|-----------------------------------------------------------|
@@ -88,16 +116,51 @@ lastupdated: "2018-10-23"
 ## 屬性
 {: #attributes}
 
-`attributes` 陣列指定句子中識別的所有屬性。陣列中的每個物件包括三個索引鍵：`type`（下表中的屬性類型）、`text`（適用的文字），以及 `location`（輸入文件中屬性的 `begin` 和 `end` 索引）。目前支援的屬性包括：
+`attributes` 陣列指定在句子中識別的所有屬性。陣列中的每個物件包括三個索引鍵：`type`（下表中的屬性類型）、`text`（適用的文字），以及 `location`（輸入文件中屬性的 `begin` 和 `end` 索引）。目前支援的屬性包括：
 
 | `attributes`     |說明                                                       |
 |:----------------:|-----------------------------------------------------------|
-|`Location`        |地理位置或地區。                                           |
-|`DateTime`        |日期、時間、日期範圍或時間範圍。                           |
+|`Address`         |郵件地址。|
 |`Currency`        |貨幣值和單位。                                             |
+|`DateTime`        |日期、時間、日期範圍或時間範圍。                           |
+|`Location`        |地理位置或地區。                                           |
+|`Organization`    |組織。                                                     |
+|`Person`          |人員。                                                     |
+
+## 有效日期
+{: #effective_dates}
+
+`effective_dates` 陣列識別文件的有效日期。
+
+| `effective_dates`|說明                                                       |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |有效日期，以字串形式列出。                                 |
+|`confidence_level`|有效日期識別的信任層級。可能的值包括 `High`、`Medium` 和 `Low`。|
+|`location`        |日期的位置，如其 `begin` 和 `end` 索引所定義。|
+
+## 合約金額
+{: #contract_amounts}
+
+`contract_amounts` 陣列識別文件中指定的金額。
+
+| `contract_amounts`|說明                                                       |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |合約金額，以字串形式列出。                                  |
+|`confidence_level`|合約金額識別的信任層級。可能的值包括 `High`、`Medium` 和 `Low`。|
+|`location`        |合約金額的位置，如其 `begin` 和 `end` 索引所定義。|
+
+## 終止日期
+{: #termination_dates}
+
+`termination_dates` 陣列識別文件的終止日期。
+
+| `contract_amounts`|說明                                                       |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |終止日期，以字串形式列出。                                 |
+|`confidence_level`|終止日期識別的信任層級。可能的值包括 `High`、`Medium` 和 `Low`。|
+|`location`        |終止日期的位置，如其 `begin` 和 `end` 索引所定義。|
 
 ## 起源
 {: #provenance}
 
 `types` 及 `categories` 陣列中的每個物件都包含 `provenance_ids` 陣列。`provenance_ids` 陣列有一個以上的索引鍵。每個索引鍵是一個雜湊值，您可以將它傳送給 IBM 以提供意見或取得支援。
-

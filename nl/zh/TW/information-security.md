@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-26"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-10"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 資訊安全
 {: #information-security}
@@ -49,7 +61,7 @@ IBM 致力於為我們的客戶及合作夥伴提供創新的資料隱私權、�
 - 利用客戶 ID 標示資料。
 - 刪除特定客戶 ID 的所有資料，包括相關注意事項。
 
-資料的標示方式是將您選擇的 `customer_id`（請參閱[如何標示資料](/docs/services/discovery/information-security.html#labeling)中的限制）新增至選用性的 `X-Watson-Metadata` 標頭。然後，{{site.data.keyword.discoveryshort}} 便可以依照 `customer_id` 來刪除它。
+資料的標示方式是將您選擇的 `customer_id`（請參閱[如何標示資料](/docs/services/discovery?topic=discovery-information-security#labeling)中的限制）新增至選用性的 `X-Watson-Metadata` 標頭。然後，{{site.data.keyword.discoveryshort}} 便可以依照 `customer_id` 來刪除它。
 
 在任何 REST 呼叫上，可以使用分號區隔的 `field=value` 配對來傳送選用性標頭 `X-Watson-Metadata`，該處目前僅持續保存 `customer_id`。透過在 `X-Watson-Metadata` 標頭中新增該 `customer_id`，要求指出它包含屬於這個 `customer_id` 的資料。
 
@@ -99,7 +111,7 @@ IBM 致力於為我們的客戶及合作夥伴提供創新的資料隱私權、�
 ### 使用 Discovery 工具標示資料
 {: #labelingtooling}
 
-使用 {{site.data.keyword.discoveryshort}} 工具時，可以使用 `customer_id` 欄位來標示資料。請按一下 ![齒輪](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} -->，並在 **GDPR 資料標籤**欄位中輸入 `customer_id`。設定此欄位之後，使用此瀏覽器階段作業上傳的所有資料，都將以指定的 `customer_id` 標示，若相關聯的客戶 ID 變更，則必須手動變更此欄位。
+使用 {{site.data.keyword.discoveryshort}} 工具時，可以使用 `customer_id` 欄位來標示資料。請按一下 ![環境詳細資料](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} -->，並在 **GDPR 資料標籤**欄位中輸入 `customer_id`。設定此欄位之後，使用此瀏覽器階段作業上傳的所有資料，都將以指定的 `customer_id` 標示，若相關聯的客戶 ID 變更，則必須手動變更此欄位。
 
 使用 **GDPR 資料標籤**欄位新增 `customer_id`，將會標示該 URL 網域內此後的文件、注意事項、「知識圖」實體、「知識圖」關係及訓練資料，包括該網域下的每個實例。新增 **GDPR 資料標籤**欄位之前，在 {{site.data.keyword.discoveryshort}} 工具中發生的任何動作（包括文件上傳）都不會予以標示。
 
@@ -110,7 +122,7 @@ IBM 致力於為我們的客戶及合作夥伴提供創新的資料隱私權、�
 
 如果已使用「資料搜索器」來搜索任何文件，您需要重新搜索它們，才能新增 `X-Watson-Metadata` 標頭和 `customer_id`。
 
-1. 更新 {{site.data.keyword.discoveryshort}} 資料搜索器輸出配接器配置，以包含 `customer_id`。請參閱[配置輸出配接器](/docs/services/discovery/data-crawler-discovery.html#output-adapter)。
+1. 更新 {{site.data.keyword.discoveryshort}} 資料搜索器輸出配接器配置，以包含 `customer_id`。請參閱[配置輸出配接器](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter)。
 1. 排定搜索。文件會使用 `X-Watson-Metadata` 標頭提交至 {{site.data.keyword.discoveryshort}}，且文件會以所配置的 `customer_id` 來標示。
 
 ## 刪除標示的資料
@@ -118,12 +130,14 @@ IBM 致力於為我們的客戶及合作夥伴提供創新的資料隱私權、�
 
 資料必須以 `customer_id` 進行標示，之後才能刪除它。
 
-1. 使用 `DELETE /v1/user_data` 作業，並提供您要刪除之資料的 `customer_id`。`DELETE /v1/user_data` 會刪除與該服務實例內的特定 `customer_id` 相關聯的所有資料，如[支援標示資料的方法](/docs/services/discovery/information-security.html#pi_methods)中所指定。另請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html#delete-user-data){: new_window}
+1. 使用 `DELETE /v1/user_data` 作業，並提供您要刪除之資料的 `customer_id`。`DELETE /v1/user_data` 會刪除與該服務實例內的特定 `customer_id` 相關聯的所有資料，如[支援標示資料的方法](/docs/services/discovery?topic=discovery-information-security#pi_methods)中所指定。另請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}
 
 刪除以非同步的方式執行。您無法追蹤刪除的進度。
 
+為確保所有含標籤的內容都已正確移除，應針對您環境中傳回 `0` 的所有集合，在 `processing` 和 `pending` 計數之後執行 `user_delete`。
+
 如果提供不存在的 `customer_id`，將不會刪除任何內容，但會傳回 `200 - OK` 回應。
 
-環境和集合不會以 `customer_id` 進行標示，即使在建立環境或集合的要求中包含 `X-Watson-Metadata` 標頭也一樣。只會標示環境內或集合內的個別文件。因此，在刪除資料時，「不會」刪除個別環境和集合。
+環境和集合不會以 `customer_id` 進行標示，即使在建立環境或集合的要求中包含 `X-Watson-Metadata` 標頭也一樣。只會標示環境內之集合內的個別文件。因此，在刪除資料時，「不會」刪除個別環境和集合。
 
 您無法使用 {{site.data.keyword.discoveryshort}} 工具來刪除已標示的資料。

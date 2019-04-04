@@ -2,20 +2,32 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-12-18"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 語言支援
 {: #language-support}
@@ -31,13 +43,14 @@ lastupdated: "2018-09-25"
 |荷蘭文 (nl)                     |基本         |
 |法文 (fr)                       |完整         |
 |德文 (de)                       |完整         |
-|義大利文 (it)                   |基本         |
+|義大利文 (it)                   |完整         |
 |日文 (ja)                       |完整         |
 |韓文 (ko)                       |完整         |
 |巴西葡萄牙文 (pt-br)            |完整         |
 |西班牙文 (es)                   |完整         |
 
 ## 基本支援
+{: #basic-support}
 
 - {{site.data.keyword.discoveryshort}} 支援包括：
     - 文件轉換
@@ -47,12 +60,14 @@ lastupdated: "2018-09-25"
     - 語言最佳化索引
     - 相關性訓練
     - 查詢擴展
+    - 停用字詞
     - 文件有 9 種語言：英文、法文、德文、日文、韓文、巴西葡萄牙文、西班牙文、簡體中文及繁體中文。請捲動至 {{site.data.keyword.Bluemix_notm}} 文件的底端，以選取語言。
 - 強化
     - 與 {{site.data.keyword.knowledgestudiofull}} 自訂模型整合
     - 語言偵測
 
 ## 完整支援
+{: #full-support}
 
 完整支援包括基本支援，加上：
 
@@ -75,3 +90,10 @@ lastupdated: "2018-09-25"
 - 「元素分類」強化
 - {{site.data.keyword.discoveryfull}} Knowledge Graph（測試版）
 - 刪除重複文件（測試版）
+
+## 僅支援日文
+{: #japanese-support}
+
+目前僅支援日文版的下列特性：
+
+- 自訂記號化字典

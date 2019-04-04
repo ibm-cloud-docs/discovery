@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 配置參考資料
 {: #configref}
@@ -23,7 +35,10 @@ lastupdated: "2018-01-23"
 如果您的資料具有特殊的[轉換](#conversion)、[強化](#enrichment)或[正規化](#normalization)需求，您可以在 JSON 中建立自己的 {{site.data.keyword.discoveryshort}} 汲取配置。
 {: shortdesc}
 
- 下列各節詳述此 JSON 的結構以及可在其中定義的物件。
+下列各節詳述此 JSON 的結構以及可在其中定義的物件。
+
+如果您的集合是使用[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)來建立的，將不會使用所列出的 PDF 和 Word 轉換設定，所以會忽略變更這些轉換設定的動作。
+{: note}
 
 ## 配置結構
 {: #structure}
@@ -82,10 +97,16 @@ lastupdated: "2018-01-23"
 
 - **JSON** 檔案則利用 `json` 選項來轉換。
 
+如果您的集合是使用[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)來建立的，將不會使用所列出的 PDF 和 Word 轉換設定，所以會忽略變更這些轉換設定的動作。
+{: note}
+
 下列各節說明這些選項。完成轉換之後，會先執行[強化](#enrichment)和[正規化](#normalization)，然後再儲存內容。
 
 ### PDF
 {: #pdf}
+
+如果您的集合是使用[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)來建立的，將不會使用所列出的 PDF 和 Word 轉換設定，所以會忽略變更這些轉換設定的動作。
+{: note}
 
 `pdf` 轉換物件會定義應如何將 PDF 文件轉換成 HTML，並具有下列結構：
 
@@ -129,6 +150,9 @@ lastupdated: "2018-01-23"
 
 ### Word
 {: #word}
+
+如果您的集合是使用[智慧型文件理解](/docs/services/discovery?topic=discovery-sdu#sdu)來建立的，將不會使用所列出的 PDF 和 Word 轉換設定，所以會忽略變更這些轉換設定的動作。
+{: note}
 
 `word` 轉換物件會定義應如何將 PDF 文件轉換成 HTML，並具有下列結構：
 
@@ -236,30 +260,37 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 {: codeblock}
 
 #### exclude_tags_completely
+{: #configref_exclude_completely}
 
 `"exclude_tags_completely" : array` - 將排除的 HTML 標籤名稱的陣列。這包括標籤、內容及任何已定義的標籤屬性。
 
 #### exclude_tags_keep_content
+{: #configref_exclude_tags_keep_content}
 
 `"exclude_tags_keep_content" : array` - 移除標籤資訊的 HTML 標籤名稱的陣列。這會導致刪去 HTML 標籤及任何標籤屬性。除非已指定，否則不會進一步刪去標籤的內容。例如，如果您對 `span` HTML 標籤指定 `exclude_tags_keep_content`，則會刪去 `<span class="info">Some <strong>Information</strong></span>`，變成：`Some <strong>Information</strong>`
 
 #### exclude_content
+{: #configref_exclude_content}
 
 `"xpaths" : array` - 識別所移除內容的 XPaths 陣列。如果設定此值，則會從輸出中移除符合其中一個 XPath 的任何項目。
 
 #### keep_content
+{: #configref_keep_content}
 
 `"xpaths" : array` - 識別所轉換內容的 XPaths 陣列。如果設定此值，則符合其中一個 XPath 的任何項目都會包含在輸出中。在 `exclude_content` 所指定的任何處理之後，會處理此參數所指定的併入項目。
 
 #### exclude_tag_attributes
+{: #configref_exclude_tag_attributes}
 
 `"exclude_tag_attributes" : array` - 轉換所移除之 HTML 屬性名稱的陣列（不管它們出現在哪一個 HTML 標籤中）。**附註：**如果您在相同的配置中同時指定 `exclude_tag_attributes` 和 `keep_tag_attributes`，將會收到錯誤訊息（每個配置只能指定一個）。如果出現的話，必須從配置中完全移除 `keep_tag_attributes`；它不能以空陣列呈現。
 
 #### keep_tag_attributes
+{: #configref_keep_tag_attributes}
 
 `"keep_tag_attributes" : array` - 轉換所保留的 HTML 屬性名稱的陣列。**附註：**如果您在相同的配置中同時指定 `keep_tag_attributes` 和 `exclude_tag_attributes`，將會收到錯誤訊息（每個配置只能指定一個）。如果出現的話，必須從配置中完全移除 `exclude_tag_attributes`；它不能以空陣列呈現。
 
 #### extracted_fields
+{: #configref_extracted}
 
 此物件會定義 HTML 原始檔中要在轉換時擷取至個別 JSON 欄位的任何內容。可使用 CSS 選取器來識別內容。
 
@@ -279,7 +310,7 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 
 - `"css_selector" : string` *必要* - 可定義要儲存在欄位中的內容區域的 CSS 選取器表示式。
 - `"type" : string` *必要* - 要建立的欄位類型可以是 `string`、`date`
-如需詳細資訊，請參閱[使用 CSS 選取器來擷取欄位](/docs/services/discovery/building.md#using-css)。
+如需詳細資訊，請參閱[使用 CSS 選取器來擷取欄位](/docs/services/discovery?topic=discovery-configservice#using-css)。
 
 ### 區段
 {: #segment}
@@ -303,7 +334,7 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 -  `normalizations` 無法指定作為配置的一部分。
 -  `html` 轉換的 `extracted_fields` 選項無法指定作為配置的一部分。
 
-如需詳細資訊，請參閱[執行分段](/docs/services/discovery/building.html#performing-segmentation)。
+如需詳細資訊，請參閱[執行分段](/docs/services/discovery?topic=discovery-configservice#performing-segmentation)。
 
 
 ### JSON
@@ -425,7 +456,7 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 
 - `"enrichment" : string` - *必要* - 要用於此欄位的強化類型。若要擷取 {{site.data.keyword.nlushort}} 強化，請使用 `natural_language_understands`，若要執行「元素分類」，請使用 `elements`。
 
-  **附註：**使用 `elements` 強化時，務必遵循[元素分類](/docs/services/discovery/element-classification.html)文件中指定的準則。特別是，指定此強化時，只能汲取 PDF 檔案。
+  **附註：**使用 `elements` 強化時，務必遵循[元素分類](/docs/services/discovery?topic=discovery-element-classification#element-classification)文件中指定的準則。特別是，指定此強化時，只能汲取 PDF 檔案。
 
 - `"source_field" : string` - *必要* - 將強化的來源欄位。在 `json_normalizations` 作業完成之後，此欄位必須存在於來源中。
 - `"destination_field" : string` - *必要* - 將建立強化的儲存器物件的名稱。
@@ -433,28 +464,33 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
   **附註：**在配置中定義的欄位名稱必須符合[欄位名稱需求](#field_reqs)中定義的限制。
 
 ### 元素分類強化
+{: #element_classification_enrichments}
 
 使用「元素分類」時，每一個 `elements` 強化物件必須包含 `"options": {}` 物件，並指定了下列參數：
 
 - `"model" : string` - *必要* - 要與此文件一起使用的元素擷取模型。目前支援的模型為：`contract`
 
-**附註：**使用 `elements` 強化時，務必遵循[元素分類](/docs/services/discovery/element-classification.html)文件中指定的準則。特別是，指定此強化時，只能汲取 PDF 檔案。
+**附註：**使用 `elements` 強化時，務必遵循[元素分類](/docs/services/discovery?topic=discovery-element-classification#element-classification)文件中指定的準則。特別是，指定此強化時，只能汲取 PDF 檔案。
 
 ### Natural Language Understanding 強化
+{: #nlu_enrichments}
 
 使用 {{site.data.keyword.nlushort}} 時，`enrichments` 陣列內的每一個物件也必須包含 `"options": { "features": { } }` 物件，該物件包含下列其中一個以上的強化：
 
 ### categories
+{: #nlu_categories}
 
 `categories` 強化會識別所汲取文件中的任何一般種類。此強化沒有選項，而且必須指定為空物件 `"categories" : {}`
 
 ### concepts
+{: #nlu_concepts}
 
 `concepts` 強化會根據存在於該文字中的其他概念和實體，尋找與輸入文字相關聯的概念。
 
 - `"limit" : INT` - *必要* - 要從所汲取文件中擷取的概念數上限。
 
 ### emotion
+{: #nlu_emotion}
 
 `emotion` 強化會評估整份文件的整體情緒語氣（例如 `anger`），或是整份文件中指定的目標字串。此強化只能與英文內容搭配使用。
 
@@ -462,6 +498,7 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 - `"targets" : array ` _選用_ - 以逗點區隔的目標字串陣列，以評估文件內其情緒狀態。
 
 ### entities
+{: #nlu_entities}
 
 `entities` 強化會擷取已知實體（例如，人員、位置及組織）的實例。可選擇性地指定 {{site.data.keyword.knowledgestudioshort}} 自訂模型來擷取自訂實體。
 
@@ -471,17 +508,19 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 - `"mentions": boolean` - _選用_ - 若為 `true`，會記錄提及此實體的次數。預設值為 `false`。
 - `"mention_types": boolean` - _選用_ - 若為 `true`，會儲存每一次提及此實體的提及類型。預設值為 `false`。
 - `"sentence_location": boolean` - _選用_ - 若為 `true`，會儲存每一次提及實體的句子位置。預設值為 `false`。
-- `"model" : string` - _選用_ - 若指定，則會使用自訂模型來擷取實體，而非公用模型。此選項需要 {{site.data.keyword.knowledgestudioshort}} 自訂模型與 {{site.data.keyword.discoveryshort}} 的實例相關聯。如需相關資訊，請參閱[與 Watson Knowledge Studio 整合](/docs/services/discovery/integrate-wks.html)。
+- `"model" : string` - _選用_ - 若指定，則會使用自訂模型來擷取實體，而非公用模型。此選項需要 {{site.data.keyword.knowledgestudioshort}} 自訂模型與 {{site.data.keyword.discoveryshort}} 的實例相關聯。如需相關資訊，請參閱[與 Watson Knowledge Studio 整合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。
 
 ### keywords
+{: #nlu_keywords}
 
-`keywords` 強化會擷取文字內重要文字的實例。若要瞭解關鍵字、概念和實體之間的差異，請參閱：[瞭解實體、概念和關鍵字之間的差異](/docs/services/discovery/building.html#udbeck)。
+`keywords` 強化會擷取文字內重要文字的實例。若要瞭解關鍵字、概念和實體之間的差異，請參閱：[瞭解實體、概念和關鍵字之間的差異](/docs/services/discovery?topic=discovery-configservice#udbeck)。
 
 - `"sentiment" : boolean` - _選用_ - 若為 `true`，會在周圍內容的上下文中，對擷取的關鍵字執行觀感分析。
 - `"emotion" : boolean` - _選用_ - 若為 `true`，會在周圍內容的上下文中，對擷取的關鍵字執行情緒語氣分析。
 - `"limit" : INT` - _選用_ - 要從所汲取文件中擷取的關鍵字數目上限。預設值為 `50`。
 
 ### semantic_roles
+{: #nlu_semantic_roles}
 
 `semantic_roles` 強化會識別所汲取文字內的句子元件，例如主旨、動作及物件。
 
@@ -490,6 +529,7 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 - `"limit" : INT` - _選用_ - 要從所汲取文件中擷取的 `semantic_roles` 物件（要剖析的句子）數上限。預設值為 `50`。
 
 ### sentiment
+{: #nlu_sentiment}
 
 `sentiment` 強化會評估整份文件的整體觀感層次，或是整份文件中指定的目標字串。
 
@@ -497,10 +537,11 @@ Microsoft Word 轉換物件的運作方式類似 PDF 轉換物件。不過，在
 - `"targets" : array ` _選用_ - 以逗點區隔的目標字串陣列，以評估文件內的觀感。
 
 ### relations
+{: #nlu_relations}
 
 `relations` 強化會擷取文件內所識別實體之間的已知關係。可選擇性地指定 {{site.data.keyword.knowledgestudioshort}} 自訂模型來擷取自訂關係。
 
-- `"model" : string` - _選用_ - 若指定，則會使用自訂模型來擷取關係，而非公用模型。此選項需要 {{site.data.keyword.knowledgestudioshort}} 自訂模型與 {{site.data.keyword.discoveryshort}} 的實例相關聯。如需相關資訊，請參閱[與 Watson Knowledge Studio 整合](/docs/services/discovery/integrate-wks.html)。
+- `"model" : string` - _選用_ - 若指定，則會使用自訂模型來擷取關係，而非公用模型。此選項需要 {{site.data.keyword.knowledgestudioshort}} 自訂模型與 {{site.data.keyword.discoveryshort}} 的實例相關聯。如需相關資訊，請參閱[與 Watson Knowledge Studio 整合](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。
 
 ## Normalization
 {: #normalization}

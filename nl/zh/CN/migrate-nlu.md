@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-02-28"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 将扩充项迁移到 Natural Language Understanding
 {: #migrate-nlu}
@@ -23,9 +35,9 @@ lastupdated: "2018-02-28"
 从 **2017 年 7 月 18 日**开始，{{site.data.keyword.discoveryfull}} 引入了名为 {{site.data.keyword.nlushort}} (NLU) 的新扩充技术。{{site.data.keyword.alchemylanguageshort}} 扩充项已于 **2018 年 3 月 1 日**废弃。
 {: shortdesc}
 
-必须迁移任何利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的现有集合。有关迁移利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的集合和配置文件的信息，请参阅[扩充项比较](/docs/services/discovery/migrate-nlu.html#enrichment-comparison)。
+必须迁移任何利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的现有集合。有关迁移利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的集合和配置文件的信息，请参阅[扩充项比较](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-comparison)。
 
-**注：**有关与 {{site.data.keyword.knowledgestudioshort}} 集成的信息，请参阅[与 {{site.data.keyword.knowledgestudiofull}} 集成](/docs/services/discovery/integrate-wks.html)。
+**注：**有关与 {{site.data.keyword.knowledgestudioshort}} 集成的信息，请参阅[与 {{site.data.keyword.knowledgestudiofull}} 集成](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。
 
 ## 扩充项比较
 {: #enrichment-comparison}
@@ -45,37 +57,41 @@ lastupdated: "2018-02-28"
 
 
 
-有关 {{site.data.keyword.nlushort}} 扩充项的更多信息，请参阅[添加扩充项](/docs/services/discovery/building.html#adding-enrichments)
+有关 {{site.data.keyword.nlushort}} 扩充项的更多信息，请参阅[添加扩充项](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)
 
 ## 主要更改概述
+{: #overview-nlu}
 
-- {{site.data.keyword.nlushort}} 扩充项的 JSON 模式不同于 {{site.data.keyword.alchemylanguageshort}} 扩充项中使用的 JSON 模式；要获取对每个扩充项的更改的完整列表，请参阅：[扩充项模式差异](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)。
+- {{site.data.keyword.nlushort}} 扩充项的 JSON 模式不同于 {{site.data.keyword.alchemylanguageshort}} 扩充项中使用的 JSON 模式；要获取对每个扩充项的更改的完整列表，请参阅：[扩充项模式差异](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences)。
 - _分类法分类_ ({{site.data.keyword.alchemylanguageshort}}) 扩充项现在名为_类别分类_。其 JSON 对象名称已从 `taxonomy` 更改为 `categories`。
 - _关系抽取_ ({{site.data.keyword.alchemylanguageshort}}) 扩充项现在名为_语义角色抽取_。其 JSON 对象名称已从 `relations` 更改为 `semantic_roles`。
 - _观点分析_的 JSON 对象名称已从 `docSentiment` 更改为 `sentiment`。
 - _情绪分析_的 JSON 对象名称已从 `docEmotions` 更改为 `emotion`。
 
 ## 配置文件更改
+{: #config-nlu}
 
 **{{site.data.keyword.alchemylanguageshort}}** 缺省配置文件（在工具中名为 `Default Configuration`）对文档的 text 字段应用了以下扩充项：**实体抽取**、**关键字抽取**、**分类法分类**、**概念标记**、**关系抽取**和**观点分析**。该文件还包含基于字体样式和大小的标准文档转换。
 
 **{{site.data.keyword.nlushort}}** 缺省配置文件名为 `Default Configuration with NLU`，对文档的 text 字段应用了以下扩充项：**实体抽取**、**观点分析**、**类别分类**和**概念标记**。该文件还包含基于字体样式和大小的标准文档转换。这些文档转换与 {{site.data.keyword.alchemylanguageshort}} 缺省配置文件中的转换完全相同。
 
 ## 迁移配置、集合和查询
+{: #migrateconfig-nlu}
 
 如果已创建任何定制配置，那么需要创建使用 {{site.data.keyword.nlushort}} 扩充项的新配置。有关指示信息，请参阅以下文档：
 
-- [工具](/docs/services/discovery/building.html#custom-configuration)
-- [API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#add_configuration){: new_window}
+- [工具](/docs/services/discovery?topic=discovery-configservice#custom-configuration)
+- [API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window}
 
 如果现有集合已应用 {{site.data.keyword.alchemylanguageshort}} 缺省配置或定制 {{site.data.keyword.alchemylanguageshort}} 配置，那么需要创建新的集合，应用 {{site.data.keyword.nlushort}} 配置文件（缺省配置或新的定制配置），然后上传文档。有关指示信息，请参阅以下文档：
 
-- [工具](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)
-- [API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#create-collection){: new_window}
+- [工具](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)
+- [API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#create-a-collection){: new_window}
 
-对于使用 Discovery Query Language 创建的任何查询，需要检查 {{site.data.keyword.alchemylanguageshort}} 和 {{site.data.keyword.nlushort}} 之间的 JSON 模式更改，并相应地更新查询和查询 URL。请参阅[扩充项模式差异](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences)以获取详细信息。
+对于使用 Discovery Query Language 创建的任何查询，需要检查 {{site.data.keyword.alchemylanguageshort}} 和 {{site.data.keyword.nlushort}} 之间的 JSON 模式更改，并相应地更新查询和查询 URL。请参阅[扩充项模式差异](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences)以获取详细信息。
 
 ## 扩充项模式差异
+{: #enrichment-schema-differences}
 
 下表显示了 {{site.data.keyword.nlushort}} 扩充项和 {{site.data.keyword.alchemylanguageshort}} 扩充项的 JSON 模式之间的差异。
 

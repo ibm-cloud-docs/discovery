@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Operatori di query
 {: #query-operators}
 
-Gli operatori sono i separatori tra le diverse parti di una query. Per l'elenco completo degli operatori disponibili, consulta la [Guida di riferimento per le query](/docs/services/discovery/query-reference.html#operators).
+Gli operatori sono i separatori tra le diverse parti di una query. Per l'elenco completo degli operatori disponibili, consulta la [Guida di riferimento per le query](/docs/services/discovery?topic=discovery-query-reference#operators).
 
 ## . \[JSON delimiter\]
 {: #delimiter}
@@ -95,7 +107,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[Phrase query\]
 {: #phrase}
 
-Tutto i contenuti di una query di frase vengono elaborati come se ne fosse stato indicato l'escape. Quindi non viene analizzato alcun carattere speciale in una query di frase, fatta eccezione per le virgolette doppie (`"`) all'interno di una query di frase, di cui è necessario sia indicato l'escape (`\"`). Utilizza le query di frase con query full-text e basate sulla classificazione e non con operazioni di filtro booleano. Non utilizzare caratteri jolly (`*`) nelle query di frase. **Nota**: le virgolette singole (`'`) non sono supportate).
+Tutto i contenuti di una query di frase vengono elaborati come se ne fosse stato indicato l'escape. Quindi non viene analizzato alcun carattere speciale in una query di frase, fatta eccezione per le virgolette doppie (`"`) all'interno di una query di frase, di cui è necessario sia indicato l'escape (`\"`). Utilizza le query di frase con query full-text e basate sulla classificazione e non con operazioni di filtro booleano. Non utilizzare caratteri jolly (`*`) nelle query di frase. 
+
+Le virgolette singole (`'`) non sono supportate.
+{: note}
 
 Ad esempio:
 ```bash
@@ -198,6 +213,6 @@ Utilizzato per restituire tutti i risultati che non includono il `field` specifi
 
 Ad esempio:
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

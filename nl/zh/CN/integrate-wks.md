@@ -1,26 +1,38 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-08-08"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-08"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 与 Watson Knowledge Studio 集成
 {: #integrating-with-wks}
 
-可以将 {{site.data.keyword.knowledgestudiofull}} 中的定制模型与 {{site.data.keyword.discoveryshort}} 服务集成，以提供定制实体和关系扩充项。
+可以将 {{site.data.keyword.knowledgestudiofull}} 中的一个或多个定制模型与 {{site.data.keyword.discoveryshort}} 服务集成，以提供定制实体和关系扩充项。
 {: shortdesc}
 
 这使您能够灵活地应用 {{site.data.keyword.discoveryshort}} 服务的文档扩充功能，并提供特定于特定焦点领域的信息，如行业规程或科学学科。您可以在扩充模型中同时使用公共数据和您自己的专有数据。
@@ -28,13 +40,15 @@ lastupdated: "2018-08-08"
 可以使用服务 API 或 {{site.data.keyword.discoveryshort}} 工具将 {{site.data.keyword.knowledgestudioshort}} 模型与 {{site.data.keyword.discoveryshort}} 服务集成。
 
 ## 开始之前
+{: #wks-beforeintegration}
 
-要能够将 {{site.data.keyword.knowledgestudioshort}} 中的定制模型与 {{site.data.keyword.discoveryshort}} 服务集成，必须先使用 {{site.data.keyword.knowledgestudioshort}} 创建并部署该模型。请参阅 [{{site.data.keyword.knowledgestudioshort}} 文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window}，以获取有关创建和部署模型的信息。您需要所部署模型的唯一标识，才能将其与 {{site.data.keyword.discoveryshort}} 服务集成。
+要能够将 {{site.data.keyword.knowledgestudioshort}} 中的定制模型与 {{site.data.keyword.discoveryshort}} 服务集成，必须先使用 {{site.data.keyword.knowledgestudioshort}} 创建并部署该模型。请参阅 [{{site.data.keyword.knowledgestudioshort}} 文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window}，以获取有关创建和部署模型的信息。您需要所部署模型的唯一标识，才能将其与 {{site.data.keyword.discoveryshort}} 服务集成。
 
 ## 将定制模型与 API 集成
+{: #integrate-customAPI}
 
-1.  获取您的 {{site.data.keyword.discoveryshort}} 环境的标识，如[列出环境 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#list_environments){: new_window} 中所述。记下环境标识。
-1.  列出您的当前 {{site.data.keyword.discoveryshort}} 配置的标识，如[列出配置 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#list_configurations){: new_window} 中所述。记下要与 {{site.data.keyword.knowledgestudiofull}} 定制模型集成的配置的标识。
+1.  获取您的 {{site.data.keyword.discoveryshort}} 环境的标识，如[列出环境 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#list_environments){: new_window} 中所述。记下环境标识。
+1.  列出您的当前 {{site.data.keyword.discoveryshort}} 配置的标识，如[列出配置 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#list_configurations){: new_window} 中所述。记下要与 {{site.data.keyword.knowledgestudiofull}} 定制模型集成的配置的标识。
 1.  通过在 bash shell 或等效程序（例如，Cygwin for Windows）中运行以下命令，下载您的当前 {{site.data.keyword.discoveryshort}} 配置的副本。将 `{environment_id}` 和 `{configuration_id}` 替换为在前两个步骤中记下的标识。
 
     ```bash
@@ -85,6 +99,9 @@ lastupdated: "2018-08-08"
 
     1.  如下所示更新此文件，使用“开始之前”中所述的 {{site.data.keyword.knowledgestudioshort}} 模型的唯一标识来替换 `{watson_knowledge_studio_model_ID}`。
 
+        可以使用 API 应用多个定制模型来识别字段。请参阅[集成多个定制模型](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-multiplecustom)中的示例。如果还包含 [Watson {{site.data.keyword.discoveryshort}} 知识图](/docs/services/discovery?topic=discovery-kg#kg)，您必须使用相同的模型来扩充单个扩充项对象中的实体和关系。
+        {: note}
+
         ```json
         "enrichments": [
         {
@@ -133,9 +150,58 @@ lastupdated: "2018-08-08"
 
     这两个命令都会返回更新后的配置文件的内容。
 
-## 将定制模型与 Discovery 工具集成
+### 集成多个定制模型 
+{: #integrate-multiplecustom}
 
-可以使用 {{site.data.keyword.discoveryshort}} 工具将 {{site.data.keyword.knowledgestudioshort}} 定制模型集成到[实体抽取](/docs/services/discovery/building.html#entity-extraction)或[关系抽取](/docs/services/discovery/building.html#relation-extraction)扩充项中。
+可以使用 API 应用多个定制模型来识别字段。请遵循[将定制模型与 API 集成](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI)中的步骤，并将此处的示例用作指导。如果还包含 [Watson {{site.data.keyword.discoveryshort}} 知识图](/docs/services/discovery?topic=discovery-kg#kg)，您必须使用相同的模型来扩充单个扩充项对象中的实体和关系。请参阅 `"destination_field": "enriched_text"` 示例作为指导。
+
+不能使用 {{site.data.keyword.discoveryshort}} 工具应用多个定制模型。仅可定制实体和关系扩充项。
+
+必须为每个相同的 `source_field` 指定不同的 `destination_field`。此外，每个 `source_field` 必须使用唯一的模型进行扩充。例如，如果要将多个定制模型应用到 `text` 的 `source_field`，并且将 `model` `{watson_knowledge_studio_model_ID}` 应用到 `entities` 扩充项，那么您不应再对 `entities` 扩充项使用该模型。
+{: tip}
+
+
+```json
+        "enrichments": [
+        {
+            "source_field": "text",
+            "destination_field": "enriched_text",
+            "enrichment": "natural_language_understanding",
+            "options": {
+                "features": {
+                    "entities": {
+                        "model": "{watson_knowledge_studio_model_ID}"
+                },
+                    "relations": {
+                      "model": "{watson_knowledge_studio_model_ID}"
+                    }
+                }
+    }
+},
+   {
+        "source_field": "text",
+        "destination_field": "enriched_text_2",
+        "enrichment": "natural_language_understanding",
+        "options": {
+            "features": {
+                    "entities": {
+                        "model": "{watson_knowledge_studio_model_ID_b}"
+            },
+                    "relations": {
+                      "model": "{watson_knowledge_studio_model_ID_c}"
+            }
+        }
+    }
+}]
+```
+{: codeblock}    
+
+## 将定制模型与 Discovery 工具集成
+{: #integrate-customtooling}
+
+可以使用 {{site.data.keyword.discoveryshort}} 工具将 {{site.data.keyword.knowledgestudioshort}} 定制模型集成到[实体抽取](/docs/services/discovery?topic=discovery-configservice#entity-extraction)或[关系抽取](/docs/services/discovery?topic=discovery-configservice#relation-extraction)扩充项中。
+
+不能使用 {{site.data.keyword.discoveryshort}} 工具将多个定制模型应用到相同字段中。可以使用 API 应用多个定制模型来识别字段。请参阅[将定制模型与 API 集成](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI)。
 
 1. 获取 {{site.data.keyword.knowledgestudioshort}} 模型的`模型标识`。
 1. 在 {{site.data.keyword.discoveryshort}} 工具中，单击左上角的**管理数据**图标将打开**管理数据**屏幕，然后创建或打开集合。**注：**如果选择现有集合，那么该集合应该为空。否则，应在创建新的配置文件后重新摄入这些文档。
@@ -146,8 +212,7 @@ lastupdated: "2018-08-08"
 
 将文档上传到数据集合后，将使用为该集合选择的配置文件对这些文档进行转换和扩充。如果在上传文档后将现有集合切换到新的配置文件，那么这些上传的文档仍将通过原始配置文件进行转换。切换配置文件后上传的任何文档都将使用新的配置文件。如果您希望**整个**集合使用新配置，那么需要创建新的集合，选择该新的配置文件，然后重新上传所有文档。
 
-**注：**一个扩充项只能分配有一个 {{site.data.keyword.knowledgestudiofull}} 模型。
-
 ## 后续步骤
+{: #wks-nextsteps}
 
 将 {{site.data.keyword.discoveryshort}} 服务与新配置配合使用来摄入专用数据。使用更新后的配置摄入的文档会自动通过定制模型中的数据进行扩充。

@@ -1,22 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-18"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-08"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'}
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
-{:download: .download}
+{:go: .ph data-hd-programlang='go'}
 
 # Introduzione
 {: #getting-started}
@@ -24,49 +35,38 @@ lastupdated: "2018-07-18"
 In questa breve esercitazione, introdurremo la strumentazione {{site.data.keyword.discoveryshort}} e illustreremo il processo di creazione di una raccolta dati privata e la sua ricerca.
 {: shortdesc}
 
-Se preferisci utilizzare l'API, consulta [Introduzione all'API](/docs/services/discovery/getting-started.html).
+Se preferisci utilizzare l'API, consulta [Introduzione all'API](/docs/services/discovery?topic=discovery-gs-api#gs-api).
 {: tip}
 
 ## Prima di iniziare
-{: #before-you-begin}
+{: #before-you-begin-tool}
+{: hide-dashboard}
 
-Avrai bisogno di un'istanza del servizio da avviare.
+Ti serve un'istanza del servizio per iniziare.
+{: hide-dashboard}
 
-<!-- Remove the text marked `download` after there's no g-s tab in the catalog dashboard -->
+1.  {: hide-dashboard} Vai alla pagina [{{site.data.keyword.discoveryshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog/services/discovery) nel catalogo {{site.data.keyword.cloud_notm}}.
 
+    L'istanza del servizio viene creata nel gruppo di risorse predefinito (**default**) se non ne scegli uno diverso e *non può* essere modificato in seguito. Questo gruppo è sufficiente per provare il servizio.
 
-Hai creato la tua istanza del servizio. Fai clic su **Manage** e quindi su **Open tool**. Vai al [Passo 2](/docs/services/discovery/getting-started-tooling.html#create-a-collection).
-{: download tip}
+    Se stai creando un'istanza per un utilizzo più impegnativo, scopri di più sui [gruppi di risorse
+![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/docs/resources/bestpractice_rgs.html#bp_resourcegroups){: new_window}.
+1.  {: hide-dashboard}Registrati per un account {{site.data.keyword.cloud_notm}} gratuito o accedi.
+1.  {: hide-dashboard} Fai clic su **Create**.
 
-Se hai creato un'istanza del servizio {{site.data.keyword.discoveryshort}}, tutti questi prerequisiti sono impostati. Vai al [Passo 1](/docs/services/discovery/getting-started-tool.html#launch-the-tooling).
-
-1.  Vai alla pagina [{{site.data.keyword.discoveryshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.{DomainName}/catalog/services/discovery){: new_window} nel catalogo {{site.data.keyword.Bluemix_notm}}.
-1.  Registrati per un account {{site.data.keyword.Bluemix_notm}} gratuito o accedi.
-1.  Fai clic su **Create**.
-
-
-## Passo 1: Avvia la strumentazione
+## Passo 1: avvia la strumentazione
 {: #launch-the-tooling}
 
-Dopo aver creato un'istanza del servizio {{site.data.keyword.discoveryshort}}, verrai portato al [dashboard {{site.data.keyword.Bluemix_notm}}](https://console.{DomainName}/dashboard). Fai clic sulla tua istanza del servizio {{site.data.keyword.discoveryshort}} per andare al dashboard del servizio {{site.data.keyword.discoveryshort}}.
+Dopo che hai creato un'istanza del servizio {{site.data.keyword.discoveryshort}}, vieni portato al tuo elenco di servizi.
+{: hide-dashboard}
 
-Nella pagina **Manage**, fai clic su **Open tool**.
+1.  {: hide-dashboard} Fai clic sulla istanza del servizio {{site.data.keyword.discoveryshort}} che hai creato per andare al dashboard del servizio.
+1.  Nella pagina **Manage**, fai clic su **Launch tool**. Se ti viene richiesto di eseguire l'accesso alla strumentazione, fornisci le tue credenziali {{site.data.keyword.cloud_notm}}.
 
 <!-- To do: Add screenshot for developer console -->
 
-Se ti viene richiesto di accedere alla strumentazione, fornisci le tue credenziali {{site.data.keyword.Bluemix_notm}}.
-
-Se non sei nella pagina dei dettagli del progetto per il servizio {{site.data.keyword.discoveryshort}}, vai alla pagina {{site.data.keyword.watson}} Developer Console [Projects ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.{DomainName}/developer/watson/projects) e seleziona il progetto.
-{: tip}
-
-<!-- Remove this text after dedicated instances have the Developer Console: begin -->
-
-{{site.data.keyword.Bluemix_dedicated_notm}}: seleziona la tua istanza del servizio dal dashboard per avviare la strumentazione.
-
-<!-- Remove this text after dedicated instances have the Developer Console: end -->
-
-## Passo 2: Crea una raccolta
-{: #create-a-collection}
+## Passo 2: crea una raccolta
+{: #create-a-collection-tool}
 
 Il primo passo da compiere nella strumentazione {{site.data.keyword.discoveryshort}} è quello di creare una raccolta di dati.
 
@@ -75,74 +75,69 @@ Una raccolta è un insieme dei tuoi documenti. *Perché dovrei volere più di un
 - Potresti volere più raccolte per separare i risultati per destinatari diversi.
 - I dati potrebbero essere così diversi che non ha senso eseguirne la query contemporaneamente.
 
-Anche la raccolta dati {{site.data.keyword.discoverynewsshort}} pubblica e pre-arricchita è disponibile per il tuo utilizzo. È pronta per la query e puoi iniziare a creare query immediatamente. Non puoi regolare la configurazione o aggiungere i documenti a {{site.data.keyword.discoverynewsshort}}.
+Anche la raccolta dati {{site.data.keyword.discoverynewsshort}} pubblica e pre-arricchita è disponibile per il tuo utilizzo. È pronta per l'esecuzione di query e puoi iniziare a creare query su di essa immediatamente. Non puoi regolare la configurazione o aggiungere i documenti a {{site.data.keyword.discoverynewsshort}}.
 
-1.  Fai clic su ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> e scegli **Create environment**.
-1.  Quando il tuo ambiente è pronto, fai clic sul pulsante **Upload your own data**, dopodiché puoi dare un **Nome alla tua nuova raccolta**. Fornisci un nome alla tua raccolta e scegli **Default Configuration** da **Select a configuration to apply** (puoi modificare la configurazione successivamente).
+1.  Fai clic su ![Environment details](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> e scegli **Create environment**.
+1.  Quando il tuo ambiente è pronto, fai clic sul pulsante **Upload your own data**, dopodiché puoi dare un **Nome alla tua nuova raccolta**. Denomina la tua raccolta **InstallDocs**.
 
-Esiste un'altra configurazione disponibile denominata **Default Contract Configuration** che supporta l'Element Classification, che può essere utilizzata per estrarre la parte, la natura e la categoria dagli elementi nei PDF. Per i dettagli, consulta [Element Classification](/docs/services/discovery/element-classification.html#element-collection).
+    Quando crei una collezione, sotto **Advanced**, hai l'opzione di scegliere un file di configurazione denominato **Default Contract Configuration**. Questa configurazione supporta solo l'arricchimento Element Classification, che può essere utilizzato per estrarre parte, natura e categoria dagli elementi nei PDF. Vedi [Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-collection) per i dettagli. Non scegliere questa opzione per questa esercitazione.
 
-Puoi anche indicizzare le origini dati Box, Salesforce e Microsoft SharePoint Online con la strumentazione {{site.data.keyword.discoveryshort}}. Fai clic sul pulsante **Connect a data source** e consulta [Connessione alle origini dati](/docs/services/discovery/connect.html) per ulteriori informazioni.
+Puoi anche eseguire la ricerca per l'indicizzazione di origini dati Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage e Microsoft SharePoint 2016 oppure eseguire una ricerca per l'indicizzazione web con la strumentazione {{site.data.keyword.discoveryshort}}. Fai clic sul pulsante **Connect a data source** e consulta [Connessione alle origini dati](/docs/services/discovery?topic=discovery-sources#sources) per ulteriori informazioni.
 {: tip}
 
-## Passo 3: crea una configurazione personalizzata
+## Passo 3: scarica il documento di esempio ed esegui il caricamento nella tua raccolta
 {: create-custom-configuration}
 
-Dopo aver creato la tua raccolta, potresti avviare immediatamente il caricamento del contenuto utilizzando l'area di caricamento, ma vogliamo creare e verificare una configurazione personalizzata.
+1.  Scarica questo documento PDF di esempio: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/watsonexplorerinstall.pdf" download>Guida all'installazione di Watson Explorer<img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a>. Vedi [Tipi di documento supportati](/docs/services/discovery?topic=discovery-sdu#doctypes) per l'elenco completo di tipi di documento supportati in {{site.data.keyword.discoveryshort}}. 
 
-1.  Fai clic su **Switch** accanto al nome della raccolta e scegli **Create a new configuration**. Fornisci un nome alla tua configurazione e fai clic su **Create**.
-1.  Dopo aver creato la tua configurazione, puoi personalizzarla:
-    1.  Scarica il documento di esempio <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a>.
-    1.  Utilizza il pannello **Upload Sample Documents** per caricare il documento di esempio. Dopo averlo caricato, puoi fare clic sul link del nome del documento per visualizzare la trasformazione.
-1.  Ora è il momento di modificare la configurazione. Per questa attività, modifica gli arricchimenti applicati a ciascun documento:
-    1.  Fai clic sulla sezione **Enrich** della configurazione. Consulta il JSON generato a destra dello schermo. Scorri verso il basso fino alla sezione *enriched_text* e nota che contiene molti *concepts*.
-    1.  Successivamente, rimuovi l'arricchimento di testo denominato *concepts* facendo clic sulla **X** accanto a esso e quindi fai clic su **Apply & Save**.
-    1.  Infine, consulta nuovamente il JSON. Nota come l'output è stato modificato e non include più *concepts*.
+    In alcuni browser, i link si aprono in una nuova finestra invece di essere salvati localmente. Se questo si verifica, seleziona `Salva con nome` nel menu `File` del tuo browser per salvare una copia del file.
+    {: tip}
 
-## Passo 4: Carica i tuoi documenti
+1.  Carica il documento nella tua raccolta. Trascinalo e rilascialo nella tua raccolta oppure fai clic su **browse from computer** per caricare i documenti. Una volta completato il caricamento, vengono visualizzate le seguenti informazioni:
+    -  Il numero di documenti (1).
+    -  I campi identificati dal tuo documento. Dovresti vedere un singolo campo identificato, `text`. Identificheremo dei campi aggiuntivi tra poco.
+    -  Gli arricchimenti applicati al tuo documento. Gli arricchimenti Entity Extraction, Sentiment Analysis, Category Classification e Concept Tagging vengono applicati automaticamente al campo `text` da {{site.data.keyword.discoveryshort}}. Ulteriori informazioni sugli arricchimenti sono disponibili [qui](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)). 
+    -  Delle query pre-create che puoi eseguire immediatamente.
+1.  Proviamo una rapida query in linguaggio naturale per stabilire una linea di base di reciproca intesa. Fai clic su **Build your own query** nella parte inferiore destra.
+1.  Nella schermata **Build queries**, fai clic su **Search for documents** e quindi su **Use natural language**. Immetti `What are the minimum hardware requirements` e fai clic sul pulsante **Run query**. Fai clic sulla scheda **JSON** sulla destra. Il risultato non è così preciso come potrebbe essere, quindi miglioriamolo con Smart Document Understanding.
+1.  Fai clic sul nome della raccolta (**InstallDocs**) nella parte superiore sinistra per ritornare alla schermata **Overview**.  
+ 
+## Passo 4: annota il tuo documento
 {: #upload-your-documents}
 
-Quando sei soddisfatto della conversione personalizzata del tuo documento di esempio, è ora di inserire del contenuto reale nella tua raccolta.
+Per ulteriori informazioni sull'annotazione di documenti, vedi [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).
+{: tip}
 
-1. Scarica questi tre documenti di esempio: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno" class="style-scope doc-content"></a>.
-1.  Fai clic su ![Icona File](images/icon_yourData.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> e seleziona la tua raccolta.
-1.  Assicurati che la configurazione personalizzata che hai creato sia elencata in **Configuration**. Se non lo è, fai clic su **Switch** accanto al nome della configurazione e selezionala.
-1.  Fai clic sul pulsante **Upload documents** e avvia il caricamento dei quattro documenti di esempio: test-doc1.html, test-doc2.html, test-doc3.html, test-doc4.html.
-1.  Attendi che i documenti vengano caricati. Lo stato dei tuoi documenti viene visualizzato nella sezione **Overview**.
+1.  Fai clic su **Configure data** nella parte superiore destra. 
+1.  Nella schermata **Configure data**, ci saranno tre schede: **Identify fields**, **Manage fields** e **Enrich fields**.
+1.  Il manuale `Watson Explorer Installation Guide` viene visualizzato ed è pronto per le annotazioni nella scheda **Identify fields**. Tutti i campi disponibili (`answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text` e `title`) vengono visualizzati nell'elenco **Field labels** sulla destra. Se acquisti un piano Advanced o Premium, puoi creare delle tue etichette personalizzate.
 
-## Passo 5: Crea una query
+    Poiché l'intero documento è attualmente identificato come `text`, gli indicatori sul lato destro sono interamente in giallo. Man mano che esegui le annotazioni (e il sistema inizia a prevederle), i colori vengono aggiornati.
+    {: tip}
+
+1.  Fai clic su `title` e seleziona quindi l'indicatore accanto a `Installation and Integration Guide`. Fai clic sul pulsante **Submit page**.
+1.  Nell'anteprima della pagina sulla sinistra, fai clic sulla pagina 3. Nota che `title` è già stato previsto per questa pagina. Fai clic sul pulsante **Submit page**.
+1.  Sulla pagina 4, seleziona l'etichetta `footer` e seleziona l'indicatore accanto al piè di pagina. Fai clic sul pulsante **Submit page**.
+1.  Sulle pagine 5 e 6, annotata i piè di pagina con l'etichetta `footer`. Inoltra ciascuna pagina. Fai clic su qualche altra pagina; noterai che il piè di pagina è stato previsto correttamente da {{site.data.keyword.discoveryshort}}. Annota i titoli (`title`) (allineati lungo il margine sinistro) e i sottotitoli (`subtitle`) (rientrati) sulle pagine 7, 9 e 10 e inoltra ciascuna pagina singolarmente.
+1.  Fai clic su qualche altra pagina e controlla i titoli e i sottotitoli previsti. Se qualcuno ha bisogno di essere modificato, annota queste pagine e fai clic sul pulsante **Submit page**.
+1.  Ora fai clic sulla scheda **Manage fields** e, sotto **Improve query results by splitting your documents**, suddividi il documento in base a `subtitle`. 
+1.  Le annotazioni dovrebbero essere sufficienti, per ora. Fai clic sul pulsante **Apply changes to collection** nella parte superiore destra. Viene visualizzata una finestra di dialogo **Upload your documents**. Seleziona il file `watsonexplorerinstall.pdf` e caricalo. Tale operazione applica tutte le annotazioni al tuo indice. Una volta terminata l'indicizzazione, viene aperta la schermata **Overview**. Dovresti ora vedere più di 30 documenti e 4 campi identificati dai tuoi dati: `footer`, `subtitle`, `text` e `title`. (Se le modifiche non vengono visualizzate entro qualche minuto, aggiorna la finestra del browser).
+
+    Puoi escludere dei campi (come ad esempio `footer`) dall'indicizzazione aprendo la scheda **Manage fields** e impostando tali campi su `off`.
+    {: tip}
+
+## Passo 5: esecuzione di query
 {: #build-a-query}
 
-1.  Fai clic su ![Icona query](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> per aprire la pagina della query. Seleziona la tua raccolta e fai clic su **Get started**. 
-1.  Nella schermata **Build queries**, fai clic su **Search for documents** e quindi su **Use the {{site.data.keyword.discoveryshort}} Query Language**:
-    - Per cercare i risultati con entità denominate "IBM":
-        1.  Fai clic su **Field** e seleziona `enriched_text.entities.text`. Seleziona `contains` per **Operator** e `IBM` per **Value**. La query `enriched_text.entities.text:IBM` viene visualizzata in **Visual Query Builder**.
-        1.  Fai clic su **Run Query**. La query restituisce 4 risultati.
-    - Per cercare i risultati con entità denominate "Watson":
-        1.  Fai clic su **Field** e seleziona `enriched_text.entities.text`. Seleziona `contains` per **Operator** e `watson` per **Value**. La query `enriched_text.entities.text:watson` viene visualizzata in **Visual Query Builder**.
-        1.  Fai clic su **Run Query**. La query restituisce 2 risultati.
-    - Per cercare i risultati con le entità "Watson" e "Slack":
-        1.  Fai clic su **Field** e seleziona `enriched_text.entities.text`. Seleziona `contains` per **Operator** e `watson` per **Value**. Fai clic su **Add rule**, ripeti le tue selezioni, ma scegli il valore **Value** di `Slack`. La query `enriched_text.entities.text:watson,enriched_text.entities.text:Slack` viene visualizzata in **Visual Query Builder**.
-        1.  Fai clic su **Run Query**. La query restituisce 1 risultato.
+1.  Fai clic su **Build your own query** nella parte inferiore destra.
+1.  Nella schermata **Build queries**, fai clic su **Search for documents** e quindi su **Use natural language**. Immetti `What are the minimum hardware requirements` e fai clic sul pulsante **Run query**.  
+1.  Fai clic sulla scheda **JSON** sulla destra. Guarda il testo (`text`) sotto `results`. Le risposte restituite per la query sono molto più precise.
 
-    Fai clic su **Edit in query language** per creare le query utilizzando il {{site.data.keyword.discoveryshort}} Query Language. Per ulteriori informazioni sul {{site.data.keyword.discoveryshort}} Query Language, consulta [Guida di riferimento per le query](/docs/services/discovery/query-reference.html) e [Concetti delle query](/docs/services/discovery/using.html).
-1.  I risultati della tua query vengono visualizzati nella sezione **Results**:
-    - La scheda **Summary** fornisce una panoramica dei risultati della query.
-    - La scheda **JSON** visualizza i risultati JSON completi.
-
-    Per le query elencate, **Summary** visualizza prima i passaggi del documento (in ordine di pertinenza), seguiti dai nomi dei documenti trovati e poi i risultati in base all'arricchimento. I **Passaggi** sono estratti brevi e pertinenti dai documenti completi restituiti dalla tua query. 
-
-    Il link **Query URL** fornito nelle schede **JSON** e **Summary** è pronto per l'utilizzo nella tua applicazione.
-
-    Puoi anche fare clic su **Use natural language** e scrivere una query in linguaggio naturale, come ad esempio "IBM Watson partnerships". Per ulteriori informazioni sulle query in linguaggio naturale, consulta [Query in linguaggio naturale](/docs/services/discovery/query-parameters.html#nlq).
-
-    Watson può essere formato per migliorare i risultati delle query in linguaggio naturale, consulta [Miglioramento della pertinenza dei risultati con la strumentazione](/docs/services/discovery/train-tooling.html).
-
-    Ulteriori risorse:
-    - Per informazioni sullo schema dei dati nei tuoi documenti, fai clic sull'icona **View Data Schema** o sulla scheda **JSON**. Per i dettagli, consulta [Lo schema di dati Discovery](/docs/services/discovery/using.html#discovery-schema).
-    - Se stai eseguendo la modifica nel linguaggio della query nativo {{site.data.keyword.discoveryshort}}, fai clic sull'icona **?** accanto ad ogni campo **Enter query here** per ulteriori esempi.
+Ulteriori risorse:
+-  Per ulteriori informazioni sullo schema dei dati dei tuoi documenti, fai clic sull'icona **View Data Schema** sull'estrema sinistra o fai clic sulla scheda **JSON**. Per i dettagli, vedi lo [Schema di dati Discovery](/docs/services/discovery?topic=discovery-query-concepts#discovery-schema).
+-  Fai clic sul pulsante **Use a sample query** per provare delle query di esempio scritte in {{site.data.keyword.discoveryshort}} Query Language.
 
 ## Passi successivi
-{: #next-steps}
+{: #next-steps-tool}
 
-Ora hai un'istanza del servizio {{site.data.keyword.discoveryshort}} compilata e funzionante. Puoi ora iniziare a personalizzare la tua raccolta aggiungendo più documenti e arricchimenti e a personalizzare le impostazioni di conversione.
+Ora hai un'istanza del servizio {{site.data.keyword.discoveryshort}} compilata e funzionante. Puoi ora iniziare a personalizzare la tua raccolta aggiungendo ulteriori documenti e arricchimenti e annotando ulteriori documenti. Per ulteriori informazioni, vedi [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).

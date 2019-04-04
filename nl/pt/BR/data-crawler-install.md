@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Fazendo download e instalando o Data Crawler
 {: #downloading-and-installing-the-data-crawler}
@@ -26,10 +38,11 @@ crawler faz download dos documentos e metadados, começando em uma URL inicial e
 enfileira para recuperação.
 {: shortdesc}
 
-É possível usar o conjunto de ferramentas do {{site.data.keyword.discoveryshort}} ou a API para efetuar crawl em origens de dados do Box, Salesforce e Microsoft SharePoint Online. Consulte [Conectando-se a origens de dados](/docs/services/discovery/connect.html) para obter mais informações.
-{: tip}
+O Data Crawler deve ser usado apenas para efetuar crawl de compartilhamentos de arquivo ou bancos de dados; em todos os outros casos, é necessário usar o conector apropriado do {{site.data.keyword.discoveryshort}}. Veja [Conectando a origens de dados](/docs/services/discovery?topic=discovery-sources#sources) para obter detalhes. A assistência não será mais fornecida para o Data Crawler se você estiver usando-o com uma origem de dados suportada pelos conectores do {{site.data.keyword.discoveryshort}}.
+{: important}
 
 ## Pré-requisito
+{: #dc-prerequisites}
 
 -   Java Runtime Environment versão 8 ou superior
 
@@ -41,8 +54,9 @@ corretamente ou não deve ser configurada para executar o Crawler.
 -   Mínimo de 2 GB RAM no Sistema Linux
 
 ## Faça download e instale o Data Crawler
+{: #dc-download-install}
 
-1.  Abra um navegador e efetue login na sua conta do [{{site.data.keyword.Bluemix}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net){: new_window}.
+1.  Abra um navegador e efetue login em [sua conta do {{site.data.keyword.Bluemix}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/){: new_window}.
 
 1.  No seu painel do {{site.data.keyword.Bluemix_notm}}, selecione o serviço do {{site.data.keyword.discoveryshort}} criado anteriormente.
 
@@ -67,9 +81,10 @@ corretamente ou não deve ser configurada para executar o Crawler.
 
     **Nota:** as referências no restante deste guia aos arquivos no diretório `config`, como `config/crawler.conf`, referenciam esse arquivo em seu diretório ativo, NÃO no diretório `{installation_directory}/share/examples/config` instalado.
 
-1.  Agora você está pronto para [configurar o Data Crawler para conectar-se ao seu repositório](/docs/services/discovery/data-crawler-seeds.html)
+1.  Agora você está pronto para [configurar o Data Crawler para conectar-se ao seu repositório](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-connector-and-seed-options)
 
 ## Estrutura do Data Crawler
+{: #dc-structure}
 
 O download do Data Crawler coloca as seguintes pastas em seu sistema:
 
@@ -83,8 +98,9 @@ O download do Data Crawler coloca as seguintes pastas em seu sistema:
     -   `man` - documentação do crawler da página de manual no produto.
 
 ## Limitações conhecidas nesta liberação
+{: #dc-limitations}
 
 -   O Data Crawler pode ser interrompido ao executar o conector do sistema de arquivos com uma URL inválida ou ausente.
 -   Configure o valor de `urls_to_filter` no arquivo `crawler.conf`, de forma que todas as URLs ou RegExes da lista de desbloqueio sejam incluídas em uma expressão RegEx única. Consulte [Configurando
-opções de crawl](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options) para obter mais informações.
+opções de crawl](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options) para obter mais informações.
 -   O caminho para o arquivo de configuração aprovado na opção `-- config -c` deve ser um caminho qualificado. Ou seja, ele deve estar nos formatos relativos `config/crawler.conf` ou `./crawler.conf` ou no caminho absoluto `/path/to/config/crawler.conf`. A especificação somente de `crawler.conf` será possível apenas se o arquivo `orchestration_service.conf` estiver sequenciado em vez de referenciado usando `include` no arquivo `crawler.conf`.

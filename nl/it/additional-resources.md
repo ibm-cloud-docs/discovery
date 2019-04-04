@@ -4,20 +4,32 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-06"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
-# Blog e webinar 
+# Blog e webinar
 {: #resources}
 
 Ulteriori informazioni su {{site.data.keyword.discoveryfull}} da questi post del blog, webinar e altre risorse.
@@ -61,7 +73,7 @@ Per ulteriori informazioni sull'utilizzo di Watson Discovery per identificare i 
 
 - [Building with Watson: A technical intro to the Watson Discovery Service  ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.youtube.com/watch?v=FikHwoJ6_FE&list=PLZDyxLlNKRY_GJskIreh9sQgExJ4z8oZO&index=11&t=417s){: new_window}
 
-## White paper e architettura tecnica 
+## White paper e architettura tecnica
 {: #whitepapers}
 
 - [Whitepaper: Discovery Cloud architecture ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://ibm.biz/discovery_advantage_paper){: new_window}

@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Element Classification
 {: #element-classification}
@@ -28,9 +40,9 @@ L'Element Classification è progettata per fornire:
 -  La capacità di convertire il PDF programmatico in JSON annotato
 -  Identificazione di entità giuridiche e categorie che si allineano con le competenze in materia
 
-L'Element Classification riunisce un insieme funzionalmente ricco di API Watson integrate e automatizzate per inserire un PDF programmatico per identificare sezioni, elenchi (numerati e puntati), note a piè di pagina e tabelle, convertendo questi elementi in un formato HTML strutturato. Inoltre, la classificazione di questo formato strutturato è annotata e prodotta come JSON con elementi, tipi e categorie etichettati. 
+L'Element Classification riunisce un insieme funzionalmente ricco di API Watson integrate e automatizzate per inserire un PDF programmatico per identificare sezioni, elenchi (numerati e puntati), note a piè di pagina e tabelle, convertendo questi elementi in un formato HTML strutturato. Inoltre, la classificazione di questo formato strutturato è annotata e prodotta come JSON con elementi, tipi e categorie etichettati.
 
-L'Element Classification trasmette in modo sicuro i tuoi dati eseguendo la crittografia dei dati in fase di elaborazione e mentre sono inattivi. Per informazioni sulla sicurezza di IBM Cloud, vedi la [Descrizione del servizio {{site.data.keyword.Bluemix_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
+L'Element Classification trasmette in modo sicuro i tuoi dati eseguendo la crittografia dei dati in transito o inattivi. Per informazioni sulla sicurezza di IBM Cloud, vedi la [Descrizione del servizio {{site.data.keyword.Bluemix_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
 
 L'Element Classification restituisce un oggetto JSON che contiene:
 
@@ -40,9 +52,9 @@ L'Element Classification restituisce un oggetto JSON che contiene:
 -  Un array `tables` che suddivide le tabelle identificate nel documento di input.
 -  Un oggetto `document_structure` che elenca i titoli delle sezioni e le frasi più importanti identificate nel documento di input.
 -  Un array `parties` che elenca le parti, i ruoli, gli indirizzi e i contatti delle parti identificate nel documento di input.
--  Gli array che definiscono `effective_dates` e `contract_amounts`.
+-  Gli array che definiscono `effective_dates`,`contract_amounts` e `termination_dates`.
 
-Questa funzione è attualmente supportata solo in inglese, consulta [Supporto per la lingua](/docs/services/discovery/language-support.html#feature-support) per i dettagli.
+Questa funzione è attualmente supportata solo in inglese, consulta [Supporto linguistico](/docs/services/discovery?topic=discovery-language-support#feature-support) per i dettagli.
 
 
 ## Requisiti della classificazione
@@ -50,17 +62,17 @@ Questa funzione è attualmente supportata solo in inglese, consulta [Supporto pe
 
 Per classificare i documenti utilizzando l'Element Classification, i tuoi documenti di origine e di configurazione devono soddisfare i seguenti requisiti:
 
--  I file da analizzare sono in formato PDF. 
+-  I file da analizzare sono in formato PDF.
 -  I contenuti del PDF sono in formato testo. I documenti che sono stati scansionati non possono essere analizzati, anche se sono stati scansionati con il riconoscimento ottico dei caratteri.
-   **Nota:** puoi identificare un PDF in formato testo aprendo il documento in un programma di visualizzazione PDF e utilizzando la strumentazione di **selezione testo** per selezionare una singola parola. Se non puoi selezionare una singola parola nel documento, il file non può essere analizzato. 
--  I file non hanno una dimensione superiore a 50 Mb. 
--  I PDF protetti (con una password per l'apertura) e i PDF con restrizioni di modifica (con una password per la modifica) non possono essere analizzati. 
--  La strumentazione {{site.data.keyword.discoveryshort}} include una configurazione denominata **Default Contract Configuration** che può essere utilizzata per arricchire la tua raccolta di documenti PDF. Hai anche l'opzione di creare una configurazione personalizzata che include l'arricchimento `elements`. Per i dettagli, consulta [Requisiti della raccolta](/docs/services/discovery/element-classification.html#element-collection).
+   **Nota:** puoi identificare un PDF in formato testo aprendo il documento in un programma di visualizzazione PDF e utilizzando la strumentazione di **selezione testo** per selezionare una singola parola. Se non puoi selezionare una singola parola nel documento, il file non può essere analizzato.
+-  I file non hanno una dimensione superiore a 50 Mb.
+-  I PDF protetti (con una password per l'apertura) e i PDF con restrizioni di modifica (con una password per la modifica) non possono essere analizzati.
+-  La strumentazione {{site.data.keyword.discoveryshort}} include una configurazione denominata **Default Contract Configuration** che può essere utilizzata per arricchire la tua raccolta di documenti PDF. Hai anche l'opzione di creare una configurazione personalizzata che include l'arricchimento `elements`. Per i dettagli, consulta [Requisiti della raccolta](/docs/services/discovery?topic=discovery-element-classification#element-collection).
 -  I piani **Lite** possono elaborare un massimo di 500 pagine al mese.
 -  Non disponibile negli ambienti **Dedicated**.
 -  Impossibile eseguire la normalizzazione post-arricchimento quando utilizzi l'Element Classification.
 
-**Nota:** il file **Default Contract Configuration** è stato aggiornato il 25 settembre 2018. Se hai applicato questa configurazione a una raccolta prima di questa data, consulta le [note sulla release](/docs/services/discovery/release-notes.html#25sept) per informazioni sull'aggiornamento della tua raccolta.
+**Nota:** il file **Default Contract Configuration** è stato aggiornato il 25 settembre 2018. Se hai applicato questa configurazione a una raccolta prima di questa data, consulta le [note sulla release](/docs/services/discovery?topic=discovery-release-notes#25sept) per informazioni sull'aggiornamento della tua raccolta.
 
 ## Requisiti della raccolta
 {: #element-collection}
@@ -103,7 +115,7 @@ Se desideri creare un file di configurazione personalizzato, configura la tua ra
 
 ```json
  "enrichments": [
-  {
+   {
      "source_field": "html",
      "destination_field": "enriched_html",
      "enrichment": "elements",
@@ -115,9 +127,10 @@ Se desideri creare un file di configurazione personalizzato, configura la tua ra
 ```
 {: codeblock}
 
-Dopo aver selezionato `Default Contract Configuration` nella strumentazione, puoi caricare i tuoi documenti. Se non hai familiarità con la creazione di raccolte e sul caricamento dei documenti, consulta l'[Introduzione alla strumentazione](/docs/services/discovery/getting-started-tool.html).
+Dopo aver selezionato `Default Contract Configuration` nella strumentazione, puoi caricare i tuoi documenti. Se non hai dimestichezza con la creazione di raccolte e sul caricamento dei documenti, consulta l'[Introduzione alla strumentazione](/docs/services/discovery?topic=discovery-getting-started#getting-started).
 
 ## Elementi classificati
+{: #classified-elements}
 
 Una volta che un documento è stato indicizzato con l'Element Classification, verrà restituito con un array `elements` come parte del documento ricercabile.
 
@@ -158,14 +171,17 @@ Ogni oggetto presente nell'array `elements` descrive un elemento del contratto c
 Ogni elemento ha cinque sezioni importanti:
 -  `location`: gli indici `begin` e `end` che indicano l'ubicazione dell'elemento nel documento di input.
 -  `text`: il testo dell'elemento classificato.
--  `types`: un array che include zero o più oggetti `label`. Ogni oggetto `label` include un campo `nature` che elenca gli effetti dell'elemento sulla parte identificata (ad esempio, `Right` o `Exclusion`) e un campo `party` che identifica la parte o le parti interessate dall'elemento. Per ulteriori informazioni, consulta i [Tipi](/docs/services/discovery/parsing.html#contract_types) in [Descrizione dell'analisi del contratto](/docs/services/discovery/parsing.html#contract_parsing).
--  `categories`: un array che contiene zero o più oggetti `label`. Il valore di ogni oggetto `label` elenca una categoria funzionale in cui risiede l'elemento identificato. Per ulteriori informazioni, consulta le [Categorie](/docs/services/discovery/parsing.html#contract_categories) in [Descrizione dell'analisi del contratto](/docs/services/discovery/parsing.html#contract_parsing).
--  `attributes`: un array che elenca zero o più oggetti che definiscono gli attributi dell'elemento. Al momento i tipi di attributi supportati includono `Location` (ubicazione o regione geografica a cui fa riferimento l'elemento), `DateTime` (data, ora, intervallo di date o intervallo di tempo specificati dall'elemento) e `Currency` (valore e unità monetarie). Ogni oggetto nell'array `attributes` include anche il testo e l'ubicazione dell'elemento identificato; l'ubicazione viene definita dagli indici `begin` e `end` del testo nel documento di input. Per ulteriori informazioni, consulta gli [Attributi](/docs/services/discovery/parsing.html#attributes) in [Descrizione dell'analisi del contratto](/docs/services/discovery/parsing.html#contract_parsing).
+-  `types`: un array che include zero o più oggetti `label`. Ogni oggetto `label` include un campo `nature` che elenca gli effetti dell'elemento sulla parte identificata (ad esempio, `Right` o `Exclusion`) e un campo `party` che identifica la parte o le parti interessate dall'elemento. Per ulteriori informazioni, consulta i [Tipi](/docs/services/discovery?topic=discovery-contract_parsing#contract_types) in [Descrizione dell'analisi del contratto](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing).
+-  `categories`: un array che contiene zero o più oggetti `label`. Il valore di ogni oggetto `label` elenca una categoria funzionale in cui risiede l'elemento identificato. Per ulteriori informazioni, consulta le [Categorie](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories) in [Descrizione dell'analisi del contratto](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing).
+-  `attributes`: un array che elenca zero o più oggetti che definiscono gli attributi dell'elemento. Al momento i tipi di attributi supportati includono `Location` (ubicazione geografica a cui fa riferimento l'elemento), `DateTime` (data, ora, intervallo di date o intervallo di ore specificati dall'elemento) e `Currency` (valori e unità monetarie). Ogni oggetto nell'array `attributes` include anche il testo e l'ubicazione dell'elemento identificato; l'ubicazione viene definita dagli indici `begin` e `end` del testo nel documento di input. Per ulteriori informazioni, vedi [Attributi](/docs/services/discovery?topic=discovery-contract_parsing#attributes) in [Analisi dei contratti](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing).
 
-Inoltre, ogni oggetto negli array `types` e `categories` include un array `provenance_ids`. I valori elencati nell'array `provenance_ids` sono valori hash che puoi inviare a IBM per fornire un feedback o ricevere supporto sulla parte dell'analisi associata all'elemento.
+Inoltre, ogni oggetto negli array `types` e `categories` include un array `provenance_ids`. I valori elencati nell'array `provenance_ids` sono valori hash che puoi inviare a IBM per fornire un feedback o ricevere supporto sulla parte dell'analisi associata all'elemento. 
 
-**Nota**: alcune frasi non rientrano in alcun tipo o categoria, in questo caso il servizio restituisce gli array `types` e `categories` come oggetti vuoti.
+Alcune frasi non rientrano in alcun tipo o categoria; in questo caso, il servizio restituisce gli array `types` e `categories` come oggetti vuoti.
+{: note}
 
-**Nota:** alcune frasi coprono più argomenti, in questo caso il servizio restituisce più insiemi di oggetti `types` e `categories`.
+Alcune frasi coprono più argomenti; in questo caso, il servizio restituisce più insiemi di oggetti `types` e `categories`.
+{: note}
 
-**Nota**: alcune frasi non contengono alcun attributo identificabile, in questo caso il servizio restituisce l'array `attributes` come oggetto vuoto.
+Alcune frasi non contengono alcun attributo identificabile; in questo caso, il servizio restituisce l'array `attributes` come oggetto vuoto.
+{: note}

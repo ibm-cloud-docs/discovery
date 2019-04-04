@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 实体类型和子类型
 {: #entity-types-and-subtypes}
 
-下表列出了“实体抽取”扩充项返回的可能实体类型和子类型。您可以在以下位置下载包含这些信息的电子表格：<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标" class="style-scope doc-content"></a>。
+下表列出了“实体抽取”扩充项返回的可能实体类型和子类型。您可以在以下位置下载包含这些信息的电子表格：<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="外部链接图标" title="外部链接图标"></a>。
 {: shortdesc}
 
 

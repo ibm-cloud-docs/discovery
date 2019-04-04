@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-11-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 关系类型
 {: #relation-types}
 
-下表列出了[关系抽取](/docs/services/discovery/building.html#relation-extraction)扩充项可能返回的关系类型。
+下表列出了[关系抽取](/docs/services/discovery?topic=discovery-configservice#relation-extraction)扩充项可能返回的关系类型。
 {: shortdesc}
 
 |关系            |描述|
@@ -36,7 +48,7 @@ lastupdated: "2017-11-15"
 |before          |表示两个时间或事件之间的时间关系“before”。仅当文本明确指定此关系时才标记。|
 |bornAt          |存在于某个人员或动物与其出生地之间。|
 |bornOn          |存在于某个人员或动物与其出生日期或时间之间。|
-|capitalOf       |存在于某个首都与其国家/地区、州或省之间。仅当文本显式声明此关系时才标记，而不基于全球知识进行标记。|
+|capitalOf       |存在于某个首都与其国家/地区、州或省之间。仅当文本明确声明此关系时才标记，而不基于世界知识进行标记。|
 |citizenOf       |存在于某个人员与其居住在的 GeopoliticalEntity 之间。|
 |clientOf        |存在于两个实体之间，其中一个实体是另一个实体的直接业务客户（即，为特定服务或产品付费）。|
 |colleague       |存在于属于同一组织的两个人员之间。|
@@ -74,7 +86,7 @@ lastupdated: "2017-11-15"
 |residesIn       |存在于某个生命体与其永久居住地之间。|
 |shareholdersOf  |存在于某个人员、组织或 GeopoliticalEntity 与第一个实体作为其股东的某个组织之间。|
 |siblingOf       |存在于某个人员或动物与其亲兄弟姐妹或继兄弟姐妹之间。|
-|spokespersonFor |存在于某个人员与其代表的某个实体之间。仅当文本显式声明此关系时才标记，而不基于全球知识进行标记。|
+|spokespersonFor |存在于某个人员与其代表的某个实体之间。仅当文本明确声明此关系时才标记，而不基于世界知识进行标记。|
 |spouseOf        |存在于作为正式配偶的两个人员之间。|
 |subsidiaryOf    |存在于两个组织之间，其中第一个组织是第二个组织的子机构，这意味着第一个实体虽然受第二个实体的控制，但拥有相当程度的自主权。|
 |timeOf          |指示发生某个事件的日期、时间或持续时间：发布、执行或广播了某个 TitleWork；或者首次起草、创立、通过或废除了某项法律。    

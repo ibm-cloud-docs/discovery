@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Classificação de elementos
 {: #element-classification}
@@ -37,7 +49,7 @@ notas de rodapé e tabelas que convertem esses itens em um formato HTML estrutur
 classificação desse formato estruturado é anotada e gerada como JSON com elementos, tipos e
 categorias rotulados.
 
-A Classificação de Elementos transmite seguramente seus dados executando criptografia em andamento e em repouso. Para obter informações sobre a segurança do IBM Cloud, veja a [Descrição do serviço do {{site.data.keyword.Bluemix_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
+A Classificação de elementos transmite de forma segura seus dados que executam a criptografia em andamento e em repouso. Para obter informações sobre a segurança do IBM Cloud, veja a [Descrição do serviço do {{site.data.keyword.Bluemix_notm}} ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
 
 A Classificação de elementos retorna um objeto JSON que contém:
 
@@ -47,9 +59,9 @@ A Classificação de elementos retorna um objeto JSON que contém:
 -  Uma matriz `tables` que divide as tabelas identificadas no documento de entrada.
 -  Um objeto `document_structure` que lista títulos de seção e sentenças iniciais identificadas no documento de entrada.
 -  Uma matriz `parties` que lista as partes, funções, endereços e contatos de partes identificadas no documento de entrada.
--  Matrizes que definem  ` effective_dates `  e  ` contract_quantias `.
+-  As matrizes que definem  ` effective_dates `, ` contract_quantias ` e  ` termination_dates `.
 
-Esse recurso é suportado atualmente somente em inglês, veja [Suporte ao idioma](/docs/services/discovery/language-support.html#feature-support) para obter detalhes.
+Esse recurso é suportado atualmente somente em inglês, veja [Suporte ao idioma](/docs/services/discovery?topic=discovery-language-support#feature-support) para obter detalhes.
 
 
 ## Requisitos de classificação
@@ -65,12 +77,12 @@ uma única palavra. Se não for possível selecionar uma única palavra no docum
 analisado.
 -  Arquivos não são maiores que 50 MB em tamanho.
 -  PDFs protegidos (com uma senha para abrir) e PDFs de edição restrita (com uma senha para edição) não podem ser analisados.
--  O conjunto de ferramentas do {{site.data.keyword.discoveryshort}} inclui uma configuração denominada **Configuração de contrato padrão** que pode ser usada para enriquecer sua coleção de documentos PDF. Você também tem a opção de criar uma configuração customizada que inclui o enriquecimento `elements`. Consulte  [ Requisitos de coleção ](/docs/services/discovery/element-classification.html#element-collection)  para obter detalhes.
+-  O conjunto de ferramentas do {{site.data.keyword.discoveryshort}} inclui uma configuração denominada **Configuração de contrato padrão** que pode ser usada para enriquecer sua coleção de documentos PDF. Você também tem a opção de criar uma configuração customizada que inclui o enriquecimento `elements`. Consulte  [ Requisitos de coleção ](/docs/services/discovery?topic=discovery-element-classification#element-collection)  para obter detalhes.
 -  Os planos **Lite** podem processar um máximo de 500 páginas por mês.
 -  Não disponível em ambientes **Dedicado**.
 -  A normalização de pós-enriquecimento não pode ser executada ao usar a Classificação de elementos.
 
-**Nota:** o arquivo de **Configuração de contrato padrão** foi atualizado em 25 de setembro de 2018. Se você aplicou essa configuração a uma coleção antes dessa data, veja as [notas sobre a liberação](/docs/services/discovery/release-notes.html#25sept) para obter informações sobre como atualizar sua coleção.
+**Nota:** o arquivo de **Configuração de contrato padrão** foi atualizado em 25 de setembro de 2018. Se você aplicou essa configuração a uma coleção antes dessa data, veja as [notas sobre a liberação](/docs/services/discovery?topic=discovery-release-notes#25sept) para obter informações sobre como atualizar sua coleção.
 
 ## Requisitos de coleção
 {: #element-collection}
@@ -128,9 +140,10 @@ nome válido pode ser usado:
 
 Após selecionar `Default Contract Configuration` no conjunto de ferramentas, é possível fazer upload de seus documentos. Se
 você não estiver familiarizado com a criação de coleções e com o upload de documentos, consulte
-[Introdução ao conjunto de ferramentas](/docs/services/discovery/getting-started-tool.html).
+[Introdução ao conjunto de ferramentas](/docs/services/discovery?topic=discovery-getting-started#getting-started).
 
 ## Elementos classificados
+{: #classified-elements}
 
 Depois que um documento é indexado com Classificação de Elementos, ele é retornado com uma matriz `elements` como parte do documento pesquisável.
 
@@ -172,17 +185,17 @@ Cada objeto na matriz de `elements` descreve um elemento do contrato que o
 Cada elemento possui cinco seções importantes:
 -  `location`: os índices `begin` e `end` que indicam o local do elemento no documento de entrada.
 -  `text`: o texto do elemento classificado.
--  `types`: uma matriz que inclui zero ou mais objetos `label`. Cada objeto `label` inclui um campo `nature` que lista o efeito do elemento na parte identificada (por exemplo, `Right` ou `Exclusion`) e um campo `party` que identifica a parte ou as partes afetadas pelo elemento. Veja [Tipos](/docs/services/discovery/parsing.html#contract_types) em [Entendendo a análise sintática do contrato](/docs/services/discovery/parsing.html#contract_parsing) para obter informações adicionais.
--  `categories`: uma matriz que contém zero ou mais objetos `label`. O valor de cada objeto `label` lista uma categoria funcional na qual o elemento identificado cai. Veja [Categorias](/docs/services/discovery/parsing.html#contract_categories) em [Entendendo a análise sintática do contrato](/docs/services/discovery/parsing.html#contract_parsing) para obter informações adicionais.
--  `attributes`: uma matriz que lista zero ou mais objetos que definem os atributos do elemento. Os tipos de atributos atualmente suportados incluem `Location` (localização geográfica ou região referenciada pelo elemento) `DateTime` (data, hora, intervalo de data ou intervalo de tempo especificado pelo elemento) e `Currency` (valores monetários e unidades). Cada objeto na matriz `attributes` também inclui o texto e o local do elemento identificado; o local é definido pelos índices `begin` e `end` do texto no documento de entrada. Veja [Atributos](/docs/services/discovery/parsing.html#attributes) em [Entendendo a análise sintática do contrato](/docs/services/discovery/parsing.html#contract_parsing) para obter informações adicionais.
+-  `types`: uma matriz que inclui zero ou mais objetos `label`. Cada objeto `label` inclui um campo `nature` que lista o efeito do elemento na parte identificada (por exemplo, `Right` ou `Exclusion`) e um campo `party` que identifica a parte ou as partes afetadas pelo elemento. Veja [Tipos](/docs/services/discovery?topic=discovery-contract_parsing#contract_types) em [Entendendo a análise sintática do contrato](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) para obter informações adicionais.
+-  `categories`: uma matriz que contém zero ou mais objetos `label`. O valor de cada objeto `label` lista uma categoria funcional na qual o elemento identificado cai. Veja [Categorias](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories) em [Entendendo a análise sintática do contrato](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) para obter informações adicionais.
+-  `attributes`: uma matriz que lista zero ou mais objetos que definem os atributos do elemento. Os tipos de atributos atualmente suportados incluem `Location` (local geográfico mencionado pelo elemento), `DateTime` (data, hora, intervalo de data ou intervalo de tempo especificado pelo elemento) e `Currency` (unidades e valores monetários). Cada objeto na matriz `attributes` também inclui o texto e o local do elemento identificado; o local é definido pelos índices `begin` e `end` do texto no documento de entrada. Consulte [Atributos](/docs/services/discovery?topic=discovery-contract_parsing#attributes) em [Contratos de análise sintática](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) para obter informações adicionais.
 
-Além disso, cada objeto nas matrizes `types` e `categories` inclui uma matriz `provenance_ids`. Os valores listados na matriz `provenance_ids` são valores em hash que é possível enviar à IBM para fornecer feedback ou receber suporte sobre a parte da análise associada ao elemento.
+Além disso, cada objeto nas matrizes `types` e `categories` inclui uma matriz `provenance_ids`. Os valores listados na matriz `provenance_ids` são valores em hash que é possível enviar à IBM para fornecer feedback ou receber suporte sobre a parte da análise associada ao elemento. 
 
-**Nota**: algumas sentenças não se enquadram em nenhum tipo ou categoria, caso em que
-o serviço retorna as matrizes `types` e `categories` como objetos vazios.
+Algumas sentenças não se encaixam em nenhum tipo ou categoria. Nesse caso, o serviço retorna as matrizes `types` e `categories` como objetos vazios.
+{: note}
 
-**Nota:** algumas sentenças abrangem múltiplos tópicos, caso em que o serviço retorna
-múltiplos conjuntos de objetos `types` e `categories`.
+Algumas sentenças abrangem múltiplos tópicos. Nesse caso, o serviço retorna múltiplos conjuntos de objetos `types` e `categories`.
+{: note}
 
-**Nota**: algumas sentenças não contêm nenhum atributo identificável, caso em que o
-serviço retorna a matriz `attributes` como objetos vazios.
+Algumas sentenças não contêm nenhum atributo identificável. Nesse caso, o serviço retorna a matriz `attributes` como objetos vazios.
+{: note}

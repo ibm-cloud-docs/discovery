@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-09-17"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Monitoramento de uso
 {: #usage}
 
-É possível monitorar e controlar o uso de sua instância do {{site.data.keyword.discoveryshort}} e usar esses dados para ajudar a entender e melhorar seus aplicativos. A [API de eventos ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} pode ser usada para criar entradas de log que estão associadas a consultas e ações de língua natural específicas. Por exemplo, é possível registrar quais documentos em um conjunto de resultados foram "clicados" por um usuário e quando esse clique ocorreu.
+É possível monitorar e controlar o uso de sua instância do {{site.data.keyword.discoveryshort}} e usar esses dados para ajudar a entender e melhorar seus aplicativos. A [API de eventos ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#create-event){: new_window} pode ser usada para criar entradas de log que estão associadas a consultas e ações de língua natural específicas. Por exemplo, é possível registrar quais documentos em um conjunto de resultados foram "clicados" por um usuário e quando esse clique ocorreu.
 
 **Nota:** os logs e eventos são monitorados somente para consultas de língua natural em coletas de dados privados. Nenhum log é coletado no  {{site.data.keyword.discoverynewsfull}}.
 
@@ -44,7 +56,7 @@ O terminal `/api/v1/logs` suporta os parâmetros de consulta do {{site.data.keyw
 - Deslocamento
 - versão
 
-Para obter detalhes adicionais sobre a função e a sintaxe para os parâmetros, veja [Parâmetros de consulta](/docs/services/discovery/query-parameters.html).
+Para obter detalhes adicionais sobre a função e a sintaxe para os parâmetros, veja [Parâmetros de consulta](/docs/services/discovery?topic=discovery-query-parameters#query-parameters).
 
 Exemplo de procura de logs para uma consulta de língua natural que contém o termo “train”:
 
@@ -84,10 +96,10 @@ Exemplo de log de consulta:
 ```
 
 Com os logs de consulta, é possível investigar o tipo dos resultados retornados para seus usuários finais e investigar maneiras de melhorar a qualidade do resultado usando as abordagens disponíveis no {{site.data.keyword.discoveryshort}}. Por exemplo: 
-- treinamento de relevância, veja [Melhorando a relevância de resultados com a API](/docs/services/discovery/train.html) e [Melhorando a relevância de resultados com o conjunto de ferramentas](/docs/services/discovery/train-tooling.html)
-- [operadores de consulta](/docs/services/discovery/query-operators.html)
-- [ expansão de consulta ](/docs/services/discovery/using.html#query-expansion)
-- configurações customizadas, consulte a  [ Referência de configuração ](/docs/services/discovery/custom-config.html)
+- treinamento de relevância, veja [Melhorando a relevância de resultados com a API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) e [Melhorando a relevância de resultados com o conjunto de ferramentas](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling)
+- [operadores de consulta](/docs/services/discovery?topic=discovery-query-operators#query-operators)
+- [ expansão de consulta ](/docs/services/discovery?topic=discovery-query-concepts#query-expansion)
+- configurações customizadas, consulte a  [ Referência de configuração ](/docs/services/discovery?topic=discovery-configref#configref)
 
 ## Criando logs de eventos
 {: #eventlogs}
@@ -103,6 +115,6 @@ Os resultados do {{site.data.keyword.discoveryshort}} retornarão informações 
 ` "matching_results": 179, `  ` "session_token": "1_LKczxxxWGEWx59fYD0_VV8HFUpb6" `
 
 Para registrar um evento, faça um POST para o terminal `/api/v1/events`. Veja a
-[API de eventos ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} para obter detalhes.
+[API de eventos ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://{DomainName}/apidocs/discovery#create-event){: new_window} para obter detalhes.
 
 Quando um evento é registrado, ele pode ser lido de volta usando o terminal `/api/v1/logs`. Associe os eventos à consulta associada usando o `session_token`.

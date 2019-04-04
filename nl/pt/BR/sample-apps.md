@@ -2,20 +2,32 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-11-29"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Aplicativos de amostra
 {: #sample-apps}
@@ -33,8 +45,7 @@ Extrair insights facilmente dos dados de revisão de texto bruto. Ele conduz voc
 Usa revisões publicamente disponíveis em listagens do Airbnb para demonstrar como usar componentes de UI individuais para visualizar insights. É possível, então, alternar facilmente o conjunto de dados para adaptá-lo aos seus próprios casos de uso.
   - [Obter o código ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM/watson-discovery-ui?cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-Get-the-Code){: new_window}
   - [Visualizar a demo ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.youtube.com/watch?v=5EEmQwcjUa4&cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-View-the-Video){: new_window}
-  - [Tentar o app ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://watson-discovery-ui-demo.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  
+    
 [Extrair dados corporativos para insights ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://ibm.biz/minedatapattern){: new_window}
 Use o SDK do Watson Node.js para importar e enriquecer seus dados usando o Watson Discovery Service. É possível então explorar os dados para localizar padrões, tendências e insights acionáveis.
   - [Obter o código ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM/watson-discovery-analyze-data-breaches?cm_sp=IBMCode-_-import-enrich-and-gain-insight-from-data-_-Get-the-Code){: new_window}
@@ -75,10 +86,4 @@ Crie um robô de bate-papo da UI da web usando o SDK do IBM Watson Node.js para 
   - [Obter o código ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://github.com/IBM/watson-banking-chatbot?cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-Get-the-Code){: new_window}
   - [Visualizar a demo ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.youtube.com/watch?v=Jxi7U7VOMYg&cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-View-the-Demo){: new_window}
   - [Tentar o app ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://create-a-cognitive-banking-chatbot-hnike.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  - [Construir por meio de um kit do iniciador ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-   
-[Laboratório de descoberta ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://ibm.biz/watsondiscoverylab){: new_window}
-Neste laboratório, você criará uma coleção privada no serviço Discovery e aprenderá como consultar a coleção.
-
-[Laboratório de notícias de descoberta ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](http://ibm.biz/discoverynewslab){: new_window}
-Neste laboratório, você trabalhará com o mecanismo de insights do Watson Discovery News ao construir consultas.
+  - [Construir por meio de um kit do iniciador ![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}

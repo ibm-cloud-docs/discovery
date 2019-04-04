@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 配置 Data Crawler
 {: #configuring-the-data-crawler}
@@ -23,14 +35,14 @@ lastupdated: "2018-07-03"
 要设置 Data Crawler 来搜寻存储库，必须在 `crawler.conf` 文件中指定相应的输入适配器，然后在输入适配器配置文件中配置特定于存储库的信息。
 {: shortdesc}
 
-您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 来搜寻 Box、Salesforce 和 Microsoft SharePoint Online 数据源。请参阅[连接到数据源](/docs/services/discovery/connect.html)以获取更多信息。
-{: tip}
+Data Crawler 应仅用于搜寻文件共享或数据库，在其他所有情况下，您应使用相应的 {{site.data.keyword.discoveryshort}} 连接器。请参阅[连接到数据源](/docs/services/discovery?topic=discovery-sources#sources)以获取详细信息。如果您将 Data Crawler 用于 {{site.data.keyword.discoveryshort}} 连接器支持的数据源，那么将不再提供有关 Data Crawler 的帮助。
+{: important}
 
 在执行以下步骤中列出的更改之前，请确保已通过将 `{installation_directory}/share/examples/config` 目录的内容复制到系统上的工作目录（例如 `/home/config`）来创建工作目录。
 
-**重要信息：**不要直接修改提供的配置示例文件。请复制这些文件，然后对其进行编辑。如果直接编辑示例文件，那么在升级 Data Crawler 时可能会覆盖您的配置，或者在卸载 Data Crawler 时可能会除去您的配置。
+**重要信息：**不要直接修改提供的配置示例文件。复制这些文件，然后对它们进行编辑。如果直接编辑现有示例文件，那么在升级 Data Crawler 时可能会覆盖您的配置，或者在卸载 Data Crawler 时可能会除去您的配置。
 
-**注：**本指南中提到 `config` 目录中文件（例如 `config/crawler.conf`）均指的是工作目录中的相应文件，而不是位于 `{installation_directory}/share/examples/config` 安装目录中的文件。
+**注：**本指南中提到的 `config` 目录中的文件（例如 `config/crawler.conf`），是指您工作目录中的相应文件，而不是安装目录 `{installation_directory}/share/examples/config` 中的文件。
 
 指定的值是 `config/crawler.conf` 中的缺省值，请配置文件系统连接器：
 
@@ -38,7 +50,7 @@ lastupdated: "2018-07-03"
 
     -   将 `crawl_config_file` 选项设置为先前修改的 `.conf`，例如：`connectors/filesystem.conf`。
     -   将 `crawl_seed_file` 选项设置为先前修改的 `-seed.conf`，例如：`seeds/filesystem-seed.conf`。
-    -   设置 {{site.data.keyword.discoveryshort}} 服务的 `output_adapter` `class` 和 `config` 选项，如下所示：
+    -   为 {{site.data.keyword.discoveryshort}} 服务设置 `output_adapter` `class` 和 `config` 选项，如下所示：
 
         ```
         class - "com.ibm.watson.crawler.discoveryserviceoutputadapter.DiscoveryServiceOutputAdapter"
@@ -55,7 +67,7 @@ lastupdated: "2018-07-03"
         ```
         {: codeblock}
 
-    此文件中还有其他可选设置，可以根据您的环境进行相应设置；请参阅：[配置搜寻选项](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options)、[配置输入适配器](/docs/services/discovery/data-crawler-discovery.html#input-adapter)、[配置输出适配器](/docs/services/discovery/data-crawler-discovery.html#output-adapter)和[其他搜寻管理选项](/docs/services/discovery/data-crawler-discovery.html#additional-crawl-management-options)，以获取有关设置这些值的详细信息。
+    此文件中还有其他可选设置，可以根据您的环境进行相应设置；请参阅：[配置搜寻选项](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options)、[配置输入适配器](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter)、[配置输出适配器](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter)和[其他搜寻管理选项](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options)，以获取有关设置这些值的详细信息。
 
 1.  在文本编辑器中打开 `discovery/discovery_service.conf` 文件。针对您先前在 {{site.data.keyword.Bluemix}} 上创建的 {{site.data.keyword.discoveryshort}} 服务修改以下值：
 
@@ -64,11 +76,11 @@ lastupdated: "2018-07-03"
     -   `configuration_id` - {{site.data.keyword.discoveryshort}} 服务配置标识。
     -   `configuration` - 此 `discovery_service.conf` 文件的完整路径位置，例如 `/home/config/discovery/discovery_service.conf`。
     -   `username` - {{site.data.keyword.discoveryshort}} 服务的用户名凭证。
-    -   `password` - {{site.data.keyword.discoveryshort}} 服务的密码凭证。
+    -   `apikey` - {{site.data.keyword.discoveryshort}} 服务的凭证。
 
-    此文件中还有其他可选设置，可以根据您的环境进行相应设置。请参阅[配置服务选项](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options)，以获取有关设置这些值的详细信息。
+    此文件中还有其他可选设置，可以根据您的环境进行相应设置。请参阅[配置服务选项](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options)，以获取有关设置这些值的详细信息。
 
-1.  修改这些文件后，即可随时搜寻数据。接着[搜寻数据存储库](/docs/services/discovery/data-crawler-run.html#crawling-your-data-repository)以继续。
+1.  修改这些文件后，即可搜寻数据。开始[搜寻数据存储库](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository)以继续。
 
 ## 配置搜寻选项
 {: #configuring-crawl-options}
@@ -101,7 +113,6 @@ lastupdated: "2018-07-03"
 
     **注：**相对于 Connector Framework `lib/java` 目录。
 
-    -   使用 SharePoint 连接器时，此值必须为 `oakland`。
     -   使用数据库连接器时，此值必须为 `database`。
 
     使用其他连接器时，可将此值保留为空（即，空字符串 ""）。
@@ -241,8 +252,7 @@ output_directory - "/tmp/crawler-test-output"`
 -   **`collection_id`** - 在 {{site.data.keyword.discoveryshort}} 服务中设置的文档集合的名称。
 -   **`api_version`** - 仅供内部使用。上次更改 API 版本的日期。   
 -   **`configuration_id`** - {{site.data.keyword.discoveryshort}} 服务使用的配置文件的文件名。
--   **`username`** - 用于向所搜寻到文档集合的位置进行认证的用户名。   
--   **`password`** - 用于向所搜寻到文档集合的位置进行认证的密码。
+-   **`apikey`** - 用于向所搜寻到文档集合的位置进行认证的凭证。
 
 {{site.data.keyword.discoveryshort}} 服务输出适配器可以发送统计信息，以便 {{site.data.keyword.IBM}} 更好地了解用户并为其提供服务。可设置 `send_stats` 变量的以下选项：
 

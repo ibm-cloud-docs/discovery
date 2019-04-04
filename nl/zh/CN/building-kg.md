@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-06-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Watson Discovery 知识图
 {: #kg}
 
-知识图不仅仅是通过在文档的数据之间建立连接并生成新知识来提供数据和信息。我们提供了 AI 技术来自动根据非结构化数据创建定制知识图，具体方法是抽取实体和关系并对其消歧，使用算法方法扩充关系，然后使用相关性算法对结果排名。知识图可以充当公司的“知识中心”，用于企业搜索、摘要、推荐引擎和其他决策过程 - 例如检测欺诈、浪费或滥用情况。在知识图创建过程中使用定制模型（在 {{site.data.keyword.knowledgestudioshort}} 中创建）可以帮助构建特定于领域的知识图，使这些知识图适用于财务、技术、安全性、情报、医疗卫生等诸多领域。请参阅[与 {{site.data.keyword.knowledgestudiofull}} 集成](/docs/services/discovery/integrate-wks.html)，以获取有关将 {{site.data.keyword.discoveryshort}} 与 {{site.data.keyword.knowledgestudioshort}} 集成的更多信息。
+知识图不仅仅是通过在文档的数据之间建立连接并生成新知识来提供数据和信息。我们提供了 AI 技术来自动根据非结构化数据创建定制知识图，具体方法是抽取实体和关系并对其消歧，使用算法方法扩充关系，然后使用相关性算法对结果排名。知识图可以充当公司的“知识中心”，用于企业搜索、摘要、推荐引擎和其他决策过程 - 例如检测欺诈、浪费或滥用情况。在知识图创建过程中使用定制模型（在 {{site.data.keyword.knowledgestudioshort}} 中创建）可以帮助构建特定于领域的知识图，使这些知识图适用于财务、技术、安全性、情报、医疗卫生等诸多领域。请参阅“与 Watson Knowledge Studio 集成”，以获取有关将 {{site.data.keyword.discoveryshort}} 与 {{site.data.keyword.knowledgestudioshort}} 集成的更多信息。
 
 
 通过添加到 {{site.data.keyword.discoveryfull}} 的两个 RESTful 端点，能够在非结构化文档集合内的文档中搜索已消歧且扩充的实体和关系。搜索结果可以按相关性或热门程度排名。除了搜索标记之外，API 还可以使用可选的上下文字词或段落，在自动创建的大型知识图中查找更多相关的实体和关系。
@@ -33,19 +45,21 @@ lastupdated: "2018-06-09"
 
 -  使用模糊搜索标记、类型信息（可选）和上下文（可选）消歧的实体。示例：在 `Apple` 上下文中搜索 `Steve` 会返回 `Steve Jobs`，而在 `Microsoft` 上下文中搜索 `Steve` 会在顶部返回 `Steve Ballmer`。
 -  通过输入模糊搜索标记和上下文（可选），按相关性排名的关系。相关性排名利用图形的全局属性来显示更具体的信息。示例：在 `health` 上下文中搜索 `Obama` 的关系会返回 `Affordable Care Act` 及其他相关实体。
--  通过查询知识连通图中的实体和关系，执行跨文档推断和聚集。此类查询的一些示例为：人员 X 与人员 Y 的关系如何？员工 X 的数据访问模式与标准模式有何不同？人员 X 的影响范围是什么？
+-  通过查询知识连通图中的实体和关系，执行跨文档推断和聚集。此类查询的一些示例为：人员 X 与人员 Y 的关系如何？人员 X 的影响范围是什么？
 
 ## 服务需求
+{: #kg_servreq}
 
 在 Beta 发布期间，知识图功能以及与之关联的方法仅可用于预订**高级**套餐、**高端**套餐和所有专用环境的服务实例。
 
-此 Beta 功能当前仅支持英语版本，请参阅[语言支持](/docs/services/discovery/language-support.html#feature-support)以获取详细信息。
+此 Beta 功能当前仅支持英语版本，请参阅[语言支持](/docs/services/discovery?topic=discovery-language-support#feature-support)以获取详细信息。
 
 ## 集合需求
+{: #kg_collreq}
 
 {{site.data.keyword.discoveryshort}} 使用从摄入的文档中抽取的实体和关系来构成知识图，并允许执行实体和关系查询。
 
-**注：**[实体相似度](/docs/services/discovery/building-kg.html#similarity)、[证据](/docs/services/discovery/building-kg.html#evidence)以及[规范化和过滤](/docs/services/discovery/building-kg.html#canonicalization)在所有集合中都可用。对于在 `03-05-2018` 之前创建的集合，您需要重新摄入文档才能使用这些功能。
+**注：**[实体相似度](/docs/services/discovery?topic=discovery-kg#kg_similarity)、[证据](/docs/services/discovery?topic=discovery-kg#kg_evidence)以及[规范化和过滤](/docs/services/discovery?topic=discovery-kg#kg_canonicalization)在所有集合中都可用。对于在 `03-05-2018` 之前创建的集合，您需要重新摄入文档才能使用这些功能。
 
 **注：**知识图只能用于专用数据集合，而不可用于 {{site.data.keyword.discoverynewsshort}}。
 
@@ -89,7 +103,7 @@ lastupdated: "2018-06-09"
 
    您将需要返回的 `{environment_id}`；请确保保存该标识以供日后使用。
 
-1. 接下来，创建定制配置。此过程假定您要上传的是在[此处](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json)找到的配置。如果要构建自己的定制配置，请参阅[配置参考信息](/docs/services/discovery/custom-config.html)。
+1. 接下来，创建定制配置。此过程假定您要上传的是在[此处](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json)找到的配置。如果要构建自己的定制配置，请参阅[配置参考信息](/docs/services/discovery?topic=discovery-configref#configref)。
 
    ```bash
    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
@@ -103,10 +117,10 @@ lastupdated: "2018-06-09"
    ```
    {: pre}
 
-1. 上传定制配置后，可以在您创建的任何集合中进行使用，只要指定该定制配置，就可以使用任何方法来上传文档。如果您不熟悉如何创建集合和上传文档，请参阅[工具入门](/docs/services/discovery/getting-started-tool.html)。执行到[步骤 3](/docs/services/discovery/getting-started-tool.html#create-custom-configuration) 时，请选择`知识图配置`，而不创建新配置。
+1. 上传定制配置后，可以在您创建的任何集合中进行使用，只要指定该定制配置，就可以使用任何方法来上传文档。如果您不熟悉如何创建集合和上传文档，请参阅[工具入门](/docs/services/discovery?topic=discovery-getting-started#getting-started)。执行到[步骤 3](/docs/services/discovery?topic=discovery-getting-started#create-custom-configuration) 时，请选择`知识图配置`，而不创建新配置。
 
 ## 规范化和过滤
-{: #canonicalization}
+{: #kg_canonicalization}
 
 在 `2018 年 3 月 5 日`或之后摄入的文档中的所有实体都将使用从公共字典派生的规范名称自动进行规范化。此外，实体或关系中包含的任何代词（例如：`he`、`she`、`they` 或 `it`）都会在摄入到知识图之前自动过滤掉。在 `2018 年 3 月 5 日`之前摄入的文档不会包含此级别的规范化和过滤；您应该创建新的集合并重新摄入文档才能利用此功能。
 
@@ -114,11 +128,11 @@ lastupdated: "2018-06-09"
 
 
 ## 实体查询
-{: #entities}
+{: #kg_entities}
 
-Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/docs/services/discovery/building-kg.html#disambiguation)和[相似度](/docs/services/discovery/building-kg.html#similarity)查询。 通过对 `JSON` 对象执行 `POST` 操作将该对象发布到 `v1/environments/{environment_id}/collections/{collection_id}/query_entities` 端点来执行知识图实体查询。
+Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/docs/services/discovery?topic=discovery-kg#kg_disambiguation)和[相似度](/docs/services/discovery?topic=discovery-kg#kg_similarity)查询。通过对 `JSON` 对象执行 `POST` 操作将该对象发布到 `v1/environments/{environment_id}/collections/{collection_id}/query_entities` 端点来执行知识图实体查询。
 
-可以使用 API 或使用 {{site.data.keyword.discoveryshort}} 工具来查询实体。请参阅[使用 Discovery 工具查询知识图](/docs/services/discovery/building-kg.html#querying-kg)以获取工具信息。
+可以使用 API 或使用 {{site.data.keyword.discoveryshort}} 工具来查询实体。请参阅[使用 Discovery 工具查询知识图](/docs/services/discovery?topic=discovery-kg#querying-kg)以获取工具信息。
 
 知识图实体查询 JSON 对象采用以下格式：
 
@@ -139,7 +153,7 @@ Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/do
 ```
 {: codeblock}
 
--  `"feature": string` _必需_ - 要使用的实体查询功能。支持的功能为：[disambiguate](/docs/services/discovery/building-kg.html#disambiguation) 和 [similar_entities](/docs/services/discovery/building-kg.html#similarity)。
+-  `"feature": string` _必需_ - 要使用的实体查询功能。支持的功能为：[disambiguate](/docs/services/discovery?topic=discovery-kg#kg_disambiguation) 和 [similar_entities](/docs/services/discovery?topic=discovery-kg#kg_similarity)。
 -  `"entity": {}` _必需_ - 包含要消歧的实体信息的对象。
    -  `"text": string` _必需_ - 将消歧的实体文本。
    -  `"type": string` _可选_ - 要对其消歧的可选实体类型，如果未指定，将包含所有类型。
@@ -148,7 +162,7 @@ Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/do
    -  `"text": string` _可选_ - 用于为所查询实体提供上下文并基于该关联排名的实体文本。例如，如果要查询位于 England 的城市 London，那么查询将使用上下文 `England` 查找 `London`。输入可以是部分名称，也可以是包含相关实体词汇的大段落。可以同时传递多个词汇。
 -  `"count": INT` _可选_ - 要返回的已消歧实体数。缺省值为 `10`。最大值为 `1000`
 
--  `"evidence_count": INT` _可选_ - 对于每个识别到的实体，要返回的证据实例数。缺省值为 `0`。`evidence_count` 字段的最大值等于 10,000 除以 `count` 字段中指定的数字。请参阅此页面的[证据](/docs/services/discovery/building-kg.html#evidence)部分，以获取详细的描述和示例。
+-  `"evidence_count": INT` _可选_ - 对于每个识别到的实体，要返回的证据实例数。缺省值为 `0`。`evidence_count` 字段的最大值等于 10,000 除以 `count` 字段中指定的数字。请参阅此页面的[证据](/docs/services/discovery?topic=discovery-kg#kg_evidence)部分，以获取详细的描述和示例。
 
 此查询会返回以下形式的结果：
 
@@ -178,7 +192,7 @@ Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/do
 {: codeblock}
 
 ### 实体消歧
-{: #disambiguation}
+{: #kg_disambiguation}
 
 知识图实体查询提供了基于上下文的实体消歧。根据提供的实体文本和可选的上下文文本，`disambiguation` 可识别唯一实体，并返回基于上下文信息排名的实体列表。
 
@@ -188,7 +202,7 @@ Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/do
 
 
 ### 实体相似度
-{: #similarity}
+{: #kg_similarity}
 
 知识图实体查询提供了基于上下文的实体相似度检测。根据提供的实体文本和可选的上下文文本，`similar_entities` 可识别唯一实体，并返回基于上下文信息排名的实体列表。
 
@@ -197,11 +211,11 @@ Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/do
 例如，如果在上下文 `car` 中查找类似于 `Ford` 的实体，那么类似实体结果可能包括 `GM`、`Toyota` 和 `Nissan`。
 
 ## 关系查询
-{: #relations}
+{: #kg_relations}
 
 知识图关系查询支持基于输入实体使用隐式实体消歧和基于上下文的关系来查找最相关的关系，还支持按相关性分数和提及计数排序，以及按类型和文档标识进行过滤。
 
-可以使用 API 或使用 {{site.data.keyword.discoveryshort}} 工具来查询关系。请参阅[使用 Discovery 工具查询知识图](/docs/services/discovery/building-kg.html#querying-kg)以获取工具信息。
+可以使用 API 或使用 {{site.data.keyword.discoveryshort}} 工具来查询关系。请参阅[使用 Discovery 工具查询知识图](/docs/services/discovery?topic=discovery-kg#querying-kg)以获取工具信息。
 
 通过对 `JSON` 对象执行 `POST` 操作将该对象发布到 `v1/environments/{environment_id}/collections/{collection_id}/query_relations` 端点来执行知识图实体查询。知识图关系查询 JSON 对象采用以下格式：
 
@@ -245,14 +259,14 @@ Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/do
 -  `"filter": {}` _可选_ - 包含此查询要据以过滤的关系类型、实体类型和特定文档的对象。缺省情况下，不会排除任何内容。
    -  `"relation_types": {}` _可选_ - 要过滤的关系类型的列表。
       -  `"exclude": []` _可选_ - 要从查询中排除的关系类型的逗号分隔列表。
-      -  `"include": []` _可选_ - 要在查询中显式包含的关系类型的逗号分隔列表。如果指定，所有其他类型均被视为已排除。
-   -  `"entity_types": {}` _可选_ - 用于过滤邻居的关系类型的列表。不适用于多实体输入，因为不会返回任何新的邻居。
+      -  `"include": []` _可选_ - 要在查询中明确包含的关系类型的逗号分隔列表。如果指定，所有其他类型均被视为已排除。
+   -  `"entity_types": {}` _可选_ - 用于过滤邻居的实体类型的列表。不适用于多实体输入，因为不会返回任何新的邻居。
       -  `"exclude": []` _可选_ - 要从查询中排除的实体类型的逗号分隔列表。
-      -  `"include": []` _可选_ - 要在查询中显式包含的实体类型的逗号分隔列表。如果指定，所有其他类型均被视为已排除。
+      -  `"include": []` _可选_ - 要在查询中明确包含的实体类型的逗号分隔列表。如果指定，所有其他类型均被视为已排除。
    -  `"document_ids": []` _可选_ - 要对其执行关系查询的文档的逗号分隔列表。
 -  `"count": INT` _可选_ - 要返回的关系数。缺省值为 `10`。最大值为 `1000`。
 
--  `"evidence_count": INT` _可选_ - 对于每个识别到的关系，要返回的证据实例数。缺省值为 `0`。`evidence_count` 字段的最大值等于 10,000 除以 `count` 字段中指定的数字。请参阅此页面的[证据](/docs/services/discovery/building-kg.html#evidence)部分，以获取详细的描述和示例。
+-  `"evidence_count": INT` _可选_ - 对于每个识别到的关系，要返回的证据实例数。缺省值为 `0`。`evidence_count` 字段的最大值等于 10,000 除以 `count` 字段中指定的数字。请参阅此页面的[证据](/docs/services/discovery?topic=discovery-kg#kg_evidence)部分，以获取详细的描述和示例。
 
 此查询会返回以下形式的结果：
 
@@ -298,7 +312,7 @@ Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/do
 {: codeblock}
 
 ## 证据
-{: #evidence}
+{: #kg_evidence}
 
 对于某些实体或关系查询，了解在哪里识别到连接可能很有价值。通过连接的证据，您可以引用原始文档，澄清结果，或者视情形进一步消岐。从在 `03-05-2018` 之后创建的集合开始，`query_entities` 和 `query_relations` 端点都可以选择在返回的结果中提供证据。此功能可用于在 `03-05-2018` 之前创建的集合，但需要重新摄入文档，才能对这些较旧的集合使用此功能。
 
@@ -384,7 +398,7 @@ Beta 发行版的知识图实体查询支持基于上下文的实体[消歧](/do
 ## 使用 Discovery 工具查询知识图
 {: #querying-kg}
 
-具有预订[**高级**](/docs/services/discovery/building-kg.html#service-requirements)套餐的服务实例的用户可以使用 {{site.data.keyword.discoveryshort}} 工具通过知识图查询专用集合。
+具有预订[**高级**](/docs/services/discovery?topic=discovery-kg#kg_servreq)套餐的服务实例的用户可以使用 {{site.data.keyword.discoveryshort}} 工具通过知识图查询专用集合。
 要在 {{site.data.keyword.discoveryshort}} 工具中访问知识图查询，请执行以下操作：
 
 1.  单击 ![“查询”图标](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> 以打开查询页面。

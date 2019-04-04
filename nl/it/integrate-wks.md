@@ -1,26 +1,38 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-08-08"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-08"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Integrazione con Watson Knowledge Studio
 {: #integrating-with-wks}
 
-Puoi integrare un modello personalizzato da {{site.data.keyword.knowledgestudiofull}} con il servizio {{site.data.keyword.discoveryshort}} per fornire arricchimenti di entità e relazioni.
+Puoi integrare uno o più modelli personalizzati da {{site.data.keyword.knowledgestudiofull}} con il servizio {{site.data.keyword.discoveryshort}} per fornire arricchimenti di relazioni ed entità personalizzati.
 {: shortdesc}
 
 Questo ti fornisce la flessibilità di applicare alle funzionalità di miglioramento del documento del servizio {{site.data.keyword.discoveryshort}}, informazioni specifiche di aree di particolare attenzione, come le discipline scientifiche e industriali. Puoi utilizzare i dati pubblici e i dati di tua proprietà nel tuo modello di arricchimento.
@@ -28,13 +40,15 @@ Questo ti fornisce la flessibilità di applicare alle funzionalità di miglioram
 Puoi utilizzare l'API del servizio o la strumentazione {{site.data.keyword.discoveryshort}} per integrare un modello {{site.data.keyword.knowledgestudioshort}} con il servizio {{site.data.keyword.discoveryshort}}.
 
 ## Prima di iniziare
+{: #wks-beforeintegration}
 
-Prima di poter integrare un modello personalizzato da {{site.data.keyword.knowledgestudioshort}} con il servizio {{site.data.keyword.discoveryshort}}, devi creare e distribuire il modello utilizzando {{site.data.keyword.knowledgestudioshort}}. Consulta la [Documentazione di {{site.data.keyword.knowledgestudioshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} per informazioni sulla creazione e la distribuzione dei modelli. Hai bisogno dell'ID univoco del modello distribuito per integrarlo con il servizio {{site.data.keyword.discoveryshort}}.
+Prima di poter integrare un modello personalizzato da {{site.data.keyword.knowledgestudioshort}} con il servizio {{site.data.keyword.discoveryshort}}, devi creare e distribuire il modello utilizzando {{site.data.keyword.knowledgestudioshort}}. Consulta la [documentazione di {{site.data.keyword.knowledgestudioshort}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/docs/services/knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} per informazioni sulla creazione e la distribuzione dei modelli. Hai bisogno dell'ID univoco del modello distribuito per integrarlo con il servizio {{site.data.keyword.discoveryshort}}.
 
 ## Integrazione del tuo modello personalizzato con l'API
+{: #integrate-customAPI}
 
-1.  Ottieni l'ID del tuo ambiente {{site.data.keyword.discoveryshort}} come descritto nell'[Elenco degli ambienti ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#list_environments){: new_window}. Prendi nota dell'ID ambiente.
-1.  Elenca gli ID delle tue configurazioni {{site.data.keyword.discoveryshort}} correnti come descritto nell'[Elenco delle configurazioni ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#list_configurations){: new_window}. Prendi nota dell'ID della configurazione che vuoi integrare con il tuo modello personalizzato {{site.data.keyword.knowledgestudiofull}}.
+1.  Ottieni l'ID del tuo ambiente {{site.data.keyword.discoveryshort}} come descritto nell'[Elenco degli ambienti ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/discovery#list_environments){: new_window}. Prendi nota dell'ID ambiente.
+1.  Elenca gli ID delle tue configurazioni {{site.data.keyword.discoveryshort}} correnti come descritto nell'[Elenco delle configurazioni ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/apidocs/discovery#list_configurations){: new_window}. Prendi nota dell'ID della configurazione che vuoi integrare con il tuo modello personalizzato {{site.data.keyword.knowledgestudiofull}}.
 1.  Scarica una copia della tua configurazione {{site.data.keyword.discoveryshort}} corrente immettendo i seguenti comandi in una shell bash o in qualcosa di equivalente come Cygwin per Windows. Sostituisci `{environment_id}` e `{configuration_id}` con gli ID di cui hai preso nota nei due passi precedenti.
 
     ```bash
@@ -58,7 +72,7 @@ Prima di poter integrare un modello personalizzato da {{site.data.keyword.knowle
 
         ```json
         "enrichments": [
-  {
+   {
             "source_field": "text",
             "destination_field": "enriched_text",
             "enrichment": "natural_language_understanding",
@@ -85,9 +99,12 @@ Prima di poter integrare un modello personalizzato da {{site.data.keyword.knowle
 
     1.  Aggiorna il file nel seguente modo, sostituendo l'ID univoco del modello {{site.data.keyword.knowledgestudioshort}} descritto in "Prima di iniziare" per `{watson_knowledge_studio_model_ID}`.
 
+        È possibile applicare più di un modello personalizzato a campi identici utilizzando l'API. Vedi l'esempio in [Integrazione di più modelli personalizzati](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-multiplecustom). Se stai anche incorporando [Watson {{site.data.keyword.discoveryshort}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg), devi utilizzare lo stesso modello per arricchire sia le entità che le relazioni in un singolo oggetto di arricchimento.
+        {: note}
+
         ```json
         "enrichments": [
-  {
+   {
             "source_field": "text",
             "destination_field": "enriched_text",
             "enrichment": "natural_language_understanding",
@@ -107,7 +124,7 @@ Prima di poter integrare un modello personalizzato da {{site.data.keyword.knowle
                         "limit": 8
                     },
         "relations": {
-                      "model": "{watson_knowledge_studio_model_ID}"
+                        "model": "{watson_knowledge_studio_model_ID}"
                     }
                 }
             }
@@ -133,9 +150,58 @@ Prima di poter integrare un modello personalizzato da {{site.data.keyword.knowle
 
     Entrambi i comandi restituiscono il contenuto del file di configurazione aggiornato.
 
-## Integrazione del tuo modello personalizzato con la strumentazione Discovery
+### Integrazione di più modelli personalizzati 
+{: #integrate-multiplecustom}
 
-Puoi integrare un modello personalizzato da {{site.data.keyword.knowledgestudioshort}} negli arricchimenti [Entity Extraction](/docs/services/discovery/building.html#entity-extraction) o [Relation Extraction](/docs/services/discovery/building.html#relation-extraction) con la strumentazione {{site.data.keyword.discoveryshort}}.
+Puoi applicare più di un modello personalizzato a campi identici utilizzando l'API. Attieniti alla procedura in [Integrazione del tuo modello personalizzato con l'API](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI) e utilizza l'esempio qui come una guida. Se stai anche incorporando [Watson {{site.data.keyword.discoveryshort}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg), devi utilizzare lo stesso modello per arricchire sia le entità che le relazioni in un singolo oggetto di arricchimento. Vedi l'esempio per `"destination_field": "enriched_text"` come una guida.
+
+Non puoi applicare più modelli personalizzati utilizzando la strumentazione {{site.data.keyword.discoveryshort}}. Solo gli arricchimenti di entità e relazioni possono essere personalizzati.
+
+Devi specificare un `destination_field` differente per ogni `source_field` identico. Inoltre, ogni `source_field` deve essere arricchito da un modello univoco. Ad esempio, se desideri applicare più modelli personalizzati al `source_field` di `text`, e applichi il `model` `{watson_knowledge_studio_model_ID}` all'arricchimento `entities`, non devi utilizzare tale modello nuovamente per l'arricchimento `entities`.
+{: tip}
+
+
+```json
+   "enrichments": [
+   {
+        "source_field": "text",
+            "destination_field": "enriched_text",
+            "enrichment": "natural_language_understanding",
+            "options": {
+            "features": {
+                "entities": {
+                    "model": "{watson_knowledge_studio_model_ID}"
+                },
+        "relations": {
+                    "model": "{watson_knowledge_studio_model_ID}"
+                    }
+        }
+    }
+},
+   {
+        "source_field": "text",
+        "destination_field": "enriched_text_2",
+        "enrichment": "natural_language_understanding",
+        "options": {
+            "features": {
+                "entities": {
+                    "model": "{watson_knowledge_studio_model_ID_b}"
+            },
+        "relations": {
+                    "model": "{watson_knowledge_studio_model_ID_c}"
+            }
+        }
+    }
+}]
+```
+{: codeblock}    
+
+## Integrazione del tuo modello personalizzato con la strumentazione Discovery
+{: #integrate-customtooling}
+
+Puoi integrare un modello personalizzato da {{site.data.keyword.knowledgestudioshort}} negli arricchimenti [Entity Extraction](/docs/services/discovery?topic=discovery-configservice#entity-extraction) o [Relation Extraction](/docs/services/discovery?topic=discovery-configservice#relation-extraction) con la strumentazione {{site.data.keyword.discoveryshort}}.
+
+Non puoi applicare più modelli personalizzati allo stesso campo utilizzando la strumentazione {{site.data.keyword.discoveryshort}}. È possibile applicare più di un modello personalizzato a campi identici utilizzando l'API. Vedi [Integrazione del tuo modello personalizzato con l'API](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI).
 
 1. Ottieni il `Model ID` del tuo modello {{site.data.keyword.knowledgestudioshort}}.
 1. Nella strumentazione {{site.data.keyword.discoveryshort}}, fai clic sull'icona **Manage Data** in alto a sinistra per aprire la schermata **Manage data**, quindi crea o apri una raccolta. **Nota:** se scegli una raccolta esistente, dovrebbe essere vuota. In caso contrario, devi reinserire i documenti dopo aver creato il tuo nuovo file di configurazione.
@@ -146,8 +212,7 @@ Puoi integrare un modello personalizzato da {{site.data.keyword.knowledgestudios
 
 Quando i documenti vengono caricati in una raccolta dati, vengono convertiti e arricchiti utilizzando il file di configurazione scelto per tale raccolta. Se cambi una raccolta esistente con un nuovo file di configurazione dopo che i documenti sono stati caricati, quei documenti caricati resteranno convertiti dal file di configurazione originale. Tutti i documenti caricati dopo il passaggio al file di configurazione utilizzeranno il nuovo file di configurazione. Se vuoi che la raccolta **completa** utilizzi la nuova configurazione, dovrai creare una nuova raccolta, scegliere il nuovo file di configurazione e ricaricare tutti i documenti.
 
-**Nota:** può essere assegnato solo un modello {{site.data.keyword.knowledgestudiofull}} a un arricchimento.
-
 ## Passi successivi
+{: #wks-nextsteps}
 
 Utilizza il servizio {{site.data.keyword.discoveryshort}} con la tua nuova configurazione per inserire i dati privati. I documenti che inserisci con la configurazione aggiornata vengono automaticamente arricchiti con i dati dal tuo modello personalizzato.

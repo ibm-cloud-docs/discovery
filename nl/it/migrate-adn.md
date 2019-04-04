@@ -4,50 +4,64 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-11-08"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Migrazione da AlchemyData News
 {: #migrate-adn}
 
-Una nuova versione di {{site.data.keyword.discoverynewsfull}} è stata presentata il 31 luglio 2017**. Per una descrizione su questa raccolta, consulta [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html). 
+Una nuova versione di {{site.data.keyword.discoverynewsfull}} è stata presentata il 31 luglio 2017**. Per una descrizione su questa raccolta, consulta [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news).
 
 AlchemyData News è stato ritirato e la data di rimozione del servizio è il **7 marzo 2018**
 
 ## Confronto tra i servizi
-{: shortdesc}
+{: #service-adn}
 
 Le seguenti differenze sono degne di nota quando si passa da AlchemyData News a {{site.data.keyword.discoverynewsshort}} nel servizio {{site.data.keyword.discoveryshort}}.
 
 - {{site.data.keyword.discoveryshort}} addebita le nuove query solo in base alla query. Tutti i campi sono disponibili per la restituzione con ogni risultato senza alcun costo aggiuntivo.
 - Ogni query {{site.data.keyword.discoveryshort}} può restituire fino a un massimo di 50 risultati. È disponibile un parametro `offset` in modo che puoi creare le query per qualsiasi numero di risultati di cui hai bisogno.
-- {{site.data.keyword.discoveryshort}} supporta anche le aggregazioni. Per ulteriori informazioni, consulta la sezione [aggregazioni](/docs/services/discovery/query-reference.html#aggregations) della documentazione di {{site.data.keyword.discoveryshort}}.
+- {{site.data.keyword.discoveryshort}} supporta anche le aggregazioni. Per ulteriori informazioni, consulta la sezione [aggregazioni](/docs/services/discovery?topic=discovery-query-reference#aggregations) della documentazione di {{site.data.keyword.discoveryshort}}.
 - {{site.data.keyword.discoverynewsfull}} non esegue la classificazione nello stesso modo di AlchemyData. Al momento non esiste un campo per la classificazione.
 - La struttura della query e la struttura dei dati restituiti è diversa tra {{site.data.keyword.discoverynewsshort}} e AlchemyData News. Un buon modo per comprendere la struttura JSON è quello di eseguire la query di un solo risultato in {{site.data.keyword.discoverynewsshort}} e controllarlo.
 - {{site.data.keyword.discoverynewsshort}} non supporta l'output XML.
 - La deduplicazione è una funzione beta in {{site.data.keyword.discoverynewsshort}}.
 
 ## Differenze di autenticazione
+{: #auth-adn}
 
 Il servizio {{site.data.keyword.discoveryshort}} utilizza le credenziali standard {{site.data.keyword.Bluemix_notm}} `username` e `password` per accedere alle query. Ciò sostituisce il metodo della chiave API esistente utilizzato da AlchemyData News. Tutte le query {{site.data.keyword.discoveryshort}} devono essere effettuate con una combinazione di nome utente e password creata dall'istanza del servizio {{site.data.keyword.discoveryshort}}.
 
 Le tue credenziali del servizio possono essere gestite visualizzando la scheda **Credenziali del servizio** del tuo servizio in {{site.data.keyword.Bluemix_notm}}.
 
 ## Configurazione di un'istanza di Discovery
+{: #config-adn}
 
 Un'istanza del servizio {{site.data.keyword.discoveryshort}} viene creata nello stesso modo con cui hai creato la tua istanza di AlchemyData News.
 
-1. Vai a [{{site.data.keyword.Bluemix_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}, accedi e seleziona {{site.data.keyword.discoveryshort}} dal catalogo dei servizi.
+1. Vai a [{{site.data.keyword.Bluemix_notm}} ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://{DomainName}/catalog/services/discovery){: new_window}, accedi e seleziona {{site.data.keyword.discoveryshort}} dal catalogo dei servizi.
 1. Seleziona il piano appropriato ai tuoi bisogni e fai clic su **Crea**.
 
   Il servizio {{site.data.keyword.discoveryshort}} offre un piano Lite con 1000 nuove query disponibili al mese. Puoi utilizzare un'istanza di questo piano per identificare query equivalenti senza doverle pagare.
@@ -56,6 +70,7 @@ Un'istanza del servizio {{site.data.keyword.discoveryshort}} viene creata nello 
 1. Fai clic sulla scheda **Service Credentials** e seleziona **View Credentials** per identificare `url`, `username` e `password` per questa istanza.
 
 ## Query di Watson Discovery News
+{: #querying-adn}
 
 Puoi eseguire query di {{site.data.keyword.discoverynewsfull}} utilizzando l'API o uno degli SDK {{site.data.keyword.watson}}. Inoltre, puoi utilizzare la strumentazione di creazione della query per creare le query in modo interattivo.
 
@@ -65,18 +80,21 @@ Per avviare la strumentazione {{site.data.keyword.discoveryshort}} e la query di
 1. Fai clic sul tile {{site.data.keyword.discoverynewsshort}} per aprire la schermata **Manage data**.
 1. Fai clic su **View data schema** e quindi su **Build queries** per aprire il builder di query.
 
-  Le query in {{site.data.keyword.discoverynewsfull}} sono strutturate allo stesso modo delle query scritte per le raccolte di dati private. Consulta [Concetti delle query](/docs/services/discovery/using.html) e [Guida di riferimento per le query](/docs/services/discovery/query-reference.html).
+  Le query in {{site.data.keyword.discoverynewsfull}} sono strutturate allo stesso modo delle query scritte per le raccolte di dati private. Consulta [Concetti delle query](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) e [Guida di riferimento per le query](/docs/services/discovery?topic=discovery-query-reference#query-reference).
   {: tip}
 
-**Nota**: non aspettarti che vengano restituiti risultati identici per query simili in AlchemyData News e {{site.data.keyword.discoverynewsfull}}. Il tempo di indicizzazione, le origini e gli arricchimenti forniscono tutti risultati diversi.
+Non aspettarti che vengano restituiti dei risultati identici per query simili in AlchemyData News e {{site.data.keyword.discoverynewsfull}}. Il tempo di ricerca per l'indicizzazione, le origini e gli arricchimenti forniscono tutti risultati diversi.
+{: note}
 
 ## Aggiunta di query Watson Discovery News alla tua applicazione
+{: #queries-adn}
 
 Utilizza uno dei seguenti metodi per aggiungere le query alla tua applicazione. Tutti questi esempi eseguono la query di `enriched_text.entities` con un valore `text` di `IBM` (`enriched_text.entities.text:IBM`).
 
 In tutti i seguenti esempi, sostituisci `{username}` e `{password}` con il nome utente e la password elencati nella pagina **Service Credentials** della tua istanza del servizio.
 
 ### Utilizzo di chiamate dirette all'API
+{: #api-adn}
 
 ```bash
 curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
@@ -84,6 +102,7 @@ curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery
 {: pre}
 
 ### Utilizzo dell'SDK Java
+{: #javasdk-adn}
 
 ```java
 Discovery discovery = new Discovery("2017-11-07");
@@ -100,6 +119,7 @@ discovery.query(queryBuilder.build()).execute();
 {: codeblock}
 
 ### Utilizzo dell'SDK Watson Node.js
+{: #nodesdk-adn}
 
 ```javascript
 var watson = require('watson-developer-cloud');
@@ -117,6 +137,7 @@ discovery.query(('system', 'news', 'enriched_text.entities.text:IBM'),
 {: codeblock}
 
 ### Utilizzo dell'SDK Watson Python
+{: #pythonsdk-adn}
 
 ```python
 import sys

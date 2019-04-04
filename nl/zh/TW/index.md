@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-09-07"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 關於
 {: #about}
@@ -38,37 +50,38 @@ lastupdated: "2018-09-07"
 - 透過 {{site.data.keyword.nlushort}} (NLU) 來套用其他的強化，例如概念、關係和觀感。
 - 簡化開發，同時仍提供 API 的直接存取。
 
-如需語言支援的相關資訊，請參閱 [{{site.data.keyword.discoveryshort}} 語言支援](/docs/services/discovery/language-support.html)。
+如需語言支援的相關資訊，請參閱 [{{site.data.keyword.discoveryshort}} 語言支援](/docs/services/discovery?topic=discovery-language-support#language-support)。
 
 如需 {{site.data.keyword.Bluemix_notm}} 安全的相關資訊，請參閱 [{{site.data.keyword.Bluemix_notm}} 服務說明 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
 
-{{site.data.keyword.discoveryfull}} Knowledge Graph 是測試版特性，可提供新的端點來查詢文件之間的實體及關係。這包括以上下文為基礎的搜尋和相關性分級。如需相關資訊，請參閱 [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html)。
+{{site.data.keyword.discoveryfull}} Knowledge Graph 是測試版特性，可提供新的端點來查詢文件之間的實體及關係。這包括以上下文為基礎的搜尋和相關性分級。如需相關資訊，請參閱 [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg)。
 
 ## 瀏覽器支援及必要條件
+{: #browser-support-and-prerequisites}
 
-如需 {{site.data.keyword.Bluemix}} 必要條件及支援的瀏覽器清單，請參閱[必要條件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/docs/overview/prereqs.html#prereqs){: new_window}。
+如需 {{site.data.keyword.Bluemix}} 必要條件及支援的瀏覽器清單，請參閱[必要條件 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/overview/prereqs.html#prereqs){: new_window}。
 
 ## Watson Discovery News
-{: #watson-discovery-news}
+{: #wds}
 
-{{site.data.keyword.discoverynewsshort}} 是一個已利用認知見解預先強化的公用資料集，它也隨附於 {{site.data.keyword.discoveryshort}} 中。您可以使用這個公用的非結構化資料集來查詢見解，以將這些見解整合至應用程式中。如需相關資訊，請參閱 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news)。請參閱[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://discovery-news-demo.ng.bluemix.net/){: new_window}，它示範使用 {{site.data.keyword.discoverynewsshort}} 可建置的內容。
+{{site.data.keyword.discoverynewsshort}} 是一個已利用認知見解預先強化的公用資料集，它也隨附於 {{site.data.keyword.discoveryshort}} 中。您可以使用這個公用的非結構化資料集來查詢見解，以將這些見解整合至應用程式中。如需相關資訊，請參閱 [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news)。請參閱[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://discovery-news-demo.ng.bluemix.net/){: new_window}，它示範使用 {{site.data.keyword.discoverynewsshort}} 可建置的內容。
 
-[{{site.data.keyword.Bluemix_notm}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} 有提供 {{site.data.keyword.discoveryshort}} 服務
+[{{site.data.keyword.Bluemix_notm}} ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/catalog/services/discovery){: new_window} 有提供 {{site.data.keyword.discoveryshort}} 服務
 
 ## Discovery 工具
 {: #discovery-tooling}
 
 {{site.data.keyword.discoveryshort}} 服務包含一套完整的線上工具（{{site.data.keyword.discoveryshort}} 工具），可協助您快速設定服務的實例，並在其中移入資料。
 
-{{site.data.keyword.discoveryshort}} 服務工具已設計為不需要使用 API 即可配置服務並在其中移入資料，藉此節省時間。這可讓應用程式開發人員專注在建立高價值的方法，讓一般使用者體驗 {{site.data.keyword.discoveryshort}} 服務。如需 {{site.data.keyword.discoveryshort}} 工具的簡介，請參閱[開始使用工具](/docs/services/discovery/getting-started-tool.html)。
+{{site.data.keyword.discoveryshort}} 服務工具已設計為不需要使用 API 即可配置服務並在其中移入資料，藉此節省時間。這可讓應用程式開發人員專注在建立高價值的方法，讓一般使用者體驗 {{site.data.keyword.discoveryshort}} 服務。如需 {{site.data.keyword.discoveryshort}} 工具的簡介，請參閱[開始使用工具](/docs/services/discovery?topic=discovery-getting-started#getting-started)。
 
 
 ## 後續步驟
 {: #next-steps}
 
 - 開始使用 {{site.data.keyword.discoveryshort}} 工具或 {{site.data.keyword.discoveryshort}} API：
-    - [開始使用 {{site.data.keyword.discoveryshort}} 工具](/docs/services/discovery/getting-started-tool.html)
-    - [開始使用 {{site.data.keyword.discoveryshort}} API](/docs/services/discovery/getting-started.html)
+    - [開始使用 {{site.data.keyword.discoveryshort}} 工具](/docs/services/discovery?topic=discovery-getting-started#getting-started)
+    - [開始使用 {{site.data.keyword.discoveryshort}} API](/docs/services/discovery?topic=discovery-gs-api#gs-api)
 - {{site.data.keyword.discoveryshort}} 服務支援許多 SDK 來簡化應用程式的開發。SDK 適用於許多熱門程式設計語言和平台，包括 Node.js、Java 及 Python。在 GitHub 上，可以從 [watson-developer-cloud 名稱空間 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://github.com/watson-developer-cloud){: new_window} 取得所有 SDK。
-    - 如需 SDK 的完整清單及使用它們的相關資訊，請參閱 [{{site.data.keyword.watson}}SDK](https://console.bluemix.net/docs/services/watson/getting-started-sdks.html#sdks)。
-    - 如需 Node、Java 及 Python SDK 之所有方法的詳細資訊，請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl){: new_window}。
+    - 如需 SDK 的完整清單及使用它們的相關資訊，請參閱 [{{site.data.keyword.watson}}SDK](https://cloud.ibm.com/docs/services/watson/getting-started-sdks.html#sdks)。
+    - 如需 Node、Java 及 Python SDK 之所有方法的詳細資訊，請參閱 [API 參考資料 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery){: new_window}。

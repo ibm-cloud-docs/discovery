@@ -1,27 +1,42 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 搜索資料儲存庫
 {: #crawling-your-data-repository}
 
 在適當地配置搜索器選項之後，您可以針對資料儲存庫執行搜索。
 {: shortdesc}
+
+「資料搜索器」應該只用來搜索檔案共用或資料庫，針對所有其他用途，您應使用適當的 {{site.data.keyword.discoveryshort}} 連接器。如需詳細資訊，請參閱[連接至資料來源](/docs/services/discovery?topic=discovery-sources#sources)。如果您將「資料搜索器」用於 {{site.data.keyword.discoveryshort}} 連接器支援的資料來源，則不再為其提供協助。
+{: important}
 
 除非您需要存取只有 `root` 可以讀取的檔案，否則絕不要以 `root` 身分執行搜索器。
 {: tip}
@@ -31,6 +46,7 @@ lastupdated: "2017-08-18"
 搜索器會提示您提供文件來說明要執行的作業。除了其他搜索選項之外，您還可以執行測試搜索或執行搜索。
 
 ## 執行測試搜索
+{: #running-test-crawl}
 
 執行下列指令：`crawler testit`
 
@@ -43,6 +59,7 @@ lastupdated: "2017-08-18"
 此外，您還可以設定所顯示之放入佇列的 URL 數目的限制，作為 testit 指令的一個選項，例如：`crawler testit --limit [number]`
 
 ## 執行搜索
+{: #running-crawl}
 
 執行下列指令：`crawler crawl`
 
@@ -53,6 +70,7 @@ lastupdated: "2017-08-18"
 `--config` 選項中所傳入的配置檔路徑必須是完整路徑。也就是說，它必須採用相對格式（例如 `config/myconfigfile.conf` 或 `./myconfigfile.conf`）或絕對路徑（例如 `/path/to/config/myconfigfile.conf`）。
 
 ## 重新啟動搜索
+{: #restarting-crawl}
 
 執行下列指令：`crawler restart`
 
@@ -63,6 +81,7 @@ lastupdated: "2017-08-18"
 `--config` 選項中所傳入的配置檔路徑必須是完整路徑。也就是說，它必須採用相對格式（例如 `config/myconfigfile.conf` 或 `./myconfigfile.conf`）或絕對路徑（例如 `/path/to/config/myconfigfile.conf`）。
 
 ## 繼續搜索
+{: #resuming-crawl}
 
 執行下列指令：`crawler resume`
 
@@ -73,6 +92,7 @@ lastupdated: "2017-08-18"
 `--config` 選項中所傳入的配置檔路徑必須是完整路徑。也就是說，它必須採用相對格式（例如 `config/myconfigfile.conf` 或 `./myconfigfile.conf`）或絕對路徑（例如 `/path/to/config/myconfigfile.conf`）。
 
 ## 重新整理搜索
+{: #refresh-crawl}
 
 執行下列指令：`crawler refresh`
 

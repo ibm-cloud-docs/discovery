@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 查詢運算子
 {: #query-operators}
 
-運算子是在查詢的不同部分之間的分隔字元。如需可用運算子的完整清單，請參閱[查詢參考資料](/docs/services/discovery/query-reference.html#operators)。
+運算子是在查詢的不同部分之間的分隔字元。如需可用運算子的完整清單，請參閱[查詢參考資料](/docs/services/discovery?topic=discovery-query-reference#operators)。
 
 ## . \[JSON 定界字元\]
 {: #delimiter}
@@ -95,7 +107,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[詞組查詢\]
 {: #phrase}
 
-詞組查詢的所有內容都會以跳出方式來處理。因此，除了詞組查詢內的雙引號（`"`）必須跳出 (`\"`) 之外，不會剖析詞組查詢內的特殊字元。使用詞組查詢時請搭配全文分級式查詢，而不要搭配布林過濾器運算。請勿在詞組查詢中使用萬用字元 (`*`)。**附註**：不支援單引號 (`'`)。
+詞組查詢的所有內容都會以跳出方式來處理。因此，除了詞組查詢內的雙引號（`"`）必須跳出 (`\"`) 之外，不會剖析詞組查詢內的特殊字元。使用詞組查詢時請搭配全文分級式查詢，而不要搭配布林過濾器運算。請勿在詞組查詢中使用萬用字元 (`*`)。 
+
+不支援單引號 (`'`)。
+{: note}
 
 例如：
 ```bash
@@ -198,6 +213,6 @@ title:*
 
 例如：
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

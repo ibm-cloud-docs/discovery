@@ -4,24 +4,36 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-06-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Watson Discovery Knowledge Graph
 {: #kg}
 
 Os gráficos do Knowledge vão além de dados e informações por fazer conexões em seus dados em documentos e gerar novos conhecimentos. Nós fornecemos a tecnologia de AI que cria automaticamente gráficos de conhecimento customizados de dados não estruturados extraindo e desambiguizando relacionamentos e entidades, enriquecendo os relacionamentos usando técnicas de algoritmo e classificando os resultados usando algoritmos de relevância. Os gráficos do Knowledge podem funcionar como o "hub de conhecimento" para sua empresa e podem ser usados para procura corporativa, resumo, mecanismos de recomendação e outros processos de tomada de decisão, por exemplo, detecção de fraude, desperdício ou abuso. O uso de um modelo customizado (criado no
-{{site.data.keyword.knowledgestudioshort}}) no processo de criação do Knowledge Graph, pode ajudar a construir KGs específicos de domínio com aplicabilidade em domínios, como financeiro, tecnologia, segurança, inteligência, assistência médica e muitos outros. Veja [Integrando ao {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html) para obter mais informações sobre como integrar o {{site.data.keyword.discoveryshort}} ao {{site.data.keyword.knowledgestudioshort}}.
+{{site.data.keyword.knowledgestudioshort}}) no processo de criação do Knowledge Graph, pode ajudar a construir KGs específicos de domínio com aplicabilidade em domínios, como financeiro, tecnologia, segurança, inteligência, assistência médica e muitos outros. Consulte integrating-with-watson-knowledge-studio para obter mais informações sobre a integração do {{site.data.keyword.discoveryshort}} com o {{site.data.keyword.knowledgestudioshort}}.
 
 
 Dois terminais RESTful incluídos no {{site.data.keyword.discoveryfull}} fornecem a capacidade de procurar entidades e relações desambiguadas e enriquecidas entre documentos em coleções de documentos não estruturados. Os resultados da procura podem ser classificados por ordem de relevância ou
@@ -35,20 +47,22 @@ Este gráfico conectado de técnicas de conhecimento e de classificação facili
 
 -  Entidades desambiguas usando um token de procura difusa, informações de tipo (opcional) e contexto (opcional). Exemplo: a procura por `Steve` no contexto de `Apple` retorna `Steve Jobs` na parte superior, enquanto que a procura por `Steve` no contexto de `Microsoft` retorna `Steve Ballmer` na parte superior.
 -  Relacionamentos classificados por relevância inserindo o token de procura difusa e o contexto (opcional). A classificação de relevância utiliza as propriedades globais do gráfico para obter informações mais específicas. Exemplo: a procura por relacionamentos de `Obama` no contexto de `health` retorna `Affordable Care Act` e outras entidades relacionadas.
--  As inferências e agregações em documentos consultando entidades e relacionamentos em um gráfico de conhecimento conectado. Alguns exemplos desse tipo são: como uma pessoa X se conectou à pessoa Y? Qual é o grau de diferença dos padrões de acesso a dados do funcionário X da norma? Qual é a esfera de
+-  As inferências e agregações em documentos consultando entidades e relacionamentos em um gráfico de conhecimento conectado. Alguns exemplos desse tipo são: como uma pessoa X se conectou à pessoa Y? Qual é a esfera de
 influência da pessoa X?
 
 ## Requisitos de Serviço
+{: #kg_servreq}
 
 Durante a liberação beta, a funcionalidade do Knowledge Graph e os métodos associados a ela estão disponíveis somente para instâncias de serviço que estão inscritas nos planos **Avançado** e **Premium** e em todos os ambientes dedicados.
 
-Esse recurso beta é atualmente suportado apenas em inglês. Consulte [Suporte ao idioma](/docs/services/discovery/language-support.html#feature-support) para obter detalhes.
+Esse recurso beta é atualmente suportado apenas em inglês. Consulte [Suporte ao idioma](/docs/services/discovery?topic=discovery-language-support#feature-support) para obter detalhes.
 
 ## Requisitos de coleção
+{: #kg_collreq}
 
 O {{site.data.keyword.discoveryshort}} usa Entidades e Relacionamentos extraídos de documentos alimentados para formar o Knowledge Graph e permitir consultas de entidade e de relacionamento.
 
-**Nota:** a [Similaridade de entidade](/docs/services/discovery/building-kg.html#similarity), a [Evidência](/docs/services/discovery/building-kg.html#evidence) e a [Canonicalização e filtragem](/docs/services/discovery/building-kg.html#canonicalization) estão disponíveis em todas as coleções. Para coleções criadas antes de `03-05-2018`, é necessário realimentar seus documentos para usar esses recursos.
+**Nota:** [Similaridade de entidade](/docs/services/discovery?topic=discovery-kg#kg_similarity), [Evidência](/docs/services/discovery?topic=discovery-kg#kg_evidence) e [Canonicalização e filtragem](/docs/services/discovery?topic=discovery-kg#kg_canonicalization) estão disponíveis em todas as coleções. Para coleções criadas antes de `03-05-2018`, é necessário realimentar seus documentos para usar esses recursos.
 
 **Nota:** o Knowledge Graph pode ser usado somente em coleções de dados privados, ele não foi projetado para uso com o {{site.data.keyword.discoverynewsshort}}.
 
@@ -91,7 +105,7 @@ Depois de criar uma instância de serviço do {{site.data.keyword.discoveryshort
 
    Você precisará do `{environment_id}` que é retornado; assegure-se de salvar esse ID para uso posterior.
 
-1. Next, create the custom configuration. This procedure assumes that you are uploading the one found [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json). If you want to build your own custom configuration, see the  [configuration reference](/docs/services/discovery/custom-config.html).
+1. Next, create the custom configuration. This procedure assumes that you are uploading the one found [here](https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/discovery/config-default-kg.json). Se desejar construir sua própria configuração customizada, consulte a [referência de configuração](/docs/services/discovery?topic=discovery-configref#configref).
 
    ```bash
    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @config-default-kg.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
@@ -105,22 +119,22 @@ Depois de criar uma instância de serviço do {{site.data.keyword.discoveryshort
    ```
    {: pre}
 
-1. After the custom configuration has been uploaded it can be used in any collection that you create, any method to upload documents can be used as long as the custom configuration is specified. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery/getting-started-tool.html). When you get to [step 3](/docs/services/discovery/getting-started-tool.html#create-custom-configuration) select `Knowledge Graph Configuration` instead of creating a new configuration.
+1. After the custom configuration has been uploaded it can be used in any collection that you create, any method to upload documents can be used as long as the custom configuration is specified. Se você não estiver familiarizado com a criação de coleções e o upload de documentos, consulte [Introdução ao conjunto de ferramentas](/docs/services/discovery?topic=discovery-getting-started#getting-started). Quando chegar à [etapa 3](/docs/services/discovery?topic=discovery-getting-started#create-custom-configuration), selecione `Configuração do Knowledge Graph` em vez de criar uma nova configuração.
 
 ## Canonicalização e filtragem
-{: #canonicalization}
+{: #kg_canonicalization}
 
-Todas as entidades em documentos alimentados em ou após `5 March 2018` serão normalizadas automaticamente com nomes canônicos derivados de um dicionário público. Além disso, quaisquer pronomes incluídos em entidades ou relações, por exemplo: `he`, `she`, `they` ou `it` serão filtrados automaticamente antes da alimentação no Knowledge Graph. Os documentos alimentados antes de `5 March 2018` não incluirão esse nível de canonicalização e filtragem; é necessário criar novas coleções e realimentar seus documentos para utilizar esse recurso.
+Todas as entidades nos documentos alimentadas em `5 de março de 2018` ou após essa data serão automaticamente normalizadas com nomes canônicos derivados de um dicionário público. Além disso, quaisquer pronomes incluídos em entidades ou relações, por exemplo: `he`, `she`, `they` ou `it` serão filtrados automaticamente antes da alimentação no Knowledge Graph. Os documentos alimentados antes de `5 March 2018` não incluirão esse nível de canonicalização e filtragem; é necessário criar novas coleções e realimentar seus documentos para utilizar esse recurso.
 
 Ao construir uma consulta de entidades ou uma consulta de relações no Knowledge Graph, é possível inserir o nome canônico ou o texto original da entidade no campo `text` do método `query_entities` ou `query_relations`.
 
 
 ## Consultas de entidades
-{: #entities}
+{: #kg_entities}
 
-A liberação beta da consulta de entidades do Knowledge Graph suporta consultas de entidade baseada em contexto [desambiguação](/docs/services/discovery/building-kg.html#disambiguation) e [similaridade](/docs/services/discovery/building-kg.html#similarity). A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the `v1/environments/{environment_id}/collections/{collection_id}/query_entities` endpoint.
+A liberação beta da consulta de entidades do Knowledge Graph suporta consultas de [desambiguação](/docs/services/discovery?topic=discovery-kg#kg_disambiguation) e [similaridade](/docs/services/discovery?topic=discovery-kg#kg_similarity) de entidade baseada em contexto. A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the `v1/environments/{environment_id}/collections/{collection_id}/query_entities` endpoint.
 
-You can query entities using the API, or with the {{site.data.keyword.discoveryshort}} tooling. See [Querying Knowledge Graph using the Discovery tooling](/docs/services/discovery/building-kg.html#querying-kg) for tooling information.
+You can query entities using the API, or with the {{site.data.keyword.discoveryshort}} tooling. Consulte [Consultando o Knowledge Graph usando o conjunto de ferramentas do Discovery](/docs/services/discovery?topic=discovery-kg#querying-kg) para obter informações sobre o conjunto de ferramentas.
 
 The Knowledge Graph entity query JSON object takes the following form:
 
@@ -134,12 +148,14 @@ The Knowledge Graph entity query JSON object takes the following form:
   },
   "context": {
     "text": "iphone"
-  }, "count": 10, "evidence_count": 0
+  },
+  "count": 10,
+  "evidence_count": 0
 }
 ```
 {: codeblock}
 
--  `"feature": string` _required_ - o recurso de consulta de entidade a ser usado. Os recursos suportados são: [disambiguate](/docs/services/discovery/building-kg.html#disambiguation) e [similar_entities](/docs/services/discovery/building-kg.html#similarity).
+-  `"feature": string` _required_ - o recurso de consulta de entidade a ser usado. Os recursos suportados são: [disambiguate](/docs/services/discovery?topic=discovery-kg#kg_disambiguation) e [similar_entities](/docs/services/discovery?topic=discovery-kg#kg_similarity).
 -  `"entity": {}` _required_ - an object that contains the entity information to disambiguate.
    -  `"text": string` _required_ - the entity text that will be disambiguated
    -  `"type": string` _optional_ - the optional entity type to disambiguate against, if not specified, all types are included.
@@ -147,7 +163,7 @@ The Knowledge Graph entity query JSON object takes the following form:
 -  `"context": {}` _optional_ - an optional object that includes contextual requirements for the disambiguation.
    -  `"text": string` _optional_ - entity text to provide context for the queried entity and rank based on that association. For example, if you wanted to query the city of London in England your query would look for `London` with the context of `England`. A entrada pode ser nomes parciais ou passagens grandes contendo termos de entidade relevantes. Múltiplos termos podem ser passados juntos.
 -  `"count": INT` _optional_ - The number of disambiguated entities to return. The default is `10`. The maximum is `1000`
--  `"evidence_count": INT` _optional_ O número de instâncias de evidência a serem retornadas para cada entidade identificada. O padrão é ` 0 `. O valor máximo para o campo `evidence_count` é 10.000 dividido pelo número especificado no campo `count`. Veja a seção [Evidência](/docs/services/discovery/building-kg.html#evidence) desta página para obter uma descrição detalhada e exemplos.
+-  `"evidence_count": INT` _optional_ O número de instâncias de evidência a serem retornadas para cada entidade identificada. O padrão é ` 0 `. O valor máximo para o campo `evidence_count` é 10.000 dividido pelo número especificado no campo `count`. Consulte a seção [Evidência](/docs/services/discovery?topic=discovery-kg#kg_evidence) desta página para obter uma descrição detalhada e exemplos.
 
 The query returns results of the following form:
 
@@ -176,7 +192,7 @@ Se nenhuma correspondência for localizada, o objeto JSON a seguir será retorna
 {: codeblock}
 
 ### Desambiguação de entidade
-{: #disambiguation}
+{: #kg_disambiguation}
 
 A consulta de entidades do Knowledge Graph fornece a desambiguação de entidade baseada em contexto. Com base no texto de entidade fornecido e no texto de contexto opcional, `disambiguation` identifica entidades exclusivas e retorna uma lista de entidades classificadas com base nas informações de contexto.
 
@@ -186,7 +202,7 @@ Por exemplo, a desambiguação do texto de entidade `Steve` no contexto de `ipho
 
 
 ### Similaridade de entidade
-{: #similarity}
+{: #kg_similarity}
 
 A consulta de entidades do Knowledge Graph fornece a detecção de similaridade de entidade baseada em contexto. Com base no texto de entidade fornecido e no texto de contexto opcional, `similar_entities` identifica entidades exclusivas e retorna uma lista das entidades classificadas com base nas informações de contexto.
 
@@ -194,14 +210,12 @@ Uma consulta de similaridade de entidade é solicitada especificando `"similar_e
 
 Por exemplo, se você procurava entidades semelhantes a `Ford` no contexto `car`, os resultados de entidade semelhantes poderiam incluir `GM`, `Toyota` e `Nissan`.
 
-## Relations queries
-{: #relations}
+## Consultas de relações
+{: #kg_relations}
 
-Knowledge Graph relations queries supports finding most relevant
-relationships based on input entities using implicit entity disambiguation, context based relationships,
-sorting by relevance score and mention count, and filtering by types and document ids.
+As consultas de relações do Knowledge Graph suportam a localização dos relacionamentos mais relevantes com base em entidades de entrada usando desambiguação de entidade implícita, relacionamentos baseados em contexto, classificação por pontuação de relevância e contagem de menções e filtragem por tipos e IDs do documento.
 
-You can query relations using the API, or with the {{site.data.keyword.discoveryshort}} tooling. See [Querying Knowledge Graph using the Discovery tooling](/docs/services/discovery/building-kg.html#querying-kg) for tooling information.
+You can query relations using the API, or with the {{site.data.keyword.discoveryshort}} tooling. Consulte [Consultando o Knowledge Graph usando o conjunto de ferramentas do Discovery](/docs/services/discovery?topic=discovery-kg#querying-kg) para obter informações sobre o conjunto de ferramentas.
 
 A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the  `v1/environments/{environment_id}/collections/{collection_id}/query_relations` endpoint. The Knowledge Graph relations query JSON object takes the following form:
 
@@ -248,7 +262,7 @@ A Knowledge Graph entity query is performed by `POST`ing a `JSON` object to the 
       -  `"include": []` _optional_ a comma separated list of entity types explicitly include in the query. Se especificado, todos os outros tipos são considerados excluídos.
    -  `"document_ids": []` _optional_ a comma separated list of documents on which to perform the relationship query on.
 -  `"count": INT` _optional_ The number of relations to return. The default is `10`. The maximum is `1000`.
--  `"evidence_count": INT` _optional_ O número de instâncias de evidência a serem retornadas para cada relação identificada. O padrão é ` 0 `. O valor máximo para o campo `evidence_count` é 10.000 dividido pelo número especificado no campo `count`. Veja a seção [Evidência](/docs/services/discovery/building-kg.html#evidence) desta página para obter uma descrição detalhada e exemplos.
+-  `"evidence_count": INT` _optional_ O número de instâncias de evidência a serem retornadas para cada relação identificada. O padrão é ` 0 `. O valor máximo para o campo `evidence_count` é 10.000 dividido pelo número especificado no campo `count`. Consulte a seção [Evidência](/docs/services/discovery?topic=discovery-kg#kg_evidence) desta página para obter uma descrição detalhada e exemplos.
 
 The query returns results in the following form:
 
@@ -291,11 +305,11 @@ If no match is found, the following JSON object is returned:
 {: codeblock}
 
 ## Evidência
-{: #evidence}
+{: #kg_evidence}
 
-Para algumas consultas de entidade ou de relacionamento, pode ser valioso entender onde as conexões foram identificadas. A evidência das conexões permitirá que você referencie o documento original, esclareça os resultados ou desambigue ainda mais, conforme apropriado. Iniciando com as coleções criadas após `03-05-2018`, os terminais `query_entities` e `query_relations` têm a opção de fornecer evidência nos resultados retornados. Esse recurso está disponível para coleções criadas antes de `03-05-2018`, mas os documentos precisarão ser realimentados para usar esse recurso nas coleções mais antigas.
+Para algumas consultas de relacionamento ou de entidade, pode ser importante entender onde as conexões foram identificadas. A evidência das conexões permitirá que você referencie o documento original, esclareça os resultados ou desambigue ainda mais, conforme apropriado. Iniciando com as coleções criadas após `03-05-2018`, os terminais `query_entities` e `query_relations` têm a opção de fornecer evidência nos resultados retornados. Esse recurso está disponível para coleções criadas antes de `03-05-2018`, mas os documentos precisarão ser realimentados para usar esse recurso nas coleções mais antigas.
 
-A evidência é retornada incluindo o campo `"evidence_count": INT` no objeto de consulta. Esse número representa o número de itens de evidência que serão reajustados por item de resposta. Por exemplo, se você especificar um `"count":` de `5` itens de resposta e `"evidence_count": 2`, a resposta conterá um total de `10` itens de evidência (2 por resposta). O número máximo de itens de evidência retornados no total para uma única consulta é 10.000.
+A evidência é retornada incluindo o campo `"evidence_count": INT` no objeto de consulta. Esse número representa o número de itens de evidência que serão reajustados por item de resposta. Por exemplo, se você especificar um `"count":` de `5` itens de resposta e `"evidence_count": 2`, a resposta conterá um total de `10` itens de evidência (2 por resposta).  O número máximo de itens de evidência retornados no total para uma única consulta é 10.000.
 
 Nas respostas `query_entities`, cada objeto na matriz `entities` conterá o número especificado de objetos `evidence'. Esses objetos incluem o `document_id` do documento no qual a evidência foi localizada, em que `field` ela foi localizada, o local da evidência dentro desse campo e o local exato da entidade identificada.
 
@@ -372,10 +386,10 @@ Em `query_relations`, cada objeto na matriz `relations` conterá o número espec
 ```
 {: codeblock}
 
-## Querying Knowledge Graph using the Discovery tooling
+## Consultando o Knowledge Graph usando o conjunto de ferramentas do Discovery
 {: #querying-kg}
 
-Those with service instances subscribed to the [**Advanced**](/docs/services/discovery/building-kg.html#service-requirements) plan can query private collections with Knowledge Graph using the {{site.data.keyword.discoveryshort}} tooling.  
+As pessoas com instâncias de serviço inscritas no plano [**Avançado**](/docs/services/discovery?topic=discovery-kg#kg_servreq) podem consultar coleções privadas com o Knowledge Graph usando o conjunto de ferramentas do {{site.data.keyword.discoveryshort}}.
 
 To access Knowledge Graph querying in the {{site.data.keyword.discoveryshort}} tooling:
 

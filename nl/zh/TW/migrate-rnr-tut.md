@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-06-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 
 # 指導教學：從 Retrieve and Rank 移轉
@@ -24,7 +36,8 @@ lastupdated: "2018-06-09"
 從 {{site.data.keyword.retrieveandrankshort}} 移轉至 {{site.data.keyword.discoveryfull}} 服務。「Cranfield 入門指導教學」的延續
 
 ## 概觀
-{: #overview}
+{: #overview-rnr}
+
 本指導教學使用範例資料來引導您完成建立及訓練的 {{site.data.keyword.discoveryfull}} 服務的處理程序。本指導教學使用 [{{site.data.keyword.retrieveandrankshort}} 入門指導教學](/docs/services/retrieve-and-rank/getting-started.html)中所使用的相同資料集，但您可以使用相同的方法來建立使用您自己的資料的服務實例。
 
 使用者將資料從 {{site.data.keyword.retrieveandrankshort}} 移轉到 {{site.data.keyword.discoveryshort}} 的處理程序是由兩個主要步驟組成。
@@ -32,9 +45,9 @@ lastupdated: "2018-06-09"
 1. 移轉集合資料。
 2. 移轉訓練資料。
 
-移轉訓練的集合資料時，**最**重要的是_保持相同的文件 ID_。這是因為您的訓練資料使用這些 ID 來參照基準 (ground truth)，如果從 {{site.data.keyword.retrieveandrankshort}} 移到 {{site.data.keyword.discoveryshort}} 時變更了 ID，則重新分級將完全關閉（或訓練甚至不會啟動）。{{site.data.keyword.discoveryshort}} 可讓您在 API 上傳處理程序中指定文件 ID，因此遵循本文件中的準則即可避免此問題。{{site.data.keyword.retrieveandrankshort}} 訓練資料通常儲存在 `csv` 檔案中。在本指導教學中，會使用這個 `csv` 檔案將範例訓練資料上傳至 {{site.data.keyword.discoveryshort}}。從 {{site.data.keyword.retrieveandrankshort}} 工具中匯出之訓練資料的移轉，詳述於[從服務移轉訓練資料](/docs/services/discovery/migrate-dcs-rr.html#extract-train)。
+移轉訓練的集合資料時，**最**重要的是_保持相同的文件 ID_。這是因為您的訓練資料使用這些 ID 來參照基準 (ground truth)，如果從 {{site.data.keyword.retrieveandrankshort}} 移到 {{site.data.keyword.discoveryshort}} 時變更了 ID，則重新分級將完全關閉（或訓練甚至不會啟動）。{{site.data.keyword.discoveryshort}} 可讓您在 API 上傳處理程序中指定文件 ID，因此遵循本文件中的準則即可避免此問題。{{site.data.keyword.retrieveandrankshort}} 訓練資料通常儲存在 `csv` 檔案中。在本指導教學中，會使用這個 `csv` 檔案將範例訓練資料上傳至 {{site.data.keyword.discoveryshort}}。從 {{site.data.keyword.retrieveandrankshort}} 工具中匯出之訓練資料的移轉，詳述於[從服務移轉訓練資料](/docs/services/discovery?topic=discovery-migrate-dcs-rr#extract-train)。
 
-本指導教學假設 {{site.data.keyword.retrieveandrankshort}} 的設定類似於 [{{site.data.keyword.retrieveandrankshort}} 入門指導教學](/docs/services/retrieve-and-rank/getting-started.html)，並使用[這裡](/docs/services/discovery/migrate-dcs-rr.html#source)所說明的「從來源路徑移轉」。如需其他移轉選項，請參閱[評估您到 Watson Discovery 服務的移轉路徑](/docs/services/discovery/migrate-dcs-rr.html#evaluate)。
+本指導教學假設 {{site.data.keyword.retrieveandrankshort}} 的設定類似於 [{{site.data.keyword.retrieveandrankshort}} 入門指導教學](/docs/services/retrieve-and-rank/getting-started.html)，並使用[這裡](/docs/services/discovery?topic=discovery-migrate-dcs-rr#source)所說明的「從來源路徑移轉」。如需其他移轉選項，請參閱[評估您到 Watson Discovery 服務的移轉路徑](/docs/services/discovery?topic=discovery-migrate-dcs-rr#evaluate)。
 
 若要完成本指導教學，您需要下列各項：
 
@@ -47,7 +60,7 @@ lastupdated: "2018-06-09"
 
 開始本指導教學之前，需要符合下列必要條件：
 
--  本指導教學假設您已建立 {{site.data.keyword.discoveryshort}} 實例，如果您需要如何建立 {{site.data.keyword.discoveryshort}} 實例的指示，請參閱[下列指導教學](/docs/services/discovery/getting-started.html)。
+-  本指導教學假設您已建立 {{site.data.keyword.discoveryshort}} 實例，如果您需要如何建立 {{site.data.keyword.discoveryshort}} 實例的指示，請參閱[下列指導教學](/docs/services/discovery?topic=discovery-gs-api#gs-api)。
 
 -  本指導教學假設您有服務認證。
    -  如果您位於 {{site.data.keyword.Bluemix_notm}} 上的 Watson {{site.data.keyword.discoveryshort}} 服務中，請按一下**服務認證**。
@@ -55,6 +68,7 @@ lastupdated: "2018-06-09"
    -  複製 `apikey` 值，並確定 `url` 值符合下面範例中的值，如果不符合，請一併取代。
 
 ## 將 Cranfield 資料新增至 Discovery
+{: #cranfield-rnr}
 
 1.  建立環境。
 
@@ -129,11 +143,12 @@ lastupdated: "2018-06-09"
     ```
     {: codeblock}
 
-請查看 `document_counts` 區段，看看已順利上傳多少文件。我們預期此範例資料集不會有任何文件失敗。不過，如果是其他資料集，您可能會看到失敗文件計數。如果您有任何失敗文件計數，則可以檢視通知 API，以查看錯誤訊息。請在[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window} 查看該區段，以檢閱通知 API 指令。
+請查看 `document_counts` 區段，看看已順利上傳多少文件。我們預期此範例資料集不會有任何文件失敗。不過，如果是其他資料集，您可能會看到失敗文件計數。如果您有任何失敗文件計數，則可以檢視通知 API，以查看錯誤訊息。請在[這裡 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#query-system-notices){: new_window} 查看該區段，以檢閱通知 API 指令。
 
 傳回的 `training` 區段會提供您訓練的相關資訊。我們將在您上傳訓練資料之後，檢閱該區段。
 
 ## 將訓練資料新增至 Discovery
+{: #trainingdata-rnr}
 
 Watson {{site.data.keyword.discoveryshort}} 服務使用機器學習模型將文件重新分級。若要這麼做，您需要訓練模型。訓練是發生在您載入足夠的查詢以及適當的評比文件之後。透過將具有充足變異的足夠範例載入至 Watson {{site.data.keyword.discoveryshort}}，即可教導它何謂「良好」文件。在此步驟中，我們將使用 {{site.data.keyword.retrieveandrankshort}} 中所使用的現有 Cranfield「基準」，來訓練 Watson {{site.data.keyword.discoveryshort}}。
 
@@ -143,7 +158,7 @@ Watson {{site.data.keyword.discoveryshort}} 服務使用機器學習模型將文
 
    對於每一個問題，回答至少有一個 ID（文件 ID）。每個文件 ID 都包含一個數字，指出回答與問題的相關程度。文件 ID 指向您在前一個步驟中上傳至 {{site.data.keyword.discoveryshort}} 之 `cranfield-data.json` 檔案的回答。
 
-1.  下載「訓練資料上傳 Script」。您將使用此 Script 將訓練資料上傳至 {{site.data.keyword.discoveryshort}}。此 Script 會將 `csv` 檔案轉換成一組 JSON 查詢和範例，並使用[訓練資料 API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data){: new_window}，將它們傳送至 {{site.data.keyword.discoveryshort}} 服務
+1.  下載「訓練資料上傳 Script」。您將使用此 Script 將訓練資料上傳至 {{site.data.keyword.discoveryshort}}。此 Script 會將 `csv` 檔案轉換成一組 JSON 查詢和範例，並使用[訓練資料 API ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}，將它們傳送至 {{site.data.keyword.discoveryshort}} 服務
 **附註：**{{site.data.keyword.discoveryshort}} 在該服務內管理訓練資料，因此當產生新的範例和訓練查詢時，它們可以儲存在 {{site.data.keyword.discoveryshort}} 本身，而不是作為需要維護之個別 CSV 檔案的一部分。
 1.  執行「訓練上傳 Script」，將訓練資料上傳至 {{site.data.keyword.discoveryshort}}。將 `{apikey_value}`、`{path_to_file}`、`{environment_id}`、`{collection_id}` 取代為您的資訊。請注意，還有其他選項，`-d` 代表除錯，而 `–v` 代表 curl 的詳細輸出。
 
@@ -155,9 +170,9 @@ Watson {{site.data.keyword.discoveryshort}} 服務使用機器學習模型將文
 1.  一旦載入資料之後，您就可以使用在上一節所看到的集合詳細資料指令，來檢查訓練的狀態。{{site.data.keyword.discoveryshort}} 會每小時檢查一次，以查看是否有任何新資料，如果有，就會開始處理它，並將它轉換成機器學習模型。當模型在訓練時，您會看到訓練區段的狀態從 `"processing": false` 變更為 `"processing": true`。當模型訓練完成後，您會看到訓練區段的狀態從 `"available": false` 變更為 `"available": true`。您也會看到 `"successfully_trained"` 值的日期變更。如果有任何錯誤，您可以查看**通知 API** 來檢視它們，如上一節所述。
 
 ## 搜尋文件
-{: search}
+{: #search-rnr}
 
-{{site.data.keyword.discoveryshort}} 服務會自動使用訓練過的模型將搜尋結果重新分級（如果有的話）。如果是使用 `natural_language_query` 而非 `query` 來發出 [API 呼叫 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}，則會檢查是否有可用的模型。如果有可用的模型，則 {{site.data.keyword.discoveryshort}} 會使用該模型將結果重新分級。首先，我們將搜尋未分級的文件，然後將使用分級模型來執行搜尋。
+{{site.data.keyword.discoveryshort}} 服務會自動使用訓練過的模型將搜尋結果重新分級（如果有的話）。如果是使用 `natural_language_query` 而非 `query` 來發出 [API 呼叫 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window}，則會檢查是否有可用的模型。如果有可用的模型，則 {{site.data.keyword.discoveryshort}} 會使用該模型將結果重新分級。首先，我們將搜尋未分級的文件，然後將使用分級模型來執行搜尋。
 
 1.  您可以使用 cURL 指令，在集合中搜尋文件。使用查詢 API 呼叫來執行查詢，以查看未分級的結果。將 `{apikey_value}`、`{environment_id}`、`{collection_id}` 取代為您的資訊。傳回的結果將是未分級的結果，並將使用預設的 {{site.data.keyword.discoveryshort}} 分級公式。您可以開啟訓練資料 `csv` 檔案，並將第一個直欄的值複製到查詢參數中，來嘗試其他查詢。
 

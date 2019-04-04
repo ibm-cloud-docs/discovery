@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 元素分類
 {: #element-classification}
@@ -30,7 +42,7 @@ lastupdated: "2018-10-23"
 
 「元素分類」結合一組功能豐富的整合型自動化 Watson API，以輸入程式化 PDF 來識別：小節、清單（有編號及項目符號）、註腳和表格，並將這些項目轉換成結構化 HTML 格式。此外，這種結構化格式的分類會標註並輸出為具有含標籤元素、類型和種類的 JSON。
 
-「元素分類」可安全地傳輸資料，並在進行中或靜止時執行加密。如需 IBM Cloud 安全的相關資訊，請參閱 [{{site.data.keyword.Bluemix_notm}} 服務說明 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
+「元素分類」可安全地傳輸在進行中或靜止時執行加密的資料。如需 IBM Cloud 安全的相關資訊，請參閱 [{{site.data.keyword.Bluemix_notm}} 服務說明 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
 
 「元素分類」傳回包含下列各項的 JSON 物件：
 
@@ -40,9 +52,9 @@ lastupdated: "2018-10-23"
 -  `tables` 陣列，其分解輸入文件中所識別的表格。
 -  `document_structure` 物件，其列出輸入文件中所識別的區段標題及前導句子。
 -  `parties` 陣列，其列出輸入文件中所識別的參與方、角色、地址及參與方的聯絡人。
--  定義 `effective_dates` 和 `contract_amounts` 的陣列。
+-  定義 `effective_dates`、`contract_amounts` 和 `termination_dates` 的陣列。
 
-目前此特性僅支援英文版，如需詳細資料，請參閱[語言支援](/docs/services/discovery/language-support.html#feature-support)。
+目前此特性僅支援英文版，如需詳細資料，請參閱[語言支援](/docs/services/discovery?topic=discovery-language-support#feature-support)。
 
 
 ## 分類需求
@@ -54,12 +66,12 @@ lastupdated: "2018-10-23"
 -  PDF 內容是以文字形式表示。無法剖析已掃描的文件，即使它們已經過 OCR 辨識也一樣。**附註：**您可以透過在 PDF 檢視器中開啟文件，並使用**文字選取**工具來選取單字，以識別文字格式的 PDF。如果您無法在文件中選取單字，則無法剖析該檔案。
 -  檔案大小不超過 50MB。
 -  無法剖析受保護的 PDF（要使用密碼才能開啟）及編輯受限的 PDF（要使用密碼才能進行編輯）。
--  {{site.data.keyword.discoveryshort}} 工具包括一個名稱為 **Default Contract Configuration** 的配置，可用來強化您的 PDF 文件集合。您也可以選擇建立包含 `elements` 強化的自訂配置。如需詳細資料，請參閱[集合需求](/docs/services/discovery/element-classification.html#element-collection)。
+-  {{site.data.keyword.discoveryshort}} 工具包括一個名稱為 **Default Contract Configuration** 的配置，可用來強化您的 PDF 文件集合。您也可以選擇建立包含 `elements` 強化的自訂配置。如需詳細資料，請參閱[集合需求](/docs/services/discovery?topic=discovery-element-classification#element-collection)。
 -  **精簡**方案每個月最多可以處理 500 頁。
 -  無法用於**專用**環境。
 -  使用「元素分類」時，無法執行強化後的正規化。
 
-**附註**：**Default Contract Configuration** 檔已於 2018 年 9 月 25 日更新。如果您在此日期之前就已將此配置套用至集合，請參閱[版本注意事項](/docs/services/discovery/release-notes.html#25sept)，以取得更新集合的相關資訊。
+**附註**：**Default Contract Configuration** 檔已於 2018 年 9 月 25 日更新。如果您在此日期之前就已將此配置套用至集合，請參閱[版本注意事項](/docs/services/discovery?topic=discovery-release-notes#25sept)，以取得更新集合的相關資訊。
 
 ## 集合需求
 {: #element-collection}
@@ -114,9 +126,10 @@ lastupdated: "2018-10-23"
 ```
 {: codeblock}
 
-在工具中選取 `Default Contract Configuration` 之後，您就可以上傳文件。如果您不熟悉如何建立集合及上傳文件，請參閱[開始使用工具](/docs/services/discovery/getting-started-tool.html)。
+在工具中選取 `Default Contract Configuration` 之後，您就可以上傳文件。如果您不熟悉如何建立集合及上傳文件，請參閱[開始使用工具](/docs/services/discovery?topic=discovery-getting-started#getting-started)。
 
 ## 分類的元素
+{: #classified-elements}
 
 使用「元素分類」檢索文件之後，將傳回文件，並以 `elements` 陣列作為可搜尋文件的一部分。
 
@@ -157,14 +170,17 @@ lastupdated: "2018-10-23"
 每個元素都有五個重要區段：
 -  `location`：`begin` 和 `end` 索引，指出元素在輸入文件中的位置。
 -  `text`：所分類元素的文字。
--  `types`：包含零個以上 `label` 物件的陣列。每個 `label` 物件都包含 `nature` 欄位，其列出該元素對於所識別參與方的作用（例如 `Right` 或 `Exclusion`），物件也包含一個 `party` 欄位，其識別受該元素影響的一個或多個參與方。如需相關資訊，請參閱[瞭解合約剖析](/docs/services/discovery/parsing.html#contract_parsing)中的[類型](/docs/services/discovery/parsing.html#contract_types)。
--  `categories`：包含零個以上 `label` 物件的陣列。每個 `label` 物件的值會列出所識別元素所屬的功能種類。如需相關資訊，請參閱[瞭解合約剖析](/docs/services/discovery/parsing.html#contract_parsing)中的[種類](/docs/services/discovery/parsing.html#contract_categories)。
--  `attributes`：這個陣列會列出定義元素屬性的零個以上物件。目前支援的屬性類型包含 `location`（元素所參照的地理位置或地區）、`DateTime`（元素指定的日期、時間、日期範圍或時間範圍）及 `Currency`（貨幣值和單位）。`attributes` 陣列中的每個物件也包含所識別元素的文字和位置；位置是由輸入文件中文字的 `begin` 和 `end` 索引所定義。如需相關資訊，請參閱[瞭解合約剖析](/docs/services/discovery/parsing.html#contract_parsing)中的[屬性](/docs/services/discovery/parsing.html#attributes)。
+-  `types`：包含零個以上 `label` 物件的陣列。每個 `label` 物件都包含 `nature` 欄位，其列出該元素對於所識別參與方的作用（例如 `Right` 或 `Exclusion`），物件也包含一個 `party` 欄位，其識別受該元素影響的一個或多個參與方。如需相關資訊，請參閱[瞭解合約剖析](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing)中的[類型](/docs/services/discovery?topic=discovery-contract_parsing#contract_types)。
+-  `categories`：包含零個以上 `label` 物件的陣列。每個 `label` 物件的值會列出所識別元素所屬的功能種類。如需相關資訊，請參閱[瞭解合約剖析](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing)中的[種類](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories)。
+-  `attributes`：這個陣列會列出定義元素屬性的零個以上物件。目前支援的屬性類型包含 `Location`（元素所參照的地理位置）、`DateTime`（元素指定的日期、時間、日期範圍或時間範圍）及 `Currency`（貨幣值和單位）。`attributes` 陣列中的每個物件也包含所識別元素的文字和位置；位置是由輸入文件中文字的 `begin` 和 `end` 索引所定義。如需相關資訊，請參閱[剖析合約](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing)中的[屬性](/docs/services/discovery?topic=discovery-contract_parsing#attributes)。
 
-此外，`types` 和 `categories` 陣列中的每個物件都包含 `proventance_id` 陣列。`provenance_ids` 陣列中所列出的值是雜湊值，您可以將這些值傳送給 IBM，以針對與元素相關聯的分析部分提供意見或獲得支援。
+此外，`types` 和 `categories` 陣列中的每個物件都包含 `proventance_id` 陣列。`provenance_ids` 陣列中所列出的值是雜湊值，您可以將這些值傳送給 IBM，以針對與元素相關聯的分析部分提供意見或獲得支援。 
 
-**附註**：部分句子不屬於任何類型或種類，在此情況下，服務會以空物件傳回 `types` 和 `categories` 陣列。
+部分句子不屬於任何類型或種類，在此情況下，服務會以空物件傳回 `types` 和 `categories` 陣列。
+{: note}
 
-**附註：**部分句子涵蓋多個主題，在此情況下，服務會傳回多組 `types` 和 `categories` 物件。
+部分句子涵蓋多個主題，在此情況下，服務會傳回多組 `types` 和 `categories` 物件。
+{: note}
 
-**附註**：部分句子不包含任何可識別的屬性，在此情況下，服務會以空物件傳回 `attributes` 陣列。
+部分句子不包含任何可識別的屬性，在此情況下，服務會以空物件傳回 `attributes` 陣列。
+{: note}

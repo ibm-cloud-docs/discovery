@@ -2,20 +2,32 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-11-29"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Applicazioni di esempio
 {: #sample-apps}
@@ -33,8 +45,7 @@ Estrai facilmente un'analisi approfondita dai dati di revisione di testo non ela
 Utilizza le recensioni pubblicamente disponibili degli elenchi di Airbnb per illustrare la modalità di utilizzo dei singoli componenti dell'interfaccia utente per visualizzare analisi approfondite. Puoi facilmente commutare l'insieme di dati per adattarlo ai tuoi casi d'uso.
   - [Ottieni il codice  ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/IBM/watson-discovery-ui?cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-Get-the-Code){: new_window}
   - [Visualizza la demo ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.youtube.com/watch?v=5EEmQwcjUa4&cm_sp=Developer-_-develop-a-fully-featured-web-app-built-on-the-watson-discovery-service-_-View-the-Video){: new_window}
-  - [Prova l'applicazione ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://watson-discovery-ui-demo.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  
+    
 [Estrai mediante mining i dati aziendali per l'analisi approfondita ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://ibm.biz/minedatapattern){: new_window}
 Utilizza l'SDK Watson Node.js per importare e arricchire i tuoi dati utilizzando il Watson Discovery Service. Puoi quindi esplorare i dati per trovare modelli, tendenze e analisi approfondite su cui è possibile eseguire azioni.
   - [Ottieni il codice  ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/IBM/watson-discovery-analyze-data-breaches?cm_sp=IBMCode-_-import-enrich-and-gain-insight-from-data-_-Get-the-Code){: new_window}
@@ -75,10 +86,4 @@ Crea una chatbot IU web utilizzando l'SDK IBM Watson Node.js per includere l'int
   - [Ottieni il codice  ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://github.com/IBM/watson-banking-chatbot?cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-Get-the-Code){: new_window}
   - [Visualizza la demo ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.youtube.com/watch?v=Jxi7U7VOMYg&cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-View-the-Demo){: new_window}
   - [Prova l'applicazione ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://create-a-cognitive-banking-chatbot-hnike.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  - [Crea da un kit starter![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-   
-[Discovery Lab  ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://ibm.biz/watsondiscoverylab){: new_window}
-In questo Lab, creerai una raccolta privata nel servizio Discovery e imparerai come eseguire una query della raccolta.
-
-[Discovery News Lab  ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://ibm.biz/discoverynewslab){: new_window}
-In questo Lab, lavorerai con il motore di analisi approfondite Watson Discovery News creando delle query.
+  - [Crea da un kit starter![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
