@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 查询运算符
 {: #query-operators}
 
-运算符是一个查询中不同部分之间的分隔符。有关可用运算符的完整列表，请参阅[查询参考](/docs/services/discovery/query-reference.html#operators)。
+运算符是一个查询中不同部分之间的分隔符。有关可用运算符的完整列表，请参阅[查询参考](/docs/services/discovery?topic=discovery-query-reference#operators)。
 
 ## . \[JSON 定界符\]
 {: #delimiter}
@@ -95,7 +107,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[短语查询\]
 {: #phrase}
 
-一个短语查询的所有内容会作为转义内容进行处理。因此，不会解析短语查询内的特殊字符，但短语查询内的双引号 (`"`) 除外，必须对其进行转义 (`\"`)。请将短语查询与基于排名的全文查询配合使用，而不要与布尔过滤器操作配合使用。不要在短语查询中使用通配符 (`*`)。**注**：不支持单引号 (`'`)。
+一个短语查询的所有内容会作为转义内容进行处理。因此，不会解析短语查询内的特殊字符，但短语查询内的双引号 (`"`) 除外，必须对其进行转义 (`\"`)。请将短语查询与基于排名的全文查询配合使用，而不要与布尔过滤器操作配合使用。不要在短语查询中使用通配符 (`*`)。 
+
+不支持单引号 (`'`)。
+{: note}
 
 例如：
 ```bash
@@ -198,6 +213,6 @@ title:*
 
 例如：
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

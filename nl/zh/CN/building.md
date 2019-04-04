@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-08"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 配置服务
 {: #configservice}
@@ -25,17 +37,17 @@ lastupdated: "2018-07-03"
 
 向 {{site.data.keyword.discoveryshort}} 服务添加自己的内容之前，应该先将该服务配置为按您所需的方式处理内容。
 
-第一步是配置服务的基本参数（[准备服务以用于处理文档](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)），这包括创建环境以及在该环境中创建一个或多个集合。创建集合时，将自动提供一组缺省值（[缺省配置](/docs/services/discovery/building.html#the-default-configuration)）。如果您对这些缺省值感到满意，那么可以继续上传内容（[添加内容](/docs/services/discovery/adding-content.html)）。
+第一步是配置服务的基本参数（[准备服务以用于处理文档](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)），这包括创建环境以及在该环境中创建一个或多个集合。 
 
-但是，您很可能希望指定一个或多个定制配置（请参阅[需要定制配置时](/docs/services/discovery/building.html#when-you-need-a-custom-configuration)）。对于这种情况，您需要执行以下操作：
+如果您的集合是在引入[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的，那么您可能希望指定一个或多个定制配置（请参阅[需要定制配置时](/docs/services/discovery?topic=discovery-configservice#when-you-need-a-custom-configuration)）。对于这种情况，您需要执行以下操作：
 
 -   识别一些样本内容（可代表文件的文档）
--   上传内容（[上传样本文档](/docs/services/discovery/building.html#uploading-sample-documents)）
--   调整转换过程（[转换样本文档](/docs/services/discovery/building.html#converting-sample-documents)）
--   定义扩充项（[添加扩充项](/docs/services/discovery/building.html#adding-enrichments)）
--   规范化结果（[规范化数据](/docs/services/discovery/building.html#normalizing-data)）
+-   上传内容（[上传样本文档](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents)）
+-   调整转换过程（[转换样本文档](/docs/services/discovery?topic=discovery-configservice#converting-sample-documents)）
+-   定义扩充项（[添加扩充项](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)）
+-   规范化结果（[规范化数据](/docs/services/discovery?topic=discovery-configservice#normalizing-data)）
 
-    创建定制配置后，可以上传文档（[添加内容](/docs/services/discovery/adding-content.html)）。
+    创建定制配置后，可以上传文档（[添加内容](/docs/services/discovery?topic=discovery-addcontent#addcontent)）。
 
 ## 准备服务以用于处理文档
 {: #preparing-the-service-for-your-documents}
@@ -44,27 +56,33 @@ lastupdated: "2018-07-03"
 
 -   **环境** - 环境用于定义您有多少存储空间量可用来保存 {{site.data.keyword.discoveryshort}} 服务中的内容。针对每个 {{site.data.keyword.discoveryshort}} 服务实例最多可以创建一个环境。
 
-    您有多个套餐（轻量、高级和高端）可供选择，请参阅 [{{site.data.keyword.discoveryshort}} 目录 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} 和 [{{site.data.keyword.discoveryshort}} 价格套餐](/docs/services/discovery/pricing-details.html)以获取详细信息。源文件不会计入文件大小限制，只有已建立索引的已转换 JSON 的大小才会计入大小限制。
+    您有多个套餐（轻量、高级和高端）可供选择，请参阅 [{{site.data.keyword.discoveryshort}} 目录 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/catalog/services/discovery){: new_window} 和 [{{site.data.keyword.discoveryshort}} 价格套餐](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans)以获取详细信息。源文件不会计入套餐大小限制，只有已建立索引的已转换 JSON 的大小才会计入大小限制。
 
 -   **集合** - 集合是环境中内容的分组。必须至少创建一个集合才能上传内容。
 
-    集合由您的专用数据组成，而且 {{site.data.keyword.discoveryshort}} 还包含预扩充的公共数据集 {{site.data.keyword.discoverynewsshort}}。可以将其用于查询洞察（例如：新闻警报、事件检测和新闻中的趋势主题），然后可以将这些洞察集成到应用程序中。
+    集合由您的专用数据组成，而且 {{site.data.keyword.discoveryshort}} 还包含预扩充的公共数据集 {{site.data.keyword.discoverynewsshort}}。 
 
-    {{site.data.keyword.discoverynewsshort}} 是已使用认知洞察进行预扩充的公共数据集，并且随附于 {{site.data.keyword.discoveryshort}} 中。请参阅 [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) 以获取更多信息。不能调整 {{site.data.keyword.discoverynewsshort}} 配置或向此集合添加文档。请在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://discovery-news-demo.ng.bluemix.net/){: new_window} 查看可以使用 {{site.data.keyword.discoverynewsshort}} 构建的内容的演示。
+    {{site.data.keyword.discoverynewsshort}} 是已使用认知洞察进行预扩充的公共数据集，并且随附于 {{site.data.keyword.discoveryshort}} 中。可以将其用于查询洞察（例如：新闻警报、事件检测和新闻中的趋势主题），然后可以将这些洞察集成到应用程序中。请参阅 [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) 以获取更多信息。不能调整 {{site.data.keyword.discoverynewsshort}} 配置或向此集合添加文档。请在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://discovery-news-demo.ng.bluemix.net/){: new_window} 查看可以使用 {{site.data.keyword.discoverynewsshort}} 构建的内容的演示。
 
 要使用 {{site.data.keyword.discoveryshort}} 工具来创建环境和专用数据集合，请执行以下操作：
 
-1.  在**管理数据**屏幕上，单击 ![齿轮](images/icon_settings.png) 图标，然后选择**创建环境**。这将根据您先前选择的 {{site.data.keyword.Bluemix_notm}} 套餐来创建环境。在此下拉列表中，将始终提供您环境的状态。
+1.  在**管理数据**屏幕上，单击右上角的 ![环境](images/icon_settings.png) 图标，然后选择**创建环境**。这将根据您先前选择的 {{site.data.keyword.Bluemix_notm}} 套餐来创建环境。在此下拉列表中，将始终提供您环境的状态。
 
 1.  环境就绪后，请单击**更新您自己的数据**按钮，然后可以**命名新集合**。
 
-    缺省情况下，配置文件将为 **Default Configuration**。如果您有其他配置文件可用，那么可以选择该配置文件，也可以日后创建新的配置文件并将其应用于此集合。您还可以选择要添加到此集合的文档的语言：英语、德语、西班牙语、阿拉伯语、日语、法语、意大利语、韩语或巴西葡萄牙语。每个集合中只能有一种语言。单击**创建**后，数据集合将显示为磁贴。
+     您可以选择要添加到此集合的文档的语言：英语、德语、西班牙语、阿拉伯语、日语、法语、意大利语、韩语或巴西葡萄牙语。每个集合中只能有一种语言。单击**创建**后，数据集合将显示为磁贴。
 
-您的环境和数据集合已就绪！如果希望使用缺省配置文件，那么可以立即开始[添加内容](/docs/services/discovery/adding-content.html)。但是，如果要使用其他扩充项和转换设置来定制 {{site.data.keyword.discoveryshort}} 配置，那么不应立即开始添加文档，而应该开始创建定制配置文件。请参阅[配置服务](/docs/services/discovery/building.html#custom-configuration)。
+您的环境和数据集合已就绪！您可以立即开始[添加内容](/docs/services/discovery?topic=discovery-addcontent#addcontent)。 
 
-**注：**将文档上传到数据集合后，将使用为该集合选择的配置文件对这些文档进行转换和扩充。如果您日后决定要将集合切换到其他配置文件，您可以执行此操作，但已上传的文档仍然通过原始配置文件进行转换。切换配置文件后上传的所有文档都将使用新的配置文件。如果您希望**整个**集合使用新配置，那么需要创建新的集合，选择该新的配置文件，然后重新上传所有文档。{{site.data.keyword.discoveryshort}} 服务可存储转换后的上传文档文本，但不会存储 **PDF** 和 **Microsoft Word** 文件格式的嵌入式图像，因此不会在结果中返回这些图像。
+但是，如果要使用其他扩充项和转换设置来定制 {{site.data.keyword.discoveryshort}} 配置，那么不应立即开始添加文档，而应该开始创建定制配置文件。请参阅[配置服务](/docs/services/discovery?topic=discovery-configservice#custom-configuration)。
 
-您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 来搜寻 Box、Salesforce 和 Microsoft SharePoint Online 数据源。请参阅[连接到数据源](/docs/services/discovery/connect.html)以获取更多信息。
+如果您的集合是使用[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)创建的，那么您可能偏向于使用 {{site.data.keyword.discoveryshort}} 工具调整扩充项。
+{: note}
+
+对于发布“智能文档理解”之前创建的集合：将文档上传到数据集合后，将使用为该集合选择的配置文件对这些文档进行转换和扩充。如果您日后决定要更改配置文件，您可以执行此操作，但已上传的文档仍然通过原始配置进行转换。切换配置文件后上传的所有文档都将使用新的配置文件。如果您希望**整个**集合使用新配置，那么需要创建新的集合，选择该新的配置文件，然后重新上传所有文档。{{site.data.keyword.discoveryshort}} 服务可存储转换后的上传文档文本，但不会存储 **PDF** 和 **Microsoft Word** 文件格式的嵌入式图像，因此不会在结果中返回这些图像。如果您的集合使用[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)，那么当您单击**将更改应用于集合**按钮时，在 {{site.data.keyword.discoveryshort}} 中对扩充项和转换进行的任何更改将应用到整个集合。如果集合较大，那么应用更改可能需要一些时间。  
+{: important}
+
+您可以使用 {{site.data.keyword.discoveryshort}} 工具或 API 来搜寻 Box、Salesforce、Microsoft SharePoint Online、IBM Cloud Object Storage 和 Microsoft SharePoint 2016 数据源，或执行 Web 搜寻。请参阅[连接到数据源](/docs/services/discovery?topic=discovery-sources#sources)以获取更多信息。
 {: tip}
 
 ### 缺省配置
@@ -72,44 +90,58 @@ lastupdated: "2018-07-03"
 
 {{site.data.keyword.discoveryshort}} 服务包含标准配置，用于转换、扩充和规范化数据，而无需您手动配置这些选项。
 
-名为 **Default Configuration** 的缺省配置包含扩充项，以及基于字体样式和大小的标准文档转换。{{site.data.keyword.discoveryshort}} 将使用按以下 4 个 {{site.data.keyword.watson}} 扩充项收集的语义信息来扩充文档的 text 字段（向其中添加认知元数据）：“实体抽取”、“观点分析”、“类别分类”和“概念标记”（在[此处](/docs/services/discovery/building.html#adding-enrichments)可了解更多相关信息）。
+**缺省配置**文件仅可用于发布[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的集合。但是，使用“智能文档理解”时，缺省情况下将在您的集合中使用相同的扩充项以及 HTML 和 JSON 转换。
+{: note}
 
--   [Microsoft Word 转换](/docs/services/discovery/building.html#microsoft-word-conversion)
--   [PDF 转换](/docs/services/discovery/building.html#pdf-conversion)
--   [HTML 转换](/docs/services/discovery/building.html#html-conversion)
--   [JSON 转换](/docs/services/discovery/building.html#json-conversion)
+创建集合时，{{site.data.keyword.discoveryshort}} 将使用按以下 4 个 {{site.data.keyword.watson}} 扩充项收集的语义信息来扩充文档的 `text` 字段（向其中添加认知元数据）：“实体抽取”、“观点分析”、“类别分类”和“概念标记”（在[此处](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)可了解更多相关信息）。此外还将应用基于字体样式和大小的标准文档转换。您稍后可以使用**概述**选项卡调整扩充项。（此配置在发布[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的集合中名为**缺省配置**。）
 
-{{site.data.keyword.discoveryshort}} 工具中提供了名为 **Default Contract Configuration** 的第二个缺省配置。它配置为通过“元素分类”进行扩充，后者可用于从 PDF 内的元素中抽取参与方、性质和类别。请参阅[元素分类](/docs/services/discovery/element-classification.html#element-collection)以获取详细信息。
+缺省转换：
 
-如果要创建定制配置，请参阅[定制配置](/docs/services/discovery/building.html#custom-configuration)。
+-   [Microsoft Word 转换](/docs/services/discovery?topic=discovery-configservice#microsoft-word-conversion)
+-   [PDF 转换](/docs/services/discovery?topic=discovery-configservice#pdf-conversion)
+-   [HTML 转换](/docs/services/discovery?topic=discovery-configservice#html-conversion)
+-   [JSON 转换](/docs/services/discovery?topic=discovery-configservice#json-conversion)
+
+使用 {{site.data.keyword.discoveryshort}} 工具创建集合时，可以使用名为 **Default Contract Configuration** 的配置。它配置为通过“元素分类”进行扩充，后者可用于从 PDF 内的元素中抽取当事方、性质和类别。请参阅[元素分类](/docs/services/discovery?topic=discovery-element-classification#element-collection)以获取详细信息。如果此配置文件已被使用，那么“智能文档理解”将不可用。
+
+如果要为发布[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的集合创建定制配置，请参阅[定制配置](/docs/services/discovery?topic=discovery-configservice#custom-configuration)。
 
 ### 需要定制配置时
 {: #when-you-need-a-custom-configuration}
 
+此信息仅适用于发布[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的集合。
+{: note}
+
 {{site.data.keyword.discoveryshort}} 服务的目标是从内容中获取正确的信息并将其返回给您的用户。识别该信息是什么及其在内容中的存储方式可通过用于摄入内容的配置进行定义。{{site.data.keyword.discoveryshort}} 服务可以摄入的内容类型非常灵活，这意味着尽管您的非结构化内容是以特定格式保存的，但不要求该内容的结构与相同类型的其他内容的结构相匹配。
 
 -   **我了解我的文档可能并未以缺省配置所预期的方式进行构造。*我该如何确定缺省设置是否适用于我？***
-    -   确定缺省设置是否适用于您的最简单方法是通过[上传样本文档](/docs/services/discovery/building.html#uploading-sample-documents)来对缺省设置进行测试。如果样本 JSON 结果符合您的预期，那么无需额外配置。
+    -   确定缺省设置是否适用于您的最简单方法是通过[上传样本文档](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents)来对缺省设置进行测试。如果样本 JSON 结果符合您的预期，那么无需额外配置。
 -   **我了解缺省扩充项已添加到我的文档的 text 字段中。我可以向其他字段添加额外的扩充项吗？**
-    -   当然可以，您可以根据需要向任意数量的字段添加额外的扩充项。请参阅[添加扩充项](/docs/services/discovery/building.html#adding-enrichments)以获取详细信息。
+    -   当然可以，您可以根据需要向任意数量的字段添加额外的扩充项。请参阅[添加扩充项](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)以获取详细信息。
 
 ## 定制配置
 {: #custom-configuration}
 
+此信息仅适用于发布[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的集合。
+{: note}
+
 要在 {{site.data.keyword.discoveryshort}} 工具中创建定制配置，请打开“专用数据集合”，然后在**管理数据**屏幕上，单击**配置**名称旁的**切换**。在**切换配置**对话框上，单击**新建配置**。
 
-命名新的配置文件后，该名称将显示在配置屏幕的顶部。此新的配置文件将自动包含 [Default configuration](/docs/services/discovery/building.html#the-default-configuration) 文件的设置和扩充项，以供您开始使用。
+命名新的配置文件后，该名称将显示在配置屏幕的顶部。此新的配置文件将自动包含 [Default configuration](/docs/services/discovery?topic=discovery-configservice#the-default-configuration) 文件的设置和扩充项，以供您开始使用。
 
 定制配置文件的三个步骤为：**转换**、**扩充**和**规范化**。
 
-1.  [转换样本文档](/docs/services/discovery/building.html#converting-sample-documents)
-1.  [添加扩充项](/docs/services/discovery/building.html#adding-enrichments)
-1.  [规范化数据](/docs/services/discovery/building.html#normalizing-data)
+1.  [转换样本文档](/docs/services/discovery?topic=discovery-configservice#converting-sample-documents)
+1.  [添加扩充项](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)（使用“智能文档理解”时，此选项卡可用。）
+1.  [规范化数据](/docs/services/discovery?topic=discovery-configservice#normalizing-data)
 
-有关配置的详细信息，请参阅[配置参考](/docs/services/discovery/custom-config.html)。
+有关配置的详细信息，请参阅[配置参考](/docs/services/discovery?topic=discovery-configref#configref)。
 
 ### 上传样本文档
 {: #uploading-sample-documents}
+
+此信息仅适用于发布[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的集合。
+{: note}
 
 要使配置过程更高效，可以上传最多 10 个可代表您的文档集的 Microsoft Word、HTML、JSON 或 PDF 文件。这些文件称为**样本文档**。样本文档不会添加到集合中 - 这些文档仅用于识别对于文档通用的字段，并根据您的需求定制这些字段。
 
@@ -132,9 +164,12 @@ lastupdated: "2018-07-03"
 ### 转换样本文档
 {: #converting-sample-documents}
 
+此信息仅适用于发布[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的集合。
+{: note}
+
 通过样本文档转换过程，您可以定义每种输入类型的处理方式。所上传内容的文件类型指示必须考虑的转换步骤数。
 
-开始之前，请[上传样本文档](/docs/services/discovery/building.html#uploading-sample-documents)，然后在右侧的窗格中打开要配置的文件类型的样本文档。
+开始之前，请[上传样本文档](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents)，然后在右侧的窗格中打开要配置的文件类型的样本文档。
 
 要完成“转换”设置，请单击以逐步设置各个文件类型。
 
@@ -208,20 +243,23 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 ## 添加扩充项
 {: #adding-enrichments}
 
-{{site.data.keyword.discoveryshort}} [缺省配置](/docs/services/discovery/building.html#the-default-configuration)将使用按以下 4 个 {{site.data.keyword.watson}} 功能收集的语义信息来扩充所摄入文档的 `text` 字段（向其中添加认知元数据）：“实体抽取”、“观点分析”、“类别分类”和“概念标记”。（共有 9 个 {{site.data.keyword.watson}} 扩充项可用；除了上面的 4 个之外，其他的扩充项为：“关键字抽取”、“关系抽取”、“情绪分析”、“元素分类”和“语义角色抽取”。）
+{{site.data.keyword.discoveryshort}} [缺省配置](/docs/services/discovery?topic=discovery-configservice#the-default-configuration)将使用按以下 4 个 {{site.data.keyword.watson}} 功能收集的语义信息来扩充所摄入文档的 `text` 字段（向其中添加认知元数据）：“实体抽取”、“观点分析”、“类别分类”和“概念标记”。（共有 9 个 {{site.data.keyword.watson}} 扩充项可用；除了上面的 4 个之外，其他的扩充项为：“关键字抽取”、“关系抽取”、“情绪分析”、“元素分类”和“语义角色抽取”。）
 
 某些 {{site.data.keyword.watson}} 扩充项在某些套餐或环境中可能不可用。
 
-**重要信息：**将仅扩充选择用于扩充的每个 JSON 字段的前 50,000 个字符。
+还可以将 {{site.data.keyword.knowledgestudiofull}} 中的一个或多个定制模型与 {{site.data.keyword.discoveryshort}} 服务集成，以提供定制实体和关系扩充项。请参阅[与 Watson Knowledge Studio 集成](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。
 
-**注：**{{site.data.keyword.alchemylanguageshort}} 扩充项已于 2018 年 3 月 1 日废弃。如果您有任何现有集合在使用 {{site.data.keyword.alchemylanguageshort}} 扩充项，那么必须迁移到 {{site.data.keyword.nlushort}} 扩充项。有关迁移利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的现有集合和配置文件的信息，请参阅[将扩充项迁移到 {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html)。
+将仅扩充选择用于扩充的每个 JSON 字段的前 50,000 个字符。
+{: important}
 
-可以通过向 `text` 字段添加更多扩充项或扩充其他字段来进一步扩充文档。要使用 {{site.data.keyword.discoveryshort}} 工具来执行此操作，请[创建定制配置](/docs/services/discovery/building.html#custom-configuration)，选择要扩充的字段，然后从可用 {{site.data.keyword.nlushort}} 扩充项列表中进行选择：
+**注：**{{site.data.keyword.alchemylanguageshort}} 扩充项已于 2018 年 3 月 1 日废弃。如果您有任何现有集合在使用 {{site.data.keyword.alchemylanguageshort}} 扩充项，那么必须迁移到 {{site.data.keyword.nlushort}} 扩充项。有关迁移利用 {{site.data.keyword.alchemylanguageshort}} 扩充项的现有集合和配置文件的信息，请参阅[将扩充项迁移到 {{site.data.keyword.nlushort}}](/docs/services/discovery?topic=discovery-migrate-nlu#migrate-nlu)。
+
+可以通过向 `text` 字段添加更多扩充项或扩充其他字段来进一步扩充文档。要在 {{site.data.keyword.discoveryshort}} 工具中使用“智能文档理解”来执行此操作，请打开**扩充字段**选项卡。要为发布“智能文档理解”之前创建的集合执行此操作，请[创建定制配置](/docs/services/discovery?topic=discovery-configservice#custom-configuration)，选择要扩充的字段，然后从可用 {{site.data.keyword.nlushort}} 扩充项列表中进行选择：
 
 ### 实体抽取
 {: #entity-extraction}
 
-返回输入文本中存在的项，例如人员、场所和组织。“实体抽取”可将语义知识添加到内容，以帮助了解所分析文本的主题和上下文。“实体抽取”方法基于复杂的统计算法和自然语言处理技术，在业内以独特的方式支持多语言分析以及上下文相关的消歧。在[此处](/docs/services/discovery/entity-types.html)查看完整的实体类型和子类型列表。您还可以使用 {{site.data.keyword.knowledgestudiofull}} 来创建和添加[定制实体模型](/docs/services/discovery/building.html#custom-entity-model)。
+返回输入文本中存在的项，例如人员、场所和组织。“实体抽取”可将语义知识添加到内容，以帮助了解所分析文本的主题和上下文。“实体抽取”方法基于复杂的统计算法和自然语言处理技术，在业内以独特的方式支持多语言分析以及上下文相关的消歧。在[此处](/docs/services/discovery?topic=discovery-entity-types-and-subtypes#entity-types-and-subtypes)查看完整的实体类型和子类型列表。您还可以使用 {{site.data.keyword.knowledgestudiofull}} 来创建和添加[定制实体模型](/docs/services/discovery?topic=discovery-configservice#custom-entity-model)。
 
 使用“实体抽取”扩充的文档的示例部分：
 
@@ -281,23 +319,23 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 
 在上面的示例中，您可以通过访问 `enriched_text.entities.type` 来查询实体类型。
 
-即便未选择 **sentiment** 扩充项，也会针对实体类型计算 `sentiment`。要了解有关观点评分的更多信息，请参阅[观点分析](/docs/services/discovery/building.html#sentiment-analysis)。
+即便未选择 **sentiment** 扩充项，也会针对实体类型计算 `sentiment`。要了解有关观点评分的更多信息，请参阅[观点分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)。
 
 `relevance` 分数范围从 `0.0` 到 `1.0`。分数越高，实体相关性越大。`disambiguation` 字段包含实体的消歧信息，包括实体 `subtype` 信息以及资源的链接（如果适用）。`count` 是文档中提及该实体的次数。
 
 #### 使用定制实体模型
 {: #custom-entity-model}
 
-如果您希望创建定制扩充模型，那么可以在 {{site.data.keyword.knowledgestudiofull}} 中执行此操作，并通过在 {{site.data.keyword.discoveryshort}} 工具的`定制模型标识`框中添加模型标识，将模型导入到 {{site.data.keyword.discoveryshort}}。有关与 {{site.data.keyword.knowledgestudiofull}} 相集成的更多信息，请参阅[与 {{site.data.keyword.knowledgestudiofull}} 相集成](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio)。定制 {{site.data.keyword.knowledgestudiofull}} 模型将覆盖缺省“实体抽取”扩充项。
+如果您希望创建定制扩充模型，那么可以在 {{site.data.keyword.knowledgestudiofull}} 中执行此操作，并通过在 {{site.data.keyword.discoveryshort}} 工具的`定制模型标识`框中添加模型标识，将模型导入到 {{site.data.keyword.discoveryshort}}。有关与 {{site.data.keyword.knowledgestudiofull}} 集成的更多信息，请参阅[与 {{site.data.keyword.knowledgestudiofull}} 集成](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。定制 {{site.data.keyword.knowledgestudiofull}} 模型将覆盖缺省“实体抽取”扩充项。
 
 **注：**一个扩充项只能分配有一个 {{site.data.keyword.knowledgestudiofull}} 模型。
 
 ### 关系抽取
 {: #relation-extraction}
 
-识别两个实体之间的关系，并确定关系的类型。您还可以使用 {{site.data.keyword.knowledgestudiofull}} 来创建和添加[定制关系模型](/docs/services/discovery/building.html#custom-relation-model)。
+识别两个实体之间的关系，并确定关系的类型。您还可以使用 {{site.data.keyword.knowledgestudiofull}} 来创建和添加[定制关系模型](/docs/services/discovery?topic=discovery-configservice#custom-relation-model)。
 
-在[此处](/docs/services/discovery/relation-types.html)查看完整的关系类型列表。
+在[此处](/docs/services/discovery?topic=discovery-relation-types#relation-types)查看完整的关系类型列表。
 
 使用“关系抽取”扩充的文档的示例部分：
 
@@ -347,14 +385,14 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 
 在上面的示例中，您可以通过访问 `enriched_text.relations.type` 来查询关系类型。
 
-相关实体会列在 `arguments` 中。可以由“关系抽取”扩充项识别的实体类型可在[此处](/docs/services/discovery/relation-types.html#specific-entity-types)找到。
+相关实体会列在 `arguments` 中。可以由“关系抽取”扩充项识别的实体类型可在[此处](/docs/services/discovery?topic=discovery-relation-types#specific-entity-types)找到。
 
-`score` 范围从 `0.0` 到 `1.0`。分数越高，关系相关性越大。
+`分数`的范围从 `0.0` 到 `1.0`。分数越高，关系相关性越大。
 
 #### 使用定制关系模型
 {: #custom-relation-model}
 
-如果您希望创建定制扩充模型，那么可以在 {{site.data.keyword.knowledgestudiofull}} 中执行此操作，并通过在 {{site.data.keyword.discoveryshort}} 工具的`定制模型标识`框中添加模型标识，将模型导入到 {{site.data.keyword.discoveryshort}}。有关与 {{site.data.keyword.knowledgestudiofull}} 相集成的更多信息，请参阅[与 {{site.data.keyword.knowledgestudiofull}} 相集成](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio)。定制 {{site.data.keyword.knowledgestudiofull}} 模型将覆盖缺省“关系抽取”扩充项。
+如果您希望创建定制扩充模型，那么可以在 {{site.data.keyword.knowledgestudiofull}} 中执行此操作，并通过在 {{site.data.keyword.discoveryshort}} 工具的`定制模型标识`框中添加模型标识，将模型导入到 {{site.data.keyword.discoveryshort}}。有关与 {{site.data.keyword.knowledgestudiofull}} 集成的更多信息，请参阅[与 {{site.data.keyword.knowledgestudiofull}} 集成](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)。定制 {{site.data.keyword.knowledgestudiofull}} 模型将覆盖缺省“关系抽取”扩充项。
 
 **注：**一个扩充项只能分配有一个 {{site.data.keyword.knowledgestudiofull}} 模型。
 
@@ -420,13 +458,14 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 
 在上面的示例中，您可以通过访问 `enriched_text.keywords.text` 来查询关键字文本。
 
-即便未选择 **sentiment** 扩充项，也会针对关键字计算 `sentiment`。要了解有关观点评分的更多信息，请参阅[观点分析](/docs/services/discovery/building.html#sentiment-analysis)。
+即便未选择 **sentiment** 扩充项，也会针对关键字计算 `sentiment`。要了解有关观点评分的更多信息，请参阅[观点分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)。
 
 `relevance` 分数范围从 `0.0` 到 `1.0`。分数越高，关键字相关性越大。
 
 ### 类别分类
+{: #category-classification}
 
-将输入文本、HTML 或基于 Web 的内容分类为最多 5 个级别深度的分层分类法。级别越深，就可以将内容分类为更准确、更有用的子分段。在[此处](/docs/services/discovery/categories.html)查看完整的类别列表。
+将输入文本、HTML 或基于 Web 的内容分类为最多 5 个级别深度的分层分类法。级别越深，就可以将内容分类为更准确、更有用的子分段。在[此处](/docs/services/discovery?topic=discovery-cathierarchy#cathierarchy)查看完整的类别列表。
 
 使用“类别分类”扩充的文档的示例部分：
 
@@ -453,12 +492,12 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 
 在上面的示例中，您可以通过访问 `enriched_text.categories.label` 来查询类别标签。
 
-`label` 是检测到的类别。各层次结构级别用正斜杠分隔。该类别的 `score` 范围从 `0.0` 到 `1.0`。分数越高，该类别的置信度越大。
+`label` 是检测到的类别。各层次结构级别用正斜杠分隔。该类别的`分数`范围从 `0.0` 到 `1.0`。分数越高，该类别的置信度越大。
 
 ### 概念标记
 {: #concept-tagging}
 
-根据该文本中存在的其他概念和实体，识别与输入文本关联的概念。通过“概念标记”，可了解概念的相关性，并可识别文本中未直接引用的概念。例如，如果文章提及 CERN 和“希格斯玻色子”，那么“概念 API”函数会将“大型强子对撞机”识别为概念，即便该术语并未在页面中显式提及。“概念标记”支持对输入内容进行更高级别的分析，而不仅仅是基本的关键字识别。
+根据该文本中存在的其他概念和实体，识别与输入文本关联的概念。通过“概念标记”，可了解概念的相关性，并可识别文本中未直接引用的概念。例如，如果文章提及 CERN 和“希格斯玻色子”，那么“概念 API”函数会将“大型强子对撞机”识别为概念（即便该词汇并未在页面中明确提及）。“概念标记”支持对输入内容进行更高级别的分析，而不仅仅是基本的关键字识别。
 
 使用“概念标记”扩充的文档的示例部分：
 
@@ -486,6 +525,7 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 `relevance` 分数范围从 `0.0` 到 `1.0`。分数越高，概念相关性越大。还提供了资源的链接（如果适用）。
 
 ### 语义角色抽取
+{: #semantic-role-extraction}
 
 识别输入内容中语句内的主语、操作和宾语关系。关系信息可用于自动识别购买信号、关键事件和其他重要操作。
 
@@ -569,7 +609,7 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 
 在上面的示例中，您可以通过访问 `enriched_text.relations.subject.text` 来查询关系主题文本。
 
-即便未选择 **sentiment** 扩充项，也会针对关系计算 `sentiment`。要了解有关观点评分的更多信息，请参阅[观点分析](/docs/services/discovery/building.html#sentiment-analysis)。除非您同时选择了 **entity** 和 **keyword** 扩充项，否则不会抽取 `entities` 或 `keywords`（如示例中所示）。请参阅[实体抽取](/docs/services/discovery/building.html#entity-extraction)和[关键字抽取](/docs/services/discovery/building.html#keyword-extraction)，以获取有关这些扩充项的更多信息。
+即便未选择 **sentiment** 扩充项，也会针对关系计算 `sentiment`。要了解有关观点评分的更多信息，请参阅[观点分析](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis)。除非您同时选择了 **entity** 和 **keyword** 扩充项，否则不会抽取 `entities` 或 `keywords`（如示例中所示）。请参阅[实体抽取](/docs/services/discovery?topic=discovery-configservice#entity-extraction)和[关键字抽取](/docs/services/discovery?topic=discovery-configservice#keyword-extraction)，以获取有关这些扩充项的更多信息。
 
 针对包含关系的每个语句，都会抽取 `subject`、`action` 和 `object`。
 
@@ -631,17 +671,19 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 ### 元素分类
 {: #elements}
 
-对管理文档中的元素（语句、列表和表）进行解析，以对重要类型和类别进行分类。有关更多信息，请参阅[元素分类](/docs/services/discovery/element-classification.html)。
+对管理文档中的元素（语句、列表和表）进行解析，以对重要类型和类别进行分类。有关更多信息，请参阅[元素分类](/docs/services/discovery?topic=discovery-element-classification#element-classification)。
+
+如果此扩充项已被使用，那么[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)将不可用。
 
 #### 扩充项定价
 {: #enrichment-pricing}
 
-扩充项定价信息在 [{{site.data.keyword.Bluemix_notm}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} 上提供。
+扩充项定价信息在 [{{site.data.keyword.Bluemix_notm}} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/catalog/services/discovery){: new_window} 上提供。
 
 #### 扩充项语言支持
 {: #enrichment-language-support}
 
-有关扩充项语言支持的信息，请参阅 [{{site.data.keyword.discoveryshort}} 语言支持](/docs/services/discovery/language-support.html)。
+有关扩充项语言支持的信息，请参阅 [{{site.data.keyword.discoveryshort}} 语言支持](/docs/services/discovery?topic=discovery-language-support#language-support)。
 
 ### 了解实体、概念和关键字之间的差异
 {: #udbeck}
@@ -667,7 +709,7 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 ```
 {: codeblock}
 
-由于**概念标记**扩充项可了解概念的相关性，因此可以识别文本中未直接引用的概念。例如，如果文章提及 CERN 和“希格斯玻色子”，那么会将“大型强子对撞机”识别为概念，即便该术语并未显式提及。由于我们的示例文档文本只有一个语句，并没有相关的概念，因此**概念标记**会返回以下概念：
+由于**概念标记**扩充项可了解概念的相关性，因此可以识别文本中未直接引用的概念。例如，如果文章提及 CERN 和“希格斯玻色子”，那么会将“大型强子对撞机”识别为概念（即便该词汇并未明确提及）。由于我们的示例文档文本只有一个语句，并没有相关的概念，因此**概念标记**会返回以下概念：
 
 ```json
 "text": "Acme Corporation"
@@ -690,6 +732,9 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 
 ## 规范化数据
 {: #normalizing-data}
+
+此信息仅适用于发布[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)之前创建的集合。
+{: note}
 
 定制配置文件的最后一步是执行最终清理，也称为规范化。
 
@@ -745,12 +790,12 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 -   `field_name` - 要添加到 JSON 输出的字段的名称。
 -   `CAS_selector_expression` - 要对输入 HTML 运行以抽取字段的 CSS 选择器。该表达式可以有一个或多个匹配项。
 
-    有效的 CSS 选择器是由 [JSoup 解析器 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} 及其[选择器语法 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window} 指定的选择器。在[通用选择器](/docs/services/discovery/building.html#common-selectors)中提供了短列表。
+    有效的 CSS 选择器是由 [JSoup 解析器 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} 及其[选择器语法 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window} 指定的选择器。在[通用选择器](/docs/services/discovery?topic=discovery-configservice#common-selectors)中提供了短列表。
 -   `field_type` - `array` 或 `string`。如果未指定字段类型，那么将缺省为 `array`。请注意，可以扩充 `string` 类型，但无法扩充 `array` 中存储的信息，除非该 array 的项首先抽取到 text 字段。
 
 **警告：**如果 CSS 选择器与父节点及其一个或多个子节点相匹配，那么这些节点的文本内容在 JSON 输出中会重复。
 
-**注：**字段名称必须满足[字段名称需求](/docs/services/discovery/custom-config.html#field_reqs)中定义的限制。
+**注：**字段名称必须满足[字段名称需求](/docs/services/discovery?topic=discovery-configref#field_reqs)中定义的限制。
 
 以下 JSON 片段显示了 Default Configuration 中向其添加 CSS 选择器信息的相关部分。
 
@@ -921,6 +966,7 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 确定要抽取的 HTML 元素后，您可以进一步修改配置文件以指定要对其应用的扩充项。
 
 #### 常用选择器
+{: #common-selectors}
 
 一些常用的 CSS 选择器如下：
 
@@ -933,6 +979,9 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 ## 使用文档分段拆分文档
 {: #doc-segmentation}
 
+如果使用“智能文档理解”，请不要使用文档分段，而是使用[文档拆分](/docs/services/discovery?topic=discovery-sdu#splitting)。
+{: note}
+
 可以根据 HTML 标题标记将 Word、PDF 和 HTML 文档拆分成多个分段。拆分后，每个分段都是一个单独的文档，可以对其单独扩充和建立索引。由于查询会将这些分段作为单独的文档返回，因此文档分段可用于：
 
   - 对一个文档的各个分段执行聚集。例如，每当分段提及特定实体时，聚集即会对其进行计数，而不是对整个文档计数一次。
@@ -944,9 +993,9 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 
   - 每个文档的分段数限制为 `250` 个。超过 `249` 个分段之后剩余的任何文档内容都将存储在第 `250` 个分段中。
 
-  - 每个分段都会计入套餐的文档限制。{{site.data.keyword.discoveryshort}} 将对分段建立索引，直到达到套餐限制。请参阅 [Discovery 价格套餐](/docs/services/discovery/pricing-details.html)以了解文档限制。
+  - 每个分段都会计入套餐的文档限制。{{site.data.keyword.discoveryshort}} 将对分段建立索引，直到达到套餐限制。请参阅 [Discovery 价格套餐](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans)以了解文档限制。
 
-  - 使用文档分段时，无法对数据进行规范化（请参阅[规范化数据](/docs/services/discovery/building.html#normalizing-data)），也无法使用 CSS 选择器来抽取字段（请参阅[使用 CSS 选择器抽取字段](/docs/services/discovery/building.html#using-css)）。
+  - 使用文档分段时，无法对数据进行规范化（请参阅[规范化数据](/docs/services/discovery?topic=discovery-configservice#normalizing-data)），也无法使用 CSS 选择器来抽取字段（请参阅[使用 CSS 选择器抽取字段](/docs/services/discovery?topic=discovery-configservice#using-css)）。
 
   - 每次检测到指定的 HTML 标记时，文档都会分段。结果，分段可能导致 HTML 格式不正确，因为文档可能会在结束标记之前和起始标记之后进行拆分。
 
@@ -954,10 +1003,13 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 
   - 指定了**元素分类** (`elements`) 扩充项时，不支持文档分段。
 
-  - 重新摄入已分段的文档还有其他注意事项，请参阅[更新已分段的文档](/docs/services/discovery/building.html#update-seg)。
+  - 重新摄入已分段的文档还有其他注意事项，请参阅[更新已分段的文档](/docs/services/discovery?topic=discovery-configservice#update-seg)。
 
 ### 执行分段
 {: #performing-segmentation}
+
+如果使用“智能文档理解”，请不要使用文档分段，而是使用[文档拆分](/docs/services/discovery?topic=discovery-sdu#splitting)。
+{: note}
 
 分段是通过 API 在 `conversions` 部分中设置的。
 
@@ -980,6 +1032,7 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 `selector_tags` 是一个数组，用于指定可据以对文档进行分段的标题标记。
 
 #### 示例
+{: #example-segmentation}
 
 配置：
 
@@ -1054,11 +1107,11 @@ PDF 字体大小和字体名称用于将文档中的标题正确转换为 H1、H
 ### 更新已分段的文档
 {: #update-seg}
 
-如果更新了已分段的文档，并且需要再次摄入该文档，那么可以使用[更新文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} 方法来替换原先的已分段文档。
+如果更新了已分段的文档，并且需要再次摄入该文档，那么可以使用[更新文档 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} 方法来替换原先的已分段文档。
 
 更新已分段的文档时，应该使用 `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API 的 POST 方法来上传该文档，并将当前某个分段的 `parent_id` 字段的内容指定为 `{document_id}` 路径变量。
 
-更新时，将覆盖所有分段，除非更新后的文档版本的总部分数少于原始版本。这些较旧的分段会保留在索引中，并且可以使用 API 单独删除这些分段。请参阅 [API 参考 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} 以获取详细信息。您可以通过查询 `notices` 来确定已创建的分段数。为每个分段提供了 `document_id` 字段，该字段的构成是 `{parent_id}`，后跟下划线，再后跟分段号。
+更新时，将覆盖所有分段，除非更新后的文档版本的总部分数少于原始版本。这些较旧的分段会保留在索引中，并且可以使用 API 单独删除这些分段。请参阅 [API 参考 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#delete-a-document){: new_window} 以获取详细信息。您可以通过查询 `notices` 来确定已创建的分段数。为每个分段提供了 `document_id` 字段，该字段的构成是 `{parent_id}`，后跟下划线，再后跟分段号。
 
 如果您打算更新的任何文档分段已针对相关性训练排名，那么必须先删除该文档的所有分段，然后将更新的文档作为新文档摄入。这将为每个分段生成新的 `document_id`，并且需要对任何已训练的分段进行重新训练。如果未先删除旧内容，那么训练后的索引会变得不准确。
 

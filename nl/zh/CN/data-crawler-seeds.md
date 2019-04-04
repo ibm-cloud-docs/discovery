@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 配置连接器和种子选项
 {: #configuring-connector-and-seed-options}
@@ -23,18 +35,19 @@ lastupdated: "2017-08-25"
 搜寻数据时，搜寻器首先确定数据存储库（连接器）的类型和用户指定的起始位置（种子）以开始下载信息。
 {: shortdesc}
 
+Data Crawler 应仅用于搜寻文件共享或数据库，在其他所有情况下，您应使用相应的 {{site.data.keyword.discoveryshort}} 连接器。请参阅[连接到数据源](/docs/services/discovery?topic=discovery-sources#sources)以获取详细信息。如果您将 Data Crawler 用于 {{site.data.keyword.discoveryshort}} 连接器支持的数据源，那么将不再提供有关 Data Crawler 的帮助。
+{: important}
+
 **重要信息：**使用 Data Crawler 时，将忽略数据存储库安全设置。
 
 种子是搜寻的起始点，Data Crawler 将使用种子从连接器所确定的资源中检索数据。通常，种子会配置 URL 来访问基于协议的资源，例如各种协议可访问的文件共享、SMB 共享、数据库和其他数据存储库。此外，不同的种子 URL 也具有不同的功能。种子也可以特定于存储库，可用于搜寻特定的第三方应用程序（例如，客户关系管理 (CRM) 系统、产品生命周期 (PLC) 系统、内容管理系统 (CMS)、基于云的应用程序以及 Web 数据库应用程序）。
 
 要正确搜寻数据，必须确保已将搜寻器正确配置为读取数据存储库。Data Crawler 提供连接器来支持从以下存储库收集数据：
 
--   [文件系统](/docs/services/discovery/data-crawler-seeds.html#configuring-filesystem-crawl-options)
--   [使用 JDBC 的数据库](/docs/services/discovery/data-crawler-seeds.html#configuring-database-crawl-options)
--   [CMIS（内容管理互操作性服务）](/docs/services/discovery/data-crawler-seeds.html#configuring-cmis-crawl-options)
--   [SMB（服务器消息块）、CIFS（公共因特网文件系统）或 Samba 文件共享](/docs/services/discovery/data-crawler-seeds.html#configuring-smbcifssamba-crawl-options)
--   [SharePoint 和 SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#configuring-sharepoint-crawl-options)
--   [Box](/docs/services/discovery/data-crawler-seeds.html#configuring-box-crawl-options)
+-   [文件系统](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-filesystem-crawl-options)
+-   [使用 JDBC 的数据库](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-database-crawl-options)
+-   [CMIS（内容管理互操作性服务）](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-cmis-crawl-options)
+-   [SMB（服务器消息块）、CIFS（公共因特网文件系统）或 Samba 文件共享](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 
 此外还提供了一个连接器配置模板，您可以使用此模板来定制连接器。
 
@@ -44,15 +57,13 @@ lastupdated: "2017-08-25"
 
 1.  修改与存储库相应的值：
 
-    -   [文件系统](/docs/services/discovery/data-crawler-seeds.html#filesystem-crawl-options)
-    -   [使用 JDBC 的数据库](/docs/services/discovery/data-crawler-seeds.html#database-crawl-seed)
-    -   [CMIS（内容管理互操作性服务）](/docs/services/discovery/data-crawler-seeds.html#cmis-crawl-options)
-    -   [SMB（服务器消息块）、CIFS（公共因特网文件系统）或 Samba 文件共享](/docs/services/discovery/data-crawler-seeds.html#smb-cifs-samba-crawl-options)
-    -   [SharePoint 和 SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#sharepoint-crawl-options)
-    -   [Box](/docs/services/discovery/data-crawler-seeds.html#box-crawl-options)
+    -   [文件系统](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#filesystem-crawl-options)
+    -   [使用 JDBC 的数据库](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#database-crawl-seed)
+    -   [CMIS（内容管理互操作性服务）](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#cmis-crawl-options)
+    -   [SMB（服务器消息块）、CIFS（公共因特网文件系统）或 Samba 文件共享](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 1.  保存并关闭此文件。
 1.  在文本编辑器中对 `connectors/seeds` 目录中与要连接的存储库相对应的 `-seed.conf` 文件重复上述操作（例如，`filesystem-seed.conf` 是文件系统连接器的（要连接到的）种子配置文件）。
-1.  继续[配置 Data Crawler 以连接到 {{site.data.keyword.discoveryshort}}](/docs/services/discovery/data-crawler-discovery.html)。
+1.  继续[配置 Data Crawler 以连接到 {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-the-data-crawler)。
 
 要访问连接器和种子配置文件的产品内联机帮助并获取最新信息，请从搜寻器安装目录输入以下命令：
 -   对于连接器配置选项：
@@ -72,7 +83,11 @@ lastupdated: "2017-08-25"
 
 通过文件系统连接器，可以搜寻 Data Crawler 安装的本地文件。
 
+另一个用于将大量文件上传到 {{site.data.keyword.discoveryshort}} 的选项是 GitHub 上的 [discovery-files ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://github.com/IBM/discovery-files){: new_window}。
+{: note}
+
 ### 配置文件系统连接器
+{: #filesystem-connector}
 
 下面是使用文件系统连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/filesystem.conf` 文件，并针对您的用例修改以下值：
 
@@ -82,6 +97,7 @@ lastupdated: "2017-08-25"
 -   **`classname`** - 连接器的 Java 类名。使用此连接器时，该值必须为 `plugin:filesystem.plugin@filesystem`。
 
 ### 配置文件系统搜寻种子
+{: #filesystem-crawl-seed}
 
 可配置文件系统搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/filesystemseed.conf` 文件，并针对您的用例指定以下值：
 
@@ -93,6 +109,7 @@ lastupdated: "2017-08-25"
     {: tip}
 
 ## 配置数据库搜寻选项
+{: #database-crawl}
 
 您可以使用数据库连接器，通过执行定制 SQL 命令并针对每行（记录）创建一个文档且针对每列（字段）创建一个内容元素，以搜寻数据库。您可以指定要用作唯一键的列，还可以指定包含时间戳记（表示每个记录的上次修改日期）的列。该连接器将从指定数据库中检索所有记录，也可以通过 SQL 语句将记录检索范围限制为特定的表和连接等。
 
@@ -118,6 +135,7 @@ lastupdated: "2017-08-25"
 1.  切换到该归档文件的解压缩目录，然后将此目录中的 JAR 文件复制到 Data Crawler 安装目录的 `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` 子目录，或者可以使用 `crawler.conf` 文件中的 `extra_jars_dir` 设置来指定其他位置。
 
 ### 配置数据库连接器
+{: #database-connector}
 
 下面是使用数据库连接器时需要设置的基本配置选项。要设置这些值，请打开 config/connectors/database.conf 文件，并针对您的用例修改以下值：
 
@@ -161,6 +179,7 @@ lastupdated: "2017-08-25"
 通过 CMIS（内容管理互操作性服务）连接器，可以搜寻支持 CMIS 的 CMS（内容管理系统）存储库（例如，Alfresco、Documentum 或 {{site.data.keyword.IBM}} Content Manager），并对它们包含的数据建立索引。
 
 ### 配置 CMIS 连接器
+{: #cmis-connector}
 
 下面是使用 CMIS 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/cmis.conf` 文件，并针对您的用例指定以下值：
 
@@ -169,10 +188,7 @@ lastupdated: "2017-08-25"
 -   **`dns`** - 未使用的选项。
 -   **`classname`** - 连接器的 Java 类名。对于此连接器，请使用 `plugin:cmis-v1.1.plugin@connector`。
 -   **`logging-config`** - 指定用于配置日志记录选项的文件；它必须格式化为 `log4j` XML 字符串。
--   **`endpoint`** - 与 CMIS 兼容的存储库的服务端点 URL。例如，SharePoint 的 URL 结构包括：
-
-    -   对于 AtomPub 绑定：`http://yourserver/_vti_bin/cmis/rest?getRepositories`
-    -   对于 WebServices 绑定：`http://yourserver/_vti_bin/cmissoapwsdl.aspx`
+-   **`endpoint`** - 与 CMIS 兼容的存储库的服务端点 URL。 
 -   **`username`** - 用于访问内容的 CMIS 存储库用户的用户名。该用户必须有权访问要搜寻和建立索引的所有目标文件夹和文档。
 -   **`password`** - 用于访问内容的 CMIS 存储库的密码。此密码不得加密，应以纯文本格式提供。
 -   **`repositoryid`** - 要访问其内容的 CMIS 存储库的标识。
@@ -191,6 +207,7 @@ lastupdated: "2017-08-25"
 -   **`ssl-version`** - 指定要用于 HTTPS 连接的 SSL 版本。缺省情况下，会使用安全性最高的协议。
 
 ### 配置 CMIS 搜寻种子
+{: #cmis-crawl-seed}
 
 可配置 CMIS 搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/cmisseed.conf` 文件，并针对您的用例修改以下值：
 
@@ -206,6 +223,7 @@ lastupdated: "2017-08-25"
 通过 Samba 连接器，可以搜寻服务器消息块 (SMB) 和公共因特网文件系统 (CIFS) 文件共享。这种类型的文件共享在 Windows 网络上十分普遍，也可通过开放式源代码项目 Samba 来提供。
 
 ### 配置 Samba 连接器
+{: #smb-cifs-samba-crawl-connector}
 
 下面是使用 Samba 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/samba.conf` 文件，并针对您的用例指定以下值：
 
@@ -231,6 +249,7 @@ lastupdated: "2017-08-25"
 -   **`enqueue-persistence`** - 未使用的选项。
 
 ### 配置 Samba 搜寻种子
+{: #smb-cifs-samba-crawl-seed}
 
 可配置 Samba 搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/samba-seed.conf` 文件，并针对您的用例指定以下值：
 
@@ -245,125 +264,3 @@ lastupdated: "2017-08-25"
 
 -   **`hops`** - 仅供内部使用。
 -   **`default-allow`** - 仅供内部使用。
-
-## 配置 SharePoint 搜寻选项
-{: #sharepoint-crawl-options}
-
-**重要信息：**SharePoint 连接器需要 Microsoft SharePoint Server 2007 (MOSS 2007)、SharePoint Server 2010、SharePoint Server 2013 或 SharePoint Online。
-
-通过 SharePoint 连接器，可以搜寻 SharePoint 对象，并对这些对象包含的信息建立索引。可以使用关联的元数据对文档、用户概要文件、站点集合、博客、列表项、成员资格列表、目录页面等对象建立索引。对于列表项和文档，索引可以包含附件。
-
-SharePoint 连接器会考虑所有 SharePoint 对象上的 `noindex` 属性，而不管这些对象的特定类型（博客、文档、用户概要文件等）。将针对每个结果返回一个文档。
-{: tip}
-
-**重要信息：**用于搜寻 SharePoint 站点的 SharePoint 帐户必须至少具有完全读访问权。
-
-### 配置 SharePoint 连接器
-
-下面是使用 SharePoint 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/sharepoint.conf` 文件，并针对您的用例修改以下值：
-
--   **`protocol`** - 用于搜寻的连接器协议的名称。使用此连接器时，该值为 `io-sp`。
--   **`collection`** - 该属性用于解包临时文件。
--   **`classname`** - 连接器的 Java 类名。对于此连接器，请使用 `plugin:io-sharepoint.plugin@connector`。
--   **`logging-config`** - 指定用于配置日志记录选项的文件；它必须格式化为 `log4j` XML 字符串。
--   **`seed-url-type`** - 标识所提供的种子 URL 所指向的 SharePoint 对象类型：站点集合或 Web 应用程序（也称为虚拟服务器）。
-
-    -   `站点集合` - 如果“种子 URL 类型”设置为“站点集合”，那么将仅搜寻该 URL 所引用站点集合的子代。
-    -   `Web 应用程序` - 如果“种子 URL 类型”设置为“Web 应用程序”，那么将搜寻属于每个 URL 所引用 Web 应用程序的所有站点集合（及其子代）。
--   **`auth-type`** - 在联系 SharePoint 服务器时要使用的认证机制：`BASIC`、`NTLM2`、`KERBEROS` 或 `CBA`。缺省认证类型为 `NTLM2`。
--   **`spUser`** - 用于访问内容的 SharePoint 用户的用户名。该用户必须有权访问要搜寻和建立索引的所有目标站点和列表，并且必须能够检索和解析相关许可权。输入此用户名时最好带有域名，例如：`MYDOMAIN\\Administrator`。
--   **`spPassword`** - 用于访问内容的 SharePoint 用户的密码。必须使用 Data Crawler 随附的 vcrypt 程序来加密密码。
--   **`cba-sts`** - 尝试认证搜寻用户的安全性令牌服务 (STS) 端点的 URL。对于预置 ADFS 的 SharePoint，此值应该是 ADFS 端点。如果“认证类型”设置为 CBA（基于声明的认证），那么此字段是必需的。
--   **`cba-realm`** - 从 STS 请求安全性令牌时要使用的中继方信任标识。有时称为“AppliesTo”值或“域”。对于 SharePoint Online，此值应该是 SharePoint Online 实例根目录的 URL（例如，`https://mycompany.sharepoint.com`）。对于 ADF，此值是 SharePoint 和 ADF 之间的中继方信任的标识值（例如，`"urn:SHAREPOINT:adfs"`）。
--   **`everyone-group`** - 如果指定此选项，那么当为所有人提供访问权时，ACL 中将使用该组名。如果启用了搜寻用户概要文件，那么此字段为必填字段。
-
-    **注：**“检索和排名”服务不会考虑安全性。
-
--   **`user-profile-master-url`** - 连接器用于构建用户概要文件链接的基本 URL。此 URL 应配置为指向用户概要文件的显示表单。如果发现令牌 `%FIRST_SEED%`，该令牌将替换为第一个种子 URL。启用了搜寻用户概要文件的功能时，这为必填项。
--   **`urls`** - 要搜寻的 SharePoint Web 应用程序或站点集合的 HTTP URL 的换行符分隔列表。
--   **`ehcache-config`** - 未使用的选项。
--   **`method`** - 用于传递参数的方法（`GET` 或 `POST`。
--   **`cache-types`** - 未使用的选项。
--   **`cache-size`** - 未使用的选项。
--   **`enable-acl`** - 支持搜寻 SharePoint 用户概要文件；值为 `true` 或 `false`；缺省值为 `false`。
-
-### 配置 SharePoint 搜寻种子
-
-可配置 SharePoint 搜寻种子文件的以下值。要设置这些值，请打开 `config/seeds/sharepoint-seed.conf` 文件，并针对您的用例指定以下值：
-
--   **`url`** - 要搜寻的 SharePoint Web 应用程序或站点集合的 URL 的换行符分隔列表。例如：
-
-    ```
-    io-sp://a.com
-    io-sp://b.com:83/site
-    io-sp://c.com/site2
-    ```
-    {: codeblock}
-
-    同时还会搜寻这些站点的子站点（除非它们被其他搜寻规则排除在外）。
-
--   **`filter-url`** - 要搜寻的 SharePoint Web 应用程序或站点集合的 URL 的换行符分隔列表。例如：
-
-    ```
-    http://a.com
-    http://b.com:83/site
-    http://c.com/site2
-    ```
-    {: codeblock}
-
--   **`hops`** - 仅供内部使用。
--   **`n-concurrent-requests`** - 仅供内部使用。
--   **`delay`** - 仅供内部使用。
--   **`default-allow`** - 仅供内部使用。
--   **`seed-protocol`** - 设置站点集合子代的种子协议。如果站点集合的协议为 SSL、HTTP 或 HTTPS，这为必需项。必须将此值设置为与站点集合的协议相同。
-
-## 配置 Box 搜寻选项
-
-您可以使用 Box 连接器来搜寻 Enterprise Box 实例，并对其包含的信息建立索引。
-
-### 配置 Box 连接器
-
-下面是使用 Box 连接器时需要设置的基本配置选项。要设置这些值，请打开 `config/connectors/box.conf` 文件，并针对您的用例修改以下值：
-
--   **`protocol`** - 用于搜寻的连接器协议的名称。使用此连接器时，该值为 `box`。
--   **`classname`** - 连接器的 Java 类名。对于此连接器，请使用 `plugin:box.plugin@connector`。
--   **`logging-config`** - 指定用于配置日志记录选项的文件；它必须格式化为 `log4j` XML 字符串。
--   **`box-crawl-seed-url`** - Box 的基本 URL。此连接器的这个值为 `box://app.box.com/`。
-
-    您可以搜寻不同类型的 URL，例如：
-
-    -   要搜寻整个企业：`box://app.box.com/`
-    -   要搜寻特定文件夹：`box://app.box.com/user/USER_ID/folder/FOLDER_ID/FolderName`
-    -   要搜寻特定用户：`box://app.box.com/user/USER_ID/`
--   **`client-id`** - 输入创建 Box 应用程序时由 Box 提供的客户端标识。
--   **`client-secret`** - 输入创建 Box 应用程序时由 Box 提供的客户端密钥。
--   **`path-to-private-key`** - 这是本地文件系统上专用密钥的位置，该专用密钥是为与 Box 通信而生成的专用-公用密钥对的一部分。
--   **`kid`** - 指定公用密钥标识。这是为了与 Box 通信而生成的专用/公用密钥对的另一半。
--   **`enterprise-id`** - 对应用程序授权的企业。企业标识会在 Box 管理员控制台的主页中列出。
--   **`enable-acl`** - 仅供内部使用。启用用于检索已搜寻数据 ACL 的功能。
--   **`user-agent`** - 搜寻文档时发送到服务器的头。
--   **`method`** - 用于传递参数的方法（`GET` 或 `POST`。
--   **`url-logging`** - 已搜寻 URL 的日志记录范围。可能的值为：
-
-    -   `full-logging` - 记录有关 URL 的所有信息。
-    -   `refined-logging` - 仅记录浏览搜寻器日志和连接器正常运行所需的信息；这是缺省值。
-    -   `minimal-logging` - 仅记录连接器正常运行所需的最少信息量。
-
-    因为将所记录的数据量降至最少会减少 I/O，因此将此选项设置为 `minimal-logging` 可减小日志大小并略微提高性能。
--   **`ssl-version`** - 指定要用于 HTTPS 连接的 SSL 版本。缺省情况下，会使用安全性最高的协议。
-
-### 配置 Box 搜寻种子
-{: #box-crawl-options}
-
-可以为 Box 搜寻种子文件配置以下更多值。要设置这些值，请打开 `config/seeds/boxseed.conf` 文件，并针对您的用例指定以下值：
-
--   **`url`** - 要用作搜寻起点的 URL。缺省值为 `box://app.box.com/`。
--   **`default-allow`** - 仅供内部使用。
-
-## 限制
-
-Box 连接器确实存在一些限制：
-
--   不检索关于文件的注释或任务。
--   注释内容正文将作为 JSON 进行检索。可能需要对 Notes 数据进行其他转换。
--   不能通过 Test-It 检索单个文档。只能通过 Test-It 检索种子 URL、文件夹 URL 和用户 URL。

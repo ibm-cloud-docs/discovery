@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-23"
+  years: 2017, 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 解析合同
 {: #contract_parsing}
@@ -33,7 +45,7 @@ lastupdated: "2018-10-23"
 
 |`nature`|描述|
 |:----------------:|-----------------------------------------------------------|
-|`Definition`|此元素用于添加对术语、关系或类似项的澄清。无需执行任何操作来实现此元素，也不会影响任何当事方。|
+|`Definition`|此元素用于添加对词汇、关系或类似项的澄清。无需执行任何操作来实现此元素，也不会影响任何当事方。|
 |`Disclaimer`|此元素中的 `party` 没有义务履行此元素指定的条款，但并未禁止履行。|
 |`Exclusion`|此元素中的 `party` 将不履行此元素指定的条款。|
 |`Obligation`|此元素中的 `party` 需要履行此元素指定的条款。|
@@ -44,19 +56,35 @@ lastupdated: "2018-10-23"
 ## Parties
 {: #contract_parties}
 
-独立的 `parties` 数组指定合同中列出的参与者。每个识别到的 `party` 对象会按名称列出识别到的当事方，并将其与用于对 `party` 对象角色分类的 `role` 进行匹配。可以为合同返回的 `role` 值包括但不限于：
+`parties` 数组指定合同中列出的参与者。每个 `party` 对象都与提供当事方详细信息的其他对象关联，包括：
+
+  - `role`：当事方的角色。值在此列表后跟的表中列出。
+  - `importance`：当事方的重要性。可能的值为 `Primary`（主要当事方）和 `Unknown`（非主要当事方）。
+  - `addresses`：用于识别地址的数组。
+    - `text`：地址。
+    - `location`：地址的位置，由其 `begin` 和 `end` 下标来定义。
+  - `contacts`：定义输入文档中所识别联系人的名称和角色的数组。
+    - `name`：联系人的名称。
+    - `role`：联系人的角色。
+
+可以为合同返回的 `role` 值包括但不限于：
 
 |`role`|描述|
 |:----------------:|-----------------------------------------------------------|
 |`Buyer` |负责为合同中所列商品或服务付款的当事方。|
-|`End User` |将与所提供的商品或服务进行交互的当事方，明确区别于 `Buyer`。|
+|`End User` |与所提供的商品或服务进行交互的当事方，明确区别于 `Buyer`。|
 |`None` |没有识别到此元素的任何当事方。|
 |`Supplier` |负责提供合同中所列商品或服务的当事方。|
 
 ## Categories
 {: #contract_categories}
 
-`categories` 数组定义语句的主题。目前支持的类别包括：
+`categories` 数组定义语句的主题。 
+
+此表中的类别和描述基于美国法律，可能不适用于美国以外的管辖区域。
+{: important}
+
+目前支持的类别包括：
 
 |`categories`|描述|
 |:----------------:|-----------------------------------------------------------|
@@ -92,12 +120,47 @@ lastupdated: "2018-10-23"
 
 |`attributes`|描述|
 |:----------------:|-----------------------------------------------------------|
-|`Location`|地理位置或区域。|
-|`DateTime`|日期、时间、日期范围或时间范围。|
+|`Address` |邮政地址。|
 |`Currency`|币值和单位。|
+|`DateTime`|日期、时间、日期范围或时间范围。|
+|`Location`|地理位置或区域。|
+|`Organization`    |组织。|
+|`Person`          |人员。|
+
+## 生效日期
+{: #effective_dates}
+
+`effective_dates` 数组识别文档在其间生效的日期。
+
+| `effective_dates`|描述|
+|:----------------:|-----------------------------------------------------------|
+|`text`            |生效日期，以字符串形式列出。|
+|`confidence_level`|所识别生效日期的置信度级别。可能的值包括 `High`、`Medium` 和 `Low`。|
+|`location`        |日期的位置，由其 `begin` 和 `end` 下标来定义。|
+
+## 合同金额
+{: #contract_amounts}
+
+`contract_amounts` 数组识别文档中指定的货币金额。
+
+| `contract_amounts`|描述|
+|:----------------:|-----------------------------------------------------------|
+|`text`            |合同金额，以字符串形式列出。|
+|`confidence_level`|所识别合同金额的置信度级别。可能的值包括 `High`、`Medium` 和 `Low`。|
+|`location`        |合同金额的位置，由其 `begin` 和 `end` 下标来定义。|
+
+## 终止日期
+{: #termination_dates}
+
+`termination_dates` 数组识别文档的终止日期。
+
+| `contract_amounts`|描述|
+|:----------------:|-----------------------------------------------------------|
+|`text`            |终止日期，以字符串形式列出。|
+|`confidence_level`|所识别终止日期的置信度级别。可能的值包括 `High`、`Medium` 和 `Low`。|
+|`location`        |终止日期的位置，由其 `begin` 和 `end` 下标来定义。|
 
 ## Provenance
 {: #provenance}
 
 `types` 和 `categories` 数组中的每个对象都包含一个 `provenance_ids` 数组。`provenance_ids` 数组有一个或多个键。每个键都有一个散列值，可以将该散列值发送给 IBM 以提供反馈或接收支持。
-

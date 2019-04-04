@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-06-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 
 # 教程：从 Retrieve and Rank 迁移
@@ -24,7 +36,8 @@ lastupdated: "2018-06-09"
 从 {{site.data.keyword.retrieveandrankshort}} 迁移到 {{site.data.keyword.discoveryfull}} 服务。这是《Cranfield 入门教程》的附加部分。
 
 ## 概述
-{: #overview}
+{: #overview-rnr}
+
 本教程将逐步指导您完成使用样本数据创建和训练 {{site.data.keyword.discoveryfull}} 服务的过程。本教程使用的数据集与 [{{site.data.keyword.retrieveandrankshort}} 入门教程](/docs/services/retrieve-and-rank/getting-started.html)中所用的相同，但您也可以使用相同的方法来创建使用您自己数据的服务实例。
 
 对于将数据从 {{site.data.keyword.retrieveandrankshort}} 迁移到 {{site.data.keyword.discoveryshort}} 的用户，此过程由两个主要步骤组成。
@@ -32,9 +45,9 @@ lastupdated: "2018-06-09"
 1. 迁移集合数据。
 2. 迁移训练数据。
 
-迁移已训练的集合数据时，**最**重要的是_使文档标识保持一致_。这是因为训练数据会使用这些标识来引用参考标准。如果在将标识从 {{site.data.keyword.retrieveandrankshort}} 移至 {{site.data.keyword.discoveryshort}} 时更改了标识，那么重新排名会被完全打乱（或者训练甚至可能无法启动）。{{site.data.keyword.discoveryshort}} 支持在 API 上传过程中指定文档标识，因此通过遵循本文档中的准则可避免此问题。{{site.data.keyword.retrieveandrankshort}} 训练数据通常存储在 `csv` 文件中。在本教程中，此 `csv` 文件用于将样本训练数据上传到 {{site.data.keyword.discoveryshort}}。在[从服务迁移训练数据](/docs/services/discovery/migrate-dcs-rr.html#extract-train)中详细描述了如何迁移从 {{site.data.keyword.retrieveandrankshort}} 工具中导出的训练数据。
+迁移已训练的集合数据时，**最**重要的是_使文档标识保持一致_。这是因为训练数据会使用这些标识来引用参考标准。如果在将标识从 {{site.data.keyword.retrieveandrankshort}} 移至 {{site.data.keyword.discoveryshort}} 时更改了标识，那么重新排名会被完全打乱（或者训练甚至可能无法启动）。{{site.data.keyword.discoveryshort}} 支持在 API 上传过程中指定文档标识，因此通过遵循本文档中的准则可避免此问题。{{site.data.keyword.retrieveandrankshort}} 训练数据通常存储在 `csv` 文件中。在本教程中，此 `csv` 文件用于将样本训练数据上传到 {{site.data.keyword.discoveryshort}}。在[从服务迁移训练数据](/docs/services/discovery?topic=discovery-migrate-dcs-rr#extract-train)中详细描述了如何迁移从 {{site.data.keyword.retrieveandrankshort}} 工具中导出的训练数据。
 
-本教程假定 {{site.data.keyword.retrieveandrankshort}} 的设置与 [{{site.data.keyword.retrieveandrankshort}} 入门教程](/docs/services/retrieve-and-rank/getting-started.html)的类似，并使用[此处](/docs/services/discovery/migrate-dcs-rr.html#source)描述的“从源迁移”路径。请参阅[评估指向 Watson Discovery 服务的迁移路径](/docs/services/discovery/migrate-dcs-rr.html#evaluate)，以获取有关其他迁移选项的信息。
+本教程假定 {{site.data.keyword.retrieveandrankshort}} 的设置与 [{{site.data.keyword.retrieveandrankshort}} 入门教程](/docs/services/retrieve-and-rank/getting-started.html)的类似，并使用[此处](/docs/services/discovery?topic=discovery-migrate-dcs-rr#source)描述的“从源迁移”路径。请参阅[评估指向 Watson Discovery 服务的迁移路径](/docs/services/discovery?topic=discovery-migrate-dcs-rr#evaluate)，以获取有关其他迁移选项的信息。
 
 要完成本教程，您需要满足以下条件：
 
@@ -47,7 +60,7 @@ lastupdated: "2018-06-09"
 
 开始本教程之前，必须满足以下先决条件：
 
--  本教程假定您已创建 {{site.data.keyword.discoveryshort}} 实例，如果需要有关如何创建 {{site.data.keyword.discoveryshort}} 实例的指导信息，请参阅[以下教程](/docs/services/discovery/getting-started.html)。
+-  本教程假定您已创建 {{site.data.keyword.discoveryshort}} 实例，如果需要有关如何创建 {{site.data.keyword.discoveryshort}} 实例的指导信息，请参阅[以下教程](/docs/services/discovery?topic=discovery-gs-api#gs-api)。
 
 -  本教程假定您具有服务凭证。
    -  在 {{site.data.keyword.Bluemix_notm}} 上的 Watson {{site.data.keyword.discoveryshort}} 服务中，单击**服务凭证**。
@@ -55,6 +68,7 @@ lastupdated: "2018-06-09"
    -  复制 `apikey` 值，并确保 `url` 值与以下示例中的 url 值相匹配，如果不匹配，也要进行替换。
 
 ## 向 Discovery 添加 Cranfield 数据
+{: #cranfield-rnr}
 
 1.  创建环境。
 
@@ -128,11 +142,12 @@ lastupdated: "2018-06-09"
     ```
     {: codeblock}
 
-查看 `document_counts` 部分以确定成功上传的文档数。我们预计使用此样本数据集不会发生任何文档失败。但是，对于其他数据集，您可能会看到失败的文档计数。如果有任何失败的文档计数，可以查看“通知 API”以了解错误消息。请在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window} 查看该部分，以查看“通知 API”命令。
+查看 `document_counts` 部分以确定成功上传的文档数。我们预计使用此样本数据集不会发生任何文档失败。但是，对于其他数据集，您可能会看到失败的文档计数。如果有任何失败的文档计数，可以查看“通知 API”以了解错误消息。请在[此处 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#query-system-notices){: new_window} 查看该部分，以查看“通知 API”命令。
 
 返回的 `training` 部分提供了有关训练的信息。上传您的训练数据后，我们将复查该部分。
 
 ## 向 Discovery 添加训练数据
+{: #trainingdata-rnr}
 
 Watson {{site.data.keyword.discoveryshort}} 服务使用机器学习模型对文档进行重新排名。为此，您需要对模型进行训练。在装入足够的查询以及相应的已评级文档后，即会执行训练。通过将具有足够差异的足够示例装入到 Watson {{site.data.keyword.discoveryshort}}，可以教会它什么是“良好”文档。在此步骤中，我们将使用在 {{site.data.keyword.retrieveandrankshort}} 中所用的现有 Cranfield“参考标准”来训练 Watson {{site.data.keyword.discoveryshort}}。
 
@@ -142,7 +157,7 @@ Watson {{site.data.keyword.discoveryshort}} 服务使用机器学习模型对文
 
    对于每个问题，至少有一个答案标识（文档标识）。每个文档标识都包含一个数字，用于指示答案与问题的相关程度。文档标识指向在先前步骤中上传到 {{site.data.keyword.discoveryshort}} 的 `cranfield-data.json` 文件中的答案。
 
-1.  下载“训练数据上传”脚本。您将使用此脚本来将训练数据上传到 {{site.data.keyword.discoveryshort}}。此脚本将 `csv` 文件变换为一组 JSON 查询和示例，然后使用[训练数据 API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#training-data){: new_window} 将这些内容发送到 {{site.data.keyword.discoveryshort}} 服务。
+1.  下载“训练数据上传”脚本。您将使用此脚本来将训练数据上传到 {{site.data.keyword.discoveryshort}}。此脚本将 `csv` 文件变换为一组 JSON 查询和示例，然后使用[训练数据 API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window} 将这些内容发送到 {{site.data.keyword.discoveryshort}} 服务。
     **注：**{{site.data.keyword.discoveryshort}} 可管理服务内的训练数据，因此，生成新的示例和训练查询时，可以将其存储在 {{site.data.keyword.discoveryshort}} 本身中，而不是存储为需要维护的单独 CSV 文件的一部分。
 1.  执行训练上传脚本，以将训练数据上传到 {{site.data.keyword.discoveryshort}}。将 `{apikey_value}`、`{path_to_file}`、`{environment_id}` 和 `{collection_id}` 替换为您的信息。请注意，还有其他选项，`-d` 表示调试，`-v` 表示来自 curl 的详细输出。
 
@@ -154,9 +169,9 @@ Watson {{site.data.keyword.discoveryshort}} 服务使用机器学习模型对文
 1.  装入数据后，即可以使用在上一部分中看到的集合详细信息命令来检查训练的状态。{{site.data.keyword.discoveryshort}} 将按大致每小时一次的频率进行检查，以查看是否有任何新数据，如果有，将开始处理这些数据，并将其转换为机器学习模型。正在训练模型时，您将看到 training 部分的状态从 `"processing": false` 更改为 `"processing": true`。模型经过训练后，您将看到 training 部分中的状态从 `"available": false` 更改为 `"available": true`。此外，您还将看到值 `"successfully_trained"` 的日期发生更改。如果有任何错误，可以如上一部分中所述，通过查看**通知 API** 来查看这些错误。
 
 ## 搜索文档
-{: search}
+{: #search-rnr}
 
-{{site.data.keyword.discoveryshort}} 服务将自动使用已训练的模型来对搜索结果（如果可用）进行重新排名。使用 `natural_language_query` 而不是 `query` 发出 [API 调用 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window} 时，会检查是否有模型可用。如果模型可用，那么 {{site.data.keyword.discoveryshort}} 会使用该模型来对结果进行重新排名。我们将先对未排名的文档执行搜索，然后使用排名模型来执行搜索。
+{{site.data.keyword.discoveryshort}} 服务将自动使用已训练的模型来对搜索结果（如果可用）进行重新排名。使用 `natural_language_query` 而不是 `query` 发出 [API 调用 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} 时，会检查是否有模型可用。如果模型可用，那么 {{site.data.keyword.discoveryshort}} 会使用该模型来对结果进行重新排名。我们将先对未排名的文档执行搜索，然后使用排名模型来执行搜索。
 
 1.  可以使用 cURL 命令来搜索集合中的文档。使用“查询 API”调用来执行查询可查看未排名的结果。将 `{apikey_value}`、`{environment_id}` 和 `{collection_id}` 替换为您自己的值。返回的结果将是未排名的结果，并将使用缺省的 {{site.data.keyword.discoveryshort}} 排名公式。可以通过打开训练数据 `csv` 文件，并将第一列的值复制到查询参数来尝试其他查询。
 

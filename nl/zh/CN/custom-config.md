@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 配置参考信息
 {: #configref}
@@ -23,7 +35,10 @@ lastupdated: "2018-01-23"
 如果您的数据有特殊的[转换](#conversion)、[扩充](#enrichment)或[规范化](#normalization)需求，那么可以采用 JSON 格式创建您自己的 {{site.data.keyword.discoveryshort}} 摄入配置。
 {: shortdesc}
 
- 以下部分中详细描述了此 JSON 的结构以及可在其中定义的对象。
+以下部分中详细描述了此 JSON 的结构以及可在其中定义的对象。
+
+如果您的集合是使用[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)创建的，将不会使用列出的 PDF 和 Word 转换设置，因此将忽略对这些转换设置的更改。
+{: note}
 
 ## 配置结构
 {: #structure}
@@ -82,10 +97,16 @@ lastupdated: "2018-01-23"
 
 - **JSON** 文件将使用 `json` 选项进行转换。
 
+如果您的集合是使用[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)创建的，将不会使用列出的 PDF 和 Word 转换设置，因此将忽略对这些转换设置的更改。
+{: note}
+
 以下部分中描述了这些选项。转换完成后，会先对内容执行[扩充](#enrichment)和[规范化](#normalization)，然后存储该内容。
 
 ### PDF
 {: #pdf}
+
+如果您的集合是使用[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)创建的，将不会使用列出的 PDF 和 Word 转换设置，因此将忽略对这些转换设置的更改。
+{: note}
 
 `pdf` 转换对象用于定义应该如何将 PDF 文档转换为 HTML，其结构如下：
 
@@ -129,6 +150,9 @@ lastupdated: "2018-01-23"
 
 ### Word
 {: #word}
+
+如果您的集合是使用[智能文档理解](/docs/services/discovery?topic=discovery-sdu#sdu)创建的，将不会使用列出的 PDF 和 Word 转换设置，因此将忽略对这些转换设置的更改。
+{: note}
 
 `word` 转换对象用于定义应该如何将 Word 文档转换为 HTML，其结构如下：
 
@@ -190,7 +214,7 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 - `"level": INT` - *必需* - HTML `h` 级别，使用这些参数识别到的文本将转换为该级别。
 - `"names": array` - *必需* - 将识别为此标题级别的样式名称的逗号分隔数组。
 
-*何时使用字体和何时使用样式* - 如果 Microsoft Word 文档非常符合样式表，其中每段都使用相应样式进行了正确标记，那么建议您使用 `styles` 来抽取标题。但是，您可能会发现某些文档具有作者已手动覆盖的样式。这些文档在使用 `fonts` 抽取方法时转换效果更好。
+*何时使用字体和何时使用样式* - 如果 Microsoft Word 文档非常符合样式表，其中每段都使用相应样式进行了正确标记，那么建议您使用 `styles` 来抽取标题。但是，您可能会发现某些文档具有写入者已手动覆盖的样式。这些文档在使用 `fonts` 抽取方法时转换效果更好。
 {: tip}
 
 
@@ -236,30 +260,37 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 {: codeblock}
 
 #### exclude_tags_completely
+{: #configref_exclude_completely}
 
 `"exclude_tags_completely" : array` - 将排除的 HTML 标记名称的数组。这包括标记、内容以及定义的任何标记属性。
 
 #### exclude_tags_keep_content
+{: #configref_exclude_tags_keep_content}
 
 `"exclude_tags_keep_content" : array` - 将除去标记信息的 HTML 标记名称的数组。这将导致精简 HTML 标记和任何标记属性。除非指定，否则不会进一步精简标记的内容。例如，如果为 `span` HTML 标记指定 `exclude_tags_keep_content`，那么 `<span class="info">Some <strong>Information</strong></span>` 将精简为：`Some <strong>Information</strong>`
 
 #### exclude_content
+{: #configref_exclude_content}
 
 `"xpaths" : array` - 用于识别所除去内容的 XPath 的数组。如果设置了此值，将从输出中除去与某个 XPath 相匹配的所有内容。
 
 #### keep_content
+{: #configref_keep_content}
 
 `"xpaths" : array` - 用于识别所转换内容的 XPath 的数组。如果设置了此值，将在输出中包含与某个 XPath 相匹配的所有内容。此参数指定的包含项将在 `exclude_content` 指定的任何处理之后进行处理。
 
 #### exclude_tag_attributes
+{: #configref_exclude_tag_attributes}
 
 `"exclude_tag_attributes" : array` - 由转换除去的 HTML 属性名称的数组，与这些属性名称所在的 HTML 标记无关。**注：**如果在同一配置中同时指定了 `exclude_tag_attributes` 和 `keep_tag_attributes`，那么您将收到一条错误消息 - 对于每个配置，只能指定其中一项。如果提供了 `keep_tag_attributes`，那么必须从配置中将其完全除去；此项不能作为空数组提供。
 
 #### keep_tag_attributes
+{: #configref_keep_tag_attributes}
 
 `"keep_tag_attributes" : array` - 由转换保留的 HTML 属性名称的数组。**注：**如果在同一配置中同时指定了 `keep_tag_attributes` 和 `exclude_tag_attributes`，那么您将收到一条错误消息 - 对于每个配置，只能指定其中一项。如果提供了 `exclude_tag_attributes`，那么必须从配置中将其完全除去；此项不能作为空数组提供。
 
 #### extracted_fields
+{: #configref_extracted}
 
 此对象用于定义将在转换过程中从 HTML 源代码中抽取到单独 JSON 字段中的任何内容。内容使用 CSS 选择器来识别。
 
@@ -279,7 +310,7 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 
 - `"css_selector" : string` - *必需* - 用于定义要存储在字段中的内容区域的 CSS 选择器表达式。
 - `"type" : string` - *必需* - 要创建的字段的类型，可以是 `string` 或 `date`。
-有关详细信息，请参阅[使用 CSS 选择器抽取字段](/docs/services/discovery/building.md#using-css)。
+有关详细信息，请参阅[使用 CSS 选择器抽取字段](/docs/services/discovery?topic=discovery-configservice#using-css)。
 
 ### 分段
 {: #segment}
@@ -303,7 +334,7 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 -  在配置过程中，不能指定 `normalizations`。
 -  在配置过程中，不能指定 `html` 转换的 `extracted_fields` 选项。
 
-有关详细信息，请参阅[执行分段](/docs/services/discovery/building.html#performing-segmentation)。
+有关详细信息，请参阅[执行分段](/docs/services/discovery?topic=discovery-configservice#performing-segmentation)。
 
 
 ### JSON
@@ -425,7 +456,7 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 
 - `"enrichment": string` - *必需* - 要在此字段上使用的扩充项类型。要抽取 {{site.data.keyword.nlushort}} 扩充项，请使用 `natural_language_understanding`；要执行“元素分类”，请使用 `elements`。
 
-  **注：**使用 `elements` 扩充项时，遵循[元素分类](/docs/services/discovery/element-classification.html)文档中指定的准则很重要。具体而言，只有在指定此扩充项时，才能摄入 PDF 文件。
+  **注：**使用 `elements` 扩充项时，遵循[元素分类](/docs/services/discovery?topic=discovery-element-classification#element-classification)文档中指定的准则很重要。具体而言，只有在指定此扩充项时，才能摄入 PDF 文件。
 
 - `"source_field" : string` - *必需* - 将扩充的源字段。完成 `json_normalizations` 操作后，源中必须存在此字段。
 - `"destination_field" : string` - *必需* - 要在其中创建扩充项的容器对象的名称。
@@ -433,28 +464,33 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
   **注：**配置中定义的字段名称必须满足[字段名称需求](#field_reqs)中定义的限制。
 
 ### 元素分类扩充项
+{: #element_classification_enrichments}
 
 使用“元素分类”时，每个 `elements` 扩充对象都必须包含 `"options": {}` 对象，并指定以下参数：
 
 - `"model" : string` - *必需* - 要用于此文档的元素抽取模型。当前支持的模型为：`contract`
 
-**注：**使用 `elements` 扩充项时，遵循[元素分类](/docs/services/discovery/element-classification.html)文档中指定的准则很重要。具体而言，只有在指定此扩充项时，才能摄入 PDF 文件。
+**注：**使用 `elements` 扩充项时，遵循[元素分类](/docs/services/discovery?topic=discovery-element-classification#element-classification)文档中指定的准则很重要。具体而言，只有在指定此扩充项时，才能摄入 PDF 文件。
 
 ### Natural Language Understanding 扩充项
+{: #nlu_enrichments}
 
 使用 {{site.data.keyword.nlushort}} 时，`enrichments` 数组中的每个对象还必须包含具有以下一个或多个扩充项的 `"options": { "features": { } }` 对象：
 
 ### categories
+{: #nlu_categories}
 
 `categories` 扩充项用于识别所摄入文档中的任何常规类别。此扩充项没有选项，必须指定为空对象 `"categories" : {}`
 
 ### concepts
+{: #nlu_concepts}
 
 `concepts` 扩充项用于根据输入文本中提供的其他概念和实体，查找与该文本关联的概念。
 
 - `"limit" : INT` - *必需* - 要从所摄入文档中抽取的最大概念数。
 
 ### emotion
+{: #nlu_emotion}
 
 `emotion` 扩充项用于评估整个文档或整个文档中指定目标字符串的总体情绪语气（例如 `anger`）。此扩充项只能用于英语内容。
 
@@ -462,6 +498,7 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 - `"targets" : array` - _可选_ - 文档中评估其情绪状态的目标字符串的逗号分隔数组。
 
 ### entities
+{: #nlu_entities}
 
 `entities` 扩充项用于抽取已知实体（例如，人员、场所和组织）的实例。（可选）可以指定 {{site.data.keyword.knowledgestudioshort}} 定制模型来抽取定制实体。
 
@@ -471,17 +508,19 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 - `"mentions": boolean` - _可选_ - 为 `true` 时，将记录提及此实体的次数。缺省值为 `false`。
 - `"mention_types": boolean` - _可选_ - 为 `true` 时，将存储每次提及此实体的提及类型。缺省值为 `false`。
 - `"sentence_location": boolean` - _可选_ - 为 `true` 时，将存储每次实体提及的语句位置。缺省值为 `false`。
-- `"model" : string` - _可选_ - 指定此项时，定制模型用于抽取实体，而不抽取公共模型。此选项需要 {{site.data.keyword.knowledgestudioshort}} 定制模型与 {{site.data.keyword.discoveryshort}} 的实例相关联。请参阅[与 Watson Knowledge Studio 集成](/docs/services/discovery/integrate-wks.html)以获取更多信息。
+- `"model" : string` - _可选_ - 指定此项时，定制模型用于抽取实体，而不抽取公共模型。此选项需要 {{site.data.keyword.knowledgestudioshort}} 定制模型与 {{site.data.keyword.discoveryshort}} 的实例相关联。请参阅[与 Watson Knowledge Studio 集成](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)以获取更多信息。
 
 ### keywords
+{: #nlu_keywords}
 
-`keywords` 扩充项用于在文本内抽取有效字的实例。要了解 keywords、concepts 和 entities 之间的差异，请参阅[了解实体、概念和关键字之间的差异](/docs/services/discovery/building.html#udbeck)。
+`keywords` 扩充项用于在文本内抽取有效字的实例。要了解 keywords、concepts 和 entities 之间的差异，请参阅[了解实体、概念和关键字之间的差异](/docs/services/discovery?topic=discovery-configservice#udbeck)。
 
 - `"sentiment" : boolean` - _可选_ - 为 `true` 时，将在周围内容的上下文中对抽取的关键字执行观点分析。
 - `"emotion" : boolean` - _可选_ - 为 `true` 时，将在周围内容的上下文中对抽取的关键字执行情绪语气分析。
 - `"limit" : INT` - _可选_ - 要从所摄入文档中抽取的最大关键字数。缺省值为 `50`。
 
 ### semantic_roles
+{: #nlu_semantic_roles}
 
 `semantic_roles` 扩充项用于识别所摄入文本内的语句组成部分，例如主体、操作和受体。
 
@@ -490,6 +529,7 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 - `"limit" : INT` - _可选_ - 要从所摄入文档中抽取的最大 `semantic_roles` 对象数（要解析的语句数）。缺省值为 `50`。
 
 ### sentiment
+{: #nlu_sentiment}
 
 `sentiment` 扩充项用于评估整个文档或整个文档中指定目标字符串的总体观点级别。
 
@@ -497,10 +537,11 @@ Microsoft Word 转换对象的工作方式类似于 PDF 转换对象。但是，
 - `"targets" : array` - _可选_ - 文档中要评估其观点的目标字符串的逗号分隔数组。
 
 ### relations
+{: #nlu_relations}
 
 `relations` 扩充项用于抽取文档内识别到的实体之间的已知关系。（可选）可以指定 {{site.data.keyword.knowledgestudioshort}} 定制模型来抽取定制关系。
 
-- `"model" : string` - _可选_ - 指定此项时，定制模型用于抽取关系，而不抽取公共模型。此选项需要 {{site.data.keyword.knowledgestudioshort}} 定制模型与 {{site.data.keyword.discoveryshort}} 的实例相关联。请参阅[与 Watson Knowledge Studio 集成](/docs/services/discovery/integrate-wks.html)以获取更多信息。
+- `"model" : string` - _可选_ - 指定此项时，定制模型用于抽取关系，而不抽取公共模型。此选项需要 {{site.data.keyword.knowledgestudioshort}} 定制模型与 {{site.data.keyword.discoveryshort}} 的实例相关联。请参阅[与 Watson Knowledge Studio 集成](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks)以获取更多信息。
 
 ## 规范化
 {: #normalization}

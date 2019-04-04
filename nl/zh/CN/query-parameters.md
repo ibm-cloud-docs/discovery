@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-10-04"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # 查询参数
 {: #query-parameters}
 
-{{site.data.keyword.discoveryfull}} 服务通过查询提供强大的内容搜索功能。通过 {{site.data.keyword.discoveryshort}} 服务上传并扩充内容后，可以构建查询，将 {{site.data.keyword.discoveryshort}} 集成到您自己的项目中，或者使用 {{site.data.keyword.watson}} Explorer Application Builder 来创建定制应用程序。要开始使用查询，请参阅[查询概念](/docs/services/discovery/using.html)。有关参数的完整列表，请参阅[查询参考](/docs/services/discovery/query-reference.html#parameter-descriptions)。
+{{site.data.keyword.discoveryfull}} 服务通过查询提供强大的内容搜索功能。通过 {{site.data.keyword.discoveryshort}} 服务上传并扩充内容后，可以构建查询，将 {{site.data.keyword.discoveryshort}} 集成到您自己的项目中，或者使用 {{site.data.keyword.watson}} Explorer Application Builder 来创建定制应用程序。要开始使用查询，请参阅[查询概念](/docs/services/discovery?topic=discovery-query-concepts#query-concepts)。有关参数的完整列表，请参阅[查询参考](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions)。
 {: shortdesc}
 
 **搜索参数**
@@ -32,12 +44,12 @@ lastupdated: "2018-10-04"
 ## query
 {: #query}
 
-查询搜索将按相关性顺序返回数据集内的所有文档，包括完整扩充项和完整文本。查询还会排除未提及查询内容的所有文档。这些查询使用 [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html) 进行编写。
+查询搜索将按相关性顺序返回数据集内的所有文档，包括完整扩充项和完整文本。查询还会排除未提及查询内容的所有文档。这些查询使用 [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators) 进行编写。
 
 ## filter
 {: #filter}
 
-可高速缓存的查询，用于排除未提及查询内容的所有文档。过滤器搜索结果**不会**按相关性顺序返回。这些查询使用 [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html) 进行编写。
+可高速缓存的查询，用于排除未提及查询内容的所有文档。过滤器搜索结果**不会**按相关性顺序返回。这些查询使用 [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators) 进行编写。
 
 ### filter 与 query 参数的差异
 {: #filtervquery}
@@ -47,7 +59,7 @@ lastupdated: "2018-10-04"
 - 仅使用 filter 参数将返回无特定顺序的搜索结果。
 - 仅使用 query 参数将按相关性顺序返回搜索结果。
 
-在大型数据集内，如果需要按相关性顺序返回结果，那么应该组合使用 `filter` 和 `query` 参数，因为将这两个参数一起使用可提高性能。这是因为 `filter` 参数将首先运行并高速缓存结果，然后 `query` 参数将对结果排名。有关将 filter 和 query 一起使用的示例，请参阅[构建组合查询](/docs/services/discovery/using.html#building-combined-queries)。还可以在 aggregation 中使用 filter。
+在大型数据集内，如果需要按相关性顺序返回结果，那么应该组合使用 `filter` 和 `query` 参数，因为将这两个参数一起使用可提高性能。这是因为 `filter` 参数将首先运行并高速缓存结果，然后 `query` 参数将对结果排名。有关将 filter 和 query 一起使用的示例，请参阅[构建组合查询](/docs/services/discovery?topic=discovery-query-concepts#building-combined-queries)。还可以在 aggregation 中使用 filter。
 
 编写同时包含一个 `filter` 参数和一个 `aggregation`、`query` 或 `natural_language_query` 参数的查询时，`filter` 参数首先运行，在此之后，所有 `aggregation`、`query` 或 `natural_language_query` 参数都以并行方式运行。
 
@@ -56,12 +68,12 @@ lastupdated: "2018-10-04"
 ## aggregation
 {: #aggregation}
 
-聚集查询会返回与一组数据值相匹配的文档的计数；例如，排名靠前的关键字、实体的总体观点等。要获取聚集选项的完整列表，请参阅[聚集表](/docs/services/discovery/query-aggregations.html)。这些聚集使用 [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery/query-operators.html) 进行编写。
+聚集查询会返回与一组数据值相匹配的文档的计数；例如，排名靠前的关键字、实体的总体观点等。要获取聚集选项的完整列表，请参阅[聚集表](/docs/services/discovery?topic=discovery-query-aggregations#query-aggregations)。这些聚集使用 [{{site.data.keyword.discoveryshort}} Query Language](/docs/services/discovery?topic=discovery-query-operators#query-operators) 进行编写。
 
 ## natural_language_query
 {: #nlq}
 
-自然语言查询支持执行以自然语言表达的查询，这可能是从会话式或自由文本界面中的最终用户那里收到的查询 - 例如："IBM Watson in healthcare"。此参数将整个输入用作查询文本。此参数**不会**识别运算符。`natural_language_query` 参数会启用段落搜索和相关性训练等功能。已训练的集合将在自然语言查询的结果中返回 `confidence` 分数。请参阅[置信度分数](/docs/services/discovery/train-tooling.html#confidence)以获取详细信息。自然语言查询的最大查询字符串长度为 `2048`。
+自然语言查询支持执行以自然语言表达的查询，这可能是从会话式或自由文本界面中的最终用户那里收到的查询 - 例如："IBM Watson in healthcare"。此参数将整个输入用作查询文本。此参数**不会**识别运算符。`natural_language_query` 参数会启用段落搜索和相关性训练等功能。在大多数情况下，所有专用集合将在查询结果中返回`置信度`分数。请参阅[置信度分数](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence)以获取详细信息。自然语言查询的最大查询字符串长度为 `2048`。
 
 **结构参数**
 
@@ -104,7 +116,7 @@ lastupdated: "2018-10-04"
 `passages` 参数只能用于专用集合。不能用于 {{site.data.keyword.discoverynewsfull}} 集合。
 {: tip}
 
-{{site.data.keyword.discoveryshort}} 尝试使用语句边界检测来返回从语句起始处开始并在语句结尾处停止的段落。为此，它会首先搜索长度大致为 [`passages.characters` 参数](/docs/services/discovery/query-parameters.html#passages_characters)（缺省值为 `400`）中所指定长度的段落。然后，它将每个段落扩展至两倍于指定长度的限制，以便返回完整的语句。当 `passages.characters` 参数指定的长度较短和/或文档中的语句非常长时，如果不扩展至所请求长度的两倍以上，那么可能没有足够接近的语句边界，从而无法返回完整语句。在这种情况下，{{site.data.keyword.discoveryshort}} 会保持在两倍于 `passages.characters` 参数的限制范围内，因此返回的段落不会包含整个语句，并会省略开头和/或结尾。
+{{site.data.keyword.discoveryshort}} 尝试使用语句边界检测来返回从语句起始处开始并在语句结尾处停止的段落。为此，它会首先搜索长度大致为 [`passages.characters` 参数](/docs/services/discovery?topic=discovery-query-parameters#passages_characters)（缺省值为 `400`）中所指定长度的段落。然后，它将每个段落扩展至两倍于指定长度的限制，以便返回完整的语句。当 `passages.characters` 参数指定的长度较短和/或文档中的语句非常长时，如果不扩展至所请求长度的两倍以上，那么可能没有足够接近的语句边界，从而无法返回完整语句。在这种情况下，{{site.data.keyword.discoveryshort}} 会保持在两倍于 `passages.characters` 参数的限制范围内，因此返回的段落不会包含整个语句，并会省略开头和/或结尾。
 
 由于语句边界调整可扩大段落大小，因此您将看到平均段落长度明显增加。如果应用程序限制了屏幕空间，那么您可能要为 `passages.characters` 设置较小的值和/或截断 {{site.data.keyword.discoveryshort}} 返回的段落。语句边界检测适用于所有支持的语言，并使用特定于语言的逻辑。
 
@@ -149,7 +161,7 @@ lastupdated: "2018-10-04"
 ### passages.count
 {: #passages_count}
 
-要返回的最大段落数。如果找到的段落总数小于该最大值，那么搜索将返回数量少于最大值的段落。缺省值为 `10`。最大值为 `100`。
+要返回的最大段落数。如果这是找到的段落总数，搜索将返回少于最大值的段落数。缺省值为 `10`。最大值为 `100`。
 
 ### passages.characters
 {: #passages_characters}
@@ -206,19 +218,19 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 ## 去重
 {: #deduplicate}
 
- 这是一个 Beta 功能，用于根据 `title` 字段从 {{site.data.keyword.discoverynewsfull}} 集合查询结果中排除重复文档。请参阅[从查询结果中排除重复文档](/docs/services/discovery/query-parameters.html#deduplication)。
+ 这是一个 Beta 功能，用于根据 `title` 字段从 {{site.data.keyword.discoverynewsfull}} 集合查询结果中排除重复文档。请参阅[从查询结果中排除重复文档](/docs/services/discovery?topic=discovery-query-parameters#deduplication)。
 
 ### deduplicate.field
 {: #deduplicate_field}
 
-这是一个 Beta 功能，用于根据指定的 `{field}` 从查询结果中排除重复文档。请参阅[从查询结果中排除重复文档](/docs/services/discovery/query-parameters.html#deduplication)。
+这是一个 Beta 功能，用于根据指定的 `{field}` 从查询结果中排除重复文档。请参阅[从查询结果中排除重复文档](/docs/services/discovery?topic=discovery-query-parameters#deduplication)。
 
 ### 从查询结果中排除重复文档
 {: #deduplication}
 
 如果要查询 {{site.data.keyword.discoverynewsfull}} 集合，或者专用数据集合包含多个完全相同（或接近完全相同）的文档，那么可以使用文档去重功能将其中大部分重复文档排除在查询结果之外。
 
-**注：**目前，文档去重仅作为 Beta 功能受支持。请参阅发行说明中的 [Beta 功能](/docs/services/discovery/release-notes.html#beta-features)以获得更多信息。此 Beta 功能当前仅支持英语版本，请参阅[语言支持](/docs/services/discovery/language-support.html#feature-support)以获取详细信息。
+**注：**目前，文档去重仅作为 Beta 功能受支持。请参阅发行说明中的 [Beta 功能](/docs/services/discovery?topic=discovery-release-notes#beta-features)以获得更多信息。此 Beta 功能当前仅支持英语版本，请参阅[语言支持](/docs/services/discovery?topic=discovery-language-support#feature-support)以获取详细信息。
 
 **注：**将对每个查询独立去重，因此不支持跨偏移量去重。
 
@@ -236,6 +248,7 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 执行去重时，JSON 响应会包含 `"duplicates_removed": x`，其中 `x` 是从结果中除去的文档数。
 
 #### 在 Watson Discovery News 中对文档去重
+{: #deduplicatewds}
 
 新闻文章可能会联合到多家新闻媒体，{{site.data.keyword.discoverynewsfull}} 会选取其中每家新闻媒体，因而会生成重复的文章。这意味着对 {{site.data.keyword.discoverynewsfull}} 的查询可能会在查询结果中返回多个完全相同或几乎完全相同的文章。使用去重功能将从搜索查询中除去大部分重复的文章。
 
@@ -258,7 +271,7 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 ## collection_ids
 {: #collection_ids}
 
-将查询的同一环境中集合的逗号分隔列表。仅当使用 `environments/{environment_id}/query?` 方法时，此参数才有效。请参阅[查询多个集合](/docs/services/discovery/using.html#multiple-collections)以获取更多信息。
+将查询的同一环境中集合的逗号分隔列表。仅当使用 `environments/{environment_id}/query?` 方法时，此参数才有效。请参阅[查询多个集合](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections)以获取更多信息。
 
 ```bash
 &collection_ids={id1},{id2}
@@ -268,7 +281,7 @@ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/
 ## similar
 {: #similar}
 
-文档相似度用于识别与 `similar.document_ids` 参数中列出的文档类似的文档。通过使用 `similar.fields` 参数指定将考虑哪些字段用于比较，可以进一步优化此值。缺省值为 `false`。请参阅[文档相似度](/docs/services/discovery/using.html#doc-similarity)以获取更多信息。
+文档相似度用于识别与 `similar.document_ids` 参数中列出的文档类似的文档。通过使用 `similar.fields` 参数指定将考虑哪些字段用于比较，可以进一步优化此值。缺省值为 `false`。请参阅[文档相似度](/docs/services/discovery?topic=discovery-query-concepts#doc-similarity)以获取更多信息。
 
 ```bash
 &similar=true

@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-03"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 
 # 从 Watson Document Conversion 和 Retrieve and Rank 迁移
@@ -26,6 +38,7 @@ lastupdated: "2017-10-03"
 {{site.data.keyword.discoveryfull}} 提供了更稳健的查询界面，简化了数据摄入，改进了训练管理，并扩大了规模。{{site.data.keyword.discoveryshort}} 解决了与 {{site.data.keyword.retrieveandrankshort}} 相同的许多核心用例，包括支持代理程序辅助、组织知识库搜索和研究辅助。它在构建时考虑了 {{site.data.keyword.retrieveandrankshort}} 用户面临的许多困难，并解决了其中大量问题。{{site.data.keyword.discoveryshort}} 还提供了 {{site.data.keyword.retrieveandrankshort}} 中不可用的用于检索信息的新功能（包括段落检索和改进的搜索算法），以找到更多相关结果。
 
 **功能比较**
+{: #features-dcs-rr}
 
 |功能| {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
@@ -56,7 +69,7 @@ lastupdated: "2017-10-03"
 
 大多数客户将 {{site.data.keyword.documentconversionshort}} 与 {{site.data.keyword.retrieveandrankshort}} 配合使用。如果未使用 {{site.data.keyword.documentconversionshort}} 来转换内容，以使这些内容可以存储在可搜索索引中，请继续查看[用于迁移独立 {{site.data.keyword.documentconversionshort}} 的选项](#dcs)。
 
-如果您最初使用的是 {{site.data.keyword.retrieveandrankshort}} 教程，并且将您自己的服务实例基于该教程，那么可在[此处](/docs/services/discovery/migrate-rnr-tut.html)找到该教程中说明如何将相同数据摄入到 {{site.data.keyword.discoveryshort}} 中的扩展内容。
+如果您最初使用的是 {{site.data.keyword.retrieveandrankshort}} 教程，并且将您自己的服务实例基于该教程，那么可在[此处](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)找到该教程中说明如何将相同数据摄入到 {{site.data.keyword.discoveryshort}} 中的扩展内容。
 
 **注：**{{site.data.keyword.discoveryshort}} 随附转换和扩充功能。如果您已使用 {{site.data.keyword.documentconversionshort}} 和/或 {{site.data.keyword.nlushort}} 来转换和扩充源 HTML、PDF 或 Microsoft Word 文档，那么这些服务将替换为 {{site.data.keyword.discoveryshort}} 服务中的功能。
 
@@ -75,14 +88,15 @@ lastupdated: "2017-10-03"
 
 如果可以满足所有迁移条件，那么建议您使用此方法来移至 {{site.data.keyword.discoveryshort}} 服务。
 
-要迁移源内容，请根据源数据的详情来修改[迁移教程](/docs/services/discovery/migrate-rnr-tut.html)中描述的过程。
+要迁移源内容，请根据源数据的详情来修改[迁移教程](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)中描述的过程。
 
 #### 迁移答案单元
+{: #answerunit-dcs-rr}
 
 如果是使用 {{site.data.keyword.documentconversionshort}} 创建的答案单元，请选择以下其中一个选项来迁移该内容：
 
 -  如果您训练了一个排名器并且需要迁移排名，那么应该获取从 {{site.data.keyword.documentconversionshort}} 返回的内容，然后将其摄入到 {{site.data.keyword.discoveryshort}} 中
--  如果没有任何训练数据要迁移，请使用[文档分段功能](/docs/services/discovery/building.html#doc-segmentation)将原始的源文档摄入到 {{site.data.keyword.discoveryshort}} 中
+-  如果没有任何训练数据要迁移，请使用[文档分段功能](/docs/services/discovery?topic=discovery-configservice#doc-segmentation)将原始的源文档摄入到 {{site.data.keyword.discoveryshort}} 中
 
 ### 从已建立索引的内容迁移
 {: #indexed}
@@ -96,9 +110,10 @@ lastupdated: "2017-10-03"
 
 使用 [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} 方法和空白查询 `q=*:*` 从服务中抽取文档。返回的文档数可能大于实际的最大返回计数（对于大多数集合，为 `200`）。如果发生这种情况，应该使用适当的[分页 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} 来发出多个调用，以收集所有文档。
 
-使用 [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window} 方法将具有指定**标识**的文档上传到 {{site.data.keyword.discoveryshort}} 服务。每个文档上传都是一个单独的 API 调用。
+使用 [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} 方法将具有指定**标识**的文档上传到 {{site.data.keyword.discoveryshort}} 服务。每个文档上传都是一个单独的 API 调用。
 
 ## 迁移训练数据
+{: #trainingdata-dcs-rr}
 
 迁移结果之后，下一步是迁移已为内容创建的所有训练数据。有两个选项可用于迁移训练数据：从源 (`csv`) 迁移，以及从服务迁移。如果您已通过 `csv` 文件上传了训练数据，并仍有权访问该文件，那么应该从源进行迁移。如果您使用的是 {{site.data.keyword.retrieveandrankshort}} 工具或无权访问原始 `csv` 文件，那么应该从服务进行迁移。
 
@@ -112,7 +127,7 @@ lastupdated: "2017-10-03"
 
 如果可以满足所有迁移条件，那么建议您使用此方法将训练数据移至 {{site.data.keyword.discoveryshort}} 服务。
 
-要迁移训练数据，请根据源数据的详情来修改[迁移教程](/docs/services/discovery/migrate-rnr-tut.html)中描述的过程。
+要迁移训练数据，请根据源数据的详情来修改[迁移教程](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr)中描述的过程。
 
 ### 从服务迁移训练数据
 {: #extract-train}
@@ -238,7 +253,7 @@ lastupdated: "2017-10-03"
 ## 语言支持
 {: #language}
 
-请参阅 [{{site.data.keyword.discoveryshort}} 的语言支持表](/docs/services/discovery/language-support.html)。{{site.data.keyword.retrieveandrankshort}} 功能主要通过**基本** {{site.data.keyword.discoveryshort}} 语言支持进行支持。
+请参阅 [{{site.data.keyword.discoveryshort}} 的语言支持表](/docs/services/discovery?topic=discovery-language-support#language-support)。{{site.data.keyword.retrieveandrankshort}} 功能主要通过**基本** {{site.data.keyword.discoveryshort}} 语言支持进行支持。
 
 ## 迁移查询
 {: #queries}
@@ -264,12 +279,12 @@ lastupdated: "2017-10-03"
 | `*` | `*` |通配符|
 |`~`（0 到 1）|[~n] |字符串变体|
 
-请参阅[查询概念](/docs/services/discovery/using.html)和[查询参考](/docs/services/discovery/query-reference.html)文档，以获取有关 {{site.data.keyword.discoveryfull}} 查询语言的详细信息。
+请参阅[查询概念](/docs/services/discovery?topic=discovery-query-concepts#query-concepts)和[查询参考](/docs/services/discovery?topic=discovery-query-reference#query-reference)文档，以获取有关 {{site.data.keyword.discoveryfull}} 查询语言的详细信息。
 
 
 ## 独立 Watson Document Conversion 服务迁移
 {: #dcs}
 
-如果是使用 {{site.data.keyword.documentconversionshort}} 来帮助将内容摄入到 {{site.data.keyword.retrieveandrankshort}} 中，那么该功能已演变为单一服务 - {{site.data.keyword.discoveryshort}}。通过 {{site.data.keyword.discoveryshort}}，您可以轻松地将 Microsoft Word、PDF、HTML 和 JSON 文档转换、扩充和摄入到可训练且可搜索的索引中。如果您的用例未涉及将转换的内容存储在索引中，那么此部分与您相关。如果要将文档摄入索引中，请参阅[摄入到 {{site.data.keyword.discoveryshort}} 服务](/docs/services/discovery/building.html)。
+如果是使用 {{site.data.keyword.documentconversionshort}} 来帮助将内容摄入到 {{site.data.keyword.retrieveandrankshort}} 中，那么该功能已演变为单一服务 - {{site.data.keyword.discoveryshort}}。通过 {{site.data.keyword.discoveryshort}}，您可以轻松地将 Microsoft Word、PDF、HTML 和 JSON 文档转换、扩充和摄入到可训练且可搜索的索引中。如果您的用例未涉及将转换的内容存储在索引中，那么此部分与您相关。如果要将文档摄入索引中，请参阅[摄入到 {{site.data.keyword.discoveryshort}} 服务](/docs/services/discovery?topic=discovery-configservice#configservice)。
 
 IBM 不再提供专用于单独转换 Microsoft Word、PDF 和 HTML 文档的服务。如果您当前在使用 {{site.data.keyword.documentconversionshort}} 服务，并且未将输出摄入到联机索引服务（例如，{{site.data.keyword.discoveryshort}}），那么建议您考虑迁移到开放式源代码替代方案，例如 [Apache Tika ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://tika.apache.org/){: new_window}。
