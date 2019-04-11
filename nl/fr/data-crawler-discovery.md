@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Configuration de Data Crawler
 {: #configuring-the-data-crawler}
@@ -23,8 +35,8 @@ lastupdated: "2018-07-03"
 Pour configurer Data Crawler dans le but d'explorer votre référentiel, vous devez spécifier l'adaptateur d'entrée approprié dans le fichier `crawler.conf`, puis configurer les informations spécifiques au référentiel dans les fichiers de configuration d'adaptateur d'entrée.
 {: shortdesc}
 
-Vous pouvez utiliser les outils ou l'API {{site.data.keyword.discoveryshort}} pour explorer des sources de données Box, Salesforce et Microsoft SharePoint Online. Voir [Connexion à des sources de données](/docs/services/discovery/connect.html) pour plus d'informations.
-{: tip}
+Utilisez Data Crawler uniquement pour explorer les bases de données ou les partages de fichier. Dans tous les autres cas, vous devez utiliser le connecteur {{site.data.keyword.discoveryshort}} approprié. Pour plus de détails, voir [Connexion à des sources de données](/docs/services/discovery?topic=discovery-sources#sources). Plus aucune assistance n'est disponible pour Data Crawler si vous utilisez ce composant avec une source de données prise en charge par les connecteurs {{site.data.keyword.discoveryshort}}.
+{: important}
 
 Avant d'effectuer les modifications décrites dans les étapes ci-après, prenez soin de créer votre répertoire de travail en copiant le contenu du répertoire `{installation_directory}/share/examples/config` dans un répertoire de travail sur votre système, par exemple, `/home/config`.
 
@@ -51,7 +63,7 @@ Les valeurs spécifiées sont celles qui sont définies par défaut dans `config
         ```
         {: codeblock}
 
-    Ce fichier contient d'autres paramètres facultatifs qui peuvent être définis de manière appropriée pour votre environnement. Pour plus d'informations sur la définition de ces valeurs, voir :[Configuration des options d'exploration](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options), [Configuration de l'adaptateur d'entrée](/docs/services/discovery/data-crawler-discovery.html#input-adapter), [Configuration de l'adaptateur de sortie](/docs/services/discovery/data-crawler-discovery.html#output-adapter) et [Options supplémentaires de gestion des explorations](/docs/services/discovery/data-crawler-discovery.html#additional-crawl-management-options).
+    Ce fichier contient d'autres paramètres facultatifs qui peuvent être définis de manière appropriée pour votre environnement. Pour plus d'informations sur la définition de ces valeurs, voir :[Configuration des options d'exploration](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [Configuration de l'adaptateur d'entrée](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Configuration de l'adaptateur de sortie](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter) et [Options supplémentaires de gestion des explorations](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options).
 
 1.  Ouvrez le fichier `discovery/discovery_service.conf` dans un éditeur de texte Modifiez les valeurs suivantes qui sont propres au service {{site.data.keyword.discoveryshort}} que vous avez précédemment créé sur {{site.data.keyword.Bluemix}} :
 
@@ -60,11 +72,11 @@ Les valeurs spécifiées sont celles qui sont définies par défaut dans `config
     -   `configuration_id` - ID de configuration du service {{site.data.keyword.discoveryshort}}.
     -   `configuration` - Emplacement du chemin d'accès complet du fichier `discovery_service.conf`, par exemple, `/home/config/discovery/discovery_service.conf`.
     -   `username` - Données d'identification par nom d'utilisateur pour le service {{site.data.keyword.discoveryshort}}.
-    -   `password` - Données d'identification par mot de passe pour le service {{site.data.keyword.discoveryshort}}.
+    -   `apikey` - Données d'identification pour le service {{site.data.keyword.discoveryshort}}.
 
-    Ce fichier contient d'autres paramètres facultatifs qui peuvent être définis de manière appropriée pour votre environnement. Pour plus d'informations sur la définition de ces valeurs, voir [Configuration des options de service](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options).
+    Ce fichier contient d'autres paramètres facultatifs qui peuvent être définis de manière appropriée pour votre environnement. Pour plus d'informations sur la définition de ces valeurs, voir [Configuration des options de service](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options).
 
-1.  Après avoir modifié ces fichiers, vous êtes prêt à explorer vos données. Reportez-vous à la rubrique[Exploration de votre référentiel de données](/docs/services/discovery/data-crawler-run.html#crawling-your-data-repository) pour continuer.
+1.  Après avoir modifié ces fichiers, vous êtes prêt à explorer vos données. Reportez-vous à la rubrique[Exploration de votre référentiel de données](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository) pour continuer.
 
 ## Configuration des options d'exploration
 {: #configuring-crawl-options}
@@ -97,18 +109,17 @@ Les options qui peuvent être définies dans ce fichier sont les suivantes :
 
     **Remarque** : relatif au répertoire `lib/java` de la structure de connecteur.
 
-    -   Cette valeur doit être `oakland` lorsque le connecteur SharePoint est utilisé.
     -   Cette valeur doit être `database` lorsque le connecteur Database est utilisé.
 
     Vous pouvez laisser cette valeur vide (par exemple, une chaîne vide "") lorsque vous utilisez d'autres connecteurs.
 
--   **`urls_to_filter`** - Liste noire d'URL à ne pas explorer, sous la forme d'une expression régulière. Data Crawler n'explorera pas les URL qui correspondent à des expressions régulières fournies. 
+-   **`urls_to_filter`** - Liste noire d'URL à ne pas explorer, sous la forme d'une expression régulière. Data Crawler n'explorera pas les URL qui correspondent à des expressions régulières fournies.
 
     La `domain list` contient les domaines qui ne doivent pas être explorés. Complétez cette liste si nécessaires.
 
-    La `filetype list` contient les extensions de fichier que le service d'orchestration ne prend pas en charge. 
+    La `filetype list` contient les extensions de fichier que le service d'orchestration ne prend pas en charge.
 
-    Retirez les types de fichier pris en charge des expressions régulières. 
+    Retirez les types de fichier pris en charge des expressions régulières.
 
     Vérifiez que le domaine de votre adresse URL de départ est autorisé par le filtre. Utilisez un filtre vide pour le comportement `allow everything`.
 
@@ -234,8 +245,7 @@ Les options par défaut peuvent être modifiées directement en ouvrant le fichi
 -   **`collection_id`** - Nom de la collection de documents que vous configurez dans le service {{site.data.keyword.discoveryshort}}.
 -   **`api_version`** - Usage interne uniquement. Date de la dernière modification apportée à la version d'API.   
 -   **`configuration_id`** - Nom du fichier de configuration que le service {{site.data.keyword.discoveryshort}} utilise.
--   **`username`** - Nom d'utilisateur utilisé pour l'authentification auprès de l'emplacement de votre collection de documents explorés.   
--   **`password`** - Mot de passe utilisé pour l'authentification auprès de l'emplacement de votre collection de documents explorés.
+-   **`apikey`** - Données d'identification utilisées pour l'authentification auprès de l'emplacement de votre collection de documents explorés.
 
 L'adaptateur de sortie du service {{site.data.keyword.discoveryshort}} peut envoyer des statistiques afin de permettre à {{site.data.keyword.IBM}} de mieux comprendre et servir ses utilisateurs. Les options suivantes peuvent être définies pour la variable `send_stats` :
 

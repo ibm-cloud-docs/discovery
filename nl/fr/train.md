@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-09-06"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-14"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Amélioration de la pertinence des résultats à l'aide de l'API
 {: #improving-result-relevance-with-the-api}
@@ -25,19 +37,21 @@ Vous pouvez former le service {{site.data.keyword.discoveryshort}} afin d'améli
 
 La formation pour la pertinence est facultative ; si les résultats de vos requêtes répondent à vos besoins, aucune autre formation n'est requise. Pour obtenir une présentation de la création de cas d'utilisation relatifs à la formation, voir l'article de blogue [How to get the most out of Relevancy Training ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: new_window}.
 
-Pour des informations complètes sur les API de formation, voir le document [API Reference ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}.
+Pour des informations complètes sur les API de formation, voir le document [API Reference ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery){: new_window}.
 
-Si vous préférez utiliser les outils {{site.data.keyword.discoveryshort}} pour former {{site.data.keyword.discoveryshort}}, voir [Amélioration de la pertinence des résultats à l'aide des outils](/docs/services/discovery/train-tooling.html).
+Si vous préférez utiliser les outils {{site.data.keyword.discoveryshort}} pour former {{site.data.keyword.discoveryshort}}, voir [Amélioration de la pertinence des résultats à l'aide des outils](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling).
 
-**Remarque :** la formation pour la pertinence s'applique uniquement aux requêtes en langage naturel portant sur des collections privées. Elle n'est pas destinée à être utilisée avec des requêtes en langage de requête {{site.data.keyword.discoveryshort}} structurées.  Pour en savoir plus sur le langage de requête {{site.data.keyword.discoveryshort}}, voir [Concepts de requête](/docs/services/discovery/using.html).
+**Remarque :** la formation pour la pertinence s'applique uniquement aux requêtes en langage naturel portant sur des collections privées. Elle n'est pas destinée à être utilisée avec des requêtes en langage de requête {{site.data.keyword.discoveryshort}} structurées.  Pour en savoir plus sur le langage de requête {{site.data.keyword.discoveryshort}}, voir [Concepts de requête](/docs/services/discovery?topic=discovery-query-concepts#query-concepts).
 
-Les collections formées renverront un score `confidence` dans le résultat d'une requête en langage naturel. Pour plus d'informations, voir [Scores de confiance](/docs/services/discovery/train-tooling.html#confidence).
+Les collections formées renverront un score `confidence` dans le résultat d'une requête en langage naturel. Pour plus d'informations, voir [Scores de confiance](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
 
-Voir [Exigences relatives aux données de formation](/docs/services/discovery/train.html#reqs) pour connaître les exigences minimales pour l'apprentissage, ainsi que les limites d'apprentissage.
+L'ajout d'une liste de mots à exclure personnalisée peut améliorer la pertinence des résultats pour les requêtes en langage naturel. Pour plus d'informations, voir [Définition des mots à exclure](/docs/services/discovery?topic=discovery-query-concepts#stopwords).
 
-Voir [Surveillance de l'utilisation](/docs/services/discovery/feedback.html) pour plus de détails sur le suivi de l'utilisation et l'utilisation de ces données pour vous aider à maîtriser et à améliorer vos applications.
+Voir [Exigences relatives aux données de formation](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs) pour connaître les exigences minimales pour l'apprentissage, ainsi que les limites d'apprentissage.
 
-<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery/using.html) and the [Query reference](/docs/services/discovery/query-reference.html) for information about structured queries and natural language queries. -->
+Voir [Surveillance de l'utilisation](/docs/services/discovery?topic=discovery-usage#usage) pour plus de détails sur le suivi de l'utilisation et l'utilisation de ces données pour vous aider à maîtriser et à améliorer vos applications.
+
+<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) and the [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) for information about structured queries and natural language queries. -->
 
 Les composants nécessaires pour former une instance Discovery sont notamment les suivants :
 
@@ -65,9 +79,10 @@ Les données de formation doivent respecter les critères de qualité **minimum*
 
 La formation ne doit pas dépasser les exigences **maximales** suivantes :
   - Vous ne pouvez pas dépasser 24 collections formées par environnement.
-  - Au sein d'un même environnement, vous êtes limité à 10 000 requêtes de formation, avec un maximum de 100 exemples par requête. 
+  - Au sein d'une même collection, vous êtes limité à 10 000 requêtes de formation, avec un maximum de 100 exemples par requête. 
 
 ## Ajout d'une requête au jeu de données de formation
+{: #adding-a-query}
 
 Utilisez la méthode `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data` pour ajouter une requête au jeu de données de formation d'une collection. La requête est spécifiée en tant qu'objet JSON au format suivant :
 
@@ -91,7 +106,7 @@ Les valeurs présentes dans cet objet sont les suivantes :
 
 - `query_id` : ID unique de la requête. Si vous ne renseignez pas cette zone, un ID est généré automatiquement par le service.
 - `natural_language_query` : requête en langage naturel qui s'applique au jeu de données de formation. <!-- The `natural_language_query` parameter is preferred. -->
-- `filter` : filtre facultatif pour la requête, tel qu'il est décrit dans la rubrique [Référence de requête](/docs/services/discovery/query-reference.html#parameter-descriptions).
+- `filter` : filtre facultatif pour la requête, tel qu'il est décrit dans la rubrique [Référence de requête](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
 
     **Remarque :** si vous incluez des filtres dans vos requêtes de données de formation, prenez soin d'utiliser les mêmes filtres lorsque vous exécutez des requêtes en langage naturel dans votre collection formée. Si vous formez la collection avec des données filtrées et que vous n'utilisez pas les mêmes types de filtre lorsque vous exécutez une requête sur la collection, les résultats peuvent être imprévisibles.
 
@@ -101,7 +116,7 @@ Les valeurs présentes dans cet objet sont les suivantes :
    - `cross_reference` : libellé facultatif, composé généralement d'une zone dans le document référencé, qui "épingle" le document et les informations de la zone si l'ID du document vient à changer, par exemple, si le même ID est affecté à un document nouvellement ingéré. Le fait de spécifier une valeur pour `cross-reference` ne permet **pas** de lier un document à un autre, mais cela permet de s'assurer que le service conserve les informations pertinentes du document si ce dernier est renommé ou écrasé.
    - `relevance` : entier compris entre `0` et `100` (inclus) indiquant la pertinence relative de la requête par rapport aux données de formation. Des valeurs supérieures indiquent une pertinence plus élevée. La valeur `0` indique qu'il n'y a aucune pertinence par rapport à la requête, tandis que la valeur `100` indique que la pertinence avec la requête est absolue.
 
-   **Remarque :** bien que les valeurs possibles pour le paramètre `relevance` soient comprises entre `0` et `100` pour fournir un maximum de flexibilité, vous pouvez utiliser une plus petite plage de valeurs pour simplifier les exemples d'évaluation. Une plage de valeurs standard peut être `0` à `4`, ou vous pouvez utiliser toute la plage, mais vous ne devez utiliser que des incréments de 20 (`0`, `20`, `40`, `60`, `80` et `100`). Les outils {{site.data.keyword.discoveryshort}} utilisent les scores de pertinence `0` pour *non pertinent* et `10` pour *pertinent*. Si vous prévoyez d'évaluer vos documents à l'aide des outils et de l'API {{site.data.keyword.discoveryshort}} ou si vous prévoyez de commencer avec l'API, puis d'utiliser les outils, utilisez les scores de pertinence `0` et `10`.
+   **Remarque :** bien que les valeurs possibles pour le paramètre `relevance` soient comprises entre `0` et `100` pour fournir un maximum de flexibilité, vous pouvez utiliser une plus petite plage de valeurs pour simplifier les exemples d'évaluation. Une plage de valeurs standard peut s'étendre de `0` à `4`, ou vous pouvez utiliser la plage dans son intégralité, mais vous ne devez utiliser que des incréments de 20 (`0`, `20`, `40`, `60`, `80` et `100`). Les outils {{site.data.keyword.discoveryshort}} utilisent les scores de pertinence `0` pour *non pertinent* et `10` pour *pertinent*. Si vous prévoyez d'évaluer vos documents à l'aide des outils et de l'API {{site.data.keyword.discoveryshort}} ou si vous prévoyez de commencer avec l'API, puis d'utiliser les outils, utilisez les scores de pertinence `0` et `10`.
 
 L'objet suivant illustre une requête de données de formation renseignée :
 
@@ -156,12 +171,13 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
 {: pre}
 
 ## Ajout d'un exemple à une requête de données de formation
+{: #adding-an-example}
 
 Après avoir créé une requête de données de formation, vous pouvez continuer à y ajouter des exemples afin d'améliorer l'exactitude de la formation. Utilisez la méthode `POST /v1/environments/{environment_id}/collections/{collection_id}/training_data/{query_id}` pour ajouter un exemple à une requête de données de formation existante.
 
 Procédez comme suit pour ajouter un exemple à une requête de données de formation :
 
-1. Procurez-vous l'ID de requête de la requête de données de formation à laquelle vous souhaitez ajouter un nouvel exemple en[répertoriant les requêtes de données de formation d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window} :
+1. Procurez-vous l'ID de requête de la requête de données de formation à laquelle vous souhaitez ajouter un nouvel exemple en[répertoriant les requêtes de données de formation d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window} :
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2016-12-01"
@@ -205,7 +221,7 @@ Procédez comme suit pour ajouter un exemple à une requête de données de form
    ```
    {: pre}
 
-1. Vérifiez que le nouvel exemple a été ajouté à la requête de données de formation en[répertoriant une nouvelle fois les requêtes de données de formation d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window} :
+1. Vérifiez que le nouvel exemple a été ajouté à la requête de données de formation en[répertoriant une nouvelle fois les requêtes de données de formation d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window} :
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2016-12-01"
@@ -242,7 +258,7 @@ Procédez comme suit pour ajouter un exemple à une requête de données de form
    ```
    {: codeblock}
 
-1. Vérifiez le statut de la formation en utilisant la méthode qui consiste à [afficher les détails d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#list-collection-details){: new_window} et en recherchant la valeur de la zone `"training"`/`"available"`. Lorsque vous avez ajouté suffisamment de requêtes et d'exemples pour répondre aux exigences de formation, la valeur renvoyée pour la zone est `true` et le service commence automatiquement à utiliser les données de formation.
+1. Vérifiez le statut de la formation en utilisant la méthode qui consiste à [afficher les détails d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#get-collection-details){: new_window} et en recherchant la valeur de la zone `"training"`/`"available"`. Lorsque vous avez ajouté suffisamment de requêtes et d'exemples pour répondre aux exigences de formation, la valeur renvoyée pour la zone est `true` et le service commence automatiquement à utiliser les données de formation.
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2016-12-01"
@@ -292,19 +308,19 @@ Procédez comme suit pour ajouter un exemple à une requête de données de form
 
    Si la pertinence de vos résultats ne s'est pas améliorée, ajoutez d'autres requêtes de formation jusqu'à ce que les résultats soient conformes à vos attentes.
 
-Pour plus de conseils sur la formation, voir [Astuces pour la formation de pertinence](/docs/services/discovery/train-tips.html#relevancy-tips).   
+Pour plus de conseils sur la formation, voir [Astuces pour la formation de pertinence](/docs/services/discovery?topic=discovery-relevancy-tips#relevancy-tips).   
 
 ## Exécution d'autres opérations de requête de données de formation
 {: #training-data-operations}
 
-Vous pouvez administrer et gérer des requêtes de données de formation en utilisant d'autres méthodes API, comme indiqué dans le document [API Reference ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/){: new_window}:
+Vous pouvez administrer et gérer des requêtes de données de formation en utilisant d'autres méthodes API, comme indiqué dans le document [API Reference ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery){: new_window}:
 
- - [Afficher les données de formation d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#get-training-data){: new_window}
- - [Supprimer toutes les données de formation d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-all-training-data){: new_window}
- - [Afficher le contenu d'une requête de données de formation spécifiée![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#show-td-query){: new_window}
- - [Supprimer une requête de données de formation de la collection![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-td-query-example){: new_window}
- - [Modifier le libellé de pertinence ou la référence croisée d'un exemple de requête de données de formation![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#update-example){: new_window}
- - [Supprimer un exemple de document d'une requête de données de formation![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-example){: new_window}
+ - [Afficher les données de formation d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
+ - [Supprimer toutes les données de formation d'une collection ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#delete-all-training-data){: new_window}
+ - [Afficher le contenu d'une requête de données de formation spécifiée![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#get-details-about-a-query){: new_window}
+ - [Supprimer une requête de données de formation de la collection![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-example-for-training-data-query){: new_window}
+ - [Modifier le libellé de pertinence ou la référence croisée d'un exemple de requête de données de formation![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#change-label-or-cross-reference-for-example){: new_window}
+ - [Supprimer un exemple de document d'une requête de données de formation![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
 
- **Surveillance des erreurs :** des erreurs de données de formation apparaissent dans les avis et vous pouvez les surveiller à l'aide de l'[API notices ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-notices){: new_window}
+ **Surveillance des erreurs :** des erreurs de données de formation apparaissent dans les avis et vous pouvez les surveiller à l'aide de l'[API notices ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#query-system-notices){: new_window}
  (`GET /v1/environments/{environment_id}/collections/{collection_id}/notices`).

@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-26"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-10"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Sécurité de l'information
 {: #information-security}
@@ -50,20 +62,20 @@ Cette API vous permet de :
 - Libeller vos données avec un ID client.
 - Supprimer toutes les données d'un ID client spécifique, y compris les avis connexes.
 
-Les données sont libellées en ajoutant l'`customer_id` de votre choix (voir les restrictions dans [Comment libeller des données](/docs/services/discovery/information-security.html#labeling)) à l'en-tête facultatif `X-Watson-Metadata`. {{site.data.keyword.discoveryshort}} peut ensuite les supprimer par `customer_id`.
+Les données sont libellées en ajoutant l'`customer_id` de votre choix (voir les restrictions dans [Comment libeller des données](/docs/services/discovery?topic=discovery-information-security#labeling)) à l'en-tête facultatif `X-Watson-Metadata`. {{site.data.keyword.discoveryshort}} peut ensuite les supprimer par `customer_id`.
 
 Dans tout appel REST, un en-tête facultatif `X-Watson-Metadata` peut être envoyé avec des paires `field=value` séparées par des points-virgules, où un seul `customer_id` est actuellement conservé. En ajoutant cet `customer_id` à l'en-tête `X-Watson-Metadata`, la demande indique qu'elle contient des données appartenant à cet `customer_id`.
 
-Les `customer_id` sont uniques au sein d'une même instance de service {{site.data.keyword.discoveryshort}}. Ils ne sont PAS uniques par environnement ou collection. Ils ne doivent pas comporter de données personnelles. 
+Les `customer_id` sont uniques au sein d'une même instance de service {{site.data.keyword.discoveryshort}}. Ils ne sont PAS uniques par environnement ou collection. Ils ne doivent pas comporter de données personnelles.
 
-**Remarque :** Les fonctions expérimentales et bêta ne sont pas destinées à un usage en environnement de production. Il n'est donc pas garanti qu'elles fonctionnent comme prévu lors de l'utilisation de l'étiquetage et de la suppression de données. Les fonctions expérimentales et bêta ne doivent pas être utilisées lors de l'implémentation d'une solution nécessitant l'étiquetage et la suppression de données. 
+**Remarque :** Les fonctions expérimentales et bêta ne sont pas destinées à un usage en environnement de production. Il n'est donc pas garanti qu'elles fonctionnent comme prévu lors de l'utilisation de l'étiquetage et de la suppression de données. Les fonctions expérimentales et bêta ne doivent pas être utilisées lors de l'implémentation d'une solution nécessitant l'étiquetage et la suppression de données.
 
 ## Méthodes prenant en charge l'étiquetage des données
 {: #pi_methods}
 
-Les informations stockées suivantes peuvent être supprimées en utilisant un `customer_id` si ce `customer_id` a été spécifié lors de l'ajout original d'informations à l'aide de la méthode associée : 
+Les informations stockées suivantes peuvent être supprimées en utilisant un `customer_id` si ce `customer_id` a été spécifié lors de l'ajout original d'informations à l'aide de la méthode associée :
 
-- requêtes (`/v1/environments/{environment_id}/collections/{collection_id}/query`) Uniquement avec les paramètres `passages` ou `natural_language_query` 
+- requêtes (`/v1/environments/{environment_id}/collections/{collection_id}/query`) Uniquement avec les paramètres `passages` ou `natural_language_query`
 - événements (`/v1/events`)
 - documents (`/v1/environments/{environment_id}/collections/{collection_id}/documents`)
 - avis (`/v1/environments/{environment_id}/collections/{collection_id}/notices`) Seuls les `notices` d'ingestion sont libellés.
@@ -87,20 +99,20 @@ Vous avez la possibilité d'inclure la zone `customer_id` avec la portion de for
 
 **Remarque :** Si vos documents ont déjà été ingérés, vous devrez à nouveau les verser pour ajouter l'en-tête `X-Watson-Metadata` et le `customer_id`.
 
-**Remarque :** Si vous spécifiez `customer_id` dans le formulaire à plusieurs parties `metadata` ET l'en-tête `X-Watson-Metadata` pour le même document, le `customer_id` de l'en-tête `X-Watson-Metadata` sera utilisé. 
+**Remarque :** Si vous spécifiez `customer_id` dans le formulaire à plusieurs parties `metadata` ET l'en-tête `X-Watson-Metadata` pour le même document, le `customer_id` de l'en-tête `X-Watson-Metadata` sera utilisé.
 
 Restrictions :
 
 - La valeur de l'en-tête `X-Watson-Metadata` ne doit pas dépasser 4 kilooctets de texte.
 - L'en-tête `X-Watson-Metadata` doit comporter une liste de paires `field=value` séparées par des points-virgules. `field` et `value` ne doivent pas contenir de point-virgule (`;`) ni de signe égal (`=`).
-- Les `customer_id` sont uniques au sein de chaque instance {{site.data.keyword.discoveryshort}}. Ils ne sont PAS uniques par environnement ou collection. 
+- Les `customer_id` sont uniques au sein de chaque instance {{site.data.keyword.discoveryshort}}. Ils ne sont PAS uniques par environnement ou collection.
 - La longueur d'un `customer_id` ne doit pas dépasser 256 caractères.
 - Si un `customer_id` contient uniquement un blanc ou est totalement vide, il sera traité comme si le `customer_id` n'avait pas été fourni et aucun message d'erreur ne sera renvoyé.
 
 ### Etiquetage de données à l'aide des outils Discovery
 {: #labelingtooling}
 
-Les données peuvent être libellées avec une zone `customer_id` lors de l'utilisation des outils {{site.data.keyword.discoveryshort}}. Cliquez sur le ![Rouage](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> et entrez le `customer_id` dans la zone **GDPR Data Label**. Une fois cette zone définie, toutes les données téléchargées durant cette session de navigation seront libellées avec le `customer_id` spécifié. Cette zone doit être changée manuellement si l'ID client associé change.
+Les données peuvent être libellées avec une zone `customer_id` lors de l'utilisation des outils {{site.data.keyword.discoveryshort}}. Cliquez sur l'icône ![Environment details](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> et entrez l'élément `customer_id` dans la zone **GDPR Data Label**. Une fois cette zone définie, toutes les données téléchargées durant cette session de navigation seront libellées avec le `customer_id` spécifié. Cette zone doit être changée manuellement si l'ID client associé change.
 
 L'ajout d'un `customer_id` via la zone **GDPR Data Label** permet de libeller les documents, notices/avis, entités Knowledge Graph, relations Knowledge Graph et données d'apprentissage de ce domaine d'URL à partir de maintenant, y compris chaque instance sous ce domaine. Tout action (chargements de document inclus) qui s'est produite dans les outils {{site.data.keyword.discoveryshort}} avant l'ajout de la zone **GDPR Data Label** ne sera pas libellée.
 
@@ -111,7 +123,7 @@ L'ajout d'un `customer_id` via la zone **GDPR Data Label** permet de libeller le
 
 Si des documents ont déjà été explorés à l'aide de Data Crawler, vous devrez les réexplorer pour ajouter l'en-tête `X-Watson-Metadata` et le `customer_id`.
 
-1. Mettez à jour votre configuration d'adaptateur de sortie {{site.data.keyword.discoveryshort}} Data Crawler afin d'inclure le `customer_id`. Voir [Configuration de l'adaptateur de sortie](/docs/services/discovery/data-crawler-discovery.html#output-adapter).
+1. Mettez à jour votre configuration d'adaptateur de sortie {{site.data.keyword.discoveryshort}} Data Crawler afin d'inclure le `customer_id`. Voir [Configuration de l'adaptateur de sortie](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter).
 1. Planifiez une exploration. Les documents sont soumis à {{site.data.keyword.discoveryshort}} à l'aide de l'en-tête `X-Watson-Metadata`, et ils seront libellés avec le `customer_id` configuré.
 
 ## Suppression de données libellées
@@ -119,9 +131,11 @@ Si des documents ont déjà été explorés à l'aide de Data Crawler, vous devr
 
 Les données doivent être libellées avec un `customer_id` pour pouvoir être supprimées ultérieurement.
 
-1. Utilisez l'opération `DELETE /v1/user_data` et indiquez le `customer_id` des données que vous souhaitez supprimer. `DELETE /v1/user_data` supprime toutes les données associées à un `customer_id` particulier au sein de cette instance de service, comme spécifié dans les [méthodes prenant en charge l'étiquetage des données](/docs/services/discovery/information-security.html#pi_methods). Voir également [API reference ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html#delete-user-data){: new_window}
+1. Utilisez l'opération `DELETE /v1/user_data` et indiquez le `customer_id` des données que vous souhaitez supprimer. `DELETE /v1/user_data` supprime toutes les données associées à un `customer_id` particulier au sein de cette instance de service, comme spécifié dans les [méthodes prenant en charge l'étiquetage des données](/docs/services/discovery?topic=discovery-information-security#pi_methods). Voir également [API reference ![Icône de lien externe](../../icons/launch-glyph.svg "Icône de lien externe")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}
 
 Les suppressions sont effectuées de manière asynchrone. Vous ne pouvez pas suivre la progression des suppressions.
+
+Pour vérifier que l'ensemble du contenu libellé a été correctement retiré, `user_delete` doit être exécuté une fois que le nombre indiqué pour les éléments `processing` et `pending` pour toutes les collections de votre environnement est égal à la valeur `0`.
 
 Si un `customer_id` inexistant est fourni, rien n'est supprimé, mais une réponse `200 - OK` est renvoyée.
 

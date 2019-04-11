@@ -2,20 +2,32 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-12-18"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Support de langue
 {: #language-support}
@@ -31,13 +43,14 @@ Le service {{site.data.keyword.discoveryfull}} offre deux niveaux de support de 
 | Néerlandais (nl)                     |  De base         |
 | Français (fr)                     |  Complet         |
 | Allemand (de)                     |  Complet         |
-| Italien (it)                    |  De base         |
+| Italien (it)                    |  Complet        |
 | Japonais (ja)                  |  Complet         |
 | Coréen (ko)                    |  Complet         |
 | Portugais brésilien (pt-br)   |  Complet         |
 | Espagnol (es)                    |  Complet         |
 
 ## Support de base
+{: #basic-support}
 
 - Le support {{site.data.keyword.discoveryshort}} comprend les fonctions suivantes :
     - Conversion de document
@@ -47,12 +60,14 @@ Le service {{site.data.keyword.discoveryfull}} offre deux niveaux de support de 
     - Index optimisé pour les langues
     - Formation de pertinence
     - Extension de requête
-    - Documentation disponible en 9 langues : anglais, français, allemand, japonais, coréen, portugais brésilien, espagnol, chinois simplifié et chinois traditionnel. Faites défiler jusqu'au bas de la page pour sélectionner la langue de la documentation {{site.data.keyword.Bluemix_notm}}. 
+    - Mots à exclure
+    - Documentation disponible en 9 langues : anglais, français, allemand, japonais, coréen, portugais brésilien, espagnol, chinois simplifié et chinois traditionnel. Faites défiler jusqu'au bas de la page pour sélectionner la langue de la documentation {{site.data.keyword.Bluemix_notm}}.
 - Enrichissements
     - Intégration aux modèles personnalisés {{site.data.keyword.knowledgestudiofull}}
     - Détection de la langue
 
 ## Support complet
+{: #full-support}
 
 Le support complet comprend le support de base, plus :
 
@@ -75,3 +90,10 @@ Actuellement les fonctions suivantes sont prises en charge en anglais uniquement
 - Enrichissement Element Classification
 - {{site.data.keyword.discoveryfull}} Knowledge Graph (version bêta)
 - Dédoublonnage de documents (version bêta)
+
+## Prise en charge en japonais uniquement
+{: #japanese-support}
+
+La fonction suivante est actuellement prise en charge en japonais uniquement :
+
+- Dictionnaires de marquage sémantique personnalisés

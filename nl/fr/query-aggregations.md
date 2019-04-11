@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-05-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Agrégations de requête
 {: #query-aggregations}
 
-Les agrégations renvoient un ensemble de valeurs de données. Pour obtenir la liste complète des agrégations disponibles, voir la rubrique [Référence de requête](/docs/services/discovery/query-reference.html#aggregations).
+Les agrégations renvoient un ensemble de valeurs de données. Pour obtenir la liste complète des agrégations disponibles, voir la rubrique [Référence de requête](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ## term
 {: #term}
@@ -35,7 +47,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filter
-{: #filter}
+{: #aggfilter}
 
 Modificateur qui permet d'affiner le groupe de documents de la requête d'agrégation qu'il précède. Cet exemple permet de filtrer le groupe de documents incluant le concept Cloud Computing.
 
@@ -100,7 +112,7 @@ Si vous spécifiez `anomaly:true` avec l'agrégation `timeslice`, les résultats
   - Une zone `anomaly` dans les points considérés comme des anomalies dans le tableau de résultats de la sortie. La zone anomaly comporte une valeur de données du type`float` indiquant l'ampleur du comportement anormal. Plus la valeur de la zone anomaly est proche de `1`, plus il est probable que le résultat sera anormal.
 
   - Les zones `key` et `key_as_string` dans chacun des objets du tableau `results` constituent une valeur d'horodatage UNIX, exprimée en secondes.
-  - Le score d'anomalie est relatif à une requête et non à plusieurs requêtes.
+  - Le score d'anomalie est relatif à la requête d'origine uniquement.
 
 ```json
 "type": "timeslice",
@@ -144,6 +156,7 @@ Si vous spécifiez `anomaly:true` avec l'agrégation `timeslice`, les résultats
 {: codeblock}
 
 #### Limitations de la détection d'anomalies
+{: #anomaly-limitations}
 
 - Pour l'instant, la détection d'anomalies est disponible uniquement sur les agrégations `timeslice` de niveau supérieur. Elle n'est pas disponible dans les agrégations de niveau inférieur (imbriquées).
 - Le nombre maximal de points pouvant être traités par la détection d'anomalies dans n'importe quelle agrégation `timeslice` donnée est `1500`.
