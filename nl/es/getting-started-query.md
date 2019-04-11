@@ -1,69 +1,84 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-05-21"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-06"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Iniciación a la creación de consultas
 {: #getting-started-with-querying}
 
-En esta guía de aprendizaje, vamos a aprender a escribir algunos tipos de consultas en {{site.data.keyword.discoveryshort}}.
+En esta guía de aprendizaje, vamos a aprender a escribir algunos tipos de consultas en {{site.data.keyword.discoveryshort}} Query Language.
 {: shortdesc}
 
 Para obtener más información sobre cómo escribir consultas, consulte:
-- [Conceptos de consultas](/docs/services/discovery/using.html)
-- [Referencia de consultas](/docs/services/discovery/query-reference.html) (incluye la lista de parámetros, operadores y agregaciones disponibles en {{site.data.keyword.discoveryshort}} Query Language)
+- [Conceptos de consultas](/docs/services/discovery?topic=discovery-query-concepts#query-concepts)
+- [Referencia de consultas](/docs/services/discovery?topic=discovery-query-reference#query-reference) (incluye la lista de parámetros, operadores y agregaciones disponibles en {{site.data.keyword.discoveryshort}} Query Language)
 
-Estas consultas de ejemplo se crean utilizando el conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Si desea utilizar la API en su lugar, añada los parámetros de consulta a la llamada de la API. Para obtener más información y ejemplos, consulte la sección de Consultas de la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}.
+Estas consultas de ejemplo se crean utilizando el conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Si desea utilizar la API en su lugar, añada los parámetros de consulta a la llamada de la API. Para obtener más información y ejemplos, consulte la sección de Consultas de la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window}.
 
 También puede escribir consultas de lenguaje natural (como "IBM Watson partnerships") utilizando el conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Esta guía de aprendizaje se centra primordialmente en escribir consultas con {{site.data.keyword.discoveryshort}} Query Language puesto que sus requisitos podrían requerirle una consulta estructurada, y los filtros y las agregaciones se deben escribir en {{site.data.keyword.discoveryshort}} Query Language.
 {: tip}
 
 ## Antes de empezar
+{: #querying-before-you-begin}
 
-**Complete los pasos de la [Iniciación al conjunto de herramientas](/docs/services/discovery/getting-started-tool.html). ** Si todavía no ha completado la **Iniciación**, vaya a la pantalla **Gestionar datos**, cree una nueva recopilación denominada {{site.data.keyword.IBM_notm}} Press Releases, y añada estos cuatro documentos a la misma (utilice la **Configuración predeterminada**): <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>
+Vaya a la pantalla **Gestionar datos** y cree una nueva recopilación denominada {{site.data.keyword.IBM_notm}} Press Releases, y añada estos cuatro documentos a la misma: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download>test-doc1.html <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download>test-doc2.html <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download>test-doc3.html <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download>test-doc4.html <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>
+
+En algunos navegadores, los enlaces se abren en una nueva ventana en lugar de guardarse localmente. Si esto ocurre, seleccione `Guardar como` en el menú `Archivo` de su navegador para guardar una copia del archivo.
+{: tip}
 
 ## Paso 1: Inicio rápido para el esquema de datos de Discovery
+{: #querying-step1}
 
 Primero nos familiarizaremos con el JSON de {{site.data.keyword.discoveryshort}}. Para entender cómo crear una consulta con {{site.data.keyword.discoveryshort}} Query Language, es importante familiarizarse con el JSON que {{site.data.keyword.discoveryshort}} genera después de enriquecer los documentos en su recopilación.
 
-1.  [Inicie el conjunto de herramientas de {{site.data.keyword.discoveryshort}}](/docs/services/discovery/getting-started-tool.html#launch-the-tooling). En la pantalla **Gestionar datos**, elija la recopilación {{site.data.keyword.IBM_notm}} Press Releases.
+1.  [Inicie el conjunto de herramientas de {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-getting-started#launch-the-tooling). En la pantalla **Gestionar datos**, elija la recopilación {{site.data.keyword.IBM_notm}} Press Releases.
 
 1.  Revise los conocimientos descubiertos por Watson en sus documentos enriquecidos.
 
-    -  **Sentimientos generales** visualiza un desglose porcentual de los documentos etiquetados como positivos, neutros o negativos según el enriquecimiento del Análisis de sentimiento.
-    -  **Entidades principales** visualiza las personas, lugar y organizaciones que el enriquecimiento Extracción de entidades ha descubierto en sus documentos.
-    -  **Jerarquía de contenido** visualiza las taxonomías jerárquicas que el enriquecimiento de Clasificación de categorías ha descubierto en sus documentos.
-    -  **Conceptos relacionados** visualiza los conceptos que el enriquecimiento Etiquetado de conceptos ha descubierto en sus documentos.
-
-         Pulse **Ver en esquema** en cualquier tarjeta para ver los enriquecimientos que comprenden dichos resultados.
-         {: tip}
+    -  **Análisis de sentimiento** visualiza un desglose porcentual de los documentos etiquetados como positivos, neutros o negativos según el enriquecimiento del Análisis de sentimiento.
+    -  **Extracción de entidades** visualiza las personas, lugar y organizaciones que el enriquecimiento Extracción de entidades ha descubierto en sus documentos.
+    -  **Clasificación de categorías** visualiza las taxonomías jerárquicas que el enriquecimiento de Clasificación de categorías ha descubierto en sus documentos.
+    -  **Etiquetado de conceptos** visualiza los conceptos que el enriquecimiento Etiquetado de conceptos ha descubierto en sus documentos.
 
 1.  Para familiarizarse con el esquema de datos de los documentos, consulte la pantalla **Ver esquema de datos**. Esta pantalla visualiza los campos y valores en sus documentos transformados de dos maneras: por documento (**Vista de documentos**) o por campo (**Vista de recopilación**). La **Vista de recopilación** visualizará todos los campos en la recopilación.
 
-    Pulse el botón **Ver esquema de datos**. En la **Vista de recopilación**, bajo `enriched_text`, puede examinar los enriquecimientos aplicados con el archivo de la **Configuración predeterminada**. Pulse en `categories`, `concepts`, `entities` y `sentiment` para cómo la recopilación se enriquece con la información de Watson.
+    Pulse el icono **Ver esquema de datos** en la parte izquierda. En la **Vista de recopilación**, bajo `enriched_text`, puede examinar los enriquecimientos aplicados a la recopilación. Pulse en `categories`, `concepts`, `entities` y `sentiment` para cómo la recopilación se enriquece con la información de Watson.
 
 Si su consulta no devuelve ningún resultado coincidente, y piensa que debería hacerlo, intente cambiar el campo/valor que está utilizando la consulta por uno que pueda verificar en el esquema de datos.
 {: tip}    
 
 ## Paso 2: Cree una consulta básica
+{: #querying-step2}
 
 Empezaremos escribiendo una consulta que encontrará el concepto `Cloud computing` en la recopilación:
 
-1.  Pulse en el icono de crear consultas ![Icono de consultas](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> para abrir la página de consultas. Seleccione la recopilación que contiene {{site.data.keyword.IBM_notm}} Press Releases y pulse **Empezar**.
+1.  Pulse el icono **Crear consultas** ![Icono de consultas](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> para abrir la página de consultas. Seleccione la recopilación que contiene {{site.data.keyword.IBM_notm}} Press Releases y pulse **Empezar**.
 1.  En la pantalla **Crear consultas**, pulse **Buscar documentos**, a continuación **Utilizar {{site.data.keyword.discoveryshort}} Query Language** y luego:
     - Pulse el desplegable **Campo** y seleccione `enriched_text.concepts.text`, para **Operador** elija `contiene` y, a continuación, especifique el **Valor** de `Cloud computing`. Se visualizará la consulta `enriched_text.concepts.text:Cloud computing` bajo **Creador de consulta visual**.
 
@@ -71,12 +86,13 @@ Empezaremos escribiendo una consulta que encontrará el concepto `Cloud computin
 
 1.  Pulse **Ejecutar consulta**. Debería haber una coincidencia (`"matching_results": 1`). Copie el **URL de consulta** en la parte superior del separador **Resumen** o **JSON** para utilizar en su aplicación.
 
-**Adicional:** Bajo **Más opciones**, tendrá la opción de activar la recuperación de pasajes con el botón de selección **Incluir pasajes relevantes**. Los pasajes son fragmentos significativos breves que se extraen de los documentos completos que devuelve su consulta. Estos fragmentos específicos se extraen de los campos `text` de los documentos en su recopilación. Consulte [Pasajes](/docs/services/discovery/query-parameters.html#passages) para obtener más información. La recuperación de pasajes no está disponible en la recopilación {{site.data.keyword.discoveryshort}} News.
+**Adicional:** Bajo **Más opciones**, tendrá la opción de activar la recuperación de pasajes con el botón de selección **Incluir pasajes relevantes**. Los pasajes son fragmentos significativos breves que se extraen de los documentos completos que devuelve su consulta. Estos fragmentos específicos se extraen de los campos `text` de los documentos en su recopilación. Consulte [Pasajes](/docs/services/discovery?topic=discovery-query-parameters#passages) para obtener más información. La recuperación de pasajes no está disponible en la recopilación {{site.data.keyword.discoveryshort}} News.
 
 Si desea comprobar algunas consultas creadas de forma previa, pulse el botón **Utilizar una consulta de ejemplo**.
 {: tip}
 
 ## Paso 3: Experimente con diferentes consultas
+{: #querying-step3}
 
 Pruebe estas consultas:
 
@@ -96,6 +112,7 @@ Para recuperar todos los documentos que contengan la entidad `IBM`, pero que no 
    Se visualizará la consulta `enriched_text.entities.text:IBM,enriched_text.entities.text:!Watson` bajo **Creador de consulta visual**. El operador `:!` especifica "no contiene".
 
 ## Paso 4: Crear una consulta combinada
+{: #querying-step4}
 
 Los parámetros de las consultas se pueden combinar para crear consultas más específicas. Empezaremos utilizando conjuntamente los parámetros `filter` y `query` para recuperar documentos sobre las adquisiciones de {{site.data.keyword.IBM_notm}}. El parámetro de filtro reducirá los resultados a únicamente los documentos que mencionan `IBM` y después el parámetro de consulta query devolverá todos los resultados sobre `acquisitions` ordenados por relevancia.
 
@@ -116,12 +133,13 @@ Los parámetros de las consultas se pueden combinar para crear consultas más es
 1.  Pulse **Ejecutar consulta**. Habrá un documento coincidente: `"matching_results": 1`
 
 ## Paso 5: Cree una agregación
+{: #querying-step5}
 
 Las agregaciones devuelven un conjunto de valores de datos, por ejemplo, palabras clave más destacadas, sentimiento general de las entidades, etc.
 
 Intentaremos crear una agregación que devolverá los 10 conceptos más importantes en la recopilación de notas de prensa de {{site.data.keyword.IBM_notm}}.
 
-1.  Pulse en el icono de crear consultas ![Icono de consultas](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> para abrir la página de consultas. Seleccione la recopilación que contiene {{site.data.keyword.IBM_notm}} Press Releases y pulse **Empezar**.
+1.  Pulse el icono **Crear consultas** ![Icono de consultas](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> para abrir la página de consultas. Seleccione la recopilación que contiene {{site.data.keyword.IBM_notm}} Press Releases y pulse **Empezar**.
 
 1.  Bajo **Incluir análisis de los resultados**:
     -  Pulse el desplegable **Salida** y elija `Valores superiores`, para el **Campo** elija `enriched_text.concepts.text` y, a continuación, especifique el **Recuento** de `10`.
@@ -133,14 +151,15 @@ Intentaremos crear una agregación que devolverá los 10 conceptos más importan
 1.  Pulse **Ejecutar consulta**. Se visualizarán los 10 conceptos principales en los separadores **Resumen** y **JSON**. A continuación hay un ejemplo de un resumen:
 
 ## Paso 6: Cree una consulta en Watson Discovery News
+{: #querying-step6}
 
-{{site.data.keyword.discoverynewsshort}}, es un conjunto de datos públicos que se ha enriquecido de forma previa con conocimientos cognitivos. Se incluye con {{site.data.keyword.discoveryshort}}. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) para obtener más información sobre esta recopilación.
+{{site.data.keyword.discoverynewsshort}}, es un conjunto de datos públicos que se ha enriquecido de forma previa con conocimientos cognitivos. Se incluye con {{site.data.keyword.discoveryshort}}. Consulte [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) para obtener más información sobre esta recopilación.
 
 No es posible ajustar la configuración de {{site.data.keyword.discoverynewsshort}}, ni realizar tareas de entrenamiento ni tampoco añadir documentos la recopilación de {{site.data.keyword.discoverynewsshort}}. Consulte una demostración que puede realizar con {{site.data.keyword.discoverynewsshort}} [aquí ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
 La siguiente consulta de ejemplo devuelve los 10 artículos principales en {{site.data.keyword.discoverynewsfull}} sobre el equipo Pittsburgh Steelers que tienen un sentimiento positivo.
 
-1.  Pulse en el icono de crear consultas ![Icono de consultas](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> para abrir la página de consultas. Seleccione la recopilación {{site.data.keyword.discoverynewsshort}} y pulse **Empezar**. (Para consultar las recopilaciones de {{site.data.keyword.discoverynewsshort}} en español, alemán o coreano, primero debe pulsar en el icono ![Gestionar datos](/images/icon_yourData.png) y seleccionar el idioma adecuado en el desplegable).
+1.  Pulse el icono **Crear consultas** ![Icono de consultas](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> para abrir la página de consultas. Seleccione la recopilación {{site.data.keyword.discoverynewsshort}} y pulse **Empezar**. (Para consultar las recopilaciones de {{site.data.keyword.discoverynewsshort}} en español, alemán o coreano, primero debe pulsar en el icono ![Gestionar datos](/images/icon_yourData.png) y seleccionar el idioma adecuado en el desplegable).
 
 1.  En **Buscar documentos**, pulse **Utilizar {{site.data.keyword.discoveryshort}} Query Language** y, a continuación:
     -  Pulse el desplegable **Campo** y elija `text`, para el **Operador** elija `contiene` y, a continuación, especifique el **Valor** de `Pittsburgh Steelers`. Pulse **Añadir regla** y, a continuación el desplegable **Campo** y elija `enriched_text.sentiment.document.label`, para **Operador** elija `contiene` y, a continuación especifique el **Valor** de `positive`.
@@ -153,4 +172,4 @@ La siguiente consulta de ejemplo devuelve los 10 artículos principales en {{sit
 
 **Nota:** El número máximo de resultados devueltos a una consulta de Watson Discovery es de `50`.
 
-Los artículos de noticias a veces se sindican a varios proveedores de noticias, por lo que {{site.data.keyword.discoverynewsfull}} recopilará todas ellas, dando lugar a artículos duplicados. Esto significa que una consulta a {{site.data.keyword.discoverynewsfull}} potencialmente podría dar lugar a varios artículos idénticos o casi idénticos en los resultados de las consultas. Para desactivar la desduplicación, bajo **Más opciones**, elija **Excluir resultados duplicados**. Para obtener más información sobre esta funcionalidad en fase beta, consulte [Exclusión de documentos duplicados en los resultados de las consultas](/docs/services/discovery/query-parameters.html#deduplication).
+Los artículos de noticias a veces se sindican a varios proveedores de noticias, por lo que {{site.data.keyword.discoverynewsfull}} recopilará todas ellas, dando lugar a artículos duplicados. Esto significa que una consulta a {{site.data.keyword.discoverynewsfull}} potencialmente podría dar lugar a varios artículos idénticos o casi idénticos en los resultados de las consultas. Para desactivar la desduplicación, bajo **Más opciones**, elija **Excluir resultados duplicados**. Para obtener más información sobre esta funcionalidad en fase beta, consulte [Exclusión de documentos duplicados en los resultados de las consultas](/docs/services/discovery?topic=discovery-query-parameters#deduplication).

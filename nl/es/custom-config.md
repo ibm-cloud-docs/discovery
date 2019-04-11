@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Referencia de configuración
 {: #configref}
@@ -23,7 +35,10 @@ lastupdated: "2018-01-23"
 Tiene la posibilidad de crear su propia configuración de ingestión de {{site.data.keyword.discoveryshort}} en formato JSON si sus datos tienen unas necesidades especiales de [conversión](#conversion), [enriquecimiento](#enrichment) o [normalización](#normalization).
 {: shortdesc}
 
- Las siguientes secciones detallan la estructura de este JSON y los objetos que se pueden definir en el mismo.
+Las siguientes secciones detallan la estructura de este JSON y los objetos que se pueden definir en el mismo.
+
+Si la recopilación se ha creado utilizando la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu), no se utilizarán los valores de conversión de PDF y Word que aparecen en la lista, por lo que se ignorarán los cambios en estos valores de conversión.
+{: note}
 
 ## Estructura de configuración
 {: #structure}
@@ -82,10 +97,16 @@ La conversión de documentos toma el formato origen original y utilizando uno o 
 
 - Los archivos **JSON** se convierten con las opciones `json`.
 
-Estas opciones se describen en las secciones siguientes. Una vez se completa la conversión, se realiza el [enriquecimento](#enrichment) y la [normalización](#normalization) antes de almacenar el contenido.
+Si la recopilación se ha creado utilizando la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu), no se utilizarán los valores de conversión de PDF y Word que aparecen en la lista, por lo que se ignorarán los cambios en estos valores de conversión.
+{: note}
+
+Estas opciones se describen en las secciones siguientes. Una vez se completa la conversión, se realiza el [enriquecimiento](#enrichment) y la [normalización](#normalization) antes de almacenar el contenido.
 
 ### PDF
 {: #pdf}
+
+Si la recopilación se ha creado utilizando la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu), no se utilizarán los valores de conversión de PDF y Word que aparecen en la lista, por lo que se ignorarán los cambios en estos valores de conversión.
+{: note}
 
 El objeto de conversión `pdf` define la forma en la que se convierten los documentos PDF en HTML. Este objeto tiene la siguiente estructura:
 
@@ -129,6 +150,9 @@ Para un área de texto que se deba identificar como una cabecera se deberán sat
 
 ### Word
 {: #word}
+
+Si la recopilación se ha creado utilizando la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu), no se utilizarán los valores de conversión de PDF y Word que aparecen en la lista, por lo que se ignorarán los cambios en estos valores de conversión.
+{: note}
 
 El objeto de conversión `word` define la forma en la que se convierten los documentos PDF en HTML. Este objeto tiene la siguiente estructura:
 
@@ -237,30 +261,37 @@ Si sus documentos de Microsoft Word se ajustan bien a la hoja de estilo y cada p
 {: codeblock}
 
 #### exclude_tags_completely
+{: #configref_exclude_completely}
 
 `"exclude_tags_completely" : array` - Matriz de nombres de etiqueta HTML que se excluirán. Incluye la etiqueta, el contenido y los atributos de etiqueta definidos.
 
 #### exclude_tags_keep_content
+{: #configref_exclude_tags_keep_content}
 
 `"exclude_tags_keep_content" : array` - Matriz de nombres de etiqueta HTML donde la información de etiqueta es eliminada. Esto da lugar a la eliminación de todos los atributos en las etiquetas HTML. El contenido de la etiqueta no se elimina a no ser que así se especifique. Por ejemplo, si especifica `exclude_tags_keep_content` para la etiqueta HTML `span`, entonces `<span class="info">Some <strong>Information</strong></span>` quedará como: `Some <strong>Information</strong>`.
 
 #### exclude_content
+{: #configref_exclude_content}
 
 `"xpaths" : array` - Matriz de varios XPath que identifican el contenido que se elimina. Si se establece este valor, todo lo que coincida con uno de los XPath se eliminará de la salida.
 
 #### keep_content
+{: #configref_keep_content}
 
 `"xpaths" : array` - Matriz de varios XPath que identifican el contenido que se convierte. Si se establece este valor, todo lo que coincida con uno de los XPath se incluirá en la salida. Las inclusiones que especifica este parámetro se procesan después de cualquier otro proceso que `exclude_content` haya especificado.
 
 #### exclude_tag_attributes
+{: #configref_exclude_tag_attributes}
 
 `"exclude_tag_attributes" : array` - Matriz de nombres de atributo HTML que la conversión elimina independientemente de la etiqueta HTML en la que se presentan. **Nota:** Recibirá un mensaje de error si especifica `exclude_tag_attributes` y `keep_tag_attributes` en la misma configuración; solo se puede especificar uno por configuración. Si está presente, `keep_tag_attributes` debe eliminarse por completo de la configuración; no puede estar presente como matriz vacía.
 
 #### keep_tag_attributes
+{: #configref_keep_tag_attributes}
 
 `"keep_tag_attributes" : array` - Matriz de nombres de atributo HTML que la conversión retiene. **Nota:** Recibirá un mensaje de error si especifica `keep_tag_attributes` y `exclude_tag_attributes` en la misma configuración; solo se puede especificar uno por configuración. Si está presente, `exclude_tag_attributes` debe eliminarse por completo de la configuración; no puede estar presente como matriz vacía.
 
 #### extracted_fields
+{: #configref_extracted}
 
 Este objeto define cualquier contenido del origen HTML que se extrae en un campo JSON separados como parte de la conversión. El contenido se identifica mediante selectores CSS.
 
@@ -279,7 +310,7 @@ Cada campo que desea crear se define mediante un objeto tal como se indica a con
 **Nota:** Los nombres de campo definidos en su configuración deben satisfacer las restricciones que se definen en los [Requisitos de nombre de campo](#field_reqs).
 
 - `"css_selector" : string` *necesario* - Expresión de selector CSS que define el área de contenido a almacenar en un campo.
-- `"type" : string` *necesario* - Tipo de campo a crear, puede ser `string`, `date`. Para obtener información detallada, consulte [Utilización de selectores CSS para extraer campos](/docs/services/discovery/building.md#using-css).
+- `"type" : string` *necesario* - Tipo de campo a crear, puede ser `string`, `date`. Para obtener información detallada, consulte [Utilización de selectores CSS para extraer campos](/docs/services/discovery?topic=discovery-configservice#using-css).
 
 ### Segmento
 {: #segment}
@@ -303,7 +334,7 @@ En términos generales, cuando se habilita la segmentación de documentos no es 
 -  `normalizations` no se puede especificar como parte de la configuración.
 -  La opción `extracted_fields` de la conversión `html` no se puede especificar como parte de la configuración.
 
-Para obtener información detallada, consulte [Cómo realizar una segmentación](/docs/services/discovery/building.html#performing-segmentation).
+Para obtener información detallada, consulte [Cómo realizar una segmentación](/docs/services/discovery?topic=discovery-configservice#performing-segmentation).
 
 
 ### JSON
@@ -425,7 +456,7 @@ Puede realizar la normalización con anterioridad al enriquecimiento del JSON in
 
 - `"enrichment" : string` - *necesario* - Tipo de enriquecimiento que utilizará este campo. Para extraer enriquecimientos de {{site.data.keyword.nlushort}} utilice `natural_language_understanding`, para realizar la Clasificación de elementos utilice `elements`.
 
-  **Nota:** Al utilizar el enriquecimiento `elements`, es importante seguir las directrices que se especifican en la documentación de [Clasificación de elementos](/docs/services/discovery/element-classification.html). En concreto, sólo se pueden ingerir archivos PDF cuando se especifica este enriquecimiento.
+  **Nota:** Al utilizar el enriquecimiento `elements`, es importante seguir las directrices que se especifican en la documentación de [Clasificación de elementos](/docs/services/discovery?topic=discovery-element-classification#element-classification). En concreto, sólo se pueden ingerir archivos PDF cuando se especifica este enriquecimiento.
 
 - `"source_field" : string` - *necesario* - Campo origen que se enriquecerá. Este campo debe existir en su origen después de que se haya completado la operación `json_normalizations`.
 - `"destination_field" : string` - *necesario* - Nombre del objeto contenedor donde se crearán los enriquecimientos.
@@ -433,28 +464,33 @@ Puede realizar la normalización con anterioridad al enriquecimiento del JSON in
   **Nota:** Los nombres de campo definidos en su configuración deben satisfacer las restricciones que se definen en los [Requisitos de nombre de campo](#field_reqs).
 
 ### Enriquecimientos de Clasificación de elementos
+{: #element_classification_enrichments}
 
 Al utilizar la Clasificación de elementos, cada objeto de enriquecimiento `elements` debe contener un objeto `"options": {}` especificando los siguientes parámetros:
 
 - `"model" : string` - *necesario* - Modelo de extracción que se utilizará en este documento. Actualmente los modelos soportados son: `contract`
 
-**Nota:** Al utilizar el enriquecimiento `elements`, es importante seguir las directrices que se especifican en la documentación de [Clasificación de elementos](/docs/services/discovery/element-classification.html). En concreto, sólo se pueden ingerir archivos PDF cuando se especifica este enriquecimiento.
+**Nota:** Al utilizar el enriquecimiento `elements`, es importante seguir las directrices que se especifican en la documentación de [Clasificación de elementos](/docs/services/discovery?topic=discovery-element-classification#element-classification). En concreto, sólo se pueden ingerir archivos PDF cuando se especifica este enriquecimiento.
 
 ### Enriquecimientos de NLU (Natural Language Understanding)
+{: #nlu_enrichments}
 
 Al utilizar {{site.data.keyword.nlushort}}, cada objeto dentro de una matriz `enrichments` también debe contener un objeto `"options": { "features": { } }` que contiene uno o varios de los siguientes enriquecimientos:
 
 ### categories
+{: #nlu_categories}
 
 El enriquecimiento `categories` identifica todas las categorías generales en el documento ingerido. Este enriquecimiento no tiene opciones y se debe especificar como un objeto vacío `"categories" : {}`
 
 ### concepts
+{: #nlu_concepts}
 
 El enriquecimiento `concepts` encuentra conceptos a los que está asociado el documento de entrada, basándose en otros conceptos y entidades presentes en dicho texto.
 
 - `"limit" : INT` - *necesario* - Número máximo de conceptos a extraer del documento ingerido.
 
 ### emotion
+{: #nlu_emotion}
 
 El enriquecimiento `emotion` evalúa el tono emocional general (por ejemplo enfado (`anger`)) de todo el documento o de series específicas en el documento. Este enriquecimiento sólo se puede utilizar con contenido en el idioma inglés.
 
@@ -462,6 +498,7 @@ El enriquecimiento `emotion` evalúa el tono emocional general (por ejemplo enfa
 - `"targets" : array ` _opcional_ - Matriz separada por comas de series de destino para evaluar su estado emocional dentro del documento.
 
 ### entidades
+{: #nlu_entities}
 
 El enriquecimiento `entities` extrae instancias de entidades conocidas como, por ejemplo, personas, lugares y organizaciones. De forma opcional, se puede especificar un modelo personalizado de {{site.data.keyword.knowledgestudioshort}} para extraer entidades personalizadas.
 
@@ -471,17 +508,19 @@ El enriquecimiento `entities` extrae instancias de entidades conocidas como, por
 - `"mentions": boolean` - _opcional_ - Cuando se establece en `true`, se registra el número de veces que se menciona esta entidad. El valor predeterminado es `false`.
 - `"mention_types": boolean` - _opcional_ - Cuando se establece en `true`, se almacena el tipo de mención de cada mención de esta entidad. El valor predeterminado es `false`.
 - `"sentence_location": boolean` - _opcional_ - Cuando se establece en `true`, se almacena la ubicación de la frase de cada mención de la entidad. El valor predeterminado es `false`.
-- `"model" : string` - _opcional_ - Cuando se especifica, se utiliza el modelo personalizado para extraer entidades en lugar del modelo público. Esta opción precisa un modelo personalizado de {{site.data.keyword.knowledgestudioshort}} para asociarlo con su instancia de {{site.data.keyword.discoveryshort}}. Consulte [Integración con Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) para obtener más información.
+- `"model" : string` - _opcional_ - Cuando se especifica, se utiliza el modelo personalizado para extraer entidades en lugar del modelo público. Esta opción precisa un modelo personalizado de {{site.data.keyword.knowledgestudioshort}} para asociarlo con su instancia de {{site.data.keyword.discoveryshort}}. Consulte [Integración con Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks) para obtener más información.
 
 ### keywords
+{: #nlu_keywords}
 
-El enriquecimiento `keywords` extrae instancias de palabras significativas dentro del texto. Para entender la diferencia entre palabras claves, conceptos y entidades, consulte: [Diferencias entre entidades, conceptos y palabras clave](/docs/services/discovery/building.html#udbeck).
+El enriquecimiento `keywords` extrae instancias de palabras significativas dentro del texto. Para entender la diferencia entre palabras claves, conceptos y entidades, consulte: [Diferencias entre entidades, conceptos y palabras clave](/docs/services/discovery?topic=discovery-configservice#udbeck).
 
 - `"sentiment" : boolean` - _opcional_ - Cuando se establece en `true`, se realiza el análisis del sentimiento en la palabra clave extraída en el contexto del contenido que lo rodea.
 - `"emotion" : boolean` - _opcional_ - Cuando se establece en `true`, se realiza el análisis del tono emocional en la palabra clave extraída en el contexto del contenido que lo rodea.
 - `"limit" : INT` - _opcional_ - Número máximo de palabras clave a extraer del documento ingerido. El valor predeterminado es `50`.
 
 ### semantic_roles
+{: #nlu_semantic_roles}
 
 El enriquecimiento `semantic_roles` identifica componentes de frases como sujeto, acción y objeto dentro del texto ingerido.
 
@@ -490,6 +529,7 @@ El enriquecimiento `semantic_roles` identifica componentes de frases como sujeto
 - `"limit" : INT` - _opcional_ - Número máximo de objetos `semantic_roles` para extraer (frases a analizar) del documento ingerido. El valor predeterminado es `50`.
 
 ### sentiment
+{: #nlu_sentiment}
 
 El enriquecimiento `sentiment` evalúa el nivel del sentimiento general de series de destino especificadas en el documento.
 
@@ -497,10 +537,11 @@ El enriquecimiento `sentiment` evalúa el nivel del sentimiento general de serie
 - `"targets" : array ` _opcional_ - Matriz separada por comas de series de destino para evaluar el sentimiento dentro del documento.
 
 ### relations
+{: #nlu_relations}
 
 El enriquecimiento `relations` extrae relaciones conocidas entre entidades identificadas dentro del documento. De forma opcional, se puede especificar un modelo personalizado de {{site.data.keyword.knowledgestudioshort}} para extraer relaciones personalizadas.
 
-- `"model" : string` - _opcional_ - Cuando se especifica, se utiliza el modelo personalizado para extraer relaciones en lugar del modelo público. Esta opción precisa un modelo personalizado de {{site.data.keyword.knowledgestudioshort}} para asociarlo con su instancia de {{site.data.keyword.discoveryshort}}. Consulte [Integración con Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html) para obtener más información.
+- `"model" : string` - _opcional_ - Cuando se especifica, se utiliza el modelo personalizado para extraer relaciones en lugar del modelo público. Esta opción precisa un modelo personalizado de {{site.data.keyword.knowledgestudioshort}} para asociarlo con su instancia de {{site.data.keyword.discoveryshort}}. Consulte [Integración con Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks) para obtener más información.
 
 ## Normalización
 {: #normalization}

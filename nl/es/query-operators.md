@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Operadores de consulta
 {: #query-operators}
 
-Los operadores son los separadores entre diferentes partes de una consulta. Si desea ver una lista completa de los operadores disponibles, consulte la [Referencia de consultas](/docs/services/discovery/query-reference.html#operators).
+Los operadores son los separadores entre diferentes partes de una consulta. Si desea ver una lista completa de los operadores disponibles, consulte la [Referencia de consultas](/docs/services/discovery?topic=discovery-query-reference#operators).
 
 ## . \[Delimitador JSON\]
 {: #delimiter}
@@ -95,7 +107,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[Consulta de frase\]
 {: #phrase}
 
-Todo el contenido de una consulta de frase se procesa como si se codificase con caracteres de escape. Así que no se analiza ningún carácter especial dentro de la consulta de frase, excepto las comillas dobles (`"`) dentro de consulta de frase, que se debe codificar con un carácter de escape (`\"`). Las consultas de frase se utilizan con consultas basadas en clasificación y texto completo, y no con operaciones de filtros booleanos. No utilice comodines (`*`) en las consultas de frase. **Nota**: No se da soporte a las comillas simples (`'`).
+Todo el contenido de una consulta de frase se procesa como si se codificase con caracteres de escape. Así que no se analiza ningún carácter especial dentro de la consulta de frase, excepto las comillas dobles (`"`) dentro de consulta de frase, que se debe codificar con un carácter de escape (`\"`). Las consultas de frase se utilizan con consultas basadas en clasificación y texto completo, y no con operaciones de filtros booleanos. No utilice comodines (`*`) en las consultas de frase. 
+
+Las comillas simples (`'`) no están soportadas.
+{: note}
 
 Por ejemplo:
 ```bash
@@ -198,6 +213,6 @@ Se utiliza para devolver todos los resultados que no incluye el `campo` especifi
 
 Por ejemplo:
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

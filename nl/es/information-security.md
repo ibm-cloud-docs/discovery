@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-06-26"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-10"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Seguridad de la información
 {: #information-security}
@@ -30,7 +42,7 @@ Los productos, los servicios y otras prestaciones descritas en este documento no
 
 Si tiene que solicitar soporte de GDPR para los recursos de {{site.data.keyword.cloud}} {{site.data.keyword.watson}} que se crean
 
--   En la Unión Europea (UE), consulte [Solicitud de soporte para recursos de IBM Cloud Watson creados en la Unión Europea ](/docs/services/watson/getting-started-gdpr-sar.html#request-EU).
+-   En la Unión Europea (UE), consulte [Solicitud de soporte para recursos de IBM Cloud Watson creados en la Unión Europea](/docs/services/watson/getting-started-gdpr-sar.html#request-EU).
 -   Fuera de la Unión Europea, consulte [Solicitud de soporte para recursos fuera de la Unión Europea](/docs/services/watson/getting-started-gdpr-sar.html#request-non-EU).
 
 ## Reglamento General de Protección de Datos de la Unión Europea (GDPR)
@@ -50,7 +62,7 @@ Con esta API puede:
 - Etiquetar datos con un ID de cliente.
 - Suprimir todos los datos de un ID de cliente determinado, incluidos los avisos relacionados.
 
-Los datos se etiquetan añadiendo el `customer_id` de su elección (consulte las restricciones en [Cómo etiquetar datos](/docs/services/discovery/information-security.html#labeling)) en la cabecera opcional de `X-Watson-Metadata`. {{site.data.keyword.discoveryshort}} podrá suprimirlo mediante el `customer_id`.
+Los datos se etiquetan añadiendo el `customer_id` de su elección (consulte las restricciones en [Cómo etiquetar datos](/docs/services/discovery?topic=discovery-information-security#labeling)) en la cabecera opcional de `X-Watson-Metadata`. {{site.data.keyword.discoveryshort}} podrá suprimirlo mediante el `customer_id`.
 
 En una llamada REST, es posible enviar una cabecera opcional `X-Watson-Metadata` con los pares `field=value` separados por punto y coma, en los que actualmente solo se conserva el `customer_id`. Al agregar el `customer_id` en la cabecera `X-Watson-Metadata`, la solicitud indicará que contiene datos que pertenecen al `customer_id`.
 
@@ -100,7 +112,7 @@ Restricciones:
 ### Cómo etiquetar datos con el conjunto de herramientas de Discovery
 {: #labelingtooling}
 
-Los datos se pueden etiquetar con el campo `customer_id` al utilizar el conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Pulse el icono ![Cog](images/icon_settings.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> y escriba el `customer_id` en el campo **Etiqueta de datos de GDPR**. Una vez se haya establecido el campo, todos los datos cargados mediante la sesión del navegador se etiquetarán con el `customer_id` especificado; este campo debe modificarse manualmente si el ID de cliente asociado cambia.
+Los datos se pueden etiquetar con el campo `customer_id` al utilizar el conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Pulse el icono ![Detalles del entorno](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> y escriba el `customer_id` en el campo **Etiqueta de datos de GDPR**. Una vez se haya establecido el campo, todos los datos cargados mediante la sesión del navegador se etiquetarán con el `customer_id` especificado; este campo debe modificarse manualmente si el ID de cliente asociado cambia.
 
 La adición de un `customer_id` con el campo **Etiqueta de datos del GDPR** etiquetará los documentos, avisos, entidades y relaciones de Knowledge Graph y los datos de entrenamiento en el dominio de URL a partir de dicho punto, incluida cada instancia del mismo dominio. Las acciones (incluidas las cargas de documentos) que se han producido en el conjunto de herramientas de {{site.data.keyword.discoveryshort}} antes de añadir el campo **Etiqueta de datos del GDPR** no se etiquetarán.
 
@@ -111,7 +123,7 @@ La adición de un `customer_id` con el campo **Etiqueta de datos del GDPR** etiq
 
 Si los documentos ya se han rastreado con Data Crawler, tendrá que volver a rastrearlos para añadir la cabecera `X-Watson-Metadata` y el `customer_id`.
 
-1. Actualice la configuración del adaptador de salida de Data Crawler de {{site.data.keyword.discoveryshort}} para que incluya el `customer_id`. Consulte [Configuración del adaptador de salida](/docs/services/discovery/data-crawler-discovery.html#output-adapter).
+1. Actualice la configuración del adaptador de salida de Data Crawler de {{site.data.keyword.discoveryshort}} para que incluya el `customer_id`. Consulte [Configuración del adaptador de salida](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter).
 1. Planifique un rastreo. Los documentos se envían a {{site.data.keyword.discoveryshort}} utilizando la cabecera `X-Watson-Metadata` y se etiquetarán con el `customer_id` configurado.
 
 ## Supresión de datos etiquetados
@@ -119,9 +131,11 @@ Si los documentos ya se han rastreado con Data Crawler, tendrá que volver a ras
 
 Los datos deben estar etiquetados con un `customer_id` para poder suprimirlos posteriormente.
 
-1. Utilice la operación `DELETE /v1/user_data` y proporcione el `customer_id` de los datos que desea suprimir. `DELETE /v1/user_data` suprime todos los datos asociados a un `customer_id` determinado de la instancia de servicio, como se especifica en [Métodos que admiten el etiquetado de datos](/docs/services/discovery/information-security.html#pi_methods). Consulte también la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html#delete-user-data){: new_window}
+1. Utilice la operación `DELETE /v1/user_data` y proporcione el `customer_id` de los datos que desea suprimir. `DELETE /v1/user_data` suprime todos los datos asociados a un `customer_id` determinado de la instancia de servicio, como se especifica en [Métodos que admiten el etiquetado de datos](/docs/services/discovery?topic=discovery-information-security#pi_methods). Consulte también la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}
 
 Las supresiones se realizan de forma asíncrona. No puede realizar un seguimiento del progreso de las supresiones.
+
+Para asegurarse de que todos los contenidos etiquetados se hayan eliminado correctamente, se debe ejecutar `user_delete` después de los recuentos de `processing` y `pending` para que todas las recopilaciones del entorno devuelvan `0`.
 
 Si se proporciona un `customer_id` no existente, no se realizará ninguna supresión, pero se devolverá la respuesta `200 - OK`.
 

@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-15"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Clasificación de elementos
 {: #element-classification}
@@ -40,9 +52,9 @@ La clasificación de elementos devuelve un objeto JSON que contiene:
 -  Una matriz `tablas` que divide las tablas identificadas en el documento de entrada.
 -  Un objeto `document_structure` que enumera los títulos de sección y las frases principales identificadas en el documento de entrada.
 -  Una matriz `partes` que enumera las partes, roles, direcciones y contactos de las partes identificados en el documento de entrada.
--  Matrices que definen `effective_dates` y `contract_amounts`.
+-  Matrices que definen `effective_dates`, `contract_amounts` y `termination_dates`.
 
-Actualmente, esta característica solo está soportada en inglés, consulte [Soporte de idiomas](/docs/services/discovery/language-support.html#feature-support) para obtener detalles.
+Actualmente, esta característica solo está soportada en inglés, consulte [Soporte de idiomas](/docs/services/discovery?topic=discovery-language-support#feature-support) para obtener detalles.
 
 
 ## Requisitos de clasificación
@@ -55,12 +67,12 @@ Para clasificar documentos mediante la clasificación de elementos, la configura
    **Nota:** Puede identificar si un PDF posee texto abriendo el documento en un visor de PDF y utilizando la herramienta **Seleccionar texto** para seleccionar una única palabra. Si no puede seleccionar una única palabra en el documento, el archivo no se puede analizar.
 -  Los archivos no pueden tener un tamaño superior a 50 Mb.
 -  No es posible analizar PDF protegidos (con una contraseña para poder abrirlos) y cuya edición esté restringida (con una contraseña para poder editarlos).
--  El conjunto de herramientas de {{site.data.keyword.discoveryshort}} incluye una configuración denominada **Configuración de contrato predeterminada** que puede utilizarse para enriquecer su recopilación de documentos PDF. También puede crear una configuración personalizada que incluya el enriquecimiento `elements`. Consulte [Requisitos de recopilación](/docs/services/discovery/element-classification.html#element-collection) para obtener detalles.
+-  El conjunto de herramientas de {{site.data.keyword.discoveryshort}} incluye una configuración denominada **Configuración de contrato predeterminada** que puede utilizarse para enriquecer su recopilación de documentos PDF. También puede crear una configuración personalizada que incluya el enriquecimiento `elements`. Consulte [Requisitos de recopilación](/docs/services/discovery?topic=discovery-element-classification#element-collection) para obtener detalles.
 -  Los planes **Lite** pueden procesar un máximo de 500 páginas al mes.
 -  No está disponible en los entornos **Dedicados**.
 -  No es posible realizar la normalización posterior al enriquecimiento cuando se utiliza la Clasificación de elementos.
 
-**Nota:** El archivo **Configuración de contrato predeterminada** se actualizó el 25 de septiembre de 2018. Si aplicó esta configuración a una recopilación anterior a esta fecha, consulte las [notas del release](/docs/services/discovery/release-notes.html#25sept) para obtener información sobre cómo actualizar su recopilación.
+**Nota:** El archivo **Configuración de contrato predeterminada** se actualizó el 25 de septiembre de 2018. Si aplicó esta configuración a una recopilación anterior a esta fecha, consulte las [notas del release](/docs/services/discovery?topic=discovery-release-notes#25sept) para obtener información sobre cómo actualizar su recopilación.
 
 ## Requisitos de recopilación
 {: #element-collection}
@@ -115,9 +127,10 @@ Si desea crear un archivo de configuración personalizado, configure la recopila
 ```
 {: codeblock}
 
-Podrá cargar los documentos después de seleccionar la `Configuración de contrato predeterminada` en el conjunto de herramientas. Si no está familiarizado con la creación de recopilaciones y la carga de documentos, consulte [Iniciación al conjunto de herramientas](/docs/services/discovery/getting-started-tool.html).
+Podrá cargar los documentos después de seleccionar la `Configuración de contrato predeterminada` en el conjunto de herramientas. Si no está familiarizado con la creación de recopilaciones y la carga de documentos, consulte [Iniciación al conjunto de herramientas](/docs/services/discovery?topic=discovery-getting-started#getting-started).
 
 ## Elementos clasificados
+{: #classified-elements}
 
 Una vez que un documento se ha indexado con la clasificación de elementos, será devuelto con una matriz `elements` como parte del documento en el que se podrán realizar búsquedas.
 
@@ -158,14 +171,17 @@ Cada objeto de la matriz `elementos` describe un elemento del contrato que {{sit
 Cada elemento tiene cinco secciones importantes:
 -  `location`: Los índices `begin` y `end` que indican la ubicación del elemento en el documento de entrada.
 -  `text`: El texto del elemento clasificado.
--  `types`: Una matriz que incluye ninguno o varios objetos `label`. Cada objeto `label` incluye un campo `nature` que muestra el efecto del elemento en la parte identificada (por ejemplo, `Derecho` o `Exclusión`) y un campo `party` que identifica la parte o partes afectadas por el elemento. Consulte [Tipos](/docs/services/discovery/parsing.html#contract_types) en [Comprensión del análisis del contrato](/docs/services/discovery/parsing.html#contract_parsing) para obtener más información.
--  `categories`: Una matriz que contiene ninguno o varios objetos `label`. El valor de cada objeto `label` enumera una categoría funcional en la que se encuentra el elemento identificado. Consulte [Categorías](/docs/services/discovery/parsing.html#contract_categories) en [Comprensión del análisis del contrato](/docs/services/discovery/parsing.html#contract_parsing) para obtener más información.
--  `attributes`: Una matriz que enumera ninguno o varios objetos que definen atributos del elemento. Los objetos soportados actualmente incluyen `Ubicación` (ubicación geográfica o región a la que hace referencia el elemento), `DateTime` (fecha, hora, rango de fechas o rango de hora especificados por el elemento) y `Moneda` (valores y unidades monetarias). Cada objeto de la matriz `attributes` también incluye el texto y la ubicación del elemento identificado; la ubicación la definen los índices `begin` y `end` del texto en el documento de entrada. Consulte [Atributos](/docs/services/discovery/parsing.html#attributes) en [Comprensión del análisis del contrato](/docs/services/discovery/parsing.html#contract_parsing) para obtener información adicional.
+-  `types`: Una matriz que incluye ninguno o varios objetos `label`. Cada objeto `label` incluye un campo `nature` que muestra el efecto del elemento en la parte identificada (por ejemplo, `Derecho` o `Exclusión`) y un campo `party` que identifica la parte o partes afectadas por el elemento. Consulte [Tipos](/docs/services/discovery?topic=discovery-contract_parsing#contract_types) en [Comprensión del análisis del contrato](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) para obtener más información.
+-  `categories`: Una matriz que contiene ninguno o varios objetos `label`. El valor de cada objeto `label` enumera una categoría funcional en la que se encuentra el elemento identificado. Consulte [Categorías](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories) en [Comprensión del análisis del contrato](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) para obtener más información.
+-  `attributes`: Una matriz que enumera ninguno o varios objetos que definen atributos del elemento. Los objetos soportados actualmente incluyen `Location` (ubicación geográfica a la que hace referencia el elemento), `DateTime` (fecha, hora, rango de fechas o rango de hora especificados por el elemento) y `Currency` (valores y unidades monetarias). Cada objeto de la matriz `attributes` también incluye el texto y la ubicación del elemento identificado; la ubicación la definen los índices `begin` y `end` del texto en el documento de entrada. Consulte [Atributos](/docs/services/discovery?topic=discovery-contract_parsing#attributes) en [Análisis de contratos](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) para obtener información adicional.
 
-Además, cada objeto de las matrices `types` y `categories` incluye una matriz `provenance_ids`. Los valores enumerados en la matriz `provenance_ids` son valores hash que puede enviar a IBM para proporcionar comentarios o recibir soporte acerca de la parte del análisis asociado con el elemento.
+Además, cada objeto de las matrices `types` y `categories` incluye una matriz `provenance_ids`. Los valores enumerados en la matriz `provenance_ids` son valores hash que puede enviar a IBM para proporcionar comentarios o recibir soporte acerca de la parte del análisis asociado con el elemento. 
 
-**Nota**: Algunas frases no están bajo ningún tipo o categoría, en cuyo caso el servicio devuelve las matrices `tipos` y `categorías` como objetos vacíos.
+Algunas frases no están bajo ningún tipo o categoría, en cuyo caso el servicio devuelve las matrices `types` y `categories` como objetos vacíos.
+{: note}
 
-**Nota:** Algunas frases cubren varios temas, en cuyo caso el servicio devuelve varios conjuntos de objetos `tipos` y `categorías`.
+Algunas frases cubren varios temas, en cuyo caso el servicio devuelve varios conjuntos de objetos `types` y `categories`.
+{: note}
 
-**Nota**: Algunas frases no contienen ningún atributo identificable, en cuyo caso el servicio devuelve la matriz `atributos` como objetos vacíos.
+Algunas frases no contienen ningún atributo identificable, en cuyo caso el servicio devuelve la matriz `attributes` como objetos vacíos.
+{: note}

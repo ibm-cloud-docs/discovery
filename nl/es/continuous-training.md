@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-09-25"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Entrenamiento de relevancia continuo
 {: #crt}
@@ -29,7 +41,8 @@ El entrenamiento de relevancia continuo de {{site.data.keyword.discoveryshort}} 
 Para configurar el entrenamiento de relevancia continuo:
 
 - El entrenamiento de relevancia continuo solo se puede habilitar a nivel de entorno. Las consultas deben utilizar los puntos finales `/api/v1/environment/{environment_id}/query` y `/api/v1/environments/{environment_id}/query` para consultar una o varias recopilaciones.
-- Puesto que los `sucesos` (clics) de {{site.data.keyword.discoveryshort}} se utilizan para crear los datos de entrenamiento necesarios, integre primero el seguimiento de sucesos. Consulte [Supervisión de uso](/docs/services/discovery/feedback.html#usage) para obtener detalles.
+- Puesto que los `sucesos` (clics) de {{site.data.keyword.discoveryshort}} se utilizan para crear los datos de entrenamiento necesarios, integre primero el seguimiento de sucesos. Consulte [Supervisión de uso](/docs/services/discovery?topic=discovery-usage#usage) para obtener detalles.
+
 - Se necesita un mínimo de 1000 consultas de lenguaje natural con un suceso pulsar para que se inicie el entrenamiento de relevancia continuo. Los sucesos y registros se conservan durante 30 días en la instancia, por lo que es necesario recopilar los 1000 clics durante dicho período de tiempo.
 - El entrenamiento de relevancia continuo está disponible para los planes Avanzado de tamaño `Pequeño` o superior y los planes Premium. No está disponible para los planes `Lite`.
 - El límite del número de recopilaciones del entrenamiento de relevancia continuo es `5`. Puesto que el entrenamiento de relevancia continuo funciona en varias recopilaciones, es posible expandir los tiempos de entrenamiento y consulta.
@@ -39,13 +52,13 @@ Para utilizar el entrenamiento de relevancia continuo:
 
 Una vez que se haya entrenado, el entrenamiento de relevancia continuo se utiliza para influir en los resultados de `natural_language_query` al utilizar una consulta a nivel de entorno. 
 
-El entrenamiento de relevancia continuo puede utilizarse en el momento de la consulta ejecutando la consulta `natural_language_query` de varias recopilaciones en todas las recopilaciones del entorno. Consulte [Consulta a varias recopilaciones](/docs/services/discovery/using.html#multiple-collections) para obtener instrucciones. 
+El entrenamiento de relevancia continuo puede utilizarse en el momento de la consulta ejecutando la consulta `natural_language_query` de varias recopilaciones en todas las recopilaciones del entorno. Consulte [Consulta a varias recopilaciones](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections) para obtener instrucciones. 
 
 **Nota:** El entrenamiento de relevancia continuo no afecta a las consultas realizadas en una llamada de consulta a nivel de recopilación entrenada o no entrenada (`/v1/environments/{environment_id}/collections/{collection_id}/query`). 
 
 Estado del seguimiento:
 
-El estado del entrenamiento de relevancia continuo se puede visualizar en el punto final de `/api/v1/environments`. Consulte la [referencia de API![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#environments-api){: new_window}. `status` proporcionará información sobre el estado de las operaciones de entrenamiento y le notificará si el entrenamiento de relevancia continuo está activo:
+El estado del entrenamiento de relevancia continuo se puede visualizar en el punto final de `/api/v1/environments`. Consulte la [referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#get-environment-info){: new_window}. `status` proporcionará información sobre el estado de las operaciones de entrenamiento y le notificará si el entrenamiento de relevancia continuo está activo:
 
 ```
 "search_status" : [

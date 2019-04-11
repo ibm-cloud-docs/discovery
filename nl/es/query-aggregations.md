@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-05-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Agregaciones de consulta
 {: #query-aggregations}
 
-Las agregaciones devuelven un conjunto de valores de datos. Si desea ver una lista completa de las agregaciones disponibles, consulte la [Referencia de consultas](/docs/services/discovery/query-reference.html#aggregations).
+Las agregaciones devuelven un conjunto de valores de datos. Si desea ver una lista completa de las agregaciones disponibles, consulte la [Referencia de consultas](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ## term
 {: #term}
@@ -34,7 +46,7 @@ term(enriched_text.concepts.text,count:10)
 {: codeblock}
 
 ## filter
-{: #filter}
+{: #aggfilter}
 
 Un modificador que reducirá el conjunto de documentos de la consulta de agregación que le precede. Este ejemplo filtra al conjunto de documentos que incluye el concepto "cloud computing".
 
@@ -95,7 +107,7 @@ Si especifica `anomaly:true` con la agregación `timeslice`, la salida incluye l
   - Un campo `anomaly` en los puntos que son anómalos en la matriz de resultados de la salida. El campo anomaly tiene un valor de tipo de datos `float` indicando la magnitud del comportamiento anómalo. Cuanto más cerca esté el valor del campo anomaly a `1`, más probable será que el resultado sea anómalo.
 
   - `key` y `key_as_string` en cada uno de los objetos en la matriz `results` corresponde a una indicación de fecha y hora UNIX en segundos.
-  - La puntuación de la anomalía es relativa a una consulta, no a través de consultas.
+  - La puntuación de la anomalía es relativa solo a la consulta original.
 
 ```json
 "type": "timeslice",
@@ -139,6 +151,7 @@ Si especifica `anomaly:true` con la agregación `timeslice`, la salida incluye l
 {: codeblock}
 
 #### Limitaciones en la detección de anomalías
+{: #anomaly-limitations}
 
 - La detección de anomalías actualmente solo está disponible en agregaciones `timeslice` de nivel superior. No está disponible en agregaciones (anidadas) de nivel inferior.
 - El número máximo de puntos que se pueden procesar por la detección de anomalías en una agregación `timeslice` es de `1500`.

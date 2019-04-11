@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Configuración de Data Crawler
 {: #configuring-the-data-crawler}
@@ -23,8 +35,8 @@ lastupdated: "2018-07-03"
 Para configurar Data Crawler para que rastree su repositorio, debe especificar el adaptador de entrada adecuado en el archivo `crawler.conf` y después configurar la información específica del repositorio en los archivos de configuración del adaptador de entrada.
 {: shortdesc}
 
-Puede utilizar la herramienta o la API de {{site.data.keyword.discoveryshort}} para rastrear orígenes de datos de Box, Salesforce y Microsoft SharePoint Online. Consulte [Conexión a orígenes de datos](/docs/services/discovery/connect.html) para obtener más información.
-{: tip}
+Data Crawler solo debe utilizarse para rastrear comparticiones de archivos o bases de datos, en todos los demás casos debe utilizar el conector adecuado de {{site.data.keyword.discoveryshort}}. Consulte [Conexión a orígenes de datos](/docs/services/discovery?topic=discovery-sources#sources) para obtener más información. Ya no se proporciona asistencia para Data Crawler si lo está utilizando con un origen de datos soportado por los conectores de {{site.data.keyword.discoveryshort}}.
+{: important}
 
 Antes de realizar los cambios que se indican en estos pasos, asegúrese de que ha creado su directorio de trabajo copiando el contenido del directorio `{installation_directory}/share/examples/config` a un directorio de trabajo en su sistema, por ejemplo, `/home/config`.
 
@@ -51,7 +63,7 @@ Los valores especificados son los predeterminados en `config/crawler.conf` y con
         ```
         {: codeblock}
 
-    Hay otros valores opcionales en este archivo que se podrían configurar según sea lo apropiado para su entorno, consulte: [Configuración de opciones de rastreo](/docs/services/discovery/data-crawler-discovery.html#configuring-crawl-options), [Configuración del adaptador de entrada](/docs/services/discovery/data-crawler-discovery.html#input-adapter), [Configuración del adaptador de salida](/docs/services/discovery/data-crawler-discovery.html#output-adapter) y [Opciones de gestión de rastreo adicionales](/docs/services/discovery/data-crawler-discovery.html#additional-crawl-management-options) para obtener información detallada sobre cómo establecer estos valores.
+    Hay otros valores opcionales en este archivo que se podrían configurar según sea lo apropiado para su entorno, consulte: [Configuración de opciones de rastreo](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [Configuración del adaptador de entrada](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Configuración del adaptador de salida](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter) y [Opciones de gestión de rastreo adicionales](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options) para obtener información detallada sobre cómo establecer estos valores.
 
 1.  Abra el archivo `discovery/discovery_service.conf` en un editor de texto. Modifique los siguientes valores específicos del servicio {{site.data.keyword.discoveryshort}} que ha creado anteriormente en {{site.data.keyword.Bluemix}}:
 
@@ -60,11 +72,11 @@ Los valores especificados son los predeterminados en `config/crawler.conf` y con
     -   `configuration_id` - ID de configuración de servicio {{site.data.keyword.discoveryshort}}.
     -   `configuration` - Ubicación de vía de acceso completa del archivo `discovery_service.conf`, por ejemplo, `/home/config/discovery/discovery_service.conf`.
     -   `username` - Credencial de nombre de usuario para el servicio {{site.data.keyword.discoveryshort}}.
-    -   `password` - Credencial de contraseña para el servicio {{site.data.keyword.discoveryshort}}.
+    -   `apikey` - Credencial para el servicio {{site.data.keyword.discoveryshort}}.
 
-    Hay otros valores opcionales en este archivo que se pueden establecer según corresponda a su entorno. Consulte [Configuración de opciones de servicio](/docs/services/discovery/data-crawler-discovery.html#configuring-service-options) para obtener información sobre cómo establecer estos valores.
+    Hay otros valores opcionales en este archivo que se pueden establecer según corresponda a su entorno. Consulte [Configuración de opciones de servicio](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options) para obtener información sobre cómo establecer estos valores.
 
-1.  Después de modificar estos archivos, estará listo para rastrear los datos. Vaya a [Rastreo de su repositorio de datos](/docs/services/discovery/data-crawler-run.html#crawling-your-data-repository) para continuar.
+1.  Después de modificar estos archivos, estará listo para rastrear los datos. Vaya a [Rastreo de su repositorio de datos](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository) para continuar.
 
 ## Configuración de opciones de rastreo
 {: #configuring-crawl-options}
@@ -98,7 +110,6 @@ Las opciones que se pueden establecer en este archivo son:
 
     **Nota:** Es relativa al directorio `lib/java` de la infraestructura de conector.
 
-    -   Este valor debe ser `oakland` cuando se utiliza el conector de SharePoint.
     -   Este valor debe ser `database` cuando se utiliza el conector de base de datos.
 
     Puede dejar este valor vacío (es decir, serie vacía "") cuando se utilicen otros conectores.
@@ -232,8 +243,7 @@ Las opciones predeterminadas se pueden cambiar directamente abriendo el archivo 
 -   **`collection_id`** - Nombre de la recopilación de documentos que configuró en el servicio {{site.data.keyword.discoveryshort}}.
 -   **`api_version`** - Para uso interno exclusivamente. Fecha del último cambio de versión de la API.   
 -   **`configuration_id`** - Nombre de archivo del archivo de configuración que utiliza el servicio {{site.data.keyword.discoveryshort}}.
--   **`username`** - Nombre de usuario para autenticar para la ubicación de su recopilación de documentos rastreados.   
--   **`password`** - Contraseña para autenticar para la ubicación de su recopilación de documentos rastreados.
+-   **`apikey`** - Credencial para autenticar para la ubicación de su recopilación de documentos rastreados.
 
 El Adaptador de salida del servicio {{site.data.keyword.discoveryshort}} puede enviar estadísticas con el propósito de que {{site.data.keyword.IBM}} entienda mejor a los usuarios y les pueda ofrecer un mejor servicio. Pueden configurarse las opciones siguientes para la variable `send_stats`:
 

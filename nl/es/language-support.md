@@ -2,20 +2,32 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-12-18"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Soporte de idiomas
 {: #language-support}
@@ -31,13 +43,14 @@ El servicio {{site.data.keyword.discoveryfull}} ofrece dos niveles de soporte de
 | Holandés (nl)                     |  Básico         |
 | Francés (fr)                     |  Completo         |
 | Alemán (de)                     |  Completo         |
-| Italiano (it)                    |  Básico         |
+| Italiano (it)                    |  Completo        |
 | Japonés (ja)                  |  Completo         |
 | Coreano (ko)                    |  Completo         |
 | Portugués (Brasil) (pt-br)   |  Completo         |
 | Español (es)                    |  Completo         |
 
 ## Soporte básico
+{: #basic-support}
 
 - El soporte de {{site.data.keyword.discoveryshort}} incluye:
     - Conversión de documentos
@@ -47,12 +60,14 @@ El servicio {{site.data.keyword.discoveryfull}} ofrece dos niveles de soporte de
     - Índice optimizado para el idioma
     - Entrenamiento de relevancia
     - Expansión de la consulta
+    - Palabras vacías
     - Documentación en 9 idiomas: Inglés, francés, alemán, japonés, coreano, portugués de Brasil, español, chino simplificado y chino tradicional. Desplácese a la parte inferior de la documentación de {{site.data.keyword.Bluemix_notm}} para seleccionar el idioma.
 - Enriquecimientos
     - Integración con modelos personalizados de {{site.data.keyword.knowledgestudiofull}}
     - Detección de idioma
 
 ## Soporte completo
+{: #full-support}
 
 El soporte completo incluye el soporte básico y, además:
 
@@ -75,3 +90,10 @@ Actualmente solo se da soporte en inglés a las siguientes características:
 - Enriquecimiento de Clasificación de elementos
 - {{site.data.keyword.discoveryfull}} Knowledge Graph (beta)
 - Deduplicación de documento (beta)
+
+## Soporte solo en japonés
+{: #japanese-support}
+
+Actualmente solo se da soporte en japonés a la siguiente característica:
+
+- Diccionarios de señalización personalizados

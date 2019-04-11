@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-09"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Tipos y subtipos de entidad
 {: #entity-types-and-subtypes}
 
-En la siguiente tabla hay una lista de los posibles tipos y subtipos de entidad devueltos por el enriquecimiento de Extracción de entidades. Puede descargar aquí una hoja de cálculo con esta información: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>.
+En la siguiente tabla hay una lista de los posibles tipos y subtipos de entidad devueltos por el enriquecimiento de Extracción de entidades. Puede descargar aquí una hoja de cálculo con esta información: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>.
 {: shortdesc}
 
 
