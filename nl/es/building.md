@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-07-03"
+  years: 2015, 2018, 2019
+lastupdated: "2019-02-08"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Configuración del servicio
 {: #configservice}
@@ -25,17 +37,17 @@ La creación de un servicio {{site.data.keyword.discoveryshort}} hará posible o
 
 Antes de añadir su propio contenido para el servicio {{site.data.keyword.discoveryshort}}, debe configurar el servicio para procesar el contenido de la forma que desea.
 
-El primer paso es configurar los parámetros básicos del servicio ([Preparación del servicio para los documentos](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)), esto incluye la creación de un entorno y la creación de una o varias recopilaciones dentro de dicho entorno. Cuando se crea una recopilación, de forma automática se proporciona un conjunto de valores predeterminados ([La configuración predeterminada](/docs/services/discovery/building.html#the-default-configuration)). Si está satisfecho con estos valores predeterminados, puede proceder a cargar su contenido ([Adición de contenido](/docs/services/discovery/adding-content.html)).
+El primer paso es configurar los parámetros básicos del servicio ([Preparación del servicio para los documentos](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)), esto incluye la creación de un entorno y la creación de una o varias recopilaciones dentro de dicho entorno. 
 
-Sin embargo, lo más probable es que desee especificar una o más configuraciones personalizadas (consulte [Cuándo es necesaria una configuración personalizada](/docs/services/discovery/building.html#when-you-need-a-custom-configuration)). Si este es el caso, deberá hacer lo siguiente:
+Si la recopilación se ha creado antes de la introducción de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu), quizá desee especificar una o más configuraciones personalizadas (consulte [Cuándo es necesaria una configuración personalizada](/docs/services/discovery?topic=discovery-configservice#when-you-need-a-custom-configuration)). Si este es el caso, deberá hacer lo siguiente:
 
 -   Identificar algún contenido de ejemplo (documentos representativos de sus archivos)
--   Cargar el contenido ([Cargar documentos de ejemplo](/docs/services/discovery/building.html#uploading-sample-documents))
--   Ajustar el proceso de conversión ([Conversión de documentos de ejemplo](/docs/services/discovery/building.html#converting-sample-documents))
--   Definir enriquecimientos ([Adición de enriquecimientos](/docs/services/discovery/building.html#adding-enrichments))
--   Normalizar los resultados ([Normalización de datos](/docs/services/discovery/building.html#normalizing-data))
+-   Cargar el contenido ([Cargar documentos de ejemplo](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents))
+-   Ajustar el proceso de conversión ([Conversión de documentos de ejemplo](/docs/services/discovery?topic=discovery-configservice#converting-sample-documents))
+-   Definir enriquecimientos ([Adición de enriquecimientos](/docs/services/discovery?topic=discovery-configservice#adding-enrichments))
+-   Normalizar los resultados ([Normalización de datos](/docs/services/discovery?topic=discovery-configservice#normalizing-data))
 
-    Después de haber creado la configuración personalizada, puede cargar sus documentos ([Adición de contenido](/docs/services/discovery/adding-content.html)).
+    Después de haber creado la configuración personalizada, puede cargar sus documentos ([Adición de contenido](/docs/services/discovery?topic=discovery-addcontent#addcontent)).
 
 ## Preparación del servicio para los documentos
 {: #preparing-the-service-for-your-documents}
@@ -44,28 +56,34 @@ En el servicio {{site.data.keyword.discoveryshort}}, el contenido que carga se a
 
 -   **Entorno** — El entorno define la cantidad del espacio de almacenamiento que tiene para el contenido en el servicio {{site.data.keyword.discoveryshort}}. Es posible crear un máximo de un entorno por cada instancia del servicio {{site.data.keyword.discoveryshort}}.
 
-    Puede escoger entre varios planes (Lite, Avanzado, Premium), consulte el catálogo de [{{site.data.keyword.discoveryshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window} y de los [Planes de precios de {{site.data.keyword.discoveryshort}}](/docs/services/discovery/pricing-details.html) para obtener más detalles. Los archivos de origen no se tienen en cuenta para el límite del tamaño del archivo, solo se tiene en cuenta el tamaño del JSON convertido que se indexa.
+    Puede escoger entre varios planes (Lite, Avanzado, Premium), consulte el [catálogo de {{site.data.keyword.discoveryshort}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/services/discovery){: new_window} y [los Planes de precios de {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) para obtener más detalles. Los archivos de origen no se tienen en cuenta para el límite del tamaño del plan, solo se tiene en cuenta el tamaño del JSON convertido que se indexa.
 
 -   **Recopilación** — Una recopilación es una agrupación de su contenido en el entorno. Se debe crear al menos una recopilación para poder cargar su contenido.
 
-    Las recopilaciones están formadas por sus datos privados, sin embargo, {{site.data.keyword.discoveryshort}} también incluye {{site.data.keyword.discoverynewsshort}}, un conjunto de datos público enriquecido de forma previa. Puede utilizarlo para consultar información: alertas de noticias, detección de sucesos y temas de tendencias, que puede integrar en sus aplicaciones.
+    Las recopilaciones están formadas por sus datos privados, sin embargo, {{site.data.keyword.discoveryshort}} también incluye {{site.data.keyword.discoverynewsshort}}, un conjunto de datos público enriquecido de forma previa. 
 
-    {{site.data.keyword.discoverynewsshort}}, un conjunto de datos públicos que previamente se ha enriquecido con conocimientos cognitivos, también se incluye con {{site.data.keyword.discoveryshort}}. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) para obtener más información. No es posible modificar la configuración de {{site.data.keyword.discoverynewsshort}} o añadir documentos a esta recopilación. Consulte una demostración que puede realizar con {{site.data.keyword.discoverynewsshort}} [aquí ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
+    {{site.data.keyword.discoverynewsshort}}, un conjunto de datos públicos que previamente se ha enriquecido con conocimientos cognitivos, también se incluye con {{site.data.keyword.discoveryshort}}. Puede utilizarlo para consultar información: alertas de noticias, detección de sucesos y temas de tendencias, que puede integrar en sus aplicaciones. Consulte [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) para obtener más información. No es posible modificar la configuración de {{site.data.keyword.discoverynewsshort}} o añadir documentos a esta recopilación. Consulte una demostración que puede realizar con {{site.data.keyword.discoverynewsshort}} [aquí ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
 Para crear un entorno y una recopilación de datos privados con el conjunto de herramientas de {{site.data.keyword.discoveryshort}} siga estos pasos:
 
-1.  En la pantalla de **Gestionar datos**, pulse el icono ![Rueda](images/icon_settings.png) y elija **Crear entorno**. El entorno se crea basándose en el plan de {{site.data.keyword.Bluemix_notm}} que haya seleccionado con anterioridad. El estado de su entorno siempre está disponible desde este desplegable.
+1.  En la pantalla de **Gestionar datos**, pulse el icono ![Entorno](images/icon_settings.png) en la parte superior derecha y seleccione **Crear entorno**. El entorno se crea basándose en el plan de {{site.data.keyword.Bluemix_notm}} que haya seleccionado con anterioridad. El estado de su entorno siempre está disponible desde este desplegable.
 
 1.  Una vez que el entorno esté listo, pulse el botón **Cargar sus datos** y, a continuación, puede **Nombrar su nueva recopilación**.
 
-    De forma predeterminada, el archivo de configuración será la **Configuración predeterminada**. Si tiene otro archivo de configuración disponible, puede elegirlo o puede crear uno nuevo más tarde y aplicarlo a esta recopilación. También se puede seleccionar el idioma de los documentos que se añadirán a esta recopilación: inglés, alemán, español, árabe, japonés, francés, italiano, coreano o portugués (Brasil). Debería haber un solo idioma en cada una de sus recopilaciones. Después de pulsar **Crear**, la recopilación de datos aparecerá como un mosaico.
+     Se puede seleccionar el idioma de los documentos que se añadirán a esta recopilación: inglés, alemán, español, árabe, japonés, francés, italiano, coreano o portugués (Brasil). Debería haber un solo idioma en cada una de sus recopilaciones. Después de pulsar **Crear**, la recopilación de datos aparecerá como un mosaico.
 
-El entorno y la recopilación de datos están listos. Si desea utilizar el archivo de configuración predeterminado, puede iniciar la [Adición de contenido](/docs/services/discovery/adding-content.html) inmediatamente. Pero si desea personalizar su configuración de {{site.data.keyword.discoveryshort}} con enriquecimientos adicionales y valores de conversión, no debería empezar a añadir documentos ahora, sino empezar creando el archivo de configuración personalizada. Consulte [Configuración del servicio](/docs/services/discovery/building.html#custom-configuration).
+El entorno y la recopilación de datos están listos. Puede iniciar la [Adición de contenido](/docs/services/discovery?topic=discovery-addcontent#addcontent) inmediatamente. 
 
-**Nota:** Cuando se cargan documentos en una recopilación de datos, se convierten y enriquecen utilizando el archivo de configuración elegido para dicha recopilación. Si decide posteriormente que desea cambiar una recopilación con un archivo de configuración diferente, puede hacerlo, sin embargo, los documentos que ya se han cargado seguirán convertidos según al archivo de configuración original. Todos los documentos cargados después de cambiar el archivo de configuración utilizarán el nuevo archivo de configuración. Si desea que **toda**
-la recopilación utilice la nueva configuración, necesitará crear una nueva recopilación, elegir el nuevo archivo de configuración y volver a cargar todos los documentos. El servicio {{site.data.keyword.discoveryshort}} almacena el texto convertido de los documentos que ha cargado. No se almacenan ni se devolverán en los resultados las imágenes incluidas en los archivos **PDF** y **Microsoft Word**.
+Pero si desea personalizar su configuración de {{site.data.keyword.discoveryshort}} con enriquecimientos adicionales y valores de conversión, no debería empezar a añadir documentos ahora, sino empezar creando el archivo de configuración personalizada. Consulte [Configuración del servicio](/docs/services/discovery?topic=discovery-configservice#custom-configuration).
 
-Puede utilizar la herramienta o la API de {{site.data.keyword.discoveryshort}} para rastrear orígenes de datos de Box, Salesforce y Microsoft SharePoint Online. Consulte [Conexión a orígenes de datos](/docs/services/discovery/connect.html) para obtener más información.
+Si la recopilación se ha creado utilizando la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu), es posible que prefiera ajustar los enriquecimientos utilizando el conjunto de herramientas de {{site.data.keyword.discoveryshort}}.
+{: note}
+
+Para las recopilaciones creadas antes de la publicación de la Comprensión de documentos inteligentes: cuando se cargan documentos en una recopilación de datos, se convierten y enriquecen utilizando el archivo de configuración seleccionado para dicha recopilación. Si decide posteriormente que desea cambiar el archivo de configuración, puede hacerlo; sin embargo, los documentos que ya se han cargado seguirán convertidos según la configuración original. Todos los documentos cargados después de cambiar el archivo de configuración utilizarán el nuevo archivo de configuración. Si desea que **toda**
+la recopilación utilice la nueva configuración, necesitará crear una nueva recopilación, elegir el nuevo archivo de configuración y volver a cargar todos los documentos. El servicio {{site.data.keyword.discoveryshort}} almacena el texto convertido de los documentos que ha cargado. No se almacenan ni se devolverán en los resultados las imágenes incluidas en los archivos **PDF** y **Microsoft Word**. Si su recopilación utiliza la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu), los cambios realizados en los enriquecimientos y la conversión en {{site.data.keyword.discoveryshort}} se aplicarán a toda la colección cuando pulse el botón **Aplicar cambios a la recopilación**. Si la recopilación es grande, la aplicación de los cambios puede tardar algún tiempo.  
+{: important}
+
+Puede utilizar el conjunto de herramientas de {{site.data.keyword.discoveryshort}} o la API para rastrear los orígenes de datos de Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage y Microsoft SharePoint 2016, o efectuar un rastreo web. Consulte [Conexión a orígenes de datos](/docs/services/discovery?topic=discovery-sources#sources) para obtener más información.
 {: tip}
 
 ### La configuración predeterminada
@@ -73,44 +91,58 @@ Puede utilizar la herramienta o la API de {{site.data.keyword.discoveryshort}} p
 
 El servicio {{site.data.keyword.discoveryshort}} incluye una configuración estándar que convertirá, enriquecerá y normalizará los datos sin la necesidad de configurar manualmente estas opciones.
 
-La configuración predeterminada denominada **Configuración por defecto** contiene enriquecimientos, además de conversiones de documento estándar basadas en tamaños y estilos de fuentes. {{site.data.keyword.discoveryshort}} enriquecerá (añadirá metadatos cognitivos) al campo de texto de sus documentos con información semántica recopilada por los cuatro enriquecimientos de {{site.data.keyword.watson}} -Extracción de entidades, Análisis de sentimientos, Clasificación de categorías, Etiquetado de conceptos (aprenda más sobre los mismos [aquí](/docs/services/discovery/building.html#adding-enrichments)).
+El archivo de **Configuración predeterminada** sólo está disponible en recopilaciones creadas antes de la publicación de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu). Sin embargo, cuando se utiliza la Comprensión de documentos inteligentes, los mismos enriquecimientos y las conversiones de HTML y JSON se utilizarán de forma predeterminada en las recopilaciones.
+{: note}
 
--   [Conversión de Microsoft Word ](/docs/services/discovery/building.html#microsoft-word-conversion)
--   [Conversión de PDF](/docs/services/discovery/building.html#pdf-conversion)
--   [Conversión de HTML](/docs/services/discovery/building.html#html-conversion)
--   [Conversión de JSON ](/docs/services/discovery/building.html#json-conversion)
+Al crear una recopilación, {{site.data.keyword.discoveryshort}} enriquecerá (añadirá metadatos cognitivos) el campo `text` de sus documentos con información semántica recopilada por los cuatro enriquecimientos de {{site.data.keyword.watson}} -Extracción de entidades, Análisis de sentimientos, Clasificación de categorías, Etiquetado de conceptos (aprenda más sobre los mismos [aquí](/docs/services/discovery?topic=discovery-configservice#adding-enrichments)). También se aplicarán conversiones de documento estándar con base a estilos y tamaños de font. Puede ajustar los enriquecimientos más adelante, mediante el separador **Visión general**. (Esta configuración se denomina **Configuración predeterminada** en las recopilaciones creadas antes de la publicación de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu)).
 
-Hay disponible una segunda configuración predeterminada denominada **Configuración de contrato predeterminado** en el conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Se configura para enriquecerse con la Clasificación de elementos, que se puede utilizar para extraer la parte, la naturaleza y la categoría de los elementos en PDF. Consulte [Clasificación de elementos](/docs/services/discovery/element-classification.html#element-collection) para obtener más detalles.
+Las conversiones predeterminadas:
 
-Si desea crear una configuración personalizada, consulte [Configuración personalizada](/docs/services/discovery/building.html#custom-configuration).
+-   [Conversión de Microsoft Word](/docs/services/discovery?topic=discovery-configservice#microsoft-word-conversion)
+-   [Conversión de PDF](/docs/services/discovery?topic=discovery-configservice#pdf-conversion)
+-   [Conversión de HTML](/docs/services/discovery?topic=discovery-configservice#html-conversion)
+-   [Conversión de JSON](/docs/services/discovery?topic=discovery-configservice#json-conversion)
+
+Hay disponible una configuración denominada **Configuración de contrato predeterminado** cuando se crea una recopilación con el conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Se configura para enriquecerse con la Clasificación de elementos, que se puede utilizar para extraer la parte, la naturaleza y la categoría de los elementos en PDF. Consulte [Clasificación de elementos](/docs/services/discovery?topic=discovery-element-classification#element-collection) para obtener más detalles. La Comprensión de documentos inteligentes no estará disponible si se utiliza este archivo de configuración.
+
+Si desea crear una configuración personalizada para las recopilaciones creadas antes de la publicación de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu), consulte [Configuración personalizada](/docs/services/discovery?topic=discovery-configservice#custom-configuration).
 
 ### Cuándo se necesita una configuración personalizada
 {: #when-you-need-a-custom-configuration}
 
+Esta información solo se aplica a las recopilaciones creadas antes de la publicación de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu).
+{: note}
+
 La obtención de la información correcta a partir de su contenido y su entrega a sus objetivos es el objetivo del servicio {{site.data.keyword.discoveryshort}}. La configuración que se utiliza para ingerir el contenido identifica la información y cómo esta se almacena. Los tipos de contenido que el servicio {{site.data.keyword.discoveryshort}} puede ingerir son flexibles, lo que significa que aunque el contenido no estructurado esté guardado en un formato específico, no es necesario que la estructura del contenido coincida con la estructura de otro contenido del mismo tipo.
 
 -   **Entiendo que es posible que mis documentos no estén estructurados de la misma forma que la configuración predeterminada espera. *¿Cómo sé si los valores predeterminados son los adecuados para mi caso?***
-    -   La manera más fácil de ver si la configuración predeterminado es la adecuada para mi caso es [Cargar documentos de ejemplo](/docs/services/discovery/building.html#uploading-sample-documents). Si los resultados del JSON de ejemplo satisfacen sus expectativas, entonces no se necesita ninguna configuración adicional.
--   **Entiendo que se añaden enriquecimientos predeterminados al campo de texto de mis documentos. ¿Puedo añadir enriquecimientos adicionales para otros campos? **
-    -   Desde luego, puede añadir enriquecimientos adicionales a todos los campos que desee. Consulte [Adición de enriquecimientos](/docs/services/discovery/building.html#adding-enrichments) para obtener más información.
+    -   La manera más fácil de ver si la configuración predeterminado es la adecuada para mi caso es [Cargar documentos de ejemplo](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents). Si los resultados del JSON de ejemplo satisfacen sus expectativas, entonces no se necesita ninguna configuración adicional.
+-   **Entiendo que se añaden enriquecimientos predeterminados al campo de texto de mis documentos. ¿Puedo añadir enriquecimientos adicionales para otros campos?**
+    -   Desde luego, puede añadir enriquecimientos adicionales a todos los campos que desee. Consulte [Adición de enriquecimientos](/docs/services/discovery?topic=discovery-configservice#adding-enrichments) para obtener más información.
 
 ## Configuración personalizada
 {: #custom-configuration}
 
+Esta información solo se aplica a las recopilaciones creadas antes de la publicación de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu).
+{: note}
+
 Para crear una configuración personalizada en el conjunto de herramientas de {{site.data.keyword.discoveryshort}}, abra una recopilación de datos privados, y en la pantalla **Gestionar datos**, pulse **Conmutar** junto al nombre de la **Configuración**. En el diálogo **Conmutar configuración**, pulse **Crear una nueva configuración**.
 
-Después de haber denominado el nuevo archivo de configuración, dicho nombre se visualizará en la parte superior de la pantalla de configuración. Este nuevo archivo de configuración de forma automática contendrá los valores y los enriquecimientos del archivo de la [Configuración predeterminada](/docs/services/discovery/building.html#the-default-configuration) para que los utilice como punto de partida.
+Después de haber denominado el nuevo archivo de configuración, dicho nombre se visualizará en la parte superior de la pantalla de configuración. Este nuevo archivo de configuración de forma automática contendrá los valores y los enriquecimientos del archivo de la [Configuración predeterminada](/docs/services/discovery?topic=discovery-configservice#the-default-configuration) para que los utilice como punto de partida.
 
 Los tres pasos para personalizar un archivo de configuración son: **Convertir**, **Enriquecer** y **Normalizar**.
 
-1.  [Conversión de documentos de ejemplo](/docs/services/discovery/building.html#converting-sample-documents)
-1.  [Adición de enriquecimientos](/docs/services/discovery/building.html#adding-enrichments)
-1.  [Normalización de datos](/docs/services/discovery/building.html#normalizing-data)
+1.  [Conversión de documentos de ejemplo](/docs/services/discovery?topic=discovery-configservice#converting-sample-documents)
+1.  [Adición de enriquecimientos](/docs/services/discovery?topic=discovery-configservice#adding-enrichments) (Este separador está disponible cuando se utiliza la Configuración de documentos inteligentes).
+1.  [Normalización de datos](/docs/services/discovery?topic=discovery-configservice#normalizing-data)
 
-Para obtener información detallada acerca de las configuraciones, consulte [Referencia de configuración](/docs/services/discovery/custom-config.html).
+Para obtener información detallada acerca de las configuraciones, consulte [Referencia de configuración](/docs/services/discovery?topic=discovery-configref#configref).
 
 ### Cargar documentos de ejemplo
 {: #uploading-sample-documents}
+
+Esta información solo se aplica a las recopilaciones creadas antes de la publicación de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu).
+{: note}
 
 Para que el proceso de configuración sea más eficiente, puede cargar hasta diez archivos Microsoft Word, HTML, JSON, o PDF que sean representativos de su conjunto de documentos. Son los denominados **documentos de ejemplo**. Los documentos de ejemplo no se añaden a la recopilación, sólo se utilizan para identificar campos que son comunes a los documentos y para personalizar los campos de acuerdo con sus requisitos.
 
@@ -133,9 +165,12 @@ Al crear un nuevo archivo de configuración en el conjunto de herramientas de {{
 ### Conversión de documentos de ejemplo
 {: #converting-sample-documents}
 
+Esta información solo se aplica a las recopilaciones creadas antes de la publicación de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu).
+{: note}
+
 La conversión de los documentos de ejemplo es el proceso que permitirá definir la forma en la que se manejará cada tipo de entrada. El tipo de archivo del contenido que carga determina el número de pasos de conversión que considerará.
 
-Antes de empezar, [cargue sus documentos de ejemplo](/docs/services/discovery/building.html#uploading-sample-documents), y abra un documento de ejemplo del tipo de archivo que desea configurar en el panel de la derecha.
+Antes de empezar, [cargue sus documentos de ejemplo](/docs/services/discovery?topic=discovery-configservice#uploading-sample-documents), y abra un documento de ejemplo del tipo de archivo que desea configurar en el panel de la derecha.
 
 Para trabajar con los valores de conversión, pulse a través de los tipos de archivo.
 
@@ -176,7 +211,7 @@ Después de realizar los cambios, pulse **Aplicar y guardar**.
 
 Los nombres y tamaños de font PDF se utilizan para convertir adecuadamente las cabeceras en los documentos en etiquetas H1, H2, etc. Las etiquetas H1 corresponden al título del documento y las H2 e inferiores son subcabeceras. Utilice los recuadros de texto y los botones de selección para cambiar los valores predeterminados si así lo desea. También puede añadir niveles adicionales de cabeceras. Si sus documentos PDF tienden a utilizar un font específicos para las cabeceras, asegúrese de añadir dicha información. Esto ayudará a mejorar la conversión, lo que dará lugar a mejores resultados de consultas.
 
-**Ejemplo: ** Si es habitual que sus documentos PDF utilicen un font de 20 pt y negrita para las primeras cabeceras, cambie el **Rango de tamaño de font** en **20** a **80** y el **Estilo de font** a **negrita**. Ajuste los otros niveles según corresponda.
+**Ejemplo:** Si es habitual que sus documentos PDF utilicen un font de 20 pt y negrita para las primeras cabeceras, cambie el **Rango de tamaño de font** en **20** a **80** y el **Estilo de font** a **negrita**. Ajuste los otros niveles según corresponda.
 
 Después de realizar los cambios, pulse **Aplicar y guardar**.
 
@@ -210,20 +245,23 @@ Después de realizar los cambios, pulse **Aplicar y guardar**.
 ## Adición de enriquecimientos
 {: #adding-enrichments}
 
-La [configuración predeterminada](/docs/services/discovery/building.html#the-default-configuration) de {{site.data.keyword.discoveryshort}} enriquecerá (con metadatos cognitivos) el campo `text` de sus documentos ingeridos con información semántica que se recopila para estas cuatro funciones de {{site.data.keyword.watson}} - Extracción de entidades, Análisis de sentimientos, Clasificación de categorías y Etiquetado de conceptos. (Existen un total de nueve enriquecimientos posibles de {{site.data.keyword.watson}}; el resto son Extracción de palabras clave, Extracción de relaciones, Análisis de emociones, Clasificación de elementos y Extracción de roles semánticos).
+La [configuración predeterminada](/docs/services/discovery?topic=discovery-configservice#the-default-configuration) de {{site.data.keyword.discoveryshort}} enriquecerá (con metadatos cognitivos) el campo `text` de sus documentos ingeridos con información semántica que se recopila para estas cuatro funciones de {{site.data.keyword.watson}} - Extracción de entidades, Análisis de sentimientos, Clasificación de categorías y Etiquetado de conceptos. (Existen un total de nueve enriquecimientos posibles de {{site.data.keyword.watson}}; el resto son Extracción de palabras clave, Extracción de relaciones, Análisis de emociones, Clasificación de elementos y Extracción de roles semánticos).
 
 Es posible que algunos enriquecimientos de {{site.data.keyword.watson}} no estén disponibles en planes o entornos determinados.
 
-**Importante:** Únicamente se enriquecerán los primeros 50.000 caracteres de cada campo JSON seleccionado para ser enriquecido.
+También puede integrar uno o varios modelos personalizados de {{site.data.keyword.knowledgestudiofull}} con el servicio {{site.data.keyword.discoveryshort}} para proporcionar enriquecimientos personalizados de relaciones y entidades. Consulte [Integración con Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
-**Nota:** Los enriquecimientos de {{site.data.keyword.alchemylanguageshort}} están en desuso desde el 1 de marzo de 2018. Si dispone de colecciones existentes que utilizan enriquecimientos de {{site.data.keyword.alchemylanguageshort}}, debe realizar una migración a los enriquecimientos de {{site.data.keyword.nlushort}}. Para obtener información sobre la migración de recopilaciones y de archivos de configuración que utilizan los enriquecimientos de {{site.data.keyword.alchemylanguageshort}}, consulte [Migración de enriquecimientos a {{site.data.keyword.nlushort}}](/docs/services/discovery/migrate-nlu.html).
+Únicamente se enriquecerán los primeros 50.000 caracteres de cada campo JSON seleccionado para ser enriquecido.
+{: important}
 
-Puede añadir más enriquecimientos al campo `text`, o enriquecer otros campos. Para hacerlo utilizando el conjunto de herramientas de {{site.data.keyword.discoveryshort}}, [cree una configuración personalizada](/docs/services/discovery/building.html#custom-configuration), elija el campo o campos a los que desea añadir un enriquecimiento y selecciónelo de la lista de enriquecimiento disponibles de {{site.data.keyword.nlushort}}:
+**Nota:** Los enriquecimientos de {{site.data.keyword.alchemylanguageshort}} están en desuso desde el 1 de marzo de 2018. Si dispone de colecciones existentes que utilizan enriquecimientos de {{site.data.keyword.alchemylanguageshort}}, debe realizar una migración a los enriquecimientos de {{site.data.keyword.nlushort}}. Para obtener información sobre la migración de recopilaciones y de archivos de configuración que utilizan los enriquecimientos de {{site.data.keyword.alchemylanguageshort}}, consulte [Migración de enriquecimientos a {{site.data.keyword.nlushort}}](/docs/services/discovery?topic=discovery-migrate-nlu#migrate-nlu).
+
+Puede añadir más enriquecimientos al campo `text`, o enriquecer otros campos. Para hacerlo mediante la Comprensión de documentos inteligentes en el conjunto de herramientas de {{site.data.keyword.discoveryshort}}, abra el separador **Enriquecer campos**. Para hacerlo para recopilaciones creadas antes de la Comprensión de documentos inteligentes, [cree una configuración personalizada](/docs/services/discovery?topic=discovery-configservice#custom-configuration), elija el campo o campos a los que desea añadir un enriquecimiento y selecciónelo de la lista de enriquecimientos disponibles de {{site.data.keyword.nlushort}}:
 
 ### Extracción de entidades
 {: #entity-extraction}
 
-Obtenga como resultados elementos como, por ejemplo, personas, lugares y organizaciones que estén presentes en el texto de entrada. La extracción de entidades añade conocimiento semántico al contenido para ayudarle a comprender el tema y el contexto del texto que se está analizando. Las técnicas de extracción de entidades se basan en sofisticados algoritmos estadísticos y en tecnología de proceso de lenguaje natural, y son exclusivos en la industria con su soporte para el análisis multilingüe y la desambiguación sensible al contexto. Consulte [aquí](/docs/services/discovery/entity-types.html) la lista completa de tipos y subtipos de entidad. También es posible crear y añadir un [modelo de entidades personalizado](/docs/services/discovery/building.html#custom-entity-model) con {{site.data.keyword.knowledgestudiofull}}.
+Obtenga como resultados elementos como, por ejemplo, personas, lugares y organizaciones que estén presentes en el texto de entrada. La extracción de entidades añade conocimiento semántico al contenido para ayudarle a comprender el tema y el contexto del texto que se está analizando. Las técnicas de extracción de entidades se basan en sofisticados algoritmos estadísticos y en tecnología de proceso de lenguaje natural, y son exclusivos en la industria con su soporte para el análisis multilingüe y la desambiguación sensible al contexto. Consulte [aquí](/docs/services/discovery?topic=discovery-entity-types-and-subtypes#entity-types-and-subtypes) la lista completa de tipos y subtipos de entidad. También es posible crear y añadir un [modelo de entidades personalizado](/docs/services/discovery?topic=discovery-configservice#custom-entity-model) con {{site.data.keyword.knowledgestudiofull}}.
 
 Ejemplo de un fragmento de un documento enriquecido con la Extracción de entidades:
 
@@ -283,23 +321,23 @@ Ejemplo de un fragmento de un documento enriquecido con la Extracción de entida
 
 En el ejemplo anterior, puede consultar el tipo de entidad accediendo a `enriched_text.entities.type`.
 
-`sentiment` se calcula para los tipos de entidad incluso si no se selecciona el enriquecimiento **sentiment**. Para obtener más información sobre la puntuación del sentimiento, consulte el [Análisis del sentimiento](/docs/services/discovery/building.html#sentiment-analysis).
+`sentiment` se calcula para los tipos de entidad incluso si no se selecciona el enriquecimiento **sentiment**. Para obtener más información sobre la puntuación del sentimiento, consulte el [Análisis del sentimiento](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis).
 
 Los rangos de puntuación de `relevance` están entre `0.0` y `1.0`. Cuanto mayor es la puntuación, mayor es la relevancia de la entidad. El campo `disambiguation` contiene la información de desambiguación para la entidad, que incluye información de la entidad `subtype` y enlaces a los recursos (si hay). `count` corresponde al número de veces que se menciona la entidad en el documento.
 
 #### Utilización de un modelo de entidades personalizado
 {: #custom-entity-model}
 
-Si desea crear un modelo de enriquecimiento personalizado, puede hacerlo en {{site.data.keyword.knowledgestudiofull}} e importar el modelo en {{site.data.keyword.discoveryshort}} añadiendo el ID en el recuadro `ID de modelo personalizado ID` del conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Para obtener más información sobre la integración con {{site.data.keyword.knowledgestudiofull}}, consulte [Integración con {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). El modelo personalizado de {{site.data.keyword.knowledgestudiofull}} prevalecerá sobre el enriquecimiento de Extracción de entidades predeterminado.
+Si desea crear un modelo de enriquecimiento personalizado, puede hacerlo en {{site.data.keyword.knowledgestudiofull}} e importar el modelo en {{site.data.keyword.discoveryshort}} añadiendo el ID en el recuadro `ID de modelo personalizado ID` del conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Para obtener más información sobre la integración con {{site.data.keyword.knowledgestudiofull}}, consulte [Integración con {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks). El modelo personalizado de {{site.data.keyword.knowledgestudiofull}} prevalecerá sobre el enriquecimiento de Extracción de entidades predeterminado.
 
 **Nota:** Solo se puede asignar un único modelo de {{site.data.keyword.knowledgestudiofull}} a un enriquecimiento.
 
 ### Extracción de relaciones
 {: #relation-extraction}
 
-Reconoce cuándo dos entidades están relacionadas e identifica el tipo de relación. También es posible crear y añadir un [modelo de relaciones personalizado](/docs/services/discovery/building.html#custom-relation-model) con {{site.data.keyword.knowledgestudiofull}}.
+Reconoce cuándo dos entidades están relacionadas e identifica el tipo de relación. También es posible crear y añadir un [modelo de relaciones personalizado](/docs/services/discovery?topic=discovery-configservice#custom-relation-model) con {{site.data.keyword.knowledgestudiofull}}.
 
-Consulte [aquí](/docs/services/discovery/relation-types.html) la lista completa de tipos de relación.
+Consulte [aquí](/docs/services/discovery?topic=discovery-relation-types#relation-types) la lista completa de tipos de relación.
 
 Ejemplo de un fragmento de un documento enriquecido con la Extracción de relaciones:
 
@@ -349,14 +387,14 @@ Ejemplo de un fragmento de un documento enriquecido con la Extracción de relaci
 
 En el ejemplo anterior, puede consultar el tipo de relación accediendo a `enriched_text.relations.type`.
 
-Las entidades relacionadas se listan en `arguments`. Los tipos de entidad que se pueden identificar con el enriquecimiento de Extracción de relaciones se puede encontrar [aquí](/docs/services/discovery/relation-types.html#specific-entity-types).
+Las entidades relacionadas se listan en `arguments`. Los tipos de entidad que se pueden identificar con el enriquecimiento de Extracción de relaciones se puede encontrar [aquí](/docs/services/discovery?topic=discovery-relation-types#specific-entity-types).
 
 Los rangos de `score` van de `0.0` a `1.0`. Cuanto mayor es la puntuación, mayor es la relevancia de la relación.
 
 #### Utilización de un modelo de relaciones personalizado
 {: #custom-relation-model}
 
-Si desea crear un modelo de enriquecimiento personalizado, puede hacerlo en {{site.data.keyword.knowledgestudiofull}} e importar el modelo en {{site.data.keyword.discoveryshort}} añadiendo el ID en el recuadro `ID de modelo personalizado ID` del conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Para obtener más información sobre la integración con {{site.data.keyword.knowledgestudiofull}}, consulte [Integración con {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html#integrating-with-watson-knowledge-studio). El modelo personalizado de {{site.data.keyword.knowledgestudiofull}} prevalecerá sobre el enriquecimiento de Extracción de relaciones predeterminado.
+Si desea crear un modelo de enriquecimiento personalizado, puede hacerlo en {{site.data.keyword.knowledgestudiofull}} e importar el modelo en {{site.data.keyword.discoveryshort}} añadiendo el ID en el recuadro `ID de modelo personalizado ID` del conjunto de herramientas de {{site.data.keyword.discoveryshort}}. Para obtener más información sobre la integración con {{site.data.keyword.knowledgestudiofull}}, consulte [Integración con {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks). El modelo personalizado de {{site.data.keyword.knowledgestudiofull}} prevalecerá sobre el enriquecimiento de Extracción de relaciones predeterminado.
 
 **Nota:** Solo se puede asignar un único modelo de {{site.data.keyword.knowledgestudiofull}} a un enriquecimiento.
 
@@ -422,13 +460,14 @@ Ejemplo de un fragmento de un documento enriquecido con la Extracción de palabr
 
 En el ejemplo anterior, podría consultar el texto de las palabras claves accediendo a `enriched_text.keywords.text`.
 
-`sentiment` se calcula para las palabras clave incluso si no se selecciona el enriquecimiento **sentiment**. Para obtener más información sobre la puntuación del sentimiento, consulte el [Análisis del sentimiento](/docs/services/discovery/building.html#sentiment-analysis).
+`sentiment` se calcula para las palabras clave incluso si no se selecciona el enriquecimiento **sentiment**. Para obtener más información sobre la puntuación del sentimiento, consulte el [Análisis del sentimiento](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis).
 
 Los rangos de puntuación de `relevance` están entre `0.0` y `1.0`. Cuanto mayor es la puntuación, mayor es la relevancia de la palabra clave.
 
 ### Clasificación de categorías
+{: #category-classification}
 
-Clasifica según categorías el contenido del texto de entrada, HTML o basado en la web en una taxonomía jerárquica de hasta cinco niveles de profundidad. Niveles más profundos permiten clasificar el contenido en subsegmentos más precisos y útiles. Consulte [aquí](/docs/services/discovery/categories.html) la lista completa de categorías.
+Clasifica según categorías el contenido del texto de entrada, HTML o basado en la web en una taxonomía jerárquica de hasta cinco niveles de profundidad. Niveles más profundos permiten clasificar el contenido en subsegmentos más precisos y útiles. Consulte [aquí](/docs/services/discovery?topic=discovery-cathierarchy#cathierarchy) la lista completa de categorías.
 
 Ejemplo de un fragmento de un documento enriquecido con la Clasificación de categorías:
 
@@ -460,7 +499,7 @@ La etiqueta `label` corresponde a la categoría detectada. Los niveles de jerarq
 ### Etiquetado de conceptos
 {: #concept-tagging}
 
-Identifica los conceptos con los que el texto de entrada está asociado, basándose en otros conceptos y entidades que están presentes en ese texto. El etiquetado de conceptos entiende cómo se relacionan los conceptos y es capaz de identificar conceptos a los que el texto no hace referencia. Por ejemplo, si un artículo menciona el "CERN" e "Higgs boson", las funciones de la Concepts API identificarán el concepto "Large Hadron Collider", incluso si dicho término no está mencionado de forma explícita en la página. El etiquetado de conceptos permite un mayor nivel de análisis de contenido de entrada que la simple identificación de palabras claves.
+Identifica los conceptos con los que el texto de entrada está asociado, basándose en otros conceptos y entidades que están presentes en ese texto. El etiquetado de conceptos entiende cómo se relacionan los conceptos y es capaz de identificar conceptos a los que el texto no hace referencia. Por ejemplo, si un artículo menciona el "CERN" e "Higgs boson", las funciones de la API Concepts identificarán el concepto "Large Hadron Collider", incluso si dicho término no está mencionado de forma explícita en la página. El etiquetado de conceptos permite un mayor nivel de análisis de contenido de entrada que la simple identificación de palabras claves.
 
 Ejemplo de un fragmento de un documento enriquecido con el Etiquetado de conceptos:
 
@@ -488,6 +527,7 @@ En el ejemplo anterior, puede consultar el tipo del texto del concepto accediend
 Los rangos de puntuación de `relevance` están entre `0.0` y `1.0`. Cuanto mayor es la puntuación, mayor es la relevancia del concepto. Si existen, se proporcionan enlaces a los recursos.
 
 ### Extracción de roles semánticos
+{: #semantic-role-extraction}
 
 Identifica las relaciones de sujeto, acción y objeto en el contenido de entrada. La información de relación sirve para identificar automáticamente las señales de compra, sucesos clave y otras acciones importantes.
 
@@ -571,7 +611,7 @@ Ejemplo de un fragmento de un documento enriquecido con la Extracción de roles 
 
 En el ejemplo anterior, podría consultar el texto del sujeto de la relación accediendo a `enriched_text.relations.subject.text`.
 
-`sentiment` se calcula para las relaciones clave incluso si no se selecciona el enriquecimiento **sentiment**. Para obtener más información sobre la puntuación del sentimiento, consulte el [Análisis del sentimiento](/docs/services/discovery/building.html#sentiment-analysis). No extraerá `entities` o `keywords` (tal como se muestra en el ejemplo) a no ser que seleccione los enriquecimientos **entity** y **keyword**. Consulte [Extracción de entidades](/docs/services/discovery/building.html#entity-extraction) y [Extracción de palabras clave](/docs/services/discovery/building.html#keyword-extraction) para obtener más información sobre dichos enriquecimientos.
+`sentiment` se calcula para las relaciones clave incluso si no se selecciona el enriquecimiento **sentiment**. Para obtener más información sobre la puntuación del sentimiento, consulte el [Análisis del sentimiento](/docs/services/discovery?topic=discovery-configservice#sentiment-analysis). No extraerá `entities` o `keywords` (tal como se muestra en el ejemplo) a no ser que seleccione los enriquecimientos **entity** y **keyword**. Consulte [Extracción de entidades](/docs/services/discovery?topic=discovery-configservice#entity-extraction) y [Extracción de palabras clave](/docs/services/discovery?topic=discovery-configservice#keyword-extraction) para obtener más información sobre dichos enriquecimientos.
 
 Las etiquetas `subject`, `action` y `object` se extraen de cada frase que contiene una relación.
 
@@ -633,17 +673,19 @@ El Análisis de emociones analiza el texto y calcula una puntuación para cada e
 ### Clasificación de elementos
 {: #elements}
 
-Analiza elementos (frases, listas, tablas) en documentos normativos importantes para clasificar los tipos y categorías. Para obtener más información, consulte [Clasificación de elementos](/docs/services/discovery/element-classification.html).
+Analiza elementos (frases, listas, tablas) en documentos normativos importantes para clasificar los tipos y categorías. Para obtener más información, consulte [Clasificación de elementos](/docs/services/discovery?topic=discovery-element-classification#element-classification).
+
+La [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu) no estará disponible si se utiliza este enriquecimiento.
 
 #### Precios para el enriquecimiento
 {: #enrichment-pricing}
 
-La información sobre los precios para el enriquecimiento está disponible en [{{site.data.keyword.Bluemix_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/catalog/services/discovery/){: new_window}.
+La información sobre los precios para el enriquecimiento está disponible en [{{site.data.keyword.Bluemix_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/catalog/services/discovery){: new_window}.
 
 #### Soporte de idiomas para los enriquecimientos
 {: #enrichment-language-support}
 
-Para obtener información sobre el soporte de idiomas para el enriquecimiento, consulte [Soporte de idiomas de {{site.data.keyword.discoveryshort}}](/docs/services/discovery/language-support.html).
+Para obtener información sobre el soporte de idiomas de enriquecimiento, consulte [Soporte de idiomas de {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-language-support#language-support).
 
 ### Diferencias entre entidades, conceptos y palabras clave
 {: #udbeck}
@@ -653,8 +695,7 @@ A primera vista, los enriquecimientos de **Extracción de entidades**, **Etiquet
 ```json
 "text": "The stockholders were pleased that Acme Corporation plans to build a new factory in Atlanta, Georgia."
 
-("Los accionistas se congratulan de que Acme Corporation tenga planificado construir una
-nueva fábrica en Atlanta, Georgia")
+("Los accionistas se congratulan de que Acme Corporation tenga planificado construir una nueva fábrica en Atlanta, Georgia")
 ```
 {: codeblock}
 
@@ -695,6 +736,9 @@ Estos enriquecimientos trabajan conjuntamente para ayudarle a crear mejores cons
 
 ## Normalización de datos
 {: #normalizing-data}
+
+Esta información solo se aplica a las recopilaciones creadas antes de la publicación de la [Comprensión de documentos inteligentes](/docs/services/discovery?topic=discovery-sdu#sdu).
+{: note}
 
 El último paso para personalizar el archivo de configuración es una limpieza final, que se denomina normalización.
 
@@ -750,12 +794,12 @@ Especifique valores para los nuevos campos nuevos de la siguiente manera:
 -   `field_name` - El nombre del campo que se añadirá a la salida de JSON.
 -   `CSS_selector_expression` - El selector CSS con relación al que se debe ejecutar la entrada de HTML para extraer los campos. La expresión puede tener uno o varias coincidencias.
 
-    Selectores CSS válidos son aquellos especificados por el [Analizador JSoup ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} y su [sintaxis de selector ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window}. En [Selectores comunes](/docs/services/discovery/building.html#common-selectors) se proporciona una breve lista.
+    Selectores CSS válidos son aquellos especificados por el [Analizador JSoup ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://jsoup.org/apidocs/org/jsoup/select/Selector.html){: new_window} y su [sintaxis de selector ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://jsoup.org/cookbook/extracting-data/selector-syntax){: new_window}. En [Selectores comunes](/docs/services/discovery?topic=discovery-configservice#common-selectors) se proporciona una breve lista.
 -   `field_type`: `array` o `string`. Si no se especifica el tipo de campo, el valor predeterminado es `array`. Tenga en cuenta que el tipo `string` se puede enriquecer, sin embargo, la información almacenada en un `array` no se puede enriquecer a no ser que se extraigan primero los elementos de la matriz en campos de texto.
 
 **Aviso:** Si un selector encuentra tanto un nodo padre como uno o varios de sus hijos, el contenido de texto de los nodos se duplicará en la salida de JSON.
 
-**Nota:** Los nombres de campo deben satisfacer las restricciones que se definen en los [Requisitos de nombre de campo](/docs/services/discovery/custom-config.html#field_reqs).
+**Nota:** Los nombres de campo deben satisfacer las restricciones que se definen en los [Requisitos de nombre de campo](/docs/services/discovery?topic=discovery-configref#field_reqs).
 
 En el siguiente fragmento JSON se muestra la sección pertinente de la configuración predeterminada en la que se añade la información del selector CSS.
 
@@ -926,6 +970,7 @@ Después de ingerir y enriquecer el código HTML anterior, el servicio {{site.da
 Después de decidir qué elementos HTML desea extraer, puede también modificar el archivo de configuración para especificar los enriquecimientos desea aplicar a los mismos.
 
 #### Selectores comunes
+{: #common-selectors}
 
 Algunos selectores CSS comunes incluyen lo siguiente:
 
@@ -938,6 +983,9 @@ Algunos selectores CSS comunes incluyen lo siguiente:
 ## División de documentos con segmentación de documento
 {: #doc-segmentation}
 
+Si utiliza la Comprensión de documentos inteligentes, no utilice la segmentación de documentos, sino la [división de documentos](/docs/services/discovery?topic=discovery-sdu#splitting).
+{: note}
+
 Puede dividir los documentos Word, PDF y HTML en segmentos de acuerdo con las etiquetas de cabecera HTML. Una vez divididos, cada segmento es un documento individual que se enriquecerá e indexará por separado. Puesto que las consultas devolverán estos segmentos como documentos separados, la segmentación de documentos se puede utilizar para:
 
   - Realizar agregaciones de segmentos individuales de un documento. Por ejemplo, su agregación podría contar cada vez que un segmento menciona una entidad específica, en lugar de contarla únicamente una vez para todo el documento.
@@ -949,9 +997,9 @@ Consideraciones:
 
   - El número de segmentos por documento se limita a `250`. Cualquier contenido de documento que quede después de los `249` segmentos se almacenará en el segmento `250`.
 
-  - Cada segmento se tendrá en cuenta con relación al límite de documentos de su plan. {{site.data.keyword.discoveryshort}} indexará segmentos hasta que se alcance el límite del plan. Consulte [Planes de precios de Discovery](/docs/services/discovery/pricing-details.html) para ver los límites de documentos.
+  - Cada segmento se tendrá en cuenta con relación al límite de documentos de su plan. {{site.data.keyword.discoveryshort}} indexará segmentos hasta que se alcance el límite del plan. Consulte [Planes de precios de Discovery](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) para ver los límites de documentos.
 
-  - No es posible normalizar datos (consulte [Normalización de datos](/docs/services/discovery/building.html#normalizing-data)) o utilizar selectores CSS para extraer campos (consulte [Utilización de selectores CSS para extraer campos](/docs/services/discovery/building.html#using-css)) al utilizar la segmentación de documentos.
+  - No es posible normalizar datos (consulte [Normalización de datos](/docs/services/discovery?topic=discovery-configservice#normalizing-data)) o utilizar selectores CSS para extraer campos (consulte [Utilización de selectores CSS para extraer campos](/docs/services/discovery?topic=discovery-configservice#using-css)) al utilizar la segmentación de documentos.
 
   - Los documentos se segmentarán cada vez que se detecte la etiqueta HTML especificada. Por lo tanto, la segmentación podría dar lugar a HTML mal formado puesto que los documentos se podrían dividir antes del cierre de etiquetas y después la apertura de etiquetas.
 
@@ -959,10 +1007,13 @@ Consideraciones:
 
   - La segmentación de documentos no se soporta cuando se especifica el enriquecimiento **Clasificación de elementos** (`elementos`).
 
-  - Se deben tener en cuenta consideraciones adicionales en la reingestión de un documento segmentado, consulte [Actualización de un documento segmentado](/docs/services/discovery/building.html#update-seg).
+  - Se deben tener en cuenta consideraciones adicionales en la reingestión de un documento segmentado, consulte [Actualización de un documento segmentado](/docs/services/discovery?topic=discovery-configservice#update-seg).
 
 ### Cómo realizar una segmentación
 {: #performing-segmentation}
+
+Si utiliza la Comprensión de documentos inteligentes, no utilice la segmentación de documentos, sino la [división de documentos](/docs/services/discovery?topic=discovery-sdu#splitting).
+{: note}
 
 La segmentación se configura a través de la API en la sección `conversions`.
 
@@ -985,6 +1036,7 @@ La segmentación se configura a través de la API en la sección `conversions`.
 `selector_tags` es una matriz que especifica las etiquetas de cabecera en las que se pueden segmentar los documentos.
 
 #### Ejemplo
+{: #example-segmentation}
 
 Configuración:
 
@@ -1059,11 +1111,11 @@ Todos los segmentos incluirán un:
 ### Actualización de un documento segmentado
 {: #update-seg}
 
-Si se ha actualizado un documento segmentado y es necesario volver a realizar la ingestión, es posible sustituirlo mediante el método [Actualizar documento![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window}.
+Si se ha actualizado un documento segmentado y es necesario volver a realizar la ingestión, es posible sustituirlo mediante el método [Actualizar documento ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window}.
 
 Al actualizar un documento segmentado, el documento debe descargarse utilizando el método POST de la API `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}`, que especifica el contenido del campo `parent_id` de uno de los segmentos actuales como la variable de vía de acceso `{document_id}`.
 
-Al realizar una actualización, todos los segmentos se sobrescriben, a menos que la versión actualizada del documento tenga menos secciones que la original. Los segmentos más antiguos permanecerán en el índice y es posible suprimirlos de forma individual mediante la API. Consulte la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#delete-doc){: new_window} para obtener más detalles. Puede identificar el número de segmentos que se han creado consultando los `avisos`. A cada segmento se le proporciona el campo `document_id` que está compuesto de `{parent_id}`, seguido de un guión bajo y del número de segmento.
+Al realizar una actualización, todos los segmentos se sobrescriben, a menos que la versión actualizada del documento tenga menos secciones que la original. Los segmentos más antiguos permanecerán en el índice y es posible suprimirlos de forma individual mediante la API. Consulte la [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#delete-a-document){: new_window} para obtener más detalles. Puede identificar el número de segmentos que se han creado consultando los `avisos`. A cada segmento se le proporciona el campo `document_id` que está compuesto de `{parent_id}`, seguido de un guión bajo y del número de segmento.
 
 Si alguno de los segmentos del documento que tiene intención de actualizar se ha clasificado para el entrenamiento de relevancia, primero debe suprimir todos los segmentos de dicho documento y, a continuación, ingerir el documento actualizado como nuevo documento. Esto dará como resultado un nuevo `document_id` para cada segmento y será necesario volver a entrenar los segmentos entrenados. El índice entrenado se convertirá en inexacto si no se suprime primero el contenido antiguo.
 

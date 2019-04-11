@@ -1,27 +1,42 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-18"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Rastreo de su repositorio de datos
 {: #crawling-your-data-repository}
 
 Después de haber configurado correctamente las opciones del rastreador, podrá ejecutar un rastreo en el repositorio de datos.
 {: shortdesc}
+
+Data Crawler solo debe utilizarse para rastrear comparticiones de archivos o bases de datos, en todos los demás casos debe utilizar el conector adecuado de {{site.data.keyword.discoveryshort}}. Consulte [Conexión a orígenes de datos](/docs/services/discovery?topic=discovery-sources#sources) para obtener más información. Ya no se proporciona asistencia para Data Crawler si lo está utilizando con un origen de datos soportado por los conectores de {{site.data.keyword.discoveryshort}}.
+{: important}
 
 Nunca ejecute el rastreador como `root`, a menos que necesite acceso a los archivos que solo `root` puede leer.
 {: tip}
@@ -31,6 +46,7 @@ Ejecute el siguiente mandato: `crawler`
 El rastreador le presentará la documentación que explica lo que se debe hacer. Puede ejecutar un rastreo de prueba, o ejecutar un rastreo, además de establecer otras opciones de rastreo.
 
 ## Ejecución de un rastreo de prueba
+{: #running-test-crawl}
 
 Ejecute el siguiente mandato: `crawler testit`
 
@@ -40,9 +56,10 @@ También se puede especificar un archivo de configuración personalizado como un
 
 La vía de acceso al archivo de configuración que se pasa con la opción `--config` debe ser una vía de acceso calificada. Esto es, debe estar en un formato relativo como, por ejemplo, `config/myconfigfile.conf` o `./myconfigfile.conf`, o en una vía de acceso absoluta como `/path/to/config/myconfigfile.conf`.
 
-Además, se puede establecer el límite para el número de URL en cola que se visualizan como una opción para el mandato testit, por ejemplo: `crawler testit --limit [number] `
+Además, se puede establecer el límite para el número de URL en cola que se visualizan como una opción para el mandato testit, por ejemplo: `crawler testit --limit [number]`
 
 ## Ejecución de un rastreo
+{: #running-crawl}
 
 Ejecute el siguiente mandato: `crawler crawl`
 
@@ -53,6 +70,7 @@ También se puede especificar un archivo de configuración personalizado como un
 La vía de acceso al archivo de configuración que se pasa con la opción `--config` debe ser una vía de acceso calificada. Esto es, debe estar en un formato relativo como, por ejemplo, `config/myconfigfile.conf` o `./myconfigfile.conf`, o en una vía de acceso absoluta como `/path/to/config/myconfigfile.conf`.
 
 ## Reinicio de un rastreo
+{: #restarting-crawl}
 
 Ejecute el siguiente mandato: `crawler restart`
 
@@ -63,6 +81,7 @@ También se puede especificar un archivo de configuración personalizado como un
 La vía de acceso al archivo de configuración que se pasa con la opción `--config` debe ser una vía de acceso calificada. Esto es, debe estar en un formato relativo como, por ejemplo, `config/myconfigfile.conf` o `./myconfigfile.conf`, o en una vía de acceso absoluta como `/path/to/config/myconfigfile.conf`.
 
 ## Reanudación de un rastreo
+{: #resuming-crawl}
 
 Ejecute el siguiente mandato: `crawler resume`
 
@@ -73,6 +92,7 @@ También se puede especificar un archivo de configuración personalizado como un
 La vía de acceso al archivo de configuración que se pasa con la opción `--config` debe ser una vía de acceso calificada. Esto es, debe estar en un formato relativo como, por ejemplo, `config/myconfigfile.conf` o `./myconfigfile.conf`, o en una vía de acceso absoluta como `/path/to/config/myconfigfile.conf`.
 
 ## Renovación de un rastreo
+{: #refresh-crawl}
 
 Ejecute el siguiente mandato: `crawler refresh`
 

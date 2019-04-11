@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-10-03"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 
 # Migración desde Watson Document Conversion y Retrieve and Rank
@@ -26,6 +38,7 @@ lastupdated: "2017-10-03"
 {{site.data.keyword.discoveryfull}} proporciona una interfaz de consultas más robusta, una ingestión de datos más simplificada, una mejor gestión para el entrenamiento y una mayor escala. {{site.data.keyword.discoveryshort}} está pensado para ser utilizado fundamentalmente en los mismos casos de uso que {{site.data.keyword.retrieveandrankshort}}, entre otros los de soporte para la asistencia de agentes, búsqueda en bases de datos de organizaciones y ayuda en la investigación. Se ha construido pensando en los retos a los que se enfrentan los usuarios de {{site.data.keyword.retrieveandrankshort}}, y resuelve muchos de estos casos. {{site.data.keyword.discoveryshort}} también ofrece nuevas funcionalidades para la recuperación que no estaban disponibles en {{site.data.keyword.retrieveandrankshort}}, entre otras, la recuperación de pasajes y algoritmos de búsqueda mejorados para encontrar resultados más relevantes.
 
 **Comparación de características**
+{: #features-dcs-rr}
 
 | Característica | {{site.data.keyword.retrieveandrankshort}} | {{site.data.keyword.discoveryshort}} |
 |:-------------|:--------------------:|:-------------:|
@@ -54,7 +67,7 @@ Antes de empezar la migración propiamente dicha, primero debe [evaluar](#evalua
 
 La mayoría de los usuarios utilizan {{site.data.keyword.documentconversionshort}} junto con {{site.data.keyword.retrieveandrankshort}}. Si no está utilizando {{site.data.keyword.documentconversionshort}} para convertir contenido para almacenarlo según un índice en el que se puedan realizar búsquedas, continúe para revisar las [opciones para una migración autónoma de {{site.data.keyword.documentconversionshort}}](#dcs).
 
-Si originalmente utilizó la guía de aprendizaje de {{site.data.keyword.retrieveandrankshort}} y basó su propia instancia del servicio en dicha guía de aprendizaje, encontrará [aquí](/docs/services/discovery/migrate-rnr-tut.html) una ampliación de la guía de aprendizaje ingiriendo los mismos datos en {{site.data.keyword.discoveryshort}}.
+Si originalmente utilizó la guía de aprendizaje de {{site.data.keyword.retrieveandrankshort}} y basó su propia instancia del servicio en dicha guía de aprendizaje, encontrará [aquí](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) una ampliación de la guía de aprendizaje ingiriendo los mismos datos en {{site.data.keyword.discoveryshort}}.
 
 **Nota:** La funcionalidad de conversión y enriquecimiento se incluye con {{site.data.keyword.discoveryshort}}. Si ha utilizado {{site.data.keyword.documentconversionshort}} y/o {{site.data.keyword.nlushort}} para convertir y enriquecer documentos de origen HTML, PDF o Microsoft Word, estos servicios han sido reemplazados por las características del servicio {{site.data.keyword.discoveryshort}}.
 
@@ -73,14 +86,15 @@ Para poder migrar desde el contenido de origen:
 
 Si puede satisfacer todos los criterios de migración, es recomendable utilizar este método para utilizar al servicio de {{site.data.keyword.discoveryshort}}.
 
-Para migrar su contenido de origen, modifique el procedimiento descrito en la [guía de aprendizaje de migración](/docs/services/discovery/migrate-rnr-tut.html) para satisfacer las características de sus datos de origen.
+Para migrar su contenido de origen, modifique el procedimiento descrito en la [guía de aprendizaje de migración](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) para satisfacer las características de sus datos de origen.
 
 #### Migración de unidades de respuesta
+{: #answerunit-dcs-rr}
 
 Si ha creado unidades de respuesta mediante {{site.data.keyword.documentconversionshort}} elija una de las siguientes opciones para migrar el contenido:
 
 -  Si ha entrenado un clasificador y necesita migrar la clasificación, debería tomar el contenido que devolvió {{site.data.keyword.documentconversionshort}} e ingerirlo en {{site.data.keyword.discoveryshort}}.
--  Si no tiene datos de entrenamiento para migrar, ingiera los documentos de origen originales en {{site.data.keyword.discoveryshort}} utilizando la [característica de segmentación de documentos](/docs/services/discovery/building.html#doc-segmentation).
+-  Si no tiene datos de entrenamiento para migrar, ingiera los documentos de origen originales en {{site.data.keyword.discoveryshort}} utilizando la [característica de segmentación de documentos](/docs/services/discovery?topic=discovery-configservice#doc-segmentation).
 
 ### Migración desde contenido indexado
 {: #indexed}
@@ -94,9 +108,10 @@ Si desea migrar desde contenido indexado en {{site.data.keyword.retrieveandranks
 
 Los documentos se extraen desde el servicio utilizando el método [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} utilizando una consulta en blanco `q=*:*`. El número de documentos devueltos podría ser superior al recuento de devoluciones máximo práctico (`200` para la mayoría de las recopilaciones). Si este es el caso, se debería realizar varias llamadas con la [paginación ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} adecuada para recopilar todos los documentos.
 
-Los documentos con los **ID** especificados se cargan para el servicio {{site.data.keyword.discoveryshort}} utilizando el método [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#update-doc){: new_window}. Cada documento que se carga es una llamada de API separada.
+Los documentos con los **ID** especificados se cargan para el servicio {{site.data.keyword.discoveryshort}} utilizando el método [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window}. Cada documento que se carga es una llamada de API separada.
 
 ## Migración de datos de entrenamiento
+{: #trainingdata-dcs-rr}
 
 Después de migrar los resultados, el siguiente paso es migrar todos los datos de entrenamiento que se habían creado para el contenido. Hay dos opciones para migrar los datos de entrenamiento: migrar desde el origen (`csv`) y migrar desde el servicio. Si cargó los datos de entrenamiento desde un archivo `csv` y todavía tiene acceso al archivo, debería migrar desde el origen. Si utilizó el conjunto de herramientas de {{site.data.keyword.retrieveandrankshort}} o todavía no tiene acceso al archivo `csv` original debería migrar desde el servicio.
 
@@ -110,7 +125,7 @@ Para poder migrar desde el contenido de origen de clasificación:
 
 Si puede satisfacer todos los criterios de migración, es recomendable utilizar este método para trasladar el entrenamiento al servicio de {{site.data.keyword.discoveryshort}}.
 
-Para migrar sus datos de entrenamiento, modifique el procedimiento descrito en la [guía de aprendizaje de migración](/docs/services/discovery/migrate-rnr-tut.html) para satisfacer las características de sus datos de origen.
+Para migrar sus datos de entrenamiento, modifique el procedimiento descrito en la [guía de aprendizaje de migración](/docs/services/discovery?topic=discovery-migrate-rnr#migrate-rnr) para satisfacer las características de sus datos de origen.
 
 ### Migración de datos de entrenamiento desde el servicio
 {: #extract-train}
@@ -236,7 +251,7 @@ A modo de ejemplo, los **datos de entrenamiento de {{site.data.keyword.retrievea
 ## Soporte de idiomas
 {: #language}
 
-Consulte la [tabla de soporte de idiomas para {{site.data.keyword.discoveryshort}}](/docs/services/discovery/language-support.html). Las características de {{site.data.keyword.retrieveandrankshort}} están soportadas fundamentalmente mediante un soporte de idiomas **Básico** de {{site.data.keyword.discoveryshort}}.
+Consulte la [tabla de soporte de idiomas para {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-language-support#language-support). Las características de {{site.data.keyword.retrieveandrankshort}} están soportadas fundamentalmente mediante un soporte de idiomas **Básico** de {{site.data.keyword.discoveryshort}}.
 
 ## Migración de consultas
 {: #queries}
@@ -262,12 +277,12 @@ El lenguaje de consultas de {{site.data.keyword.discoveryfull}} es diferente del
 | `*` | `*` | Comodín |
 | `~`(0 a 1) | [~n] | Variación de serie |
 
-Consulte la documentación de [Conceptos de consultas](/docs/services/discovery/using.html) y [Referencia de consultas](/docs/services/discovery/query-reference.html) para obtener información detallada sobre el lenguaje de consultas de {{site.data.keyword.discoveryfull}}.
+Consulte la documentación de [Conceptos de consultas](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) y [Referencia de consultas](/docs/services/discovery?topic=discovery-query-reference#query-reference) para obtener información detallada sobre el lenguaje de consultas de {{site.data.keyword.discoveryfull}}.
 
 
 ## Migración autónoma del servicio Watson Document Conversion
 {: #dcs}
 
-Si está utilizando {{site.data.keyword.documentconversionshort}} para ingerir contenido en {{site.data.keyword.retrieveandrankshort}}, tenga en cuenta que dicha funcionalidad se ha transformado en el servicio individual {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} permite fácilmente convertir, enriquecer e ingerir documentos Microsoft Word, PDF, HTML y JSON en un índice en que se pueden realizar búsquedas y entrenamiento. Esta sección es relevante si en su caso no tiene la necesidad de almacenar contenido convertido en un índice. Si está ingiriendo documentos en un índice, consulte [ingestión para el servicio {{site.data.keyword.discoveryshort}}](/docs/services/discovery/building.html).
+Si está utilizando {{site.data.keyword.documentconversionshort}} para ingerir contenido en {{site.data.keyword.retrieveandrankshort}}, tenga en cuenta que dicha funcionalidad se ha transformado en el servicio individual {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} permite fácilmente convertir, enriquecer e ingerir documentos Microsoft Word, PDF, HTML y JSON en un índice en que se pueden realizar búsquedas y entrenamiento. Esta sección es relevante si en su caso no tiene la necesidad de almacenar contenido convertido en un índice. Si está ingiriendo documentos en un índice, consulte [ingestión para el servicio {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configservice#configservice).
 
 IBM deja de proporcionar un servicio diseñado para una conversión autónoma de documentos de Microsoft Word, PDF y HTML. Si actualmente está utilizando el servicio {{site.data.keyword.documentconversionshort}} y no ingiere la salida en un servicio indexado en línea (como {{site.data.keyword.discoveryshort}}), se le recomienda considerar migrar a una alternativa de código abierto como, por ejemplo, [Apache Tika ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://tika.apache.org/){: new_window}.

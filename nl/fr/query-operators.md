@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-15"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Opérateurs de requête
 {: #query-operators}
 
-Les opérateurs sont les séparateurs entre les différentes parties d'une requête. Pour obtenir la liste complète des opérateurs disponibles, voir la rubrique [Référence de requête](/docs/services/discovery/query-reference.html#operators).
+Les opérateurs sont les séparateurs entre les différentes parties d'une requête. Pour obtenir la liste complète des opérateurs disponibles, voir la rubrique [Référence de requête](/docs/services/discovery?topic=discovery-query-reference#operators).
 
 ## . \[Délimiteur JSON\]
 {: #delimiter}
@@ -101,7 +113,10 @@ title::"Dorothy said: \"There's no place like home\""
 ## "" \[Requête de phrase\]
 {: #phrase}
 
-L'intégralité du contenu d'une requête de phrase est traitée avec des caractères d'échappement. Par conséquent, aucun caractère spécial présent dans une requête de phrase n'est analysé, à l'exception des guillemets (`"`) qui eux, doivent être spécifiés avec un caractère d'échappement (`\"`). Utilisez des requêtes de phrase avec des requêtes basées sur le classement et contenant un texte intégral et non avec des opérations de filtre booléen. N'utilisez pas de caractères génériques (`*`) dans les requêtes de phrase. **Remarque**: les apostrophes (`'`) ne sont pas prises en charge.
+L'intégralité du contenu d'une requête de phrase est traitée avec des caractères d'échappement. Par conséquent, aucun caractère spécial présent dans une requête de phrase n'est analysé, à l'exception des guillemets (`"`) qui eux, doivent être spécifiés avec un caractère d'échappement (`\"`). Utilisez des requêtes de phrase avec des requêtes basées sur le classement et contenant un texte intégral et non avec des opérations de filtre booléen. N'utilisez pas de caractères génériques (`*`) dans les requêtes de phrase. 
+
+Les apostrophes (`'`) ne sont pas prises en charge.
+{: note}
 
 Par
 exemple :
@@ -214,6 +229,6 @@ Permet de renvoyer tous les résultats qui n'incluent pas la `field` spécifiée
 Par
 exemple :
 ```bash
-title!*
+title:!*
 ```
 {: codeblock}

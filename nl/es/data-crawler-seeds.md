@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2017, 2019
+lastupdated: "2019-01-28"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Configuración del conector y las opciones de semilla
 {: #configuring-connector-and-seed-options}
@@ -23,18 +35,19 @@ lastupdated: "2017-08-25"
 Al rastrear datos, el rastreador primero identifica el tipo de repositorio de datos (conector) y la ubicación inicial especificada por el usuario (semilla) para empezar a descargar información.
 {: shortdesc}
 
+Data Crawler solo debe utilizarse para rastrear comparticiones de archivos o bases de datos, en todos los demás casos debe utilizar el conector adecuado de {{site.data.keyword.discoveryshort}}. Consulte [Conexión a orígenes de datos](/docs/services/discovery?topic=discovery-sources#sources) para obtener más información. Ya no se proporciona asistencia para Data Crawler si lo está utilizando con un origen de datos soportado por los conectores de {{site.data.keyword.discoveryshort}}.
+{: important}
+
 **Importante:** Cuando se utiliza Data Crawler, los valores de seguridad del repositorio de datos se ignoran.
 
 Las semillas son los puntos de partida de un rastreo. Data Crawler utiliza las semillas para recuperar datos del recurso que el conector identifica. Habitualmente, las semillas configuran URL para acceder a recursos basados en protocolos como, por ejemplo, comparticiones de archivos, comparticiones SMB, bases de datos y otros repositorios de bases de datos accesibles a través de dichos protocolos. Además, distintos URL de semilla tienen prestaciones distintas. Una semilla también puede ser específica de repositorio a fin de habilitar el rastreo de aplicaciones de terceros concretas como, por ejemplo, sistemas de gestión de relaciones con los clientes (CRM), sistemas de ciclo de vida de producto (PLC), sistemas de gestión de contenidos (CMS), aplicaciones basadas en la nube y aplicaciones de base de datos web.
 
 Para rastrear los datos correctamente, debe asegurarse de que el rastreador está configurado correctamente para leer el repositorio de datos. Data Crawler proporciona conectores para dar soporte a la recopilación de datos desde los repositorios siguientes:
 
--   [Sistema de archivos](/docs/services/discovery/data-crawler-seeds.html#configuring-filesystem-crawl-options)
--   [Bases de datos, a través de JDBC](/docs/services/discovery/data-crawler-seeds.html#configuring-database-crawl-options)
--   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#configuring-cmis-crawl-options)
--   [Comparticiones de archivos SMB (Server Message Block), CIFS (Common Internet Filesystem) o Samba ](/docs/services/discovery/data-crawler-seeds.html#configuring-smbcifssamba-crawl-options)
--   [SharePoint y SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#configuring-sharepoint-crawl-options)
--   [Box](/docs/services/discovery/data-crawler-seeds.html#configuring-box-crawl-options)
+-   [Sistema de archivos](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-filesystem-crawl-options)
+-   [Bases de datos, a través de JDBC](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-database-crawl-options)
+-   [CMIS (Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#configuring-cmis-crawl-options)
+-   [Comparticiones de archivos SMB (Server Message Block), CIFS (Common Internet Filesystem) o Samba](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 
 También se proporciona una plantilla de configuración de conector que permite personalizar un conector.
 
@@ -44,15 +57,13 @@ Siga estos pasos para configurar su conector:
 
 1.  Modifique los valores que sean apropiados para su repositorio:
 
-    -   [Sistema de archivos](/docs/services/discovery/data-crawler-seeds.html#filesystem-crawl-options)
-    -   [Bases de datos, a través de JDBC](/docs/services/discovery/data-crawler-seeds.html#database-crawl-seed)
-    -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery/data-crawler-seeds.html#cmis-crawl-options)
-    -   [Comparticiones de archivos SMB (Server Message Block), CIFS (Common Internet Filesystem) o Samba ](/docs/services/discovery/data-crawler-seeds.html#smb-cifs-samba-crawl-options)
-    -   [SharePoint y SharePoint Online](/docs/services/discovery/data-crawler-seeds.html#sharepoint-crawl-options)
-    -   [Box](/docs/services/discovery/data-crawler-seeds.html#box-crawl-options)
+    -   [Sistema de archivos](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#filesystem-crawl-options)
+    -   [Bases de datos, a través de JDBC](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#database-crawl-seed)
+    -   [CMIS (Content Management Interoperability Services)](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#cmis-crawl-options)
+    -   [Comparticiones de archivos SMB (Server Message Block), CIFS (Common Internet Filesystem) o Samba](/docs/services/discovery?topic=discovery-configuring-connector-and-seed-options#smb-cifs-samba-crawl-options)
 1.  Guarde y cierre el archivo.
 1.  Haga lo mismo para el archivo `-seed.conf` en el directorio `connectors/seeds` que corresponde al repositorio al que se está conectando (por ejemplo `filesystem-seed.conf` es el archivo de configuración de semilla (a dónde conectarse para el conector del sistema de archivos)) en un editor de texto.
-1.  Vaya a [configuración de Data Crawler para conectarse a {{site.data.keyword.discoveryshort}}](/docs/services/discovery/data-crawler-discovery.html).
+1.  Vaya a [configuración de Data Crawler para conectarse a {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-the-data-crawler).
 
 Para acceder al manual en el producto para los archivos de configuración de semilla y el conector, con la información más reciente, escriba los siguientes mandatos desde el directorio de instalación del rastreador:
 -   Para las opciones de configuración del conector:
@@ -72,7 +83,11 @@ Para acceder al manual en el producto para los archivos de configuración de sem
 
 El conector del sistema de archivos permite rastrear archivos locales respecto a la instalación de Data Crawler.
 
+Otra opción para cargar un gran número de archivos en {{site.data.keyword.discoveryshort}} es [discovery-files ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/IBM/discovery-files){: new_window} en GitHub.
+{: note}
+
 ### Configuración del conector del sistema de archivos
+{: #filesystem-connector}
 
 A continuación se indican las opciones de configuración básicas necesarias para usar el conector del sistema archivos. Para establecer estos valores, abra el archivo `config/connectors/filesystem.conf` y modifique los siguientes valores específicos de acuerdo con su caso:
 
@@ -82,6 +97,7 @@ A continuación se indican las opciones de configuración básicas necesarias pa
 -   **`classname`** - Nombre de la clase Java del conector. El valor que tiene que usar este conector es `plugin:filesystem.plugin@filesystem`.
 
 ### Configuración de la semilla de rastreo para el sistema de archivos
+{: #filesystem-crawl-seed}
 
 Configure los siguientes valores para el archivo de semilla de rastreo para el sistema de archivos. Para configurar estos valores, abra el archivo `config/seeds/filesystem-seed.conf` y especifique los siguientes valores conforme a cada caso de uso concreto:
 
@@ -93,6 +109,7 @@ Configure los siguientes valores para el archivo de semilla de rastreo para el s
     {: tip}
 
 ## Configuración de opciones de rastreo de base de datos
+{: #database-crawl}
 
 El conector de base de datos permite rastrear una base de datos ejecutando un mandato SQL personalizado y creando un documento por fila (registro) y un elemento de contenido por columna (campo). Se puede especificar una columna para que se use como clave exclusiva, así como una columna que contenga una indicación de fecha y hora que represente la fecha de última modificación de cada registro. El conector recupera todos los registros de la base de datos especificada y también puede limitarse a determinadas tablas, uniones, etc. en la sentencia SQL.
 
@@ -118,6 +135,7 @@ El conector recupera todos los registros de la base de datos y la tabla especifi
 1.  Cambie al directorio que se extrajo a partir del archivo de archivado y copie el archivo JAR desde este directorio al subdirectorio `connectorFramework/crawler-connector-framework-#.#.#/lib/java/database` del directorio de instalación de Data Crawler, o utilice el valor `extra_jars_dir` en el archivo `crawler.conf` para especificar otra ubicación.
 
 ### Configuración del conector de base de datos
+{: #database-connector}
 
 A continuación se indican las opciones de configuración básicas necesarias para usar el conector de base de datos. Para configurar estos valores, abra el archivo config/connectors/database.conf y modifique los siguientes valores conforme a cada caso de uso concreto:
 
@@ -161,6 +179,7 @@ Pueden configurarse los valores siguientes para el archivo semilla de rastreo de
 El conector de CMIS (Content Management Interoperability Services) permite rastrear repositorios CMS (Content Management System) para CMIS como, por ejemplo, Alfresco, Documentum o {{site.data.keyword.IBM}} Content Manager así como indexar los datos que contienen.
 
 ### Configuración del conector de CMIS
+{: #cmis-connector}
 
 A continuación se indican las opciones de configuración básicas necesarias para usar el conector CMIS. Para configurar estos valores, abra el archivo `config/connectors/cmis.conf` y especifique los siguientes valores conforme a cada caso de uso concreto:
 
@@ -169,10 +188,7 @@ A continuación se indican las opciones de configuración básicas necesarias pa
 -   **`dns`** - Opción no usada.
 -   **`classname`** - Nombre de la clase Java del conector. Utilice `plugin:cmis-v1.1.plugin@connector` para este conector.
 -   **`logging-config`** - Especifica el archivo usado para configurar las opciones de registro; tiene que formatearse como una cadena XML de `log4j`.
--   **`endpoint`** - URL del punto final de servicio de un repositorio compatible con CMIS. Por ejemplo, las estructuras de URL de SharePoint son:
-
-    -   Para crear enlaces de AtomPub: `http://yourserver/_vti_bin/cmis/rest?getRepositories`
-    -   Para crear enlaces de WebServices: `http://yourserver/_vti_bin/cmissoapwsdl.aspx`
+-   **`endpoint`** - URL del punto final de servicio de un repositorio compatible con CMIS. 
 -   **`username`** - Nombre de usuario del repositorio CMIS que se usa para acceder al contenido. Este usuario debe tener acceso a todos los documentos y carpetas de destino que se van a rastrear e indexar.
 -   **`password`** - Contraseña del repositorio de CMIS que se usa para acceder al contenido. La contraseña NO puede estar cifrada; hay que proporcionarla en texto legible.
 -   **`repositoryid`** – ID de repositorio CMIS que se utiliza para acceder al contenido de un repositorio concreto.
@@ -192,6 +208,7 @@ A continuación se indican las opciones de configuración básicas necesarias pa
 disponible.
 
 ### Configuración de la semilla de rastreo para CMIS
+{: #cmis-crawl-seed}
 
 Pueden configurarse los valores siguientes para el archivo de semilla de rastreo de CMIS. Para configurar estos valores, abra el archivo `config/seeds/cmis-seed.conf` y modifique los siguientes valores conforme a cada caso de uso concreto:
 
@@ -207,6 +224,7 @@ Pueden configurarse los valores siguientes para el archivo de semilla de rastreo
 El conector Samba permite rastrear comparticiones de archivos SMB (Server Message Block) y CIFS (Common Internet File System). Este tipo de compartición de archivos es común en las redes Windows y también se proporciona en el proyecto de código abierto Samba.
 
 ### Configuración del conector de Samba
+{: #smb-cifs-samba-crawl-connector}
 
 A continuación se indican las opciones de configuración básicas necesarias para usar el conector Samba. Para configurar estos valores, abra el archivo `config/connectors/samba.conf` y especifique los siguientes valores conforme a cada caso de uso concreto:
 
@@ -232,6 +250,7 @@ A continuación se indican las opciones de configuración básicas necesarias pa
 -   **`enqueue-persistence`** - Opción no usada.
 
 ### Configuración de la semilla de rastreo para Samba
+{: #smb-cifs-samba-crawl-seed}
 
 Los valores siguientes pueden configurarse para el archivo semilla de rastreo de Samba. Para configurar estos valores, abra el archivo `config/seeds/samba-seed.conf` y especifique los siguientes valores conforme a cada caso de uso concreto:
 
@@ -246,126 +265,3 @@ Los valores siguientes pueden configurarse para el archivo semilla de rastreo de
 
 -   **`hops`** - Para uso interno exclusivamente.
 -   **`default-allow`** - Para uso interno exclusivamente.
-
-## Configuración de opciones de rastreo de SharePoint
-{: #sharepoint-crawl-options}
-
-**Importante:** El conector de SharePoint precisa de Microsoft SharePoint Server 2007 (MOSS 2007), SharePoint Server 2010, SharePoint Server 2013 o SharePoint Online.
-
-El conector de SharePoint permite rastrear objetos SharePoint e indexar la información que contienen. Un objeto como un documento, perfil de usuario, recopilación de sitio, blog, elemento de lista, lista de miembros o páginas de directorio, entre otros, se puede indexar con sus metadatos asociados. En el caso de los elementos de lista y documentos, los índices pueden incluir anexos.
-
-El conector de SharePoint respeta el atributo `noindex` en todos los objetos de SharePoint, independientemente de su tipo específico (blogs, documentos, perfiles de usuario, etc.). En cada resultado se devuelve un único documento.
-{: tip}
-
-**Importante:** La cuenta de SharePoint que se utiliza para rastrear los sitios SharePoint ha de tener al menos privilegios completos de lectura.
-
-### Configuración del conector de SharePoint
-
-A continuación se indican las opciones de configuración básicas necesarias para usar el conector de SharePoint. Para establecer estos valores, abra el archivo `config/connectors/sharepoint.conf` y modifique los siguientes valores específicos de acuerdo con su caso:
-
--   **`protocol`** - Nombre del protocolo de conector usado en el rastreo. El valor para usar este conector es `io-sp`.
--   **`collection`** – Este atributo se utiliza para desempaquetar los archivos temporales.
--   **`classname`** - Nombre de la clase Java del conector. Use `plugin:io-sharepoint.plugin@connector` para este conector.
--   **`logging-config`** - Especifica el archivo usado para configurar las opciones de registro; tiene que formatearse como una cadena XML de `log4j`.
--   **`seed-url-type`** - Identifica a qué tipo de objeto SharePoint apuntan los URL de semilla proporcionados: recopilaciones de sitio o aplicaciones web (también conocidas como servidores virtuales).
-
-    -   `Recopilaciones de sitio` - Si el tipo de URL de semilla se establece para recopilaciones de sitio, únicamente se rastrearán los hijos de la recopilación de sitio a la que el URL haga referencia.
-    -   `Aplicaciones web` - Si el tipo de URL de semilla se establece en aplicaciones web, se rastrearán todas las recopilaciones del sitio (y sus hijos) que pertenezcan a las aplicaciones web a las que haga referencia cada URL.
--   **`auth-type`** - Mecanismo de autenticación que se usa al contactar con el servidor de SharePoint: `BASIC`, `NTLM2`, `KERBEROS` o `CBA`. El tipo de autenticación predeterminado es `NTLM2`.
--   **`spUser`** – Nombre de usuario del usuario de SharePoint que se utiliza para acceder al contenido. Este usuario debe tener acceso a todos los sitios de destino y listas que hay que rastrear e indexar, y tiene que ser capaz de recuperar y resolver los permisos asociados. El mejor especificarlo con el nombre de dominio, por ejemplo: `MYDOMAIN\\Administrator`.
--   **`spPassword`** - Contraseña del usuario de SharePoint que se usa para acceder al contenido. La contraseña tiene que cifrarse utilizando el programa vcrypt que se distribuye con Data Crawler.
--   **`cba-sts`** - URL el punto final de Security Token Service (STS) contra el que se autentica el usuario de rastreo. En el caso de un SharePoint in situ con ADFS, tiene que ser el punto final de ADFS. Si el tipo de autenticación se establece a CBA (Claims Based Authentication), este campo es obligatorio.
--   **`cba-realm`** - Identificador de relación de confianza para usuario autenticado ("Relying Party Trust") que se usa al solicitar una señal al STS. A veces se conoce como valor "AppliesTo" o el "Realm". En el caso de SharePoint Online, tiene que ser el URL de la raíz de la instancia de SharePoint Online (por ejemplo, `https://mycompany.sharepoint.com`). En el caso de ADFS, es el valor de ID de la relación de confianza para usuario autenticado entre SharePoint y ADFS (por ejemplo, `"urn:SHAREPOINT:adfs"`).
--   **`everyone-group`** - Cuando se especifica, se usa este nombre de grupo en las ACL cuando hay que dar acceso a todo el mundo. Este campo es obligatorio cuando están habilitados los perfiles de usuario de rastreo.
-
-    **Nota:** El servicio Retrieve and Rank no respeta la seguridad.
-
--   **`user-profile-master-url`** - URL base que usa el conector para crear enlaces a perfiles de usuario. Debe configurarse para que apunte al formulario de pantalla de los perfiles de usuario. Si se encuentra la señal `%FIRST_SEED%`, se sustituye por el primer URL de semilla. Es obligatorio cuando está habilitada la búsqueda de perfiles de usuario.
--   **`urls`** - Lista separada por saltos de línea de los URL HTTP de las aplicaciones web de SharePoint o recopilaciones de sitio que hay que rastrear.
--   **`ehcache-config`** - Opción no usada.
--   **`method`** - Método (`GET` o `POST`) por el que se pasan los parámetros.
--   **`cache-types`** - Opción no usada.
--   **`cache-size`** - Opción no usada.
--   **`enable-acl`** - Habilita el rastreo de perfiles de usuario de SharePoint. Los posibles valores son `true` o `false` y el valor predeterminado es `false`.
-
-### Configuración de la semilla de rastreo para SharePoint
-
-Los siguientes valores adicionales pueden configurarse para el archivo semilla de rastreo de SharePoint. Para configurar estos valores, abra el archivo `config/seeds/sharepoint-seed.conf` y especifique los siguientes valores conforme a cada caso de uso concreto:
-
--   **`url`** - Lista separada por saltos de línea de los URL de SharePoint de las aplicaciones web de SharePoint o recopilaciones de sitio que hay que rastrear. Por ejemplo:
-
-    ```
-    io-sp://a.com
-    io-sp://b.com:83/site
-    io-sp://c.com/site2
-    ```
-    {: codeblock}
-
-    Los subsitios de estos sitios también se rastrearán (a menos que sean excluidos por otras reglas de rastreo).
-
--   **`filter-url`** - Lista separada por saltos de línea de los URL de SharePoint de las aplicaciones web de SharePoint o recopilaciones de sitio que hay que rastrear. Por ejemplo:
-
-    ```
-    http://a.com
-    http://b.com:83/site
-    http://c.com/site2
-    ```
-    {: codeblock}
-
--   **`hops`** - Para uso interno exclusivamente.
--   **`n-concurrent-requests`** - Para uso interno exclusivamente.
--   **`delay`** - Para uso interno exclusivamente.
--   **`default-allow`** - Para uso interno exclusivamente.
--   **`seed-protocol`** - Define el protocolo de semilla de los hijos de la recopilación de sitios. Es obligatorio cuando el protocolo de la recopilación de sitios es SSL, HTTP o HTTPS. Este valor tiene que coincidir con el protocolo de la recopilación de sitios.
-
-## Configuración de opciones de rastreo de Box
-
-El conector de Box permite rastrear una instancia de Enterprise Box e indexar la información que contiene.
-
-### Configuración del conector de Box
-
-A continuación se indican las opciones de configuración básicas necesarias para usar el conector de Box. Para configurar estos valores, abra el archivo `config/connectors/box.conf` y modifique los siguientes valores conforme a cada caso de uso concreto:
-
--   **`protocol`** - Nombre del protocolo de conector usado en el rastreo. El valor para usar este conector es `box`.
--   **`classname`** - Nombre de la clase Java del conector. Use `plugin:box.plugin@connector` para este conector.
--   **`logging-config`** - Especifica el archivo usado para configurar las opciones de registro; tiene que formatearse como una cadena XML de `log4j`.
--   **`box-crawl-seed-url`** - URL base de Box. El valor de este conector es `box://app.box.com/`.
-
-    Se pueden rastrear diferentes tipos de URL, por ejemplo:
-
-    -   Para rastrear toda una empresa: `box://app.box.com/`
-    -   Para rastrear una carpeta específica: `box://app.box.com/user/USER_ID/folder/FOLDER_ID/FolderName`
-    -   Para rastrear un usuario específico: `box://app.box.com/user/USER_ID/`
--   **`client-id`** - Especifique el ID de cliente proporcionado por Box al crear la aplicación Box.
--   **`client-secret`** - Especifique el secreto de cliente proporcionado por Box al crear la aplicación Box.
--   **`path-to-private-key`** - Ubicación en el sistema de archivos local de la clave privada que forma parte del par de claves pública-privada generado para la comunicación con Box.
--   **`kid`** - Especifica el ID de la clave pública. Es la otra mitad del par clave pública-privada que se genera para la comunicación con Box.
--   **`enterprise-id`** - Empresa en la que se autorizó su aplicación. El ID de empresa se lista en la página principal de la consola del administrador de Box.
--   **`enable-acl`** - Para uso interno exclusivamente. Habilita la recuperación de las ACL de los datos rastreados.
--   **`user-agent`** - Cabecera que se envía al servidor cuando se rastrean documentos.
--   **`method`** - Método (`GET` o `POST`) por el que se pasan los parámetros.
--   **`url-logging`** - Nivel de registro de los URL rastreados. Los valores posibles son:
-
-    -   `full-logging` - Registra toda la información sobre el URL.
-    -   `refined-logging` - Solo se registra la información necesaria para examinar el registro del rastreador y para que el conector funcione de forma correcta. Se trata del valor predeterminado.
-    -   `minimal-logging` - Se registra el mínimo de información necesaria para que el conector funcione correctamente.
-
-    Si se configura esta opción a `minimal-logging` se reducirá el tamaño de los registros y se obtendrá una ligera mejora de rendimiento gracias a la reducción de E/S que conlleva la minimización de la cantidad de datos registrados.
--   **`ssl-version`** - Especifica una versión de SSL para utilizar para conexiones HTTPS. De forma predeterminada, se utiliza el protocolo más fuerte
-disponible.
-
-### Configuración de la semilla de rastreo para Box
-{: #box-crawl-options}
-
-Los valores siguientes pueden configurarse para el archivo de semilla de rastreo de Box. Para configurar estos valores, abra el archivo `config/seeds/box-seed.conf` y especifique los siguientes valores conforme a cada caso de uso concreto:
-
--   **`url`** - URL que se usa como punto de partida del rastreo. El valor predeterminado es `box://app.box.com/`.
--   **`default-allow`** - Para uso interno exclusivamente.
-
-## Limitaciones
-
-El conector de Box tiene algunas limitaciones:
-
--   No se recuperan los comentarios ni las tareas en los archivos.
--   El cuerpo del contenido de notas se recupera en formato JSON. Puede ser necesaria una conversión adicional de los datos de Notes.
--   Los documentos individuales no se puede recuperar a través de Test-It. A través de Test-It solo se pueden recuperar URL de semilla, URL de carpetas y URL de usuario.

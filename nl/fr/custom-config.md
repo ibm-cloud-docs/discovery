@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-01-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Référence de configuration
 {: #configref}
@@ -23,7 +35,10 @@ lastupdated: "2018-01-23"
 Vous pouvez créer votre propre configuration d'ingestion {{site.data.keyword.discoveryshort}} dans JSON si vos données ont des besoins [conversion](#conversion), [enrichment](#enrichment) ou [normalization](#normalization) spécifiques.
 {: shortdesc}
 
- Les sections suivantes décrivent en détail la structure de ce fichier JSON et de l'objet que vous pouvez définir dedans.
+Les sections suivantes décrivent en détail la structure de ce fichier JSON et de l'objet que vous pouvez définir dedans.
+
+Si votre collection a été créée en utilisant [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), les paramètres de conversion PDF et Word répertoriés ne seront pas utilisés. La modification de ces paramètres sera donc ignorée.
+{: note}
 
 ## Structure de la configuration
 {: #structure}
@@ -82,10 +97,16 @@ Lors de la conversion des documents, en une ou plusieurs étapes, le format sour
 
 - Les fichiers **JSON** sont convertis à l'aide des options `json`.
 
+Si votre collection a été créée en utilisant [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), les paramètres de conversion PDF et Word répertoriés ne seront pas utilisés. La modification de ces paramètres sera donc ignorée.
+{: note}
+
 Ces options sont décrites dans les sections ci-après. Une fois la conversion terminée, les actions [enrichment](#enrichment) et  [normalization](#normalization) sont effectuées avant le stockage du contenu.
 
 ### PDF
 {: #pdf}
+
+Si votre collection a été créée en utilisant [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), les paramètres de conversion PDF et Word répertoriés ne seront pas utilisés. La modification de ces paramètres sera donc ignorée.
+{: note}
 
 L'objet de conversion `pdf` définit de quelle manière les documents PDF doivent être convertis en documents HTML. Sa structure se présente comme suit :
 
@@ -129,6 +150,9 @@ Pour qu'une zone de texte puisse être identifiée comme un en-tête, elle doit 
 
 ### Word
 {: #word}
+
+Si votre collection a été créée en utilisant [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), les paramètres de conversion PDF et Word répertoriés ne seront pas utilisés. La modification de ces paramètres sera donc ignorée.
+{: note}
 
 L'objet de conversion `word` définit de quelle manière les documents PDF doivent être convertis en documents HTML. Sa structure se présente comme suit :
 
@@ -236,30 +260,37 @@ Chaque élément du tableau `styles` spécifie un niveau d'en-tête à partir de
 {: codeblock}
 
 #### exclude_tags_completely
+{: #configref_exclude_completely}
 
 `"exclude_tags_completely" : array` - Tableau de noms de balise HTML qui seront exclus. Cela inclut la balise, le contenu et les attributs de balise définis.
 
 #### exclude_tags_keep_content
+{: #configref_exclude_tags_keep_content}
 
 `"exclude_tags_keep_content" : array` - Tableau de noms de balise HTML dans lesquels les informations de balise seront retirées. Cela inclut la balise HTML et les attributs de balise. Le contenu de la balise ne sera pas retirée sauf indication contraire. Par exemple, si vous spécifiez `exclude_tags_keep_content` pour la balise HTML `span`, `<span class="info">Some <strong>Information</strong></span>` sera réduit à : `Some <strong>Information</strong>`.
 
 #### exclude_content
+{: #configref_exclude_content}
 
 `"xpaths" : array` - Tableau de XPaths qui identifient le contenu à retirer. Si cette valeur est définie, toutes les données qui correspondent à l'un des XPaths sont retirées de la sortie.
 
 #### keep_content
+{: #configref_keep_content}
 
 `"xpaths" : array` - Tableau de XPaths qui identifient le contenu à convertir. Si cette valeur est définie, toutes les données qui correspondent à l'un des XPaths sont incluses dans la sortie. Les inclusions spécifiées par ce paramètre sont traitées après le traitement spécifié par `exclude_content`.
 
 #### exclude_tag_attributes
+{: #configref_exclude_tag_attributes}
 
 `"exclude_tag_attributes" : array` - Tableau de noms d'attribut HTML qui sont retirés lors de la conversion, quelle que soit la balise HTML dans laquelle ils se trouvent. **Remarque :** Vous recevrez un message d'erreur si vous spécifiez à la fois `exclude_tag_attributes` et `keep_tag_attributes` dans une même configuration - un seul de ces éléments peut être spécifié par configuration. S'il est présent, `keep_tag_attributes` doit être entièrement retiré de la configuration ; il ne peut pas être présent en tant que tableau vide.
 
 #### keep_tag_attributes
+{: #configref_keep_tag_attributes}
 
 `"keep_tag_attributes" : array` - Tableau de noms d'attribut HTML qui sont conservés lors de la conversion. **Remarque :** Vous recevrez un message d'erreur si vous spécifiez à la fois `keep_tag_attributes` et `exclude_tag_attributes` dans une même configuration - un seul de ces éléments peut être spécifié par configuration. S'il est présent, `exclude_tag_attributes` doit être entièrement retiré de la configuration ; il ne peut pas être présent en tant que tableau vide.
 
 #### extracted_fields
+{: #configref_extracted}
 
 Cet objet définit n'importe quel contenu de la source HTML qui doit être extrait dans une zone JSON distincte dans le cadre de la conversion. Le contenu est identifié à l'aide de sélecteurs CSS.
 
@@ -279,7 +310,7 @@ Chaque zone que vous voulez créer est définie par un objet, comme suit :
 
 - `"css_selector" : string` *Obligatoire* - Expression de sélecteur CSS qui définit la zone de contenu à stocker dans une zone.
 - `"type" : string` *Obligatoire* - Type de zone à créer : `string` ou `date`.
-Pour plus d'informations, voir [Utilisation de sélecteurs CSS pour extraire des zones](/docs/services/discovery/building.md#using-css).
+Pour plus d'informations, voir [Utilisation de sélecteurs CSS pour extraire des zones](/docs/services/discovery?topic=discovery-configservice#using-css).
 
 ### Segment
 {: #segment}
@@ -303,7 +334,7 @@ De façon générale, lorsque la segmentation de document est activée, les él�
 -  `normalizations` ne peut pas être spécifié dans le cadre de la configuration.
 -  L'option `extracted_fields` de la conversion `html` ne peut pas être spécifiée dans le cadre de la configuration.
 
-Pour plus d'informations, voir [Exécution de la segmentation](/docs/services/discovery/building.html#performing-segmentation).
+Pour plus d'informations, voir [Exécution de la segmentation](/docs/services/discovery?topic=discovery-configservice#performing-segmentation).
 
 
 ### JSON
@@ -425,7 +456,7 @@ Vous pouvez effectuer une normalisation d'enrichissement préalable du document 
 
 - `"enrichment" : string` - *Obligatoire* - Type d'enrichissement à utiliser sur cette zone. Pour extraire des enrichissements{{site.data.keyword.nlushort}}, utilisez `natural_language_understanding`, pour exécuter un enrichissement Element Classification, utilisez `elements`.
 
-  **Remarque :** lorsque vous utilisez l'enrichissement `elements`, vous devez suivez suivre les instructions spécifiées dans la documentation [Element Classification](/docs/services/discovery/element-classification.html). Plus spécifiquement, seuls les fichiers PDF peuvent être ingérés lorsque cet enrichissement est spécifié.
+  **Remarque :** lorsque vous utilisez l'enrichissement `elements`, vous devez suivez suivre les instructions spécifiées dans la documentation [Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification). Plus spécifiquement, seuls les fichiers PDF peuvent être ingérés lorsque cet enrichissement est spécifié.
 
 - `"source_field" : string` - *Obligatoire* - Zone source qui sera enrichie. Cette zone doit exister dans votre source une fois que l'opération `json_normalizations` est terminée.
 - `"destination_field" : string` - *Obligatoire* - Nom de l'objet conteneur dans lequel les enrichissements seront créés.
@@ -433,28 +464,33 @@ Vous pouvez effectuer une normalisation d'enrichissement préalable du document 
   **Remarque :** les noms de zone définis dans votre configuration doivent respecter les restrictions définies dans la rubrique [Exigences relatives aux noms de zone](#field_reqs).
 
 ### Enrichissements Element Classification
+{: #element_classification_enrichments}
 
 Lorsque vous utilisez Element Classification, chaque objet d'enrichissement `elements` doit contenir un objet `"options": {}` pour lequel les paramètres suivants sont spécifiés :
 
 - `"model" : string` - *Obligatoire* - Modèle d'extraction d'élément à utiliser sur ce document. Les modèles actuellement pris en charge sont les suivants :`contract`
 
-**Remarque :** lorsque vous utilisez l'enrichissement `elements`, vous devez suivez suivre les instructions spécifiées dans la documentation [Element Classification](/docs/services/discovery/element-classification.html). Plus spécifiquement, seuls les fichiers PDF peuvent être ingérés lorsque cet enrichissement est spécifié.
+**Remarque :** lorsque vous utilisez l'enrichissement `elements`, vous devez suivez suivre les instructions spécifiées dans la documentation [Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification). Plus spécifiquement, seuls les fichiers PDF peuvent être ingérés lorsque cet enrichissement est spécifié.
 
 ### Enrichissements Natural Language Understanding
+{: #nlu_enrichments}
 
 Lorsque vous utilisez {{site.data.keyword.nlushort}}, chaque objet du tableau `enrichments` doit également contenir un objet`"options": { "features": { } }` comportant un ou plusieurs des enrichissements suivants :
 
 ### categories
+{: #nlu_categories}
 
 L'enrichissement `categories` identifie les catégories générales présentes dans le document ingéré. Aucune option n'est associée à cet enrichissement qui doit être spécifié comme un objet vide `"categories" : {}`.
 
 ### concepts
+{: #nlu_concepts}
 
 L'enrichissement `concepts` identifie les concepts auxquels le texte d'entrée est associé, en fonction d'autres concepts et entités présents dans ce texte.
 
 - `"limit" : INT` - *Obligatoire* - Nombre maximal de concepts à extraire du document ingéré.
 
 ### emotion
+{: #nlu_emotion}
 
 L'enrichissement `emotion` évalue la tonalité affective globale (par exemple, `anger`) de l'ensemble du document ou les chaînes cible spécifiées dans l'ensemble du document. Cet enrichissement ne peut être utilisé qu'avec un contenu en anglais.
 
@@ -462,6 +498,7 @@ L'enrichissement `emotion` évalue la tonalité affective globale (par exemple, 
 - `"targets" : array ` _Facultatif_ - Tableau de chaînes cible utilisées pour l'évaluation de l'état émotionnel du document, séparées par des virgules.
 
 ### entities
+{: #nlu_entities}
 
 L'enrichissement `entities` extrait des instances d'entités connues, telles que des personnes, des lieux et des organisations. Le cas échéant, un modèle personnalisé {{site.data.keyword.knowledgestudioshort}} peut être spécifié pour extraire des entités personnalisées.
 
@@ -471,17 +508,19 @@ L'enrichissement `entities` extrait des instances d'entités connues, telles que
 - `"mentions": boolean` - _Facultatif_ - Lorsque ce paramètre a pour valeur `true`, le nombre de fois que cette entité est mentionnée est enregistré. La valeur par défaut est `false`.
 - `"mention_types": boolean` - _Facultatif_ - Lorsque ce paramètre a pour valeur `true`, le type de chaque mention de cette entité est stocké. La valeur par défaut est `false`.
 - `"sentence_location": boolean` - _Facultatif_ - Lorsque ce paramètre a pour valeur `true`, l'emplacement de la phrase contenant chaque mention d'entité est stocké. La valeur par défaut est `false`.
-- `"model" : string` - _Facultatif_ - Lorsque ce paramètre est spécifié, le modèle personnalisé est utilisé pour extraire des entités au lieu du modèle public. Cette option requiert qu'un modèle personnalisé {{site.data.keyword.knowledgestudioshort}} soit associé à votre instance de {{site.data.keyword.discoveryshort}}. Pour plus d'informations, voir [Intégration à Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html).
+- `"model" : string` - _Facultatif_ - Lorsque ce paramètre est spécifié, le modèle personnalisé est utilisé pour extraire des entités au lieu du modèle public. Cette option requiert qu'un modèle personnalisé {{site.data.keyword.knowledgestudioshort}} soit associé à votre instance de {{site.data.keyword.discoveryshort}}. Pour plus d'informations, voir [Intégration à Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
 ### keywords
+{: #nlu_keywords}
 
-L'enrichissement `keywords` extrait des instances de mots significatifs contenus dans le texte. Pour comprendre la différence entre les enrichissements keywords, concepts et entities, voir : [Compréhension de la différence entre Entities, Concepts et Keywords](/docs/services/discovery/building.html#udbeck).
+L'enrichissement `keywords` extrait des instances de mots significatifs contenus dans le texte. Pour comprendre la différence entre les enrichissements keywords, concepts et entities, voir : [Compréhension de la différence entre Entities, Concepts et Keywords](/docs/services/discovery?topic=discovery-configservice#udbeck).
 
 - `"sentiment" : boolean` - _Facultatif_ - Lorsque ce paramètre a pour valeur `true`, une analyse des sentiments est effectuée sur le mot clé extrait dans le contexte du contenu environnant.
 - `"emotion" : boolean` - _Facultatif_ - Lorsque ce paramètre a pour valeur `true`, une analyse de la tonalité affective est effectuée sur le mot clé extrait dans le contexte du contenu environnant.
 - `"limit" : INT` - _Facultatif_ - Nombre maximal de mots clés à extraire du document ingéré. La valeur par défaut est `50`.
 
 ### semantic_roles
+{: #nlu_semantic_roles}
 
 L'enrichissement `semantic_roles` identifie des composants de phrase, tels que le sujet, l'action et l'objet, dans le texte ingéré.
 
@@ -490,6 +529,7 @@ L'enrichissement `semantic_roles` identifie des composants de phrase, tels que l
 - `"limit" : INT` - _Facultatif_ - Nombre maximal d'objets `semantic_roles` à extraire (phrases devant faire l'objet d'une analyse syntaxique) du document ingéré. La valeur par défaut est `50`.
 
 ### sentiment
+{: #nlu_sentiment}
 
 L'enrichissement `sentiment` évalue le niveau de sentiment global présent dans l'ensemble du document ou les chaînes cible spécifiées dans l'ensemble du document.
 
@@ -497,10 +537,11 @@ L'enrichissement `sentiment` évalue le niveau de sentiment global présent dans
 - `"targets" : array ` _Facultatif_ - Tableau de chaînes cible utilisées pour l'évaluation du sentiment présent dans le document, séparées par des virgules.
 
 ### relations
+{: #nlu_relations}
 
 L'enrichissement `relations` extrait des relations connues entre les entités identifiées dans le document. Le cas échéant, un modèle personnalisé {{site.data.keyword.knowledgestudioshort}} peut être spécifié pour extraire des relations personnalisées.
 
-- `"model" : string` - _Facultatif_ - Lorsque ce paramètre est spécifié, le modèle personnalisé est utilisé pour extraire des relations au lieu du modèle public. Cette option requiert qu'un modèle personnalisé {{site.data.keyword.knowledgestudioshort}} soit associé à votre instance de {{site.data.keyword.discoveryshort}}. Pour plus d'informations, voir [Intégration à Watson Knowledge Studio](/docs/services/discovery/integrate-wks.html).
+- `"model" : string` - _Facultatif_ - Lorsque ce paramètre est spécifié, le modèle personnalisé est utilisé pour extraire des relations au lieu du modèle public. Cette option requiert qu'un modèle personnalisé {{site.data.keyword.knowledgestudioshort}} soit associé à votre instance de {{site.data.keyword.discoveryshort}}. Pour plus d'informations, voir [Intégration à Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
 ## Normalisation
 {: #normalization}

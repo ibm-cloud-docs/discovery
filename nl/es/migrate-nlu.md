@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-02-28"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Migración de enriquecimientos a NLU (Natural Language Understanding)
 {: #migrate-nlu}
@@ -23,9 +35,9 @@ lastupdated: "2018-02-28"
 Desde el **18 de julio del 2017** {{site.data.keyword.discoveryfull}} introdujo una nueva tecnología de enriquecimiento, denominado el NLU ({{site.data.keyword.nlushort}}). Los enriquecimientos de {{site.data.keyword.alchemylanguageshort}} pasarán a estar en desuso el **1 de marzo de 2018**. 
 {: shortdesc}
 
-Las recopilaciones existentes que utilicen los enriquecimientos de {{site.data.keyword.alchemylanguageshort}} deben migrarse. Para obtener información sobre cómo migrar recopilaciones y archivos de configuración que utilizan enriquecimientos {{site.data.keyword.alchemylanguageshort}}, consulte [Comparación de enriquecimientos](/docs/services/discovery/migrate-nlu.html#enrichment-comparison).
+Las recopilaciones existentes que utilicen los enriquecimientos de {{site.data.keyword.alchemylanguageshort}} deben migrarse. Para obtener información sobre cómo migrar recopilaciones y archivos de configuración que utilizan enriquecimientos {{site.data.keyword.alchemylanguageshort}}, consulte [Comparación de enriquecimientos](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-comparison).
 
-**Nota:** Para obtener información sobre la integración con {{site.data.keyword.knowledgestudioshort}}, consulte [Integración con {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery/integrate-wks.html).
+**Nota:** Para obtener información sobre la integración con {{site.data.keyword.knowledgestudioshort}}, consulte [Integración con {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
 ## Comparación de enriquecimientos
 {: #enrichment-comparison}
@@ -43,37 +55,41 @@ Los siete enriquecimientos disponibles en {{site.data.keyword.alchemylanguagesho
 | Extracción de relaciones                   | relations                       |Extracción de roles semánticos*                   |   semantic_roles*     |
  \* Cambio de nombre
 
-Para obtener información sobre los enriquecimientos de {{site.data.keyword.nlushort}}, consulte [Adición de enriquecimientos](/docs/services/discovery/building.html#adding-enrichments).
+Para obtener información sobre los enriquecimientos de {{site.data.keyword.nlushort}}, consulte [Adición de enriquecimientos](/docs/services/discovery?topic=discovery-configservice#adding-enrichments).
 
 ## Visión general de los cambios más importantes
+{: #overview-nlu}
 
-- El esquema JSON para los enriquecimientos de {{site.data.keyword.nlushort}} varía del utilizado en los enriquecimientos de {{site.data.keyword.alchemylanguageshort}}. Si desea obtener una lista completa de los cambios a cada enriquecimiento, consulte [Diferencias en el esquema de enriquecimiento](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences).
+- El esquema JSON para los enriquecimientos de {{site.data.keyword.nlushort}} varía del utilizado en los enriquecimientos de {{site.data.keyword.alchemylanguageshort}}. Si desea obtener una lista completa de los cambios a cada enriquecimiento, consulte [Diferencias en el esquema de enriquecimiento](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences).
 - El enriquecimiento _Clasificación de taxonomías_ ({{site.data.keyword.alchemylanguageshort}}) ahora se denomina _Clasificación de categorías_. El nombre del objeto JSON se ha cambiado de `taxonomy` a `categories`.
 - El enriquecimiento _Extracción de relaciones_ ({{site.data.keyword.alchemylanguageshort}}) ahora se denomina _Extracción de roles semánticos_. El nombre del objeto JSON se ha cambiado de `relations` a `semantic_roles`.
 - El nombre del objeto JSON para el _Análisis del sentimiento_ se ha cambiado de `docSentiment` a `sentiment`.
 - El nombre del objeto JSON para el _Análisis de las emociones_ se ha cambiado de `docEmotions` a `emotion`.
 
 ## Cambios en el archivo de configuración
+{: #config-nlu}
 
 El archivo de configuración predeterminado de **{{site.data.keyword.alchemylanguageshort}}** (denominado como `Configuración predeterminada` en el conjunto de herramientas) aplicaba los siguientes enriquecimientos al campo de texto de sus documentos: **Extracción de entidades**, **Extracción de palabras clave**, **Clasificación de taxonomías**, **Etiquetado de conceptos**, **Extracción de relaciones** y **Análisis de sentimiento**. El archivo también incluye las conversiones de documento estándar con base a estilos y tamaños de font.
 
 El archivo de configuración predeterminado de **{{site.data.keyword.nlushort}}** se denomina `Configuración predeterminada con NLU` y aplica los siguientes enriquecimientos al campo de texto de sus documentos: **Extracción de entidades**, **Análisis de sentimiento**, **Clasificación de categorías** y **Etiquetado de conceptos**. El archivo también incluye las conversiones de documento estándar con base a estilos y tamaños de font. Estas conversiones de documento son idénticas a las del archivo de configuración predeterminado de {{site.data.keyword.alchemylanguageshort}}.
 
 ## Migración de configuraciones, recopilaciones y consultas
+{: #migrateconfig-nlu}
 
 Si ha creado configuraciones personalizadas, debe crear unas nuevas que utilicen los enriquecimientos de {{site.data.keyword.nlushort}}. Para obtener instrucciones sobre cómo hacerlo, consulte estos documentos:
 
-- [Conjunto de herramientas](/docs/services/discovery/building.html#custom-configuration)
-- [API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#add_configuration){: new_window}
+- [Conjunto de herramientas](/docs/services/discovery?topic=discovery-configservice#custom-configuration)
+- [API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window}
 
 Si tiene recopilaciones existentes con la configuración predeterminada de {{site.data.keyword.alchemylanguageshort}} o una configuración de {{site.data.keyword.alchemylanguageshort}} personalizada, deberá crear una nueva recopilación, aplicar el archivo de configuración de {{site.data.keyword.nlushort}} (la configuración predeterminada o una nueva configuración personalizada) y cargar los documentos. Para obtener instrucciones sobre cómo hacerlo, consulte estos documentos:
 
-- [Conjunto de herramientas](/docs/services/discovery/building.html#preparing-the-service-for-your-documents)
-- [API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#create-collection){: new_window}
+- [Conjunto de herramientas](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)
+- [API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#create-a-collection){: new_window}
 
-En muchas consultas que haya creado con Discovery Query Language, necesitará examinar los cambios de esquema de JSON entre {{site.data.keyword.alchemylanguageshort}} y {{site.data.keyword.nlushort}} y actualizar sus consultas y los URL de consultas del mismo modo. Consulte [Diferencia de esquemas de enriquecimiento](/docs/services/discovery/migrate-nlu.html#enrichment-schema-differences) para obtener más detalles.
+En muchas consultas que haya creado con Discovery Query Language, necesitará examinar los cambios de esquema de JSON entre {{site.data.keyword.alchemylanguageshort}} y {{site.data.keyword.nlushort}} y actualizar sus consultas y los URL de consultas del mismo modo. Consulte [Diferencia de esquemas de enriquecimiento](/docs/services/discovery?topic=discovery-migrate-nlu#enrichment-schema-differences) para obtener más detalles.
 
 ## Diferencia de esquemas de enriquecimiento
+{: #enrichment-schema-differences}
 
 En la siguiente tabla se muestra una lista con las diferencias entre el esquema JSON para los enriquecimientos de {{site.data.keyword.nlushort}} y los enriquecimientos de {{site.data.keyword.alchemylanguageshort}}.
 

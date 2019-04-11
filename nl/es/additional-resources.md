@@ -4,18 +4,30 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-08-06"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Blogs y Webinars
 {: #resources}
@@ -28,17 +40,17 @@ Para obtener más información sobre cómo utilizar Watson Discovery para identi
 ## Publicaciones de blogs
 {: #blogs}
 
-- [Cambios de precios de Watson Discovery![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/blogs/bluemix/2018/06/pricing-changes-watson-discovery/){: new_window}
+- [Cambios de precios de Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/blogs/bluemix/2018/06/pricing-changes-watson-discovery/){: new_window}
 
-- [Cómo se puede utilizar Watson Discovery para crear modelos de predicción para reseñas de cine![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.topcoder.com/blog/how-ibm-discovery-can-be-used-to-build-prediction-models-for-movie-reviews/){: new_window}
+- [Cómo se puede utilizar Watson Discovery para crear modelos de predicción para reseñas de cine ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.topcoder.com/blog/how-ibm-discovery-can-be-used-to-build-prediction-models-for-movie-reviews/){: new_window}
 
-- [Utilización de la función de segmentación de documentos de Watson Discovery![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://medium.com/ibm-watson/using-ibm-watson-discoverys-new-document-segmentation-feature-7a58b44d32c2){: new_window}
+- [Utilización de la función de segmentación de documentos de Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://medium.com/ibm-watson/using-ibm-watson-discoverys-new-document-segmentation-feature-7a58b44d32c2){: new_window}
 
-- [Análisis de comentarios de cliente con Watson Discovery![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/code/2018/04/02/analyzing-customer-feedback-watson-discovery/){: new_window}
+- [Análisis de comentarios de cliente con Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/code/2018/04/02/analyzing-customer-feedback-watson-discovery/){: new_window}
 
-- [Ampliar chatbots, buscar soluciones de soporte y descubrir nueva información con Watson Discovery![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/dwblog/2018/watson-discovery-customer-support/){: new_window}
+- [Ampliar chatbots, buscar soluciones de soporte y descubrir nueva información con Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/dwblog/2018/watson-discovery-customer-support/){: new_window}
 
-- [8 pasos para desarrollar soluciones de pregunta/respuesta utilizando Watson Conversation y Watson Discovery![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/dwblog/2017/best-practices-developing-question-answer-solutions-watson-conversation-discovery/){: new_window}
+- [8 pasos para desarrollar soluciones de pregunta/respuesta utilizando Watson Conversation y Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/dwblog/2017/best-practices-developing-question-answer-solutions-watson-conversation-discovery/){: new_window}
 
 - [Integración de Watson Discovery en las apps de Salesforce con el SDK de Salesforce de Watson ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://developer.ibm.com/dwblog/2017/watson-discovery-apex-sdk-salesforce/){: new_window}
 
@@ -57,7 +69,7 @@ Para obtener más información sobre cómo utilizar Watson Discovery para identi
 
 - [Creación con Watson: recuperación de pasajes y entrenamiento de relevancia con Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.youtube.com/watch?v=8BiuQKPQZJk&list=PLZDyxLlNKRY_GJskIreh9sQgExJ4z8oZO&index=9&t=0s){: new_window}
 
-- [ Creación con Watson: visualizaciones de red con el servicio Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.youtube.com/watch?v=pcNwV9prfmY&list=PLZDyxLlNKRY_GJskIreh9sQgExJ4z8oZO&index=10&t=0s){: new_window}
+- [Creación con Watson: visualizaciones de red con el servicio Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.youtube.com/watch?v=pcNwV9prfmY&list=PLZDyxLlNKRY_GJskIreh9sQgExJ4z8oZO&index=10&t=0s){: new_window}
 
 - [Creación con Watson: una introducción técnica al servicio Watson Discovery ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.youtube.com/watch?v=FikHwoJ6_FE&list=PLZDyxLlNKRY_GJskIreh9sQgExJ4z8oZO&index=11&t=417s){: new_window}
 

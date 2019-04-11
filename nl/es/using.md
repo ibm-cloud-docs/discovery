@@ -1,21 +1,33 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-23"
+  years: 2015, 2018, 2019
+lastupdated: "2019-01-22"
+
+subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Conceptos de consultas
 {: #query-concepts}
@@ -28,22 +40,22 @@ El servicio {{site.data.keyword.discoveryfull}} ofrece potentes funciones de bú
 
 Cuando se crea una consulta o filtro, {{site.data.keyword.discoveryshort}} analiza cada resultado y busca coincidencias con las vías que haya definido. Cuando se producen coincidencias, se añaden al conjunto de resultados. Al crear una consulta, puede ser todo lo genérica o específica que desee. Cuando más específica sea una consulta, más acotados serán los resultados.
 
-También tiene la opción de activar la recuperación de pasajes. Los pasajes son fragmentos significativos breves que se extraen de los documentos completos que devuelve su consulta. Estos fragmentos específicos se extraen de los campos `text` de los documentos en su recopilación. De forma predeterminada para una consulta, se devolverá un máximo de 10 pasajes de 400 caracteres. Se extrae un máximo de tres pasajes de un resultado individual. El parámetro `passages` solo está disponible en recopilaciones privadas, por lo tanto, no está disponible en la recopilación {{site.data.keyword.discoverynewsshort}}. Consulte [Pasajes](/docs/services/discovery/query-parameters.html#passages) para obtener más información sobre cómo se identifican los pasajes.
+También tiene la opción de activar la recuperación de pasajes. Los pasajes son fragmentos significativos breves que se extraen de los documentos completos que devuelve su consulta. Estos fragmentos específicos se extraen de los campos `text` de los documentos en su recopilación. De forma predeterminada para una consulta, se devolverá un máximo de 10 pasajes de 400 caracteres. Se extrae un máximo de tres pasajes de un resultado individual. El parámetro `passages` solo está disponible en recopilaciones privadas, por lo tanto, no está disponible en la recopilación {{site.data.keyword.discoverynewsshort}}. Consulte [Pasajes](//docs/services/discovery?topic=discovery-query-parameters#passages) para obtener más información sobre cómo se identifican los pasajes.
 
   Puede escribir consultas de lenguaje natural (como "IBM Watson partnerships") utilizando el conjunto de herramientas de {{site.data.keyword.discoveryshort}} o con la API.
   {: tip}
 
-Las recopilaciones entrenadas devolverán una puntuación de `confidence` en el resultado de una consulta de lenguaje natural. Consulte [Puntuaciones de confianza](/docs/services/discovery/train-tooling.html#confidence) para obtener más información.
+Todas las recopilaciones privadas devolverán una puntuación de `confidence` en los resultados de consulta en la mayoría de los casos. Consulte [Puntuaciones de confianza](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) para obtener más información.
 
 {{site.data.keyword.discoveryshort}} devuelve resultados de consulta que incluyen caracteres especiales para los idiomas siguientes: Inglés, alemán, francés, holandés, italiano y portugués. Por ejemplo, si consulta `aqui`, ahora recibirá resultados para `aqui` y <code>aqu&iacute;</code>.
 
-Puede crear consultas más largas y complejas que incluyan varios filtros y agregaciones complejas. Esta opción está disponible solo en la API e incrementará el límite de caracteres de una consulta a 10.000 caracteres. Consulte [Consultas de recopilaciones largas![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query){: new_window} y [Consultas de entorno largas ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#federated-query){: new_window} para obtener detalles.
+Puede crear consultas más largas y complejas que incluyan varios filtros y agregaciones complejas. Esta opción está disponible solo en la API e incrementará el límite de caracteres de una consulta a 10.000 caracteres. Consulte [Consultas de recopilaciones largas ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#long-collection-queries){: new_window} y [Consultas de entorno largas ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#long-environment-queries){: new_window} para obtener detalles.
 
-{{site.data.keyword.discoveryfull}} Knowledge Graph es una característica en fase Beta que proporciona nuevos puntos finales para consultar entidades y relaciones entre documentos. Incluye búsquedas basadas en el contexto y clasificación según la relevancia. Consulte [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery/building-kg.html) para obtener más información.
+{{site.data.keyword.discoveryfull}} Knowledge Graph es una característica en fase Beta que proporciona nuevos puntos finales para consultar entidades y relaciones entre documentos. Incluye búsquedas basadas en el contexto y clasificación según la relevancia. Consulte [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg) para obtener más información.
 
 Para obtener más información sobre cómo escribir consultas, consulte:
-- [Iniciación a la guía de aprendizaje de creación de consultas](/docs/services/discovery/getting-started-query.html)
-- [Referencia de consultas](/docs/services/discovery/query-reference.html) (incluye la lista de parámetros, operadores y agregaciones disponibles en {{site.data.keyword.discoveryshort}} Query Language)
+- [Iniciación a la guía de aprendizaje de creación de consultas](/docs/services/discovery?topic=discovery-getting-started-with-querying#getting-started-with-querying)
+- [Referencia de consultas](/docs/services/discovery?topic=discovery-query-reference#query-reference) (incluye la lista de parámetros, operadores y agregaciones disponibles en {{site.data.keyword.discoveryshort}} Query Language)
 
 ## El esquema de datos de Discovery
 {: #discovery-schema}
@@ -52,7 +64,7 @@ Familiarícese primero con el JSON de {{site.data.keyword.discoveryshort}}. Para
 
   1. En el conjunto de herramientas de {{site.data.keyword.discoveryshort}}, abra la pantalla **Gestionar datos**, elija la recopilación que contenga los {{site.data.keyword.IBM_notm}} Press Releases. Pulse el botón **Ver esquema de datos**. La pantalla **Ver esquema de datos** visualiza los campos y valores en sus documentos transformados de dos maneras: por documento (**Vista de documentos**) o por campo (**Vista de recopilación**). En la **Vista de documentos** se visualizará un máximo de 50 documentos. La **Vista de recopilación** visualizará los campos de toda la recopilación.
 
-    En la **Vista de recopilación**, bajo `enriched_text`, puede examinar los enriquecimientos aplicados con el archivo de la **Configuración predeterminada**. Pulse en `categories`, `concepts`, `entities` y `sentiment` para cómo la recopilación se enriquece con la información de Watson.
+    En la **Vista de recopilación**, bajo `enriched_text`, puede examinar los enriquecimientos aplicados a la recopilación. Pulse en `categories`, `concepts`, `entities` y `sentiment` para cómo la recopilación se enriquece con la información de Watson.
 
   1. Ejecute una consulta "vacía" para ver el JSON. En la pantalla de **Ver esquema de datos**, pulse el botón **Crear consultas** y, a continuación, pulse **Ejecutar consulta**. Los resultados se visualizarán a la derecha, bajo dos separadores, **Resumen** (una visión general de los resultados de la consulta) y **JSON**. Empiece abriendo el separador **JSON**.
 
@@ -70,7 +82,7 @@ Familiarícese primero con el JSON de {{site.data.keyword.discoveryshort}}. Para
 
   1. Visualice los campos disponibles en el **Creador de consulta visual**. En la pantalla **Crear consultas**, pulse **Buscar documentos** y, a continuación, **Utilizar {{site.data.keyword.discoveryshort}} Query Language**. Pulse el desplegable **Campo** para ver los campos disponibles en sus datos. Pulse **Editar en lenguaje de consulta** para crear consultas de forma manual con {{site.data.keyword.discoveryshort}} Query Language.      
 
-### Como estructurar una consulta básica
+### Cómo estructurar una consulta básica
 {: #structure-basic-query}
 
 Como habrá observado, JSON es jerárquico, de forma que las consultas se deben escribir utilizando la misma jerarquía. Por ello, si su JSON es parecido a:
@@ -90,29 +102,29 @@ Su consulta se debería estructurar como:
 
 ![Ejemplo de estructura de consulta](images/query_structure2.png)
 
-  Los operadores que evalúan un campo (`<=` , `>=`, `<`, `>`) requieren que un valor sea un `número` o `fecha`. Al utilizar comillas con un valor, este se transforma en `serie`. Por lo tanto, `score>=0.5` es una consulta válida y `score>="0.5"` no lo es. Consulte [Operadores de consulta](/docs/services/discovery/query-operators.html) para obtener una lista de operadores completa.
+  Los operadores que evalúan un campo (`<=` , `>=`, `<`, `>`) requieren que un valor sea un `número` o `fecha`. Al utilizar comillas con un valor, este se transforma en `serie`. Por lo tanto, `score>=0.5` es una consulta válida y `score>="0.5"` no lo es. Consulte [Operadores de consulta](/docs/services/discovery?topic=discovery-query-operators#query-operators) para obtener una lista de operadores completa.
   {: tip}
 
 Consideraciones:
 
-- ¿No está seguro de cuándo realizar una consulta con relación a una entidad, concepto o palabra clave? Consulte [Diferencias entre entidades, conceptos y palabras clave](/docs/services/discovery/building.html#udbeck).
+- ¿No está seguro de cuándo realizar una consulta con relación a una entidad, concepto o palabra clave? Consulte [Diferencias entre entidades, conceptos y palabras clave](/docs/services/discovery?topic=discovery-configservice#udbeck).
 
-- **Nota:**  Después de pulsar **Ejecutar consulta** y abrir el separador **JSON**, observará que de forma predeterminada se activa el resaltado de la consulta. Esto añadirá un campo `highlight` a los resultados de la consulta. Dentro del campo `highlight`, las palabras que coinciden con su consulta serán delimitados en etiquetas `<em>` (emphasis) de HTML. Consulte [Parámetros de consulta](/docs/services/discovery/query-parameters.html#highlight) para obtener más información.
+- **Nota:**  Después de pulsar **Ejecutar consulta** y abrir el separador **JSON**, observará que de forma predeterminada se activa el resaltado de la consulta. Esto añadirá un campo `highlight` a los resultados de la consulta. Dentro del campo `highlight`, las palabras que coinciden con su consulta serán delimitados en etiquetas `<em>` (emphasis) de HTML. Consulte [Parámetros de consulta](/docs/services/discovery?topic=discovery-query-parameters#highlight) para obtener más información.
 
 ## Creación de consultas combinadas
 {: #building-combined-queries}
 
-Los parámetros de las consultas se pueden combinar para crear consultas más específicas. Por ejemplo, los parámetros `filter` y `query` se pueden utilizar de forma conjunta. Para obtener más información sobre el filtrado frente a la creación de consultas, consulte [Diferencias entre los parámetros query y filter](/docs/services/discovery/query-parameters.html#filtervquery).
+Los parámetros de las consultas se pueden combinar para crear consultas más específicas. Por ejemplo, los parámetros `filter` y `query` se pueden utilizar de forma conjunta. Para obtener más información sobre el filtrado frente a la creación de consultas, consulte [Diferencias entre los parámetros query y filter](/docs/services/discovery?topic=discovery-query-parameters#filtervquery).
 
 ## Cómo estructurar una agregación
 {: #structure-aggregation}
 
-Las agregaciones devuelven un conjunto de valores de datos, por ejemplo, palabras clave más destacadas, sentimiento general de las entidades, etc. Para obtener una lista completa de opciones de agregación, consulte [Agregaciones](/docs/services/discovery/query-reference.html#aggregations).
+Las agregaciones devuelven un conjunto de valores de datos, por ejemplo, palabras clave más destacadas, sentimiento general de las entidades, etc. Para obtener una lista completa de opciones de agregación, consulte [Agregaciones](/docs/services/discovery?topic=discovery-query-reference#aggregations).
 
 ![Ejemplo de estructura de consulta de agregación](images/aggregation_structure.png)
 
 Este ejemplo de agregación encontrará todos los `concepts` en su recopilación.
-El delimitador en esta consulta es `.` y el operador es `()`. Consulte [Operadores de consulta](/docs/services/discovery/query-operators.html) para obtener más información sobre otros operadores disponibles en {{site.data.keyword.discoveryshort}} Query Language.
+El delimitador en esta consulta es `.` y el operador es `()`. Consulte [Operadores de consulta](/docs/services/discovery?topic=discovery-query-operators#query-operators) para obtener más información sobre otros operadores disponibles en {{site.data.keyword.discoveryshort}} Query Language.
 
 ### Ejemplo de consultas de agregación
 {: #example-aggregations}
@@ -127,7 +139,7 @@ Este ejemplo de agregación devuelve el número de artículos encontrados en {{s
 - `filter(enriched_text.entities.text:"Pittsburgh Steelers").term(enriched_text.sentiment.document.label,count:3)`
 
 
-Este ejemplo de agregación primero delimitará (filtrará) un conjunto de artículos en {{site.data.keyword.discoverynewsshort}} a solo aquellos que incluyan el texto de entidades de twitter y, a continuación, dividirá estos artículos por tipos de sentimiento del documento. Solo se devolverán los primeros 3 documentos con tipos de sentimiento (`positive`, `negative`, `neutral`).
+Este ejemplo de agregación primero delimitará (filtrará) un conjunto de artículos en {{site.data.keyword.discoverynewsshort}} a solo aquellos que incluyan el texto de entidades de `twitter` y, a continuación, dividirá estos artículos por tipos de sentimiento del documento. Solo se devolverán los primeros 3 documentos con tipos de sentimiento (`positive`, `negative`, `neutral`).
 
 - `filter(enriched_text.entities.text:twitter).term(enriched_text.sentiment.document.label,count:3)`
 
@@ -150,9 +162,9 @@ Además, cualquier operación posterior restringirá aún más el conjunto de re
 ## Consultas para Watson Discovery News
 {: #querying-news}
 
-{{site.data.keyword.discoverynewsshort}}, un conjunto de datos públicos que previamente se ha enriquecido con conocimientos cognitivos, también se incluye con {{site.data.keyword.discoveryshort}}. Consulte [Watson Discovery News](/docs/services/discovery/watson-discovery-news.html#watson-discovery-news) para obtener más información sobre esta recopilación.
+{{site.data.keyword.discoverynewsshort}}, un conjunto de datos públicos que previamente se ha enriquecido con conocimientos cognitivos, también se incluye con {{site.data.keyword.discoveryshort}}. Consulte [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) para obtener más información sobre esta recopilación.
 
-Esta recopilación se puede consultar utilizando consultas de lenguaje natural, por ejemplo "IBM Watson partnerships", o {{site.data.keyword.discoveryshort}} Query Language. Para obtener más información sobre las consultas en lenguaje natural, consulte [Consulta de lenguaje natural](/docs/services/discovery/query-parameters.html#nlq).
+Esta recopilación se puede consultar utilizando consultas de lenguaje natural, por ejemplo "IBM Watson partnerships", o {{site.data.keyword.discoveryshort}} Query Language. Para obtener más información sobre las consultas en lenguaje natural, consulte [Consulta de lenguaje natural](/docs/services/discovery?topic=discovery-query-parameters#nlq).
 
 No es posible ajustar la configuración de {{site.data.keyword.discoverynewsshort}}, ni realizar tareas de entrenamiento ni tampoco añadir documentos la recopilación de {{site.data.keyword.discoverynewsshort}}. Consulte una demostración que puede realizar con {{site.data.keyword.discoverynewsshort}} [aquí ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
 
@@ -160,7 +172,7 @@ Las recopilaciones de {{site.data.keyword.watson}} {{site.data.keyword.discovery
 
 El idioma predeterminado de {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} en el conjunto de herramientas es el inglés. Para cambiar el idioma, primero debe pulsar en el icono ![Gestionar datos](/images/icon_yourData.png) y, a continuación, seleccionar el idioma adecuado en el desplegable.
 
-Para obtener información sobre cómo consultar una recopilación a través de la API, consulte [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/#query-collection){: new_window}. El `collection_id` de la versión en el idioma inglés de Watson {{site.data.keyword.discoverynewsshort}} es `news-en`. Con anterioridad, el `collection_id` era `news`. Si ha esta utilizando el anterior `collection_id`, continuará funcionando, sin embargo, debería cambiar al nuevo `collection_id` para nuevos proyectos. El `collection_id` de la recopilación en coreano es `news-ko`, el `collection_id` en español es `news-es`, el `collection_id` en alemán es `news-de` el `collection_id` en japonés es `news-ja`.
+Para obtener información sobre cómo consultar una recopilación a través de la API, consulte [Referencia de API ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window}. El `collection_id` de la versión en el idioma inglés de Watson {{site.data.keyword.discoverynewsshort}} es `news-en`. Con anterioridad, el `collection_id` era `news`. Si ha estado utilizando el anterior `collection_id`, continuará funcionando, sin embargo, debería cambiar al nuevo `collection_id` para nuevos proyectos. El `collection_id` de la recopilación en coreano es `news-ko`, el `collection_id` en español es `news-es`, el `collection_id` en alemán es `news-de` el `collection_id` en japonés es `news-ja`.
 
 Las consultas de {{site.data.keyword.discoverynewsfull}} muestran las 50 primeras palabras de cada artículo en el campo JSON `text`.
 
@@ -172,7 +184,7 @@ no se ve afectado por el parámetro `time_zone`, `UTC` es el huso horario predet
 En este ejemplo se consultará una palabra clave en un rango de fechas específico. La información de huso horario no es necesaria:
 - `enriched_text.keywords.text:"olympics", publication_date<=2018-02-15T00:00:00Z, publication_date>=2018-02-01T00:00:00Z`
 
-Los artículos de noticias a veces se sindican a varios proveedores de noticias, por lo que {{site.data.keyword.discoverynewsfull}} recopilará todas ellas, dando lugar a artículos duplicados. Esto significa que una consulta a {{site.data.keyword.discoverynewsfull}} potencialmente podría dar lugar a varios artículos idénticos o casi idénticos en los resultados de las consultas. Esta situación se puede tratar con la desduplicación. Para obtener más información sobre esta funcionalidad en fase beta, consulte [Exclusión de documentos duplicados en los resultados de las consultas](/docs/services/discovery/query-parameters.html#deduplication).
+Los artículos de noticias a veces se sindican a varios proveedores de noticias, por lo que {{site.data.keyword.discoverynewsfull}} recopilará todas ellas, dando lugar a artículos duplicados. Esto significa que una consulta a {{site.data.keyword.discoverynewsfull}} potencialmente podría dar lugar a varios artículos idénticos o casi idénticos en los resultados de las consultas. Esta situación se puede tratar con la desduplicación. Para obtener más información sobre esta funcionalidad en fase beta, consulte [Exclusión de documentos duplicados en los resultados de las consultas](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ## Consultas a varias recopilaciones
 {: #multiple-collections}
@@ -184,30 +196,30 @@ Puede consultar varias recopilaciones en el mismo entorno mediante el método de
 -  No se da soporte a `passages` al realizar consultas de varias recopilaciones.
 -  Como parte del objeto de resultado, se devuelve el campo `collection_id`. Este campo especifica la recopilación donde se ha encontrado el resultado.
 -  {{site.data.keyword.discoverynewsshort}} es parte del entorno `system` y no se puede incluir en consultas a varias recopilaciones.
--  El entrenamiento de relevancia de la recopilación individual no afecta a la clasificación de resultados al realizar consultas de varias recopilaciones. Para volver a reclasificar los resultados devueltos al consultar varias recopilaciones, implemente [Entrenamiento de relevancia continuo](/docs/services/discovery/continuous-training.html).
+-  El entrenamiento de relevancia de la recopilación individual no afecta a la clasificación de resultados al realizar consultas de varias recopilaciones. Para volver a reclasificar los resultados devueltos al consultar varias recopilaciones, implemente [Entrenamiento de relevancia continuo](/docs/services/discovery?topic=discovery-crt#crt).
 -  No se realiza una reclasificación en ninguna parte de una consulta de varias recopilaciones, incluso si se han entrenado todas las recopilaciones en la consulta.
 
-Consulte [Referencia de API para consultas de varias recopilaciones ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-multi-collections){: new_window} para obtener más información.
+Consulte [Referencia de API para consultas de varias recopilaciones ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#query-documents-in-multiple-collections){: new_window} para obtener más información.
 
 Puede consultar varias noticias a través de varias recopilaciones en el mismo entorno mediante el método de API `environments/{environment_id}/notices`.
 -  Al utilizar este método se debe especificar el parámetro `collection_ids`. El parámetro `collection_ids` es una lista separada por comas de recopilaciones en el entorno en el que realizar la consulta.
 -  No se da soporte a `passages` al realizar consultas de varias recopilaciones.
 
-Consulte [Referencia de API para noticias de varias recopilaciones ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#collections-notices){: new_window} para obtener más información.
+Consulte [Referencia de API para noticias de varias recopilaciones ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#get-collection-details){: new_window} para obtener más información.
 
-Puede visualizar campos disponibles a través de recopilaciones en el mismo entorno mediante el método de API `environments/{environment_id}/fields`. Consulte [Referencia de API para consultas de campos de varias recopilaciones ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#multi-list-fields){: new_window} para obtener más información.
+Puede visualizar campos disponibles a través de recopilaciones en el mismo entorno mediante el método de API `environments/{environment_id}/fields`. Consulte [Referencia de API para consultas de campos de varias recopilaciones ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#list-fields-across-collections){: new_window} para obtener más información.
 
 ## Expansión de la consulta
 {: #query-expansion}
 
-Puede ampliar el ámbito de una consulta más allá de las coincidencias exactas, por ejemplo, puede expandir la consulta de "coche" para incluir "automóvil" y "vehículo de motor", cargando una lista de términos de expansión de consulta mediante la API de {{site.data.keyword.discoveryshort}}. Los términos de expansión de consulta normalmente son sinónimos, antónimos o errores ortográficos típicos de términos comunes.
+Puede ampliar el ámbito de una consulta más allá de las coincidencias exactas, por ejemplo, puede expandir la consulta de "coche" para incluir "automóvil" y "vehículo", cargando una lista de términos de expansión de consulta mediante la API de {{site.data.keyword.discoveryshort}}. Los términos de expansión de consulta normalmente son sinónimos, antónimos o errores ortográficos típicos de términos comunes.
 
 Puede definir dos tipos de expansiones:
-- **bidirectional**: cada `expanded_term` se expandirá para incluir todos los términos expandidos. Por ejemplo, una consulta de `coche` puede expandirse a `coche O automóvil O (motor Y vehículo`).
-- **unidirectional**: el valor `input_terms` de la consulta se sustituirá por `expanded_terms`. Por ejemplo, la consulta `ibm` puede expandirse a `International Business Machines` y `Big Blue`. El valor `input_terms` no se utiliza como parte de la consulta resultante. En el ejemplo de `ibm` anterior, la consulta `IBM` se convierte a `international business machines` o `big blue` y no contiene el término original.
+-  **bidireccional**: cada `expanded_term` se expandirá para incluir todos los términos expandidos. Por ejemplo, una consulta de `car` (coche) puede expandirse a `car, automobile o vehicle` (coche, automóvil o vehículo).
+-  **unidireccional**: el valor `input_terms` de la consulta se sustituirá por `expanded_terms`. Por ejemplo, la consulta `banana` (banana) puede expandirse a `plaintain` (plátano) y `fruit` (fruta). El valor `input_terms` no se utiliza como parte de la consulta resultante. En el ejemplo de `banana`, la consulta `banana` se convierte a `plantain` o `fruit` y no contiene el término original.
 
 Este archivo puede utilizarse como punto de partida al crear una lista de expansión de la consulta:
-<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo" class="style-scope doc-content"></a>. Puede modificar el archivo para crear una lista de expansión de la consulta personalizada.
+<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>. Puede modificar el archivo para crear una lista de expansión de la consulta personalizada.
 
 Ejemplo bidirectional:
 ```JSON
@@ -217,7 +229,7 @@ Ejemplo bidirectional:
        "expanded_terms": [
          "car",
          "automobile",
-         "motor vehicle"
+         "vehicle"
        ]
      }
    ]
@@ -231,12 +243,12 @@ Ejemplo unidirectional:
    "expansions": [
      {
       "input_terms": [
-        "ibm"
+        "banana"
        ],
       "expanded_terms": [
-        "ibm",
-        "international business machines",
-        "big blue"
+        "banana",
+         "plantain",
+         "fruit"
        ]
      }
    ]
@@ -246,7 +258,8 @@ Ejemplo unidirectional:
 
 Notas sobre la expansión de la consulta:
 
-- La expansión de la consulta solo está disponible para recopilaciones privadas. El número de matrices `expansions` disponibles (matrices bidireccionales y unidireccionales totales) y los términos (`input_terms` y `expanded_terms` totales) varía según el plan. Consulte [Planes de precios de Discovery](/docs/services/discovery/pricing-details.html) para obtener detalles. **Nota:** Cada uno de los términos de consulta (`input_terms` y `expanded_terms`) cuentan como uno. Este ejemplo contiene dos objetos en la matriz `expansions` y ocho series de términos.
+-  La expansión de la consulta de varias señales no está soportada.
+-  La expansión de la consulta solo está disponible para recopilaciones privadas. El número de matrices `expansions` disponibles (matrices bidireccionales y unidireccionales totales) y los términos (`input_terms` y `expanded_terms` totales) varía según el plan. Consulte [Planes de precios de Discovery](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) para obtener detalles. **Nota:** Cada uno de los términos de consulta (`input_terms` y `expanded_terms`) cuentan como uno. Este ejemplo contiene dos objetos en la matriz `expansions` y siete series de términos.
 
 ```JSON
  {
@@ -257,8 +270,7 @@ Notas sobre la expansión de la consulta:
        ],
       "expanded_terms": [
          "ibm",
-         "international business machines",
-         "big blue"
+         "watson"
        ]
      },
      {
@@ -276,51 +288,106 @@ Notas sobre la expansión de la consulta:
 ```
 {: codeblock}
 
-- Solo se puede cargar una lista de expansión de consulta por colección; si se carga una segunda lista de expansión, esta sustituirá a la primera.
-- Todos los valores `input_terms` y `expanded_terms` deben estar en minúsculas. Los términos en minúsculas se expandirán a mayúsculas.
-- La lista de expansión de la consulta se debe escribir en JSON.
-- Para inhabilitar la expansión de la consulta, suprima la lista de expansión de la consulta.
-- Actualmente, no puede cargar o suprimir una lista de expansión de la consulta mediante el conjunto de herramientas de {{site.data.keyword.discoveryshort}}; se debe realizar utilizando la API de {{site.data.keyword.discoveryshort}}.
-- La expansión de la consulta se realiza en lo métodos `consulta` y `consulta de varias recopilaciones`. La expansión de la consulta no se realiza en las consultas de Knowledge Graph.
-- Cada conjunto de expansiones está asociado a una recopilación. Al realizar consultas en [ varias recopilaciones](/docs/services/discovery/using.html#multiple-collections), cada colección se expande de manera individual.
-- Las expansiones de la consulta se aplican cuando se realiza la consulta, no durante la indexación, por lo que la lista de expansión de consultas puede actualizarse sin la necesidad de volver a ingerir los documentos.
-- No cargue o suprima una lista de expansión de la consulta al mismo tiempo que los documentos se ingieren en la recopilación. Esto puede provocar que el índice no esté disponible durante ese breve período.
+-  Solo se puede cargar una lista de expansión de consulta por colección; si se carga una segunda lista de expansión, esta sustituirá a la primera.
+-  Todos los valores `input_terms` y `expanded_terms` deben estar en minúsculas. Los términos en minúsculas se expandirán a mayúsculas.
+-  La lista de expansión de la consulta se debe escribir en JSON.
+-  Para inhabilitar la expansión de la consulta, suprima la lista de expansión de la consulta.
+-  Actualmente, no puede cargar o suprimir una lista de expansión de la consulta mediante el conjunto de herramientas de {{site.data.keyword.discoveryshort}}; se debe realizar utilizando la API de {{site.data.keyword.discoveryshort}}.
+-  La expansión de la consulta se realiza en lo métodos `consulta` y `consulta de varias recopilaciones`. La expansión de la consulta no se realiza en las consultas de Knowledge Graph.
+-  Cada conjunto de expansiones está asociado a una recopilación. Al realizar consultas en [varias recopilaciones](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections), cada colección se expande de manera individual.
+-  Las expansiones de la consulta se aplican cuando se realiza la consulta, no durante la indexación, por lo que la lista de expansión de consultas puede actualizarse sin la necesidad de volver a ingerir los documentos.
+-  No cargue o suprima una lista de expansión de la consulta al mismo tiempo que los documentos se ingieren en la recopilación. Esto puede provocar que el índice no esté disponible durante ese breve período.
 
-Consulte la [referencia de API de la expansión de consultas![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/#query-expansion){: new_window} para ver cómo los mandatos de API pueden cargar y suprimir los archivos de expansión de query.
+Consulte la [referencia de API de la expansión de consultas ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: new_window} para ver cómo los mandatos de API pueden cargar y suprimir los archivos de expansión de query.
 
-## Diccionarios de señalización personalizados
+## Definición de palabras vacías
+{: #stopwords}
+
+Las palabras vacías son palabras que se filtran fuera de las consultas porque aportan poco valor, por ejemplo: `a, an, the`. La adición de palabras comunes a una lista de palabras vacías también puede mejorar la relevancia de los resultados para las consultas de lenguaje natural. 
+
+{{site.data.keyword.discoveryshort}} aplica una lista predeterminada de palabras vacías para varios idiomas en el momento de la consulta. Sin embargo, puede definir y cargar una lista personalizada de palabras vacías que sustituirán la lista predeterminada. {{site.data.keyword.discoveryshort}} aplicará la lista de palabras vacías predeterminada o personalizada adecuada a las recopilaciones privadas basándose en el idioma especificado para dicha recopilación. 
+
+La lista de palabras vacías personalizada debe ser un archivo `txt` separado por líneas nuevas. Ejemplo de lista de palabras vacías personalizada:
+
+```
+ibm
+watson
+a
+an
+the
+what
+how
+when
+can
+should
+```
+Esta lista contiene todas las palabras vacías predeterminadas en inglés <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_en.txt" download>custom_stopwords_en.txt <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>. Se puede utilizar como punto de partida al crear una lista de palabras vacías personalizada en inglés. La creación de una lista de palabras vacías personalizadas que no incluya términos muy comunes como `a` y `the` puede disminuir el rendimiento de las consultas, por lo que se recomienda incluir estas palabras en la lista de palabras vacías personalizadas. A continuación, se indican las listas de palabras vacías para otros idiomas admitidos. Todas ellas incluyen las palabras vacías predeterminadas para ese idioma:
+
+-  Holandés: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_nl.txt" download>custom_stopwords_nl.txt <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>.
+-  Francés: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_fr.txt" download>custom_stopwords_fr.txt <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>.
+-  Alemán: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_de.txt" download>custom_stopwords_de.txt <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>. 
+-  Italiano: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_it.txt" download>custom_stopwords_it.txt <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>.
+-  Japonés: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_ja.txt" download>custom_stopwords_ja.txt <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>.
+-  Español: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_es.txt" download>custom_stopwords_es.txt <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>. 
+
+Consulte [Soporte de idiomas](/docs/services/discovery?topic=discovery-language-support#supported-languages) para obtener la lista de idiomas admitidos por {{site.data.keyword.discoveryshort}}. Hay varios idiomas admitidos que no tienen lista de palabras vacías predeterminada.
+
+Consulte la [referencia de API de palabras excluidas ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#create-stopword-list){: new_window} para ver los mandatos de API para cargar y suprimir listas de palabras vacías personalizadas.
+
+Notas sobre las palabras vacías:
+
+-  Actualmente, no puede cargar o suprimir una lista de palabras vacías personalizadas mediante el conjunto de herramientas de {{site.data.keyword.discoveryshort}}; se debe realizar utilizando la API de {{site.data.keyword.discoveryshort}}. Consulte la [referencia de API de palabras vacías ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#create-stopword-list){: new_window}.
+-  La carga de una lista de palabras vacías personalizadas sólo está disponible para las recopilaciones privadas en los planes `Avanzado` y `Premium`.
+-  El límite de tamaño para un archivo `txt` de lista de palabras vacías personalizadas es de un millón de caracteres. Sin embargo, si carga una lista de palabras vacías personalizada con un gran número de términos, puede afectar negativamente a la precisión de la búsqueda. El número de palabras de depende del idioma, del contenido del documento y de las palabras seleccionadas. Una buena práctica recomendada sería limitar la lista de palabras vacías a `200` palabras en total. 
+-  Solo se puede cargar una lista de palabras vacías personalizada por recopilación; si se carga una segunda lista de palabras vacías personalizada, esta sustituirá a la primera.
+-  Todas las palabras vacías deben estar en minúsculas. 
+-  Para inhabilitar la lista de palabras vacías personalizada, suprima la lista de palabras vacías personalizada.
+-  No cargue o suprima una lista de palabras vacías personalizadas al mismo tiempo que los documentos se ingieren en la recopilación. Esto puede provocar que el índice no esté disponible durante ese breve período.
+-  Las palabras vacías se eliminan tanto en el índice como en el momento de la consulta. Una buena práctica recomendada es cargar la lista de palabras vacías personalizada antes de cargar los documentos.
+   - Aunque los documentos ya se hayan indexado con las palabras vacías predeterminadas y, a continuación, se añada una lista de palabras vacías personalizada, las nuevas palabras vacías se incluirán en el índice. En ese caso, las consultas que contengan estas nuevas palabras vacías las filtrarán en el momento de la consulta.
+   - Si un usuario busca una palabra que era una palabra vacía en un momento específico, pero desde entonces se ha eliminado de la lista de palabras vacías personalizada, no encontrará documentos que coincidan con la palabra vacía original, porque el término se habrá eliminado en el momento de la indexación. Para solucionar este problema, suprima los documentos de la recopilación y vuelva a cargar todos los documentos para que se indexen con la lista de palabras vacías personalizada actualizada.
+-  Cada conjunto de palabras vacías está asociado a una recopilación. Al realizar consultas en varias recopilaciones, cada recopilación utiliza la lista de palabras vacías personalizada asociada con ella.
+- Si hace cambios significativos en la lista de palabras vacías personalizada, debe suprimir los documentos de la recopilación y volver a cargar todos los documentos para que se indexen con la lista de palabras vacías personalizada actualizada.
+
+## Creación de diccionarios de señalización personalizados
+{: #tokenization}
 
 La señalización divide el texto en unidades denominadas señales. Un diccionario de señalización estándar se aplica a su recopilación, pero puede mejorar la precisión de la búsqueda para el dominio y el idioma cargando un diccionario de señalización personalizado. El diccionario personalizado sustituirá al estándar. Puede cargar el diccionario mediante la API de {{site.data.keyword.discoveryshort}}. 
 
-Consulte la [referencia de API de la señalización![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#create-tokenization-dictionary){: new_window} para ver los mandatos de API cargar y suprimir los archivos de señalización. 
+Consulte la [referencia de API de la señalización ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#create-tokenization-dictionary){: new_window} para ver los mandatos de API cargar y suprimir los archivos de señalización. 
 
 **Nota:** Esta característica solo está disponible para las recopilaciones en japonés. 
 
-En el ejemplo siguiente, **text** es la frase que se señalizará cuando se encuentre y **tokens** son las palabras en las que **text** se dividirá. **Readings** muestra la versión de las señales representadas por un conjunto de caracteres distintos y **part_of_speech** es la categoría léxica que representan las señales.
+En el ejemplo siguiente, **text** es la frase que se señalizará cuando se encuentre y **tokens** son las palabras en las que **text** se dividirá (se deben definir de forma individual). **Readings** muestra la versión de las señales representadas por un conjunto de caracteres distintos y **part_of_speech** es la categoría léxica que representan las señales.
 
 Con este diccionario personalizado, si busca el texto `ネコ`, los resultados de búsqueda incluirán texto que contenga `すしネコ` además de texto que solo contenga `ネコ`.
 
 ```
 { "tokenization_rules":
   [
-    {
-      "text":"すしネコ",
+     {
+      "text":"すし",
       "tokens":[
-        "すし",
-        "ネコ"
+        "すし"
       ],
       "readings":[
-        "寿司",
-        "ネコ"
+        "寿司"
       ],
       "part_of_speech":"カスタム名詞"
     },
-    ...
-  ]
-}
+    {
+      "text":"ネコ",
+      "tokens":[
+        "ネコ"
+      ],
+      "readings":[
+        "ネコ"
+      ],
+      "part_of_speech":"カスタム名詞"
+    }
 ```
 
-También puede crear reglas con una sola señal. En este ejemplo, `ibm発見` se señalizará como una sola señal, por lo que no se dividirá en unidades más pequeñas.
+Con este diccionario, puede crear reglas con una sola señal. En este ejemplo, `ibm発見` se señalizará como una sola señal, por lo que no se dividirá en unidades más pequeñas.
 
 ```
 { "tokenization_rules":
@@ -340,15 +407,18 @@ También puede crear reglas con una sola señal. En este ejemplo, `ibm発見` se
 }
 ```
 
-- La señalización se produce tanto en el índice como en el momento de la consulta. 
-- En todas las colecciones se utiliza un diccionario de señalización estándar. Si la colección ya se ha indexado con el diccionario, deberá volver a ingerir los documentos de la colección después de cargar un diccionario de señalización personalizado.
-- Solo es posible cargar un diccionario de señalización por recopilación; si se carga un segundo diccionario, este sustituirá al primero. Si dicha colección ya contenía documentos, deberá volver a ingerirlos para que se aplique el nuevo diccionario de señalización personalizado.
-- El diccionario de señalización personalizado debe escribirse en JSON; ejemplo de un nombre de archivo: `custom_tokenization_dictionary.json`.
-- Para inhabilitar la señalización, suprima el diccionario de señalización y vuelva a ingerir los documentos.
-- Actualmente, no puede cargar o suprimir un diccionario de señalización mediante la herramienta de consultas de {{site.data.keyword.discoveryshort}}; se debe realizar mediante la API de {{site.data.keyword.discoveryshort}}.
-- La señalización se realiza en los métodos `consulta` y `consulta de varias recopilaciones`. La señalización no se realiza en las consultas de Knowledge Graph.
-- Cada diccionario de señalización está asociado con una recopilación. Al realizar consultas en [varias recopilaciones](/docs/services/discovery/using.html#multiple-collections), cada una de ellas se señaliza de manera individual.
-- No cargue o suprima un diccionario de señalización al mismo tiempo que los documentos se ingieren en la recopilación. 
+-  La señalización se produce tanto en el índice como en el momento de la consulta.
+-  Las señales se deben definir de forma individual.
+-  En todas las colecciones se utiliza un diccionario de señalización estándar. Si la colección ya se ha indexado con el diccionario, deberá volver a ingerir los documentos de la colección después de cargar un diccionario de señalización personalizado.
+-  La carga de un diccionario de señalización sólo está disponible para las recopilaciones privadas en los planes `Avanzado` y `Premium`. 
+-  Solo es posible cargar un diccionario de señalización por recopilación; si se carga un segundo diccionario, este sustituirá al primero. Si dicha colección ya contenía documentos, deberá volver a ingerirlos para que se aplique el nuevo diccionario de señalización personalizado.
+-  El diccionario de señalización personalizado debe escribirse en JSON; ejemplo de un nombre de archivo: `custom_tokenization_dictionary.json`.
+-  Todos los términos del diccionario de señalización personalizado deben estar en minúsculas.
+-  Para inhabilitar la señalización, suprima el diccionario de señalización y vuelva a ingerir los documentos.
+-  Actualmente, no puede cargar o suprimir un diccionario de señalización mediante la herramienta de consultas de {{site.data.keyword.discoveryshort}}; se debe realizar mediante la API de {{site.data.keyword.discoveryshort}}.
+-  La señalización se realiza en los métodos `consulta` y `consulta de varias recopilaciones`. La señalización no se realiza en las consultas de Knowledge Graph.
+-  Cada diccionario de señalización está asociado con una recopilación. Al realizar consultas en [varias recopilaciones](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections), cada una de ellas se señaliza de manera individual.
+-  No cargue o suprima un diccionario de señalización al mismo tiempo que los documentos se ingieren en la recopilación. 
 
 ## Similitud de documentos
 {: #doc-similarity}
@@ -365,4 +435,4 @@ Se ha añadido un ejemplo de consulta con el campo `similar.fields`:
 
 `curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
 
-Consulte la [referencia de API sobre la similitud de documentos![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#query-using-get){: new_window} y los [parámetros de consulta](/docs/services/discovery/query-parameters.html#similar) para obtener más información.
+Consulte la [referencia de API sobre la similitud de documentos ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} y los [parámetros de consulta](/docs/services/discovery?topic=discovery-query-parameters#similar) para obtener más información.

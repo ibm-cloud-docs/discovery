@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-10-04"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Paramètres de requête
 {: #query-parameters}
 
-Le service {{site.data.keyword.discoveryfull}} offre des fonctions de recherche de contenu puissantes par l'intermédiaire de requêtes. Une fois votre contenu téléchargé et enrichi par le service {{site.data.keyword.discoveryshort}}, vous pouvez créer des requêtes, intégrer {{site.data.keyword.discoveryshort}} dans vos propres projets ou créer une application personnalisée en utilisant {{site.data.keyword.watson}} Explorer Application Builder. Pour vous initier à la création de requêtes, voir  [Concepts de requête](/docs/services/discovery/using.html). Pour obtenir la liste complète des paramètres, voir [Référence de requête](/docs/services/discovery/query-reference.html#parameter-descriptions).
+Le service {{site.data.keyword.discoveryfull}} offre des fonctions de recherche de contenu puissantes par l'intermédiaire de requêtes. Une fois votre contenu téléchargé et enrichi par le service {{site.data.keyword.discoveryshort}}, vous pouvez créer des requêtes, intégrer {{site.data.keyword.discoveryshort}} dans vos propres projets ou créer une application personnalisée en utilisant {{site.data.keyword.watson}} Explorer Application Builder. Pour vous initier à la création de requêtes, voir  [Concepts de requête](/docs/services/discovery?topic=discovery-query-concepts#query-concepts). Pour obtenir la liste complète des paramètres, voir [Référence de requête](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
 {: shortdesc}
 
 **Paramètres de recherche**
@@ -32,12 +44,12 @@ L'**ensemble de résultats** est le groupe de documents identifiés par les rech
 ## query
 {: #query}
 
-Une recherche exécutée à l'aide d'un paramètre de requête renvoie tous les documents de votre fichier avec des enrichissements complets et un texte intégral par ordre de pertinence. Une requête exclut également les documents qui ne mentionnent pas le contenu de la requête. Ces requêtes sont écrites à l'aide du [langage de requête {{site.data.keyword.discoveryshort}}](/docs/services/discovery/query-operators.html).
+Une recherche exécutée à l'aide d'un paramètre de requête renvoie tous les documents de votre fichier avec des enrichissements complets et un texte intégral par ordre de pertinence. Une requête exclut également les documents qui ne mentionnent pas le contenu de la requête. Ces requêtes sont écrites à l'aide du [langage de requête {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-query-operators#query-operators).
 
 ## filter
 {: #filter}
 
-Requête pouvant être mise en cache qui exclut les documents qui ne mentionnent pas le contenu de la requête. Les résultats d'une recherche exécutée à l'aide d'un paramètre de filtre ne sont **pas** renvoyés par ordre de pertinence. Ces requêtes sont écrites à l'aide du [langage de requête {{site.data.keyword.discoveryshort}}](/docs/services/discovery/query-operators.html).
+Requête pouvant être mise en cache qui exclut les documents qui ne mentionnent pas le contenu de la requête. Les résultats d'une recherche exécutée à l'aide d'un paramètre de filtre ne sont **pas** renvoyés par ordre de pertinence. Ces requêtes sont écrites à l'aide du [langage de requête {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-query-operators#query-operators).
 
 ### Différences entre les paramètres de requête et de filtre
 {: #filtervquery}
@@ -47,7 +59,7 @@ Si vous testez le même terme de recherche sur un petit ensemble de données, vo
 - Un paramètre de filtre utilisé seul renvoie des résultats de recherche dans un ordre spécifique.
 - Un paramètre de requête utilisé seul renvoie des résultats des recherche par ordre de pertinence.
 
-Avec des ensembles de données volumineux, si les résultats doivent être renvoyés par ordre de pertinence, vous devez combiner les paramètres `filter` et `query` car ainsi, vous améliorerez vos performances. En effet, le paramètre `filter` s'exécute en premier et met en cache les résultats, puis le paramètre `query` les classe. Pour visualiser un exemple d'utilisation conjointe des filtres et des requêtes, voir [Création de requêtes combinées](/docs/services/discovery/using.html#building-combined-queries). Les filtres peuvent également être utilisés dans des agrégations.
+Avec des ensembles de données volumineux, si les résultats doivent être renvoyés par ordre de pertinence, vous devez combiner les paramètres `filter` et `query` car ainsi, vous améliorerez vos performances. En effet, le paramètre `filter` s'exécute en premier et met en cache les résultats, puis le paramètre `query` les classe. Pour visualiser un exemple d'utilisation conjointe des filtres et des requêtes, voir [Création de requêtes combinées](/docs/services/discovery?topic=discovery-query-concepts#building-combined-queries). Les filtres peuvent également être utilisés dans des agrégations.
 
 Lorsque vous écrivez une requête incluant à la fois un paramètre `filter` et un paramètre `aggregation`, `query` ou `natural_language_query`, le paramètre `filter` est exécuté en premier, puis le paramètre `aggregation`, `query` ou `natural_language_query` s'exécute en parallèle.
 
@@ -56,12 +68,12 @@ Avec une requête simple, en particulier dans le cas d'un petit ensemble de donn
 ## aggregation
 {: #aggregation}
 
-Les requêtes d'agrégation renvoient un nombre de documents correspondant aux valeurs d'un ensemble de données. Par exemples, des mots clés supérieurs, un sentiment global d'entités, etc. Pour obtenir la liste complète des options d'agrégation, voir [Tableau d'agrégations](/docs/services/discovery/query-aggregations.html). Ces agrégations sont écrites à l'aide du [langage de requête {{site.data.keyword.discoveryshort}}](/docs/services/discovery/query-operators.html).
+Les requêtes d'agrégation renvoient un nombre de documents correspondant aux valeurs d'un ensemble de données. Par exemples, des mots clés supérieurs, un sentiment global d'entités, etc. Pour obtenir la liste complète des options d'agrégation, voir [Tableau d'agrégations](/docs/services/discovery?topic=discovery-query-aggregations#query-aggregations). Ces agrégations sont écrites à l'aide du [langage de requête {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-query-operators#query-operators). 
 
 ## natural_language_query
 {: #nlq}
 
-Une requête natural_language_query vous permet d'effectuer des requêtes exprimées en langage naturel, telles que celles pouvant être reçues de la part d'un utilisateur final dans une interface conversationnelle ou de texte libre. Par exemple, "IBM Watson in healthcare". Le paramètre utilise toute l'entrée en tant que texte de requête. Il ne reconnaît **pas** les opérateurs. Le paramètre `natural_language_query` active des fonctions, telles que la recherche de passage et la formation pour la pertinence. Les collections formées renverront un score `confidence` dans le résultat d'une requête en langage naturel. Pour plus d'informations, voir [Scores de confiance](/docs/services/discovery/train-tooling.html#confidence). La longueur maximale de chaîne de requête pour une requête en langage naturel est de `2048`.
+Une requête natural_language_query vous permet d'effectuer des requêtes exprimées en langage naturel, telles que celles pouvant être reçues de la part d'un utilisateur final dans une interface conversationnelle ou de texte libre. Par exemple, "IBM Watson in healthcare". Le paramètre utilise toute l'entrée en tant que texte de requête. Il ne reconnaît **pas** les opérateurs. Le paramètre `natural_language_query` active des fonctions, telles que la recherche de passage et la formation pour la pertinence. Toutes les collections privées renvoient dans la plupart des cas un score `confidence` dans les résultats de requête. Pour plus d'informations, voir [Scores de confiance](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence). La longueur maximale de chaîne de requête pour une requête en langage naturel est de `2048`.
 
 **Paramètres de structure**
 
@@ -92,7 +104,7 @@ Le paramètre `sort` est actuellement disponible pour être utilisé uniquement 
 ## bias
 {: #bias}
 
-Ajuste les résultats de recherche de façon à tendre vers certains résultats, par exemple les documents publiés le plus récemment. `bias` doit être défini sur une zone de type `date` ou de type `number`, par exemple `bias=publication_date` ou `bias=field_1`. Quand une zone de type `date` est spécifiée, les résultats renvoyés pencheront vers des valeurs plus proches de la date en cours. Quand une zone de type `number` est spécifiée, les résultats renvoyés pencheront vers des valeurs de zone plus élevées. Ce paramètre ne peut pas être utilisé dans la même requête que le paramètre `sort`.
+Ajuste les résultats de recherche de façon à tendre vers certains résultats, par exemple les documents publiés le plus récemment. `bias` doit être défini sur une zone de type `date` ou de type `number`, par exemple `bias=publication_date` ou `bias=field_1`.  Quand une zone de type `date` est spécifiée, les résultats renvoyés pencheront vers des valeurs plus proches de la date en cours. Quand une zone de type `number` est spécifiée, les résultats renvoyés pencheront vers des valeurs de zone plus élevées. Ce paramètre ne peut pas être utilisé dans la même requête que le paramètre `sort`.
 
 Le paramètre `bias` est actuellement disponible uniquement ou une utilisation avec l'API, il n'est pas disponible via les outils.
 
@@ -104,7 +116,7 @@ Valeur booléen qui spécifie si le service renvoie un ensemble des passages les
 Le paramètre `passages` ne peut être utilisé que sur des collections privées. Il ne peut pas être utilisé sur la collection {{site.data.keyword.discoverynewsfull}}.
 {: tip}
 
-{{site.data.keyword.discoveryshort}} tente de renvoyer des passages qui commencent et se terminent respectivement au début et à la fin d'une phrase, à l'aide de la détection des limites de phrase. Pour cela, il commence par rechercher des passages correspondant à peu près à la longueur spécifiée dans le paramètre [`passages.characters`](/docs/services/discovery/query-parameters.html#passages_characters) (valeur par défaut `400`). Ensuite, il développe chaque passage jusqu'à deux fois la longueur spécifiée afin de renvoyer des phrases complètes. Si votre paramètre `passages.characters` est court et/ou les phrases de vos documents sont très longues, il se peut que les limites de phrase ne soient pas suffisamment proches pour qu'une phrase complète puisse être renvoyée sans parcourir deux fois la longueur demandée. Dans ce cas, {{site.data.keyword.discoveryshort}} reste dans la limite correspondant à deux fois la valeur du paramètre `passages.characters`, par conséquent, le passage renvoyé n'inclura pas les phrases complètes et ignorera le début et/ou la fin.
+{{site.data.keyword.discoveryshort}} tente de renvoyer des passages qui commencent et se terminent respectivement au début et à la fin d'une phrase, à l'aide de la détection des limites de phrase. Pour cela, il commence par rechercher des passages de longueur à peu près équivalente à celle spécifiée dans le paramètre [`passages.characters`](/docs/services/discovery?topic=discovery-query-parameters#passages_characters) (`400`, par défaut). Ensuite, il développe chaque passage jusqu'à deux fois la longueur spécifiée afin de renvoyer des phrases complètes. Si votre paramètre `passages.characters` est court et/ou les phrases de vos documents sont très longues, il se peut que les limites de phrase ne soient pas suffisamment proches pour qu'une phrase complète puisse être renvoyée sans parcourir deux fois la longueur demandée. Dans ce cas, {{site.data.keyword.discoveryshort}} reste dans la limite correspondant à deux fois la valeur du paramètre `passages.characters`, par conséquent, le passage renvoyé n'inclura pas les phrases complètes et ignorera le début et/ou la fin.
 
 Etant donné que les ajustements des limites de phrase développent la taille des passages, vous constaterez une augmentation significative de la longueur moyenne des passages. Si l'espace sur l'écran de votre application est limité, vous souhaiterez peut-être définir une valeur plus petite pour le paramètre `passages.characters` et/ou tronquer les passages qui sont renvoyés par {{site.data.keyword.discoveryshort}}. La détection des limites de phrase fonctionne pour toutes les langues prises en charge et utilise une logique spécifique aux langues.
 
@@ -149,7 +161,7 @@ Liste des zones de l'index dont les passages seront tirés, séparées par des v
 ### passages.count
 {: #passages_count}
 
-Nombre maximal de passages à renvoyer. La recherche renverra moins de résultats s'il s'agit du nombre total trouvé. La valeur par défaut est `10`. La valeur maximale est `100`.
+Nombre maximal de passages à renvoyer. La recherche peut renvoyer un nombre inférieur de passages en fonction du nombre total de passages trouvés. La valeur par défaut est `10`. La valeur maximale est `100`.
 
 ### passages.characters
 {: #passages_characters}
@@ -206,19 +218,19 @@ L'objet JSON renvoyé est au format suivant :
 ## deduplicate
 {: #deduplicate}
 
- Fonctionnalité bêta qui exclut les documents en double des résultats d'une requête de collection {{site.data.keyword.discoverynewsfull}} en fonction de la zone `title`. Voir [Exclusion des documents en double dans les résultats de requête](/docs/services/discovery/query-parameters.html#deduplication).
+ Fonctionnalité bêta qui exclut les documents en double des résultats d'une requête de collection {{site.data.keyword.discoverynewsfull}} en fonction de la zone `title`. Voir [Exclusion des documents en double dans les résultats de requête](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### deduplicate.field
 {: #deduplicate_field}
 
-Fonctionnalité bêta qui exclut les documents en double des résultats de votre requête en fonction de la zone `{field}` spécifiée. Voir [Exclusion des documents en double dans les résultats de requête](/docs/services/discovery/query-parameters.html#deduplication).
+Fonctionnalité bêta qui exclut les documents en double des résultats de votre requête en fonction de la zone `{field}` spécifiée. Voir [Exclusion des documents en double dans les résultats de requête](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
 
 ### Exclusion des documents en double dans les résultats de requête
 {: #deduplication}
 
 Si vous exécutez une requête sur la collection {{site.data.keyword.discoverynewsfull}} ou si votre collection de données privées contient plusieurs documents identiques ou quasiment identiques, vous pouvez exclure la plupart de ces documents de vos résultats de requête en utilisant le dédoublonnage de document.
 
-**Remarque :** pour l'instant, le dédoublonnage de document est pris en charge uniquement en tant que fonctionnalité bêta. Pour plus d'informations, voir la section [Fonctionnalités bêta](/docs/services/discovery/release-notes.html#beta-features) dans la rubrique Notes sur l'édition. Cette fonction bêta est actuellement prise en charge uniquement en anglais ; voir [Support de langue](/docs/services/discovery/language-support.html#feature-support) pour plus de détails.
+**Remarque :** pour l'instant, le dédoublonnage de document est pris en charge uniquement en tant que fonctionnalité bêta. Pour plus d'informations, voir la section [Fonctionnalités bêta](/docs/services/discovery?topic=discovery-release-notes#beta-features) dans la rubrique Notes sur l'édition. Cette fonction bêta est actuellement prise en charge uniquement en anglais ; voir [Support de langue](/docs/services/discovery?topic=discovery-language-support#feature-support) pour plus de détails.
 
 **Remarque :** chaque requête est dédoublonnée de façon indépendante, car le dédoublonnage entre les décalages n'est pas pris en charge.
 
@@ -236,6 +248,7 @@ Pour appliquer le dédoublonnage, utilisez la syntaxe ci-après dans votre requ�
 Lors du dédoublonnage, la réponse JSON inclut `"duplicates_removed": x`, où `x` est le nombre de documents retirés des résultats.
 
 #### Dédoublonnage de documents dans Watson Discovery News
+{: #deduplicatewds}
 
 Les articles de journal peuvent être syndiqués vers plusieurs organes de presse. {{site.data.keyword.discoverynewsfull}} sélectionnera chacun d'eux, générant ainsi des articles en double. Cela signifie qu'une requête sur {{site.data.keyword.discoverynewsfull}} peut potentiellement renvoyer plusieurs articles identiques ou quasiment identiques dans les résultats de requête. Le dédoublonnage permet de retirer la plupart des articles en double de vos requêtes de recherche.
 
@@ -258,7 +271,7 @@ Si vous préférez effectuer un dédoublonnage sur une zone autre que `title`, u
 ## collection_ids
 {: #collection_ids}
 
-Liste des collections de l'environnement qui fera l'objet d'une requête, séparées par des virgules. Ce paramètre est valide uniquement avec la méthode`environments/{environment_id}/query?` . Pour plus d'informations, voir [Exécution d'une requête sur plusieurs collections](/docs/services/discovery/using.html#multiple-collections). 
+Liste des collections de l'environnement qui fera l'objet d'une requête, séparées par des virgules. Ce paramètre est valide uniquement avec la méthode`environments/{environment_id}/query?` . Pour plus d'informations, voir [Exécution d'une requête sur plusieurs collections](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections).
 
 ```bash
 &collection_ids={id1},{id2}
@@ -268,7 +281,7 @@ Liste des collections de l'environnement qui fera l'objet d'une requête, sépar
 ## similar
 {: #similar}
 
-La similarité de documents identifie les documents similaires aux documents répertoriés au paramètre `similar.document_ids`. Il est possible d'affiner encore davantage en spécifiant les zones à prendre en considération pour la comparaison à l'aide des paramètres `similar.fields`. La valeur par défaut est `false`. Pour plus d'informations, voir [Similarité de documents](/docs/services/discovery/using.html#doc-similarity).
+La similarité de documents identifie les documents similaires aux documents répertoriés au paramètre `similar.document_ids`. Il est possible d'affiner encore davantage en spécifiant les zones à prendre en considération pour la comparaison à l'aide des paramètres `similar.fields`. La valeur par défaut est `false`. Pour plus d'informations, voir [Similarité de documents](/docs/services/discovery?topic=discovery-query-concepts#doc-similarity).
 
 ```bash
 &similar=true

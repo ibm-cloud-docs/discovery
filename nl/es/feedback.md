@@ -4,23 +4,35 @@ copyright:
   years: 2015, 2018
 lastupdated: "2018-09-17"
 
+subcollection: discovery
+
 ---
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:tip: .tip}
+{:note: .note}
 {:pre: .pre}
+{:important: .important}
+{:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:download: .download}
+{:hide-dashboard: .hide-dashboard}
+{:apikey: data-credential-placeholder='apikey'} 
+{:url: data-credential-placeholder='url'}
+{:curl: #curl .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
+{:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
+{:go: .ph data-hd-programlang='go'}
 
 # Supervisión de uso
 {: #usage}
 
-Puede supervisar y realizar un seguimiento de la instancia de {{site.data.keyword.discoveryshort}} y utilizar estos datos para comprender y mejorar sus aplicaciones. Las [API de sucesos![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} pueden utilizarse para crear entradas de log que están asociadas a consultas y acciones de lenguaje natural específicas. Por ejemplo, puede registrar qué documentos de un conjunto de resultados ha "seleccionado" un usuario y cuándo lo ha hecho.
+Puede supervisar y realizar un seguimiento de la instancia de {{site.data.keyword.discoveryshort}} y utilizar estos datos para comprender y mejorar sus aplicaciones. Las [API de sucesos ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#create-event){: new_window} pueden utilizarse para crear entradas de log que están asociadas a consultas y acciones de lenguaje natural específicas. Por ejemplo, puede registrar qué documentos de un conjunto de resultados ha "seleccionado" un usuario y cuándo lo ha hecho.
 
 **Nota:** Los registros y sucesos solo se supervisan en consultas de lenguaje natural de recopilaciones de datos privadas. No se ha recopilado ningún registro en {{site.data.keyword.discoverynewsfull}}.
 
@@ -44,7 +56,7 @@ El punto final `/api/v1/logs` ofrece soporte a los parámetros de consulta de {{
 - offset
 - version
 
-Para obtener más detalles sobre la funciona y la sintaxis de los parámetros, consulte [Parámetros de consulta](/docs/services/discovery/query-parameters.html).
+Para obtener más detalles sobre la funciona y la sintaxis de los parámetros, consulte [Parámetros de consulta](/docs/services/discovery?topic=discovery-query-parameters#query-parameters).
 
 Ejemplo de registros de búsqueda de una consulta de lenguaje natural que contiene el término "train":
 
@@ -84,10 +96,10 @@ Ejemplo de registro de consulta:
 ```
 
 Con los registros de consulta puede investigar el tipo de resultados devueltos a los usuarios finales y buscar formas de mejorar la calidad de los resultados mediante los métodos disponibles en {{site.data.keyword.discoveryshort}}. Por ejemplo: 
-- formación de relevancia, consulte [Mejora de la relevancia de los resultados con la API](/docs/services/discovery/train.html) y [Mejora de la relevancia de los resultados con el conjunto de herramientas](/docs/services/discovery/train-tooling.html)
-- [operadores de consulta](/docs/services/discovery/query-operators.html)
-- [expansión de la consulta](/docs/services/discovery/using.html#query-expansion)
-- configuraciones personalizadas, consulte la [Referencia de configuración](/docs/services/discovery/custom-config.html)
+- formación de relevancia, consulte [Mejora de la relevancia de los resultados con la API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) y [Mejora de la relevancia de los resultados con el conjunto de herramientas](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling)
+- [operadores de consulta](/docs/services/discovery?topic=discovery-query-operators#query-operators)
+- [expansión de la consulta](/docs/services/discovery?topic=discovery-query-concepts#query-expansion)
+- configuraciones personalizadas, consulte la [Referencia de configuración](/docs/services/discovery?topic=discovery-configref#configref)
 
 ## Creación de registros de sucesos
 {: #eventlogs}
@@ -103,6 +115,6 @@ Los resultados de {{site.data.keyword.discoveryshort}} devolverán información 
 `"matching_results": 179,`
 `"session_token": "1_LKczxWGEWx59fYD0_VV8HFUpb6"`
 
-Para registrar un suceso, realice una POST en el punto final `/api/v1/events`. Consulte [API de sucesos![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/watson/developercloud/discovery/api/v1/curl.html?curl#events-and-feedback-api){: new_window} para obtener más detalles.
+Para registrar un suceso, realice una POST en el punto final `/api/v1/events`. Consulte [API de sucesos ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://{DomainName}/apidocs/discovery#create-event){: new_window} para obtener más detalles.
 
 Una vez se haya registrado un suceso, se puede leer de nuevo mediante el punto final `/api/v1/logs`. Unir sucesos a la consulta asociada utilizando `session_token`.
