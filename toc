@@ -68,6 +68,7 @@ Discovery
         migrate-dcs-rr.md
         migrate-rnr-tut.md
 
+    /watson/watson-migrate
     recovery.md
     upgrading.md
     {: .navgroup-end}
