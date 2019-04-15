@@ -145,6 +145,7 @@ Environments and Collections are not labeled with a `customer_id`, even if a `X-
 You cannot delete labeled data using the {{site.data.keyword.discoveryshort}} tooling.
 
 ## Health Insurance Portability and Accountability Act (HIPAA)
+{: #hipaa}
 
 There are several scenarios where you should use extra care to protect personal health information (PHI) in {{site.data.keyword.discoveryshort}}:
 
