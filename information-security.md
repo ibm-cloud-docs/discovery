@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-04-16"
 
 subcollection: discovery
 
@@ -143,3 +143,13 @@ If a non-existent `customer_id` is provided, nothing will be deleted, but a `200
 Environments and Collections are not labeled with a `customer_id`, even if a `X-Watson-Metadata` header is included in the request to create the environment or collection. Only the individual documents within a collection within an environment are labeled. Therefore when data is deleted, individual environments and collections are NOT deleted.
 
 You cannot delete labeled data using the {{site.data.keyword.discoveryshort}} tooling.
+
+## Health Insurance Portability and Accountability Act (HIPAA)
+
+There are several scenarios where you should use extra care to protect personal health information (PHI) in {{site.data.keyword.discoveryshort}}:
+
+- Avoid importing any files that contain PHI from external data sources (Box, SharePoint, Salesforce, Web Crawl, IBM Cloud Object Storage). This should be avoided because data in transit between the source and the service cannot be isolated. See [Data source connection and data isolation](https://cloud.ibm.com/docs/services/discovery?topic=discovery-sources#source_isolation).
+- Avoid using PHI in your custom configuration files. See [Custom configuration](/docs/services/discovery?topic=discovery-configservice#custom-configuration).
+- Queries are logged. If you anticipate that PHI may be used in a query, opt out of query logging. See [Usage monitoring](/docs/services/discovery?topic=discovery-usage#usage).
+- If you are specifying your own `document_id`s using the API, avoid using a file name as the `document_id`.  See [Add a document](https://cloud.ibm.com/apidocs/discovery#add-a-document) for instructions to specify your own `document_id`.
+- Avoid using PHI in your {{site.data.keyword.knowledgestudiofull}} models. See [Integrating with {{site.data.keyword.knowledgestudioshort}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
