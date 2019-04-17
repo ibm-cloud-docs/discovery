@@ -32,15 +32,6 @@ Discovery
     connect.md
 
     {: topicgroup}
-    Using the Data Crawler
-        data-crawler.md
-        data-crawler-qs.md
-        data-crawler-install.md
-        data-crawler-seeds.md
-        data-crawler-discovery.md
-        data-crawler-run.md
-
-    {: topicgroup}
     Building Queries
         using.md
         query-parameters.md

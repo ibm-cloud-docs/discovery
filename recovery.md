@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-17"
 
 subcollection: discovery
 
@@ -149,7 +149,6 @@ To begin restoration, first start by reviewing your list of collections and asso
 After you have your collections setup as before - then you will need to begin ingesting your source documents. Depending upon how you ingested your documents previously, you can do so using:
 -  The [API](https://cloud.ibm.com/apidocs/discovery#add-a-document)
 -  A [connector](/docs/services/discovery?topic=discovery-sources#sources) 
--  The [Data Crawler](/docs/services/discovery?topic=discovery-adding-content-with-data-crawler#adding-content-with-data-crawler)
 -  or other method
 
 ### Restoring training data
