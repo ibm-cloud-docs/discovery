@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-17"
 
 subcollection: discovery
 
@@ -118,14 +118,6 @@ Data can be labeled with the `customer_id` field when using the {{site.data.keyw
 Adding a `customer_id` with the **GDPR Data Label** field will label the documents, notices, Knowledge Graph entities, Knowledge Graph relations, and training data within that URL domain from that point forward, including each instance under that domain. Any actions (including document uploads) that occurred in the {{site.data.keyword.discoveryshort}} tooling before adding the **GDPR Data Label** field will not be labeled.
 
 **Note:** If you switch domains, browsers, empty the browser cache, or start an incognito session after you specify your `customer_id` using the **GDPR Data Label** field of the {{site.data.keyword.discoveryshort}} tooling, the `customer_id` will not be retained and your data will not be labeled. If you must switch domains or browsers, re-enter the `customer_id` in the **GDPR Data Label** field.
-
-### Labeling documents using the Data Crawler
-{: #labelingdc}
-
-If any documents have already been crawled with the Data Crawler, you will need to re-crawl them to add the `X-Watson-Metadata` header and `customer_id`.
-
-1. Update your {{site.data.keyword.discoveryshort}} Data Crawler output adapter configuration to include the `customer_id`. See [Configuring the output adapter](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter).
-1. Schedule a crawl. The documents are submitted to {{site.data.keyword.discoveryshort}} using the `X-Watson-Metadata` header and the documents will be labeled with the configured `customer_id`.
 
 ## Deleting labeled data
 {: #deletingdata}

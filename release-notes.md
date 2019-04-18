@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-17"
 
 subcollection: discovery
 
@@ -54,6 +54,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 17 April 2019
+{: #17apr19}
+
+The Data Crawler is no longer available for download and is no longer supported. See [Connecting to Data Sources](/docs/services/discovery?topic=discovery-sources#sources) for other connectivity options.
 
 ## 2 April 2019
 {: #2apr19}

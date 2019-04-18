@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-04-17"
 
 subcollection: discovery
 
@@ -37,9 +37,8 @@ How do I decide which document upload method to use?
 
 -   Use the [API](/docs/services/discovery?topic=discovery-gs-api#gs-api) if you are integrating the upload of content with an existing application or creating your own custom upload mechanism.
 -   Use the [{{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started) if you want to quickly upload locally accessible files.
-    When uploading documents using the {{site.data.keyword.discoveryshort}} tooling, all documents should have a unique file name. If two files have the same name, the original will be overwritten when the newer version is uploaded. If you would prefer that documents with the same file name coexist in your collection, the Document ID needs to be specified. You can specify the Document ID if you upload documents using the API or the Data Crawler.
+    When uploading documents using the {{site.data.keyword.discoveryshort}} tooling, all documents should have a unique file name. If two files have the same name, the original will be overwritten when the newer version is uploaded. If you would prefer that documents with the same file name coexist in your collection, the Document ID needs to be specified. You can specify the Document ID if you upload documents using the API.
 -   Use the {{site.data.keyword.discoveryshort}} tooling or API to connect to Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for more information.
--   Use the [Data Crawler](/docs/services/discovery?topic=discovery-adding-content-with-data-crawler#adding-content-with-data-crawler) if you want to have a managed upload of a significant number of files, or you want to extract content from a supported repository (such as a DB2 database).
 
 ## Adding content with the API or tooling
 {: #adding-content-with-the-api-or-tooling}
