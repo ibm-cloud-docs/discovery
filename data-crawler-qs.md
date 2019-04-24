@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-04-24"
 
 subcollection: discovery
 
@@ -32,11 +32,11 @@ subcollection: discovery
 # Getting started with the Data Crawler
 {: #getting-started-with-the-data-crawler}
 
+The Data Crawler is no longer supported or available for download beginning [17 April 2019](/docs/services/discovery?topic=discovery-release-notes#17apr19). This content is provided for existing installations only. See [Connecting to Data Sources](/docs/services/discovery?topic=discovery-sources#sources) for other available connectivity options.
+{:important}
+
 This topic explains how to use the data crawler to ingest files from your local filesystem, to use with {{site.data.keyword.discoveryfull}}.
 {: shortdesc}
-
-The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors.
-{: important}
 
 Before attempting this task, create an instance of {{site.data.keyword.discoveryshort}} in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
 
