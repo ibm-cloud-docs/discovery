@@ -84,8 +84,17 @@ Discovery
     information-security.md
     qp.md
     additional-resources.md
-    discovery-auxiliary.md
-
+    
+    {: topicgroup}
+    Discovery archives
+        discovery-auxiliary.md
+        data-crawler.md
+        data-crawler-qs.md
+        data-crawler-install.md
+        data-crawler-seeds.md
+        data-crawler-discovery.md
+        data-crawler-run.md
+      
     /watson/watson-using-sdks
 
     [Watson GitHub repos](https://github.com/watson-developer-cloud/)

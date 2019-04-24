@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-02-28"
+  years: 2015, 2018, 2019
+lastupdated: "2019-04-24"
 
 subcollection: discovery
 
@@ -39,6 +39,13 @@ This topic contains information about {{site.data.keyword.discoveryshort}} featu
 {: #AlchemyLanguage-enrichments}
 
 {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated effective **1 March 2018**. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery?topic=discovery-migrate-nlu#migrate-nlu).
+
+## Data Crawler
+{: #data-crawler-archive}
+
+The Data Crawler is no longer supported or available for download beginning [**17 April 2019**](/docs/services/discovery?topic=discovery-release-notes#17apr19). See [Connecting to Data Sources](/docs/services/discovery?topic=discovery-sources#sources) for other connectivity options.
+
+If you have an existing installation, the documentation is available here: [Adding content with the Data Crawler](/docs/services/discovery?topic=discovery-adding-content-with-data-crawler#adding-content-with-data-crawler).
 
 ## Watson Discovery News Original
 {: #watson-discovery-news-original}
