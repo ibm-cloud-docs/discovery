@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-04-26"
 
 subcollection: discovery
 
@@ -212,7 +212,7 @@ You can view the fields available across collections in the same environment by 
 ## Query expansion
 {: #query-expansion}
 
-You can expand the scope of a query beyond exact matches - for example, you can expand a query for "car" to include "automobile" and "vehicle" - by uploading a list of query expansion terms using the {{site.data.keyword.discoveryshort}} API. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
+You can expand the scope of a query beyond exact matches - for example, you can expand a query for "ibm" to include "international business machines" and "big blue" - by uploading a list of query expansion terms using the {{site.data.keyword.discoveryshort}} API. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
 
 You can define two types of expansions:
 -  **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR vehicle`).
@@ -243,6 +243,16 @@ Unidirectional example:
    "expansions": [
      {
       "input_terms": [
+         "ibm"
+       ],
+      "expanded_terms": [
+         "ibm",
+         "international business machines",
+         "big blue"
+       ]
+     },
+     {
+      "input_terms": [
         "banana"
        ],
       "expanded_terms": [
@@ -258,7 +268,6 @@ Unidirectional example:
 
 Notes about query expansion:
 
--  Multi-token query expansion is not supported.
 -  Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and seven term strings.
 
 ```JSON
@@ -299,6 +308,9 @@ Notes about query expansion:
 -  Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
 
 See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: new_window} for the API commands to upload and delete query expansion files.
+
+Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/services/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion will not work. For example, if `on` is included in your stopword list, and you specify in your query expansion list that `rotfl` should expand to `rolling on the floor laughing`, that expansion will not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_[language].txt`) in {{site.data.keyword.discoveryshort}}, so you should compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly. 
+{: important}
 
 ## Defining Stopwords
 {: #stopwords}
@@ -348,6 +360,9 @@ Notes about stopwords:
    - If a user searches for a word that was a stopword at one point in time, but has since been removed from the custom stopword list, they will not find documents that match the original stopword because the term was removed at index time. To fix this issue, delete the documents in your collection and re-upload all the documents so that they are indexed with the updated custom stopword list.
 -  Each set of stopwords is associated with a collection. When querying across multiple collections, each collection will use the custom stopword list associated with that collection.
 - If you make significant changes to your custom stopword list, you should delete the documents in your collection and re-upload all the documents so that they are indexed with the updated custom stopword list.
+
+Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/services/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion will not work. For example, if `on` is included in your stopword list, and you specify in your query expansion list that `rotfl` should expand to `rolling on the floor laughing`, that expansion will not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_[language].txt`) in {{site.data.keyword.discoveryshort}}, so you should compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly. 
+{: important}
 
 ## Creating custom tokenization dictionaries
 {: #tokenization}
