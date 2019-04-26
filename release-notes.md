@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-26"
 
 subcollection: discovery
 
@@ -54,6 +54,13 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 26 April 2019
+{: #26apr19}
+
+The {{site.data.keyword.discoveryfull}} update announced on [April 2, 2019](/docs/services/discovery?topic=discovery-release-notes#2apr19) is complete. This upgrade included changes to improve the accuracy of the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. The changes to your `score` and `confidence` should be small, and there may also be some small changes to the ranking order. If your applications make use of the `score` or `confidence` fields directly, you should update your applications as necessary.
+
+- Multi-token query expansion is now supported. See [Query expansion](/docs/services/discovery?topic=discovery-query-concepts#query-expansion) for more information.
 
 ## 17 April 2019
 {: #17apr19}
