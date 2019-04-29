@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-04-30"
 
 subcollection: discovery
 
@@ -53,7 +53,7 @@ Element Classification returns a JSON object that contains:
 -  A `tables` array that breaks down the tables identified in the input document.
 -  A `document_structure` object that lists section titles and leading sentences identified in the input document.
 -  A `parties` array that lists the parties, roles, addresses, and contacts of parties identified in the input document.
--  Arrays defining `effective_dates`,`contract_amounts`, and `termination_dates`.
+-  Arrays defining `effective_dates`,`contract_amounts`, `contract_types`, `contract_terms`, and `termination_dates`.
 
 This feature is currently supported in English only, see [Language support](/docs/services/discovery?topic=discovery-language-support#feature-support) for details.
 
