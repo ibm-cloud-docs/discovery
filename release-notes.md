@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-04-26"
+lastupdated: "2019-04-30"
 
 subcollection: discovery
 
@@ -54,6 +54,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 30 April 2019
+{: #30apr19}
+
+[Query expansion](/docs/services/discovery?topic=discovery-query-concepts#query-expansion) and [Stopword](/docs/services/discovery?topic=discovery-query-concepts#stopwords) lists can now be uploaded or deleted using the **Search settings** screen in the {{site.data.keyword.discoveryshort}} tooling. Previously, these lists could only be managed using the API.
 
 ## 26 April 2019
 {: #26apr19}
