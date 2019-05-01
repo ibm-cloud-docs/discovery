@@ -212,7 +212,7 @@ You can view the fields available across collections in the same environment by 
 ## Query expansion
 {: #query-expansion}
 
-You can expand the scope of a query beyond exact matches - for example, you can expand a query for "ibm" to include "international business machines" and "big blue" - by uploading a list of query expansion terms using the {{site.data.keyword.discoveryshort}} API. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
+You can expand the scope of a query beyond exact matches - for example, you can expand a query for "ibm" to include "international business machines" and "big blue" - by uploading a list of query expansion terms. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
 
 You can define two types of expansions:
 -  **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR vehicle`).
