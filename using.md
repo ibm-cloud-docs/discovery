@@ -301,11 +301,12 @@ Notes about query expansion:
 -  All `input_terms` and `expanded_terms` should be lowercase. Lowercase terms will expand to uppercase.
 -  The query expansion list must be written in JSON.
 -  To disable query expansion, delete the query expansion list.
--  You cannot currently upload or delete a query expansion list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
 -  Query expansion is performed on the `query` and `multiple collection query` methods. Query expansion is not performed on Knowledge Graph queries.
 -  Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections), each collection is expanded individually.
 -  Query expansions are applied at query time, not during indexing, so the query expansion list can be updated without the need to re-ingest your documents.
 -  Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
+
+To upload or delete query expansion files using the {{site.data.keyword.discoveryshort}} tooling, open the **Search settings** screen and choose **Synonym**. To open **Search settings**, click the ![Manage Data](/images/icon_yourData.png) icon, open your collection, and choose the **Search settings** tab.
 
 See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: new_window} for the API commands to upload and delete query expansion files.
 
@@ -344,11 +345,12 @@ This list contains all the default English stopwords <a target="_blank" href="ht
 
 See [Language support](/docs/services/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. Several supported languages do not have a default stopwords list.
 
+To upload or delete stopword files using the {{site.data.keyword.discoveryshort}} tooling, open the **Search settings** screen and choose **Stopwords**. To open **Search settings**, click the ![Manage Data](/images/icon_yourData.png) icon, open your collection, and choose the **Search settings** tab.
+
 See the [stopwords API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-stopword-list){: new_window} for the API commands to upload and delete custom stopword lists.
 
 Notes about stopwords:
 
--  You cannot currently upload or delete a custom stopword list using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API. See the [stopwords API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-stopword-list){: new_window}.
 -  Uploading a custom stopword list is only available for private collections on `Advanced` and `Premium` plans.
 -  The size limit for a custom stopword list `txt` file is one million characters. However, if you upload a custom stopwords list with a large number of terms, you may negatively affect search accuracy. The number of words is dependent on the language, the document contents, and the words chosen. A good best practice would be to keep your list of stopwords under `200` total words. 
 -  Only one custom stopword list can be uploaded per collection; if a second custom stopword list is uploaded, it will replace the first.
