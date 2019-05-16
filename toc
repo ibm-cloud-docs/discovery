@@ -51,14 +51,6 @@ Discovery
     Discovery and Knowledge Studio
         integrate-wks.md
 
-    {: topicgroup}
-    Migrating features
-        migrate-adn.md
-        migrate-nlu.md
-        migrate-bwdn.md
-        migrate-dcs-rr.md
-        migrate-rnr-tut.md
-
     /watson/watson-migrate
     recovery.md
     upgrading.md

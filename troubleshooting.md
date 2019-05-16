@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-05-15"
 
 subcollection: discovery
 
@@ -29,14 +29,20 @@ subcollection: discovery
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# FAQs
+# Getting help
+{: #troubleshoot}
+
+If you cannot find a solution to the issue you are having, try the resources available from the **Developer community** section of the table of contents.
+
+If your service plan covers it, you can get help by creating a case from [IBM Cloud Support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/unifiedsupport/supportcenter){: new_window}.
+
+## FAQs
 {: #faqs}
 
 Frequently asked questions about {{site.data.keyword.discoveryshort}}.
 
-## Can I upload JSON arrays?
+### Can I upload JSON arrays?
 {: #array}
-{: faq}
 
 You can upload a JSON array, but each section must be uploaded individually. For example, the following JSON cannot be uploaded to the service:
 

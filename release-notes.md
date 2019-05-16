@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-05-15"
 
 subcollection: discovery
 
@@ -42,7 +42,7 @@ API requests require a version parameter that takes a date in the format `versio
 
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
-The current version is `2019-03-25`.
+The current version is `2019-04-30`.
 
 ## Beta features
 {: #beta-features}
@@ -59,6 +59,8 @@ The following new features and changes to the service are available.
 {: #30apr19}
 
 [Query expansion](/docs/services/discovery?topic=discovery-query-concepts#query-expansion) and [Stopword](/docs/services/discovery?topic=discovery-query-concepts#stopwords) lists can now be uploaded or deleted using the **Search settings** screen in the {{site.data.keyword.discoveryshort}} tooling. Previously, these lists could only be managed using the API.
+
+- The version string for all API calls has changed to `2019-04-30` from `2019-03-25`.
 
 ## 26 April 2019
 {: #26apr19}
