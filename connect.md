@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-05-15"
 
 subcollection: discovery
 
@@ -36,7 +36,7 @@ subcollection: discovery
 {{site.data.keyword.discoveryshort}} lets you connect to and crawl documents from remote sources.
 {: shortdesc}
 
-You can connect to a data source and pull documents on a schedule (if desired) into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. Each collection can be configured with one data source if using the {{site.data.keyword.discoveryshort}} tooling, if using the API, you can send documents from multiple data sources into a single collection. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by {{site.data.keyword.discoveryshort}}. The following types of data sources can be crawled:
+You can connect to a data source and pull documents on a schedule (if desired) into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. Each collection can be configured with one data source. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by {{site.data.keyword.discoveryshort}}. The following types of data sources can be crawled:
 
 -  [Box](/docs/services/discovery?topic=discovery-sources#connectbox)
 -  [Salesforce](/docs/services/discovery?topic=discovery-sources#connectsf)
@@ -223,7 +223,7 @@ This beta feature can be used crawl public websites that don’t require a passw
 
 -  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
 -  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/services/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
--  `URL group to sync` - Enter your URL and click the plus sign to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). 
+-  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). You can also specify URL paths to exclude from the crawl. These paths should be separated by commas. For example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/` in the **Exclude URLs where the path includes** field.
 
 For this beta release, the number of web pages crawled will be limited, so the web crawler may not crawl all the websites specified and reach the maximum number of hops.
 {: note}
