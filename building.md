@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-05-17"
 
 subcollection: discovery
 
@@ -255,8 +255,6 @@ You can also integrate one or more custom models from {{site.data.keyword.knowle
 
 Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
 {: important}
-
-**Note:** {{site.data.keyword.alchemylanguageshort}} enrichments were deprecated 1 March 2018. If you have any existing collections that are using {{site.data.keyword.alchemylanguageshort}} enrichments, you must migrate to {{site.data.keyword.nlushort}} enrichments. For information on migrating existing collections and configuration files that utilize the {{site.data.keyword.alchemylanguageshort}} enrichments, see [Migrating enrichments to {{site.data.keyword.nlushort}}](/docs/services/discovery?topic=discovery-migrate-nlu#migrate-nlu).
 
 You can further augment your documents by adding more enrichments to the `text` field, or enriching other fields. To do so using Smart Document Understanding in the {{site.data.keyword.discoveryshort}} tooling, open the **Enrich Fields** tab. To do so for collections created before Smart Document Understanding, [create a custom configuration](/docs/services/discovery?topic=discovery-configservice#custom-configuration), choose the field(s) you'd like to enrich and select from the list of available {{site.data.keyword.nlushort}} enrichments:
 
