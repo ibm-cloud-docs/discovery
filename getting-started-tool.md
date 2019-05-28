@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-05-28"
 
 subcollection: discovery
 
@@ -60,7 +60,7 @@ After you create an instance of {{site.data.keyword.discoveryshort}}, you're tak
 {: hide-dashboard}
 
 1.  {: hide-dashboard} Click the {{site.data.keyword.discoveryshort}} instance you created to go to the service dashboard.
-1.  On the **Manage** page, click **Launch tool**. If you're prompted to log in to the tooling, provide your {{site.data.keyword.cloud_notm}} credentials.
+1.  On the **Manage** page, click **Launch Watson Discovery**. If you're prompted to log in to the tooling, provide your {{site.data.keyword.cloud_notm}} credentials.
 
 <!-- To do: Add screenshot for developer console -->
 
