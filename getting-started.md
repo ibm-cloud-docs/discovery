@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-05-30"
 
 subcollection: discovery
 
@@ -94,7 +94,7 @@ Now that the environment is ready, you can create a collection. Think of a colle
     {: pre}
 1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection called **my-first-collection**. Replace `{apikey}`, `{url}`, `{environment_id}` and `{configuration_id}` with your information:
     ```bash
-    curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{\"name\": \"my-first-collection\", \"description\": \"exploring collections\", \"configuration_id\":\"{configuration_id}\" , \"language": \"en_us\"}" "{url}/v1/environments/{environment_id}/collections?version=2018-12-03"
+    curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{\"name\": \"my-first-collection\", \"description\": \"exploring collections\", \"configuration_id\":\"{configuration_id}\" , \"language\": \"en_us\"}" "{url}/v1/environments/{environment_id}/collections?version=2018-12-03"
     ```
     {: pre}
     The API returns information such as your collection ID, collection status, and how much storage your collection is using.
