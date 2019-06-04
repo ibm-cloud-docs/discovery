@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-05-17"
+lastupdated: "2019-06-04"
 
 subcollection: discovery
 
@@ -54,6 +54,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 4 June 2019
+{: #4jun19}
+
+The Preview API has been deprecated and will no longer be available effective **30 September 2019**. 
 
 ## 30 April 2019
 {: #30apr19}
