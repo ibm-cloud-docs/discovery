@@ -51,7 +51,7 @@ If you need to request GDPR support for {{site.data.keyword.cloud}} {{site.data.
 
 IBM is committed to providing our clients and partners with innovative data privacy, security and governance solutions to assist them on their journey to GDPR compliance.
 
-Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and offerings to support your compliance journey [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/gdpr){: new_window}.
+Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and offerings to support your compliance journey [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/data-responsibility/gdpr/){: new_window}.
 
 ## Labeling and deleting data in {{site.data.keyword.discoveryshort}}
 {: #gdpr-discovery}

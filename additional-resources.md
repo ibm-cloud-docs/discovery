@@ -35,12 +35,10 @@ subcollection: discovery
 Learn more about {{site.data.keyword.discoveryfull}} from these blog posts, webinars, and other resources.
 {: shortdesc}
 
-To learn more about using Watson Discovery to identify patterns and trends and gain insights that drive better decision-making, see the [Overview of Watson Discovery ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/wds_architecture){: new_window}.
-
 ## Blog Posts
 {: #blogs}
 
-- [Watson Discovery Pricing Changes ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/06/pricing-changes-watson-discovery/){: new_window}
+- [Watson Discovery Pricing Changes ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/blog/announcements/pricing-changes-watson-discovery){: new_window}
 
 - [How Watson Discovery Can Be Used to Build Prediction Models for Movie Reviews ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.topcoder.com/blog/how-ibm-discovery-can-be-used-to-build-prediction-models-for-movie-reviews/){: new_window}
 
@@ -59,9 +57,9 @@ To learn more about using Watson Discovery to identify patterns and trends and g
 ## Webinars
 {: #webinars}
 
-- [Create a cognitive search application with Watson Discovery  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://youtu.be/rlWvyV7vGc8){: new_window}
+- [Create a cognitive search application with Watson Discovery  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=rlWvyV7vGc8&feature=youtu.be){: new_window}
 
-- [Make the most of Watson Discovery: A Technical Introduction  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://youtu.be/icg-FrywTbk){: new_window}
+- [Make the most of Watson Discovery: A Technical Introduction  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=icg-FrywTbk&feature=youtu.be){: new_window}
 
 - [Building with Watson: How to build a chatbot with Assistant and Discovery  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=0zMM0lfIdnI&list=PLZDyxLlNKRY_GJskIreh9sQgExJ4z8oZO&index=7&t=0s){: new_window}
 
@@ -76,11 +74,6 @@ To learn more about using Watson Discovery to identify patterns and trends and g
 ## Technical architecture and whitepapers
 {: #whitepapers}
 
-- [Whitepaper: Discovery Cloud architecture ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/discovery_advantage_paper){: new_window}
+- [Whitepaper: Discovery Cloud architecture ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/garage/files/IBM-Advantage-Paper-for-Cognitive-Discovery.pdf){: new_window}
 
 - [Whitepaper: Unearth the value deep in your data to deliver rock-solid code with the Watson Discovery Service  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/whitepaper/discovery/){: new_window}
-
-## Tutorials
-{: #tutorial}
-
-- The [Discovery Platform Tutorial  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/garage/tutorials/ibm-watson-ilab-demos/discovery-platform-tutorial/){: new_window} can be used to create a proof of concept or demo for {{site.data.keyword.discoveryshort}}.

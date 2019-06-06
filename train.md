@@ -318,7 +318,7 @@ You can administer and maintain training-data queries by using other API methods
  - [List the training data for a collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
  - [Delete all training data for a collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#delete-all-training-data){: new_window}
  - [Display the contents of a specified training-data query ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#get-details-about-a-query){: new_window}
- - [Delete a training-data query from the collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/watson/developercloud/discovery/api/v1#delete-example-for-training-data-query){: new_window}
+ - [Delete a training-data query from the collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/apidocs/discovery#delete-example-for-training-data-query){: new_window}
  - [Change a training-data query example's relevance label or cross reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#change-label-or-cross-reference-for-example){: new_window}
  - [Delete an example document from a training-data query ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
 
