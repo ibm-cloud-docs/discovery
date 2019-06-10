@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018, 2019
-lastupdated: "2019-04-30"
+  years: 2017, 2019
+lastupdated: "2019-06-07"
 
 subcollection: discovery
 
@@ -66,6 +66,9 @@ The `parties` array specifies the participants that are listed in the contract. 
   - `contacts`: An array that defines the names and roles of contacts that are identified in the input document.
     - `name`: The name of a contact.
     - `role`: The role of the contact.
+  - `mentions`: An array that lists all mentions of the party in the input document.
+    - `text`: The name of the party.
+    - `location`: The location of the mention as defined by its `begin` and `end` indexes.
 
 The values of `role` that can be returned for contracts include, but are not limited to:
 
@@ -120,7 +123,6 @@ The `attributes` array specifies any attributes that are identified in the sente
 |:----------------:|-----------------------------------------------------------|
 |`Currency`        |Monetary value and units.                                  |
 |`DateTime`        |A date, time, date range, or time range.                   |
-|`DefinedTerm`     |A term that is defined in the input document.              |
 |`Duration`        |A time duration.                                           |
 |`Location`        |A geographical location or region.                         |
 |`Number`          |A digital or textual number that describes a quantity of countable things and is not classified as one of the other numerical `attribute` types.|
