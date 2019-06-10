@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-04-30"
+  years: 2015, 2019
+lastupdated: "2019-06-07"
 
 subcollection: discovery
 
@@ -174,9 +174,9 @@ Each element has five important sections:
 -  `text`: The text of the classified element.
 -  `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/services/discovery?topic=discovery-contract_parsing#contract_types) in [Understanding contract parsing](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) for additional information.
 -  `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories) in [Understanding contract parsing](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) for additional information.
--  `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Location` (geographic location referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/discovery?topic=discovery-contract_parsing#attributes) in [Parsing contracts](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) for additional information.
+-  `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`.  Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/discovery?topic=discovery-contract_parsing#attributes) in [Parsing contracts](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) for additional information.
 
-Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis associated with the element. 
+Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis associated with the element.
 
 Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
 {: note}
