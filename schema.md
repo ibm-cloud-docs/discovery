@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-06-07"
+lastupdated: "2019-07-02"
 
 subcollection: discovery
 
@@ -119,6 +119,27 @@ After a document has been ingested using Element Classification, the service pro
     {
       "confidence_level": string,
       "text": string,
+      "text_normalized": string,
+      "interpretation": {
+        "value": string,
+        "numeric_value": number,
+        "unit": string,
+      },
+      "provenance_ids": [ string, string, ... ],
+      "location": { "begin": int, "end": int }
+    },
+    ...
+  ],
+  "payment_terms": [
+    {
+      "confidence_level": string,
+      "text": string,
+      "text_normalized": string,
+      "interpretation": {
+        "value": string,
+        "numeric_value": number,
+        "unit": string,
+      },
       "provenance_ids": [ string, string, ... ],
       "location": { "begin": int, "end": int }
     },
@@ -386,8 +407,23 @@ The schema is arranged as follows.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract type as defined by its `begin` and `end` indexes.
   - `contract_terms`: An array that identifies the duration or durations of the contract.
-    - `confidence_level`: The confidence level of the identification of the contract terms. Possible values include `High`, `Medium`, and `Low`.
-    -  `text`: A contract term, which is listed as a string.
+    - `confidence_level`: The confidence level of the identification of the contract term. Possible values include `High`, `Medium`, and `Low`.
+    - `text`: A contract term, which is listed as a string.
+    - `text_normalized`: The normalized text, if applicable.
+    - `interpretation`: The details of the normalized text, if applicable.
+      - `value`: A string listing the value that was found in the normalized text.
+      - `numeric_value`: An integer or double expressing the numeric value of the `value` key.
+      - `unit`: A string listing the unit of the value that was found in the normalized text.
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+    - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
+  - `payment_terms`: An array that identifies the document's payment duration or durations.
+    - `confidence_level`: The confidence level of the identification of the payment term. Possible values include `High`, `Medium`, and `Low`.
+    - `text`: A payment term, which is listed as a string.
+    - `text_normalized`: The normalized text, if applicable.
+    - `interpretation`: The details of the normalized text, if applicable.
+      - `value`: A string listing the value that was found in the normalized text.
+      - `numeric_value`: An integer or double expressing the numeric value of the `value` key.
+      - `unit`: A string listing the unit of the value that was found in the normalized text.    
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
   - `tables`\*: An array that defines the tables identified in the input document.
