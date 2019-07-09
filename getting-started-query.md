@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-07-08"
 
 subcollection: discovery
 
@@ -149,7 +149,7 @@ Try building this aggregation - it will return the top 10 concepts in the {{site
 
 1.  Click **More options**, then enter `0` in the **Number of documents to return** field.
 
-1.  Click **Run query**. The top 10 concepts will be displayed in both the **Summary** and **JSON** tabs. Here is an example of the Summary:
+1.  Click **Run query**. The top 10 concepts will be displayed in both the **Summary** and **JSON** tabs.
 
 ## Step 6: Build a query in Watson Discovery News
 {: #querying-step6}
