@@ -91,7 +91,7 @@ Beginning April 9, 2019, there will be an upgrade to {{site.data.keyword.discove
 
 - The `title` field is now extracted from HTML documents as a top-level field during conversion. See [HTML conversion](/docs/services/discovery?topic=discovery-configservice#html-conversion). This `title` field will be also be included in each segment of any documents split using document segmentation, see [Splitting documents with document segmentation](/docs/services/discovery?topic=discovery-configservice#doc-segmentation) for an example. This may improve the `confidence` score for query results, and may change the `passages` returned, because the `title` may be returned as part of a passage. Existing collections will need to be reindexed to extract the `title` field.
 
-The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-03-25` (it currently uses `2018-08-01`), so the `title` will not be extracted when ingesting HTML documents by uploading or using the Web Crawl connector in the {{site.data.keyword.discoveryshort}} tooling.
+The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-03-25` (it currently uses `2018-12-03`), so the `title` will not be extracted when ingesting HTML documents by uploading or using the Web Crawl connector in the {{site.data.keyword.discoveryshort}} tooling.
 {: note}
 
 - Arrays can now be enriched (previously, arrays could not be enriched). When using Smart Document Understanding, this means that you can now enrich both default (for example: `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`) and custom fields. Previously, you were limited to enriching only the `text` field.
@@ -149,7 +149,7 @@ Element Classification updates:
     - The `effective_dates`, `contract_amounts`, and `termination_dates` arrays now each include a `confidence_level` field that indicates a value of `High`, `Medium`, or `Low`.
     For more information, see [Classifying elements](/docs/services/discovery?topic=discovery-output_schema#output_schema) and [Parsing contracts](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing).
 
-    The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-01-01` (it currently uses `2018-08-01`), so you will not see these new fields in the Element Classification output in the {{site.data.keyword.discoveryshort}} tooling.
+    The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-01-01` (it currently uses `2018-12-03`), so you will not see these new fields in the Element Classification output in the {{site.data.keyword.discoveryshort}} tooling.
 
 ## 10 January 2019
 {: #10jan19}
@@ -161,7 +161,7 @@ Known issue:
 ## 1 January 2019
 {: #1jan19}
 
-- The version string for all API calls has changed to `2019-01-01` from `2018-12-03`. This version introduces a new document ingestion status: `pending`. The `pending` status will be returned for documents that have been accepted, but have not yet started processing. Previously, these documents would have the status of `processing`. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so when you check document status in the {{site.data.keyword.discoveryshort}} tooling, the `pending` status will not be returned.
+- The version string for all API calls has changed to `2019-01-01` from `2018-12-03`. This version introduces a new document ingestion status: `pending`. The `pending` status will be returned for documents that have been accepted, but have not yet started processing. Previously, these documents would have the status of `processing`. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-12-03`), so when you check document status in the {{site.data.keyword.discoveryshort}} tooling, the `pending` status will not be returned.
 
 ## 21 December 2018
 {: #21dec18}
@@ -180,7 +180,9 @@ Known issue:
 ## 14 December 2018
 {: #14dec18}
 
-You can now create {{site.data.keyword.discoveryshort}} instances that are hosted in the London data center without syndication. Like all locations, the {{site.data.keyword.cloud}} London location (eu-gb) uses token-based Identity and Access Management (IAM) authentication. All new services instances that you create in this location use IAM authentication.
+-  You can now create {{site.data.keyword.discoveryshort}} instances that are hosted in the London data center without syndication. Like all locations, the {{site.data.keyword.cloud}} London location (eu-gb) uses token-based Identity and Access Management (IAM) authentication. All new services instances that you create in this location use IAM authentication.
+
+-  The {{site.data.keyword.discoveryshort}} tooling now uses the API version of `2018-12-03`(it previously used `2018-08-01`).
 
 ## 12 December 2018
 {: #12dec18}

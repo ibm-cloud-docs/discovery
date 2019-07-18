@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-04-26"
+lastupdated: "2019-07-17"
 
 subcollection: discovery
 
@@ -215,11 +215,14 @@ You can view the fields available across collections in the same environment by 
 You can expand the scope of a query beyond exact matches - for example, you can expand a query for "ibm" to include "international business machines" and "big blue" - by uploading a list of query expansion terms. Query expansion terms are usually synonyms, antonyms, or typical misspellings for common terms.
 
 You can define two types of expansions:
--  **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `car` would expand to `car OR automobile OR vehicle`).
+-  **bidirectional** - each `expanded_term` will expand to include all expanded terms. For example, a query for `ibm` would expand to `ibm OR international business machines OR big blue`).
 -  **unidirectional** - the `input_terms` in the query will be replaced by the `expanded_terms`. For example, a query for `banana` could expand to `plantain` and `fruit`. `input_terms` are not used as part of the resulting query. In the previous `banana` example, the query `banana` would be converted to `plantain` OR `fruit` and not contain the original term.
 
+Multi-word terms are supported only for bidirectional expansions.
+{: note}
+
 This file can be used as a starting point when building a query expansion list:
-<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. You can modify this file to create your custom query expansion list.
+<a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. You can modify this file to create a custom query expansion list.
 
 Bidirectional example:
 ```JSON
@@ -227,9 +230,9 @@ Bidirectional example:
    "expansions": [
      {
        "expanded_terms": [
-         "car",
-         "automobile",
-         "vehicle"
+         "ibm",
+         "international business machines",
+         "big blue"
        ]
      }
    ]
@@ -243,12 +246,12 @@ Unidirectional example:
    "expansions": [
      {
       "input_terms": [
-         "ibm"
+         "car"
        ],
       "expanded_terms": [
-         "ibm",
-         "international business machines",
-         "big blue"
+         "car",
+         "automobile",
+         "vehicle"
        ]
      },
      {
@@ -432,11 +435,12 @@ With this custom dictionary, you can create rules with a single token. In this e
 -  Only one tokenization dictionary can be uploaded per collection; if a second tokenization dictionary is uploaded, it will replace the first. If that collection already contained documents, you must reingest them for the new custom tokenization dictionary to be applied.
 -  The custom tokenization dictionary must be written in JSON, example file name: `custom_tokenization_dictionary.json`.
 -  All custom tokenization dictionary terms should be lowercase.
+-  The character limit for a custom tokenization dictionary is 1 million characters.
 -  To disable tokenization, delete the tokenization dictionary and reingest your documents.
 -  You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
 -  Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
 -  Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections), each collection is tokenized individually.
--  Do not upload or delete a tokenization dictionary at the same time documents are being ingested into your collection. 
+-  Do not upload or delete a tokenization dictionary at the same time documents are being ingested into your collection.
 
 ## Document similarity
 {: #doc-similarity}

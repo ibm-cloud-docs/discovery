@@ -401,7 +401,7 @@ Those with service instances subscribed to the [**Advanced**](/docs/services/dis
 
 To access Knowledge Graph querying in the {{site.data.keyword.discoveryshort}} tooling:
 
-1.  Click ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page.
+1.  Click ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page.
 1.  Select your collection and click **Get started**.
 1.  On the **Build queries** screen, choose the **Knowledge graph** tab, then **Entities** or **Relationships**.
 

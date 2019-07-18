@@ -79,7 +79,7 @@ If your query does not return any matching results, and you think it should, try
 
 Let's start out by writing a query that will find the concept `Cloud computing` in your collection:
 
-1.  Click on the **Build queries** icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
+1.  Click on the **Build queries** icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
 1.  On the **Build queries** screen, click **Search for Documents**, then **Use the {{site.data.keyword.discoveryshort}} Query Language** then:
     - Click the **Field** drop-down and choose `enriched_text.concepts.text`, for the **Operator** choose `contains`, then enter the **Value** of `Cloud computing`. The query `enriched_text.concepts.text:Cloud computing` will display under the **Visual Query Builder**.
 
@@ -117,7 +117,7 @@ To return all documents that contain the entity `IBM`, but not the entity `Watso
 
 You can combine query parameters together to build more targeted queries. Let's try using both the `filter` and `query` parameters to return documents about {{site.data.keyword.IBM_notm}} acquisitions. The filter parameter will narrow down the results to only documents that mention `IBM`, and then the query parameter will return all results about `acquisitions`,in order of relevance.
 
-1.  Click on the build queries icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
+1.  Click on the build queries icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
 
 1.  Under **Filter which documents you query**:
     -  Click the **Field** drop-down and choose `enriched_text.entities.text`, for the **Operator** choose `contains`, then enter the **Value** of `IBM`.
@@ -140,7 +140,7 @@ Aggregations return a set of data values; for example, top keywords, overall sen
 
 Try building this aggregation - it will return the top 10 concepts in the {{site.data.keyword.IBM_notm}} press releases collection.
 
-1.  Click on the **Build queries** icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
+1.  Click on the **Build queries** icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the collection that contains the {{site.data.keyword.IBM_notm}} Press Releases and click **Get started**.
 
 1.  Under **Include analysis of your results**:
     -  Click the **Output** drop-down and choose `Top values`, for the **Field** choose `enriched_text.concepts.text`, then enter the **Count** of `10`.
@@ -160,7 +160,7 @@ You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, tr
 
 The following example query returns the top 10 articles in {{site.data.keyword.discoverynewsfull}} about the Pittsburgh Steelers that have a positive sentiment.
 
-1.  Click on the **Build queries** icon ![Query icon](images/search_icon.svg)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the {{site.data.keyword.discoverynewsshort}} collection and click **Get started**. (To query the Spanish, German, or Korean {{site.data.keyword.discoverynewsshort}} collections, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down.)
+1.  Click on the **Build queries** icon ![Query icon](images/icon_queryBuilder.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> to open the query page. Select the {{site.data.keyword.discoverynewsshort}} collection and click **Get started**. (To query the Spanish, German, or Korean {{site.data.keyword.discoverynewsshort}} collections, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down.)
 
 1.  Under **Search for documents**, click **Use the {{site.data.keyword.discoveryshort}} Query Language**, then:
     -  Click the **Field** drop-down and choose `text`, for the **Operator** choose `contains`, then enter the **Value** of `Pittsburgh Steelers`. Click **Add rule**, then click the **Field** drop-down and choose `enriched_text.sentiment.document.label`, for the **Operator** choose `contains`, then enter the **Value** of `positive.`
