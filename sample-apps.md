@@ -35,7 +35,7 @@ subcollection: discovery
 Learn more about {{site.data.keyword.discoveryfull}} from these sample applications and labs.
 {: shortdesc}
 
-[Learning path: Getting started with {{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")}(https://developer.ibm.com/series/learning-path-watson-discovery/){: new_window}
+[Learning path: Getting started with {{site.data.keyword.discoveryshort}}  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/series/learning-path-watson-discovery/){: new_window}
 This learning path is designed for developers interested in quickly coming up to speed on what {{site.data.keyword.discoveryshort}} offers and how to use it. It consists of step-by-step tutorials, deep-dive videos, and complete examples of working code. As you proceed through the learning path, you'll work with more complex features as well as different use cases for applying the service.
 
 [Understanding Customer Feedback App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/patterns/get-customer-insights-from-product-reviews/?cm_sp=Developer-_-code-_-customer_insights){: new_window}
