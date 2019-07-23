@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-11-29"
+  years: 2015, 2018, 2019
+lastupdated: "2019-07-11"
 
 subcollection: discovery
 
@@ -35,8 +35,11 @@ subcollection: discovery
 Learn more about {{site.data.keyword.discoveryfull}} from these sample applications and labs.
 {: shortdesc}
 
+[Learning path: Getting started with {{site.data.keyword.discoveryshort}}  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/series/learning-path-watson-discovery/){: new_window}
+This learning path is designed for developers interested in quickly coming up to speed on what {{site.data.keyword.discoveryshort}} offers and how to use it. It consists of step-by-step tutorials, deep-dive videos, and complete examples of working code. As you proceed through the learning path, you'll work with more complex features as well as different use cases for applying the service.
+
 [Understanding Customer Feedback App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/patterns/get-customer-insights-from-product-reviews/?cm_sp=Developer-_-code-_-customer_insights){: new_window}
-Easily extract insights from raw text review data. It walks you through a working example of a web application that queries and manipulates data from Watson Discovery. And, with the aid of custom models using Watson Knowledge Studio (WKS), the data has additional enrichments that provide improved insights for user analysis.
+Easily extract insights from raw text review data. It walks you through a working example of a web application that queries and manipulates data from {{site.data.keyword.discoveryshort}}. And, with the aid of custom models using Watson Knowledge Studio (WKS), the data has additional enrichments that provide improved insights for user analysis.
   - [Get the Code  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/watson-discovery-food-reviews?cm_sp=Developer-_-develop-your-own-watson-discovery-service-application-_-Get-the-Code){: new_window}
   - [View the Demo  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=gzlUSyLccSg){: new_window}
   - [Try the App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-discovery-food-reviews-demo.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
