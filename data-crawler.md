@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-07-29"
 
 subcollection: discovery
 
@@ -42,9 +42,6 @@ The data crawler lets you automate the upload of content to the {{site.data.keyw
 {: #dc-crawling}
 
 The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases) and push them to the cloud, to be used by {{site.data.keyword.discoveryshort}}.
-
-The Data Crawler should only be used to crawl file shares or databases, in all other cases you should use the appropriate {{site.data.keyword.discoveryshort}} connector for Box, SharePoint, Salesforce, IBM Cloud Object Storage, or web crawl. For more information, see [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources).
-{: important}
 
 ## When to use the Data Crawler
 {: #dc-use}
