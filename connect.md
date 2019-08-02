@@ -270,7 +270,7 @@ After this information is entered, you can choose how often you'd like to sync y
 Other items to note when crawling IBM Cloud Object Storage:
 
 -  This connector doesn't support crawling private endpoints.
--  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations] (/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#select-regions-and-endpoints).
+-  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations](/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#select-regions-and-endpoints).
 -  There is a slight performance issue if all buckets are selected. In this case, there may be a delay before the documents complete indexing.
 
 ## Using the tooling

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-07-11"
+lastupdated: "2019-07-31"
 
 subcollection: discovery
 
@@ -88,5 +88,3 @@ Extract value from the reviews given for the top 10 free apps in the iTunes App 
 Create a web UI chatbot using the IBM Watson Node.js SDK to include conversation interaction, anger detection, natural language understanding, and answer discovery. Answers are discovered from a collection of FAQ documents. Built as a fictional financial institution, this app calls out to simple banking services code as an example of how to include external business data in a conversation response.
   - [Get the Code  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/watson-banking-chatbot?cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-Get-the-Code){: new_window}
   - [View the Demo  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=Jxi7U7VOMYg&cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-View-the-Demo){: new_window}
-  - [Try the App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://create-a-cognitive-banking-chatbot-hnike.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
-  - [Build from a Starter Kit  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/developer/watson/create-project?starterKit=a5819b41-0f6f-34cb-9067-47fd16835d04&cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
