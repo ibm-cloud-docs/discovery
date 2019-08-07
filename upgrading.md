@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-08-07"
 
 subcollection: discovery
 
@@ -42,8 +42,7 @@ See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discover
 
 To resize your plan from Lite to Advanced:
 
-1. Open the [{{site.data.keyword.Bluemix_notm}} dashboard](https://{DomainName}/dashboard). 
-1. Click on your {{site.data.keyword.discoveryshort}} instance to open the service dashboard.
+1. From the [resource list](https://{DomainName}/resources/), click on your {{site.data.keyword.discoveryshort}} instance to go to the {{site.data.keyword.discoveryshort}} dashboard page.
 1. From the **Manage** page of {{site.data.keyword.discoveryshort}}, click **Upgrade** to choose the Advanced plan. This will open the **Plan** page. Follow the steps to complete your upgrade. 
 1. Return to the **Manage** page and click **Launch Watson Discovery** to open the {{site.data.keyword.discoveryshort}} tooling.
    - If you had never created an environment for your Lite plan before the upgrade to Advanced, click the ![Cog](images/icon_settings.png) icon and choose **Create environment**. A screen will display the options for your Advanced plan. Choose the one that fits your needs.  (`X-Small`, `Small`, `Medium-Small`, `Medium`, `Medium-Large`, `Large`, `X-Large`, `XX-Large`).

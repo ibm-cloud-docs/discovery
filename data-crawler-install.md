@@ -58,7 +58,7 @@ The Data Crawler collects the raw data that is eventually used to form search re
 
 1.  In the **Automate the upload of content to the Discovery service** section, click the appropriate link to download the Data Crawler for Linux in DEB, RPM, and ZIP formats.
 
-1.  Verify that you are running Java Runtime Environment version 8 or higher. Run the command `java -version`, and look for **1.8**. If you are running something earlier than **1.8**, you need to upgrade Java by installing the Java Developer Kit (JDK) 8 from your package management system, from the [IBM JDK ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/developerworks/java/jdk/){: new_window} website, or from [java.com ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.java.com){: new_window}.
+1.  Verify that you are running Java Runtime Environment version 8 or higher. Run the command `java -version`, and look for **1.8**. If you are running something earlier than **1.8**, you need to upgrade Java by installing the Java Developer Kit (JDK) 8 from your package management system, from the [IBM JDK ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/javasdk/downloads/){: new_window} website, or from [java.com ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.java.com){: new_window}.
 
     Your `JAVA_HOME` environment variable must be set correctly, or not be set at all, in order to run the Crawler.
     {: tip}

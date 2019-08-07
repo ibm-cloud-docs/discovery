@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-08-07"
 
 subcollection: discovery
 
@@ -47,7 +47,7 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
     1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
     1.  Click **Create**. After you create an instance of {{site.data.keyword.discoveryshort}}, you're taken to your list of services.
 - Copy the credentials to authenticate to your service instance:
-    1.  From the [resource list](https://{DomainName}/dashboard/), click on your {{site.data.keyword.discoveryshort}} instance to go to the {{site.data.keyword.discoveryshort}} dashboard page.
+    1.  From the [resource list](https://{DomainName}/resources/), click on your {{site.data.keyword.discoveryshort}} instance to go to the {{site.data.keyword.discoveryshort}} dashboard page.
     1.  On the **Manage** page, click **Show Credentials** to view your credentials.
     1.  Copy the `API Key` and `URL` values.
 
