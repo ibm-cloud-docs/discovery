@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-08-07"
 
 subcollection: discovery
 
@@ -479,7 +479,7 @@ The schema is arranged as follows.
     - `contexts`: An array of objects that list text that is related to the table contents and that precedes or follows the current table. Each object contains the following elements:
       - `text`: The related text.
       - `location`: The location of the related text as defined by its `begin` and `end` indexes in the input document.
-    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/discovery?topic=discovery-understanding_tables#key-value-pairs).
+    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document.
       - `key`: An object that specifies a key for a key-value pair.
         - `cell_id`: The unique ID of the key in the table.
         - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.

@@ -82,7 +82,7 @@ The Data Crawler is no longer available for download and is no longer supported.
 ## 2 April 2019
 {: #2apr19}
 
-Beginning April 9, 2019, there will be an upgrade to {{site.data.keyword.discoveryfull}}. This upgrade will include changes to the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. This means score and confidence results may change following the upgrade. If your applications make use of the `score` or `confidence` fields directly, be prepared to update the application as necessary. See [Upgrading the infrastructure of the {{site.data.keyword.discoveryfull}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2019/03/announcement-for-the-ibm-watson-discovery-community/){: new_window} for details.
+Beginning April 9, 2019, there will be an upgrade to {{site.data.keyword.discoveryfull}}. This upgrade will include changes to the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. This means score and confidence results may change following the upgrade. If your applications make use of the `score` or `confidence` fields directly, be prepared to update the application as necessary. See [Upgrading the infrastructure of the {{site.data.keyword.discoveryfull}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/cloud-archive/2019/03/announcement-for-the-ibm-watson-discovery-community/){: new_window} for details.
 
 ## 25 March 2019
 {: #25mar19}

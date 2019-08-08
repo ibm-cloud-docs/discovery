@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-07"
 
 subcollection: discovery
 
@@ -71,7 +71,6 @@ Create a chatbot dialog using Watson Assistant, a Cloudant NoSQL database, Watso
 Build your own news mining web application using JavaScript, Node.js, and the Watson Discovery service. Use the Watson Node.js SDK to build your news app to search the latest news, find trends, and even integrate it with other applications, such as Slack.
   - [Get the Code  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/watson-discovery-news/?cm_sp=IBMCode-_-create-a-cognitive-news-search-app-_-Get-the-Code){: new_window}
   - [View the Demo  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=EZGgvci9nC0&cm_sp=IBMCode-_-create-a-cognitive-news-search-app-_-View-the-Demo){: new_window}
-  - [Try the App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-discovery-news-demo.mybluemix.net/?cm_sp=dw-bluemix-_-code-_-devcenter){: new_window}
   
 [Stock Advisor App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/patterns/create-a-web-app-to-get-stock-information-prices-and-sentiment/?cm_sp=Developer-_-code-_-stock_information){: new_window}
 Create an app that uses Watson Discovery, Node.js, and Cloudant NoSQL DB to help you make informed investment decisions. You can then use it as a guide to jump-start your own coding projects.
@@ -79,12 +78,7 @@ Create an app that uses Watson Discovery, Node.js, and Cloudant NoSQL DB to help
   - [View the Demo  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=uigisF50F8s&feature=youtu.be){: new_window}
   - [Watch the Playlist  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde){: new_window}
 
-[Mobile App Insights Sample App  ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/mobileinsights){: new_window}
-Extract value from the reviews given for the top 10 free apps in the iTunes App Store.
-  - [Get the Code  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/watson-developer-cloud/app-insights-discovery){: new_window}
-  - [Blog Post  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/watson/2017/06/next-breakthrough-in-bad-customer-review/){: new_window}
-
-[Cognitive Banking Chatbot  ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://ibm.biz/bankingbot){: new_window}
+[Cognitive Banking Chatbot  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/patterns/create-cognitive-banking-chatbot/?cm_sp=Developer-_-code-_-banking_chatbot){: new_window}
 Create a web UI chatbot using the IBM Watson Node.js SDK to include conversation interaction, anger detection, natural language understanding, and answer discovery. Answers are discovered from a collection of FAQ documents. Built as a fictional financial institution, this app calls out to simple banking services code as an example of how to include external business data in a conversation response.
   - [Get the Code  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/watson-banking-chatbot?cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-Get-the-Code){: new_window}
   - [View the Demo  ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=Jxi7U7VOMYg&cm_sp=IBMCode-_-create-cognitive-banking-chatbot-_-View-the-Demo){: new_window}
