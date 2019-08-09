@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-08-09"
 
 subcollection: discovery
 
@@ -41,7 +41,7 @@ Element Classification is designed to provide:
 -  The ability to convert programmatic PDF to annotated JSON
 -  Identification of legal Entities and Categories that align with subject matter expertise
 
-Element Classification brings together a functionally rich set of integrated, automated Watson APIs to input a programmatic PDF to identify: sections, lists (numbered and bulleted), footnotes, and tables converting these items into a structured HTML format. Furthermore, classification of this structured format is annotated and output as JSON with labeled elements, types and categories.
+Element Classification brings together a functionally rich set of integrated, automated Watson APIs to input a programmatic PDF to identify: sections, lists (numbered and bulleted), footnotes, and tables converting these items into a structured HTML format. Furthermore, classification of this structured format is annotated and output as JSON with labeled elements, types, and categories.
 
 Element Classification securely transmits your data performing encryption in-flight and at rest. For information about IBM Cloud security, see the [{{site.data.keyword.Bluemix_notm}} Service Description ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: new_window}
 
@@ -53,7 +53,7 @@ Element Classification returns a JSON object that contains:
 -  A `tables` array that breaks down the tables identified in the input document.
 -  A `document_structure` object that lists section titles and leading sentences identified in the input document.
 -  A `parties` array that lists the parties, roles, addresses, and contacts of parties identified in the input document.
--  Arrays defining `effective_dates`,`contract_amounts`, `contract_types`, `contract_terms`, `termination_dates`, and `payment_dates`.
+-  Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`, `contract_types`, `contract_terms`, `payment_terms`, and `contract_currencies`.
 
 This feature is currently supported in English only, see [Language support](/docs/services/discovery?topic=discovery-language-support#feature-support) for details.
 
@@ -106,7 +106,7 @@ The {{site.data.keyword.discoveryshort}} tooling includes a configuration named 
 ```
 {: codeblock}
 
-If you wish to create a custom configuration file, configure your collection to meet the following requirements:  
+If you want to create a custom configuration file, configure your collection to meet the following requirements:
 
 -  `PDF` conversion settings are ignored if specified.
 -  `WORD` conversion settings can be omitted as Microsoft Word files cannot be ingested when Element Classification is specified.
@@ -130,10 +130,10 @@ If you wish to create a custom configuration file, configure your collection to 
 
 After selecting the `Default Contract Configuration` in the tooling, you can upload your documents. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started).
 
-## Classified Elements
+## Classified elements
 {: #classified-elements}
 
-Once a document has been indexed with Element Classification, it will be returned with an `elements` array as part of the searchable document.
+After a document has been indexed with Element Classification, it is returned with an `elements` array as part of the searchable document.
 
 Each object in the `elements` array describes an element of the contract that {{site.data.keyword.discoveryshort}} has identified. The following code represents a typical element:
 

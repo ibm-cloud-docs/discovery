@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-08-09"
 
 subcollection: discovery
 
@@ -28,6 +28,7 @@ subcollection: discovery
 {:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
+{:external: target="_blank" .external}
 
 # Understanding the output schema
 {: #output_schema}
@@ -91,6 +92,12 @@ After a document has been ingested using Element Classification, the service pro
     {
       "confidence_level": string,
       "text": string,
+      "text_normalized": string,
+      "interpretation": {
+        "value": string,
+        "numeric_value": number,
+        "unit": string,
+      },
       "provenance_ids": [ string, string, ... ],
       "location": { "begin": int, "end": int }
     },
@@ -145,6 +152,16 @@ After a document has been ingested using Element Classification, the service pro
     },
     ...
   ],
+  "contract_currencies": [
+    {
+      "confidence_level" : string,
+      "text" : string,
+      "text_normalized" : string,
+      "provenance_ids": [string, string ..],
+      "location": { "begin": int, "end": int }
+    },
+  ...
+],
   "tables": [
     {
       "location" : {
@@ -158,6 +175,13 @@ After a document has been ingested using Element Classification, the service pro
           "begin" : int,
           "end" : int
         }
+      },
+      "title": {
+        "location": {
+          "begin": int,
+          "end": int,
+        },
+        "text": string
       },
       "table_headers" : [
         {
@@ -381,24 +405,29 @@ The schema is arranged as follows.
       - `label`: A string that lists the identified category. You can find a list of [categories](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories) in [Understanding element classification](/docs/services/discovery?topic=discovery-contract_parsing).
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
-      - `type`: The type of attribute. Possible values are `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person` as described at [Attributes](/docs/services/discovery?topic=discovery-contract_parsing#attributes).
+      - `type`: The type of attribute. Possible values are `Currency`, `DateTime`, `DefinedTerm`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person` as described at [Attributes](/docs/services/discovery?topic=discovery-contract_parsing#attributes).
       - `text`: The text that is associated with the attribute.
       - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
   - `effective_dates`: An array that identifies the date or dates on which the document becomes effective.
     - `confidence_level`: The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.
     - `text`: An effective date, which is listed as a string.
-    - `text_normalized`: The normalized form of the effective date, which is listed as a string. This element is optional; that is, the service output lists it only if normalized text exists.
+    - `text_normalized`: The normalized form of the effective date, which is listed as a string. This element is optional; it is returned only if normalized text exists.
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
   - `contract_amounts`: An array that monetary amounts that identify the total amount of the contract that needs to be paid from one party to another.
     - `confidence_level`: The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.    
     - `text`: A contract amount, which is listed as a string.
+    - `text_normalized`: The normalized text, if applicable.
+    - `interpretation`: The details of the normalized text, if applicable.
+      - `value`: A string listing the value that was found in the normalized text.
+      - `numeric_value`: An integer or float expressing the numeric value of the `value` key.
+      - `unit`\*\*: A string listing the unit of the value that was found in the normalized text.
     - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
   - `termination_dates`: An array that identifies the date or dates on which the document is to be terminated.
     - `confidence_level`: The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.    
     - `text`: A termination date, which is listed as a string.
-    - `text_normalized`: The normalized form of the termination date, which is listed as a string. This element is optional; that is, the service output lists it only if normalized text exists.
+    - `text_normalized`: The normalized form of the termination date, which is listed as a string. This element is optional; it is returned only if normalized text exists.
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
   - `contract_types`: An array that identifies the document's contract type or types.
@@ -412,8 +441,8 @@ The schema is arranged as follows.
     - `text_normalized`: The normalized text, if applicable.
     - `interpretation`: The details of the normalized text, if applicable.
       - `value`: A string listing the value that was found in the normalized text.
-      - `numeric_value`: An integer or double expressing the numeric value of the `value` key.
-      - `unit`: A string listing the unit of the value that was found in the normalized text.
+      - `numeric_value`: An integer or float expressing the numeric value of the `value` key.
+      - `unit`\*\*: A string listing the unit of the value that was found in the normalized text.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
   - `payment_terms`: An array that identifies the document's payment duration or durations.
@@ -423,15 +452,24 @@ The schema is arranged as follows.
     - `interpretation`: The details of the normalized text, if applicable.
       - `value`: A string listing the value that was found in the normalized text.
       - `numeric_value`: An integer or double expressing the numeric value of the `value` key.
-      - `unit`: A string listing the unit of the value that was found in the normalized text.    
+      - `unit`\*\*: A string listing the unit of the value that was found in the normalized text.
     - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract term as defined by its `begin` and `end` indexes.
+  - `contract_currencies`: An array that identifiea the document's contract currency or currencies.
+    - `confidence_level`: The confidence level of the identification of the contract currency. Possible values include `High`, `Medium`, and `Low`.
+    - `text`: A contract currency, which is listed as a string.
+    - `text_normalized`: The normalized text, if applicable. It is listed as a string in [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html){: external} format
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
+    - `location`: The location of the contract currency as defined by its `begin` and `end` indexes.
   - `tables`\*: An array that defines the tables identified in the input document.
     - `location`: The location of the current table as defined by its `begin` and `end` indexes in the input document.
     - `text`: The textual contents of the current table from the input document without associated markup content.
     - `section_title`: If identified, the location of a section title contained in the current table. Empty if no section title is identified.
       - `text`: The text of the identified section title.
       - `location`: The location of the section title in the input document as defined by its `begin` and `end` indexes.
+    - `title`: If identified, the title or caption of the current table of the form `Table x.: ...`. Empty when no title is identified. When exposed, the `title` is also excluded from the `contexts` array of the same table.
+      - `location`: The location of the title in the input document as defined by its `begin` and `end` indexes.
+      - `text`: The text of the identified table title or caption.
     - `table_headers`: An array of table-level cells applicable as headers to all the other cells of the current table. Each table header is defined as a collection of the following elements:
       - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
@@ -476,10 +514,7 @@ The schema is arranged as follows.
         - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`.
         - `text`: The text that is associated with the attribute.
         - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
-    - `contexts`: An array of objects that list text that is related to the table contents and that precedes or follows the current table. Each object contains the following elements:
-      - `text`: The related text.
-      - `location`: The location of the related text as defined by its `begin` and `end` indexes in the input document.
-    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/discovery?topic=discovery-understanding_tables#key-value-pairs).
+    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document.
       - `key`: An object that specifies a key for a key-value pair.
         - `cell_id`: The unique ID of the key in the table.
         - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.
@@ -488,6 +523,9 @@ The schema is arranged as follows.
         - `cell_id`: The unique ID of the value in the table.
         - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
         - `text`: The text content of the table cell without HTML markup.
+    - `contexts`: A list of related material that precedes and follows the table, excluding its section title, which is provided in the `section_title` field. Related material includes related sentences; footnotes; and sentences from other parts of the document that refer to the table. The list is represented as an array. Each object in the array consists of the following elements:
+      - `text`: The text contents of a related material from the input document, without HTML markup.
+      - `location`: The location of the related material in the input document as defined by its `begin` and `end` indexes.
   - `document_structure`: An object that describes the structure of the input document.
     - `section_titles`: An array that contains one object per section or subsection that is detected in the input document. Sections and subsections are not nested. Instead, they are flattened out and can be placed back in order by using the `begin` and `end` values of the element and the `level` value of the section.
       - `text`: A string that lists the section title, if detected.
@@ -514,14 +552,22 @@ The schema is arranged as follows.
       - `text`: A string that lists the name of the party.
       - `location`: The location of the mention as defined by its `begin` and `end` indexes.
 
-**\*Notes on tables:**
+### \*Notes on tables
+{: #table-notes}
+
   - Row and column index values per cell are zero-based and so begin with `0`.
   - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
   - Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a possible hierarchy of column headers.
-  
-**Note on `location` objects**
 
-The `location` object is contained inside the vast majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
+### \*\*Note on `unit` values
+{: #unit-values-note}
+
+The value of `unit` is the [ISO-4217 currency code](https://www.iso.org/iso-4217-currency-codes.html){: external} identified for the currency amount (for example, `USD` or `EUR`). If the service cannot disambiguate a currency symbol (for example, `$` or `£`), the value of `unit` contains the ambiguous symbol as-is.
+  
+### Note on `location` objects
+{: #location-note}
+
+The `location` object is included with the majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
   
 For example, a `text` string with the value `Amount due` might have a corresponding `location` object such as
 ```json
