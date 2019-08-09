@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-07"
+lastupdated: "2019-08-09"
 
 subcollection: discovery
 
@@ -28,6 +28,7 @@ subcollection: discovery
 {:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
+{:external: target="_blank" .external}
 
 # Parsing contracts
 {: #contract_parsing}
@@ -123,6 +124,7 @@ The `attributes` array specifies any attributes that are identified in the sente
 |:----------------:|-----------------------------------------------------------|
 |`Currency`        |Monetary value and units.                                  |
 |`DateTime`        |A date, time, date range, or time range.                   |
+|`DefinedTerm`     |A term that is defined in the input document.              |
 |`Duration`        |A time duration.                                           |
 |`Location`        |A geographical location or region.                         |
 |`Number`          |A digital or textual number that describes a quantity of countable things and is not classified as one of the other numerical `attribute` types.|
@@ -190,6 +192,36 @@ The `contract_terms` array identifies the duration or durations of the contract 
 |`confidence_level`|The confidence level of the identification of the contract term. Possible values include `High`, `Medium`, and `Low`.|
 |`text`            |The contract term, listed as a string.                  |
 |`location`        |The location of the contract term as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
+
+## Payment terms
+{: #payment-terms}
+
+The `payment_terms` array identifies the payment duration or durations as declared in the document.
+
+| `payment_terms`|Description                                               |
+|:----------------:|-----------------------------------------------------------|
+|`confidence_level`|The confidence level of the identification of the payment term. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |The payment term, listed as a string.                  |
+|`normalized_text` |The normalized text, if applicable.                     |
+|`interpretation`  |The details of the normalized text, if applicable.      |
+|`value`           |A string listing the value that was found in the normalized text. |
+|`numeric_value`   |An integer or float expressing the numeric value of the `value` key.|
+|`unit`            |A string listing the unit of the value that was found in the normalized text.|
+|`location`        |The location of the payment term as defined by its `begin` and `end` indexes.|
+|`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
+
+## Contract currencies
+{: #contract-currencies}
+
+The `contract_currencies` array identifies the contract currency or currencies as declared in the document.
+
+| `contract_currencies`|Description                                              |
+|:----------------:|-----------------------------------------------------------|
+|`confidence_level`|The confidence level of the identification of the contract currency. Possible values include `High`, `Medium`, and `Low`.|
+|`text`            |The contract currency, listed as a string.      |
+|`text_normalized` |The normalized text of the `text` if applicable, listed as a string in [ISO-4217](https://www.iso.org/iso-4217-currency-codes.html){: external} format.|
+|`location`        |The location of the contract currency as defined by its `begin` and `end` indexes.|
 |`provenance_ids`  |An array of hashed values that you can send to IBM to provide feedback or receive support. |
 
 ## Provenance
