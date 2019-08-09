@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-08-07"
 
 subcollection: discovery
 
@@ -130,7 +130,7 @@ For more information, or to purchase a Premium plan, contact [Sales](https://ibm
 ## Additional information
 {: #pricingadd}
 
-For information about calculating costs, see the [IBM Cloud Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/pricing/platform/watson){: new_window}.
+For information about calculating costs, see the [IBM Cloud Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/estimator/review){: new_window}.
 
 For information about IBM Cloud security, see [Cloud Services data security and privacy ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument){: new_window}.
 

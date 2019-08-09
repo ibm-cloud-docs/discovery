@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-07-31"
 
 subcollection: discovery
 
@@ -58,8 +58,7 @@ For information about {{site.data.keyword.Bluemix_notm}} security, see the [{{si
 
 {{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg) for more information.
 
-US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans. See
-[Enabling EU and HIPAA supported settings ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: new_window} for more information.
+US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: external} for more information.
 
 ## Browser support and prerequisites
 {: #browser-support-and-prerequisites}

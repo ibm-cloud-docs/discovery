@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-07-31"
 
 subcollection: discovery
 
@@ -138,6 +138,8 @@ You cannot delete labeled data using the {{site.data.keyword.discoveryshort}} to
 
 ## Health Insurance Portability and Accountability Act (HIPAA)
 {: #hipaa}
+
+US Health Insurance Portability and Accountability Act (HIPAA) support is available for Premium plans in the Washington, DC location created on or after 1 April 2019. See [Enabling EU and HIPAA supported settings](/docs/account?topic=account-eu-hipaa-supported#eu-hipaa-supported){: external} for more information.
 
 There are several scenarios where you should use extra care to protect personal health information (PHI) in {{site.data.keyword.discoveryshort}}:
 
