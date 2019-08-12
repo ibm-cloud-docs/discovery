@@ -514,9 +514,6 @@ The schema is arranged as follows.
         - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`.
         - `text`: The text that is associated with the attribute.
         - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
-    - `contexts`: An array of objects that list text that is related to the table contents and that precedes or follows the current table. Each object contains the following elements:
-      - `text`: The related text.
-      - `location`: The location of the related text as defined by its `begin` and `end` indexes in the input document.
     - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document.
       - `key`: An object that specifies a key for a key-value pair.
         - `cell_id`: The unique ID of the key in the table.
@@ -526,6 +523,9 @@ The schema is arranged as follows.
         - `cell_id`: The unique ID of the value in the table.
         - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
         - `text`: The text content of the table cell without HTML markup.
+    - `contexts`: A list of related material that precedes and follows the table, excluding its section title, which is provided in the `section_title` field. Related material includes related sentences; footnotes; and sentences from other parts of the document that refer to the table. The list is represented as an array. Each object in the array consists of the following elements:
+      - `text`: The text contents of a related material from the input document, without HTML markup.
+      - `location`: The location of the related material in the input document as defined by its `begin` and `end` indexes.
   - `document_structure`: An object that describes the structure of the input document.
     - `section_titles`: An array that contains one object per section or subsection that is detected in the input document. Sections and subsections are not nested. Instead, they are flattened out and can be placed back in order by using the `begin` and `end` values of the element and the `level` value of the section.
       - `text`: A string that lists the section title, if detected.
