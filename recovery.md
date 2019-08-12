@@ -49,7 +49,7 @@ You are responsible for understanding your configuration, customization, and usa
 
 Disaster recovery can become an issue if an {{site.data.keyword.cloud_notm}} location experiences a significant failure that includes the potential loss of data. Because MZR is not available across locations, you must wait for IBM to bring a location back online if it becomes unavailable. If underlying data services are compromised by the failure, you must also wait for IBM to restore those data services.
 
-If a catastrophic failure occurs, IBM might not be able to recover data from database backups. In this case, you need to restore your data to return your service instance to its most recent state. You can restore the data to the same or to a different location.
+If a catastrophic failure occurs, IBM might not be able to recover data from database [backups](https://hosting.review/web-hosting-glossary/#14). In this case, you need to restore your data to return your service instance to its most recent state. You can restore the data to the same or to a different location.
 
 Your disaster recovery plan includes knowing, preserving, and being prepared to restore all data that is maintained on {{site.data.keyword.cloud_notm}}. 
 
