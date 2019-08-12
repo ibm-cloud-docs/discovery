@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-12"
 
 subcollection: discovery
 
@@ -224,6 +224,8 @@ This beta feature can be used crawl public websites that don’t require a passw
 -  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
 -  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/services/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
 -  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). You can also specify URL paths to exclude from the crawl. These paths should be separated by commas. For example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/` in the **Exclude URLs where the path includes** field.
+
+When you specify a URL to crawl, the final `/` determines the subtree to crawl. For example, if you enter the URL `https://www.mycompany.com/banking/faqs.html`, all URLs that begin with `https://www.mycompany.com/banking/` will be crawled, while  `https://www.mycompany.com/banking` will crawl all URLs that begin with `https://www.mycompany.com/`. If you would like to restrict the crawl to a specific URL, such as `https://www.mycompany.com/banking/faqs.html`, enter that URL in the `URL group to sync` field, then set the **Maximum hops** to `0`.
 
 For this beta release, the number of web pages crawled will be limited, so the web crawler may not crawl all the websites specified and reach the maximum number of hops.
 {: note}
