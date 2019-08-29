@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-29"
 
 subcollection: discovery
 
@@ -60,7 +60,7 @@ One Watson Knowledge Studio model included. Additional models: Not available<br>
 
 For information about upgrading from Lite to Advanced, see [Upgrading your service](/docs/services/discovery?topic=discovery-upgrading-your-plan#service)
 
-For query performance information, see [Query performance](/docs/services/discovery?topic=discovery-qp#qp). Queries are limited based on plan. Estimated Average Query rates per **Lite** and **Standard** plans: 1 QPS for reranked queries with two top-level text fields.
+For query performance information, see [Query performance](/docs/services/discovery?topic=discovery-qp#qp). Queries are limited based on plan. Estimated Average Query rates per **Lite** plan: 1 QPS for reranked queries with two top-level text fields.
 
 ## Advanced
 {: #advanced}
