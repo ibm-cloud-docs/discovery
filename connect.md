@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-29"
 
 subcollection: discovery
 
@@ -53,7 +53,7 @@ Connecting to a data source can be performed using the {{site.data.keyword.disco
     -  [Salesforce](/docs/services/discovery?topic=discovery-sources#connectsf)
     -  [Microsoft SharePoint Online](/docs/services/discovery?topic=discovery-sources#connectsp)
     -  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery?topic=discovery-sources#connectsp_op)
-    -  [Web Crawl](/docs/services/discovery?topic=discovery-sources#connectwebcrawl) (beta)
+    -  [Web Crawl](/docs/services/discovery?topic=discovery-sources#connectwebcrawl)
     -  [IBM Cloud Object Storage](/docs/services/discovery?topic=discovery-sources#connectcos)
 3.  Read the source configuration instructions based on your configuration choice:
     -  [Using the tooling](/docs/services/discovery?topic=discovery-sources#source_tooling)
@@ -219,7 +219,7 @@ Other items to note when crawling Microsoft SharePoint Online:
 {: #connectwebcrawl}
 
 <!-- Learn more topic WDS -->
-This beta feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
+This feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
 
 -  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
 -  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/services/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
@@ -227,7 +227,7 @@ This beta feature can be used crawl public websites that don’t require a passw
 
 When you specify a URL to crawl, the final `/` determines the subtree to crawl. For example, if you enter the URL `https://www.mycompany.com/banking/faqs.html`, all URLs that begin with `https://www.mycompany.com/banking/` will be crawled, while  `https://www.mycompany.com/banking` will crawl all URLs that begin with `https://www.mycompany.com/`. If you would like to restrict the crawl to a specific URL, such as `https://www.mycompany.com/banking/faqs.html`, enter that URL in the `URL group to sync` field, then set the **Maximum hops** to `0`.
 
-For this beta release, the number of web pages crawled will be limited, so the web crawler may not crawl all the websites specified and reach the maximum number of hops.
+The number of web pages crawled is limited to 250,000, so the web crawler may not crawl all the websites specified and reach the maximum number of hops.
 {: note}
 
 If you require different **Crawl settings** for other URLs, click **Add URL group** and create a new group. You can create as many URL groups as you need.

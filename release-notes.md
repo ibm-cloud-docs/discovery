@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-06-04"
+lastupdated: "2019-08-29"
 
 subcollection: discovery
 
@@ -54,6 +54,12 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 29 August 2019
+{: #29aug19}
+	
+Updated to general availability:
+- The Web crawl connector has moved from beta status to GA status. See [Web crawl](/docs/services/discovery?topic=discovery-sources#connectwebcrawl) for more information about this connector.
 
 ## 4 June 2019
 {: #4jun19}
