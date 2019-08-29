@@ -42,7 +42,7 @@ You can connect to a data source and pull documents on a schedule (if desired) i
 -  [Salesforce](/docs/services/discovery?topic=discovery-sources#connectsf)
 -  [Microsoft SharePoint Online](/docs/services/discovery?topic=discovery-sources#connectsp)
 -  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery?topic=discovery-sources#connectsp_op)
--  [Web Crawl](/docs/services/discovery?topic=discovery-sources#connectwebcrawl) (beta)
+-  [Web Crawl](/docs/services/discovery?topic=discovery-sources#connectwebcrawl)
 -  [IBM Cloud Object Storage](/docs/services/discovery?topic=discovery-sources#connectcos)
 
 Connecting to a data source can be performed using the {{site.data.keyword.discoveryshort}} tooling, or the API. The {{site.data.keyword.discoveryshort}} tooling provides a simplified method of connection that requires less understanding of the source systems, and the API provides a more granular and highly configurable interface which required a greater understanding of the source that you are connecting to. The following process overview let you know which sections of this document to read next:
