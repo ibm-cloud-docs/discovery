@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-09-03"
 
 subcollection: discovery
 
@@ -54,6 +54,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 3 September 2019
+{: #3sept19}
+
+{{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) will no longer be accessible as of **September 30, 2019**. This will not affect any data already in {{site.data.keyword.discoveryshort}} collections, nor affect any other existing queries or operations.
 
 ## 29 August 2019
 {: #29aug19}
