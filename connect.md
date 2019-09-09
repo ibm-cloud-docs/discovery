@@ -92,6 +92,9 @@ You'll need to create a new Box custom application to connect to {{site.data.key
 -  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery?topic=discovery-sources#applevelbox) is recommended. You will need an administrator to approve your application.
 -  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/services/discovery?topic=discovery-sources#entlevelbox) is recommended.
 
+`Refresh` is only supported with Enterprise level access.
+{: note}
+
 The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/){: new_window} for updates.
 {: note}
 
@@ -153,9 +156,6 @@ The next few steps will require assistance from the Administrator of your organi
     - `Generate User Access Tokens` 
 1.  Click the **Save Changes** button.
 
-`Refresh` is only supported with Enterprise level access.
-{: note}
-
 If you change your Box App settings, `Reauthorize` your App so the changes take effect.
 {: tip}
 
@@ -205,15 +205,16 @@ The following credentials are required to connect to a SharePoint Online source,
 
 -  `organization_url` - The `organization_url` of the source that these credentials connect to.
 -  `site_collection_path` - The `site_collection_path` of the source that these credentials connect to.
--  `username` - The `client_id` of the source that these credentials connect to. This user must have access to all sites and lists that need to be crawled and indexed.
+-  `username` - The `username` to connect to the SharePoint Online SiteCollection to crawl. This user must have access to all sites and lists that need to be crawled and indexed.
 -  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
 
 When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
 
 Other items to note when crawling Microsoft SharePoint Online:
 
--  To crawl SharePoint, the `Crawl User` account must have `SiteCollection Administrator` permissions.
+-  To crawl SharePoint, the `username` account does not need `SiteCollection Administrator` permissions.
 -  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
+-  It is recommended that you use the default Azure Active Directory (Azure AD) authentication. The username for the default Azure AD authentication is in the form of `<username>@<domain>.onmicrosoft.com`. If you do not have an Azure AD username, contact your SharePoint site administrator. 
 
 ## Web Crawl
 {: #connectwebcrawl}
@@ -242,7 +243,7 @@ Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premis
 
 The following credentials are required to connect to a SharePoint 2016 data source, they should be obtained from your SharePoint administrator:
 
--  `username` - The `client_id` of the source that these credentials connect to. This user must have access to all sites and lists that need to be crawled and indexed.
+-  `username` - The `username` to connect to the SharePoint 2016 web application to crawl. This user must have access to all sites and lists that need to be crawled and indexed.
 -  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
 -  `web_application_url` - The SharePoint 2016 `web_application_url`; for example, `https://sharepointwebapp.com:8443`. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
 -  `domain` - The `domain` of the SharePoint 2016 account.
@@ -251,7 +252,7 @@ When identifying the credentials, it might be useful to consult the [Microsoft S
 
 Other items to note when crawling Microsoft SharePoint 2016:
 
--  To crawl SharePoint 2016, the `Crawl User` account must have `SiteCollection Administrator` permissions.
+-  To crawl SharePoint 2016, the `username` account must have `SiteCollection Administrator` permissions.
 -  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
 
 ## IBM Cloud Object Storage
