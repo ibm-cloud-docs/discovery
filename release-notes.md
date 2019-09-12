@@ -58,7 +58,7 @@ The following new features and changes to the service are available.
 ## 3 September 2019
 {: #3sept19}
 
-{{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) will no longer be accessible as of **September 30, 2019**. This will not affect any data already in {{site.data.keyword.discoveryshort}} collections, nor affect any other existing queries or operations.
+{{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) will no longer be accessible, as of **30 September 2019**. Data already in {{site.data.keyword.discoveryshort}} collections will not be affected, nor will any other existing queries or operations be affected. You can find the documentation for Knowledge Graph in the [{{site.data.keyword.discoveryshort}} archives](/docs/services/discovery?topic=discovery-discovery-archives#kg) until 30 September 2019.
 
 ## 29 August 2019
 {: #29aug19}
