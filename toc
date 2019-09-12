@@ -15,7 +15,6 @@ Discovery
         schema.md
         parsing.md
 
-    building-kg.md
     sample-apps.md
     [Videos](https://ibm.biz/wds_videos)
     {: .navgroup-end}
