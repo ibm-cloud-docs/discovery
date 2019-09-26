@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-09-30"
 
 subcollection: discovery
 
@@ -100,7 +100,7 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 
     1.  Update the file as follows, substituting the unique ID of the {{site.data.keyword.knowledgestudioshort}} model described in "Before you begin" for `{watson_knowledge_studio_model_ID}`.
 
-        It is possible to apply more than one custom model to identical fields using the API. See the example in [Integrating multiple custom models](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-multiplecustom). If you are also incorporating [Watson {{site.data.keyword.discoveryshort}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg), you must use the same model for enriching both entities and relationships in a single enrichment object.
+        It is possible to apply more than one custom model to identical fields using the API. See the example in [Integrating multiple custom models](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-multiplecustom).
         {: note}
 
         ```json
@@ -154,7 +154,7 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 ### Integrating multiple custom models 
 {: #integrate-multiplecustom}
 
-You can apply more than one custom model to identical fields using the API. Follow the steps in [Integrating your custom model with the API](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI) and use the example here as a guide. If you are also incorporating [Watson {{site.data.keyword.discoveryshort}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg), you must use the same model for enriching both entities and relationships in a single enrichment object. See the example for `"destination_field": "enriched_text"` as a guide.
+You can apply more than one custom model to identical fields using the API. Follow the steps in [Integrating your custom model with the API](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI) and use the example here as a guide. 
 
 You cannot apply multiple custom models using the {{site.data.keyword.discoveryshort}} tooling. Only the entity and relations enrichments may be customized.
 

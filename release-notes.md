@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-09-03"
+lastupdated: "2019-09-30"
 
 subcollection: discovery
 
@@ -54,6 +54,13 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 30 September 2019
+{: #30sept19}
+
+As announced [3 September 2019](/docs/services/discovery?topic=discovery-release-notes#3sept19), the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) are no longer accessible.
+
+As announced [4 June 2019](/docs/services/discovery?topic=discovery-release-notes#4jun19), the Preview API has been deprecated and is no longer be available.
 
 ## 3 September 2019
 {: #3sept19}
@@ -403,6 +410,8 @@ In your application, check the access token's expiration time before you use it 
 
 - Knowledge Graph: [Evidence](/docs/services/discovery?topic=discovery-kg#kg_evidence) and [Canonicalization and filtering](/docs/services/discovery?topic=discovery-kg#kg_canonicalization) are now available in all collections. In any collections created before `03-05-2018`, you need to reingest your documents to use these features. Previously, you needed to create a new collection and reingest your documents.
 
+Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/services/discovery?topic=discovery-release-notes#3sept19) for more information.
+
 ## 11 April 2018
 {: #11apr18}
 
@@ -434,6 +443,8 @@ Known issue:
   - [Entity similarity](/docs/services/discovery?topic=discovery-kg#kg_similarity)
   - [Evidence](/docs/services/discovery?topic=discovery-kg#kg_evidence)
   - [Canonicalization and filtering](/docs/services/discovery?topic=discovery-kg#kg_canonicalization)
+
+Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/services/discovery?topic=discovery-release-notes#3sept19) for more information.
 
 ## 7 March 2018
 {: #7mar18}
@@ -509,8 +520,10 @@ Known issue:
 ## 30 November 2017
 {: #30nov17}
 
-- Released the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph, which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. This beta feature is available to **Advanced** plan users only. It is not available on **Dedicated** environments. [Resolved](/docs/services/discovery?topic=discovery-release-notes#8mar18) See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg) for more information.  A statement explaining beta features can be found [here](/docs/services/discovery?topic=discovery-release-notes#beta-features).
-  - Known issue in {{site.data.keyword.discoveryfull}} Knowledge Graph: All entity type names and relation type names are converted to uppercase during ingestion. For example, the entity "GeoPoliticalEntity" is converted to "GEOPOLITICALENTITY," and the relation "partOf" is converted to "PARTOF." [Resolved](/docs/services/discovery?topic=discovery-release-notes#5mar18)
+- Released the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph, which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. 
+
+Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/services/discovery?topic=discovery-release-notes#3sept19) for more information.
+  
 - Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} [Resolved](/docs/services/discovery?topic=discovery-release-notes#26jan18). {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
 - Query results return a `score` value, which indicates the relative relevancy between query results. Starting 30 November 2017, the way that `score` is calculated changed. The `score` value should only be used to rank documents in a single search, not across searches or sessions. If you have trained a collection, a `score` value is returned in the results of a natural language query. Since the `score` indicates the relative relevancy between query results, it should not be used as a threshold. Instead, use the `confidence`, which indicates the relevance of the result as compared to the trained model, to set thresholds. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for more information on setting thresholds.
 - Beginning with this release, Passage retrieval detects sentence boundaries - it attempts to return passages that start at the beginning of a sentence and stop at the end. Previously, many passages would begin or end somewhere mid-sentence. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information about Passage retrieval.

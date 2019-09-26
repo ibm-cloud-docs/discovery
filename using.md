@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-07-17"
+lastupdated: "2019-09-30"
 
 subcollection: discovery
 
@@ -50,8 +50,6 @@ All private collections will return a `confidence` score in the query results in
 {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
 You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available in the API-only, and will increase the character limit of a query to 10,000 characters. See [Long collection queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-collection-queries){: new_window} and [Long environment queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-environment-queries){: new_window} for details.
-
-{{site.data.keyword.discoveryfull}} Knowledge Graph is a beta feature which provides new end-points for querying entities and relations across documents. This includes context-based searches and relevance ranking. See [{{site.data.keyword.discoveryfull}} Knowledge Graph](/docs/services/discovery?topic=discovery-kg#kg) for more information.
 
 For more information about writing queries, see:
 - [Getting started with querying tutorial](/docs/services/discovery?topic=discovery-getting-started-with-querying#getting-started-with-querying)
