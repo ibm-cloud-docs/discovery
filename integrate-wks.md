@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-01"
 
 subcollection: discovery
 
@@ -43,7 +43,7 @@ You can use the service API or the {{site.data.keyword.discoveryshort}} tooling 
 ## Before you begin
 {: #wks-beforeintegration}
 
-Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with {{site.data.keyword.discoveryshort}}, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/knowledge-studio?topic=knowledge-studio-wks_tutintro#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with {{site.data.keyword.discoveryshort}}.
+Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with {{site.data.keyword.discoveryshort}}, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson-knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with {{site.data.keyword.discoveryshort}}.
 
 ## Integrating your custom model with the API
 {: #integrate-customAPI}
