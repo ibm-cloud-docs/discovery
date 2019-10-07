@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-07"
 
 subcollection: discovery
 
@@ -50,7 +50,9 @@ How does {{site.data.keyword.discoveryshort}} do it? By using data analysis comb
 - Apply additional enrichments such as concepts, relations, and sentiment through {{site.data.keyword.nlushort}} (NLU).
 - Simplify development while still providing direct access to APIs.
 
-You can also use Smart Document Understanding (SDU) to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. See [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) for more information.
+You can use Smart Document Understanding (SDU) to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. See [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) for more information.
+
+If you create a chatbot in {{site.data.keyword.conversationfull}}, you can route complex customer inquiries to {{site.data.keyword.discoveryshort}} using a search skill. When a customer asks a question that the dialog is not designed to answer, your assistant can search for relevant information from {{site.data.keyword.discoveryshort}}, extract the information, and return it as the response. See [Creating a search skill](https://cloud.ibm.com/docs/services/assistant?topic=assistant-skill-search-add){: external} for details. (This feature is available only to {{site.data.keyword.conversationshort}} Plus or Premium plan users.)
 
 For information about language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/services/discovery?topic=discovery-language-support#language-support).
 
