@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+lastupdated: "2019-10-06"
 
 subcollection: discovery
 
@@ -95,7 +95,7 @@ You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Objec
 
 See [Best practices for annotating documents and tables](/docs/services/discovery?topic=discovery-sdu#bestpractices) before you begin annotating.
 
-1. A default set of fields will appear to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`. If you would like to create one or more new custom field labels, click **Create new**. You are limited to the following number of custom labels: Lite plans - `0`, Advanced plans - `5`, Premium plans - `20`.
+1. A default set of fields will appear to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`. If you would like to create one or more new custom field labels, click **Create new**. You are limited to the following number of custom labels: Lite plans - `0`, Advanced plans - `10`, Premium plans - `100`.
 1. Click on a field label on the right to activate it.
 1. Click on the content representing that field in the SDU editor. It will highlight. 
    - Alternately, you can select a field label on the right, and drag it to the content in the SDU editor. 
