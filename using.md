@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-07"
 
 subcollection: discovery
 
@@ -370,7 +370,7 @@ Stopword and query expansion lists cannot contain overlapping terms. If a [stopw
 ## Creating custom tokenization dictionaries
 {: #tokenization}
 
-Tokenization breaks text into units called tokens. A standard tokenization dictionary is applied to your collections, but you can improve the search accuracy for your domain or language by uploading a custom tokenization dictionary. Your custom dictionary will override the standard dictionary. You can upload your dictionary using the {{site.data.keyword.discoveryshort}} API. 
+Tokenization breaks text into units called tokens. A standard tokenization dictionary is applied to your collections, but you can improve the search accuracy for your domain or language by uploading a custom tokenization dictionary. Your custom dictionary will append the standard dictionary. You can upload your dictionary using the {{site.data.keyword.discoveryshort}} API. 
 
 See the [tokenization API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-tokenization-dictionary){: new_window} for the API commands to upload and delete tokenization files. 
 
