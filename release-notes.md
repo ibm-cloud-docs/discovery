@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-11"
 
 subcollection: discovery
 
@@ -54,6 +54,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 11 October 2019
+{: #11oct19}
+
+You can now create {{site.data.keyword.discoveryshort}} instances in the Seoul data center. Like all locations, the {{site.data.keyword.cloud}} Seoul location (seo) uses token-based Identity and Access Management (IAM) authentication. The following features are not available in the Seoul data center: {{site.data.keyword.discoverynewsfull}}, connectors, custom stopwords, and Japanese tokenization dictionaries.
 
 ## 30 September 2019
 {: #30sept19}

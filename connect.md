@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-10-09"
 
 subcollection: discovery
 
@@ -261,7 +261,7 @@ Other items to note when crawling Microsoft SharePoint 2016:
 <!-- Learn more topic WDS -->
 When connecting to an IBM Cloud Object Storage source, the following credentials are required. They should be obtained from your IBM Cloud Object Storage administrator:
 
--  `endpoint` - The `endpoint` used to interact with IBM Cloud Object Storage data.
+-  `endpoint` - The `endpoint` name used to interact with IBM Cloud Object Storage data.
 -  `access_key_id` - `access_key_id` obtained when the IBM Cloud Object Storage instance was created.
 -  `secret_access_key` - `secret_access_key` to sign requests obtained when the IBM Cloud Object storage instance was created.
 
