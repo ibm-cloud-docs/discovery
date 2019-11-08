@@ -54,7 +54,7 @@ Attributes:
 - Free NLU enrichments\*\*
 
 Additional options:<br> [Custom Models](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-your-custom-model):<br>
-One Watson Knowledge Studio model included. Additional models: Not available<br>[Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification)\*\*\*:
+One {{site.data.keyword.knowledgestudiofull}} model included. Additional models: Not available<br>[Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification)\*\*\*:
 500 pages included per month. Additional pages: Not available <br>[News Queries](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news):
 200 News queries included per month. Additional queries:  Not available<br>[Query Expansions](/docs/services/discovery?topic=discovery-query-concepts#query-expansion):
 500 query expansions with 1,000 total terms. Additional expansions: Not available
@@ -101,7 +101,7 @@ Attributes of all other Advanced plans:
 - Free NLU enrichments\*\*
 
 Additional options:<br> [Custom Models](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-your-custom-model):<br>
-One Watson Knowledge Studio model included. Additional models: $800 each<br>[Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification)\*\*\*:
+One {{site.data.keyword.knowledgestudioshort}} model included. Additional models: $800 each<br>[Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification)\*\*\*:
 500 pages included per month. Additional pages: $0.40 each<br>[News Queries](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news):
 200 News queries included per month
 10,000 additional queries (per month): $0.10 per query<br>
@@ -114,7 +114,7 @@ Over 100,000 queries (per month): $0.03 per query<br>
 <br>
 \* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://{DomainName}/apidocs/discovery#get-environment-info) or [Collections](https://{DomainName}/apidocs/discovery#get-collection-details) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmentation](/docs/services/discovery?topic=discovery-configservice#doc-segmentation) on your documents, each segment counts as a separate document.
 
-\*\* The [Natural Language Understanding (NLU) enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched.
+\*\* The [{{site.data.keyword.nlufull}} enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched.
 
 \*\*\* Element Classification is an enrichment that parses through governing documents to convert, identify, and classify elements of importance. It uses Natural Language Processing to extract the following elements from PDF documents: party (who it refers to), nature (type of element), and category (specific class).
 
