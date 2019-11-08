@@ -28,6 +28,7 @@ subcollection: discovery
 {:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
+{:external: target="_blank" .external}
 
 # Discovery pricing plans
 {: #discovery-pricing-plans}
@@ -43,7 +44,7 @@ subcollection: discovery
 
 Size | Number of Docs\* | Price
 ------ | ------ | ------
-N/A | 1,000 per month | Free
+N/A | 1,000 docs total | Free
 
 The Lite plan is a starter plan and should not be used for production. When you upgrade to a paid plan, you can keep all ingested documents.  Lite plan instances are deleted after 30 days of inactivity.
 
@@ -130,11 +131,11 @@ For more information, or to purchase a Premium plan, contact [Sales](https://ibm
 ## Additional information
 {: #pricingadd}
 
-For information about calculating costs, see the [IBM Cloud Pricing Calculator ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/estimator/review){: new_window}.
+For information about calculating costs, see the [IBM Cloud Pricing Calculator](https://cloud.ibm.com/estimator/review){: external}.
 
-For information about IBM Cloud security, see [Cloud Services data security and privacy ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument){: new_window}.
+For information about IBM Cloud security, see [Cloud Services data security and privacy](https://www.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument){: external}.
 
-For additional pricing information, see the [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window}.
+For additional pricing information, see the [{{site.data.keyword.discoveryshort}} catalog](https://cloud.ibm.com/catalog/services/discovery){: external}.
 
 ## Notes for Customers with Existing Plans
 {: #pricingnotes}
@@ -143,4 +144,4 @@ For additional pricing information, see the [{{site.data.keyword.discoveryshort}
 - The Lite plan has been reduced from 2,000 documents/400 {{site.data.keyword.discoverynewsshort}} queries per month to 1,000 documents/200 {{site.data.keyword.discoverynewsshort}} queries per month.  If you have already exceeded the new Lite plan limits, you can't add any more documents. However, you can continue using it or upgrade to an Advanced or Premium plan.
 - The Standard plan has been retired and will no longer be available to new users. If you are currently on an existing Standard plan, you can continue using it or upgrade to an Advanced or Premium plan.
 - The Advanced and Premium plans are now based on document tiers, they are no longer based on document hours. Your monthly bill will not fluctuate based on the number of documents unless you switch between tiers.
-- Premium customers, contact [Sales ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://ibm.biz/contact-wdc-premium){: new_window} for details on billing changes.
+- Premium customers, contact [Sales](https://ibm.biz/contact-wdc-premium){: external} for details on billing changes.
