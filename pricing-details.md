@@ -9,7 +9,6 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
