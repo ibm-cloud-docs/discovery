@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-10-07"
+  years: 2015, 2019
+lastupdated: "2019-12-03"
 
 subcollection: discovery
 
@@ -40,20 +40,27 @@ subcollection: discovery
 
 When you create a query or filter, {{site.data.keyword.discoveryshort}} looks at each result and tries to match the paths you have defined. When matches occur, they are added to the results set. When creating a query, you can be as vague or as specific as you want. The more specific the query, the more targeted the results.
 
-You also have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. By default, up to 10 passages of around 400 characters each will be returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information on how passages are identified.
-
   You can write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling or the API.
   {: tip}
 
-All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
+## Default query behavior
+{: #querydef}
 
-{{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will receive results for both for `aqui` and <code>aqu&iacute;</code>.
+- Stemming is applied to queries by default, which means that results should match the root form of words. In contrast, stemming does not allow for matching on any arbitrary substring of a term. For example, words such as "connections," "connective," and "connected" are reduced to "connect." But words such as "boatbuilding," "boathouse," and "boatload," are not reduced to "boat."
+- Tokenization occurs using a set of standard separators per language including whitespace, hyphen, underscore, and punctuation marks for English. See also, [Creating custom tokenization dictionaries](/docs/services/discovery?topic=discovery-query-concepts#tokenization).
+- All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
+- {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
-You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available in the API-only, and will increase the character limit of a query to 10,000 characters. See [Long collection queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-collection-queries){: new_window} and [Long environment queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-environment-queries){: new_window} for details.
+## Options for querying
+{: #queryopt}
 
-For more information about writing queries, see:
-- [Getting started with querying tutorial](/docs/services/discovery?topic=discovery-getting-started-with-querying#getting-started-with-querying)
-- [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
+- You have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. By default, up to 10 passages of around 400 characters each will be returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information on how passages are identified.
+- You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available in the API-only, and will increase the character limit of a query to 10,000 characters. See [Long collection queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-collection-queries){: new_window} and [Long environment queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-environment-queries){: new_window} for details.
+
+  For more information about writing queries, see:
+
+  - [Getting started with querying tutorial](/docs/services/discovery?topic=discovery-getting-started-with-querying#getting-started-with-querying)
+  - [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
 
 ## The Discovery data schema
 {: #discovery-schema}
