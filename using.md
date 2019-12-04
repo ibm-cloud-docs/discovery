@@ -9,7 +9,6 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -28,6 +27,7 @@ subcollection: discovery
 {:ruby: .ph data-hd-programlang='ruby'}
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
+{:external: target="_blank" .external}
 
 # Query concepts
 {: #query-concepts}
@@ -46,16 +46,16 @@ When you create a query or filter, {{site.data.keyword.discoveryshort}} looks at
 ## Default query behavior
 {: #querydef}
 
-- Stemming is applied to queries by default, which means that results should match the root form of words. In contrast, stemming does not allow for matching on any arbitrary substring of a term. For example, words such as "connections," "connective," and "connected" are reduced to "connect." But words such as "boatbuilding," "boathouse," and "boatload," are not reduced to "boat."
-- Tokenization occurs using a set of standard separators per language including whitespace, hyphen, underscore, and punctuation marks for English. See also, [Creating custom tokenization dictionaries](/docs/services/discovery?topic=discovery-query-concepts#tokenization).
-- All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
-- {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will receive results for both for `aqui` and <code>aqu&iacute;</code>.
+- Stemming is applied to queries by default, which means that results match the root form of words. In contrast, stemming does not allow for matching on any arbitrary substring of a term. For example, words such as "connections," "connective," and "connected" are reduced to "connect." But words such as "boatbuilding," "boathouse," and "boatload," are not reduced to "boat."
+- Tokenization occurs using a set of standard separators per language including whitespace, hyphen, underscore, and punctuation marks for English. For more information, see [Creating custom tokenization dictionaries](/docs/services/discovery?topic=discovery-query-concepts#tokenization).
+- All private collections return a `confidence` score in the query results in most cases. For more information, see [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
+- {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you receive results for both `aqui` and <code>aqu&iacute;</code>.
 
 ## Options for querying
 {: #queryopt}
 
-- You have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. By default, up to 10 passages of around 400 characters each will be returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information on how passages are identified.
-- You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available in the API-only, and will increase the character limit of a query to 10,000 characters. See [Long collection queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-collection-queries){: new_window} and [Long environment queries ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-environment-queries){: new_window} for details.
+- You have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. By default, up to 10 passages of around 400 characters each are returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. For more information about how passages are identified, see [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages).
+- You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available only in the API and will increase the character limit of a query to 10,000 characters. For more information, see [Long collection queries](https://{DomainName}/apidocs/discovery#long-collection-queries){: external} and [Long environment queries](https://{DomainName}/apidocs/discovery#long-environment-queries){: external}.
 
   For more information about writing queries, see:
 
@@ -172,13 +172,13 @@ Additionally, any subsequent operation will further restrict the result set that
 
 You can query this collection using natural language queries, for example "IBM Watson partnerships", or the {{site.data.keyword.discoveryshort}} Query Language. To learn more about natural language queries, see the [Natural language query](/docs/services/discovery?topic=discovery-query-parameters#nlq).
 
-You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
+You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
 
 The English, Korean, German, Spanish, and Japanese language {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} collections are available from both the {{site.data.keyword.discoveryshort}} tooling and the API.
 
 The default language of {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} in the tooling is English. To switch the language, you must first click the ![Manage Data](/images/icon_yourData.png) icon, then choose the appropriate language from the drop-down.
 
-For information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects. The `collection_id` of the Korean collection is `news-ko`, the Spanish `collection_id` is `news-es`, the German `collection_id` is `news-de`, the Japanese `collection_id` is `news-ja`.
+For information about querying a collection via the API, see [API Reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects. The `collection_id` of the Korean collection is `news-ko`, the Spanish `collection_id` is `news-es`, the German `collection_id` is `news-de`, the Japanese `collection_id` is `news-ja`.
 
 {{site.data.keyword.discoverynewsfull}} queries display the first 50 words of each article in the `text` JSON field.
 
@@ -204,15 +204,15 @@ You can query multiple collections in the same environment by using the `environ
 -  Individual collection relevancy training does not affect ranking of results when querying multiple collections. To rerank results returned when querying multiple collections implement [Continuous Relevancy Training](/docs/services/discovery?topic=discovery-crt#crt).
 -  Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
 
-See the [multiple collection query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-documents-in-multiple-collections){: new_window} for more information.
+See the [multiple collection query API reference](https://{DomainName}/apidocs/discovery#query-documents-in-multiple-collections){: external} for more information.
 
 You can view notices across multiple collections in the same environment by using the `environments/{environment_id}/notices` API method.
 -  The `collection_ids` parameter must be specified when using this method. `collection_ids` is a comma-separated list of collections in the environment to query.
 -  `passages` are supported when querying multiple collections.
 
-See the [multiple collection notices API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#get-collection-details){: new_window} for more information.
+See the [multiple collection notices API reference](https://{DomainName}/apidocs/discovery#get-collection-details){: external} for more information.
 
-You can view the fields available across collections in the same environment by using the `environments/{environment_id}/fields` API method. See the [multiple collection field query API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list-fields-across-collections){: new_window} for more information.
+You can view the fields available across collections in the same environment by using the `environments/{environment_id}/fields` API method. See the [multiple collection field query API reference](https://{DomainName}/apidocs/discovery#list-fields-across-collections){: external} for more information.
 
 ## Query expansion
 {: #query-expansion}
@@ -316,7 +316,7 @@ Notes about query expansion:
 
 To upload or delete query expansion files using the {{site.data.keyword.discoveryshort}} tooling, open the **Search settings** screen and choose **Synonym**. To open **Search settings**, click the ![Manage Data](/images/icon_yourData.png) icon, open your collection, and choose the **Search settings** tab.
 
-See the [query expansion API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: new_window} for the API commands to upload and delete query expansion files.
+See the [query expansion API reference](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: external} for the API commands to upload and delete query expansion files.
 
 Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/services/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion will not work. For example, if `on` is included in your stopword list, and you specify in your query expansion list that `rotfl` should expand to `rolling on the floor laughing`, that expansion will not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_[language].txt`) in {{site.data.keyword.discoveryshort}}, so you should compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly. 
 {: important}
@@ -355,7 +355,7 @@ See [Language support](/docs/services/discovery?topic=discovery-language-support
 
 To upload or delete stopword files using the {{site.data.keyword.discoveryshort}} tooling, open the **Search settings** screen and choose **Stopwords**. To open **Search settings**, click the ![Manage Data](/images/icon_yourData.png) icon, open your collection, and choose the **Search settings** tab.
 
-See the [stopwords API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-stopword-list){: new_window} for the API commands to upload and delete custom stopword lists.
+See the [stopwords API reference](https://{DomainName}/apidocs/discovery#create-stopword-list){: external} for the API commands to upload and delete custom stopword lists.
 
 Notes about stopwords:
 
@@ -379,7 +379,7 @@ Stopword and query expansion lists cannot contain overlapping terms. If a [stopw
 
 Tokenization breaks text into units called tokens. A standard tokenization dictionary is applied to your collections, but you can improve the search accuracy for your domain or language by uploading a custom tokenization dictionary. Your custom dictionary will append the standard dictionary. You can upload your dictionary using the {{site.data.keyword.discoveryshort}} API. 
 
-See the [tokenization API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-tokenization-dictionary){: new_window} for the API commands to upload and delete tokenization files. 
+See the [tokenization API reference](https://{DomainName}/apidocs/discovery#create-tokenization-dictionary){: external} for the API commands to upload and delete tokenization files. 
 
 **Note:** This feature is currently only available for Japanese collections. 
 
@@ -462,4 +462,4 @@ Example query with `similar.fields` added:
 
 `curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
 
-See the [document similarity API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} and [query parameters](/docs/services/discovery?topic=discovery-query-parameters#similar) for more information.
+See the [document similarity API reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external} and [query parameters](/docs/services/discovery?topic=discovery-query-parameters#similar) for more information.
