@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-10-11"
+lastupdated: "2019-12-06"
 
 subcollection: discovery
 
@@ -54,6 +54,13 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 6 December 2019
+{: #6dec19}
+
+Known issue: 
+- If your Lite plan reaches the document limit of the environment, any running crawls will not progress any further. The Crawl status displayed will change to `not_configured`.
+
 
 ## 11 October 2019
 {: #11oct19}
