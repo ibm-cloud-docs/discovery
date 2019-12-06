@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018, 2019
-lastupdated: "2019-10-06"
+lastupdated: "2019-12-06"
 
 subcollection: discovery
 
@@ -71,7 +71,7 @@ If you have not yet created a {{site.data.keyword.discoveryshort}} instance and 
 1. Click **Configure data** on the upper right. 
 1. On the **Configure data** screen, there will be three tabs: **Identify fields**, **Manage fields**, and **Enrich fields**.
 
-   - **Identify fields** contains the SDU editor. This tab replaces both the **Convert** and **Normalize** tabs on the original {{site.data.keyword.discoveryshort}} screen. 
+   - **Identify fields** contains the SDU editor. 
    - **Manage fields** lists all indexed fields (all fields are indexed by default). Switch off any fields you do not want to index. For example, your PDFs may contain a running header or footer that does not contain useful information, so you can exclude those fields from the index. You can also split documents here, based on fields, see [Splitting documents](/docs/services/discovery?topic=discovery-sdu#splitting).
    - **Enrich fields** is identical to the **Enrich** tab on the original screen. For more information about enrichments, see [Adding enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments). The **Upload sample documents** option is not available with SDU collections.
 
@@ -91,11 +91,9 @@ You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Objec
 ## How to annotate a document
 {: #documents}
 
-**Note:** Tables are annotated in a separate step.
+See [Best practices for annotating documents](/docs/services/discovery?topic=discovery-sdu#bestpractices) before you begin annotating.
 
-See [Best practices for annotating documents and tables](/docs/services/discovery?topic=discovery-sdu#bestpractices) before you begin annotating.
-
-1. A default set of fields will appear to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`. If you would like to create one or more new custom field labels, click **Create new**. You are limited to the following number of custom labels: Lite plans - `0`, Advanced plans - `10`, Premium plans - `100`.
+1. A default set of fields will appear to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, `title`, `image`, and `table`. If you would like to create one or more new custom field labels, click **Create new**. You are limited to the following number of custom labels: Lite plans - `0`, Advanced plans - `10`, Premium plans - `100`.
 1. Click on a field label on the right to activate it.
 1. Click on the content representing that field in the SDU editor. It will highlight. 
    - Alternately, you can select a field label on the right, and drag it to the content in the SDU editor. 
@@ -115,40 +113,8 @@ subtitle | The secondary title of the document being annotated.
 table_of_contents | Use this tag on listings in the document table of contents.
 text | Use this tag for standard copy text, including paragraphs, definitions, or any set of words that is not a title, part of a table, answer, author, subtitle, header, or a footer. 
 title | The main title of the document being annotated.
-
-## How to annotate a table
-{: #tables}
-
-Table annotation is in beta release. A statement explaining beta features can be found [here](/docs/services/discovery?topic=discovery-release-notes#beta-features).
-{: important}
-
-See [Best practices for annotating documents and tables](/docs/services/discovery?topic=discovery-sdu#bestpractices) before you begin annotating.
-
-1. Select the `table` field from the right side of the SDU editor, then select the table in the document. 
-1. Hover over the table to display the **Annotate table** button. Click the button to open the table editor.
-1. First, outline the table:
-   - Select the `column` field.
-   - Click on a column in the table to activate it.
-   - Select the `row` field.
-   - Click on a row in the table to activate it.
-
-   The outline of the table will appear in the table preview on the left.
-
-   **Note:** As you annotate tables, Watson is learning and will start predicting annotations.
-1. Second, label the content within the table.
-1. When you have completed annotating the table, click **Done annotating**.
-1. Click **Apply changes to collection.** The **Upload your documents** screen opens. Re-upload the documents in your collection. After uploading is complete, you will be redirected to the **Overview** screen.
-
-Use this video as a guide ![table annotation video](images/SDU_table_demo.gif){: gif}
-
-Field | Definition  
------- | ------ 
-body | Any non-header cell containing information
-column header | The heading cell (if present) for each column in the table 
-multi-column header | Any heading cell that spans more than one column
-row title | The column header for the column of row headings (if present)
-row header | The row label (if present) for each row in the table
-multi-row header | Any row label that spans more than one row
+table |	Use this tag to annotate tables in your document.
+image |	Use this tag to annotate images and diagrams in your document.
 
 ## Splitting documents
 {: #splitting}
@@ -179,11 +145,8 @@ Exported models have the file extension of `.sdumodel`.
 
 An imported model is intended to be used without any further annotations. The model will be completely overwritten if you continue annotating after importing it. If you plan to import a model into a new collection, it is a good best practice to create a new collection that contains only 1 document, import the model, then upload the remainder of your documents.
 
-## Best practices for annotating documents and tables
+## Best practices for annotating documents
 {: #bestpractices}
-
-Table annotation is in beta release. A statement explaining beta features can be found [here](/docs/services/discovery?topic=discovery-release-notes#beta-features).
-{: important}
 
 - Follow all guidelines and use consistent labeling on all documents
 - Do not label whitespace
@@ -192,9 +155,8 @@ Table annotation is in beta release. A statement explaining beta features can be
 - When labeling a document, work from the first page to the last.
 - If you incorrectly label an item, choose another label for the item to overwrite the first.
 - Pages can be submitted at any time. Ensure that all appropriate labeling is complete before submitting.
-- Documents and tables that appear to have text overlaying other text are considered “double overlaid” and cannot be annotated. Report these documents to your administrator.
-- Documents and tables that contain multiple columns of text on a single page cannot be annotated. Report these documents to your administrator.
+- Documents that appear to have text overlaying other text are considered “double overlaid” and cannot be annotated. Report these documents to your administrator.
+- Documents that contain multiple columns of text on a single page cannot be annotated. Report these documents to your administrator.
 - Footnotes should be labeled only when they appear at the bottom of the page and are referenced in the main body of text in the document.
 - Notes appearing within sections or lists (for example, explicitly called out as “Notes”) should be labeled as `text`.
-- If you are unsure that the table has been labeled correctly and the preview pane has become unresponsive, the page should be reloaded in your browser and the table re-labeled in order to ensure correctness.
-
+- When annotating a table, make sure to select the entire table before applying the `table` label.
