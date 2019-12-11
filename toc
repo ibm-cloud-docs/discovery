@@ -53,6 +53,8 @@ Discovery
     /watson/watson-migrate
     recovery.md
     upgrading.md
+    /watson/watson-keyservice
+    /watson/watson-public-private-endpoints
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
