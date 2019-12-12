@@ -73,9 +73,11 @@ The following new features and changes to the service are available.
     - For more information about IAM, see [Authenticating to Watson services](/docs/services/watson?topic=watson-iam).
 - **New network and data security features**
     - **Support for data encryption with customer-managed keys**
-        - Users of new premium and dedicated instances can integrate {{site.data.keyword.keymanagementservicefull}} with {{site.data.keyword.discoveryshort}} to encrypt their data and manage encryption keys. For more information, see [Protecting sensitive information in your Watson service](/docs/watson?topic=watson-keyservice).
+    
+      Users of new premium and dedicated instances can integrate {{site.data.keyword.keymanagementservicefull}} with {{site.data.keyword.discoveryshort}} to encrypt their data and manage encryption keys. For more information, see [Protecting sensitive information in your Watson service](/docs/services/discovery?topic=watson-keyservice).
     - **Support for private network endpoints**
-        - Users of Premium plans can create private network endpoints to connect to {{site.data.keyword.discoveryshort}} over a private network. Connections to private network endpoints do not require public internet access. For more information, see [Public and private network endpoints](/docs/watson?topic=watson-public-private-endpoints).
+    
+      Users of Premium plans can create private network endpoints to connect to {{site.data.keyword.discoveryshort}} over a private network. Connections to private network endpoints do not require public internet access. For more information, see [Public and private network endpoints](/docs/services/discovery?topic=watson-public-private-endpoints).
 
 ## 6 December 2019
 {: #6dec19}
