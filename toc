@@ -59,6 +59,7 @@ Discovery
 
     {: .navgroup id="reference"}
     [API reference](https://cloud.ibm.com/apidocs/discovery)
+    at-events.md
 
     {: topicgroup}
     Whitepapers
