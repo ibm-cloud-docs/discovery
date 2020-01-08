@@ -59,7 +59,7 @@ Connecting to a data source can be performed using the {{site.data.keyword.disco
     -  [Using the tooling](/docs/services/discovery?topic=discovery-sources#source_tooling)
     -  [Using the API](/docs/services/discovery?topic=discovery-sources#source_api)
 
-If you select an on-premise data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery?topic=discovery-sources#gateway) for more information.
+If you select an on-premises data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premises data](/docs/services/discovery?topic=discovery-sources#gateway) for more information.
 
 ## General Source Requirements
 {: #gen_req}
@@ -238,7 +238,7 @@ If you require different **Crawl settings** for other URLs, click **Add URL grou
 {: #connectsp_op}
 
 <!-- Learn more topic WDS -->
-Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premise data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery?topic=discovery-sources#gateway) for more information.
+Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premises data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premises data](/docs/services/discovery?topic=discovery-sources#gateway) for more information.
 {: note}
 
 The following credentials are required to connect to a SharePoint 2016 data source, they should be obtained from your SharePoint administrator:
@@ -283,7 +283,7 @@ Other items to note when crawling IBM Cloud Object Storage:
 Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooling is performed by creating a collection specifically for a source. Perform the following steps to create a source collection and crawl it:
 
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
-2.  Select the data source that you want to connect to. If you have selected an on-premise data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery?topic=discovery-sources#gateway) for more information. 
+2.  Select the data source that you want to connect to. If you have selected an on-premises data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premises data](/docs/services/discovery?topic=discovery-sources#gateway) for more information. 
 3.  Enter your source credentials and click connect. Your source credentials must be obtained from your source system administrator.
 4.  Choose which data you want to the crawl and how often you want to sync it. Sync options:
     -  Every five minutes: runs every five minutes
@@ -311,7 +311,7 @@ The crawl will sync the data initially and then on frequency that you specified.
 
 Use the following process to create a collection connected to a data source using the API.
 
-If you plan to connect to an on-premise data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premise data](/docs/services/discovery?topic=discovery-sources#gateway) for more information. 
+If you plan to connect to an on-premises data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premises data](/docs/services/discovery?topic=discovery-sources#gateway) for more information. 
 
 The following example uses the SharePoint data source.
 
@@ -363,21 +363,21 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
 
 See [Information security](/docs/services/discovery?topic=discovery-information-security#information-security) for more information and information about deleting based on `customer_id`.
 
-## Installing IBM Secure Gateway for on-premise data 
+## Installing IBM Secure Gateway for on-premises data 
 {: #gateway}
 
 <!-- Learn more topic WDS -->
-To connect to an on-premise data source, you first need to download, install, and configure IBM Secure Gateway. After you have installed IBM Secure Gateway for your first on-premise data source, you won't need to repeat this process.
+To connect to an on-premises data source, you first need to download, install, and configure IBM Secure Gateway. After you have installed IBM Secure Gateway for your first on-premises data source, you won't need to repeat this process.
 
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
-1.  Select the data source that you want to connect to. When you select an on-premise data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
+1.  Select the data source that you want to connect to. When you select an on-premises data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
 1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of IBM Secure Gateway.
 1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/SecureGateway?topic=securegateway-client-install#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
 1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
 1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `mycompany.sharepoint.com` and port: `80`.
 1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful you will see the `Connection successful` message. If the connection was not successful, open the Secure Gateway dashboard and verify that the endpoints on the **Allow access** list are correct.
 
-After the connection is successful you can begin entering the credentials for your on-premise data source.
+After the connection is successful you can begin entering the credentials for your on-premises data source.
 
 ## Data source connection and data isolation
 {: #source_isolation}
