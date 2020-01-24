@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -35,7 +35,7 @@ subcollection: discovery
 {{site.data.keyword.discoveryfull}} offers three plans that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
 
-See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) and [{{site.data.keyword.discoveryshort}} catalog ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/discovery){: new_window} for details.
+See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) and [{{site.data.keyword.discoveryshort}} catalog](https://cloud.ibm.com/catalog/services/discovery){: external} for details.
 
 ## Upgrading your service
 {: #service}
@@ -51,7 +51,7 @@ To resize your plan from Lite to Advanced:
 ## Switching from one Advanced tier to another
 {: #switchadvanced} 
 
-If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#update-an-environment){: new_window}. 
+If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API](https://{DomainName}/apidocs/discovery#update-an-environment){: external}. 
 
 For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#advanced).
 

@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -34,7 +34,7 @@ subcollection: discovery
 
 If you cannot find a solution to the issue you are having, try the resources available from the **Developer community** section of the table of contents.
 
-If your service plan covers it, you can get help by creating a case from [IBM Cloud Support ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/unifiedsupport/supportcenter){: new_window}.
+If your service plan covers it, you can get help by creating a case from [IBM Cloud Support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}.
 
 ## FAQs
 {: #faqs}

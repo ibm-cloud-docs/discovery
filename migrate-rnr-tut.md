@@ -1,15 +1,15 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+  years: 2015, 2020
+lastupdated: "2020-01-24"
 
 subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -51,12 +51,12 @@ This tutorial assumes {{site.data.keyword.retrieveandrankshort}} was setup simil
 
 To complete the tutorial, you need the following:
 
--  **cURL.**  You can install the version of cURL for your operating system from  [haxx.se ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window}. You must install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your PATH environment variable.
--  Sample Cranfield data. This tutorial uses the sample collection data from the {{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial. [cranfield json data ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-data.json){: new_window}
--  **Sample data ground truth** This tutorial uses sample Cranfield ground truth from the {{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial. [cranfield ground truth csv![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-gt.csv){: new_window}
--  **Python version 2.**  To check whether Python is installed, enter `python --version` at a command prompt and ensure that the version number starts with 2. If you need to install Python, see [Downloading Python ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://wiki.python.org/moin/BeginnersGuide/Download){: new_window}.
--  Data upload script: [Discovery document uploader ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-upload.py){: new_window}
--  Training Data upload script:  [Discovery training uploader ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-train.py){: new_window}
+-  **cURL.**  You can install the version of cURL for your operating system from  [haxx.se](https://curl.haxx.se/){: external}. You must install the version that supports the Secure Sockets Layer (SSL) protocol. Make sure to include the installed binary file on your PATH environment variable.
+-  Sample Cranfield data. This tutorial uses the sample collection data from the {{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial. [cranfield json data](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-data.json){: external}
+-  **Sample data ground truth** This tutorial uses sample Cranfield ground truth from the {{site.data.keyword.retrieveandrankshort}} Getting Started Tutorial. [cranfield ground truth csv](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-gt.csv){: external}
+-  **Python version 2.**  To check whether Python is installed, enter `python --version` at a command prompt and ensure that the version number starts with 2. If you need to install Python, see [Downloading Python](https://wiki.python.org/moin/BeginnersGuide/Download){: external}.
+-  Data upload script: [Discovery document uploader](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-upload.py){: external}
+-  Training Data upload script:  [Discovery training uploader](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-train.py){: external}
 
 The following pre-requisites are necessary before beginning this tutorial:
 
@@ -73,7 +73,7 @@ The following pre-requisites are necessary before beginning this tutorial:
 1.  Create an Environment.
 
     ```bash
-    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "my_environment", "description": "My environment" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2019-04-30"
     ```
     {: pre}
 
@@ -82,16 +82,16 @@ The following pre-requisites are necessary before beginning this tutorial:
 1. Create a Collection.
 
     ```bash
-    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d '{ "name": "test_collection", "description": "My test collection", "configuration_id": "{configuration_id}", "language_code": "en" }' "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2019-04-30"
     ```
     {: pre}
 
     Copy the `collection-id` that is listed in the returned JSON.
 
 1.  Add the documents that are to be searched.
-    1.  Download the [cranfield-data.json ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-data.json){: new_window} file if you haven't already. This is the source of documents that are used in {{site.data.keyword.retrieveandrankshort}}. The Cranfield collection documents are in JSON format, which is the format {{site.data.keyword.retrieveandrankshort}} accepted and which works well for Watson {{site.data.keyword.discoveryshort}} as well.
+    1.  Download the [cranfield-data.json](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-data.json){: external} file if you haven't already. This is the source of documents that are used in {{site.data.keyword.retrieveandrankshort}}. The Cranfield collection documents are in JSON format, which is the format {{site.data.keyword.retrieveandrankshort}} accepted and which works well for Watson {{site.data.keyword.discoveryshort}} as well.
         **Note:** {{site.data.keyword.discoveryshort}} does not require uploading the Solr schema. This is because {{site.data.keyword.discoveryshort}} infers the schema from the JSON structure automatically.
-    1.  Download the Data upload script [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-upload.py){: new_window}. This script will upload the Cranfield json into {{site.data.keyword.discoveryshort}}.
+    1.  Download the Data upload script [here](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/disco-upload.py){: external}. This script will upload the Cranfield json into {{site.data.keyword.discoveryshort}}.
         The script reads through the JSON file and sends each individual JSON document to {{site.data.keyword.discoveryshort}} using a default configuration in {{site.data.keyword.discoveryshort}}.
         **Note:** The default configuration in {{site.data.keyword.discoveryshort}} provides similar settings to the default Solr config in {{site.data.keyword.retrieveandrankshort}}.
     1.  Issue the following command to upload the `cranfield-data-json` data to the `cranfield_collection` collection. replace `{apikey_value}`, `{path_to_file}`,  `{environment_id}`, `{collection_id}` with your information.  Note that there are additional options, -d for debug and –v for verbose output from curl.
@@ -104,7 +104,7 @@ The following pre-requisites are necessary before beginning this tutorial:
 1.  Once the upload process has completed, you can check that the documents are there by issuing the following command to view the collection details:
 
     ```bash
-    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2019-04-30"
     ```
     {: pre}
 
@@ -143,7 +143,7 @@ The following pre-requisites are necessary before beginning this tutorial:
     ```
     {: codeblock}
 
-Look at the section `document_counts` to see how many documents were uploaded successfully. We aren't expecting any document failures with this sample data set. However, with other data sets, you may see failed document counts. If you have any failed document counts, then you can view the notices API to see the error messages. Look at the section [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-system-notices){: new_window} to review the notices API command.
+Look at the section `document_counts` to see how many documents were uploaded successfully. We aren't expecting any document failures with this sample data set. However, with other data sets, you may see failed document counts. If you have any failed document counts, then you can view the notices API to see the error messages. Look at the section [here](https://{DomainName}/apidocs/discovery#query-system-notices){: external} to review the notices API command.
 
 The `training` section of the return gives you information about your training. We'll review that section after you upload your training data.
 
@@ -152,13 +152,13 @@ The `training` section of the return gives you information about your training. 
 
 Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning model to re-rank documents. To do so you need to train a model. Training occurs after you have loaded enough queries along with the appropriate rated documents. By loading enough examples with enough variance to Watson {{site.data.keyword.discoveryshort}}, you are teaching it what a "good" document is. In this step, we will use the existing Cranfield "ground truth" that is used in {{site.data.keyword.retrieveandrankshort}} to train Watson {{site.data.keyword.discoveryshort}}.
 
-1.  Download the sample [Cranfield ground truth csv file ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-gt.csv){: new_window} from the {{site.data.keyword.retrieveandrankshort}} tutorial if you haven't already done so.
+1.  Download the sample [Cranfield ground truth csv file](https://watson-developer-cloud.github.io/doc-tutorial-downloads/retrieve-and-rank/cranfield-gt.csv){: external} from the {{site.data.keyword.retrieveandrankshort}} tutorial if you haven't already done so.
 
    The file is a set of questions that a user might ask about the documents. The file provides the example information to train the ranker in {{site.data.keyword.retrieveandrankshort}} and relevancy training in {{site.data.keyword.discoveryshort}} about questions and relevant answers.
 
    For each question, there is at least one identifier to an answer (the document ID). Each document ID includes a number to indicate how relevant the answer is to the question. The document ID points to the answer in the `cranfield-data.json` file that you uploaded to {{site.data.keyword.discoveryshort}} in the previous step.
 
-1.  Download the Training Data upload script. You will use this script to upload the training data into {{site.data.keyword.discoveryshort}}. The script transforms the `csv` file into a set of JSON queries and examples and sends them to {{site.data.keyword.discoveryshort}} using the [training data APIs ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list-training-data){: new_window}
+1.  Download the Training Data upload script. You will use this script to upload the training data into {{site.data.keyword.discoveryshort}}. The script transforms the `csv` file into a set of JSON queries and examples and sends them to {{site.data.keyword.discoveryshort}} using the [training data APIs](https://{DomainName}/apidocs/discovery#list-training-data){: external}
     **Note:** {{site.data.keyword.discoveryshort}} manages training data within the service, so when generating new examples and training queries they can be stored in {{site.data.keyword.discoveryshort}} itself rather than as part of a separate CSV file that needs to be maintained.
 1.  Execute the training upload script to upload the training data into {{site.data.keyword.discoveryshort}}. Replace `{apikey_value}`, `{path_to_file}`, `{environment_id}`, `{collection_id}` with your information. Note that there are additional options, `-d` for debug and `–v` for verbose output from curl.
 
@@ -172,19 +172,19 @@ Watson {{site.data.keyword.discoveryshort}} Service uses a machine learning mode
 ## Search for documents
 {: #search-rnr}
 
-{{site.data.keyword.discoveryshort}} will automatically use a trained model to re-rank search results if available. When [an API call ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
+{{site.data.keyword.discoveryshort}} will automatically use a trained model to re-rank search results if available. When [an API call](https://{DomainName}/apidocs/discovery#query-your-collection){: external} is made with `natural_language_query` instead of `query`, a check is made to see if there is a model available. If a model is available then {{site.data.keyword.discoveryshort}} uses that model to re-rank results. First, we will do a search over unranked documents, and then we will do a search using the ranking model.
 
 1.  You can search for documents in your collection by using a cURL command. Perform a query using the query API call to see unranked results. Replace `{apikey_value}`, `{environment_id}`, `{collection_id}`, with your own values.  The results returned will be unranked results, and will use the default {{site.data.keyword.discoveryshort}} ranking formulas. You can try other queries by opening the training data `csv` file and copying the value of the first column into the query parameter.
 
     ```bash
-    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 
 1.  Now perform a search using the model by setting the `natural_language_query` parameter. Before you do so, make sure you check that you have a trained model as described in the previous section.  Paste the following code in your console, replacing the `{apikey_value}`, `{environment_id}`, `{collection_id}` with your values.
 
     ```bash
-    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-11-07&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&natural_language_query=what is the basic mechanism of the transonic aileron buzz"
     ```
     {: pre}
 

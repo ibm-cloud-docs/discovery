@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -48,7 +48,7 @@ The Data Crawler is a command line tool that will help you take your documents f
 
 The Data Crawler should be used if you want to have a managed upload of a significant number of files from a remote system, or you want to extract content from a supported repository (such as a DB2 database).
 
-The Data Crawler is not intended to be a solution for uploading files from your local drive. Uploading files from a local drive should be done using the tooling or by using direct API calls. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/discovery-files){: new_window} on GitHub.
+The Data Crawler is not intended to be a solution for uploading files from your local drive. Uploading files from a local drive should be done using the tooling or by using direct API calls. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files](https://github.com/IBM/discovery-files){: external} on GitHub.
 {: note}
 
 ## Using the Data Crawler

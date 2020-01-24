@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -79,7 +79,7 @@ Collection | Lite plans | Advanced plans
 Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU)](/docs/services/discovery?topic=discovery-release-notes#22jan19) | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
 Collections created after the release of [SDU](/docs/services/discovery?topic=discovery-sdu#sdu) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
     
-\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
 \*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
 
@@ -95,7 +95,7 @@ You'll need to create a new Box custom application to connect to {{site.data.key
 `Refresh` is only supported with Enterprise level access.
 {: note}
 
-The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.box.com/){: new_window} for updates.
+The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation](https://developer.box.com/){: external} for updates.
 {: note}
 
 ### Setting up Application level access
@@ -188,7 +188,7 @@ The following credentials are required to connect to a Salesforce source, they s
 -  `username` - The `username` of the source that these credentials connect to.
 -  `password` - The `password` consists of the Salesforce password and a valid Salesforce security token concatenated. This value is never returned and is only used when creating or modifying credentials.
 
-When identifying the credentials, it might be useful to consult the [Salesforce developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.salesforce.com/docs/){: new_window}.
+When identifying the credentials, it might be useful to consult the [Salesforce developer documentation](https://developer.salesforce.com/docs/){: external}.
 
 Other items to note when crawling Salesforce:
 
@@ -208,7 +208,7 @@ The following credentials are required to connect to a SharePoint Online source,
 -  `username` - The `username` to connect to the SharePoint Online SiteCollection to crawl. This user must have access to all sites and lists that need to be crawled and indexed.
 -  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
 
-When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
+When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}.
 
 Other items to note when crawling Microsoft SharePoint Online:
 
@@ -248,7 +248,7 @@ The following credentials are required to connect to a SharePoint 2016 data sour
 -  `web_application_url` - The SharePoint 2016 `web_application_url`; for example, `https://sharepointwebapp.com:8443`. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
 -  `domain` - The `domain` of the SharePoint 2016 account.
 
-When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://docs.microsoft.com/en-us/sharepoint/dev/){: new_window}.
+When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}.
 
 Other items to note when crawling Microsoft SharePoint 2016:
 
@@ -315,8 +315,8 @@ If you plan to connect to an on-premises data source, you will first need to ins
 
 The following example uses the SharePoint data source.
 
-1.  Create credentials for the source that you are connecting to using the [Source Credentials API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-credentials){: new_window}. Record the returned **credential_id** of the newly created credentials.
-2.  Create a new configuration using the [Configuration API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window}. This configuration must contain a **source** object which defines what should be crawled. The **source** object must contain the **credential_id** that you recorded earlier.
+1.  Create credentials for the source that you are connecting to using the [Source Credentials API](https://{DomainName}/apidocs/discovery#create-credentials){: external}. Record the returned **credential_id** of the newly created credentials.
+2.  Create a new configuration using the [Configuration API](https://{DomainName}/apidocs/discovery#add-configuration){: external}. This configuration must contain a **source** object which defines what should be crawled. The **source** object must contain the **credential_id** that you recorded earlier.
     ```json
     "source" : {
       "type" : "salesforce",
@@ -336,7 +336,7 @@ The following example uses the SharePoint data source.
     ```
     {: codeblock}
     Record the returned **configuration_id** of the newly created configuration.
-3.  Create a new collection using the [Collections API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-a-collection){: new_window}. The object defining the collection must contain the **configuration_id** that you recorded earlier.
+3.  Create a new collection using the [Collections API](https://{DomainName}/apidocs/discovery#create-a-collection){: external}. The object defining the collection must contain the **configuration_id** that you recorded earlier.
 
 The source crawl begins as soon as the collection is created, and then again on the frequency that you specified.
 **Note:** If you modify anything in the **source** object of the configuration a new crawl will be started (or restarted if one is already running) at that time.
@@ -372,7 +372,7 @@ To connect to an on-premises data source, you first need to download, install, a
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
 1.  Select the data source that you want to connect to. When you select an on-premises data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
 1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of IBM Secure Gateway.
-1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/SecureGateway?topic=securegateway-client-install#installing-the-client){: new_window} in the Secure Gateway documentation for installation instructions.
+1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client](https://cloud.ibm.com/docs/services/SecureGateway?topic=securegateway-client-install#installing-the-client){: external} in the Secure Gateway documentation for installation instructions.
 1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
 1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `mycompany.sharepoint.com` and port: `80`.
 1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful you will see the `Connection successful` message. If the connection was not successful, open the Secure Gateway dashboard and verify that the endpoints on the **Allow access** list are correct.

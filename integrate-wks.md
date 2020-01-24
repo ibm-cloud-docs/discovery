@@ -1,15 +1,15 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-10-01"
+  years: 2015, 2020
+lastupdated: "2020-01-24"
 
 subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -43,17 +43,17 @@ You can use the service API or the {{site.data.keyword.discoveryshort}} tooling 
 ## Before you begin
 {: #wks-beforeintegration}
 
-Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with {{site.data.keyword.discoveryshort}}, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson-knowledge-studio/tutorials-create-project.html#wks_tutintro){: new_window} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with {{site.data.keyword.discoveryshort}}.
+Before you can integrate a custom model from {{site.data.keyword.knowledgestudioshort}} with {{site.data.keyword.discoveryshort}}, you must create and deploy the model by using {{site.data.keyword.knowledgestudioshort}}. See the [{{site.data.keyword.knowledgestudioshort}} documentation](https://cloud.ibm.com/docs/services/watson-knowledge-studio/tutorials-create-project.html#wks_tutintro){: external} for information on creating and deploying models. You need the unique ID of the deployed model to integrate it with {{site.data.keyword.discoveryshort}}.
 
 ## Integrating your custom model with the API
 {: #integrate-customAPI}
 
-1.  Get the ID of your {{site.data.keyword.discoveryshort}} environment as described at [List environments ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list_environments){: new_window}. Note the environment ID.
-1.  List the IDs of your current {{site.data.keyword.discoveryshort}} configuration or configurations as described at [List configurations ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list_configurations){: new_window} Note the ID of the configuration that you want to integrate with your {{site.data.keyword.knowledgestudiofull}} custom model.
+1.  Get the ID of your {{site.data.keyword.discoveryshort}} environment as described at [List environments](https://{DomainName}/apidocs/discovery#list_environments){: external}. Note the environment ID.
+1.  List the IDs of your current {{site.data.keyword.discoveryshort}} configuration or configurations as described at [List configurations](https://{DomainName}/apidocs/discovery#list_configurations){: external} Note the ID of the configuration that you want to integrate with your {{site.data.keyword.knowledgestudiofull}} custom model.
 1.  Download a copy of your current {{site.data.keyword.discoveryshort}} configuration by running the following commands in a bash shell or equivalent, such as Cygwin for Windows. Substitute `{environment_id}` and `{configuration_id}` with the IDs you noted down in the previous two steps.
 
     ```bash
-    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration_id}?version=2017-11-07" > my_config.json
+    curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration_id}?version=2019-04-30" > my_config.json
     ```
     {: pre}
 
@@ -134,18 +134,18 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
         {: codeblock}
 
 1.  Save the `my_config.json` file.
-1.  Use a JSON validator, such as [JSLint ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://jslint.com){: new_window} to validate and, if necessary, correct your edited JSON before you perform the next steps.
+1.  Use a JSON validator, such as [JSLint](http://jslint.com){: external} to validate and, if necessary, correct your edited JSON before you perform the next steps.
 1.  Update the configuration as follows. You again need the `{environment_id}` and `{configuration_id}` IDs you collected at the start of this procedure.
 
     ```bash
-    curl -X PUT -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration_id}?version=2017-11-07"
+    curl -X PUT -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations/{configuration_id}?version=2019-04-30"
     ```
     {: pre}
 
     **Note:** If you are creating a new configuration, or modifying the default configuration, you will need to create a new custom configuration instead of updating an existing configuration. Before creating a new configuration, make sure that the `"configuration_id":` field is removed from your `my_config.json` file and then run the following command:
 
     ```bash
-    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2017-11-07"
+    curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @my_config.json "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2019-04-30"
     ```
     {: pre}
 
@@ -205,7 +205,7 @@ You can integrate a {{site.data.keyword.knowledgestudioshort}} custom model into
 You cannot apply multiple custom models to the same field using the {{site.data.keyword.discoveryshort}} tooling. It is possible to apply more than one custom model to identical fields using the API. See [Integrating your custom model with the API](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI).
 
 1. Get the `Model ID` of your {{site.data.keyword.knowledgestudioshort}} model.
-1. In the {{site.data.keyword.discoveryshort}} tooling, click the **Manage Data** icon on the upper left to open the **Manage data** screen, then create or open a collection. **Note:** If you choose an existing collection, it should be empty. If not, you should reingest those documents after creating your new configuration file.
+1. In the {{site.data.keyword.discoveryshort}} tooling, click the **Manage Data** icon to open the **Manage data** screen, then create or open a collection. **Note:** If you choose an existing collection, it should be empty. If not, you should reingest those documents after creating your new configuration file.
 1. In the **Configuration** section of the **Manage Data** screen for your collection, click **Switch**, then **Create a New Configuration**. Name the configuration. 
 1. Click **Add enrichments** and select either the **Entity Extraction** or **Relation Extraction** enrichments.
 1. Enter the `Model ID` in the `Custom Model ID` box of the selected enrichment. The custom {{site.data.keyword.knowledgestudiofull}} model will override the default for that enrichment. 

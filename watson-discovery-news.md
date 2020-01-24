@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -32,7 +32,7 @@ subcollection: discovery
 # Watson Discovery News
 {: #watson-discovery-news}
 
-{{site.data.keyword.discoverynewsfull}} is included with {{site.data.keyword.discoveryshort}}. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is an indexed dataset that is pre-enriched with the following cognitive insights: **Keyword Extraction**, **Entity Extraction**, **Semantic Role Extraction**, **Sentiment Analysis**, **Relation Extraction**, and **Category Classification**. (To learn more about enrichments, see [Adding enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments).) The following additional metadata is also added: crawl date and publication date. Historical search is available for the past 60 days of news data. See a demo of what you can build with {{site.data.keyword.discoverynewsfull}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
+{{site.data.keyword.discoverynewsfull}} is included with {{site.data.keyword.discoveryshort}}. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is an indexed dataset that is pre-enriched with the following cognitive insights: **Keyword Extraction**, **Entity Extraction**, **Semantic Role Extraction**, **Sentiment Analysis**, **Relation Extraction**, and **Category Classification**. (To learn more about enrichments, see [Adding enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments).) The following additional metadata is also added: crawl date and publication date. Historical search is available for the past 60 days of news data. See a demo of what you can build with {{site.data.keyword.discoverynewsfull}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
 
 {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is updated continuously with new articles, and is available in English, Spanish, German, Korean, and Japanese. {{site.data.keyword.discoverynewsshort}} English is updated with approximately 300,000 new articles daily. {{site.data.keyword.discoverynewsshort}} Spanish is updated with approximately 60,000 new articles daily; {{site.data.keyword.discoverynewsshort}} German is updated with approximately 15,000 new articles daily; {{site.data.keyword.discoverynewsshort}} Korean with 10,000 new articles daily. {{site.data.keyword.discoverynewsshort}} Japanese is updated with approximately 17,000 new articles daily. The news sources vary by language, so the query results for each collection will not be identical.
 

@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -83,7 +83,7 @@ To access the in-product manual for the connector and seed configuration files, 
 
 The filesystem connector allows you to crawl files local to the Data Crawler installation.
 
-Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/discovery-files){: new_window} on GitHub.
+Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files](https://github.com/IBM/discovery-files){: external} on GitHub.
 {: note}
 
 ### Configuring the filesystem connector

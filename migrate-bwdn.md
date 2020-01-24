@@ -1,15 +1,15 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+  years: 2015, 2020
+lastupdated: "2020-01-24"
 
 subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -92,11 +92,11 @@ To move your queries from {{site.data.keyword.discoverynewsshort}} Original to t
 
 - Modify the query to use the new JSON path structure for the new {{site.data.keyword.discoverynewsshort}}. Most fields have changed paths, multiple fields have been added, and a selected group of low-value fields have been removed. See the field migration spreadsheet for full details <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/News_migration_v_1.01.xlsx" download>HERE <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>). For example, the following query:
 
-  `discovery/api/v1/environments/ae5790c2-592f-432a-804a-ee16de7154d7/collections/3edcd8f1-e25a-4f44-a069-58332ad17651/query?version=2017-11-07&query=entities.type:"Company"`
+  `discovery/api/v1/environments/ae5790c2-592f-432a-804a-ee16de7154d7/collections/3edcd8f1-e25a-4f44-a069-58332ad17651/query?version=2019-04-30&query=entities.type:"Company"`
 
   Should be changed to:
 
-  `discovery/api/v1/environments/system/collections/news/query?version=2017-11-07&query=enriched_text.entities.type:"Company"`  
+  `discovery/api/v1/environments/system/collections/news/query?version=2019-04-30&query=enriched_text.entities.type:"Company"`  
 
 ## Querying Watson Discovery News
 {: #querying-bwdn}
@@ -125,7 +125,7 @@ In all of the following examples, replace `{username}` and `{password}` with the
 {: #api-bwdn}
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2019-04-30&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 
@@ -177,7 +177,7 @@ from watson_developer_cloud import DiscoveryV1
 discovery = DiscoveryV1(  
   username="{username}",  
   password="{password}",  
-  version="2017-11-07"  
+  version="2019-04-30"  
 )  
 
 qopts = {'query': 'enriched_text.entities.text:IBM'}  

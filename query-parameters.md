@@ -1,15 +1,15 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+  years: 2015, 2020
+lastupdated: "2020-01-24"
 
 subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -126,7 +126,7 @@ You can adjust the fields in the documents over which passage retrieval searches
 The `passages` parameter returns matching passages (`passage_text`), as well as the `score`, `document_id`, the name of the field the passage was extracted from (`field`), and the starting and ending characters of the passage text within the field (`start_offset` and `end_offset`), as shown in the following example. The query is shown at the top of the example.
 
 ```bash
- curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
+ curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&natural_language_query='Hybrid%20cloud%20companies'&passages=true"
 ```
 {: pre}
 
@@ -179,7 +179,7 @@ A boolean that specifies whether the returned output includes a `highlight` obje
 The output lists the `highlight` object after the `enriched_text` object, as shown in the following example.
 
 ```bash
-curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2017-06-25&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
+curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&natural_language_query=Hybrid%20cloud%20companies&highlight=true"
 ```
 {: pre}
 

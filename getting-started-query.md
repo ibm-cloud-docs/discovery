@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -40,7 +40,7 @@ For more information about writing queries, see:
 - [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts)
 - [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
 
-These example queries are built using the {{site.data.keyword.discoveryshort}} tooling. If you'd like to use the API instead, add the query parameters to your API call. For more information and examples, see the Queries section of the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window}.
+These example queries are built using the {{site.data.keyword.discoveryshort}} tooling. If you'd like to use the API instead, add the query parameters to your API call. For more information and examples, see the Queries section of the [API reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external}.
 
 You can also write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling. This tutorial primarily focuses on how to write queries with {{site.data.keyword.discoveryshort}} Query Language because your requirements may necessitate a structured query, and filters and aggregations must be written in the {{site.data.keyword.discoveryshort}} Query Language.
 {: tip}
@@ -69,7 +69,7 @@ Let's start out by getting to know the {{site.data.keyword.discoveryshort}} JSON
 
 1.  To get familiar with the data schema of your documents, let's look at the **View data schema** screen. It displays the fields and values in your transformed documents two ways: by document (**Document view**), or by field (**Collection view**). **Collection view** will display all fields in your collection.
 
-    Click the **View data schema** icon on the left. In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied to your collection. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
+    Click the **View data schema** icon. In the **Collection view**, under `enriched_text`, you can examine the enrichments you applied to your collection. Click on `categories`, `concepts`, `entities`, and `sentiment` to see how your collection was enriched with Watson insights.
 
 If your query does not return any matching results, and you think it should, try swapping out the field/value your query is using for one that you can verify in the data schema.
 {: tip}    
@@ -156,7 +156,7 @@ Try building this aggregation - it will return the top 10 concepts in the {{site
 
 {{site.data.keyword.discoverynewsshort}}, is a public data set that has been pre-enriched with cognitive insights. It is included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for more information about this collection.
 
-You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://discovery-news-demo.ng.bluemix.net/){: new_window}.
+You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
 
 The following example query returns the top 10 articles in {{site.data.keyword.discoverynewsfull}} about the Pittsburgh Steelers that have a positive sentiment.
 

@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -136,7 +136,7 @@ The Data Crawler is no longer available for download and is no longer supported.
 ## 2 April 2019
 {: #2apr19}
 
-Beginning April 9, 2019, there will be an upgrade to {{site.data.keyword.discoveryfull}}. This upgrade will include changes to the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. This means score and confidence results may change following the upgrade. If your applications make use of the `score` or `confidence` fields directly, be prepared to update the application as necessary. See [Upgrading the infrastructure of the {{site.data.keyword.discoveryfull}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/cloud-archive/2019/03/announcement-for-the-ibm-watson-discovery-community/){: new_window} for details.
+Beginning April 9, 2019, there will be an upgrade to {{site.data.keyword.discoveryfull}}. This upgrade will include changes to the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. This means score and confidence results may change following the upgrade. If your applications make use of the `score` or `confidence` fields directly, be prepared to update the application as necessary. See [Upgrading the infrastructure of the {{site.data.keyword.discoveryfull}}](https://www.ibm.com/blogs/cloud-archive/2019/03/announcement-for-the-ibm-watson-discovery-community/){: external} for details.
 
 ## 25 March 2019
 {: #25mar19}
@@ -179,7 +179,7 @@ The beta of SDU was announced [January 22, 2019](/docs/services/discovery?topic=
 ## 28 January 2019
 {: #28jan19}
 
-Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors. The {{site.data.keyword.discoveryshort}} connectors support crawling Box, SharePoint, Salesforce, and more. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. The Data Crawler should only be used to crawl file shares or databases, in all other cases, use the {{site.data.keyword.discoveryshort}} connector. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM/discovery-files){: new_window} on GitHub.
+Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors. The {{site.data.keyword.discoveryshort}} connectors support crawling Box, SharePoint, Salesforce, and more. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for details. The Data Crawler should only be used to crawl file shares or databases, in all other cases, use the {{site.data.keyword.discoveryshort}} connector. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files](https://github.com/IBM/discovery-files){: external} on GitHub.
 
 ## 22 January 2019
 {: #22jan19}
@@ -275,7 +275,7 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 
 - Released Continuous Relevancy Training, which uses interactions from users to learn how to surface the most relevant results. It can learn from user behavior automatically, significantly reducing the effort required to improve the relevancy ranking of results.  See [Continuous Relevancy Training](/docs/services/discovery?topic=discovery-crt#crt) for details.
 
-- Added API support for performing longer queries. This increases the character limit to 10,000 characters, and makes it possible to increase the number of filters in your queries and perform more complex aggregations. See the POST Query at [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-collection-queries){: new_window} and [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#long-environment-queries){: new_window} for details.
+- Added API support for performing longer queries. This increases the character limit to 10,000 characters, and makes it possible to increase the number of filters in your queries and perform more complex aggregations. See the POST Query at [API reference](https://{DomainName}/apidocs/discovery#long-collection-queries){: external} and [API reference](https://{DomainName}/apidocs/discovery#long-environment-queries){: external} for details.
 
 - You can now upgrade your Advanced plan using the API. See [Upgrading your plan](/docs/services/discovery?topic=discovery-upgrading-your-plan#switchadvanced) for details. 
 
@@ -283,13 +283,13 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 
 - Added full support for Brazilian Portuguese. For more information, see [Language support](/docs/services/discovery?topic=discovery-language-support#language-support).
 
-- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `bias` parameter, which allows you to bias towards certain results, for example, documents that were published most recently. See the [Query your collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} method in the API reference for information.
+- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `bias` parameter, which allows you to bias towards certain results, for example, documents that were published most recently. See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 
 - The **Default Contract Configuration** file provided to enrich collections for [Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-collection) was found to have an issue with HTML normalizations. A new **Default Contract Configuration** is included with this release. Follow the steps below to apply the new **Default Contract Configuration** to your collections.
 
      1. Determine which of your collections are using either the **Default Contract Configuration** configuration file, or a custom configuration based on **Default Contract Configuration**.
      1. Make note of the changes you made to any custom configurations based on **Default Contract Configuration**.
-     1. Since the old **Default Contract Configuration** file needs to be deleted from your environment before the new one is used, use the API [Delete configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#delete-a-configuration){: new_window} to delete the current **Default Contract Configuration** associated with any of your collections. Also delete any configurations based on the old **Default Contract Configuration**.
+     1. Since the old **Default Contract Configuration** file needs to be deleted from your environment before the new one is used, use the API [Delete configuration](https://{DomainName}/apidocs/discovery#delete-a-configuration){: external} to delete the current **Default Contract Configuration** associated with any of your collections. Also delete any configurations based on the old **Default Contract Configuration**.
      1. Now you can use the new **Default Contract Configuration** file. For each collection using one of those configurations, create a new collection. Apply the new **Default Contract Configuration** or create a new custom configuration based on the new **Default Contract Configuration** using the notes you made in step 2.
      1. Upload the files previously ingested to the original collections.
      1. Delete the old collections.
@@ -319,7 +319,7 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 ## 25 June 2018
 {: #25jun18}
 
-- Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. Released the [Source Credential ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#list-credentials){: new_window} and [Configuration ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#add-configuration){: new_window} APIs for these data sources. 
+- Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. Released the [Source Credential](https://{DomainName}/apidocs/discovery#list-credentials){: external} and [Configuration](https://{DomainName}/apidocs/discovery#add-configuration){: external} APIs for these data sources. 
   - {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/services/discovery?topic=discovery-release-notes#2aug18)
   - The individual document file size limit for Box, Salesforce, and SharePoint Online is 10MB.
 - Added a new Performance Dashboard in {{site.data.keyword.discoveryshort}} tooling. See [Viewing metrics and improving query results with the Performance dashboard](/docs/services/discovery?topic=discovery-performance-dashboard#performance-dashboard). The new dashboard is not available in Premium or Dedicated environments.
@@ -328,7 +328,7 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 ## 22 June 2018
 {: #22jun18}
 
-- Released the Events and Feedback API. See the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#create-event){: new_window} for more information.
+- Released the Events and Feedback API. See the [API reference](https://{DomainName}/apidocs/discovery#create-event){: external} for more information.
 
 ## 11 June 2018
 {: #11jun18}
@@ -372,8 +372,8 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 
    In the Sydney location, you use IAM access tokens with {{site.data.keyword.discoveryshort}} for
 
-    -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iam){: new_window}.
-    -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/resources?topic=resources-migrate#migrate){: new_window}.
+    -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iam){: external}.
+    -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](https://cloud.ibm.com/docs/resources?topic=resources-migrate#migrate){: external}.
 
     All new and existing service instances in other regions continue to use service credentials (`apikey:{apikey_value}`) for authentication.
 
@@ -383,7 +383,7 @@ The schema for the [Element Classification](/docs/services/discovery?topic=disco
 When you use IAM access tokens, you authenticate before you send a request to {{site.data.keyword.discoveryshort}}.
 
 
-1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: new_window}.
+1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: external}.
 1.  Pass the IAM access token to {{site.data.keyword.discoveryshort}} by using the `Authorization` header. In the header, indicate that the access token is a `Bearer` token by specifying `Authorization: Bearer {access_token}`.
 
     The following simple cURL example uses an access token:
@@ -395,7 +395,7 @@ When you use IAM access tokens, you authenticate before you send a request to {{
     ```
     {: pre}
 
-    For more information, see [Using a token to authenticate ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#use_token){: new_window}.
+    For more information, see [Using a token to authenticate](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#use_token){: external}.
 
 ### Refreshing an IAM access token
 {: #iam-refreshing}
@@ -415,7 +415,7 @@ IAM access tokens that you generate have the following structure. You use the va
 
 Access tokens have a limited time to live. The `expires_in` field indicates how long the token lasts, in this case one hour. The `expiration` field shows when the token expires as a UNIX timestamp that specifies the number of seconds since January 1, 1970 (midnight UTC/GMT).
 
-In your application, check the access token's expiration time before you use it to make an authenticated request. If it is expired, you must refresh the access token before you can use it. You use the value of the `refresh_token` field to refresh the access token. For more information, see [Refreshing a token ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: new_window}.
+In your application, check the access token's expiration time before you use it to make an authenticated request. If it is expired, you must refresh the access token before you can use it. You use the value of the `refresh_token` field to refresh the access token. For more information, see [Refreshing a token](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: external}.
 
 
 ## 11 May 2018
@@ -560,7 +560,7 @@ Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Kno
 
 Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/services/discovery?topic=discovery-release-notes#3sept19) for more information.
   
-- Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} [Resolved](/docs/services/discovery?topic=discovery-release-notes#26jan18). {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
+- Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external} [Resolved](/docs/services/discovery?topic=discovery-release-notes#26jan18). {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
 - Query results return a `score` value, which indicates the relative relevancy between query results. Starting 30 November 2017, the way that `score` is calculated changed. The `score` value should only be used to rank documents in a single search, not across searches or sessions. If you have trained a collection, a `score` value is returned in the results of a natural language query. Since the `score` indicates the relative relevancy between query results, it should not be used as a threshold. Instead, use the `confidence`, which indicates the relevance of the result as compared to the trained model, to set thresholds. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for more information on setting thresholds.
 - Beginning with this release, Passage retrieval detects sentence boundaries - it attempts to return passages that start at the beginning of a sentence and stop at the end. Previously, many passages would begin or end somewhere mid-sentence. See [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages) for more information about Passage retrieval.
 
@@ -656,7 +656,7 @@ Document deduplication is currently supported only as a beta capability. See the
 
 - The version string for all API calls has changed to `2017-09-01` from `2017-08-01`. This version includes updates that will filter out the following invalid JSON fields during preview and ingestion so that only valid JSON fields are ingested. Update your version string to `2017-09-01` to avoid conflicts and possible errors.
 
-   - `id`, `score`, and `highlight` at the top level (You can continue to add documents to your collection using document IDs with the `add a document` function. See the [API Reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#add-a-document){: new_window} for details.
+   - `id`, `score`, and `highlight` at the top level (You can continue to add documents to your collection using document IDs with the `add a document` function. See the [API Reference](https://{DomainName}/apidocs/discovery#add-a-document){: external} for details.
    - `_` prefixed field names at the top level (as a result, when querying for a document by ID, you can query for `id` instead of `_id`.)
    - `#` and `,` in the field name
    - `+` and `-` prefixed field names
@@ -856,7 +856,7 @@ Enhancements have been added to the query API (`GET /v1/environments/{environmen
 ### 7 April 2017
 {: #7apr17}
 
-- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `sort` parameter, which enables you to specify a comma-separated list of fields in the document to sort on. See the [Query your collection ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-your-collection){: new_window} method in the API reference for information.
+- The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `sort` parameter, which enables you to specify a comma-separated list of fields in the document to sort on. See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 - The `timeslice` parameter for query aggregations now correctly handles dates in UNIX epoch format. See [Query reference](/docs/services/discovery?topic=discovery-query-reference#aggregations) for information about aggregations and the `timeslice` parameter.
 - Improvements to error messages.
 - Updates to the service's Java SDK. See the [API Reference](https://{DomainName}/apidocs/discovery?language=java) for details.
@@ -968,7 +968,7 @@ The following notes apply specifically to the Data Crawler 1.2.5 release.
 
 The following notes describe issues that were identified after the GA release on 15 December 2016.
 
-[Update: API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}
+[Update: API reference](https://{DomainName}/apidocs/discovery){: external}
 
 -   If you add a document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents`
     or `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the call returns a document ID and the **processing** status. If you then query the document by using the `GET /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the status remains at **processing** until ingestion is completed, at which point the status changes to **available**.
@@ -987,7 +987,7 @@ The following notes apply to the General Availability (GA) release of {{site.dat
 
 [Update: Adding content](/docs/services/discovery?topic=discovery-addcontent#addcontent)
 
-See [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window} for current API version.
+See [API reference](https://{DomainName}/apidocs/discovery){: external} for current API version.
 
 [Update: Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
 
@@ -1045,7 +1045,7 @@ See [API reference ![External link icon](../../icons/launch-glyph.svg "External 
 ### Known issues
 {: #rn-issues}
 
-[Update: API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery){: new_window}
+[Update: API reference](https://{DomainName}/apidocs/discovery){: external}
 
 [Update: tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started)
 

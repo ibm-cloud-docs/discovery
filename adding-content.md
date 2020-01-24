@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -56,7 +56,7 @@ Collection | Lite plans | Advanced plans
 Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU)](/docs/services/discovery?topic=discovery-release-notes#22jan19) | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
 Collections created after the release of [SDU](/docs/services/discovery?topic=discovery-sdu#sdu) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
     
-\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
 \*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
 -   The documents in your collection will be converted using the current configuration, unless you choose a different configuration file. For information about creating a configuration file, see [Custom configuration](/docs/services/discovery?topic=discovery-configservice#custom-configuration). (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).)
@@ -88,7 +88,7 @@ For information on how to connect to Box, Salesforce, Microsoft SharePoint Onlin
 
 See [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/services/discovery?topic=discovery-gs-api#gs-api) for a step-by-step tutorial.
 
-For more information about the API, see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery/){: new_window}.
+For more information about the API, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
 1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection.
 1.  Then use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method to add documents to your collection.
@@ -96,6 +96,6 @@ For more information about the API, see the [API reference ![External link icon]
 ## Crawling URLs
 {: #crawl_urls}
 
-You can crawl URLs and index them using the {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} Service [Indexing plugin for Apache Nutch ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://github.com/IBM-Watson/nutch-indexer-discovery). The crawl does not update automatically, so the procedure will need to be repeated periodically to keep the index up-to-date. 
+You can crawl URLs and index them using the {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} Service [Indexing plugin for Apache Nutch](https://github.com/IBM-Watson/nutch-indexer-discovery){: external}. The crawl does not update automatically, so the procedure will need to be repeated periodically to keep the index up-to-date. 
 
 You also have the option to use the Web Crawl connector. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#connectwebcrawl).
