@@ -11,7 +11,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -47,11 +47,11 @@ If you prefer to work in the API, see [Getting started with the API](/docs/servi
 You need a service instance to start.
 {: hide-dashboard}
 
-1.  {: hide-dashboard} Go to the [{{site.data.keyword.discoveryshort}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery) page in the {{site.data.keyword.cloud_notm}} catalog.
+1.  {: hide-dashboard} Go to the [{{site.data.keyword.discoveryshort}}](https://{DomainName}/catalog/services/discovery){: external} page in the {{site.data.keyword.cloud_notm}} catalog.
 
     The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
 
-    If you're creating an instance for more robust use, then learn more about [resource groups ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/docs/resources/bestpractice_rgs.html#bp_resourcegroups){: new_window}.
+    If you're creating an instance for more robust use, then learn more about [resource groups](https://{DomainName}/docs/resources/bestpractice_rgs.html#bp_resourcegroups){: external}.
 1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
 1.  {: hide-dashboard} Click **Create**.
 
@@ -133,7 +133,7 @@ For more information about annotating documents, see [Smart Document Understandi
 1.  Click the **JSON** tab on the right. Look at the `text` under `results`. The answers returned for the query are much more precise.
 
 Additional resources:
--  To learn more about the data schema of your documents, click the **View Data Schema** icon on the far left or click on the **JSON** tab. See the [Discovery data schema](/docs/services/discovery?topic=discovery-query-concepts#discovery-schema) for details.
+-  To learn more about the data schema of your documents, click the **View Data Schema** icon or click on the **JSON** tab. See the [Discovery data schema](/docs/services/discovery?topic=discovery-query-concepts#discovery-schema) for details.
 -  Click the **Use a sample query** button to try out example queries written in the {{site.data.keyword.discoveryshort}} Query Language.
 
 ## Next steps

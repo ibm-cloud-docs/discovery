@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -43,15 +43,15 @@ The products, services, and other capabilities described herein are not suitable
 
 If you need to request GDPR support for {{site.data.keyword.cloud}} {{site.data.keyword.watson}} resources that are created
 
--   In the European Union (EU), see [Requesting support for IBM Cloud Watson resources created in the European Union ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-gdpr-sar#request-EU){: new_window}.
--   Outside of the EU, see [Requesting support for resources outside the European Union ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/watson?topic=watson-gdpr-sar#request-non-EU){: new_window}.
+-   In the European Union (EU), see [Requesting support for IBM Cloud Watson resources created in the European Union](https://cloud.ibm.com/docs/services/watson?topic=watson-gdpr-sar#request-EU){: external}.
+-   Outside of the EU, see [Requesting support for resources outside the European Union](https://cloud.ibm.com/docs/services/watson?topic=watson-gdpr-sar#request-non-EU){: external}.
 
 ## European Union General Data Protection Regulation (GDPR)
 {: #gdpr}
 
 IBM is committed to providing our clients and partners with innovative data privacy, security and governance solutions to assist them on their journey to GDPR compliance.
 
-Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and offerings to support your compliance journey [here ![External link icon](../../icons/launch-glyph.svg "External link icon")](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/data-responsibility/gdpr/){: new_window}.
+Learn more about IBM's own GDPR readiness journey and our GDPR capabilities and offerings to support your compliance journey [here](https://www.ibm.com/data-responsibility/gdpr/){: external}.
 
 ## Labeling and deleting data in {{site.data.keyword.discoveryshort}}
 {: #gdpr-discovery}
@@ -124,7 +124,7 @@ Adding a `customer_id` with the **GDPR Data Label** field will label the documen
 
 Data must be labeled with a `customer_id` in order to delete it later.
 
-1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery?topic=discovery-information-security#pi_methods). Also see the [API reference ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#delete-labeled-data){: new_window}
+1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery?topic=discovery-information-security#pi_methods). Also see the [API reference](https://{DomainName}/apidocs/discovery#delete-labeled-data){: external}
 
 Deletions are performed asynchronously. You cannot track the progress of deletions.
 

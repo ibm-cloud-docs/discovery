@@ -1,15 +1,15 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-12-03"
+  years: 2015, 2020
+lastupdated: "2020-01-24"
 
 subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -43,10 +43,10 @@ Answers to common questions about training a collection.
 ### How do I know if my system is trained?
 {: #understanding-system}
 
-Use the [List collection details ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#get-collection-details){: new_window} API command to verify that your system has been trained.  
+Use the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} API command to verify that your system has been trained.  
 
 ```bash
-curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2017-11-07"
+curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2019-04-30"
 ```
 {: pre}
 
@@ -82,10 +82,10 @@ In the response:
 ### How do I check errors and warnings?
 {: #understanding-errors}
 
-You can use the [Query notices API ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#query-system-notices){: new_window} to view errors or warnings.  
+You can use the [Query notices API](https://{DomainName}/apidocs/discovery#query-system-notices){: external} to view errors or warnings.  
 
 ```bash
-curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2017-11-07"
+curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2019-04-30"
 ```
 {: pre}
 

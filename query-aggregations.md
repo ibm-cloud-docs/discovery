@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -81,7 +81,7 @@ histogram(product.price,interval:1)
 ## timeslice
 {: #timeslice}
 
-A specialized histogram that uses dates to create interval segments. Valid date interval values are `second/seconds` `minute/minutes`, `hour/hours`, `day/days`, `week/weeks`, `month/months`, and `year/years`. The syntax is `timeslice(<field>,<interval>,<time_zone>)`. To use `timeslice`, the time fields in your documents must be of the `date` data type and in [UNIX time ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Unix_time){: new_window} format. Unless both of these requirements are met, the `timeslice` parameter does not work correctly. You can create a timeslice if your documents contain `date` fields with values such as `1496228512`. The value must be in a numeric format (for example, `float` or `double`) and not enclosed in quotation marks. The service treats dates in text and dates in ISO 8601 format as data type `string`, not as data type `date`. You can detect anomalous points in timeslice aggregations. See [Timeslice anomaly detection](#anomaly-detection) for additional information. This example returns values for "sales" ("product.sales") at intervals of 2 days in the New York City time zone.
+A specialized histogram that uses dates to create interval segments. Valid date interval values are `second/seconds` `minute/minutes`, `hour/hours`, `day/days`, `week/weeks`, `month/months`, and `year/years`. The syntax is `timeslice(<field>,<interval>,<time_zone>)`. To use `timeslice`, the time fields in your documents must be of the `date` data type and in [UNIX time](http://en.wikipedia.org/wiki/Unix_time){: external} format. Unless both of these requirements are met, the `timeslice` parameter does not work correctly. You can create a timeslice if your documents contain `date` fields with values such as `1496228512`. The value must be in a numeric format (for example, `float` or `double`) and not enclosed in quotation marks. The service treats dates in text and dates in ISO 8601 format as data type `string`, not as data type `date`. You can detect anomalous points in timeslice aggregations. See [Timeslice anomaly detection](#anomaly-detection) for additional information. This example returns values for "sales" ("product.sales") at intervals of 2 days in the New York City time zone.
 
 For example:
 ```bash

@@ -1,15 +1,15 @@
 ---
 
 copyright:
-  years: 2015, 2017, 2019
-lastupdated: "2019-03-29"
+  years: 2015, 2020
+lastupdated: "2020-01-24"
 
 subcollection: discovery
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -61,7 +61,7 @@ Your service credentials can be managed by viewing the **Service Credentials** t
 
 A {{site.data.keyword.discoveryshort}} instance is created in the same way that you created your AlchemyData News instance.
 
-1. Navigate to [{{site.data.keyword.Bluemix_notm}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/catalog/services/discovery){: new_window}, login, and select {{site.data.keyword.discoveryshort}} from the service catalog.
+1. Navigate to [{{site.data.keyword.Bluemix_notm}}](https://{DomainName}/catalog/services/discovery){: external}, login, and select {{site.data.keyword.discoveryshort}} from the service catalog.
 1. Select the appropriate plan for your needs and click **Create**.
 
   {{site.data.keyword.discoveryshort}} offers a Lite plan. See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) for details. You can use an instance of this plan to identify equivalent queries without having to pay for them.
@@ -97,7 +97,7 @@ In all of the following examples, replace `{username}` and `{password}` with the
 {: #api-adn}
 
 ```bash
-curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2017-11-07&query=enriched_text.entities.text:IBM'
+curl -u "{username}":"{password}"  'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2019-04-30&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
 
@@ -148,7 +148,7 @@ from watson_developer_cloud import DiscoveryV1
 discovery = DiscoveryV1(
   username="{username}",
   password="{password}",
-  version="2017-11-07"
+  version="2019-04-30"
 )
 
 qopts = {'query': 'enriched_text.entities.text:IBM'}

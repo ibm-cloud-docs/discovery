@@ -9,7 +9,7 @@ subcollection: discovery
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
 {:note: .note}
 {:pre: .pre}
@@ -106,9 +106,9 @@ You should migrate from the indexed content in {{site.data.keyword.retrieveandra
 
 **Note:** This method is possible only if all the necessary content is in stored fields in {{site.data.keyword.retrieveandrankshort}}. If the content was only indexed but not stored, it will not be possible to query the content out of the service, and the data will have to be converted and split again from the source.
 
-Documents are extracted from the service using the [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: new_window} method using a blank query `q=*:*`. The number of documents returned might be more than the practical maximum return count (`200` for most collections). If this is the case, multiple calls should be made with appropriate [paging ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: new_window} to collect all the documents.
+Documents are extracted from the service using the [/v1/solr_clusters/{solr_cluster_id}/solr/\{collection_name\}/select](https://www.ibm.com/watson/developercloud/retrieve-and-rank/api/v1/#index_doc){: external} method using a blank query `q=*:*`. The number of documents returned might be more than the practical maximum return count (`200` for most collections). If this is the case, multiple calls should be made with appropriate [paging](https://lucene.apache.org/solr/guide/6_6/pagination-of-results.html){: external} to collect all the documents.
 
-Documents with specified **ID's** are uploaded to {{site.data.keyword.discoveryshort}} using the [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\} ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/apidocs/discovery#update-a-document){: new_window} method. Each document upload is a separate API call.
+Documents with specified **ID's** are uploaded to {{site.data.keyword.discoveryshort}} using the [/v1/environments/\{environment_id\}/collections/\{collection_id\}/documents/\{document_id\}](https://{DomainName}/apidocs/discovery#update-a-document){: external} method. Each document upload is a separate API call.
 
 ## Migrating training data
 {: #trainingdata-dcs-rr}
@@ -285,4 +285,4 @@ Consult the [Query concepts](/docs/services/discovery?topic=discovery-query-conc
 
 If you are using {{site.data.keyword.documentconversionshort}} to help ingest content into {{site.data.keyword.retrieveandrankshort}}, then that functionality has evolved into a single service - {{site.data.keyword.discoveryshort}}. {{site.data.keyword.discoveryshort}} lets you easily convert, enrich, and ingest Microsoft Word, PDF, HTML, and JSON documents into a trainable and searchable index. This section is relevant to you if your use case doesn't involve storing the converted content in an index. If you are ingesting documents into an index, see [Configuring {{site.data.keyword.discoveryshort}}](/docs/services/discovery?topic=discovery-configservice#configservice).
 
-IBM no longer provides a service that is designed for standalone conversion of Microsoft Word, PDF, and HTML documents. If you are currently using the {{site.data.keyword.documentconversionshort}} service and do not ingest the output into an online indexed service (such as {{site.data.keyword.discoveryshort}}), it is recommended that you consider migrating to an open-source alternative such as [Apache Tika ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://tika.apache.org/){: new_window}.
+IBM no longer provides a service that is designed for standalone conversion of Microsoft Word, PDF, and HTML documents. If you are currently using the {{site.data.keyword.documentconversionshort}} service and do not ingest the output into an online indexed service (such as {{site.data.keyword.discoveryshort}}), it is recommended that you consider migrating to an open-source alternative such as [Apache Tika](https://tika.apache.org/){: external}.
