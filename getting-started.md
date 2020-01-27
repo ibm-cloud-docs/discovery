@@ -44,7 +44,7 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
     1.  Go to the [{{site.data.keyword.discoveryshort}}](https://{DomainName}/catalog/services/discovery){: external} page in the catalog.
 
         The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
-        If you're creating an instance for more robust use, then learn more about [resource groups](}/docs/resources/bestpractice_rgs.html#bp_resourcegroups).
+        If you're creating an instance for more robust use, then learn more about [resource groups](https://{DomainName}/docs/resources/bestpractice_rgs.html#bp_resourcegroups){: external}
 
     1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
     1.  Click **Create**.
