@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-01-28"
 
 subcollection: discovery
 
@@ -60,7 +60,9 @@ For additional details on the function and syntax for the parameters see [Query 
 
 Example of searching logs for a natural language query that contains the term “train”:
 
-`https://gateway.watsonplatform.net/discovery/api/v1/logs?version=2019-04-30&query=train`
+`{url}/v1/logs?version=2019-04-30&query=train`
+
+Replace `{url}` with your URL.
 
 The response of a `logs` query includes results that appear similar to {{site.data.keyword.discoveryshort}} document results. Each result will either be a query or event, specified in the document `type` field.  
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-04-24"
+  years: 2015, 2020
+lastupdated: "2020-01-28"
 
 subcollection: discovery
 
@@ -237,7 +237,7 @@ Default options can be changed directly by opening the `config/discovery/discove
 
     **Note:** When using the Orchestration Service Output Adapter, this number should be greater than, or equal to, the `output_limit` set when configuring crawl options.   
 
--   **`base_url`** - The URL to which your crawled documents will be sent. For the current release of {{site.data.keyword.discoveryshort}}, the value is `https://gateway.watsonplatform.net/discovery/api`.   
+-   **`base_url`** - The URL to which your crawled documents will be sent.   
 -   **`environment_id`** - The location of your crawled document collection at the base URL.   
 -   **`collection_id`** - Name of the document collection that you set up in {{site.data.keyword.discoveryshort}}.
 -   **`api_version`** - Internal use only. Date of the last API version change.   

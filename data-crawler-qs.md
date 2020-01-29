@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-01-28"
 
 subcollection: discovery
 
@@ -50,14 +50,14 @@ Replace `{apikey}` with your service credentials.
 (For more detailed information about using {apikey} credentials, see [Getting started with the API](/docs/services/discovery?topic=discovery-gs-api#gs-api).)
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d '{ "name":"my-first-environment", "description":"exploring environments"}' "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2019-04-30"
+curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{ \"name\":\"my-first-environment\", \"description\":\"exploring environments\"}" "{url}/v1/environments?version=2019-04-30"
 ```
 {: pre}
 
 The API returns a response that includes information such as your environment ID, environment status, and how much storage your environment is using. Do not go on to the next step until your environment status is `ready`. When you create the environment, if the status returns `status:pending`, use the `GET /v1/environments/{environment_id}` method to check the status until it is ready. In this example, replace `{apikey}` with your service credentials, and replace `{environment_id}` with the environment ID that was returned when you created the environment.
 
 ```bash
-curl -u "apikey:{apikey}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}?version=2019-04-30
+curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}?version=2019-04-30"
 ```
 {: pre}
 
@@ -72,21 +72,21 @@ Next, use the `POST /v1/environments/{environment_id}/collections` method to cre
 Before creating a collection you must get the ID of your default configuration. To find your default `configuration_id`, use the `GET /v1/environments/{environment_id}/configurations` method:
 
 ```bash
-curl -u "apikey:{apikey}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/configurations?version=2019-04-30
+curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/configurations?version=2019-04-30"
 ```
 {: pre}
 
 Once you have the default configuration ID, use it to create your collection. Replace `{configuration_id}` with the default configuration ID for your environment.
 
 ```bash
-curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d '{"name": "my-first-collection", "description": "exploring collections", "configuration_id":"{configuration_id}" , "language": "en_us"}' https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections?version=2019-04-30
+curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{\"name\": \"my-first-collection\", \"description\": \"exploring collections\", \"configuration_id\":\"{configuration_id}\" , \"language\": \"en_us\"}" "{url}/v1/environments/{environment_id}/collections?version=2019-04-30"
 ```
 {: pre}
 
 The API returns a response that includes information such as your collection ID, collection status, and how much storage your collection is using. Do not go on to the next step until your collection status is `online`. When you create the collection, if the status returns `status:pending`, use the `GET /v1/environments/{environment_id}/collections/{collection_id}` method to check the status until it is ready. In this example, replace `{apikey}` with your service credentials, replace `{environment_id}` with your environment ID, and replace `{collection_id}` with the collection ID that was returned earlier in this step.
 
 ```bash
-curl -u "apikey:{apikey}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2019-04-30
+curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{collection_id}?version=2019-04-30"
 ```
 {: pre}
 
@@ -182,11 +182,12 @@ This will run a crawl with the configuration file `crawler.conf`.
 Finally, use the `GET /v1/environments/{environment_id}/collections/{collection_id}/query` method to search your collection of documents. The following example returns all entities that are called `IBM`:
 
 -   Replace `{apikey}` with your service credentials.
+-   Replace `{url}` with your URL.
 -   Replace `{environment_id}` with the environment ID for the environment you created in step 1.
 -   Replace `{collection_id}` with the collection ID of the collection that you created in step 2.
 
 ```bash
-curl -u "apikey:{apikey}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&query-enriched_text.entities.text:IBM'
+curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&query-enriched_text.entities.text:IBM"
 ```
 {: pre}
 

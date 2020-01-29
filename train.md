@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-01-28"
 
 subcollection: discovery
 
@@ -166,7 +166,7 @@ curl -X POST -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" -H "Conten
     }
   ]
 }'
-"https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
+"{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
 ```
 {: pre}
 
@@ -180,7 +180,7 @@ Perform the following steps to add an example to a training-data query.
 1. Get the query ID of the training-data query to which you want to add a new example by [listing the collection's training-data queries](https://{DomainName}/apidocs/discovery#list-training-data){: external}:
 
    ```bash
-    curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
+    curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
    ```
    {: pre}
 
@@ -217,14 +217,14 @@ Perform the following steps to add an example to a training-data query.
     '{
       "document_id": "46b52fdc-3a72-4700-9849-ac217532b373",
       "relevance": 3
-    }' "https://gateway.watsonplatform.net/discovery/api/v1/environments//a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data/484baad4-d440-44b7-a0dd-70bb2ac77baa?version=2019-04-30"
+    }' "{url}/v1/environments//a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data/484baad4-d440-44b7-a0dd-70bb2ac77baa?version=2019-04-30"
    ```
    {: pre}
 
 1. Verify that the new example has been added to the training-data query by again [listing the collection's training-data queries](https://{DomainName}/apidocs/discovery#list-training-data){: external}:
 
    ```bash
-    curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
+    curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
    ```
    {: pre}
 
@@ -261,9 +261,11 @@ Perform the following steps to add an example to a training-data query.
 1. Check the status of the training by using the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} method and looking at the value of the `"training"`/`"available"` field. When you have added enough queries and examples to meet the training requirements, the value of the field returns as `true` and the service automatically begins to use the training data.
 
    ```bash
-    curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "https://gateway.watsonplatform.net/discovery/api/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2019-04-30"
+    curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2019-04-30"
    ```
    {: pre}
+
+   Replace `{url}` with your URL.
 
    The JSON that is returned will be of the following format:
 

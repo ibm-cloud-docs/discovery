@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-01-28"
 
 subcollection: discovery
 
@@ -125,16 +125,18 @@ In all of the following examples, replace `{username}` and `{password}` with the
 {: #api-bwdn}
 
 ```bash
-curl -u "{username}":"{password}" 'https://gateway.watsonplatform.net/discovery/api/v1/environments/system/collections/news/query?version=2019-04-30&query=enriched_text.entities.text:IBM'
+curl -u "apikey":"{apikey_value}" '{url}/v1/environments/system/collections/news/query?version=2019-04-30&query=enriched_text.entities.text:IBM'
 ```
 {: pre}
+
+Replace `{apikey}` and `{url}` with your API key and URL.
 
 ### Using the Watson Java SDK
 {: #javasdk-bwdn}
 
 ```java
 Discovery discovery = new Discovery("2017-11-07");  
-discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
+discovery.setEndPoint("{url}/v1");
 discovery.setUsernameAndPassword("{username}", "{password}");  
 String environmentId = "system";
 String collectionId = "news";
