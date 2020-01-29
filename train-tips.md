@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-01-28"
 
 subcollection: discovery
 
@@ -46,7 +46,7 @@ Answers to common questions about training a collection.
 Use the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} API command to verify that your system has been trained.  
 
 ```bash
-curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}?version=2019-04-30"
+curl -u "apikey":"{apikey_value}" {url}/v1/environments/{environment_id}/collections/{collection_id}?version=2019-04-30"
 ```
 {: pre}
 
@@ -85,9 +85,11 @@ In the response:
 You can use the [Query notices API](https://{DomainName}/apidocs/discovery#query-system-notices){: external} to view errors or warnings.  
 
 ```bash
-curl -u "apikey":"{apikey_value}" https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2019-04-30"
+curl -u "apikey":"{apikey_value}" {url}/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2019-04-30"
 ```
 {: pre}
+
+Replace `{apikey}` and `{url}` with your API key and URL.
 
 Other API operations are listed in [Performing other training-data query operations](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#training-data-operations).
 

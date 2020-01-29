@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-01-28"
 
 subcollection: discovery
 
@@ -457,10 +457,12 @@ Document similarity is determined by extracting the 25 most relevant terms from 
 
 Example query by `similar.document_ids` (there should be no space after the comma if specifying multiple `similar.document_ids`):
 
-`curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1,6057k6d1-7d7k-6aeh-cfbb-kj98ssf786c2"`
+`curl -u "apikey":"{apikey_value}" "{url}/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1,6057k6d1-7d7k-6aeh-cfbb-kj98ssf786c2"`
 
 Example query with `similar.fields` added:
 
-`curl -u "apikey":"{apikey_value}" "https://gateway.watsonplatform.net/discovery/api/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
+`curl -u "apikey":"{apikey_value}" "{url}/v1/environments/{environment_id}/collections/{collection_id}/query?version=2019-04-30&similar.document_ids=4107b6f1-5d3f-4bea-bbcf-fb05bbf960b1&similar.fields=title&return=title&count=100"`
+
+Replace `{apikey}` and `{url}` with your API key and URL.
 
 See the [document similarity API reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external} and [query parameters](/docs/services/discovery?topic=discovery-query-parameters#similar) for more information.

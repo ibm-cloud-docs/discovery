@@ -391,11 +391,13 @@ When you use IAM access tokens, you authenticate before you send a request to {{
     ```bash
     curl -X GET
     --header "Authorization: Bearer eyJhbGciOiJIUz......sgrKIi8hdFs"
-    "https://gateway.watsonplatform.net/discovery/api/v1/environments?version=2017-11-07"
+    "{url}/v1/environments?version=2017-11-07"
     ```
     {: pre}
 
     For more information, see [Using a token to authenticate](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#use_token){: external}.
+
+    Replace `{url}` with your URL.
 
 ### Refreshing an IAM access token
 {: #iam-refreshing}
