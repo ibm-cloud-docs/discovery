@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-12-12"
+  years: 2015, 2020
+lastupdated: "2020-01-30"
 
 subcollection: discovery
 
@@ -54,6 +54,11 @@ IBM will release services, features, and language support that are classified as
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 17 January 2020
+{: #17jan2020}
+
+- Released [{{site.data.keyword.discoverynewsfull}}](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) in one additional language: French (`collection_id`: `news-fr`).
 
 ## 12 December 2019
 {: #12dec2019}
