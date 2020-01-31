@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-10-07"
+  years: 2015, 2020
+lastupdated: "2020-01-30"
 
 subcollection: discovery
 
@@ -35,9 +35,8 @@ subcollection: discovery
 {{site.data.keyword.discoveryfull}} makes it possible to rapidly build cognitive, cloud-based exploration applications that unlock actionable insights hidden in unstructured data — including your own proprietary data, as well as public and third-party data.
 {: shortdesc}
 
-This is the architecture of a complete {{site.data.keyword.discoveryshort}} solution:
 
-![Discovery architecture diagram](images/discovery-flow.png)
+![Discovery architecture diagram](images/about-discovery.png)
 
 With {{site.data.keyword.discoveryshort}}, it only takes a few steps to prepare your unstructured data, create a query that will pinpoint the information you need, and then integrate those insights into your new application or existing solution.
 
