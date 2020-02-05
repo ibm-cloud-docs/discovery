@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-03"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -100,7 +100,7 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 
     1.  Update the file as follows, substituting the unique ID of the {{site.data.keyword.knowledgestudioshort}} model described in "Before you begin" for `{watson_knowledge_studio_model_ID}`.
 
-        It is possible to apply more than one custom model to identical fields using the API. See the example in [Integrating multiple custom models](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-multiplecustom).
+        It is possible to apply more than one custom model to identical fields using the API. See the example in [Integrating multiple custom models](/docs/discovery?topic=discovery-integrating-with-wks#integrate-multiplecustom).
         {: note}
 
         ```json
@@ -156,7 +156,7 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 ### Integrating multiple custom models 
 {: #integrate-multiplecustom}
 
-You can apply more than one custom model to identical fields using the API. Follow the steps in [Integrating your custom model with the API](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI) and use the example here as a guide. 
+You can apply more than one custom model to identical fields using the API. Follow the steps in [Integrating your custom model with the API](/docs/discovery?topic=discovery-integrating-with-wks#integrate-customAPI) and use the example here as a guide. 
 
 You cannot apply multiple custom models using the {{site.data.keyword.discoveryshort}} tooling. Only the entity and relations enrichments may be customized.
 
@@ -202,9 +202,9 @@ You must specify a different `destination_field` for each identical `source_fiel
 ## Integrating your custom model with the Discovery tooling
 {: #integrate-customtooling}
 
-You can integrate a {{site.data.keyword.knowledgestudioshort}} custom model into the [Entity Extraction](/docs/services/discovery?topic=discovery-configservice#entity-extraction) or [Relation Extraction](/docs/services/discovery?topic=discovery-configservice#relation-extraction) enrichments with the {{site.data.keyword.discoveryshort}} tooling.
+You can integrate a {{site.data.keyword.knowledgestudioshort}} custom model into the [Entity Extraction](/docs/discovery?topic=discovery-configservice#entity-extraction) or [Relation Extraction](/docs/discovery?topic=discovery-configservice#relation-extraction) enrichments with the {{site.data.keyword.discoveryshort}} tooling.
 
-You cannot apply multiple custom models to the same field using the {{site.data.keyword.discoveryshort}} tooling. It is possible to apply more than one custom model to identical fields using the API. See [Integrating your custom model with the API](/docs/services/discovery?topic=discovery-integrating-with-wks#integrate-customAPI).
+You cannot apply multiple custom models to the same field using the {{site.data.keyword.discoveryshort}} tooling. It is possible to apply more than one custom model to identical fields using the API. See [Integrating your custom model with the API](/docs/discovery?topic=discovery-integrating-with-wks#integrate-customAPI).
 
 1. Get the `Model ID` of your {{site.data.keyword.knowledgestudioshort}} model.
 1. In the {{site.data.keyword.discoveryshort}} tooling, click the **Manage Data** icon to open the **Manage data** screen, then create or open a collection. **Note:** If you choose an existing collection, it should be empty. If not, you should reingest those documents after creating your new configuration file.

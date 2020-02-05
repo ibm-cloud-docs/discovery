@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -32,7 +32,7 @@ subcollection: discovery
 # Relevancy training tips
 {: #relevancy-tips}
 
- Answers to common questions about training a collection and explanations of common error and warning messages. For more information on improving the relevancy of natural language queries, see [Improving result relevance with the tooling](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling) and [Improving result relevance with the API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api).
+ Answers to common questions about training a collection and explanations of common error and warning messages. For more information on improving the relevancy of natural language queries, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling) and [Improving result relevance with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api).
 {: shortdesc}
 
 ## Understanding training
@@ -91,12 +91,12 @@ curl -u "apikey":"{apikey_value}" {url}/v1/environments/{environment_id}/collect
 
 Replace `{apikey}` and `{url}` with your API key and URL.
 
-Other API operations are listed in [Performing other training-data query operations](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#training-data-operations).
+Other API operations are listed in [Performing other training-data query operations](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api#training-data-operations).
 
 ### How do I interpret the `confidence` score that appears in natural language query results after training?
 {: #interpret-confidence}
 
-See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for more information.  
+See [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for more information.  
 
 ## Interpreting Errors and Warnings
 {: #interpreting-errors}

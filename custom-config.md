@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-01-22"
+  years: 2015, 2020
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -37,7 +37,7 @@ You can create your own {{site.data.keyword.discoveryshort}} ingestion configura
 
 The following sections detail the structure of this JSON and the object that can be defined in it.
 
-If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+If your collection was created using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
 ## Configuration structure
@@ -97,7 +97,7 @@ Converting documents takes the original source format and using one or more step
 
 - **JSON** files are converted using the `json` options.
 
-If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+If you use [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) to create your collection, the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
 These options are described in the following sections. After conversion has completed, [enrichment](#enrichment) and [normalization](#normalization) are performed before the content is stored.
@@ -105,7 +105,7 @@ These options are described in the following sections. After conversion has comp
 ### PDF
 {: #pdf}
 
-If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+If you use [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) to create your collection, the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
 The `pdf` conversion object defines how PDF documents should be converted into HTML and has the following structure:
@@ -138,20 +138,20 @@ The `pdf` conversion object defines how PDF documents should be converted into H
 
 When converting PDF files headings in those files can be identified (and converted into an appropriate HTML "`h`" tag) by identifying the size, font and style of each heading level. Heading levels can be specified multiple times if necessary in order to correctly identify all relevant sections. HTML heading levels are important to identify if you plan on extracting the contents using CSS selectors, or intend to split the document using document splitting. The `heading` object contains the `fonts` array and each item in that array specifies a heading level using the following parameters:
 
-- `"level": INT` - *required* - the HTML `h` level that text identified with these parameters will be converted into.
+- `"level": INT` - *required* - the HTML `h` level that text identified with these parameters are converted into.
 - `"min_size": INT` - _optional_ - the smallest font size that is identified as this heading level.
 - `"max_size": INT` - _optional_ - the largest font size that is identified as this heading level.
 - `"bold": boolean` - _optional_ - When `true` only bold fonts are identified as this heading level.
 - `"italic": boolean` - _optional_ - When `true` only italic fonts are identified as this heading level.
 - `"name": "string"` - _optional_ - The name of the font that is identified as this heading level.
 
-For an area of text to be identified as a heading it must match all of the parameters defined in the specific array item. If the parameters defined are too flexible, you may have more headings identified than you anticipated. You will have better results if you strictly define each heading level multiple times to ensure all heading level variations are included without invalid matches.
+For an area of text to be identified as a heading it must match all of the parameters defined in the specific array item. If the parameters defined are too flexible, you may have more headings identified than you anticipated. Your results are better if you strictly define each heading level multiple times to ensure all heading level variations are included without invalid matches.
 
 
 ### Word
 {: #word}
 
-If your collection was created using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), the PDF and Word conversion settings listed will not be used, so changing these conversion settings will be ignored.
+If your collection was created using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
 The `word` conversion object defines how PDF documents should be converted into HTML and has the following structure:
@@ -200,19 +200,19 @@ The Microsoft Word conversion object works in a similar way to the PDF conversio
 
 Each item in the `fonts` array specifies a heading level using the following parameters using font characteristics:
 
-- `"level": INT` - *required* - the HTML `h` level that text identified with these parameters will be converted into.
+- `"level": INT` - *required* - the HTML `h` level that text identified with these parameters are converted into.
 - `"min_size": INT` - _optional_ - the smallest font size that is identified as this heading level.
 - `"max_size": INT` - _optional_ - the largest font size that is identified as this heading level.
 - `"bold": boolean` - _optional_ - When `true` only bold fonts are identified as this heading level.
 - `"italic": boolean` - _optional_ - When `true` only italic fonts are identified as this heading level.
 - `"name": "string"` - _optional_ - The name of the font that is identified as this heading level.
 
-For an area of text to be identified as a heading in the `font` array it must match all of the parameters defined in the specific array item. If the parameters defined are too flexible, you may have more headings identified than you anticipated. You will have better results if you strictly define each heading level multiple times to ensure all heading level variations are included without invalid matches.
+For an area of text to be identified as a heading in the `font` array it must match all of the parameters defined in the specific array item. If the parameters defined are too flexible, you may have more headings identified than you anticipated. Your results are better if you strictly define each heading level multiple times to ensure all heading level variations are included without invalid matches.
 
 Each item in the `styles` array specifies a heading level from the Microsoft Word styles that are applied to that paragraph.
 
-- `"level": INT` - *required* - the HTML `h` level that text identified with these parameters will be converted into.
-- `"names": array` - *required* - a comma separated array of style names that will be identified as this heading level.
+- `"level": INT` - *required* - the HTML `h` level that text identified with these parameters are converted into.
+- `"names": array` - *required* - a comma separated array of style names that is identified as this heading level.
 
 *When to use fonts and when to use styles* - If your Microsoft Word documents conform well to the style sheet with each paragraph correctly tagged with the appropriate style, then it is recommended that you use `styles` to extract headings. However, you may find that some documents have styles that have been manually overwritten by the writer. These documents are more likely to provide good conversion when the `fonts` extraction method is used.
 {: tip}
@@ -262,12 +262,12 @@ Each item in the `styles` array specifies a heading level from the Microsoft Wor
 #### exclude_tags_completely
 {: #configref_exclude_completely}
 
-`"exclude_tags_completely" : array` - An array of HTML tag names that will be excluded. This includes the tag, the content and any tag attributes that are defined.
+`"exclude_tags_completely" : array` - An array of HTML tag names that are excluded. This includes the tag, the content and any tag attributes that are defined.
 
 #### exclude_tags_keep_content
 {: #configref_exclude_tags_keep_content}
 
-`"exclude_tags_keep_content" : array` - An array of HTML tag names where the tag information is removed. This results in the HTML tag and any tag attributes being stripped. The content of the tag is not further stripped unless specified. For example if you specify `exclude_tags_keep_content` for the `span` HTML tag, then `<span class="info">Some <strong>Information</strong></span>` will be stripped to: `Some <strong>Information</strong>`
+`"exclude_tags_keep_content" : array` - An array of HTML tag names where the tag information is removed. This results in the HTML tag and any tag attributes being stripped. The content of the tag is not further stripped unless specified. For example if you specify `exclude_tags_keep_content` for the `span` HTML tag, then `<span class="info">Some <strong>Information</strong></span>` is stripped to: `Some <strong>Information</strong>`
 
 #### exclude_content
 {: #configref_exclude_content}
@@ -282,12 +282,18 @@ Each item in the `styles` array specifies a heading level from the Microsoft Wor
 #### exclude_tag_attributes
 {: #configref_exclude_tag_attributes}
 
-`"exclude_tag_attributes" : array` - An array of HTML attribute names that are removed by the conversion regardless of which HTML tag they are present in. **Note:** You will receive an error message if you specify both `exclude_tag_attributes` and `keep_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `keep_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
+`"exclude_tag_attributes" : array` - An array of HTML attribute names that are removed by the conversion regardless of which HTML tag they are present in. 
+
+You receive an error message if you specify both `exclude_tag_attributes` and `keep_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `keep_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
+{: note}
 
 #### keep_tag_attributes
 {: #configref_keep_tag_attributes}
 
-`"keep_tag_attributes" : array` - An array of HTML attribute names that are retained by the conversion. **Note:** You will receive an error message if you specify both `keep_tag_attributes` and `exclude_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `exclude_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
+`"keep_tag_attributes" : array` - An array of HTML attribute names that are retained by the conversion.
+
+You receive an error message if you specify both `keep_tag_attributes` and `exclude_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `exclude_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
+{: note}
 
 #### extracted_fields
 {: #configref_extracted}
@@ -306,11 +312,12 @@ Each field that you want to create is defined by an object as follows:
 
 - `"{field_name}"` - The name of the field to be created.
 
-**Note:** Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
+Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
+{: note}
 
 - `"css_selector" : string` *required* - a CSS selector expression that defines the area of content to be stored in a field.
 - `"type" : string` *required* - The type of field to be created, can be `string`, `date`
-For detailed information, see [Using CSS selectors to extract fields](/docs/services/discovery?topic=discovery-configservice#using-css).
+For detailed information, see [Using CSS selectors to extract fields](/docs/discovery?topic=discovery-configservice#using-css).
 
 ### Segment
 {: #segment}
@@ -334,7 +341,7 @@ As an overview, when document segmentation is enabled the following cannot be sp
 -  `normalizations` cannot be specified as part of the configuration.
 -  The `extracted_fields` option of the `html` conversion cannot be specified as part of the configuration.
 
-For detailed information, see [Performing segmentation](/docs/services/discovery?topic=discovery-configservice#performing-segmentation).
+For detailed information, see [Performing segmentation](/docs/discovery?topic=discovery-configservice#performing-segmentation).
 
 
 ### JSON
@@ -373,16 +380,17 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
 #### Operations objects
 {: #operations}
 
-- `"operation": string` - *required* - the operation that will be performed on the JSON, must be one of the following:
-  - `remove` - the specified `source_field` will be removed from the JSON.
-  - `copy` - the specified `source_field` content will be copied to a new instance of the `destination_field`.
+- `"operation": string` - *required* - the operation that is performed on the JSON, must be one of the following:
+  - `remove` - the specified `source_field` is removed from the JSON.
+  - `copy` - the specified `source_field` content is copied to a new instance of the `destination_field`.
   - `move` - the specified `source_field` is renamed to the `destination_field`. If the `destination_field` already exists a new instance of the `destination_field` is created.
   - `merge` - the contents of the `source_field` and the `destination_field` are merged into the `destination_field`.
   - `remove_nulls` - fields with `null` content are removed.
-- `"source_field": string` - _optional_ - the field that the operation will be performed on.
-- `"destination_field": string` - _optional_ - the destination field the the operation will output to.  
+- `"source_field": string` - _optional_ - the field that the operation is performed on.
+- `"destination_field": string` - _optional_ - the destination field the the operation is output to.  
 
-  **Note:** Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
+  Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
+  {: note}
 
 
 ## Enrichments
@@ -456,26 +464,29 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
 
 - `"enrichment" : string` - *required* - The type of enrichment to use on this field. To extract {{site.data.keyword.nlushort}} enrichments use `natural_language_understanding`, to perform Element Classification use `elements`.
 
-  **Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
+  When you use the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/discovery?topic=discovery-element-classification) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
+  {: note}
 
-- `"source_field" : string` - *required* - The source field that will be enriched. This field must exist in your source after the `json_normalizations` operation has completed.
-- `"destination_field" : string` - *required* - The name of the container object where enrichments will be created.
+- `"source_field" : string` - *required* - The source field to be enriched. This field must exist in your source after the `json_normalizations` operation has completed.
+- `"destination_field" : string` - *required* - The name of the container object where enrichments are created.
 
-  **Note:** Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
+  Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
+  {: note}
 
 ### Element Classification enrichments
 {: #element_classification_enrichments}
 
-When using Element Classification, each `elements` enrichment object must contain an `"options": {}` object with the following parameters specified:
+When you use the Element Classification, each `elements` enrichment object must contain an `"options": {}` object with the following parameters specified:
 
 - `"model" : string` - *required* - The element extraction model to be used with on this document. Currently supported models are: `contract`
 
-**Note:** When using the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
+When you use the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/discovery?topic=discovery-element-classification). Specifically, only PDF files can be ingested when this enrichment is specified.
+{: note}
 
 ### Natural Language Understanding enrichments
 {: #nlu_enrichments}
 
-When using {{site.data.keyword.nlushort}}, each object within the `enrichments` array must also contain an `"options": { "features": { } }` object that contains one or more of the following enrichments:
+When you use the {{site.data.keyword.nlushort}}, each object within the `enrichments` array must also contain an `"options": { "features": { } }` object that contains one or more of the following enrichments:
 
 ### categories
 {: #nlu_categories}
@@ -508,12 +519,12 @@ The `entities` enrichment extracts instances of known entities such as people, p
 - `"mentions": boolean` - _optional_ - When `true`, the number of times that this entity is mentioned is recorded. The default is `false`.
 - `"mention_types": boolean` - _optional_ - When `true`, the mention type for each mention of this entity is stored. The default is `false`.
 - `"sentence_location": boolean` - _optional_ - When `true`, the sentence location of each entity mention is stored. The default is `false`.
-- `"model" : string` - _optional_ - When specified, the custom model is used to extract entities instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks) for more information.
+- `"model" : string` - _optional_ - When specified, the custom model is used to extract entities instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/discovery?topic=discovery-integrating-with-wks) for more information.
 
 ### keywords
 {: #nlu_keywords}
 
-The `keywords` enrichment extracts instances of significant words within the text. To understand the difference between keywords, concepts, and entities see: [Understanding the difference between Entities, Concepts, and Keywords](/docs/services/discovery?topic=discovery-configservice#udbeck).
+The `keywords` enrichment extracts instances of significant words within the text. To understand the difference between keywords, concepts, and entities, see [Understanding the difference between Entities, Concepts, and Keywords](/docs/discovery?topic=discovery-configservice#udbeck).
 
 - `"sentiment" : boolean` - _optional_ - When `true`, sentiment analysis is performed on the extracted keyword in the context of the surrounding content.
 - `"emotion" : boolean` - _optional_ - When `true`, emotional tone analysis is performed on the extracted keyword in the context of the surrounding content.
@@ -541,7 +552,7 @@ The `sentiment` enrichment evaluates the overall sentiment level of entire docum
 
 The `relations` enrichment extracts known relationships between identified entities within the document. Optionally, a {{site.data.keyword.knowledgestudioshort}} custom model can be specified to extract custom relationships.
 
-- `"model" : string` - _optional_ - When specified, the custom model is used to extract relations instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks) for more information.
+- `"model" : string` - _optional_ - When specified, the custom model is used to extract relations instead of the public model. This option requires a {{site.data.keyword.knowledgestudioshort}} custom model to be associated with your instance of {{site.data.keyword.discoveryshort}}. See [Integrating with Watson Knowledge Studio](/docs/discovery?topic=discovery-integrating-with-wks) for more information.
 
 ## Normalization
 {: #normalization}
@@ -582,4 +593,4 @@ Field names cannot contain spaces. The following characters and strings are rese
 
 The characters `_`, `+`, and `-` cannot be used to prefix the `field_name`
 
-Numerical characters `0 - 9` should not be the suffix of a field name (for example `extracted-content2`). These field names will be indexed, but cannot be queried.
+Numerical characters `0 - 9` should not be the suffix of a field name (for example `extracted-content2`). These field names are indexed, but cannot be queried.

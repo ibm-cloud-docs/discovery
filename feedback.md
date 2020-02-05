@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-03"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -56,7 +56,7 @@ The `/api/v1/logs` endpoint supports the following {{site.data.keyword.discovery
 - offset
 - version
 
-For additional details on the function and syntax for the parameters see [Query parameters](/docs/services/discovery?topic=discovery-query-parameters#query-parameters).
+For additional details on the function and syntax for the parameters see [Query parameters](/docs/discovery?topic=discovery-query-parameters).
 
 Example of searching logs for a natural language query that contains the term “train”:
 
@@ -98,10 +98,10 @@ Example query log:
 ```
 
 With query logs you can investigate the type of results returned to your end users and investigate ways to improve result quality using the approaches available in {{site.data.keyword.discoveryshort}}. For example: 
-- relevancy training, see [Improving result relevance with the API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) and [Improving result relevance with the tooling](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling)
-- [query operators](/docs/services/discovery?topic=discovery-query-operators#query-operators)
-- [query expansion](/docs/services/discovery?topic=discovery-query-concepts#query-expansion)
-- custom configurations, see the [Configuration reference](/docs/services/discovery?topic=discovery-configref#configref)
+- relevancy training, see [Improving result relevance with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api) and [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling)
+- [query operators](/docs/discovery?topic=discovery-query-operators)
+- [query expansion](/docs/discovery?topic=discovery-query-concepts#query-expansion)
+- custom configurations, see the [Configuration reference](/docs/discovery?topic=discovery-configref)
 
 ## Creating event logs
 {: #eventlogs}

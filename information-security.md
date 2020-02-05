@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-07-31"
+  years: 2015, 2020
+lastupdated: "2020-02-05"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -63,7 +63,7 @@ With this API you can:
 - Label your data with a customer ID.
 - Delete all data for a specific customer ID, including related notices.
 
-Data is labeled by adding a `customer_id` of your choice (see restrictions in [How to label data](/docs/services/discovery?topic=discovery-information-security#labeling)) to the optional `X-Watson-Metadata` header. {{site.data.keyword.discoveryshort}} can then delete it by `customer_id`.
+Data is labeled by adding a `customer_id` of your choice (see restrictions in [How to label data](/docs/discovery?topic=discovery-information-security#labeling)) to the optional `X-Watson-Metadata` header. {{site.data.keyword.discoveryshort}} can then delete it by `customer_id`.
 
 On any REST call, an optional header `X-Watson-Metadata` can be sent with semicolon separated `field=value` pairs, where currently only `customer_id` is persisted. By adding that `customer_id` in `X-Watson-Metadata` header, the request indicates that it contains data that belongs to this `customer_id`.
 
@@ -124,7 +124,7 @@ Adding a `customer_id` with the **GDPR Data Label** field will label the documen
 
 Data must be labeled with a `customer_id` in order to delete it later.
 
-1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/services/discovery?topic=discovery-information-security#pi_methods). Also see the [API reference](https://{DomainName}/apidocs/discovery#delete-labeled-data){: external}
+1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/discovery?topic=discovery-information-security#pi_methods). Also see the [API reference](https://{DomainName}/apidocs/discovery#delete-labeled-data){: external}
 
 Deletions are performed asynchronously. You cannot track the progress of deletions.
 
@@ -143,8 +143,8 @@ US Health Insurance Portability and Accountability Act (HIPAA) support is availa
 
 There are several scenarios where you should use extra care to protect personal health information (PHI) in {{site.data.keyword.discoveryshort}}:
 
-- Avoid importing any files that contain PHI from external data sources (Box, SharePoint, Salesforce, Web Crawl, IBM Cloud Object Storage). This should be avoided because data in transit between the source and the service cannot be isolated. See [Data source connection and data isolation](https://cloud.ibm.com/docs/services/discovery?topic=discovery-sources#source_isolation).
-- Avoid using PHI in your custom configuration files. See [Custom configuration](/docs/services/discovery?topic=discovery-configservice#custom-configuration).
-- Queries are logged. If you anticipate that PHI may be used in a query, opt out of query logging. See [Usage monitoring](/docs/services/discovery?topic=discovery-usage#usage).
-- If you are specifying your own `document_id`s using the API, avoid using a file name as the `document_id`.  See [Add a document](https://cloud.ibm.com/apidocs/discovery#add-a-document) for instructions to specify your own `document_id`.
-- Avoid using PHI in your {{site.data.keyword.knowledgestudiofull}} models. See [Integrating with {{site.data.keyword.knowledgestudioshort}}](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-with-wks).
+- Avoid importing any files that contain PHI from external data sources (Box, SharePoint, Salesforce, Web Crawl, IBM Cloud Object Storage). This should be avoided because data in transit between the source and the service cannot be isolated. See [Data source connection and data isolation](/docs/discovery?topic=discovery-sources#source_isolation).
+- Avoid using PHI in your custom configuration files. See [Custom configuration](/docs/discovery?topic=discovery-configservice#custom-configuration).
+- Queries are logged. If you anticipate that PHI may be used in a query, opt out of query logging. See [Usage monitoring](/docs/discovery?topic=discovery-usage).
+- If you are specifying your own `document_id`s using the API, avoid using a file name as the `document_id`.  See [Add a document](https://{DomainName}/apidocs/discovery#add-a-document){: external} for instructions to specify your own `document_id`.
+- Avoid using PHI in your {{site.data.keyword.knowledgestudiofull}} models. See [Integrating with {{site.data.keyword.knowledgestudioshort}}](/docs/discovery?topic=discovery-integrating-with-wks).

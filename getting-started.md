@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-11-07"
+  years: 2015, 2020
+lastupdated: "2020-02-03"
 
 subcollection: discovery
 
@@ -20,7 +20,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'}
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -34,7 +34,7 @@ subcollection: discovery
 In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} API and go through the process of creating a private data collection and searching it.
 {: shortdesc}
 
-If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started](/docs/services/discovery?topic=discovery-getting-started#getting-started).
+If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started](/docs/discovery?topic=discovery-getting-started).
 {: tip}
 
 ## Before you begin
@@ -234,5 +234,5 @@ curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{c
 You successfully queried documents in the environment and collection you created. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings.
 
 - Read about the API in the [API reference](https://{DomainName}/apidocs/discovery){: external}
-- [Configure](/docs/services/discovery?topic=discovery-configservice#configservice) your service
-- Learn about [authenticating with IAM](/docs/services/watson/getting-started-iam.html#iam)
+- [Configure](/docs/discovery?topic=discovery-configservice) your service
+- Learn about [authenticating with IAM](/docs/watson?topic=watson-iam)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-01-31"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -32,7 +32,7 @@ subcollection: discovery
 # Getting started with the Data Crawler
 {: #getting-started-with-the-data-crawler}
 
-The Data Crawler is no longer supported or available for download beginning [17 April 2019](/docs/services/discovery?topic=discovery-release-notes#17apr19). This content is provided for existing installations only. See [Connecting to Data Sources](/docs/services/discovery?topic=discovery-sources#sources) for other available connectivity options.
+The Data Crawler is no longer supported or available for download beginning [17 April 2019](/docs/discovery?topic=discovery-release-notes#17apr19). This content is provided for existing installations only. See [Connecting to Data Sources](/docs/discovery?topic=discovery-sources) for other available connectivity options.
 {:important}
 
 This topic explains how to use the data crawler to ingest files from your local filesystem, to use with {{site.data.keyword.discoveryfull}}.
@@ -47,7 +47,7 @@ Use the bash POST /v1/environments method to create an environment. Think of an 
 
 Replace `{apikey}` with your service credentials.
 
-(For more detailed information about using {apikey} credentials, see [Getting started with the API](/docs/services/discovery?topic=discovery-gs-api#gs-api).)
+(For more detailed information about using {apikey} credentials, see [Getting started with the API](/docs/discovery?topic=discovery-gs-api).)
 
 ```bash
 curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{ \"name\":\"my-first-environment\", \"description\":\"exploring environments\"}" "{url}/v1/environments?version=2019-04-30"

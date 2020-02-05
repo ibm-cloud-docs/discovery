@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-08-07"
+  years: 2015, 2020
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -35,7 +35,7 @@ subcollection: discovery
 {{site.data.keyword.discoveryfull}} offers three plans that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
 
-See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) and [{{site.data.keyword.discoveryshort}} catalog](https://cloud.ibm.com/catalog/services/discovery){: external} for details.
+See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans) and [{{site.data.keyword.discoveryshort}} catalog](https://cloud.ibm.com/catalog/services/discovery){: external} for details.
 
 ## Upgrading your service
 {: #service}
@@ -53,7 +53,7 @@ To resize your plan from Lite to Advanced:
 
 If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API](https://{DomainName}/apidocs/discovery#update-an-environment){: external}. 
 
-For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#advanced).
+For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans#advanced).
 
 Available Advanced plan sizes are: 
 
