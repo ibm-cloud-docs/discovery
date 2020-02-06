@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-08-29"
+  years: 2015, 2020
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -35,10 +35,11 @@ subcollection: discovery
 How do I decide which document upload method to use?
 {: shortdesc}
 
--   Use the [API](/docs/services/discovery?topic=discovery-gs-api#gs-api) if you are integrating the upload of content with an existing application or creating your own custom upload mechanism.
--   Use the [{{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started) if you want to quickly upload locally accessible files.
+-   Use the [API](/docs/discovery?topic=discovery-gs-api) if you are integrating the upload of content with an existing application or creating your own custom upload mechanism.
+-   Use the [{{site.data.keyword.discoveryshort}} tooling](/docs/discovery?topic=discovery-getting-started) if you want to quickly upload locally accessible files.
     When uploading documents using the {{site.data.keyword.discoveryshort}} tooling, all documents should have a unique file name. If two files have the same name, the original will be overwritten when the newer version is uploaded. If you would prefer that documents with the same file name coexist in your collection, the Document ID needs to be specified. You can specify the Document ID if you upload documents using the API.
--   Use the {{site.data.keyword.discoveryshort}} tooling or API to connect to Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for more information.
+-   Use the {{site.data.keyword.discoveryshort}} tooling or API to connect to Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information.
+
 
 ## Adding content with the API or tooling
 {: #adding-content-with-the-api-or-tooling}
@@ -46,21 +47,23 @@ How do I decide which document upload method to use?
 Consider the following when you are ready to add documents to your collection:
 
 -   The maximum file size that can be uploaded to {{site.data.keyword.discoveryshort}} is 50MB.
--   The sample documents are not automatically added to the collection. You must add them if you want them as part of your collection. (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).)
+-   The sample documents are not automatically added to the collection. You must add them if you want them as part of your collection. (Applies only to collections created before the release of [Smart Document Understanding](/docs/discovery?topic=discovery-sdu).)
 -   Only the first 50,000 characters of each JSON field selected for enrichment will be enriched.
--   When creating a collection, you select the document language (English is the default). See [Language support](/docs/services/discovery?topic=discovery-language-support#language-support) for the list of languages. Your documents will be enriched in the selected language. Do not mix languages within the same collection.
+-   When creating a collection, you select the document language (English is the default). See [Language support](/docs/discovery?topic=discovery-language-support) for the list of languages. Your documents will be enriched in the selected language. Do not mix languages within the same collection.
 -   The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
 
 Collection | Lite plans | Advanced plans 
 ---------------- | ------------------------------ | ------------------------------------------- 
-Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU)](/docs/services/discovery?topic=discovery-release-notes#22jan19) | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
-Collections created after the release of [SDU](/docs/services/discovery?topic=discovery-sdu#sdu) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
-    
+Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU)](/docs/discovery?topic=discovery-release-notes#22jan19) | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
+Collections created after the release of [SDU](/docs/discovery?topic=discovery-sdu) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
+
+
 \* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
 \*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
--   The documents in your collection will be converted using the current configuration, unless you choose a different configuration file. For information about creating a configuration file, see [Custom configuration](/docs/services/discovery?topic=discovery-configservice#custom-configuration). (Applies only to collections created before the release of [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).)
--   When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you decide later that you would like to switch a collection to a different configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration file. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. (If using [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu), you will be prompted to re-upload your documents after you click the **Apply changes to collection** button.)
+
+-   The documents in your collection will be converted using the current configuration, unless you choose a different configuration file. For information about creating a configuration file, see [Custom configuration](/docs/discovery?topic=discovery-configservice#custom-configuration). (Applies only to collections created before the release of [Smart Document Understanding](/docs/discovery?topic=discovery-sdu).)
+-   When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you decide later that you would like to switch a collection to a different configuration file, you can do that, but the documents that have already been uploaded will remain converted by the original configuration file. All documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents. (If using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), you will be prompted to re-upload your documents after you click the **Apply changes to collection** button.)
 -   You cannot specify the `data type` (For example: `text` or `date`) of fields. During document ingestion, if a field is detected that does not yet exist in the index, {{site.data.keyword.discoveryshort}} will automatically detect the `data type` of that field based on the value of the field for the first document indexed.
 -   A document can fail to be ingested because of a type mismatch between data in the current document and similar data in a previously ingested document. For example, a field might be typed as a `date` in one document and a `string` in a subsequent document, preventing the subsequent document from being indexed correctly.
 -   If you plan to use custom tokenization (currently only available for Japanese collections when using the {{site.data.keyword.discoveryshort}} API), the tokenization dictionary for your collection must be added before uploading documents.
@@ -68,7 +71,7 @@ Collections created after the release of [SDU](/docs/services/discovery?topic=di
 ## Uploading documents with the Discovery tooling
 {: #upload_tooling}
 
-1.  Create a collection. See [Preparing the service for your documents](/docs/services/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents).
+1.  Create a collection. See [Preparing the service for your documents](/docs/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents).
 1.  Click on the collection to open it.
 1.  Click the **Upload documents** button and start uploading your documents via drag and drop or browse.
 
@@ -77,16 +80,17 @@ Your documents are now enqueued to be converted and enriched. The time this take
 -   **Fields identified** in your collection (Smart Document Understanding only.)
 -   **Created** and **Last updated** dates (Click **Use this collection in API** to see the `collection_id`, `configuration_id`, and `environment_id`.)
 -   **Number of documents** in your collection
--   **Configuration** — The name of the configuration file used to convert this collection (Only for collections created before the release of [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu).)
+-   **Configuration** — The name of the configuration file used to convert this collection (Only for collections created before the release of [Smart Document Understanding](/docs/discovery?topic=discovery-sdu).)
 -   **Errors and Warnings**
 
-For information on how to connect to Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling, see [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources).
+For information on how to connect to Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling, see [Connecting to data sources](/docs/discovery?topic=discovery-sources).
 
 
 ## Uploading documents with the API
 {: #upload_api}
 
-See [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/services/discovery?topic=discovery-gs-api#gs-api) for a step-by-step tutorial.
+See [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/discovery?topic=discovery-gs-api) for a step-by-step tutorial.
+
 
 For more information about the API, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
@@ -98,4 +102,4 @@ For more information about the API, see the [API reference](https://{DomainName}
 
 You can crawl URLs and index them using the {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} Service [Indexing plugin for Apache Nutch](https://github.com/IBM-Watson/nutch-indexer-discovery){: external}. The crawl does not update automatically, so the procedure will need to be repeated periodically to keep the index up-to-date. 
 
-You also have the option to use the Web Crawl connector. See [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#connectwebcrawl).
+You also have the option to use the Web Crawl connector. See [Connecting to data sources](/docs/discovery?topic=discovery-sources#connectwebcrawl).

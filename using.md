@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -48,20 +48,20 @@ When you create a query or filter, {{site.data.keyword.discoveryshort}} looks at
 {: #querydef}
 
 - Stemming is applied to queries by default, which means that results match the root form of words. In contrast, stemming does not allow for matching on any arbitrary substring of a term. For example, words such as "connections," "connective," and "connected" are reduced to "connect." But words such as "boatbuilding," "boathouse," and "boatload," are not reduced to "boat."
-- Tokenization occurs using a set of standard separators per language including whitespace, hyphen, underscore, and punctuation marks for English. For more information, see [Creating custom tokenization dictionaries](/docs/services/discovery?topic=discovery-query-concepts#tokenization).
-- All private collections return a `confidence` score in the query results in most cases. For more information, see [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
+- Tokenization occurs using a set of standard separators per language including whitespace, hyphen, underscore, and punctuation marks for English. For more information, see [Creating custom tokenization dictionaries](/docs/discovery?topic=discovery-query-concepts#tokenization).
+- All private collections return a `confidence` score in the query results in most cases. For more information, see [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
 - {{site.data.keyword.discoveryshort}} returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you receive results for both `aqui` and <code>aqu&iacute;</code>.
 
 ## Options for querying
 {: #queryopt}
 
-- You have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. By default, up to 10 passages of around 400 characters each are returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. For more information about how passages are identified, see [Passages](/docs/services/discovery?topic=discovery-query-parameters#passages).
+- You have the option to turn on passage retrieval. Passages are short, relevant excerpts extracted from the full documents returned by your query. By default, up to 10 passages of around 400 characters each are returned for a query. A maximum of three passages are extracted from a single result. The `passages` parameter is only available for private collections; it is not available in the {{site.data.keyword.discoverynewsshort}} collection. For more information about how passages are identified, see [Passages](/docs/discovery?topic=discovery-query-parameters#passages).
 - You can create longer, more complex queries that include multiple filters and complex aggregations. This option is available only in the API and will increase the character limit of a query to 10,000 characters. For more information, see [Long collection queries](https://{DomainName}/apidocs/discovery#long-collection-queries){: external} and [Long environment queries](https://{DomainName}/apidocs/discovery#long-environment-queries){: external}.
 
   For more information about writing queries, see:
 
-  - [Getting started with querying tutorial](/docs/services/discovery?topic=discovery-getting-started-with-querying#getting-started-with-querying)
-  - [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
+  - [Getting started with querying tutorial](/docs/discovery?topic=discovery-getting-started-with-querying)
+  - [Query reference](/docs/discovery?topic=discovery-query-reference) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
 
 ## The Discovery data schema
 {: #discovery-schema}
@@ -109,30 +109,30 @@ Your query would be structured like this:
 
 ![Example query structure](images/query_structure2.png)
 
-  Operators that evaluate a field (`<=` , `>=`, `<`, `>`) require a `number` or `date` as the value. Using quotations around a value always makes it a `string`. Therefore `score>=0.5` is a valid query and `score>="0.5"` is not. See [Query operators](/docs/services/discovery?topic=discovery-query-operators#query-operators) for a complete list of operators.
+  Operators that evaluate a field (`<=` , `>=`, `<`, `>`) require a `number` or `date` as the value. Using quotations around a value always makes it a `string`. Therefore `score>=0.5` is a valid query and `score>="0.5"` is not. See [Query operators](/docs/discovery?topic=discovery-query-operators) for a complete list of operators.
   {: tip}
 
 Considerations:
 
-- Not sure when to query on an entity, concept, or keyword? See [Understanding the difference between Entities, Concepts, and Keywords](/docs/services/discovery?topic=discovery-configservice#udbeck).
+- Not sure when to query on an entity, concept, or keyword? See [Understanding the difference between Entities, Concepts, and Keywords](/docs/discovery?topic=discovery-configservice#udbeck).
 
-- **Note:**  After you click **Run query** and open the **JSON** tab, you will notice that query highlighting is turned on by default. This will add a `highlight` field to your query results. Within the `highlight` field, the words that match your query will be wrapped in HTML `<em>` (emphasis) tags. See the [Query parameters](/docs/services/discovery?topic=discovery-query-parameters#highlight) for details.
+- **Note:**  After you click **Run query** and open the **JSON** tab, you will notice that query highlighting is turned on by default. This will add a `highlight` field to your query results. Within the `highlight` field, the words that match your query will be wrapped in HTML `<em>` (emphasis) tags. See the [Query parameters](/docs/discovery?topic=discovery-query-parameters#highlight) for details.
 
 ## Building combined queries
 {: #building-combined-queries}
 
-You can combine query parameters together to build more targeted queries. For example, you can use the both the `filter` and `query` parameters together. For more information about filtering vs. querying, see [Differences between the filter and query parameters](/docs/services/discovery?topic=discovery-query-parameters#filtervquery).
+You can combine query parameters together to build more targeted queries. For example, you can use the both the `filter` and `query` parameters together. For more information about filtering vs. querying, see [Differences between the filter and query parameters](/docs/discovery?topic=discovery-query-parameters#filtervquery).
 
 ## How to structure an aggregation
 {: #structure-aggregation}
 
 <!-- Learn more topic WDS -->
-Aggregations return a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see [Aggregations](/docs/services/discovery?topic=discovery-query-reference#aggregations).
+Aggregations return a set of data values; for example, top keywords, overall sentiment of entities, and more. For the full list of aggregation options, see [Aggregations](/docs/discovery?topic=discovery-query-reference#aggregations).
 
 ![Example aggregation query structure](images/aggregation_structure.png)
 
 This example aggregation will find all of the `concepts` in your collection.
-The delimiter in this query is `.` and the operator is `()`, see [Query operators](/docs/services/discovery?topic=discovery-query-operators#query-operators) to learn about other operators available in the {{site.data.keyword.discoveryshort}} Query Language.
+The delimiter in this query is `.` and the operator is `()`, see [Query operators](/docs/discovery?topic=discovery-query-operators) to learn about other operators available in the {{site.data.keyword.discoveryshort}} Query Language.
 
 ### Example aggregation queries
 {: #example-aggregations}
@@ -169,9 +169,9 @@ Additionally, any subsequent operation will further restrict the result set that
 ## Querying Watson Discovery News
 {: #querying-news}
 
-{{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for more information about this collection.
+{{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information about this collection.
 
-You can query this collection using natural language queries, for example "IBM Watson partnerships", or the {{site.data.keyword.discoveryshort}} Query Language. To learn more about natural language queries, see the [Natural language query](/docs/services/discovery?topic=discovery-query-parameters#nlq).
+You can query this collection using natural language queries, for example "IBM Watson partnerships", or the {{site.data.keyword.discoveryshort}} Query Language. To learn more about natural language queries, see the [Natural language query](/docs/discovery?topic=discovery-query-parameters#nlq).
 
 You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration, train, or add documents to {{site.data.keyword.discoverynewsshort}} collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
 
@@ -190,7 +190,7 @@ If using the {{site.data.keyword.discoveryshort}} Query Language, you can includ
 This example will query for a keyword within a specific date range. The time zone information is not required:
 - `enriched_text.keywords.text:"olympics", publication_date<=2018-02-15T00:00:00Z, publication_date>=2018-02-01T00:00:00Z`
 
-News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. You can manage this using deduplication. To learn more about this beta capability, see [Excluding duplicate documents from query results](/docs/services/discovery?topic=discovery-query-parameters#deduplication).
+News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. You can manage this using deduplication. To learn more about this beta capability, see [Excluding duplicate documents from query results](/docs/discovery?topic=discovery-query-parameters#deduplication).
 
 ## Querying multiple collections
 {: #multiple-collections}
@@ -202,7 +202,7 @@ You can query multiple collections in the same environment by using the `environ
 -  `passages` are supported when querying multiple collections.
 -  `collection_id` is returned as part of each result object. This field specifies the collection where the result was found.
 -  The {{site.data.keyword.discoverynewsshort}} is part of the `system` environment and cannot be included in multiple collection queries.
--  Individual collection relevancy training does not affect ranking of results when querying multiple collections. To rerank results returned when querying multiple collections implement [Continuous Relevancy Training](/docs/services/discovery?topic=discovery-crt#crt).
+-  Individual collection relevancy training does not affect ranking of results when querying multiple collections. To rerank results returned when querying multiple collections implement [Continuous Relevancy Training](/docs/discovery?topic=discovery-crt).
 -  Re-ranking is not performed on any part of a multiple collection query, even if all collections in the query have been trained.
 
 See the [multiple collection query API reference](https://{DomainName}/apidocs/discovery#query-documents-in-multiple-collections){: external} for more information.
@@ -277,7 +277,7 @@ Unidirectional example:
 
 Notes about query expansion:
 
--  Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and seven term strings.
+-  Query expansion is only available for private collections. The number of available `expansions` arrays (total bidirectional and unidirectional arrays) and terms (the total `input_terms` plus `expanded_terms`) varies by plan. See [Discovery pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for details. **Note:** All query terms (both `input_terms` and `expanded_terms`) each count as one term. This example contains two objects in the `expansions` array and seven term strings.
 
 ```JSON
  {
@@ -311,7 +311,7 @@ Notes about query expansion:
 -  The query expansion list must be written in JSON.
 -  To disable query expansion, delete the query expansion list.
 -  Query expansion is performed on the `query` and `multiple collection query` methods. Query expansion is not performed on Knowledge Graph queries.
--  Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections), each collection is expanded individually.
+-  Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections), each collection is expanded individually.
 -  Query expansions are applied at query time, not during indexing, so the query expansion list can be updated without the need to re-ingest your documents.
 -  Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
 
@@ -319,7 +319,7 @@ To upload or delete query expansion files using the {{site.data.keyword.discover
 
 See the [query expansion API reference](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: external} for the API commands to upload and delete query expansion files.
 
-Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/services/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion will not work. For example, if `on` is included in your stopword list, and you specify in your query expansion list that `rotfl` should expand to `rolling on the floor laughing`, that expansion will not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_[language].txt`) in {{site.data.keyword.discoveryshort}}, so you should compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly. 
+Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion will not work. For example, if `on` is included in your stopword list, and you specify in your query expansion list that `rotfl` should expand to `rolling on the floor laughing`, that expansion will not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_{language}.txt`) in {{site.data.keyword.discoveryshort}}, so you should compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly. 
 {: important}
 
 ## Defining Stopwords
@@ -352,7 +352,7 @@ This list contains all the default English stopwords <a target="_blank" href="ht
 -  Japanese: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_ja.txt" download>custom_stopwords_ja.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 -  Spanish: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_es.txt" download>custom_stopwords_es.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. 
 
-See [Language support](/docs/services/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. Several supported languages do not have a default stopwords list.
+See [Language support](/docs/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. Several supported languages do not have a default stopwords list.
 
 To upload or delete stopword files using the {{site.data.keyword.discoveryshort}} tooling, open the **Search settings** screen and choose **Stopwords**. To open **Search settings**, click the ![Manage Data](/images/icon_yourData.png) icon, open your collection, and choose the **Search settings** tab.
 
@@ -372,7 +372,7 @@ Notes about stopwords:
 -  Each set of stopwords is associated with a collection. When querying across multiple collections, each collection will use the custom stopword list associated with that collection.
 - If you make significant changes to your custom stopword list, you should delete the documents in your collection and re-upload all the documents so that they are indexed with the updated custom stopword list.
 
-Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/services/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion will not work. For example, if `on` is included in your stopword list, and you specify in your query expansion list that `rotfl` should expand to `rolling on the floor laughing`, that expansion will not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_[language].txt`) in {{site.data.keyword.discoveryshort}}, so you should compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly. 
+Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion will not work. For example, if `on` is included in your stopword list, and you specify in your query expansion list that `rotfl` should expand to `rolling on the floor laughing`, that expansion will not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_{language}.txt`) in {{site.data.keyword.discoveryshort}}, so you should compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly. 
 {: important}
 
 ## Creating custom tokenization dictionaries
@@ -445,7 +445,7 @@ With this custom dictionary, you can create rules with a single token. In this e
 -  To disable tokenization, delete the tokenization dictionary and reingest your documents.
 -  You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
 -  Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
--  Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/services/discovery?topic=discovery-query-concepts#multiple-collections), each collection is tokenized individually.
+-  Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections), each collection is tokenized individually.
 -  Do not upload or delete a tokenization dictionary at the same time documents are being ingested into your collection.
 
 ## Document similarity
@@ -465,4 +465,4 @@ Example query with `similar.fields` added:
 
 Replace `{apikey}` and `{url}` with your API key and URL.
 
-See the [document similarity API reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external} and [query parameters](/docs/services/discovery?topic=discovery-query-parameters#similar) for more information.
+See the [document similarity API reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external} and [query parameters](/docs/discovery?topic=discovery-query-parameters#similar) for more information.

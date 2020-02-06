@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+  years: 2015, 2020
+lastupdated: "2020-02-05"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -33,7 +33,7 @@ subcollection: discovery
 {: #improving-result-relevance-with-the-tooling}
 
 <!-- Learn more topic WDS -->
-The relevance of natural language query results can be improved in {{site.data.keyword.discoveryfull}} with training. You can train your private collections using either the {{site.data.keyword.discoveryshort}} tooling, or the {{site.data.keyword.discoveryshort}} APIs. See [Improving the relevance of your query results with the API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api) if you would prefer to use the APIs.
+The relevance of natural language query results can be improved in {{site.data.keyword.discoveryfull}} with training. You can train your private collections using either the {{site.data.keyword.discoveryshort}} tooling, or the {{site.data.keyword.discoveryshort}} APIs. See [Improving the relevance of your query results with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api) if you would prefer to use the APIs.
 {: shortdesc}
 
 Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For an overview of building use cases for training, see the blog post [How to get the most out of Relevancy Training](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: external}.
@@ -45,15 +45,15 @@ In order to train Watson, you'll need to:
 
 Once Watson has enough training input, the information you've provided about which results are good and bad for each query will be used to learn about your collection. Watson doesn't just memorize, it learns from the specific information about individual queries and applies the patterns it has detected to all new queries. It does this with machine-learning Watson techniques that find signals in your content and questions. After training is applied, {{site.data.keyword.discoveryshort}} then reorders the query results to display the most relevant results at the top. As you add more and more training data, {{site.data.keyword.discoveryshort}} should become more accurate in the ordering of query results.
 
-**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries. For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts).
+**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries. For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/discovery?topic=discovery-query-concepts).
 
-All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
+All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
 
-Adding a custom stopwords list can improve the relevance of results for natural language queries. See [Defining stopwords](/docs/services/discovery?topic=discovery-query-concepts#stopwords) for more information.
+Adding a custom stopwords list can improve the relevance of results for natural language queries. See [Defining stopwords](/docs/discovery?topic=discovery-query-concepts#stopwords) for more information.
 
-See [Training data requirements](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs) for the minimum requirements for training, as well as the training limits.
+See [Training data requirements](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs) for the minimum requirements for training, as well as the training limits.
 
-See [Usage monitoring](/docs/services/discovery?topic=discovery-usage#usage) for details on tracking usage and using this data to help you understand and improve your applications.
+See [Usage monitoring](/docs/discovery?topic=discovery-usage) for details on tracking usage and using this data to help you understand and improve your applications.
 
 ## Adding queries and rating the relevancy of results
 {: #results}
@@ -74,7 +74,7 @@ To return to the main **Build queries** screen at any time, click **Build querie
 To return to the **Manage data** screen, click the name of the collection on the upper right.
 {: tip}
 
-If you would like to delete all of the training data in your collection at one time, you must do so via the API. See [Delete all training data for a collection](https://{DomainName}/apidocs/discovery#delete-all-training-data) for more information. For more information about training via the API, see [Improving the relevance of your query results with the API](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#improving-result-relevance-with-the-api).
+If you would like to delete all of the training data in your collection at one time, you must do so via the API. See [Delete all training data for a collection](https://{DomainName}/apidocs/discovery#delete-all-training-data){: external} for more information. For more information about training via the API, see [Improving the relevance of your query results with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api).
 
 ## Testing and iterating on the relevancy of results
 {: #testing-results}
@@ -86,7 +86,7 @@ If you would like to further improve results after testing, you could:
 - Add more training queries.
 - Rate more results, making sure to use both the `Relevant` and `Not relevant` ratings.
 
-For additional training guidance, see [Relevancy training tips](/docs/services/discovery?topic=discovery-relevancy-tips#relevancy-tips).
+For additional training guidance, see [Relevancy training tips](/docs/discovery?topic=discovery-relevancy-tips).
 
 ## Confidence scores
 {: #confidence}
@@ -126,10 +126,10 @@ The `confidence` score can be found in the query results, under the `result_meta
 
 For trained collections, the `confidence` number is calculated based on how relevant the result is estimated to be, compared to the trained model. Trained collections calculate `confidence` scores only for natural language queries. If you query a trained collection using the {{site.data.keyword.discoveryshort}} Query Language, or the trained model is temporarily unavailable, the `confidence` number returned will have a `document_retrieval_strategy` of `untrained`. The `confidence` score for a result with the `document_retrieval_strategy` of `untrained` is an unsupervised estimate of how relevant the document results are to the query; it is not interchangeable with the the score returned for trained collections. A trained collection can provide better answers to natural language queries than untrained collections.
 
-Note that the `confidence` score is **not** the same as the `score`. For more information about determining thresholds for confidence scores, see [How to select a threshold for acting using confidence scores](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/). The `score` should not be used to set absolute thresholds as it is a relative calculation. Instead, we recommend that applications always perform the same behavior for all results that do not include the `confidence` field. For example, an application may show all results without the `confidence` field or hide all results without the `confidence` field, but should not use the value of `score` to show some and hide others. Since the way `confidence` is calculated varies between the different retrieval methods, you should consider the `document_retrieval_strategy` when setting a threshold, and review the values before and after training.
+Note that the `confidence` score is **not** the same as the `score`. For more information about determining thresholds for confidence scores, see [How to select a threshold for acting using confidence scores](https://developer.ibm.com/watson/blog/2016/06/23/how-to-select-a-threshold-for-acting-using-confidence-scores/){: external}. The `score` should not be used to set absolute thresholds as it is a relative calculation. Instead, we recommend that applications always perform the same behavior for all results that do not include the `confidence` field. For example, an application may show all results without the `confidence` field or hide all results without the `confidence` field, but should not use the value of `score` to show some and hide others. Since the way `confidence` is calculated varies between the different retrieval methods, you should consider the `document_retrieval_strategy` when setting a threshold, and review the values before and after training.
 
-For more information on querying, see [Getting started with querying](/docs/services/discovery?topic=discovery-getting-started-with-querying#getting-started-with-querying).
+For more information on querying, see [Getting started with querying](/docs/discovery?topic=discovery-getting-started-with-querying).
 
 For more on supervised training methods, see
--  [Relevancy training](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling) and
--  [Continuous Relevancy Training](/docs/services/discovery?topic=discovery-crt#crt)
+-  [Relevancy training](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling)
+-  [Continuous Relevancy Training](/docs/discovery?topic=discovery-crt)

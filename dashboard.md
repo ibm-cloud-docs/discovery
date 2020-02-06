@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-03-29"
+  years: 2015, 2020
+lastupdated: "2020-01-31"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -38,10 +38,10 @@ The Performance dashboard in the {{site.data.keyword.discoveryshort}} tooling ca
 You can access the Performance dashboard by clicking the **View data metrics** icon. The dashboard is not available in Premium or Dedicated environments.
 
 There are two options to improve natural language query results:
-- [Fix queries with no results by adding more data](/docs/services/discovery?topic=discovery-performance-dashboard#addmore)
-- [Bring relevant results to the top by training your data](/docs/services/discovery?topic=discovery-performance-dashboard#traindata)
+- [Fix queries with no results by adding more data](/docs/discovery?topic=discovery-performance-dashboard#addmore)
+- [Bring relevant results to the top by training your data](/docs/discovery?topic=discovery-performance-dashboard#traindata)
 
-You can view the data metrics in the [query overview](/docs/services/discovery?topic=discovery-performance-dashboard#overview). 
+You can view the data metrics in the [query overview](/docs/discovery?topic=discovery-performance-dashboard#overview). 
 
 ## Fix queries with no results by adding more data
 {: #addmore}
@@ -51,9 +51,9 @@ In this section of the dashboard, you can review queries that returned zero resu
 ## Bring relevant results to the top by training your data
 {: #traindata}
 
-In this section, you can train your collections to improve the relevance of natural language query results. Click the **View all and perform relevancy training** button to get started. Then see [Adding queries and rating the relevancy of results](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#results) for instructions.
+In this section, you can train your collections to improve the relevance of natural language query results. Click the **View all and perform relevancy training** button to get started. Then see [Adding queries and rating the relevancy of results](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#results) for instructions.
 
-For more about training requirements and options, see [Improving result relevance with the tooling](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling).
+For more about training requirements and options, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling).
 
 ## Query overview
 {: #overview}

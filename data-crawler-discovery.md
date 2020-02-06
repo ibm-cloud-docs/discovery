@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-01-31"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -32,7 +32,7 @@ subcollection: discovery
 # Configuring the Data Crawler
 {: #configuring-the-data-crawler}
 
-The Data Crawler is no longer supported or available for download beginning [17 April 2019](/docs/services/discovery?topic=discovery-release-notes#17apr19). This content is provided for existing installations only. See [Connecting to Data Sources](/docs/services/discovery?topic=discovery-sources#sources) for other available connectivity options.
+The Data Crawler is no longer supported or available for download beginning [17 April 2019](/docs/discovery?topic=discovery-release-notes#17apr19). This content is provided for existing installations only. See [Connecting to Data Sources](/docs/discovery?topic=discovery-sources) for other available connectivity options.
 {:important}
 
 To set up the Data Crawler to crawl your repository, you must specify the appropriate input adapter in the `crawler.conf` file, and then configure repository-specific information in the input adapter configuration files.
@@ -63,7 +63,7 @@ The specified values are the defaults in `config/crawler.conf`, and configure th
         ```
         {: codeblock}
 
-    There are other optional settings in this file that may be set as appropriate to your environment, see: [Configuring crawl options](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [Configuring the input adapter](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Configuring the output adapter](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#output-adapter), and [Additional crawl management options](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options) for detailed information about setting these values.
+    There are other optional settings in this file that may be set as appropriate to your environment. See [Configuring crawl options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [Configuring the input adapter](/docs/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Configuring the output adapter](/docs/discovery?topic=discovery-configuring-the-data-crawler#output-adapter), and [Additional crawl management options](/docs/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options) for detailed information about setting these values.
 
 1.  Open the `discovery/discovery_service.conf` file in a text editor. Modify the following values specific to {{site.data.keyword.discoveryshort}} you previously created on {{site.data.keyword.Bluemix}}:
 
@@ -74,9 +74,9 @@ The specified values are the defaults in `config/crawler.conf`, and configure th
     -   `username` - Username credential for your {{site.data.keyword.discoveryshort}} instance.
     -   `apikey` - Credential for your {{site.data.keyword.discoveryshort}} instance.
 
-    There are other optional settings in this file that may be set as appropriate to your environment. See [Configuring Service Options](/docs/services/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options) for detailed information about setting these values.
+    There are other optional settings in this file that may be set as appropriate to your environment. See [Configuring Service Options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options) for detailed information about setting these values.
 
-1.  After modifying these files, you are ready to crawl your data. Proceed to [Crawling your data repository](/docs/services/discovery?topic=discovery-crawling-your-data-repository#crawling-your-data-repository) to continue.
+1.  After modifying these files, you are ready to crawl your data. Proceed to [Crawling your data repository](/docs/discovery?topic=discovery-crawling-your-data-repository) to continue.
 
 ## Configuring crawl options
 {: #configuring-crawl-options}

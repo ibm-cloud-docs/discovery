@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-08-09"
+  years: 2015, 2020
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -55,7 +55,7 @@ Element Classification returns a JSON object that contains:
 -  A `parties` array that lists the parties, roles, addresses, and contacts of parties identified in the input document.
 -  Arrays defining `effective_dates`, `contract_amounts`, `termination_dates`, `contract_types`, `contract_terms`, `payment_terms`, and `contract_currencies`.
 
-This feature is currently supported in English only, see [Language support](/docs/services/discovery?topic=discovery-language-support#feature-support) for details.
+This feature is currently supported in English only. For more information, see [Language support](/docs/discovery?topic=discovery-language-support#feature-support).
 
 
 ## Classification requirements
@@ -65,15 +65,19 @@ To classify documents using Element Classification your configuration and source
 
 -  Files to be analyzed are in PDF format.
 -  The PDF contents are in text form. Documents that have been scanned cannot be parsed, even if they have been OCRed.
-   **Note:** You can identify a PDF that is in text by opening the document in a PDF viewer and using the  **Text select**  tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
+   
+   You can identify a PDF that is in text by opening the document in a PDF viewer and using the  **Text select**  tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
+   {: note}
+  
 -  Files are no larger than 50Mb in size.
 -  Secure PDFs (with a password to open) and editing restricted PDFs (with a password to edit) cannot be parsed.
--  The {{site.data.keyword.discoveryshort}} tooling includes a configuration named **Default Contract Configuration** that can be used to enrich your collection of PDF documents. You also have the option of creating a custom configuration that includes the `elements` enrichment. See [Collection requirements](/docs/services/discovery?topic=discovery-element-classification#element-collection) for details.
+-  The {{site.data.keyword.discoveryshort}} tooling includes a configuration named **Default Contract Configuration** that can be used to enrich your collection of PDF documents. You also have the option of creating a custom configuration that includes the `elements` enrichment. See [Collection requirements](/docs/discovery?topic=discovery-element-classification#element-collection) for details.
 -  **Lite** plans can process a maximum of 500 pages per month.
 -  Not available in **Dedicated** environments.
 -  Post-enrichment normalization cannot be performed when using Element Classification.
 
-**Note:** The **Default Contract Configuration** file was updated on September 25, 2018. If you applied this configuration to a collection prior to this date, see the [release notes](/docs/services/discovery?topic=discovery-release-notes#25sept) for information on updating your collection.
+The **Default Contract Configuration** file was updated on September 25, 2018. If you applied this configuration to a collection prior to this date, see the [release notes](/docs/discovery?topic=discovery-release-notes#25sept) for information on updating your collection.
+{: note}
 
 ## Collection requirements
 {: #element-collection}
@@ -128,7 +132,7 @@ If you want to create a custom configuration file, configure your collection to 
 ```
 {: codeblock}
 
-After selecting the `Default Contract Configuration` in the tooling, you can upload your documents. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started).
+After selecting the `Default Contract Configuration` in the tooling, you can upload your documents. If you are unfamiliar with creating collections and uploading documents, see [Getting started with the tooling](/docs/discovery?topic=discovery-getting-started).
 
 ## Classified elements
 {: #classified-elements}
@@ -172,9 +176,9 @@ Each object in the `elements` array describes an element of the contract that {{
 Each element has five important sections:
 -  `location`: The `begin` and `end` indexes indicating the location of the element in the input document.
 -  `text`: The text of the classified element.
--  `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/services/discovery?topic=discovery-contract_parsing#contract_types) in [Understanding contract parsing](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) for additional information.
--  `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/services/discovery?topic=discovery-contract_parsing#contract_categories) in [Understanding contract parsing](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) for additional information.
--  `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`.  Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/discovery?topic=discovery-contract_parsing#attributes) in [Parsing contracts](/docs/services/discovery?topic=discovery-contract_parsing#contract_parsing) for additional information.
+-  `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/discovery?topic=discovery-contract_parsing#contract_types) in [Understanding contract parsing](/docs/discovery?topic=discovery-contract_parsing) for additional information.
+-  `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/discovery?topic=discovery-contract_parsing#contract_categories) in [Understanding contract parsing](/docs/discovery?topic=discovery-contract_parsing) for additional information.
+-  `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Currency`, `DateTime`, `Duration`, `Location`, `Number`, `Organization`, `Percentage`, and `Person`.  Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/discovery?topic=discovery-contract_parsing#attributes) in [Parsing contracts](/docs/discovery?topic=discovery-contract_parsing) for additional information.
 
 Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis associated with the element.
 

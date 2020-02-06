@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-10-11"
+  years: 2015, 2020
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -38,28 +38,28 @@ subcollection: discovery
 
 You can connect to a data source and pull documents on a schedule (if desired) into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. Each collection can be configured with one data source. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by {{site.data.keyword.discoveryshort}}. The following types of data sources can be crawled:
 
--  [Box](/docs/services/discovery?topic=discovery-sources#connectbox)
--  [Salesforce](/docs/services/discovery?topic=discovery-sources#connectsf)
--  [Microsoft SharePoint Online](/docs/services/discovery?topic=discovery-sources#connectsp)
--  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery?topic=discovery-sources#connectsp_op)
--  [Web Crawl](/docs/services/discovery?topic=discovery-sources#connectwebcrawl)
--  [IBM Cloud Object Storage](/docs/services/discovery?topic=discovery-sources#connectcos)
+-  [Box](/docs/discovery?topic=discovery-sources#connectbox)
+-  [Salesforce](/docs/discovery?topic=discovery-sources#connectsf)
+-  [Microsoft SharePoint Online](/docs/discovery?topic=discovery-sources#connectsp)
+-  [Microsoft SharePoint 2016 On-Premise](/docs/discovery?topic=discovery-sources#connectsp_op)
+-  [Web Crawl](/docs/discovery?topic=discovery-sources#connectwebcrawl)
+-  [IBM Cloud Object Storage](/docs/discovery?topic=discovery-sources#connectcos)
 
 Connecting to a data source can be performed using the {{site.data.keyword.discoveryshort}} tooling, or the API. The {{site.data.keyword.discoveryshort}} tooling provides a simplified method of connection that requires less understanding of the source systems, and the API provides a more granular and highly configurable interface which required a greater understanding of the source that you are connecting to. The following process overview let you know which sections of this document to read next:
 
-1.  Read the [General Source Requirements](/docs/services/discovery?topic=discovery-sources#gen_req) to get a general understanding of what will be required.
+1.  Read the [General Source Requirements](/docs/discovery?topic=discovery-sources#gen_req) to get a general understanding of what will be required.
 2.  Read the requirements specific to your source system:
-    -  [Box](/docs/services/discovery?topic=discovery-sources#connectbox)
-    -  [Salesforce](/docs/services/discovery?topic=discovery-sources#connectsf)
-    -  [Microsoft SharePoint Online](/docs/services/discovery?topic=discovery-sources#connectsp)
-    -  [Microsoft SharePoint 2016 On-Premise](/docs/services/discovery?topic=discovery-sources#connectsp_op)
-    -  [Web Crawl](/docs/services/discovery?topic=discovery-sources#connectwebcrawl)
-    -  [IBM Cloud Object Storage](/docs/services/discovery?topic=discovery-sources#connectcos)
+    -  [Box](/docs/discovery?topic=discovery-sources#connectbox)
+    -  [Salesforce](/docs/discovery?topic=discovery-sources#connectsf)
+    -  [Microsoft SharePoint Online](/docs/discovery?topic=discovery-sources#connectsp)
+    -  [Microsoft SharePoint 2016 On-Premise](/docs/discovery?topic=discovery-sources#connectsp_op)
+    -  [Web Crawl](/docs/discovery?topic=discovery-sources#connectwebcrawl)
+    -  [IBM Cloud Object Storage](/docs/discovery?topic=discovery-sources#connectcos)
 3.  Read the source configuration instructions based on your configuration choice:
-    -  [Using the tooling](/docs/services/discovery?topic=discovery-sources#source_tooling)
-    -  [Using the API](/docs/services/discovery?topic=discovery-sources#source_api)
+    -  [Using the tooling](/docs/discovery?topic=discovery-sources#source_tooling)
+    -  [Using the API](/docs/discovery?topic=discovery-sources#source_api)
 
-If you select an on-premises data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premises data](/docs/services/discovery?topic=discovery-sources#gateway) for more information.
+If you select an on-premises data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
 
 ## General Source Requirements
 {: #gen_req}
@@ -76,8 +76,8 @@ The following general requirements apply to all data sources:
 
 Collection | Lite plans | Advanced plans 
 ---------------- | ------------------------------ | ------------------------------------------- 
-Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU)](/docs/services/discovery?topic=discovery-release-notes#22jan19) | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
-Collections created after the release of [SDU](/docs/services/discovery?topic=discovery-sdu#sdu) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
+Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU)](/docs/discovery?topic=discovery-release-notes#22jan19) | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
+Collections created after the release of [SDU](/docs/discovery?topic=discovery-sdu) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
     
 \* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
@@ -89,8 +89,8 @@ Collections created after the release of [SDU](/docs/services/discovery?topic=di
 <!-- Learn more topic WDS -->
 You'll need to create a new Box custom application to connect to {{site.data.keyword.discoveryfull}}. The Box application you create requires either Enterprise level or Application level access.
 
--  If you are not the Box administrator for your organization, [**Application level** access](/docs/services/discovery?topic=discovery-sources#applevelbox) is recommended. You will need an administrator to approve your application.
--  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/services/discovery?topic=discovery-sources#entlevelbox) is recommended.
+-  If you are not the Box administrator for your organization, [**Application level** access](/docs/discovery?topic=discovery-sources#applevelbox) is recommended. You will need an administrator to approve your application.
+-  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/discovery?topic=discovery-sources#entlevelbox) is recommended.
 
 `Refresh` is only supported with Enterprise level access.
 {: note}
@@ -223,7 +223,7 @@ Other items to note when crawling Microsoft SharePoint Online:
 This feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
 
 -  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
--  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/services/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
+-  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
 -  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). You can also specify URL paths to exclude from the crawl. These paths should be separated by commas. For example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/` in the **Exclude URLs where the path includes** field.
 
 When you specify a URL to crawl, the final `/` determines the subtree to crawl. For example, if you enter the URL `https://www.mycompany.com/banking/faqs.html`, all URLs that begin with `https://www.mycompany.com/banking/` will be crawled, while  `https://www.mycompany.com/banking` will crawl all URLs that begin with `https://www.mycompany.com/`. If you would like to restrict the crawl to a specific URL, such as `https://www.mycompany.com/banking/faqs.html`, enter that URL in the `URL group to sync` field, then set the **Maximum hops** to `0`.
@@ -238,7 +238,7 @@ If you require different **Crawl settings** for other URLs, click **Add URL grou
 {: #connectsp_op}
 
 <!-- Learn more topic WDS -->
-Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premises data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premises data](/docs/services/discovery?topic=discovery-sources#gateway) for more information.
+Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premises data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
 {: note}
 
 The following credentials are required to connect to a SharePoint 2016 data source, they should be obtained from your SharePoint administrator:
@@ -262,11 +262,11 @@ Other items to note when crawling Microsoft SharePoint 2016:
 When connecting to an IBM Cloud Object Storage source, the following credentials are required. They should be obtained from your IBM Cloud Object Storage administrator:
 
 -  `endpoint` - The `endpoint` name used to interact with IBM Cloud Object Storage data.
-   Do not enter `http://` or `https://`, as part of the IBM Cloud Object Storage `endpoint` credential. Otherwise, you might receive an error message indicating that you have invalid or expired credentials. For the proper formatting of endpoints, see the column named Endpoint in the table in [Regional Endpoints](/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-region).
+   Do not enter `http://` or `https://`, as part of the IBM Cloud Object Storage `endpoint` credential. Otherwise, you might receive an error message indicating that you have invalid or expired credentials. For the proper formatting of endpoints, see the column named Endpoint in the table in [Regional Endpoints](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-region).
 -  `access_key_id` - `access_key_id` obtained when the IBM Cloud Object Storage instance was created.
 -  `secret_access_key` - `secret_access_key` to sign requests obtained when the IBM Cloud Object storage instance was created.
 
-IAM authentication is not currently supported for this connector. You need to set up HMAC authentication before you configure this connector. See [Service Credentials](/docs/services/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials#service-credentials) for instructions.
+IAM authentication is not currently supported for this connector. You need to set up HMAC authentication before you configure this connector. See [Service Credentials](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials) for instructions.
 {: important}
 
 After this information is entered, you can choose how often you'd like to sync your data and select the buckets you want to sync to.
@@ -274,7 +274,7 @@ After this information is entered, you can choose how often you'd like to sync y
 Other items to note when crawling IBM Cloud Object Storage:
 
 -  This connector doesn't support crawling private endpoints.
--  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations](/docs/services/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#select-regions-and-endpoints).
+-  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#select-regions-and-endpoints).
 -  There is a slight performance issue if all buckets are selected. In this case, there may be a delay before the documents complete indexing.
 
 ## Using the tooling
@@ -283,7 +283,7 @@ Other items to note when crawling IBM Cloud Object Storage:
 Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooling is performed by creating a collection specifically for a source. Perform the following steps to create a source collection and crawl it:
 
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
-2.  Select the data source that you want to connect to. If you have selected an on-premises data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premises data](/docs/services/discovery?topic=discovery-sources#gateway) for more information. 
+2.  Select the data source that you want to connect to. If you have selected an on-premises data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information. 
 3.  Enter your source credentials and click connect. Your source credentials must be obtained from your source system administrator.
 4.  Choose which data you want to the crawl and how often you want to sync it. Sync options:
     -  Every five minutes: runs every five minutes
@@ -311,7 +311,7 @@ The crawl will sync the data initially and then on frequency that you specified.
 
 Use the following process to create a collection connected to a data source using the API.
 
-If you plan to connect to an on-premises data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premises data](/docs/services/discovery?topic=discovery-sources#gateway) for more information. 
+If you plan to connect to an on-premises data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information. 
 
 The following example uses the SharePoint data source.
 
@@ -361,7 +361,7 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
        {: codeblock}
 3.  The next scheduled crawl will add the `customer_id` field to all documents. If you want to have a crawl start immediately, modify the source configuration (**Sync settings** in the tooling).
 
-See [Information security](/docs/services/discovery?topic=discovery-information-security#information-security) for more information and information about deleting based on `customer_id`.
+See [Information security](/docs/discovery?topic=discovery-information-security) for more information and information about deleting based on `customer_id`.
 
 ## Installing IBM Secure Gateway for on-premises data 
 {: #gateway}
@@ -382,4 +382,4 @@ After the connection is successful you can begin entering the credentials for yo
 ## Data source connection and data isolation
 {: #source_isolation}
 
-[Connecting to external data sources](/docs/services/discovery?topic=discovery-sources#sources) reduces the data isolation of your service instance because data in transit between the source and the service cannot be isolated. All other isolation (at-rest, administration, query) remains in full. All in-flight communication between and within services and data sources is encrypted using TLS v1.2. The private keys for the TLS certificates are encrypted at rest using AES-256-GCM, the service certificates expire every three years, and the certificate revocation lists are updated monthly. All credentials are sent over an encrypted connection using TLS v1.2 and encrypted at rest using AES-256. Connections to those data sources use whatever secure protocols are supported by those data sources.
+[Connecting to external data sources](/docs/discovery?topic=discovery-sources) reduces the data isolation of your service instance because data in transit between the source and the service cannot be isolated. All other isolation (at-rest, administration, query) remains in full. All in-flight communication between and within services and data sources is encrypted using TLS v1.2. The private keys for the TLS certificates are encrypted at rest using AES-256-GCM, the service certificates expire every three years, and the certificate revocation lists are updated monthly. All credentials are sent over an encrypted connection using TLS v1.2 and encrypted at rest using AES-256. Connections to those data sources use whatever secure protocols are supported by those data sources.

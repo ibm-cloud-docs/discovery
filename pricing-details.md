@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-11-08"
+  years: 2015, 2020
+lastupdated: "2020-02-03"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'}
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -53,15 +53,15 @@ Attributes:
 - Up to 2 collections
 - Free NLU enrichments\*\*
 
-Additional options:<br> [Custom Models](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-your-custom-model):<br>
-One {{site.data.keyword.knowledgestudiofull}} model included. Additional models: Not available<br>[Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification)\*\*\*:
-500 pages included per month. Additional pages: Not available <br>[News Queries](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news):
-200 News queries included per month. Additional queries:  Not available<br>[Query Expansions](/docs/services/discovery?topic=discovery-query-concepts#query-expansion):
+Additional options:<br> [Custom Models](/docs/discovery?topic=discovery-integrating-with-wks#integrating-your-custom-model):<br>
+One {{site.data.keyword.knowledgestudiofull}} model included. Additional models: Not available<br>[Element Classification](/docs/discovery?topic=discovery-element-classification)\*\*\*:
+500 pages included per month. Additional pages: Not available <br>[News Queries](/docs/discovery?topic=discovery-watson-discovery-news):
+200 News queries included per month. Additional queries:  Not available<br>[Query Expansions](/docs/discovery?topic=discovery-query-concepts#query-expansion):
 500 query expansions with 1,000 total terms. Additional expansions: Not available
 
-For information about upgrading from Lite to Advanced, see [Upgrading your service](/docs/services/discovery?topic=discovery-upgrading-your-plan#service)
+For information about upgrading from Lite to Advanced, see [Upgrading your service](/docs/discovery?topic=discovery-upgrading-your-plan#service)
 
-For query performance information, see [Query performance](/docs/services/discovery?topic=discovery-qp#qp). Queries are limited based on plan. Estimated Average Query rates per **Lite** plan: 1 QPS for reranked queries with two top-level text fields.
+For query performance information, see [Query performance](/docs/discovery?topic=discovery-qp). Queries are limited based on plan. Estimated Average Query rates per **Lite** plan: 1 QPS for reranked queries with two top-level text fields.
 
 ## Advanced
 {: #advanced}
@@ -72,7 +72,7 @@ When choosing an Advanced Plan size, note that resources are required for both d
 -  You anticipate a large number of concurrent users
 -  Complex query needs
 
-For additional details on factors that influence query performance, see [Query performance](/docs/services/discovery?topic=discovery-qp#qp). Queries are limited based on plan. Estimated Average Query rates per **Advanced** (S, MS) plans: 10 QPS for reranked queries with two top-level text fields.
+For additional details on factors that influence query performance, see [Query performance](/docs/discovery?topic=discovery-qp). Queries are limited based on plan. Estimated Average Query rates per **Advanced** (S, MS) plans: 10 QPS for reranked queries with two top-level text fields.
 
 Size | Number of Docs\* | Price
 ------ | ------ | ------ | ------
@@ -88,7 +88,7 @@ XXX-Large | Up to 100M docs total | Starting at $45,000 per month
 
 X-Small is the smallest environment available, and is recommended for development and testing only.\*\*\*\*
 
-Moving from one level of Advanced to another does not require the creation of new instances. New instances will be required if switching from an Advanced to a Premium plan. For information about upgrading from one tier of Advanced to another, see [Moving from one Advanced tier to another](/docs/services/discovery?topic=discovery-upgrading-your-plan#upgrading-your-plan).
+Moving from one level of Advanced to another does not require the creation of new instances. New instances will be required if switching from an Advanced to a Premium plan. For information about upgrading from one tier of Advanced to another, see [Moving from one Advanced tier to another](/docs/discovery?topic=discovery-upgrading-your-plan).
 
 \*\*\*\*Attributes of X-Small plans:
 - 1 environment
@@ -100,21 +100,21 @@ Attributes of all other Advanced plans:
 - Up to 100 collections
 - Free NLU enrichments\*\*
 
-Additional options:<br> [Custom Models](/docs/services/discovery?topic=discovery-integrating-with-wks#integrating-your-custom-model):<br>
-One {{site.data.keyword.knowledgestudioshort}} model included. Additional models: $800 each<br>[Element Classification](/docs/services/discovery?topic=discovery-element-classification#element-classification)\*\*\*:
-500 pages included per month. Additional pages: $0.40 each<br>[News Queries](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news):
+Additional options:<br> [Custom Models](/docs/discovery?topic=discovery-integrating-with-wks#integrating-your-custom-model):<br>
+One {{site.data.keyword.knowledgestudioshort}} model included. Additional models: $800 each<br>[Element Classification](/docs/discovery?topic=discovery-element-classification)\*\*\*:
+500 pages included per month. Additional pages: $0.40 each<br>[News Queries](/docs/discovery?topic=discovery-watson-discovery-news):
 200 News queries included per month
 10,000 additional queries (per month): $0.10 per query<br>
 10,001 - 100,000 additional queries (per month): $0.05 per query<br>
 Over 100,000 queries (per month): $0.03 per query<br>
-[Query Expansions](/docs/services/discovery?topic=discovery-query-concepts#query-expansion):
+[Query Expansions](/docs/discovery?topic=discovery-query-concepts#query-expansion):
 5,000 query expansions with 25,000 total terms
 
 `-----`
 <br>
-\* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://{DomainName}/apidocs/discovery#get-environment-info) or [Collections](https://{DomainName}/apidocs/discovery#get-collection-details) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmentation](/docs/services/discovery?topic=discovery-configservice#doc-segmentation) on your documents, each segment counts as a separate document.
+\* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://{DomainName}/apidocs/discovery#get-environment-info) or [Collections](https://{DomainName}/apidocs/discovery#get-collection-details) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation) on your documents, each segment counts as a separate document.
 
-\*\* The [{{site.data.keyword.nlufull}} enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched.
+\*\* The [{{site.data.keyword.nlufull}} enrichments](/docs/discovery?topic=discovery-configservice#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched.
 
 \*\*\* Element Classification is an enrichment that parses through governing documents to convert, identify, and classify elements of importance. It uses Natural Language Processing to extract the following elements from PDF documents: party (who it refers to), nature (type of element), and category (specific class).
 

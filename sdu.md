@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-12-06"
+  years: 2015, 2020
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -60,7 +60,7 @@ The SDU editor functions are only available in the {{site.data.keyword.discovery
 
 Navigating the Smart Document Understanding editor:
 
-If you have not yet created a {{site.data.keyword.discoveryshort}} instance and environment, see [Getting started](/docs/services/discovery?topic=discovery-getting-started#getting-started) for instructions.
+If you have not yet created a {{site.data.keyword.discoveryshort}} instance and environment, see [Getting started](/docs/discovery?topic=discovery-getting-started) for instructions.
 {: tip}
 
 1. On the **Manage Data** screen, click the **Upload your own data** button and create a new Private collection in {{site.data.keyword.discoveryshort}}.
@@ -72,8 +72,8 @@ If you have not yet created a {{site.data.keyword.discoveryshort}} instance and 
 1. On the **Configure data** screen, there will be three tabs: **Identify fields**, **Manage fields**, and **Enrich fields**.
 
    - **Identify fields** contains the SDU editor. 
-   - **Manage fields** lists all indexed fields (all fields are indexed by default). Switch off any fields you do not want to index. For example, your PDFs may contain a running header or footer that does not contain useful information, so you can exclude those fields from the index. You can also split documents here, based on fields, see [Splitting documents](/docs/services/discovery?topic=discovery-sdu#splitting).
-   - **Enrich fields** is identical to the **Enrich** tab on the original screen. For more information about enrichments, see [Adding enrichments](/docs/services/discovery?topic=discovery-configservice#adding-enrichments). The **Upload sample documents** option is not available with SDU collections.
+   - **Manage fields** lists all indexed fields (all fields are indexed by default). Switch off any fields you do not want to index. For example, your PDFs may contain a running header or footer that does not contain useful information, so you can exclude those fields from the index. You can also split documents here, based on fields, see [Splitting documents](/docs/discovery?topic=discovery-sdu#splitting).
+   - **Enrich fields** is identical to the **Enrich** tab on the original screen. For more information about enrichments, see [Adding enrichments](/docs/discovery?topic=discovery-configservice#adding-enrichments). The **Upload sample documents** option is not available with SDU collections.
 
    If you did not upload any documents earlier, return to the **Overview** screen by clicking the name of your collection in the upper left, or click the ![Manage Data](/images/icon_yourData.png) icon and choose your collection. Drag and drop documents into your collection, or click **browse from computer**. After you have done an initial upload, the **Upload documents** button will appear on the upper right.
    {: important}
@@ -85,13 +85,13 @@ The toolbar at the top will allow you to:
 - Navigate the document displayed
 - Adjust the page view (`single page view`, `zoom in`, `zoom out`), `clear changes`, and `export/import models`. Click on `single page view` to toggle the display - you can view your annotations and document separately, or together.
 
-You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/services/discovery?topic=discovery-sources#sources) for more information. If you create a collection using this method, no enrichments will be automatically applied.
+You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information. If you create a collection using this method, no enrichments will be automatically applied.
 {: tip}
 
 ## How to annotate a document
 {: #documents}
 
-See [Best practices for annotating documents](/docs/services/discovery?topic=discovery-sdu#bestpractices) before you begin annotating.
+See [Best practices for annotating documents](/docs/discovery?topic=discovery-sdu#bestpractices) before you begin annotating.
 
 1. A default set of fields will appear to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, `title`, `image`, and `table`. If you would like to create one or more new custom field labels, click **Create new**. You are limited to the following number of custom labels: Lite plans - `0`, Advanced plans - `10`, Premium plans - `100`.
 1. Click on a field label on the right to activate it.
@@ -128,7 +128,7 @@ Considerations:
 
   - The number of segments per document is limited to `250`. Any document content remaining after `249` segments will be stored within segment `250`.
 
-  - Each segment counts towards the document limit of your plan. {{site.data.keyword.discoveryshort}} will index segments until the plan limit is reached. See [Discovery pricing plans](/docs/services/discovery?topic=discovery-discovery-pricing-plans#discovery-pricing-plans) for document limits.
+  - Each segment counts towards the document limit of your plan. {{site.data.keyword.discoveryshort}} will index segments until the plan limit is reached. See [Discovery pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for document limits.
 
   - PDF and Word metadata, as well as any custom metadata, is extracted and included in the index with each segment. Every segment of a document will include identical metadata.
 

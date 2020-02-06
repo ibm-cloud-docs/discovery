@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-03"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -49,11 +49,11 @@ How does {{site.data.keyword.discoveryshort}} do it? By using data analysis comb
 - Apply additional enrichments such as concepts, relations, and sentiment through {{site.data.keyword.nlushort}} (NLU).
 - Simplify development while still providing direct access to APIs.
 
-You can use Smart Document Understanding (SDU) to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. See [Smart Document Understanding](/docs/services/discovery?topic=discovery-sdu#sdu) for more information.
+You can use Smart Document Understanding (SDU) to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. See [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) for more information.
 
 If you create a chatbot in {{site.data.keyword.conversationfull}}, you can route complex customer inquiries to {{site.data.keyword.discoveryshort}} using a search skill. When a customer asks a question that the dialog is not designed to answer, your assistant can search for relevant information from {{site.data.keyword.discoveryshort}}, extract the information, and return it as the response. See [Creating a search skill](https://cloud.ibm.com/docs/services/assistant?topic=assistant-skill-search-add){: external} for details. (This feature is available only to {{site.data.keyword.conversationshort}} Plus or Premium plan users.)
 
-For information about language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/services/discovery?topic=discovery-language-support#language-support).
+For information about language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/discovery?topic=discovery-language-support).
 
 For information about {{site.data.keyword.Bluemix_notm}} security, see the [{{site.data.keyword.Bluemix_notm}} Service Description](https://www.ibm.com/software/sla/sladb.nsf/searchsaas/?searchview&searchorder=4&searchmax=0&query=%28IBM+Cloud+Service+description%29){: external}
 
@@ -67,7 +67,7 @@ For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browse
 ## Watson Discovery News
 {: #wds}
 
-{{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/services/discovery?topic=discovery-watson-discovery-news#watson-discovery-news) for more information. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
+{{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
 
 {{site.data.keyword.discoveryshort}} is available on [{{site.data.keyword.Bluemix_notm}}](https://{DomainName}/catalog/services/discovery){: external}
 
@@ -76,15 +76,15 @@ For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browse
 
 {{site.data.keyword.discoveryshort}} includes a complete set of online tools - the {{site.data.keyword.discoveryshort}} tooling - to help you quickly setup an instance of the service and populate it with data.
 
-The {{site.data.keyword.discoveryshort}} tooling has been designed to save time by eliminating the need to use APIs to configure and populate your service. This lets your application developers concentrate on creating high value ways for end users to experience {{site.data.keyword.discoveryshort}}. See [Getting started with the tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started) for an introduction to the {{site.data.keyword.discoveryshort}} tooling.
+The {{site.data.keyword.discoveryshort}} tooling has been designed to save time by eliminating the need to use APIs to configure and populate your service. This lets your application developers concentrate on creating high value ways for end users to experience {{site.data.keyword.discoveryshort}}. See [Getting started with the tooling](/docs/discovery?topic=discovery-getting-started) for an introduction to the {{site.data.keyword.discoveryshort}} tooling.
 
 
 ## Next steps
 {: #next-steps}
 
 - Get started with either the {{site.data.keyword.discoveryshort}} tooling or the {{site.data.keyword.discoveryshort}} API:
-    - [Getting started with the {{site.data.keyword.discoveryshort}} tooling](/docs/services/discovery?topic=discovery-getting-started#getting-started)
-    - [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/services/discovery?topic=discovery-gs-api#gs-api)
+    - [Getting started with the {{site.data.keyword.discoveryshort}} tooling](/docs/discovery?topic=discovery-getting-started)
+    - [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/discovery?topic=discovery-gs-api)
 - {{site.data.keyword.discoveryshort}} supports a number of SDKs to simplify the development of applications. The SDKs are available for many popular programming languages and platforms, including Node.js, Java, and Python. All SDKs are available from the [watson-developer-cloud namespace](https://github.com/watson-developer-cloud){: external} on GitHub.
     - For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs](https://cloud.ibm.com/docs/services/watson?topic=watson-using-sdks#sdks){: external}.
     - For detailed information about all methods of the Node, Java, and Python SDKs, see the [API reference](https://{DomainName}/apidocs/discovery){: external}.

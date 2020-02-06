@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-15"
+  years: 2015, 2020
+lastupdated: "2020-02-03"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -32,7 +32,7 @@ subcollection: discovery
 # Relation types
 {: #relation-types}
 
-The following table lists the possible relation types that are returned by the [Relation Extraction](/docs/services/discovery?topic=discovery-configservice#relation-extraction) enrichment.
+The following table lists the possible relation types that are returned by the [Relation Extraction](/docs/discovery?topic=discovery-configservice#relation-extraction) enrichment.
 {: shortdesc}
 
 | Relation        | Description                                                                                                                                                                                                        |

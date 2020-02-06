@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -39,19 +39,17 @@ Relevancy training is optional; if the results of your queries meet your needs, 
 
 For comprehensive information about the training APIs, see the [API reference](https://{DomainName}/apidocs/discovery){: external}.
 
-If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to train {{site.data.keyword.discoveryshort}}, see [Improving result relevance with the tooling](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#improving-result-relevance-with-the-tooling).
+If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to train {{site.data.keyword.discoveryshort}}, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling).
 
-**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts).
+**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/discovery?topic=discovery-query-concepts).
 
-Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
+Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
 
-Adding a custom stopwords list can improve the relevance of results for natural language queries. See [Defining stopwords](/docs/services/discovery?topic=discovery-query-concepts#stopwords) for more information.
+Adding a custom stopwords list can improve the relevance of results for natural language queries. See [Defining stopwords](/docs/discovery?topic=discovery-query-concepts#stopwords) for more information.
 
-See [Training data requirements](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs) for the minimum requirements for training, as well as the training limits.
+See [Training data requirements](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs) for the minimum requirements for training, as well as the training limits.
 
-See [Usage monitoring](/docs/services/discovery?topic=discovery-usage#usage) for details on tracking usage and using this data to help you understand and improve your applications.
-
-<!-- A trained Discovery service instance is intended primarily for use with natural language queries, but it works equally well with queries that use structured syntax. -->  <!-- See [Query Concepts](/docs/services/discovery?topic=discovery-query-concepts#query-concepts) and the [Query reference](/docs/services/discovery?topic=discovery-query-reference#query-reference) for information about structured queries and natural language queries. -->
+See [Usage monitoring](/docs/discovery?topic=discovery-usage) for details on tracking usage and using this data to help you understand and improve your applications.
 
 The components needed to train a Discovery instance include the following:
 
@@ -106,7 +104,7 @@ The values in this object are as follows:
 
 - `query_id`: A unique ID for the query. If you do not specify this field, the service automatically generates an ID.
 - `natural_language_query`: A Discovery natural-language query that applies to the training set. <!-- The `natural_language_query` parameter is preferred. -->
-- `filter`: An optional filter for the query, as described in the [Query reference](/docs/services/discovery?topic=discovery-query-reference#parameter-descriptions).
+- `filter`: An optional filter for the query, as described in the [Query reference](/docs/discovery?topic=discovery-query-reference#parameter-descriptions).
 
     **Note:** If you include filters in your training-data queries, be sure to use the same filters when you use natural language queries in your trained collection. If you train the collection with filtered data but do not use the same types of filters when you query the collection, the results can be unpredictable.
 
@@ -310,7 +308,7 @@ Perform the following steps to add an example to a training-data query.
 
    If the relevance of your results has not improved, add more training queries until the results meet your requirements.
 
-For additional training guidance, see [Relevancy training tips](/docs/services/discovery?topic=discovery-relevancy-tips#relevancy-tips).   
+For additional training guidance, see [Relevancy training tips](/docs/discovery?topic=discovery-relevancy-tips).   
 
 ## Performing other training-data query operations
 {: #training-data-operations}

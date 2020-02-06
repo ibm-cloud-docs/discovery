@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-08-15"
+  years: 2015, 2020
+lastupdated: "2020-02-04"
 
 subcollection: discovery
 
@@ -21,7 +21,7 @@ subcollection: discovery
 {:hide-dashboard: .hide-dashboard}
 {:apikey: data-credential-placeholder='apikey'} 
 {:url: data-credential-placeholder='url'}
-{:curl: #curl .ph data-hd-programlang='curl'}
+{:curl: .ph data-hd-programlang='curl'}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -32,7 +32,7 @@ subcollection: discovery
 # Query operators
 {: #query-operators}
 
-Operators are the separators between different parts of a query. For the complete list of available operators, see the [Query reference](/docs/services/discovery?topic=discovery-query-reference#operators).
+Operators are the separators between different parts of a query. For the complete list of available operators, see the [Query reference](/docs/discovery?topic=discovery-query-reference#operators).
 
 ## . \[JSON delimiter\]
 {: #delimiter}
@@ -174,7 +174,7 @@ enriched_text.concepts.text:IBM^3
 {: codeblock}
 
 ## * \[Wildcard\]
-{: #Wildcard}
+{: #wildcard}
 
 Matches unknown characters in a search expression. Do not use capital letters with wildcards.
 
