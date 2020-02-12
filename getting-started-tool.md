@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-10"
 
 keywords: discovery,getting started,tutorial,IBM cloud,cognitive,exploration,insights,data,unstructured data,query,enrich,ai,artificial intelligence,watson
 
@@ -71,7 +71,7 @@ Your first step in the {{site.data.keyword.discoveryshort}} tooling is to create
 
 A collection is a set of your documents. *Why would I want more than one collection?* There are a few reasons:
 
-- You might want multiple collections in order to separate results for different audiences.
+- You might want multiple collections to separate results for different audiences.
 - The data might be so different that it doesn't make sense for it all to be queried at the same time.
 
 The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collection is also available for your use. It is ready to query, and you can begin to create queries on it immediately. You cannot adjust its configuration or add documents to {{site.data.keyword.discoverynewsshort}}.
@@ -83,6 +83,9 @@ The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collectio
 
 You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information.
 {: tip}
+
+If you have recently deleted a Lite instance and then receive a `400 - Only one free environment is allowed per resource group` error message when creating a new environment in a new Lite instance, you need to finish deleting the original Lite instance. See [ibmcloud resource reclamations](/docs/cli?topic=cloud-cli-ibmcloud_commands_resource#ibmcloud_resource_reclamations) and follow the `reclamation-delete` instructions.
+{: important}    
 
 ## Step 3: Download the sample document and upload to your collection
 {: create-custom-configuration}
@@ -114,15 +117,15 @@ For more information about annotating documents, see [Smart Document Understandi
     Since the entire document is currently identified as `text`, the  markers on the right side are entirely in yellow. As you annotate (and the system starts predicting), the colors update.
     {: tip}
 
-1.  Click on `title`, then select the marker next to `Installation and Integration Guide`. Click the **Submit page** button.
-1.  In the page preview on the left, click on page 3. Note that the `title` has already been predicted for this page. Click the **Submit page** button.
+1.  Click on `title`, then select the marker next to `Installation and Integration Guide`. Click **Submit page**.
+1.  In the page preview on the left, click on page 3. Note that the `title` is already predicted for this page. Click **Submit page**.
 1.  On page 4, select the `footer` label and select the marker next to the footer. Click the **Submit page** button.
 1.  On pages 5 and 6, annotate the footers with the `footer` label. Submit each page. Click through a few more pages; note that the footer was predicted properly by {{site.data.keyword.discoveryshort}}. Annotate the `title`s (flush left) and `subtitle`s (indented) on pages 7, 9, and 10 and submit each page individually.
-1.  Click through a few more pages and check the predicted titles and subtitles. If any need to be changed, annotate those pages and click the **Submit page** button.
-1.  Now click on the **Manage fields** tab and under **Improve query results by splitting your documents** split the document based on `subtitle`. 
-1.  That should be enough annotating for now. Click the **Apply changes to collection** button on the top right. An **Upload your documents** dialog box appears. Browse to the original `watsonexplorerinstall.pdf` file and upload it. This applies all the annotations to your index. After it finishes indexing, the **Overview** screen opens. You should now see 30+ documents, and 4 fields identified from your data: `footer`, `subtitle`, `text`, and `title`. (If the changes don't display within a few minutes, refresh the browser window.)
+1.  Click through a few more pages and check the predicted titles and subtitles. If any need to be changed, annotate those pages, and click **Submit page**.
+1.  Now click on the **Manage fields** tab and under **Improve query results by splitting your documents** split the document, based on `subtitle`. 
+1.  Click the **Apply changes to collection** button on the top right. An **Upload your documents** dialog box appears. Browse to the original `watsonexplorerinstall.pdf` file, and upload it. All of the annotations are applied to your index. After it finishes indexing, the **Overview** screen opens. Expect to now see more than 30 documents and 4 fields identified from your data: `footer`, `subtitle`, `text`, and `title`. If the changes do not display within a few minutes, refresh the browser window.
 
-    You can exclude fields (such as `footer`) from being indexed by opening the **Manage fields** tab and toggling that field `off`.
+    You can exclude fields, such as `footer`, from being indexed by opening the **Manage fields** tab and toggling that field `off`.
     {: tip}
 
 ## Step 5: Let's query
@@ -139,4 +142,4 @@ Additional resources:
 ## Next steps
 {: #next-steps-tool}
 
-Now you have a functioning and populated {{site.data.keyword.discoveryshort}} instance. You can now begin customizing your collection by adding more documents and enrichments, and annotating additional documents. See [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) for more information.
+Now, you have a functioning and populated {{site.data.keyword.discoveryshort}} instance. You can now begin customizing your collection by adding more documents and enrichments, and annotating additional documents. See [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) for more information.

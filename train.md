@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-11"
 
 subcollection: discovery
 
@@ -41,9 +41,10 @@ For comprehensive information about the training APIs, see the [API reference](h
 
 If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to train {{site.data.keyword.discoveryshort}}, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling).
 
-**Note:** Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured, {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/discovery?topic=discovery-query-concepts).
+Relevance training currently applies only to natural language queries in private collections. It is not intended for use with structured {{site.data.keyword.discoveryshort}} Query Language queries.  For more about the {{site.data.keyword.discoveryshort}} Query Language, see [Query concepts](/docs/discovery?topic=discovery-query-concepts).
+{: note}
 
-Trained collections will return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
+Trained collections return a `confidence` score in the result of a natural language query. See [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
 
 Adding a custom stopwords list can improve the relevance of results for natural language queries. See [Defining stopwords](/docs/discovery?topic=discovery-query-concepts#stopwords) for more information.
 
@@ -68,12 +69,13 @@ The components needed to train a Discovery instance include the following:
 
 Training data must meet the following **minimal** quality criteria to effectively improve the relevance of answers that are returned by the Discovery service. Note that **minimal** does not mean **optimal**. The service checks the training data periodically to determine if these requirements are met, and automatically updates itself based on any changes.
 
-- The collection's training-data set must contain at least 49 unique training queries (that is, sets of queries and examples). Depending on the size and complexity of your collection, the number of training queries in your set might need to be higher than 49 before Watson is able to apply relevancy training to the collection. Watson will provide feedback if it needs more queries in order to train.
+- The collection's training-data set must contain at least 49 unique training queries (that is, sets of queries and examples). Depending on the size and complexity of your collection, the number of training queries in your set might need to be higher than 49 before Watson is able to apply relevancy training to the collection. Watson provides feedback if it needs more queries so that it can train.
 - When assigning relevance scores via the API: The relevance score for each training query must be a non-negative integer, for example `0` to represent *not relevant*, `1` to represent *somewhat relevant*,  and `2` to represent *highly relevant*. However, for maximum flexibility, the service accepts non-negative integers between `0` and `100` for advanced users experimenting with different scoring schemes. Regardless of the range you use, the largest integer in the set of training queries indicates maximum relevance.
-- When assigning relevance ratings via the Tooling: The {{site.data.keyword.discoveryshort}} tooling uses the relevance scores of `0` to represent *not relevant*, and `10` to represent *relevant*. You should apply both available ratings to your results: `Relevant` and `Not relevant`. Only rating the `Relevant` documents will not provide the data needed.  If you plan to score your documents using both the {{site.data.keyword.discoveryshort}} tooling and the API, or you plan to begin with the API and move to the tooling, use the `0` and `10` relevancy scores.
+- When assigning relevance ratings, using the tooling, the {{site.data.keyword.discoveryshort}} tooling uses the relevance scores of `0` to represent *not relevant*, and `10` to represent *relevant*. We recommend that you apply both available ratings to your results: `Relevant` and `Not relevant`. Only rating the `Relevant` documents does not provide the data needed.  If you plan to score your documents, using both the {{site.data.keyword.discoveryshort}} tooling and the API, or if you plan to begin with the API and move to the tooling, use the `0` and `10` relevancy scores.
 - The training queries must include some term overlap between the query and the desired answer so it can be retrieved by the Discovery service's initial search, which is broad in scope.
 
-**Note:** Watson uses training data to learn patterns and to generalize, not to memorize individual training queries. The service therefore might not always reproduce identical relevance results for any given training query.
+Watson uses training data to learn patterns and to generalize, not to memorize individual training queries. The service, therefore, might not always reproduce identical relevance results for any given training query.
+{: note}
 
 Training cannot exceed the following **maximum** requirements:
   - You cannot exceed 24 trained collections per environment.
@@ -106,7 +108,8 @@ The values in this object are as follows:
 - `natural_language_query`: A Discovery natural-language query that applies to the training set. <!-- The `natural_language_query` parameter is preferred. -->
 - `filter`: An optional filter for the query, as described in the [Query reference](/docs/discovery?topic=discovery-query-reference#parameter-descriptions).
 
-    **Note:** If you include filters in your training-data queries, be sure to use the same filters when you use natural language queries in your trained collection. If you train the collection with filtered data but do not use the same types of filters when you query the collection, the results can be unpredictable.
+    If you include filters in your training-data queries, be sure to use the same filters, when you use natural language queries in your trained collection. If you train the collection with filtered data but do not use the same types of filters when you query the collection, the results can be unpredictable.
+    {: note}
 
 - `examples`: An array that contains the following values:
 
@@ -114,7 +117,8 @@ The values in this object are as follows:
    - `cross_reference`: An optional label, typically consisting of a field in the referenced document, that "pins" the document and the field's information in place in the event the document's ID changes, for example if a newly ingested document is assigned the same ID. Specifying a value for `cross-reference` does **not** link one document to another; rather, it ensures that the service retains the document's pertinent information in case the document gets renamed or overwritten.
    - `relevance`: An integer from `0` to `100`, inclusive, that indicates the relative relevance of the query to the training data. Higher values indicate higher relevance. A value of `0` indicates no relevance to the query, whereas a value of `100` indicates absolute relevance to the query.
 
-   **Note:** Although the range of the `relevance` parameter is `0` to `100` for maximum flexibility, you can use a smaller range to simplify scoring examples. A standard range might be `0` to `4`, or you could use the entire range, but only ever use increments of 20 (`0`,`20`,`40`,`60`,`80`, and `100`). The {{site.data.keyword.discoveryshort}} tooling uses the relevance scores of `0` to represent *not relevant*,  and `10` to represent *relevant*. If you plan to score your documents using both the {{site.data.keyword.discoveryshort}} tooling and the API, or you plan to begin with the API and move to the tooling, use the `0` and `10` relevancy scores.
+     Although the range of the `relevance` parameter is `0` to `100` for maximum flexibility, you can use a smaller range to simplify scoring examples. A standard range might be `0` to `4`, or you could use the entire range but only ever use increments of 20 (`0`,`20`,`40`,`60`,`80`, and `100`). The {{site.data.keyword.discoveryshort}} tooling uses the relevance scores of `0` to represent *not relevant*  and `10` to represent *relevant*. If you plan to score your documents, using both the {{site.data.keyword.discoveryshort}} tooling and the API or if you plan to begin with the API and move to the tooling, use the `0` and `10` relevancy scores.
+     {: note}
 
 The following object shows a populated training-data query.
 
@@ -182,7 +186,7 @@ Perform the following steps to add an example to a training-data query.
    ```
    {: pre}
 
-   The JSON that is returned will be of the following format:
+   The JSON that is returned is in the following format:
 
    ```json
     {
@@ -219,14 +223,14 @@ Perform the following steps to add an example to a training-data query.
    ```
    {: pre}
 
-1. Verify that the new example has been added to the training-data query by again [listing the collection's training-data queries](https://{DomainName}/apidocs/discovery#list-training-data){: external}:
+1. Verify that the new example is added to the training-data query by again [listing the collection's training-data queries](https://{DomainName}/apidocs/discovery#list-training-data){: external}:
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
    ```
    {: pre}
 
-   The JSON that is returned will be of the following format:
+   The JSON that is returned is in the following format:
 
    ```json
     {
@@ -256,7 +260,7 @@ Perform the following steps to add an example to a training-data query.
    ```
    {: codeblock}
 
-1. Check the status of the training by using the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} method and looking at the value of the `"training"`/`"available"` field. When you have added enough queries and examples to meet the training requirements, the value of the field returns as `true` and the service automatically begins to use the training data.
+1. Check the status of the training by using the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} method and looking at the value of the `"training"`/`"available"` field. When you add enough queries and examples to meet the training requirements, the value of the field returns as `true`, and the service automatically begins to use the training data.
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2019-04-30"
@@ -265,7 +269,7 @@ Perform the following steps to add an example to a training-data query.
 
    Replace `{url}` with your URL.
 
-   The JSON that is returned will be of the following format:
+   The JSON that is returned is in the following format:
 
    ```json
     {
@@ -306,9 +310,9 @@ Perform the following steps to add an example to a training-data query.
    - `minimum_examples_added`
    - `sufficient_label_diversity`
 
-   If the relevance of your results has not improved, add more training queries until the results meet your requirements.
+   If the relevance of your results does not improve, add more training queries until the results meet your requirements.
 
-For additional training guidance, see [Relevancy training tips](/docs/discovery?topic=discovery-relevancy-tips).   
+For additional training guidance, see [Relevancy training tips](/docs/discovery?topic=discovery-relevancy-tips).
 
 ## Performing other training-data query operations
 {: #training-data-operations}

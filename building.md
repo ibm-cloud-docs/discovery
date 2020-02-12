@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -35,11 +35,11 @@ subcollection: discovery
 Configuring {{site.data.keyword.discoveryshort}} makes it possible to gain useful insights by enriching your own data and then delivering it in a query-able form.
 {: shortdesc}
 
-Before you add your own content to {{site.data.keyword.discoveryshort}}, you should configure it to process the content the way that you want.
+Before you add your own content to {{site.data.keyword.discoveryshort}}, you must configure it to process the content the way that you want.
 
 The first step is to configure the basic parameters of the service ([Preparing the service for your documents](/docs/discovery?topic=discovery-configservice#preparing-the-service-for-your-documents)), this includes creating an environment and creating one or more collections within that environment. 
 
-If your collection was created before the introduction of [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), you may want to specify one or more custom configurations (see [When you need a custom configuration](/docs/discovery?topic=discovery-configservice#when-you-need-a-custom-configuration)). If this is the case, you must do the following:
+If your collection was created before the introduction of [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), you might want to specify one or more custom configurations (see [When you need a custom configuration](/docs/discovery?topic=discovery-configservice#when-you-need-a-custom-configuration)). If this is the case, you must do the following:
 
 -   identify some sample content (documents that are representative of your files)
 -   upload the content ([Uploading sample documents](/docs/discovery?topic=discovery-configservice#uploading-sample-documents))
@@ -47,7 +47,7 @@ If your collection was created before the introduction of [Smart Document Unders
 -   define enrichments ([Adding enrichments](/docs/discovery?topic=discovery-configservice#adding-enrichments))
 -   normalize the results ([Normalizing data](/docs/discovery?topic=discovery-configservice#normalizing-data))
 
-    After you have created your custom configuration, you can upload your documents ([Adding content](/docs/discovery?topic=discovery-addcontent)).
+    After you create your custom configuration, you can upload your documents ([Adding content](/docs/discovery?topic=discovery-addcontent)).
 
 ## Preparing the service for your documents
 {: #preparing-the-service-for-your-documents}
@@ -63,7 +63,7 @@ In {{site.data.keyword.discoveryshort}}, the content that you upload is stored i
 
     Collections are comprised of your private data, but {{site.data.keyword.discoveryshort}} also includes {{site.data.keyword.discoverynewsshort}}, a pre-enriched, public dataset. 
 
-    {{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use it to query for insights; for example: news alerts, event detecting, and trending topics in the news; that you can integrate into your applications. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information. You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration or add documents to this collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
+    {{site.data.keyword.discoverynewsshort}}, a public data set that is pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use it to query for insights; for example: news alerts, event detecting, and trending topics in the news; that you can integrate into your applications. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information. You cannot adjust the {{site.data.keyword.discoverynewsshort}} configuration or add documents to this collection. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
 
 To create an environment and private data collection with the {{site.data.keyword.discoveryshort}} tooling do the following:
 
@@ -71,16 +71,16 @@ To create an environment and private data collection with the {{site.data.keywor
 
 1.  Once your environment is ready, click the **Upload your own data** button, then you can **Name your new collection**.
 
-     You can select the language of the documents you want to add to this collection: English, German, Spanish, Arabic, Japanese, French, Italian, Korean, or Brazilian Portuguese. There should be only one language in each of your collections. After you click **Create**, your data collection appears as a tile.
+     You can select the language of the documents you want to add to this collection: English, German, Spanish, Arabic, Japanese, French, Italian, Korean, or Brazilian Portuguese. There must only be one language in each of your collections. After you click **Create**, your data collection appears as a tile.
 
-Your environment and data collection are ready! You can start [Adding content](/docs/discovery?topic=discovery-addcontent) immediately. 
+Your environment and data collection are ready. You can start [Adding content](/docs/discovery?topic=discovery-addcontent) immediately. 
 
-However, if you want to customize your {{site.data.keyword.discoveryshort}} configuration with additional enrichments and conversion settings, you should not begin adding documents right now, you should start creating your custom configuration file. See [Configuring your service](/docs/discovery?topic=discovery-configservice#custom-configuration).
+However, if you want to customize your {{site.data.keyword.discoveryshort}} configuration with additional enrichments and conversion settings, you must not begin adding documents at this point. Rather, you must start by creating your custom configuration file. See [Configuring your service](/docs/discovery?topic=discovery-configservice#custom-configuration).
 
-If your collection was created using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), you may prefer to adjust your enrichments using the {{site.data.keyword.discoveryshort}} tooling.
+If you use [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) to create your collection, you might prefer to adjust your enrichments, using the {{site.data.keyword.discoveryshort}} tooling.
 {: note}
 
-For collections created before the release of Smart Document Understanding: when documents are uploaded to a data collection, they are converted and enriched using the configuration file selected for that collection. If you decide later that you would like to change the configuration file, you can do that, but the documents that have already been uploaded remains converted by the original configuration. All documents uploaded after switching the configuration file use the new configuration file. If you want the **entire** collection to use the new configuration, you must create a new collection, choose that new configuration file, and re-upload all the documents. {{site.data.keyword.discoveryshort}} stores the converted text of the documents that you upload, embedded images in **PDF** and **Microsoft Word** files are not stored and cannot be returned in results. If your collection is using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), any changes made to enrichments and conversion in the {{site.data.keyword.discoveryshort}} are applied to the entire collection when you click the **Apply changes to collection** button. If you collection is large, applying the changes may take some time.  
+For collections created before the release of Smart Document Understanding: when documents are uploaded to a data collection, they are converted and enriched using the configuration file selected for that collection. If you decide later that you would like to change the configuration file, you can do that, but the documents that are already uploaded remain converted by the original configuration. All documents uploaded after switching the configuration file use the new configuration file. If you want the **entire** collection to use the new configuration, you must create a new collection, choose that new configuration file, and re-upload all the documents. {{site.data.keyword.discoveryshort}} stores the converted text of the documents that you upload, embedded images in **PDF** and **Microsoft Word** files are not stored and cannot be returned in results. If your collection is using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), any changes made to enrichments and conversion in the {{site.data.keyword.discoveryshort}} are applied to the entire collection when you click the **Apply changes to collection** button. If your collection is large, applying the changes might take some time.  
 {: important}
 
 You can use the {{site.data.keyword.discoveryshort}} tooling or API to crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl. See [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information.
@@ -128,7 +128,7 @@ This information applies only to collections created before the release of [Smar
 
 To create a custom configuration in the {{site.data.keyword.discoveryshort}} tooling, open a Private data collection, and on the **Manage Data** screen, click **Switch** next to the name of your **Configuration**. On the **Switch configuration** dialog, click **Create a new configuration**.
 
-After you have named your new configuration file, that name is displayed at the top of the configuration screen. This new configuration file automatically contains the settings and enrichments of the [Default configuration](/docs/discovery?topic=discovery-configservice#the-default-configuration) file to give you a place to begin.
+After you name your new configuration file, that name is displayed at the top of the configuration screen. This new configuration file automatically contains the settings and enrichments of the [Default configuration](/docs/discovery?topic=discovery-configservice#the-default-configuration) file to give you a place to begin.
 
 The three steps of customizing a configuration file are: **Convert**, **Enrich**, and **Normalize**.
 
@@ -158,10 +158,10 @@ When creating a new configuration file in the {{site.data.keyword.discoveryshort
 
 #### Guidelines for choosing good sample documents:
 
--   You should have (at minimum), one sample document for each file type you intend to ingest - Microsoft Word, PDF, HTML, and JSON. (You cannot preview PDF documents enriched with the **Element Classification** enrichment.)
--   If you have any unique document types (such as financial reports or press releases), include one of each in your set of sample documents.
--   For HTML documents, you should choose documents that include HTML tags you would like to exclude, as well as tag attributes you would like to include or exclude.
--   JSON documents should include any fields you would like to remove or merge together (for example, zipCode and postalCode).
+-   At minimum, it is recommended that you have one sample document for each file type you intend to ingest - Microsoft Word, PDF, HTML, and JSON. (You cannot preview PDF documents enriched with the **Element Classification** enrichment.
+-   If you have any unique document types, such as financial reports or press releases, include one of each in your set of sample documents.
+-   For HTML documents, choose documents that include HTML tags that you would like to exclude, as well as tag attributes that you would like to include or exclude.
+-   JSON documents must include any fields that you would like to remove or merge together, for example, zipCode and postalCode.
 
 ### Converting sample documents
 {: #converting-sample-documents}
@@ -196,7 +196,7 @@ To work through the Conversion settings, click through the file types.
 
 -   **If you are converting JSON files** you must set the JSON conversion options and review the result.
 
-For each configuration file that you create, there is only one set of conversion options for each step of the process. This means the HTML conversion options are be the same for PDF files, Word files, and HTML. If you require different conversion options for each type of content that you are ingesting (or if you have files of the same type that require different types of conversion) you must store your files in different collections and create separate configuration files for each set of conversion settings.
+For each configuration file that you create, there is only one set of conversion options for each step of the process. This means the HTML conversion options are be the same for PDF files, Word files, and HTML. If you require different conversion options for each type of content that you are ingesting or if you have files of the same type that require different types of conversion, you must store your files in different collections and create separate configuration files for each set of conversion settings.
 
 #### Microsoft Word conversion
 {: #microsoft-word-conversion}
@@ -238,7 +238,7 @@ After making any changes, click **Apply and Save**.
 
 The last step of the conversion is to ensure that the converted (or uploaded JSON) is formed the way that you expect it to be before enrichments are applied to the content. You can create rules that {{site.data.keyword.watson}} uses to convert your HTML to JSON.
 
--   You can move, merge, copy or remove fields. For example: You may want to merge **`zipCode`** and **`postalCode`** because they are two similar terms for the same field.
+-   You can move, merge, copy, or remove fields. For example, you might want to merge **`zipCode`** and **`postalCode`** because they are two similar terms for the same field.
 -   Empty fields (fields that contain no information) are deleted by default. You can change that using the **Remove empty fields** toggle.
 
 After making any changes, click **Apply and Save**.
@@ -249,7 +249,7 @@ After making any changes, click **Apply and Save**.
 <!-- Learn more topic WDS -->
 The {{site.data.keyword.discoveryshort}} [default configuration](/docs/discovery?topic=discovery-configservice#the-default-configuration) enriches (add cognitive metadata to) the `text` field of your ingested documents with semantic information collected by these four {{site.data.keyword.watson}} functions - Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging. (There are a total of nine {{site.data.keyword.watson}} enrichments available; the others are Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.)
 
-Some {{site.data.keyword.watson}} enrichments may not be available in certain plans or environments.
+Some {{site.data.keyword.watson}} enrichments might be unavailable in certain plans or environments.
 
 You can also integrate one or more custom models from {{site.data.keyword.knowledgestudiofull}} with {{site.data.keyword.discoveryshort}} to provide custom entity and relations enrichments. See [Integrating with Watson Knowledge Studio](/docs/discovery?topic=discovery-integrating-with-wks).
 
@@ -328,7 +328,7 @@ The `relevance` score ranges from `0.0` to `1.0`. The higher the score, the more
 #### Using a custom entity model
 {: #custom-entity-model}
 
-If you wish to create a custom enrichment model, you can do so in {{site.data.keyword.knowledgestudiofull}} and import the model into {{site.data.keyword.discoveryshort}} by adding the ID in the `Custom Model ID` box of the {{site.data.keyword.discoveryshort}} tooling. For more information on integrating with {{site.data.keyword.knowledgestudiofull}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/discovery?topic=discovery-integrating-with-wks). The custom {{site.data.keyword.knowledgestudiofull}} model overrides the default Entity Extraction enrichment.
+If you wish to create a custom enrichment model, you can do so in {{site.data.keyword.knowledgestudiofull}} and import the model into {{site.data.keyword.discoveryshort}} by adding the ID in the `Custom Model ID` box of the {{site.data.keyword.discoveryshort}} tooling. For more information about integrating with {{site.data.keyword.knowledgestudiofull}}, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/discovery?topic=discovery-integrating-with-wks). The custom {{site.data.keyword.knowledgestudiofull}} model overrides the default Entity Extraction enrichment.
 
 Only one {{site.data.keyword.knowledgestudiofull}} model can be assigned to an enrichment.
 {: note}
@@ -668,7 +668,7 @@ Example portion of a document enriched with Emotion Analysis:
 
 In the preceding example, you could query the `joy` Emotion by accessing `enriched_text.emotion.document.emotion.joy`
 
-Emotion Analysis analyzes your text and calculates a score for each emotion (anger, disgust, fear, joy, sadness) on a scale of `0.0` to `1.0`. If the score of any emotion is `0.5` or higher, then that emotion has been detected (the higher the score above `0.5`, the higher the relevance). In the snippet shown, `joy` has a score above 0.5, so {{site.data.keyword.watson}} detected joy.
+Emotion Analysis analyzes your text and calculates a score for each emotion (anger, disgust, fear, joy, sadness) on a scale of `0.0` to `1.0`. If the score of any emotion is `0.5` or higher, then that emotion is detected. The higher the score above `0.5`, the higher the relevance. In the snippet shown, `joy` has a score above 0.5, so {{site.data.keyword.watson}} detected joy.
 
 Emotion Analysis is supported in English only.
 {: note}
@@ -1006,7 +1006,7 @@ Considerations:
 
   - You can not normalize data (see [Normalizing data](/docs/discovery?topic=discovery-configservice#normalizing-data)) or use CSS selectors to extract fields (see [Using CSS selectors to extract fields](/docs/discovery?topic=discovery-configservice#using-css)) when using document segmentation.
 
-  - Documents will segment each time the specified HTML tag is detected. Consequently, segmentation could lead to malformed HTML because the documents could be split before closing tags and after opening tags.
+  - Documents are segmented each time the specified HTML tag is detected. Consequently, segmentation could lead to malformed HTML because the documents could be split before closing tags and after opening tags.
 
   - HTML, PDF, and Word metadata; the title; plus any custom metadata, is extracted and included in the index with each segment. Every segment of a document includes identical metadata.
 
@@ -1120,12 +1120,12 @@ All segments include an:
 ### Updating a segmented document
 {: #update-seg}
 
-If a segmented document has been updated and needs to be ingested again, it can be replaced using the [Update document](https://{DomainName}/apidocs/discovery#update-a-document){: external} method.
+If a segmented document is updated and needs to be ingested again, it can be replaced by using the [Update document](https://{DomainName}/apidocs/discovery#update-a-document){: external} method.
 
-When updating a segmented document, the document should be uploaded using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable.
+When updating a segmented document, you must upload the document by using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable.
 
-When updating, all segments are overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments remain in the index and may be individually deleted using the API. See the [API Reference](https://{DomainName}/apidocs/discovery#delete-a-document){: external} for details. You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that is comprised of the `{parent_id}`, followed by an underscore, followed by the segment number.
+When updating, all segments are overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments remain in the index and might be individually deleted, using the API. See the [API Reference](https://{DomainName}/apidocs/discovery#delete-a-document){: external} for details. You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that is comprised of the `{parent_id}`, followed by an underscore, followed by the segment number.
 
-If any of the segments of the document that you intend to update have been ranked for relevancy training, you must first delete all the segments of that document and then ingest the updated document as a new document. This results in a new `document_id` for each segment and any trained segments must be retrained. The trained index becomes inaccurate if you don't delete the old content first.
+If any of the segments of the document that you intend to update are ranked for relevancy training, you must first delete all the segments of that document and then ingest the updated document as a new document. This results in a new `document_id` for each segment and any trained segments must be retrained. The trained index becomes inaccurate if you don't delete the old content first.
 
 Alternately, consider creating a new document that contains only the new content and ingest it separately.

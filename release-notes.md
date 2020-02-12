@@ -88,7 +88,7 @@ The following new features and changes to the service are available.
 {: #6dec19}
 
 Known issue: 
-- If your Lite plan reaches the document limit of the environment, any running crawls will not progress any further. The Crawl status displayed will change to `not_configured`.
+- If your Lite plan reaches the document limit of the environment, any running crawls do not progress any further. The displayed crawl status changes to `not_configured`.
 
 
 ## 11 October 2019
@@ -101,35 +101,35 @@ You can now create {{site.data.keyword.discoveryshort}} instances in the Seoul d
 
 As announced [3 September 2019](/docs/discovery?topic=discovery-release-notes#3sept19), the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) are no longer accessible.
 
-As announced [4 June 2019](/docs/discovery?topic=discovery-release-notes#4jun19), the Preview API has been deprecated and is no longer be available.
+As announced [4 June 2019](/docs/discovery?topic=discovery-release-notes#4jun19), the Preview API is deprecated and is no longer available.
 
 ## 3 September 2019
 {: #3sept19}
 
-{{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) will no longer be accessible, as of **30 September 2019**. Data already in {{site.data.keyword.discoveryshort}} collections will not be affected, nor will any other existing queries or operations be affected. You can find the documentation for Knowledge Graph in the [{{site.data.keyword.discoveryshort}} archives](/docs/discovery?topic=discovery-discovery-archives#kg) until 30 September 2019.
+{{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) are no longer be accessible, as of **30 September 2019**. Data already in {{site.data.keyword.discoveryshort}} collections are not be affected, nor are any other existing queries or operations be affected. You can find the documentation for Knowledge Graph in the [{{site.data.keyword.discoveryshort}} archives](/docs/discovery?topic=discovery-discovery-archives#kg) until 30 September 2019.
 
 ## 29 August 2019
 {: #29aug19}
 	
 Updated to general availability:
-- The Web crawl connector has moved from beta status to GA status. See [Web crawl](/docs/discovery?topic=discovery-sources#connectwebcrawl) for more information about this connector.
+- The Web crawl connector moved from beta status to GA status. See [Web crawl](/docs/discovery?topic=discovery-sources#connectwebcrawl) for more information about this connector.
 
 ## 4 June 2019
 {: #4jun19}
 
-The Preview API has been deprecated and will no longer be available effective **30 September 2019**. 
+The Preview API is deprecated and is no longer available, effective **30 September 2019**.
 
 ## 30 April 2019
 {: #30apr19}
 
 [Query expansion](/docs/discovery?topic=discovery-query-concepts#query-expansion) and [Stopword](/docs/discovery?topic=discovery-query-concepts#stopwords) lists can now be uploaded or deleted using the **Search settings** screen in the {{site.data.keyword.discoveryshort}} tooling. Previously, these lists could only be managed using the API.
 
-- The version string for all API calls has changed to `2019-04-30` from `2019-03-25`.
+- The version string for all API calls changed to `2019-04-30` from `2019-03-25`.
 
 ## 26 April 2019
 {: #26apr19}
 
-The {{site.data.keyword.discoveryfull}} update announced on [April 2, 2019](/docs/discovery?topic=discovery-release-notes#2apr19) is complete. This upgrade included changes to improve the accuracy of the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. The changes to your `score` and `confidence` should be small, and there may also be some small changes to the ranking order. If your applications make use of the `score` or `confidence` fields directly, you should update your applications as necessary.
+The {{site.data.keyword.discoveryfull}} update announced on [April 2, 2019](/docs/discovery?topic=discovery-release-notes#2apr19) is complete. This upgrade included changes to improve the accuracy of the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. It is likely that the changes to your `score` and `confidence` are small, and there might also be some small changes to the ranking order. If your applications make use of the `score` or `confidence` fields directly, it is recommended that you update your applications, as necessary.
 
 - Multi-token query expansion is now supported. See [Query expansion](/docs/discovery?topic=discovery-query-concepts#query-expansion) for more information.
 
@@ -141,16 +141,16 @@ The Data Crawler is no longer available for download and is no longer supported.
 ## 2 April 2019
 {: #2apr19}
 
-Beginning April 9, 2019, there will be an upgrade to {{site.data.keyword.discoveryfull}}. This upgrade will include changes to the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. This means score and confidence results may change following the upgrade. If your applications make use of the `score` or `confidence` fields directly, be prepared to update the application as necessary. See [Upgrading the infrastructure of the {{site.data.keyword.discoveryfull}}](https://www.ibm.com/blogs/cloud-archive/2019/03/announcement-for-the-ibm-watson-discovery-community/){: external} for details.
+Beginning April 9, 2019, there is an upgrade to {{site.data.keyword.discoveryfull}}. This upgrade includes changes to the scoring algorithms used in {{site.data.keyword.discoveryshort}} for ranking documents and passages. This means score and confidence results might change, following the upgrade. If your applications make use of the `score` or `confidence` fields directly, be prepared to update the application as necessary. See [Upgrading the infrastructure of the {{site.data.keyword.discoveryfull}}](https://www.ibm.com/blogs/cloud-archive/2019/03/announcement-for-the-ibm-watson-discovery-community/){: external} for details.
 
 ## 25 March 2019
 {: #25mar19}
 
-- The version string for all API calls has changed to `2019-03-25` from `2019-01-01`
+- The version string for all API calls changed to `2019-03-25` from `2019-01-01`
 
-- The `title` field is now extracted from HTML documents as a top-level field during conversion. See [HTML conversion](/docs/discovery?topic=discovery-configservice#html-conversion). This `title` field will be also be included in each segment of any documents split using document segmentation, see [Splitting documents with document segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation) for an example. This may improve the `confidence` score for query results, and may change the `passages` returned, because the `title` may be returned as part of a passage. Existing collections will need to be reindexed to extract the `title` field.
+- The `title` field is now extracted from HTML documents as a top-level field during conversion. See [HTML conversion](/docs/discovery?topic=discovery-configservice#html-conversion). This `title` field is included in each segment of any documents split, using document segmentation. For an example, see [Splitting documents with document segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation). This might improve the `confidence` score for query results, and might change the `passages` returned because the `title` might be returned, as part of a passage. Existing collections must be reindexed to extract the `title` field.
 
-The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-03-25` (it currently uses `2018-12-03`), so the `title` will not be extracted when ingesting HTML documents by uploading or using the Web Crawl connector in the {{site.data.keyword.discoveryshort}} tooling.
+The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-03-25` (it currently uses `2018-12-03`), so the `title` is not extracted when ingesting HTML documents by uploading or using the Web Crawl connector in the {{site.data.keyword.discoveryshort}} tooling.
 {: note}
 
 - Arrays can now be enriched (previously, arrays could not be enriched). When using Smart Document Understanding, this means that you can now enrich both default (for example: `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`) and custom fields. Previously, you were limited to enriching only the `text` field.
@@ -158,7 +158,7 @@ The {{site.data.keyword.discoveryshort}} tooling does not yet use the current AP
 ## 21 March 2019
 {: #21mar19}
 
-From March 21 2019, you will see only service credential information associated with the role that has been assigned to your {{site.data.keyword.cloud_notm}} account. For example, if you have assigned a `reader` role, any `writer` or higher levels of service credentials will not be visible.
+From March 21, 2019, you can only see service credential information associated with the role that is assigned to your {{site.data.keyword.cloud_notm}} account. For example, if you assign a `reader` role, any `writer` or higher levels of service credentials are not visible.
 
 This change does not affect API access for users or applications with existing service key credentials. Only the viewing of credentials within {{site.data.keyword.cloud_notm}} is affected.
 
@@ -174,9 +174,9 @@ For more information about service keys and user roles, see [IAM service API key
 
 Updated to general availability:
 
--  [Smart Document Understanding (SDU)](/docs/discovery?topic=discovery-sdu) has moved from beta status to GA status.
+-  [Smart Document Understanding (SDU)](/docs/discovery?topic=discovery-sdu) moved from beta status to GA status.
    -  Table annotation remains in beta status. For a statement explaining beta features, see [Beta features](/docs/discovery?topic=discovery-release-notes#beta-features).
-   -  The `Data settings` button on the upper right has been renamed `Configure data`.
+   -  The `Data settings` button on the upper right is renamed as `Configure data`.
    -  Uploading a document is no longer required to access the `Configure data` (formerly `Data settings`) button.
 
 The beta of SDU was announced [January 22, 2019](/docs/discovery?topic=discovery-release-notes#22jan19).   
@@ -184,14 +184,14 @@ The beta of SDU was announced [January 22, 2019](/docs/discovery?topic=discovery
 ## 28 January 2019
 {: #28jan19}
 
-Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors. The {{site.data.keyword.discoveryshort}} connectors support crawling Box, SharePoint, Salesforce, and more. See [Connecting to data sources](/docs/discovery?topic=discovery-sources) for details. The Data Crawler should only be used to crawl file shares or databases, in all other cases, use the {{site.data.keyword.discoveryshort}} connector. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files](https://github.com/IBM/discovery-files){: external} on GitHub.
+Assistance is no longer provided for the Data Crawler if you are using it with a data source supported by the {{site.data.keyword.discoveryshort}} connectors. The {{site.data.keyword.discoveryshort}} connectors support crawling Box, SharePoint, Salesforce, and more. See [Connecting to data sources](/docs/discovery?topic=discovery-sources) for details. It is recommended that the Data Crawler only be used to crawl file shares or databases. In all other cases, use the {{site.data.keyword.discoveryshort}} connector. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files](https://github.com/IBM/discovery-files){: external} on GitHub.
 
 ## 22 January 2019
 {: #22jan19}
 
 - Released the beta version of [Smart Document Understanding (SDU)](/docs/discovery?topic=discovery-sdu), a new way to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. With Smart Document Understanding, you annotate fields within your documents to train custom conversion models. For a statement explaining beta features, see [Beta features](/docs/discovery?topic=discovery-release-notes#beta-features).
 
-The beta SDU editor is only available for new collections that contain supported document types and do not have the Element Classification enrichment applied. Existing Private collections will use the original configuration method.
+The beta SDU editor is only available for new collections that contain supported document types and do not have the Element Classification enrichment applied. Existing private collections use the original configuration method.
 
 If you were part of the closed beta for Smart Document Understanding, do not import models created in that beta into this version. Smart Document Understanding is currently not available in Dedicated environments.
 
@@ -208,19 +208,19 @@ Element Classification updates:
     - The `effective_dates`, `contract_amounts`, and `termination_dates` arrays now each include a `confidence_level` field that indicates a value of `High`, `Medium`, or `Low`.
     For more information, see [Classifying elements](/docs/discovery?topic=discovery-output_schema) and [Parsing contracts](/docs/discovery?topic=discovery-contract_parsing).
 
-    The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-01-01` (it currently uses `2018-12-03`), so you will not see these new fields in the Element Classification output in the {{site.data.keyword.discoveryshort}} tooling.
+    The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-01-01` (it currently uses `2018-12-03`), so you cannot see these new fields in the Element Classification output in the {{site.data.keyword.discoveryshort}} tooling.
 
 ## 10 January 2019
 {: #10jan19}
 
 Known issue:
 
--  If you specify a `customer-id` using the normalization method described in [Specifying a `customer_id`](/docs/discovery?topic=discovery-sources#source_customer_id) and subsequently attempt to delete documents containing that `customer_id` using the method described here: [Deleting labeled data](/docs/discovery?topic=discovery-information-security#deletingdata), the associated source document will not be deleted.
+-  If you specify a `customer-id`, using the normalization method described in [Specifying a `customer_id`](/docs/discovery?topic=discovery-sources#source_customer_id) and subsequently attempt to delete documents containing that `customer_id`, using the method described in [Deleting labeled data](/docs/discovery?topic=discovery-information-security#deletingdata), the associated source document is not deleted.
 
 ## 1 January 2019
 {: #1jan19}
 
-- The version string for all API calls has changed to `2019-01-01` from `2018-12-03`. This version introduces a new document ingestion status: `pending`. The `pending` status will be returned for documents that have been accepted, but have not yet started processing. Previously, these documents would have the status of `processing`. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-12-03`), so when you check document status in the {{site.data.keyword.discoveryshort}} tooling, the `pending` status will not be returned.
+- The version string for all API calls changed to `2019-01-01` from `2018-12-03`. This version introduces a new document ingestion status: `pending`. The `pending` status is returned for documents that are accepted but did not yet start processing. Previously, these documents had the status of `processing`. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-12-03`), so when you check document status in the {{site.data.keyword.discoveryshort}} tooling, the `pending` status is not returned.
 
 ## 21 December 2018
 {: #21dec18}
@@ -251,9 +251,9 @@ Known issue:
 ## 3 December 2018
 {: #3dec18}
 
-- For all queries (with the exception of filter-only queries) written using the API version of `2018-12-03` or above, {{site.data.keyword.discoveryshort}} will now return a `confidence` score in the query results set, even if the collection was not trained using a supervised training method, such as [Relevancy training](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling) or [Continuous Relevancy Training](/docs/discovery?topic=discovery-crt). In addition, {{site.data.keyword.discoveryshort}} will return a `document_retrieval_strategy` field that indicates the source of the `confidence` score of `untrained`, `relevancy_training`, or `continuous_relevancy_training`. For more information, see [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
+- For all queries written, using the API version of `2018-12-03` or above, with the exception of filter-only queries, {{site.data.keyword.discoveryshort}} now returns a `confidence` score in the query results set, even if the collection was not trained, using a supervised training method, such as [Relevancy training](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling) or [Continuous Relevancy Training](/docs/discovery?topic=discovery-crt). In addition, {{site.data.keyword.discoveryshort}} returns a `document_retrieval_strategy` field that indicates the source of the `confidence` score of `untrained`, `relevancy_training`, or `continuous_relevancy_training`. For more information, see [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
 
-- The version string for all API calls has changed to `2018-12-03` from `2018-10-15`. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so queries written using the {{site.data.keyword.discoveryshort}} tooling will not return a `confidence` score for untrained collections.
+- The version string for all API calls changed to `2018-12-03` from `2018-10-15`. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so queries written using the {{site.data.keyword.discoveryshort}} tooling does not return a `confidence` score for untrained collections.
 
 ## 8 November 2018
 {: #8nov18}
@@ -268,12 +268,12 @@ Known issue:
 ## 25 October 2018
 {: #25oct18}
 
-The schema for the [Element Classification](/docs/discovery?topic=discovery-element-classification) enrichment has changed. If you wish to use the updated schema, you must ingest your documents with the API, using the version date of `2018-10-15` or later. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so documents ingested using the {{site.data.keyword.discoveryshort}} tooling will be enriched with the original schema.
+The schema for the [Element Classification](/docs/discovery?topic=discovery-element-classification) enrichment changed. If you wish to use the updated schema, you must ingest your documents with the API, using the version date of `2018-10-15` or later. The {{site.data.keyword.discoveryshort}} tooling does not yet use this API version (it currently uses `2018-08-01`), so documents ingested, using the {{site.data.keyword.discoveryshort}} tooling, are enriched with the original schema.
 
 ## 24 October 2018
 {: #24oct18}
 
-- {{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. These words will now be extracted from the highlights, rather than simply displaying the first 50 words of the article. See [highlight](/docs/discovery?topic=discovery-query-parameters#highlight) for an explanation of highlights. Highlights do not need to be explicitly included in your query to enable this behavior.
+- {{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. These words are now extracted from the highlights, rather than simply displaying the first 50 words of the article. See [highlight](/docs/discovery?topic=discovery-query-parameters#highlight) for an explanation of highlights. Highlights do not need to be explicitly included in your query to enable this behavior.
 
 ## 25 September 2018
 {: #25sept18}
@@ -282,9 +282,9 @@ The schema for the [Element Classification](/docs/discovery?topic=discovery-elem
 
 - Added API support for performing longer queries. This increases the character limit to 10,000 characters, and makes it possible to increase the number of filters in your queries and perform more complex aggregations. See the POST Query at [API reference](https://{DomainName}/apidocs/discovery#long-collection-queries){: external} and [API reference](https://{DomainName}/apidocs/discovery#long-environment-queries){: external} for details.
 
-- You can now upgrade your Advanced plan using the API. See [Upgrading your plan](/docs/discovery?topic=discovery-upgrading-your-plan#switchadvanced) for details. 
+- You can now upgrade your Advanced plan using the API. See [Upgrading your plan](/docs/discovery?topic=discovery-upgrading-your-plan#switchadvanced) for details.
 
-- The Element Classification enrichment has updated the classified elements, contract elements, and parties and tables identified. See [Element Classification](/docs/discovery?topic=discovery-element-classification) for the updates.
+- The Element Classification enrichment now has updated classified elements, contract elements, and parties and tables identified. For the updates, see [Element Classification](/docs/discovery?topic=discovery-element-classification).
 
 - Added full support for Brazilian Portuguese. For more information, see [Language support](/docs/discovery?topic=discovery-language-support).
 
@@ -312,9 +312,10 @@ The schema for the [Element Classification](/docs/discovery?topic=discovery-elem
 ## 31 July 2018
 {: #31jul18}
  
- - Beginning **August 1, 2018**, {{site.data.keyword.discoveryfull}} has a new pricing structure. It features a simpler pricing model (document hours are no longer part of the calculation) and tiered pricing for {{site.data.keyword.discoverynewsfull}} queries. In addition, the Standard plan has been retired, and the Lite plan has reduced document and {{site.data.keyword.discoverynewsshort}} query limits. The pricing changes will require no action by current {{site.data.keyword.discoverynewsshort}} users. See [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for details.
+ - Beginning **August 1, 2018**, {{site.data.keyword.discoveryfull}} has a new pricing structure. It features a simpler pricing model (document hours are no longer part of the calculation) and tiered pricing for {{site.data.keyword.discoverynewsfull}} queries. In addition, the Standard plan is retired, and the Lite plan has reduced document and {{site.data.keyword.discoverynewsshort}} query limits. The pricing changes require no action by current {{site.data.keyword.discoverynewsshort}} users. For details, see [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/discovery?topic=discovery-discovery-pricing-plans).
  
-**Note:** The version date of the API has been updated to `2018-08-01`. To take advantage of the new environment sizing options (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
+The version date of the API is updated to `2018-08-01`. To take advantage of the new environment sizing options (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use this version date when creating environments, using the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
+{: note}
 
 ## 27 July 2018
 {: #27jul18}
@@ -361,7 +362,7 @@ The schema for the [Element Classification](/docs/discovery?topic=discovery-elem
 {: #30may18}
 
 - Fixed a known issue in {{site.data.keyword.discoverynewsfull}}. Previously, when querying {{site.data.keyword.discoverynewsshort}} it was possible to receive an incorrect document count because documents in other languages would be counted along with the language you requested. This is no longer the case.
-- Beginning with collections created on `22 May 2018` and after {{site.data.keyword.discoveryshort}} now returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you will now receive results for both for `aqui` and <code>aqu&iacute;</code>.
+- Beginning with collections created on `22 May 2018` and after {{site.data.keyword.discoveryshort}} now returns query results that include special characters for the following languages: English, German, French, Dutch, Italian, and Portuguese. For example, if you query for `aqui`, you now receive results for both for `aqui` and <code>aqu&iacute;</code>.
 
 ## 21 May 2018
 {: #21may18}
@@ -373,7 +374,7 @@ The schema for the [Element Classification](/docs/discovery?topic=discovery-elem
 
 - {{site.data.keyword.discoverynewsfull}} queries now display only the first 20 words of each article in the `text` JSON field.
 
--   The service now supports a new API authentication process for service instances for applications that are hosted in Sydney (**au-syd**) as of May 15, 2018. They will be enabled for applications that are hosted in other regions soon. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
+-   The service now supports a new API authentication process for service instances for applications that are hosted in Sydney (**au-syd**) as of May 15, 2018. They are enabled for applications that are hosted in other regions soon. {{site.data.keyword.Bluemix}} is in the process of migrating to token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service.
 
    In the Sydney location, you use IAM access tokens with {{site.data.keyword.discoveryshort}} for
 
@@ -429,7 +430,7 @@ In your application, check the access token's expiration time before you use it 
 {: #11may18}
 
 - Details about information security can be found here: [Information security](/docs/discovery?topic=discovery-information-security).
-- The following {{site.data.keyword.discoveryfull}} Knowledge Graph `query_entities` known issue has been fixed with the `2018-05-04` API version update. This fix only applies if entities are ingested or replaced after `2018-05-04`. Entities can be replaced by re-ingesting old documents or by ingesting new documents containing those entities. If old entities are not replaced, then `query_entities` will return all upper case with `2018-05-04` API version.
+- The following {{site.data.keyword.discoveryfull}} Knowledge Graph `query_entities` known issue is fixed with the `2018-05-04` API version update. This fix only applies if entities are ingested or replaced after `2018-05-04`. Entities can be replaced by re-ingesting old documents or by ingesting new documents containing those entities. If old entities are not replaced, then `query_entities` return all uppercase with `2018-05-04` API version.
   - All entity names were previously converted to camel case in `query_entities`. For example, the entity name "IBM Corporation" was converted to "Ibm Corporation". This is no longer the case.
 
 ## 9 May 2018
@@ -445,7 +446,7 @@ In your application, check the access token's expiration time before you use it 
 ## 26 April 2018
 {: #26apr18}
 
-- The following ingestion issue has been fixed: In some cases where post-enrichment `json_normalizations` and/or `normalizations` were specified, the normalizations may have been applied in the wrong order. This could result in documents being indexed with unexpected field values. This is no longer the case.
+- The following ingestion issue is fixed: In some cases where post-enrichment `json_normalizations` and/or `normalizations` were specified, the normalizations might be applied in the wrong order, possibly resulting in documents being indexed with unexpected field values. This is no longer the case.
 - The maximum file size for a sample document is now 1MB. The maximum file size was previously 5MB.
 
 ## 12 April 2018
@@ -471,13 +472,13 @@ Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Kno
 - Added full support for German. For more information, see [Language support](/docs/discovery?topic=discovery-language-support).
 
 {{site.data.keyword.discoveryshort}} tooling:
-- A new configuration named **Default Contract Configuration** has been added to support Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/discovery?topic=discovery-element-classification#element-collection) for details.
+- A new configuration named **Default Contract Configuration** is added to support Element Classification, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/discovery?topic=discovery-element-classification#element-collection) for details.
 
 Updated to general availability:
-- Documentation segmentation has moved from beta status to GA status. The segmentation limit has been increased to 250 segments. It is no longer limited to 50 segments per document. See [Documentation segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation) for details.
+- Documentation segmentation moved from beta status to GA status. The segmentation limit is increased to 250 segments. It is no longer limited to 50 segments per document. See [Documentation segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation) for details.
 
 Known issue:
-- Wildcards do not work with queries that contain capital letters. For example, given the key/field pair ``{"borrower": "GOVERNMENT OF INDIA"}``, `query-borrower:*ndia` will return results but `query-borrower:*NDIA` will not.
+- Wildcards do not work with queries that contain capital letters. For example, given the key/field pair ``{"borrower": "GOVERNMENT OF INDIA"}``, `query-borrower:*ndia` returns results, but `query-borrower:*NDIA` does not.
 
 ## 8 March 2018
 {: #8mar18}
@@ -492,35 +493,35 @@ Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Kno
 ## 7 March 2018
 {: #7mar18}
 
-- The following ingestion known issue has been fixed: Between 28 February and 6 March, a small percentage of documents were indexed with only the `id` and `extracted_metadata` fields (other document content was not indexed). The underlying problem has been fixed, however, you will need to resubmit any affected documents for ingestion. There is no simple way to identify the affected documents.
+- The following ingestion known issue is fixed: Between 28 February and 6 March, a small percentage of documents were indexed with only the `id` and `extracted_metadata` fields (other document content was not indexed). The underlying problem is fixed; however, you must resubmit any affected documents for ingestion. There is no simple way to identify the affected documents.
 
 ## 5 March 2018
 {: #5mar18}
 
-- The following {{site.data.keyword.discoveryfull}} Knowledge Graph known issue has been fixed with the `2018-03-05` API version update. This fix only applies to newly created collections that use the `2018-03-05` version update.  
+- The following {{site.data.keyword.discoveryfull}} Knowledge Graph known issue is fixed with the `2018-03-05` API version update. This fix only applies to newly created collections that use the `2018-03-05` version update.  
   - All entity type names and relation type names were previously converted to uppercase during ingestion. For example, the entity "GeoPoliticalEntity" was converted to "GEOPOLITICALENTITY," and the relation "partOf" was converted to "PARTOF." This is no longer the case.
 
 ## 1 March 2018
 {: #1mar18}
 
-- [Query expansion](/docs/discovery?topic=discovery-query-concepts#query-expansion) limits have been increased for Advanced and Premium plans to 5,000 query expansions and 25,000 total terms. See [Discovery pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for details.
+- [Query expansion](/docs/discovery?topic=discovery-query-concepts#query-expansion) limits are increased for Advanced and Premium plans to 5,000 query expansions and 25,000 total terms. See [Discovery pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for details.
 
 ## 28 February 2018
 {: #28feb18}
 
-- {{site.data.keyword.alchemylanguageshort}} enrichments have been deprecated effective **1 March 2018**.
+- {{site.data.keyword.alchemylanguageshort}} enrichments are deprecated, effective **1 March 2018**.
 
 ## 23 February 2018
 {: #23feb18}
 
 - Added the ability to query by document similarity. You can query for similar documents by  document ids, and optionally further refine the similarity by specifying fields. See [Document similarity](/docs/discovery?topic=discovery-query-concepts#doc-similarity) for more information.
 
-- The [`highlight` parameter](/docs/discovery?topic=discovery-query-parameters#highlight) in query results has been enhanced. Query results will return complete sentences, ordered by their `score`.
+- The [`highlight` parameter](/docs/discovery?topic=discovery-query-parameters#highlight) in query results is enhanced. Query results return complete sentences, ordered by their `score`.
 
 ## 21 February 2018
 {: #21feb18}
 
-- Previously, when ingesting PDF documents, the `file_type` returned when ingestion notices were queried, in the `extracted_metadata` object, and from the document details API was `html`. This is no longer the case. The `file_type` returned will now be `pdf`. 
+- Previously, when ingesting PDF documents, the `file_type` returned when ingestion notices were queried, in the `extracted_metadata` object, and from the document details API was `html`. This is no longer the case. The `file_type` returned is now `pdf`.
 
 ## 26 January 2018
 {: #26jan18}
@@ -550,7 +551,7 @@ Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Kno
 - Released the **Element Classification** enrichment, which parses elements (sentences, lists, tables) in governing documents to classify important categories and types. See [Element classification](/docs/discovery?topic=discovery-element-classification) for more information. Element Classification is not available for service instances that are subscribed to the **Premium** plan. [Resolved](/docs/discovery?topic=discovery-release-notes#5jun18)
 - Added Basic language support for Simplified Chinese and Dutch. See [Language Support](/docs/discovery?topic=discovery-language-support) for more information. Currently, Simplified Chinese and Dutch collections must be created with the API.
 - Added two new parameters for the Data Crawler: `proxy_host_port` and `read-timeout`. See [Configuring the Data Crawler](/docs/discovery?topic=discovery-configuring-the-data-crawler) for details.
-- The following issues may be seen when ingesting PDF documents: [Resolved](/docs/discovery?topic=discovery-release-notes#21feb18)
+- You might see the following issues, when ingesting PDF documents: [Resolved](/docs/discovery?topic=discovery-release-notes#21feb18)
   - When ingestion notices are queried, the field `file_type` for pdf documents is returned as `html`.
   - The field `file_type` in the `extracted_metadata` object of results for pdf documents is set to `html`.
   - The document details API also returns the field `file_type` for pdf documents as `html`.
@@ -567,8 +568,8 @@ Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Kno
 
 Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/discovery?topic=discovery-release-notes#3sept19) for more information.
   
-- Released [{{site.data.keyword.discoverynewsfull}}](/docs/discovery?topic=discovery-watson-discovery-news) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external}. [Resolved](/docs/discovery?topic=discovery-release-notes#26jan18). {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news` - if you have been using the former `collection_id`, it will continue to work, however, you may want to switch to the new `collection_id` for new projects.
-- Query results return a `score` value, which indicates the relative relevancy between query results. Starting 30 November 2017, the way that `score` is calculated changed. The `score` value should only be used to rank documents in a single search, not across searches or sessions. If you have trained a collection, a `score` value is returned in the results of a natural language query. Since the `score` indicates the relative relevancy between query results, it should not be used as a threshold. Instead, use the `confidence`, which indicates the relevance of the result as compared to the trained model, to set thresholds. See [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for more information on setting thresholds.
+- Released [{{site.data.keyword.discoverynewsfull}}](/docs/discovery?topic=discovery-watson-discovery-news) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external}. [Resolved](/docs/discovery?topic=discovery-release-notes#26jan18). {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news`. If you use the former `collection_id`, it continues to work; however, you might want to switch to the new `collection_id` for new projects.
+- Query results return a `score` value, which indicates the relative relevancy between query results. Starting 30 November 2017, the way that `score` is calculated changed. It is recommended that you only use the `score` value to rank documents in a single search, not across searches or sessions. If you trained a collection, a `score` value is returned in the results of a natural language query. Because the `score` indicates the relative relevancy between query results, it is not recommended tht it be used as a threshold. Instead, use the `confidence`, which indicates the relevance of the result as compared to the trained model, to set thresholds. For more information about setting thresholds, see [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
 - Beginning with this release, Passage retrieval detects sentence boundaries - it attempts to return passages that start at the beginning of a sentence and stop at the end. Previously, many passages would begin or end somewhere mid-sentence. See [Passages](/docs/discovery?topic=discovery-query-parameters#passages) for more information about Passage retrieval.
 
 ## 15 November 2017
@@ -591,34 +592,34 @@ Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Kno
 ## 8 November 2017
 {: #8nov17}
 
-The version string for all API calls has changed to `2017-11-07` from `2017-10-16`. This version:
+The version string for all API calls changed to `2017-11-07` from `2017-10-16`. This version:
 - Moved the `score` in each query result to a new object named `result_metadata`.
-- If the collection queried was trained, and the query is a natural language query, `result_metadata` will include a `confidence` field that displays the confidence score for that result. See [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details.
-- Fields that include whitespaces (for example: `body.additional reading`) will be filtered out during ingestion. The `notices` description will read `The field 'additional reading' is invalid: whitespace, '.', '#' and ',' are invalid in a field name`.
-- The field `result_metadata` will be filtered out during ingestion.
+- If the collection queried was trained, and the query is a natural language query, `result_metadata` includes a `confidence` field that displays the confidence score for that result. For details, see [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
+- Fields that include whitespaces (for example: `body.additional reading`) are filtered out during ingestion. The `notices` description reads `The field 'additional reading' is invalid: whitespace, '.', '#' and ',' are invalid in a field name`.
+- The field `result_metadata` is filtered out during ingestion.
 
 ## 16 October 2017
 {: #16oct17}
 
-- The version string for all API calls has changed to `2017-10-16` from `2017-09-01`. This version deprecates support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. Existing collections enriched with {{site.data.keyword.alchemylanguageshort}} should be migrated to {{site.data.keyword.nlushort}} enrichments as soon as possible. The {{site.data.keyword.discoveryshort}} tooling also uses the `2017-10-16` version, see below for more information.
+- The version string for all API calls changed to `2017-10-16` from `2017-09-01`. This version deprecates support for uploading new documents into existing collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments, and for creating new collections and enriching them with {{site.data.keyword.alchemylanguageshort}} enrichments. It is recommended that existing collections enriched with {{site.data.keyword.alchemylanguageshort}} be migrated to {{site.data.keyword.nlushort}} enrichments as soon as possible. The {{site.data.keyword.discoveryshort}} tooling also uses the `2017-10-16` version, see below for more information.
 
 {{site.data.keyword.discoveryshort}} tooling:
 
-- The {{site.data.keyword.discoveryshort}} tooling uses the `2017-10-16` API version string, so if you are using the tooling, you will no longer be able to upload documents into existing {{site.data.keyword.alchemylanguageshort}} collections or create new collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments after `2017-10-16`.  If you want to continue using the {{site.data.keyword.discoveryshort}} tooling for enriching collections, migrate your collections to {{site.data.keyword.nlushort}} first.
-- The **Data schema explorer** displays sample queries for several enrichments in the {{site.data.keyword.discoverynewsfull}} collection. It also now has a **Show more values** link that will display additional example values for that enrichment in {{site.data.keyword.discoverynewsfull}}.
+- The {{site.data.keyword.discoveryshort}} tooling uses the `2017-10-16` API version string, so if you are using the tooling, you can no longer upload documents into existing {{site.data.keyword.alchemylanguageshort}} collections or create new collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments after `2017-10-16`.  If you want to continue using the {{site.data.keyword.discoveryshort}} tooling for enriching collections, migrate your collections to {{site.data.keyword.nlushort}} first.
+- The **Data schema explorer** displays sample queries for several enrichments in the {{site.data.keyword.discoverynewsfull}} collection. It also now has a **Show more values** link that displays additional example values for that enrichment in {{site.data.keyword.discoverynewsfull}}.
 - Multiple productivity enhancements, including combining the collection statistics, errors and warnings, and data insights on the **Manage data** screen.
 - A message was added that displays an alert when documents are finished processing.
 
 ## 9 October 2017
 {: #9oct17}
 
-- A new aggregation metric `unique_count` is available in the API. It will return a count of the unique instances of the specified field in a collection. See [unique_count](/docs/discovery?topic=discovery-query-aggregations#unique_count) for more information.
+- A new aggregation metric `unique_count` is available in the API. It returns a count of the unique instances of the specified field in a collection. See [unique_count](/docs/discovery?topic=discovery-query-aggregations#unique_count) for more information.
 
 {{site.data.keyword.discoveryshort}} tooling:
 
 - Histogram and Timeslice aggregations are now supported in the **Visual Query Builder**. You also have the option to turn on anomaly detection for Timeslice queries.
-- The **Data schema explorer** displays sample queries for the enrichment chosen. It also now has a **Show more values" link that will display additional example values for that enrichment.
-- A hamburger menu has been added to make it faster to navigate the **Manage data**, **View data schema**, and **Build queries** screens.
+- The **Data schema explorer** displays sample queries for the enrichment chosen. It also now has a **Show more values** link that displays additional example values for that enrichment.
+- A hamburger menu is added to make it faster to navigate the **Manage data**, **View data schema**, and **Build queries** screens.
 
 ### 3 October 2017
 {: #3oct17}
@@ -628,14 +629,14 @@ The version string for all API calls has changed to `2017-11-07` from `2017-10-1
 ### 29 September 2017
 {: #29sept17}
 
-- {{site.data.keyword.discoveryshort}} launched in the `Germany` location 29 September, 2017. In order to comply with EU data regulations, AlchemyLanguage enrichments are not supported in this location.
-- Known issue: Query fields cannot contain whitespaces.  When writing a query in {{site.data.keyword.discoveryshort}}, if any query field contains whitespace (for example, `body.additional reading`), you will receive a `400: Invalid query syntax error`. [Resolved](/docs/discovery?topic=discovery-release-notes#8nov17)
+- {{site.data.keyword.discoveryshort}} launched in the `Germany` location 29 September, 2017. To comply with EU data regulations, AlchemyLanguage enrichments are not supported in this location.
+- Known issue: Query fields cannot contain whitespaces.  When writing a query in {{site.data.keyword.discoveryshort}}, if any query field contains whitespace (for example, `body.additional reading`), you receive a `400: Invalid query syntax error`. [Resolved](/docs/discovery?topic=discovery-release-notes#8nov17)
 
 ### 25 September 2017
 {: #25sept17}
 
 - A Premium pricing plan is now available. For more information, see [{{site.data.keyword.discoveryshort}} pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans).
-- The ability to query, list fields, and query notices across collections within the same environment has been added. See [Querying multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections) for details.
+- The ability to query, list fields, and query notices across collections within the same environment is added. For details, see [Querying multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections).
 - Language support information for {{site.data.keyword.discoveryshort}} is available at [Language support](/docs/discovery?topic=discovery-language-support).
 
 {{site.data.keyword.discoveryshort}} tooling:
@@ -661,7 +662,7 @@ Document deduplication is currently supported only as a beta capability. See the
 ### 31 August 2017
 {: #31aug17}
 
-- The version string for all API calls has changed to `2017-09-01` from `2017-08-01`. This version includes updates that will filter out the following invalid JSON fields during preview and ingestion so that only valid JSON fields are ingested. Update your version string to `2017-09-01` to avoid conflicts and possible errors.
+- The version string for all API calls changed to `2017-09-01` from `2017-08-01`. This version includes updates that filter out the following invalid JSON fields during preview and ingestion so that only valid JSON fields are ingested. Update your version string to `2017-09-01` to avoid conflicts and possible errors.
 
    - `id`, `score`, and `highlight` at the top level (You can continue to add documents to your collection using document IDs with the `add a document` function. See the [API Reference](https://{DomainName}/apidocs/discovery#add-a-document){: external} for details.
    - `_` prefixed field names at the top level (as a result, when querying for a document by ID, you can query for `id` instead of `_id`.)
@@ -669,9 +670,10 @@ Document deduplication is currently supported only as a beta capability. See the
    - `+` and `-` prefixed field names
    - `"` `"` empty values for a field name
 
-**Note:** If your JSON documents include these characters in the field names, or `id`, `score`, and `highlight` at the top level, you need to remove them before adding the documents to your collection, or those fields will be empty. You can create a custom configuration and normalize your JSON before adding documents to your collection to avoid this issue. See [Custom Configuration](/docs/discovery?topic=discovery-configservice#custom-configuration).  In addition, documents that include the punctuation characters `?`, `:`, or `#` in the file name will cause errors at ingestion time. Rename any documents that include these characters before ingesting them.
+If your JSON documents include these characters in the field names, or `id`, `score`, and `highlight` at the top level, you need to remove them before adding the documents to your collection, or those fields are empty. You can create a custom configuration and normalize your JSON before adding documents to your collection to avoid this issue. See [Custom Configuration](/docs/discovery?topic=discovery-configservice#custom-configuration).  In addition, documents that include the punctuation characters `?`, `:`, or `#` in the file name cause errors during ingestion. Before ingesting them, rename any documents that include these characters.
+{: note}
 
-- The retrieval methods for `natural_language_query` have been updated to improve the relevance of results by matching words with related semantics. This update only affects collections that have not had relevance training. If you are using `natural_language_query` and have not conducted relevance training, you may see improvement in the order of results returned.
+- The retrieval methods for `natural_language_query` are updated to improve the relevance of results by matching words with related semantics. This update only affects collections that did not undergo relevance training. If you are using `natural_language_query` and did not conduct relevance training, you might see improvement in the order of results returned.
 
 {{site.data.keyword.discoveryshort}} tooling:
 
@@ -686,7 +688,7 @@ Document deduplication is currently supported only as a beta capability. See the
 {{site.data.keyword.discoveryshort}} tooling:
 This query building enhancement can be found on the **Build queries** screen.
 
--  Added the beta ability to write queries in the {{site.data.keyword.discoveryshort}} Query Language with a visual builder. Click **Build in visual mode** in the **Search for documents** and **Limit which documents you query** sections to try it out.  As you build your query visually, it will display in the **{{site.data.keyword.discoveryshort}} Query Language** below it.
+-  Added the beta ability to write queries in the {{site.data.keyword.discoveryshort}} Query Language with a visual builder. Click **Build in visual mode** in the **Search for documents** and **Limit which documents you query** sections to try it out.  As you build your query visually, it displays in the **{{site.data.keyword.discoveryshort}} Query Language** below it.
 
    The visual query builder is currently supported only as a beta capability. See the statement regarding betas at the top of this document for more information.
 
@@ -708,62 +710,66 @@ Both features are query building enhancements and can be found on the **Build qu
 
 - Added the option to select a query from a set of pre-built sample queries and aggregations. Click **Use a sample query** at the top right to access the list. If you are querying a private data collection, the samples use `top entities`, `categories`, etc. found in your collection. These queries can be used as a starting point for writing your own queries. Sample queries are available for both {{site.data.keyword.discoverynewsfull}} and private collections.
 
--  Added the beta ability to write aggregations with a visual builder. Click **Build in visual mode** above the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field to try it out.  As you build your aggregation visually, the query will display in the **{{site.data.keyword.discoveryshort}} Query Language** below it.  
+-  Added the beta ability to write aggregations with a visual builder. Click **Build in visual mode** above the **Write an aggregation query using the {{site.data.keyword.discoveryshort}} Query Language** field to try it out.  As you build your aggregation visually, the query displays in the **{{site.data.keyword.discoveryshort}} Query Language** below it.  
 
    The visual aggregation builder is currently supported only as a beta capability. See the statement regarding betas at the top of this document for more information.
 
 ### 31 July 2017
 {: #31jul17}
 
-- A new version of {{site.data.keyword.discoverynewsfull}} was released. The original version has been renamed {{site.data.keyword.discoverynewsfull}} Original and has been retired with a removal from service date of **15, January 2018**.
-  **Note:** If you have created a new instance of {{site.data.keyword.discoveryshort}}, you will only have access to the new version of {{site.data.keyword.discoverynewsfull}}.
+- A new version of {{site.data.keyword.discoverynewsfull}} was released. The original version is renamed as {{site.data.keyword.discoverynewsfull}} Original and is retired, with a removal from service date of **15, January 2018**.
+  
+  If you create a new instance of {{site.data.keyword.discoveryshort}}, you only have access to the new version of {{site.data.keyword.discoverynewsfull}}.
+  {: note}
 
 - A new pricing plan for {{site.data.keyword.discoveryfull}} was released. See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for details.
 
-- The version string for all API calls has changed to `2017-08-01` from `2017-07-19`. This version includes updates for the new pricing plan and the new version of Watson Discovery News. Update the version string to avoid conflicts and possible errors.
+- The version string for all API calls changed to `2017-08-01` from `2017-07-19`. This version includes updates for the new pricing plan and the new version of Watson Discovery News. Update the version string to avoid conflicts and possible errors.
 
 ### 19 July 2017
 {: #19jul17}
 
- - As part of the pricing change that has been announced for August 1st 2017, users that are currently on the deprecated **30 day free trial** plan will be automatically migrated to the **Lite** plan. As a result of this transition, existing users may have met or exceeded the lite plan limit on documents _(2000)_, storage _(200Mb)_, or number of collections _(2)_. If you have exceeded the limit of the **Lite** plan, you will not be able to add any additional content into the service but you can still query collections. You can view the current status of all these limits by using the {{site.data.keyword.discoveryshort}} tooling or API. To be able to resume adding content to the {{site.data.keyword.discoveryshort}} instance, you must do one of the following:
-   - remove collections and/or documents so that limits of the **Lite** plan are not exceeded.
-     Documents can be deleted either individually through the API using the [delete-doc](https://{DomainName}/apidocs/discovery#delete-a-document){: external} method, or whole collections can be deleted using the Tooling or API using the [delete-collection](https://{DomainName}/apidocs/discovery#delete-a-collection){: external} method.
-   - upgrade your plan to a level that meets your storage needs.
+ - As part of the pricing change announced for August 1, 2017, users that are currently on the deprecated **30 day free trial** plan will be automatically migrated to the **Lite** plan. As a result of this transition, existing users might meet or exceed the lite plan limit on documents _(2000)_, storage _(200Mb)_, or number of collections _(2)_. If you exceed the limit of the **Lite** plan, you cannot add any additional content into the service, but you can still query collections. You can view the current status of all these limits by using the {{site.data.keyword.discoveryshort}} tooling or API. To resume adding content to the {{site.data.keyword.discoveryshort}} instance, you must complete one of the following actions:
+   - Remove collections or documents so that limits of the **Lite** plan are not exceeded.
+     You can delete documents either individually in the API, using the [delete-doc](https://{DomainName}/apidocs/discovery#delete-a-document){: external} method, or you can delete whole collections, using the tooling or API, by using the [delete-collection](https://{DomainName}/apidocs/discovery#delete-a-collection){: external} method.
+   - Upgrade your plan to a level that meets your storage needs.
  - Customers with size **`1`** **`2`** or **`3`** environments will be automatically migrated to the **Advanced** plan.
 
 ### 17 July 2017
 {: #17jul17}
 
- - The following capabilities have been moved from beta status to GA status:
+ - The following capabilities moved from beta status to GA status:
 
    - Relevancy training
    - Natural language query
    - Highlighting
 
- - As of this release, {{site.data.keyword.discoveryfull}} is changing its enrichment mechanism from {{site.data.keyword.alchemylanguageshort}} to {{site.data.keyword.nlushort}}. {{site.data.keyword.alchemylanguageshort}} is in the process of being deprecated, you should start using {{site.data.keyword.nlushort}} as soon as possible.
-   **Note:** When integrating with Watson Knowledge Studio, the {{site.data.keyword.alchemylanguageshort}} enrichment configuration must be still used. See [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/discovery?topic=discovery-integrating-with-wks) for details.
+ - As of this release, {{site.data.keyword.discoveryfull}} is changing its enrichment mechanism from {{site.data.keyword.alchemylanguageshort}} to {{site.data.keyword.nlushort}}. {{site.data.keyword.alchemylanguageshort}} is in the process of being deprecated, so it is recommended that you start using {{site.data.keyword.nlushort}} as soon as possible.
+   
+   If you integrate with Watson Knowledge Studio, you must still use the {{site.data.keyword.alchemylanguageshort}} enrichment configuration. For details, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/discovery?topic=discovery-integrating-with-wks).
+   {: note}
 
- - The version string for all API calls has been changed to `2017-07-19` from `2017-06-25`. This version enables a NLU default config on collection creation. You should still be able to enrich with {{site.data.keyword.alchemylanguageshort}} in previous versions.
+ - The version string for all API calls changed to `2017-07-19` from `2017-06-25`. This version enables an NLU default config on collection creation. You should still be able to enrich with {{site.data.keyword.alchemylanguageshort}} in previous versions.
 
-    The default configuration has been updated to use {{site.data.keyword.nlushort}}. You should update the version string as soon as possible to avoid conflicts and possible errors.
+    The default configuration is updated to use {{site.data.keyword.nlushort}}. To avoid conflicts and possible errors, it is recommended that you update the version string as soon as possible.
 
  - Discovery Tooling:
 
-    The Insight Cards for collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments will no longer update automatically. You must migrate your collection to {{site.data.keyword.nlushort}} Enrichments for the insight cards to update.
+    The Insight Cards for collections enriched with {{site.data.keyword.alchemylanguageshort}} enrichments do not update automatically anymore. You must migrate your collection to {{site.data.keyword.nlushort}} Enrichments for the insight cards to update.
 
-    If you created a collection prior to **18 July, 2017** and applied the **Default Configuration**, that collection was enriched with the {{site.data.keyword.alchemylanguageshort}} enrichments. If you apply the **Default Configuration** to a collection after this date, the {{site.data.keyword.nlushort}} enrichments will be used (the configuration name will switch to **Default Configuration with NLU** in the tooling). Since {{site.data.keyword.alchemylanguageshort}} enrichments are being deprecated, they should not be used with new collections.
+    If you created a collection prior to **18 July, 2017** and applied the **Default Configuration**, that collection was enriched with the {{site.data.keyword.alchemylanguageshort}} enrichments. If you apply the **Default Configuration** to a collection after this date, the {{site.data.keyword.nlushort}} enrichments are used. The configuration name switches to **Default Configuration with NLU** in the tooling. Because {{site.data.keyword.alchemylanguageshort}} enrichments are being deprecated, it is recommended that they not be used with new collections.
 
 ### 30 June 2017
 {: #30jun17}
 
- -  The entity normalization capability introduced as a beta feature on 5 May 2017 has been moved to GA status. 
+ -  The entity normalization capability introduced as a beta feature on 5 May 2017 moved to GA status.
 
 ### 23 June 2017
 {: #23jun17}
 
- - The version string for all API calls has changed to `2017-06-25` from `2016-12-01`. The new version string enables enrichments in German (`de`) or Spanish (`es`) if the language of a collection is set to one of those languages. Previously, all enrichments were performed in English regardless of a collection's language setting.
+ - The version string for all API calls changed to `2017-06-25` from `2016-12-01`. The new version string enables enrichments in German (`de`) or Spanish (`es`) if the language of a collection is set to one of those languages. Previously, all enrichments were performed in English regardless of a collection's language setting.
 
-    If you do not use enrichments in non-English languages, you can continue to use the `2016-12-01` version string. However, you should update the version string as soon as possible to avoid potential future conflicts.
+    If you do not use enrichments in non-English languages, you can continue to use the `2016-12-01` version string. However, to avoid potential future conflicts, it is recommended that you update the version string as soon as possible.
 
  - Anomaly detection is now available as part of `timeslice` aggregations as a GA capability. See [Timeslice anomaly detection](/docs/discovery?topic=discovery-query-aggregations#anomaly-detection) for details.
 
@@ -778,9 +784,9 @@ Both features are query building enhancements and can be found on the **Build qu
 
     - Added option to specify the language of the documents in a new collection as English, Spanish, or German. To use it, choose **Select the language of your documents** on the **Name your new collection** dialog.
 
-    - Added a **Summary** tab to the **Build queries** screen. The **Summary** tab displays an overview of the full query results provided in the existing **JSON** tab. The **Summary** display will vary based on your query and enrichments. Information that may be displayed includes: document name or ID, aggregation statistics, document passages in order of relevance, and results by enrichment.
+    - Added a **Summary** tab to the **Build queries** screen. The **Summary** tab displays an overview of the full query results provided in the existing **JSON** tab. The **Summary** display varies, based on your query and enrichments. Information that might be displayed includes: document name or ID, aggregation statistics, document passages in order of relevance, and results by enrichment.
 
-    - Added a Natural Language Query option to the **Build queries** screen. To use it, click **Ask a question in plain language** in the **Search for documents** section and a field will appear where you can enter your question. The original query field (formerly titled **Enter a query or keyword**) can now be accessed by clicking the **Use the Discovery Query Language** button.
+    - Added a Natural Language Query option to the **Build queries** screen. To use it, click **Ask a question in plain language** in the **Search for documents** section, and a field displays where you can enter your question. You can now access the original query field, formerly titled **Enter a query or keyword**, by clicking the **Use the Discovery Query Language** button.
 
     - The **Build queries** screen was redesigned, but all fields and options remain. Following are the old and new names for the fields.
 
@@ -797,12 +803,12 @@ Both features are query building enhancements and can be found on the **Build qu
 ### 5 June 2017
 {: #5jun17}
 
- - Watson Discovery News queries now display only the first 150 words of each article in the `text` and `alchemyapi_text` JSON fields. The `blekko.snippet` field will display only the first sentence of the snippet array.
+ - Watson Discovery News queries now display only the first 150 words of each article in the `text` and `alchemyapi_text` JSON fields. The `blekko.snippet` field displays only the first sentence of the snippet array.
 
 ### 30 May 2017
 {: #30may17}
 
- - The `passages` parameter on the query API has been moved from beta to GA status.
+ - The `passages` parameter on the query API moved from beta to GA status.
 
 ### 25 May 2017
 {: #25may17}
@@ -814,7 +820,7 @@ Both features are query building enhancements and can be found on the **Build qu
 
  - The `query` and `notices` methods now support the `highlight` parameter. The parameter is a boolean. When you run a query and specified `highlight` as `true`, the service returns output that includes a new `highlight` field in which words that match the query are wrapped in HTML `*` (emphasis) tags. See the [Query parameters](/docs/discovery?topic=discovery-query-parameters#highlight) for details.
 
- - It is possible for the deletion of an environment to complete only partially, resulting in a situation in which a new environment cannot be created because only a single environment per service instance is permitted. If you attempt to delete and then create an environment but see either operation stuck in the `pending` state, it is likely you have encountered this problem. To work around it, re-run the deletion operation to complete it, then create the new environment.
+ - It is possible for the deletion of an environment to complete only partially, resulting in a situation in which a new environment cannot be created because only a single environment per service instance is permitted. If you attempt to delete and then create an environment but see either operation stuck in the `pending` state, it is likely that you encountered this problem. To work around it, re-run the deletion operation to complete it, then create the new environment.
 
 ### 8 May 2017
 {: #8may17}
@@ -826,7 +832,8 @@ Both features are query building enhancements and can be found on the **Build qu
 
  - Entity normalization is now available for use with the Discovery service that use a custom model generated by Watson Knowledge Studio. Entity normalization inserts normalized (canonical) names for different references to the same person or object in the source document. 
 
-     **Note:** Entity normalization is currently supported only as a beta capability. See the statement regarding betas at the top of this document for more information. [Resolved](/docs/discovery?topic=discovery-release-notes#30jun17)
+     Entity normalization is currently supported only as a beta capability. See the statement regarding betas at the top of this document for more information. [Resolved](/docs/discovery?topic=discovery-release-notes#30jun17)
+     {: note}
 
 {{site.data.keyword.discoveryshort}} tooling:
 
@@ -848,7 +855,7 @@ Both features are query building enhancements and can be found on the **Build qu
 ### 14 April 2017
 {: #14apr17}
 
-Enhancements have been added to the query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
+Enhancements are now available for the query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 
   - The query API now supports the `passages` parameter. If the parameter is set to `true`, the query returns a set of the most relevant passages from the documents in your collection. The passages are generated by sophisticated Watson algorithms to determine the best passages of text from all of the documents returned by the query. This enables you to find information and context more precisely. See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 
@@ -872,7 +879,8 @@ Enhancements have been added to the query API (`GET /v1/environments/{environmen
   - Only one wildcard worked in any given query. For example, `query-month:*ctober` worked, but `query-month:*ctobe*` generated a parsing error.
   - Wildcards did not work with queries that contained capital letters. For example, given the key/field pair ``{"borrower": "GOVERNMENT OF INDIA"}``, `query-borrower:*ndia` returned results but `query-borrower:*NDIA` did not.
 
-**Note:** Wildcards are not necessary within phrases in queries. For example, given the key/field pair `{"borrower": "GOVERNMENT OF TIMOR"}`, `query-borrower:"GOVERNMENT OF TIMOR"` returns results but `query-borrower:"GOVERNMENT OF TI*OR"` will not. Using a wildcard is not applicable within phrases because all of the characters within the quotation marks (`"`) of a phrase are escaped.
+Wildcards are not necessary within phrases in queries. For example, given the key/field pair `{"borrower": "GOVERNMENT OF TIMOR"}`, `query-borrower:"GOVERNMENT OF TIMOR"` returns results, but `query-borrower:"GOVERNMENT OF TI*OR"` does not. Using a wildcard is not applicable within phrases because all of the characters within the quotation marks (`"`) of a phrase are escaped.
+{: note}
 
 ### 24 March 2017
 {: #24mar17}
@@ -903,7 +911,7 @@ The following known issues have been discovered.
 ```
 {: codeblock}
 
-The following bugs have been fixed.
+The following bugs are fixed.
 
 - Improved performance and stability of the service.
 
@@ -922,7 +930,7 @@ The following bugs have been fixed.
 ### 26 February 2017
 {: #26feb17}
 
--     The performance of the {{site.data.keyword.discoverynewsshort}} environment has been improved.
+-     The performance of the {{site.data.keyword.discoverynewsshort}} environment is improved.
 -  The {{site.data.keyword.discoverynewsshort}} service returns only 50 results at a time. As a workaround, use the `offset` parameter in your query to page through results.
 -  You can submit a new configuration with an individual document by using the following command:
 
@@ -932,7 +940,7 @@ curl -X POST -u apikey:{apikey_value} -F "file=@wikipedia-sample.html" -F "confi
 {: pre}
 -  The service's PDF and Word converters create HTML as a middle step. The service can apply additional transforms and normalizations on the intermediary HTML before the final transformation to normalized JSON.
 
-The following bugs have been fixed.
+The following bugs are fixed.
 
 -  Improved error codes.
 -  Corrected several documentation errata.
@@ -943,11 +951,12 @@ The following bugs have been fixed.
 -  You can now use CSS selectors to select JSON fields that you can then apply enrichments to. See [Using CSS selectors to extract fields](/docs/discovery?topic=discovery-configservice#using-css) for information.
 -  You can now increase the size of an environment by passing a new `size: X` parameter to the [update-environment method](https://{DomainName}/apidocs/discovery#update-an-environment){: external}, where `X` is an integer between 0 and 3. See the [create-environment method](https://{DomainName}/apidocs/discovery#create-an-environment){: external} for information about environment sizes and attributes. If you want to update your pricing plan, see [{{site.data.keyword.discoveryshort}} pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans).
 
-    **Note:** You cannot reduce the size of an existing environment. If you want to reduce the size of your environment, contact {{site.data.keyword.IBM}} support for assistance.
+    You cannot reduce the size of an existing environment. If you want to reduce the size of your environment, contact {{site.data.keyword.IBM}} support for assistance.
+    {: note}
 
--  A new query operator is available. The `::!` operator has been added as a unary not-equals operator. For example, you can now run `query=field::!value` (not equals). Previously the only exclusionary operator was `:!` for the not-contains operator (for example, `query=field:!value`).
+-  A new query operator is available. The `::!` operator is added as a unary not-equals operator. For example, you can now run `query=field::!value` (not equals). Previously the only exclusionary operator was `:!` for the not-contains operator (for example, `query=field:!value`).
 
-The following bugs have been fixed.
+The following bugs are fixed.
 
 -  Applied security updates.
 -  Improved status messages for search alerts.
@@ -980,7 +989,7 @@ The following notes describe issues that were identified after the GA release on
 -   If you add a document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents`
     or `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the call returns a document ID and the **processing** status. If you then query the document by using the `GET /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the status remains at **processing** until ingestion is completed, at which point the status changes to **available**.
 
-    If you **update** an existing document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the corresponding **GET** call returns the `available` status even if the service has not yet fully processed the updated document. The `available` status can refer to either the original document or the updated document. Unless the update operation returns an error, there is not currently a way to determine the status of the updated document.
+    If you **update** an existing document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the corresponding **GET** call returns the `available` status, even if the service did not yet fully process the updated document. The `available` status can refer to either the original document or the updated document. Unless the update operation returns an error, there is not currently a way to determine the status of the updated document.
 
     You can work around this by waiting up to 10 minutes after submitting a document update before attempting to query the updated content.
 
@@ -998,10 +1007,11 @@ See [API reference](https://{DomainName}/apidocs/discovery){: external} for curr
 
 [Update: Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/discovery?topic=discovery-integrating-with-wks).
 
--   You cannot currently specify the data type of fields. All fields are indexed as text (data type **string**). 
--   If you use the API to work with the service, you must specify the API version with each call. The current API version is **2016-12-01**. 
+-   You cannot currently specify the data type of fields. All fields are indexed as text (data type **string**).
+-   If you use the API to work with the service, you must specify the API version with each call. The current API version is **2016-12-01**.
 
-    **Note:** The specific version is not enforced in the GA release, but it still must be listed to enable compatibility with future releases.
+    The specific version is not enforced in the GA release, but it still must be listed to enable compatibility with future releases.
+    {: note}
 
 -   You can use the service with a custom model created with {{site.data.keyword.knowledgestudiofull}}. The custom model can be used to enrich ingested documents. You must use the API to integrate the custom model with {{site.data.keyword.discoveryshort}}; you cannot perform the integration by using the tooling.
 
@@ -1067,14 +1077,14 @@ See [API reference](https://{DomainName}/apidocs/discovery){: external} for curr
 -   The API does not currently support getting a list of notices (warnings and error) that are generated during document ingestion. The tooling is therefore unable to show a list of ingestion notices, and there is no easy way to determine which, if any, documents crawled by the Data Crawler failed to be ingested. 
 -   Document status information is not always accurate.
     -   If an ingestion operation takes longer than the configured timeout of 10 minutes, the service reports that the document is not known to the service until the ingestion operation completes. After the operation completes, the document status is available and accurate.
-    -   Documents that are successfully indexed but generated errors can have a status of **failed** for a short period of time until the document has been fully committed to the index. After the document has been committed to the index, the listed status is accurate.
+    -   Documents that are successfully indexed but generated errors can have a status of **failed** for a short period of time until the document fully commits to the index. After the document commits to the index, the listed status is accurate.
 -   You cannot use the tooling to replace a specific document. If you attempt to do so, the second document is uploaded as a separate document. If you are using the API and know the ID of the document you want to replace, you can do so; see [Update a document](https://{DomainName}/apidocs/discovery#update-a-document){: external} in the API reference. If you are using the Data Crawler, uploading an updated document from the same URL as a previous document replaces the original document.
 -   If you are using the tooling to edit the enrichments in your configuration, you can edit only enrichments used for extraction. If you want to add or edit other enrichments (for example, custom enrichments from a {{site.data.keyword.knowledgestudiofull}} model), you must use the API. See the [Update a configuration](https://{DomainName}/apidocs/discovery#update-a-configuration){: external} method in the API reference for information.
 -   The following notes apply specifically to the Data Crawler. 
     -   The Data Crawler retries uploads if it encounters an upload failure.
     -   The Data Crawler is unable to retry documents that uploaded successfully but failed to be converted or indexed.
     -   The Data Crawler does not have a function to check downstream status and attempt to re-upload URLs that failed downstream.
-    -   There is no easy way to determine which documents have been ingested by the Data Crawler. For example, if you run the Data Crawler against a set of 500 documents, the Data Crawler might report failures submitting 65 documents with a total collection of 212 documents. The status of the remaining 223 documents is undetermined.
+    -   There is no easy way to determine which documents are ingested by the Data Crawler. For example, if you run the Data Crawler against a set of 500 documents, the Data Crawler might report failures submitting 65 documents with a total collection of 212 documents. The status of the remaining 223 documents is undetermined.
 
         A workaround is available, but it is complicated and involves invoking the API directly. Contact {{site.data.keyword.IBM}} support for assistance.
 -   The Java, Python, and Node.js SDKs for {{site.data.keyword.discoveryshort}} do not provide all of the functionality provided by the default REST (cURL) API. Not all cURL methods have an equivalent method in the non-cURL SDKs, and not all non-cURL methods provide all of the same features that their cURL equivalents have. In other words, the Java, Python, and Node.js SDKs currently provide only a subset of the cURL API's capabilities.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-02-06"
 
 subcollection: discovery
 
@@ -46,7 +46,7 @@ You can view the data metrics in the [query overview](/docs/discovery?topic=disc
 ## Fix queries with no results by adding more data
 {: #addmore}
 
-In this section of the dashboard, you can review queries that returned zero results, and add more data so that query will return results in the future. Click the **View all and add data** button to get started. 
+In this section of the dashboard, you can review queries that returned zero results and add more data so that the query returns results in the future. Click the **View all and add data** button to get started. 
 
 ## Bring relevant results to the top by training your data
 {: #traindata}

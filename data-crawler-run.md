@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -35,7 +35,7 @@ subcollection: discovery
 The Data Crawler is no longer supported or available for download beginning [17 April 2019](/docs/discovery?topic=discovery-release-notes#17apr19). This content is provided for existing installations only. See [Connecting to Data Sources](/docs/discovery?topic=discovery-sources) for other available connectivity options.
 {:important}
 
-After the crawler options have all been properly configured, you can run a crawl against your data repository.
+After you configure the crawler options, you can run a crawl against your data repository.
 {: shortdesc}
 
 Never run the crawler as `root`, unless you need access to files only `root` can read.
@@ -50,7 +50,7 @@ The crawler prompts you with documentation that explains what to do. You can run
 
 Run the following command: `crawler testit`
 
-This runs a test crawl, which crawls only the seed URL and displays any enqueued URLs. If the seed URL results in indexable content (for example, it is a document), then that content is sent to the output adapter, and the content is printed to the screen. If the seed URL retrieval causes URLs to be enqueued, those URLs will be displayed, and no content will be sent to the output adapter. By default, five enqueued URLs are displayed.
+This runs a test crawl, which crawls only the seed URL and displays any enqueued URLs. If the seed URL results in indexable content (for example, it is a document), then that content is sent to the output adapter, and the content is printed to the screen. If the seed URL retrieval causes URLs to be enqueued, those URLs are displayed, and no content is sent to the output adapter. By default, five enqueued URLs are displayed.
 
 You can also specify a custom configuration file as an option for the crawl command, for example: `crawler testit --config [config/myconfigfile.conf]`
 

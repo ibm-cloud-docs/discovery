@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -38,7 +38,7 @@ The Data Crawler is no longer supported or available for download beginning [17 
 This topic explains how to use the data crawler to ingest files from your local filesystem, to use with {{site.data.keyword.discoveryfull}}.
 {: shortdesc}
 
-Before attempting this task, create an instance of {{site.data.keyword.discoveryshort}} in {{site.data.keyword.Bluemix}}. In order to complete this guide, you will need to use the credentials that are associated with the instance of the service that you created.
+Before attempting this task, create an instance of {{site.data.keyword.discoveryshort}} in {{site.data.keyword.Bluemix}}. To complete this guide, you must use the credentials that are associated with the instance of the service that you created.
 
 ## Create an environment
 {: #dc-create-environment}
@@ -64,7 +64,7 @@ curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}?version=2019-0
 ## Create a collection
 {: #dc-create-collection}
 
-Next, use the `POST /v1/environments/{environment_id}/collections` method to create a collection. Think of a collection as a box where you will store your documents in your environment. This example creates a collection that is called `my-first-collection` in the environment that you created in the previous step, and uses the following default configuration:
+Next, use the `POST /v1/environments/{environment_id}/collections` method to create a collection. Think of a collection as a box where you store your documents in your environment. This example creates a collection that is called `my-first-collection` in the environment that you created in the previous step, and uses the following default configuration:
 
 -   Replace `{apikey}` with your service credentials.
 -   Replace `{environment_id}` with the environment ID for the environment that you created in step 1.
@@ -76,7 +76,7 @@ curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/configurations
 ```
 {: pre}
 
-Once you have the default configuration ID, use it to create your collection. Replace `{configuration_id}` with the default configuration ID for your environment.
+When you have the default configuration ID, use it to create your collection. Replace `{configuration_id}` with the default configuration ID for your environment.
 
 ```bash
 curl -X POST -u "apikey:{apikey}" -H "Content-Type: application/json" -d "{\"name\": \"my-first-collection\", \"description\": \"exploring collections\", \"configuration_id\":\"{configuration_id}\" , \"language\": \"en_us\"}" "{url}/v1/environments/{environment_id}/collections?version=2019-04-30"
@@ -107,8 +107,10 @@ Download these documents:
 
     -   Java Runtime Environment version 8 or higher
 
-        **Note:** Your `JAVA_HOME` environment variable must be set correctly, or not be set at all, in order to run the Crawler.
-    -   Red Hat Enterprise Linux 6 or 7, or Ubuntu Linux 15 or 16. For optimal performance, the Data Crawler should run on its own instance of Linux, whether it is a virtual machine, a container, or hardware.
+        Your `JAVA_HOME` environment variable must be set correctly, or not be set at all, to run the Crawler.
+        {: note}
+
+    -   Red Hat Enterprise Linux 6 or 7, or Ubuntu Linux 15 or 16. For optimal performance, the Data Crawler must run on its own instance of Linux, whether it is a virtual machine, a container, or hardware.
     -   Minimum 2 GB RAM on the Linux system
 
 1.  Open a browser and log into your [{{site.data.keyword.Bluemix_notm}} account](https://{DomainName}/){: external}.
@@ -128,18 +130,21 @@ Download these documents:
 
 Copy the contents of the `{installation_directory}/share/examples/config` directory to a working directory on your system, for example `/home/config`.
 
-**Warning:** Do not modify the provided configuration example files directly. Copy and then edit them. If you edit the example files in-place, your configuration may be overwritten when upgrading the Data Crawler, or may be removed when uninstalling it.
+Do not modify the provided configuration example files directly. Copy and then edit them. If you edit the example files in-place, your configuration might be overwritten when upgrading the Data Crawler, or it might be removed when uninstalling it.
+{: important}
 
-**Note:** References in this guide to files in the `config` directory, such as `config/crawler.conf`, refer to that file in your working directory, and NOT in the installed `{installation_directory}/share/examples/config` directory.
+References in this guide to files in the `config` directory, such as `config/crawler.conf`, refer to that file in your working directory, not in the installed `{installation_directory}/share/examples/config` directory.
+{: note}
 
 ## Configure crawl options
 {: #dc-configure-crawl-options}
 
-To set up the Data Crawler to crawl your repository, you must specify which local system files you want to crawl, and which {{site.data.keyword.discoveryshort}} instance to send the collection of crawled files to, once the crawl has been completed.
+To set up the Data Crawler to crawl your repository, you must specify which local system files you want to crawl, and which {{site.data.keyword.discoveryshort}} instance to send the collection of crawled files to after the crawl finishes.
 
 1.  **`filesystem-seed.conf`** - Open the `seeds/filesystem-seed.con` file in a text editor. Modify the `value` attribute directly under the `name-"url"` attribute to the file path that you want to crawl. For example: `value-"sdk-fs:///TMP/MY_TEST_DATA/"`
 
-    **Note:** The URLs must start with `sdk-fs://`. So to crawl, for example, `/home/watson/mydocs`, the value of this URL would be `sdk-fs:///home/watson/mydocs` - the third / is necessary!
+    The URLs must start with `sdk-fs://`. So to crawl, for example, `/home/watson/mydocs`, the value of this URL is `sdk-fs:///home/watson/mydocs`. The third `/` in the URL is necessary.
+    {: note}
 
     Save and close the file.
 
@@ -172,9 +177,10 @@ To set up the Data Crawler to crawl your repository, you must specify which loca
 
 Run the following command: `crawler crawl --config [config/crawler.conf]`
 
-This will run a crawl with the configuration file `crawler.conf`.
+This command runs a crawl with the configuration file `crawler.conf`.
 
-**Note:** The path to the configuration file passed in the `--config` option must be a qualified path. That is, it must be in relative formats, such as `config/crawler.conf` or `./crawler.conf`, or in an absolute path such as `/path/to/config/crawler.conf`.
+The path to the configuration file passed in the `--config` option must be a qualified path. That is, it must be in relative formats, such as `config/crawler.conf` or `./crawler.conf`, or in an absolute path, such as `/path/to/config/crawler.conf`.
+{: note}
 
 ## Search your documents
 {: #dc-search}
@@ -194,4 +200,4 @@ curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{c
 ## Results
 {: #dc-results}
 
-You have now successfully queried documents in an environment and collection you created. Now you can begin customizing by adding more documents to the collection.
+You successfully queried documents in an environment by using the collection you created. Now, you can begin customizing by adding more documents to the collection.

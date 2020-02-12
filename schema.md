@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -33,7 +33,7 @@ subcollection: discovery
 # Understanding the output schema
 {: #output_schema}
 
-After a document has been ingested using Element Classification, the service provides JSON output in the following schema for version date `2018-10-15` or later. The output will be included within the `enriched_html_elements` object.
+After a document is ingested by using Element Classification, the service returns JSON output in the following schema for version date `2018-10-15` or later. The output is included in the `enriched_html_elements` object.
 {: shortdesc}
 
 ```json

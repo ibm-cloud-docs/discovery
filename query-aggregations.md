@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-06"
 
 subcollection: discovery
 
@@ -48,7 +48,7 @@ term(enriched_text.concepts.text,count:10)
 ## filter
 {: #aggfilter}
 
-A modifier that will narrow down the document set of the aggregation query it precedes. This example filters down to the set of documents that include the concept Cloud computing.
+A modifier that narrows the document set of the aggregation query it precedes. This example filters down to the set of documents that include the concept Cloud computing.
 
 For example:
 ```bash

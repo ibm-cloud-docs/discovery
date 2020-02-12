@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -34,7 +34,8 @@ subcollection: discovery
 
 You can monitor and track usage of your {{site.data.keyword.discoveryshort}} instance and use this data to help you understand and improve your applications. The [Events API](https://{DomainName}/apidocs/discovery#create-event){: external} can be used to create log entries that are associated with specific natural language queries and actions. For example, you can record which documents in a results set were "clicked" by a user, and when that click occurred.
 
-**Note:** Logs and events are monitored only for natural language queries on private data collections. No logs are gathered on {{site.data.keyword.discoverynewsfull}}.
+Logs and events are monitored only for natural language queries on private data collections. No logs are gathered on {{site.data.keyword.discoverynewsfull}}.
+{: note}
 
 {{site.data.keyword.discoveryshort}} can log the following information:
 - **Queries** - Natural language queries run against collections in your environment 
@@ -64,7 +65,7 @@ Example of searching logs for a natural language query that contains the term â€
 
 Replace `{url}` with your URL.
 
-The response of a `logs` query includes results that appear similar to {{site.data.keyword.discoveryshort}} document results. Each result will either be a query or event, specified in the document `type` field.  
+The response of a `logs` query includes results that appear similar to {{site.data.keyword.discoveryshort}} document results. Each result is either a query or event, specified in the document `type` field.  
 
 Example query log:
 
@@ -106,13 +107,13 @@ With query logs you can investigate the type of results returned to your end use
 ## Creating event logs
 {: #eventlogs}
 
-Event logs are used to track the interactions of users within your application. This can help you understand how well your application is performing, as well as identify areas you may need to focus on to improve results. {{site.data.keyword.discoveryshort}} provides an API that can be embedded in your application to track events. Calling this API with the appropriate information when a user performs an action sends a signal back to {{site.data.keyword.discoveryshort}}, which can then be viewed in the logs. 
+Event logs are used to track the interactions of users within your application. This can help you understand how well your application is performing, as well as identify areas that you might need to focus on to improve results. {{site.data.keyword.discoveryshort}} provides an API that can be embedded in your application to track events. Calling this API with the appropriate information when a user performs an action sends a signal back to {{site.data.keyword.discoveryshort}}, which can then be viewed in the logs. 
 
 Events can help gather information on computing metrics (like clickthrough rate) to measure how effective the application is at helping end users find relevant information, or can be used to help seed training by reviewing the queries and clicks to start to build ground truth. 
 
-You can add this API wherever users interact with your results. For example, in a search UI you may want to add it when a user clicks on a document link, or in a chatbot interface you may want to use it to track when the user clicks on an **Expand** or **More details** button.
+You can add this API wherever users interact with your results. For example, in a search UI, you can add the API when a user clicks on a document link. In a chatbot interface, you can use the API to track when the user clicks on **Expand** or **More details**.
 
-{{site.data.keyword.discoveryshort}} results will return additional information that can be used for tracking events, including a session token. 
+{{site.data.keyword.discoveryshort}} results return additional information that can be used for tracking events, including a session token. 
 
 `"matching_results": 179,`
 `"session_token": "1_LKczxWGEWx59fYD0_VV8HFUpb6"`
