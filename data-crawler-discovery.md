@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -38,11 +38,13 @@ The Data Crawler is no longer supported or available for download beginning [17 
 To set up the Data Crawler to crawl your repository, you must specify the appropriate input adapter in the `crawler.conf` file, and then configure repository-specific information in the input adapter configuration files.
 {: shortdesc}
 
-Before making the changes listed in these steps, make sure that you have created your  working directory by copying the contents of the `{installation_directory}/share/examples/config` directory to a working directory on your system, for example `/home/config`.
+Before making the changes listed in these steps, make sure that you create your working directory by copying the contents of the `{installation_directory}/share/examples/config` directory to a working directory on your system, for example `/home/config`.
 
-**Important:** Do not modify the provided configuration example files directly. Copy and then edit them. If you edit the example files in-place, your configuration may be overwritten when upgrading the Data Crawler, or may be removed when uninstalling it.
+Do not modify the provided configuration example files directly. Copy and then edit them. If you edit the example files in-place, your configuration might be overwritten when upgrading the Data Crawler, or it might be removed when uninstalling it.
+{: important}
 
-**Note:** References in this guide to files in the `config` directory, such as `config/crawler.conf`, refer to that file in your working directory, and NOT in the installed `{installation_directory}/share/examples/config` directory.
+References in this guide to files in the `config` directory, such as `config/crawler.conf`, refer to that file in your working directory, and NOT in the installed `{installation_directory}/share/examples/config` directory.
+{: note}
 
 The specified values are the defaults in `config/crawler.conf`, and configure the Filesystem connector:
 
@@ -63,7 +65,7 @@ The specified values are the defaults in `config/crawler.conf`, and configure th
         ```
         {: codeblock}
 
-    There are other optional settings in this file that may be set as appropriate to your environment. See [Configuring crawl options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [Configuring the input adapter](/docs/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Configuring the output adapter](/docs/discovery?topic=discovery-configuring-the-data-crawler#output-adapter), and [Additional crawl management options](/docs/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options) for detailed information about setting these values.
+    There are other optional settings in this file that might be set as appropriate to your environment. See [Configuring crawl options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options), [Configuring the input adapter](/docs/discovery?topic=discovery-configuring-the-data-crawler#input-adapter), [Configuring the output adapter](/docs/discovery?topic=discovery-configuring-the-data-crawler#output-adapter), and [Additional crawl management options](/docs/discovery?topic=discovery-configuring-the-data-crawler#additional-crawl-management-options) for detailed information about setting these values.
 
 1.  Open the `discovery/discovery_service.conf` file in a text editor. Modify the following values specific to {{site.data.keyword.discoveryshort}} you previously created on {{site.data.keyword.Bluemix}}:
 
@@ -74,16 +76,17 @@ The specified values are the defaults in `config/crawler.conf`, and configure th
     -   `username` - Username credential for your {{site.data.keyword.discoveryshort}} instance.
     -   `apikey` - Credential for your {{site.data.keyword.discoveryshort}} instance.
 
-    There are other optional settings in this file that may be set as appropriate to your environment. See [Configuring Service Options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options) for detailed information about setting these values.
+    There are other optional settings in this file that might be set as appropriate to your environment. See [Configuring Service Options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-service-options) for detailed information about setting these values.
 
 1.  After modifying these files, you are ready to crawl your data. Proceed to [Crawling your data repository](/docs/discovery?topic=discovery-crawling-your-data-repository) to continue.
 
 ## Configuring crawl options
 {: #configuring-crawl-options}
 
-The file `config/crawler.conf` contains information that tells the Data Crawler which files to use for its crawl (input adapter), where to send the collection of crawled files once the crawl has been completed (output adapter), and other crawl management options.
+The file `config/crawler.conf` contains information that tells the Data Crawler which files to use for its crawl (input adapter), where to send the collection of crawled files after the crawl finishes (output adapter), and other crawl management options.
 
-**Note:** All file paths are relative to the `config` directory, except where noted.
+All file paths are relative to the `config` directory, except where noted.
+{: note}
 
 To access the in-product manual for the `crawler.conf` file, with the most up-to-date information, type the following command from the Crawler installation directory: `man crawler.conf`
 {: tip}
@@ -98,22 +101,23 @@ The options that can be set in this file are:
 
     The connector framework is what allows you to talk to your data. It could be internal data within the enterprise, or it could be external data on the web or in the cloud. The connectors allow access to a number of different data sources, while connecting is actually controlled by the crawling process.
 
-    **Important:** Data retrieved by the Connector Framework Input Adapter is cached locally. It is not stored encrypted. By default, the data is cached to a temporary directory that should be cleared on reboot, and should be readable only by the user who executed the crawler command.
+    Data retrieved by the Connector Framework Input Adapter is cached locally. It is not stored encrypted. By default, the data is cached to a temporary directory that you must clear after performing a reboot and it must be readable only by the user who executed the crawler command.
+    {: important}
 
-    There is a chance that this directory could outlive the crawler if the connector framework was to go away before it could clean up after itself. Carefully consider the location for your cached data - you may put it on an encrypted filesystem, but be aware of the performance implications of doing so. Only you can decide the appropriate balance between speed and security for your crawls.
+    There is a chance that this directory can outlive the crawler if the connector framework is removed before it can clean up after itself. Consider the location for your cached data. You can put data on an encrypted filesystem, but that might have performance implications. Pick the appropriate balance between speed and security for your crawls.
 -   **`crawl_config_file`** - The configuration file to use for the crawl. Default value is: `connectors/filesystem.conf`
 -   **`crawl_seed_file`** - The crawl seed file to use for the crawl. Default value is: `seeds/filesystem-seed.conf`
 -   **`id_vcrypt_file`** - Keyfile used for data encryption by the Crawler; the default key included with the crawler is `id_vcrypt`. Use the vcrypt script in the `bin` folder if you need to generate a new `id_vcrypt` file.
--   **`crawler_temp_dir`** - The Crawler temporary folder for connector logs. Default value, `tmp`, is provided. If it doesn't already exist, the `tmp` folder will be created in the current working directory.
+-   **`crawler_temp_dir`** - The Crawler temporary folder for connector logs. Default value, `tmp`, is provided. If it doesn't already exist, the `tmp` folder is created in the current working directory.
 -   **`extra_jars_dir`** - Adds a directory of extra JARs to the connector framework classpath.
 
-    **Note:** Relative to the connector framework `lib/java` directory.
+    Relative to the connector framework `lib/java` directory.
 
     -   This value must be `database` when using the Database connector.
 
     You can leave this value empty (i.e., empty string "") when using other connectors.
 
--   **`urls_to_filter`** - Blacklist of URLs that should not be crawled, in regular expression form. The Data Crawler will not crawl URLs that match any of the regular expressions provided.
+-   **`urls_to_filter`** - Blacklist of URLs that must not be crawled, in regular expression form. The Data Crawler does not crawl URLs that match any of the regular expressions provided.
 
     The `domain list` contains the domains that cannot be crawled. Add to it if necessary.
 
@@ -123,14 +127,14 @@ The options that can be set in this file are:
 
     Ensure that your seed URL domain is allowed by the filter. Use an empty filter for `allow everything` behavior.
 
-    Ensure that your seed URL will not be excluded by a filter, or the Crawler may hang.
+    Ensure that your seed URL is not excluded by a filter, or the Crawler might hang.
 
 -   **`max_text_size`** - The maximum size, in bytes, that a document can be before it is written to disk by the Connector Framework. Adjusting this higher decreases the amount of documents written to disk, but increases the memory requirement. Default value is `1048576`
 -   **`extra_vm_params`** - Allows you to add extra Java parameters to the command used to launch the Connector Framework.
 
--   **`bootstrap_logging`** - Writes connector framework startup log; useful for advanced debugging only. Possible values are `true` or `false`. Log file will be written to `crawler_temp_dir`
+-   **`bootstrap_logging`** - Writes connector framework startup log; useful for advanced debugging only. Possible values are `true` or `false`. Log file is written to `crawler_temp_dir`
 
--   **`read-timeout`** - Sets the time (in seconds) that the crawler will wait for a response from the connector framework. The default value is 5 seconds.
+-   **`read-timeout`** - Sets the time in seconds that the crawler waits for a response from the connector framework. The default value is 5 seconds.
 
 ### Output adapter
 {: #output-adapter}
@@ -168,7 +172,7 @@ discovery_service {
 
 -   **Test Output Adapter** - The Test Output Adapter writes a representation of the crawled files to disk in a specified location. Select this adapter by setting the `class` parameter and `config` key as follows.
 
-    An additional parameter, `output_directory`, selects the directory to which the representation of the crawled data should be written.
+    An additional parameter, `output_directory`, selects the directory to which the representation of the crawled data must be written.
 
 ```
 class - "com.ibm.watson.crawler.testoutputadapter.TestOutputAdapter"
@@ -189,15 +193,15 @@ output_directory - "/tmp/crawler-test-output"`
 
         **`d(nth_retry) - delay * (exponent_base ^ nth_retry)`**
 
-    For example, the default settings with a delay of 1 second and an exponent base of 2, will cause the second retry - the third attempt - to delay 2 seconds instead of 1, and the next to delay 4 seconds.
+    For example, the default settings with a delay of 1 second and an exponent base of 2 means that the second retry, or the third attempt, is delayed 2 seconds. The third retry is delayed 4 seconds, and so on.
 
         `d(0) - 1 * (2 ^ 0)` - 1 second
         `d(1) - 1 * (2 ^ 1)` - 2 seconds
         `d(2) - 1 * (2 ^ 2)` - 4 seconds
 
-    So, with the default settings, a submission will be attempted up to 10 times, waiting up to approximately 1022 seconds - a little more than 17 minutes. This time is approximate because there is additional time added in order to avoid having multiple resubmissions execute simultaneously. This "fuzzed" time is up to 10%, so the last retry in the previous example could delay up to 7.7 seconds. The wait time does not include the time spent connecting to the service, uploading data, or waiting for a response.
+    So, with the default settings, a submission is attempted up to 10 times, waiting up to approximately 1022 seconds - a little more than 17 minutes. This time is approximate because there is additional time added to avoid having multiple resubmissions execute simultaneously. This "fuzzed" time is up to 10%, so the last retry in the previous example could delay up to 7.7 seconds. The wait time does not include the time spent connecting to the service, uploading data, or waiting for a response.
 
-    The `output_timeout` value takes precedence over the wait time here: if the total retry wait time exceeds that setting, the submission will fail even if it should have been retried.
+    The `output_timeout` value takes precedence over the wait time here; if the total retry wait time exceeds that setting, the submission fails, even if it should have been retried.
     {: tip}
 
 ### Additional crawl management options
@@ -205,15 +209,16 @@ output_directory - "/tmp/crawler-test-output"`
 
 -   **`full_node_debugging`** - Activates debugging mode; possible values are `true` or `false`.
 
-    **Important:** This will put the full data of every document crawled into the logs.   
+    This puts the full data of every document crawled into the logs.
+    {: important}
 
--   **`logging.log4j.configuration_file`*** - The configuration file to use for logging. In the sample `crawler.conf` file, this option is defined in `logging.log4j` and its default value is `log4j_custom.properties`. This option must be similarly defined whether using a `.properties` or `.conf` file.   
--   **`shutdown_timeout`** - Specifies the timeout value, in minutes, before shutting down the application. Default value is `10`.   
--   **`output_limit`** - The highest number of indexable items that the Crawler will try to send simultaneously to the output adapter. This can be further limited by the number of cores available to do the work. It says that at any given point there will be no more than "x" indexable items sent to the output adapter waiting to return. Default value is `10`.   
--   **`input_limit`** - Limits the number of URLs that can be requested from the input adapter at one time. Default value is `30`.   
+-   **`logging.log4j.configuration_file`*** - The configuration file to use for logging. In the sample `crawler.conf` file, this option is defined in `logging.log4j` and its default value is `log4j_custom.properties`. This option must be similarly defined whether using a `.properties` or `.conf` file.
+-   **`shutdown_timeout`** - Specifies the timeout value, in minutes, before shutting down the application. Default value is `10`.
+-   **`output_limit`** - The highest number of indexable items that the Crawler attempts to send simultaneously to the output adapter. This can be further limited by the number of cores available to do the work. It says that, at any given point, there is no more than "x" indexable items sent to the output adapter waiting to return. Default value is `10`.
+-   **`input_limit`** - Limits the number of URLs that can be requested from the input adapter at one time. Default value is `30`.
 -   **`output_timeout`** - The amount of time, in seconds, before the Data Crawler gives up on a request to the output adapter, and then removes the item from the output adapter queue to allow more processing. Default value is `1200`.
 
-    Consideration should be given to the constraints imposed by the output adapter, as those constraints may relate to the limits defined here. The defined `output_limit` only relates to how many indexable objects can be sent to the output adapter at once. Once an indexable object is sent to the output adapter, it is "on the clock," as defined by the `output_timeout` variable. It is possible that the output adapter itself has a throttle preventing it from being able to process as many inputs as it receives. For instance, the orchestration output adapter may have a connection pool, configurable for HTTP connections to the service. If it defaults to 8, for example, and if you set the `output_limit` to a number greater than 8, then you will have processes, on the clock, waiting for a turn to execute. You may then experience timeouts.   
+    Consider the constraints imposed by the output adapter, as those constraints might relate to the limits defined here. The defined `output_limit` only relates to how many indexable objects can be sent to the output adapter at once. Once an indexable object is sent to the output adapter, it is "on the clock," as defined by the `output_timeout` variable. It is possible that the output adapter itself has a throttle preventing it from being able to process as many inputs as it receives. For instance, the orchestration output adapter might have a connection pool, configurable for HTTP connections to the service. If it defaults to 8, for example, and if you set the `output_limit` to a number greater than 8, then there are processes, on the clock, waiting for a turn to execute. You might then experience timeouts.
 -   **`num_threads`** - The number of parallel threads that can be run at one time. This value can be either an integer, which specifies the number of parallel threads directly, or it can be a string, with the format `"xNUM"`, specifying the multiplication factor of the number of available processors, for example, `"x1.5"`. The default value is `"30"`
 
 ## Configuring service options
@@ -232,15 +237,16 @@ To access the in-product manual for the `discovery-service.conf` file, with the 
 Default options can be changed directly by opening the `config/discovery/discovery_service.conf` file, and specifying the following values specific to your use case:
 
 -   **`http_timeout`** - The timeout, in seconds, for the document read/index operation; the default is `125`.
--   **`proxy_host_port`** - (optional) When running the data crawler behind a firewall, you might need to set the proxy hostname and proxy port number in order for the data crawler to talk to {{site.data.keyword.discoveryshort}}. The default value for this option is an empty string and if you need to change it the value should be of the form `"<host>:<port>"`.
+-   **`proxy_host_port`** - (optional) When running the data crawler behind a firewall, you might need to set the proxy hostname and proxy port number in order for the data crawler to talk to {{site.data.keyword.discoveryshort}}. The default value for this option is an empty string, and if you need to change it, enter the value in the form of `"{host}:{port}"`.
 -   **`concurrent_upload_connection_limit`** - The number of simultaneous connections allowed for uploading documents. The default is `2`.
 
-    **Note:** When using the Orchestration Service Output Adapter, this number should be greater than, or equal to, the `output_limit` set when configuring crawl options.   
+    When using the Orchestration Service Output Adapter, this number must be greater than, or equal to, the `output_limit` set when configuring crawl options.
+    {: note}
 
--   **`base_url`** - The URL to which your crawled documents will be sent.   
--   **`environment_id`** - The location of your crawled document collection at the base URL.   
+-   **`base_url`** - The URL to which your crawled documents are sent.
+-   **`environment_id`** - The location of your crawled document collection at the base URL.
 -   **`collection_id`** - Name of the document collection that you set up in {{site.data.keyword.discoveryshort}}.
--   **`api_version`** - Internal use only. Date of the last API version change.   
+-   **`api_version`** - Internal use only. Date of the last API version change.
 -   **`configuration_id`** - The filename of the configuration file that {{site.data.keyword.discoveryshort}} uses.
 -   **`apikey`** - Credential to authenticate to the location of your crawled document collection.
 

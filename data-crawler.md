@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-06"
 
 subcollection: discovery
 
@@ -41,14 +41,14 @@ The data crawler lets you automate the upload of content to the {{site.data.keyw
 ## Crawling data with the Data Crawler
 {: #dc-crawling}
 
-The Data Crawler is a command line tool that will help you take your documents from the repositories where they reside (for example: file shares, databases) and push them to the cloud, to be used by {{site.data.keyword.discoveryshort}}.
+The Data Crawler is a command line tool that helps you take your documents from the repositories where they reside (for example: file shares, databases) and push them to the cloud, to be used by {{site.data.keyword.discoveryshort}}.
 
 ## When to use the Data Crawler
 {: #dc-use}
 
-The Data Crawler should be used if you want to have a managed upload of a significant number of files from a remote system, or you want to extract content from a supported repository (such as a DB2 database).
+Use the Data Crawler if you want to have a managed upload of a significant number of files from a remote system or if you want to extract content from a supported repository, such as a DB2 database.
 
-The Data Crawler is not intended to be a solution for uploading files from your local drive. Uploading files from a local drive should be done using the tooling or by using direct API calls. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files](https://github.com/IBM/discovery-files){: external} on GitHub.
+The Data Crawler is not intended to be a solution for uploading files from your local drive. If you upload files from a local drive, use the tooling or direct API calls. Another option to upload large numbers of files into {{site.data.keyword.discoveryshort}} is [discovery-files](https://github.com/IBM/discovery-files){: external} on GitHub.
 {: note}
 
 ## Using the Data Crawler

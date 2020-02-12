@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-07"
 
 subcollection: discovery
 
@@ -38,7 +38,7 @@ subcollection: discovery
 
 ![Discovery architecture diagram](images/about-discovery.png)
 
-With {{site.data.keyword.discoveryshort}}, it only takes a few steps to prepare your unstructured data, create a query that will pinpoint the information you need, and then integrate those insights into your new application or existing solution.
+With {{site.data.keyword.discoveryshort}}, it only takes a few steps to prepare your unstructured data, create a query that pinpoints the information you need, and then integrate those insights into your new application or existing solution.
 
 How does {{site.data.keyword.discoveryshort}} do it? By using data analysis combined with cognitive intuition to take your unstructured data and enrich it so you can discover the information you need.
 
@@ -67,7 +67,7 @@ For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browse
 ## Watson Discovery News
 {: #wds}
 
-{{site.data.keyword.discoverynewsshort}}, a public data set that has been pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
+{{site.data.keyword.discoverynewsshort}}, a public data set that is pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
 
 {{site.data.keyword.discoveryshort}} is available on [{{site.data.keyword.Bluemix_notm}}](https://{DomainName}/catalog/services/discovery){: external}
 
@@ -76,7 +76,7 @@ For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browse
 
 {{site.data.keyword.discoveryshort}} includes a complete set of online tools - the {{site.data.keyword.discoveryshort}} tooling - to help you quickly setup an instance of the service and populate it with data.
 
-The {{site.data.keyword.discoveryshort}} tooling has been designed to save time by eliminating the need to use APIs to configure and populate your service. This lets your application developers concentrate on creating high value ways for end users to experience {{site.data.keyword.discoveryshort}}. See [Getting started with the tooling](/docs/discovery?topic=discovery-getting-started) for an introduction to the {{site.data.keyword.discoveryshort}} tooling.
+The {{site.data.keyword.discoveryshort}} tooling is designed to save time by eliminating the need to use APIs to configure and populate your service. This lets your application developers concentrate on creating high value ways for end users to experience {{site.data.keyword.discoveryshort}}. See [Getting started with the tooling](/docs/discovery?topic=discovery-getting-started) for an introduction to the {{site.data.keyword.discoveryshort}} tooling.
 
 
 ## Next steps

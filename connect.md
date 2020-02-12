@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -47,7 +47,7 @@ You can connect to a data source and pull documents on a schedule (if desired) i
 
 Connecting to a data source can be performed using the {{site.data.keyword.discoveryshort}} tooling, or the API. The {{site.data.keyword.discoveryshort}} tooling provides a simplified method of connection that requires less understanding of the source systems, and the API provides a more granular and highly configurable interface which required a greater understanding of the source that you are connecting to. The following process overview let you know which sections of this document to read next:
 
-1.  Read the [General Source Requirements](/docs/discovery?topic=discovery-sources#gen_req) to get a general understanding of what will be required.
+1.  Read the [General Source Requirements](/docs/discovery?topic=discovery-sources#gen_req).
 2.  Read the requirements specific to your source system:
     -  [Box](/docs/discovery?topic=discovery-sources#connectbox)
     -  [Salesforce](/docs/discovery?topic=discovery-sources#connectsf)
@@ -59,7 +59,7 @@ Connecting to a data source can be performed using the {{site.data.keyword.disco
     -  [Using the tooling](/docs/discovery?topic=discovery-sources#source_tooling)
     -  [Using the API](/docs/discovery?topic=discovery-sources#source_api)
 
-If you select an on-premises data source, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
+If you select an on-premises data source, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
 
 ## General Source Requirements
 {: #gen_req}
@@ -67,10 +67,10 @@ If you select an on-premises data source, you must first install and configure I
 The following general requirements apply to all data sources:
 
 -  The individual document file size limit for Box, Salesforce, SharePoint Online, SharePoint 2016, IBM Cloud Object Storage, and Web Crawl is 10MB.
--  You will need the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
--  You will need to know which resources of the data source to crawl. This can be provided by the source administrator. When crawling Box or Salesforce, a list of available resources is presented when configuring a source using the {{site.data.keyword.discoveryshort}} tooling.
+-  You must have the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
+-  You must know which resources of the data source to crawl, which the source administrator can provide. If you crawl Box or Salesforce, a list of available resources is presented when configuring a source, using the {{site.data.keyword.discoveryshort}} tooling.
 -  If using the {{site.data.keyword.discoveryshort}} tooling, a collection can be configured with a single data source. If using the API, documents from multiple data sources can be sent into a single collection.
--  Crawling a data source will use resources (API calls) of the data source. The number of API calls depends on the number of documents that need to be crawled. An appropriate level of service license (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
+-  Crawling a data source uses resources, namely API calls, of the data source. The number of API calls depends on the number of documents that need to be crawled. An appropriate level of service license (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is re-crawled, new documents are added, updated document are modified to the current version, and deleted documents remain as the version last stored.
 -  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
 
@@ -81,7 +81,7 @@ Collections created after the release of [SDU](/docs/discovery?topic=discovery-s
     
 \* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
-\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files will also be scanned and the text (if any) extracted.
+\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned, and the text, if any, is extracted.
 
 ## Box
 {: #connectbox}
@@ -89,13 +89,13 @@ Collections created after the release of [SDU](/docs/discovery?topic=discovery-s
 <!-- Learn more topic WDS -->
 You'll need to create a new Box custom application to connect to {{site.data.keyword.discoveryfull}}. The Box application you create requires either Enterprise level or Application level access.
 
--  If you are not the Box administrator for your organization, [**Application level** access](/docs/discovery?topic=discovery-sources#applevelbox) is recommended. You will need an administrator to approve your application.
+-  If you are not the Box administrator for your organization, [**Application level** access](/docs/discovery?topic=discovery-sources#applevelbox) is recommended. You must have an administrator approve your application.
 -  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/discovery?topic=discovery-sources#entlevelbox) is recommended.
 
 `Refresh` is only supported with Enterprise level access.
 {: note}
 
-The steps to setup Box access may change if there is a Box update. Consult the [Box developer documentation](https://developer.box.com/){: external} for updates.
+If there is a Box update, the steps to set up Box access might change. For more information, see the [Box developer documentation](https://developer.box.com/){: external}.
 {: note}
 
 ### Setting up Application level access
@@ -104,9 +104,9 @@ The steps to setup Box access may change if there is a Box update. Consult the [
 1.   Navigate to `https://app.box.com/developers/console` (use your company's Box URL) and click **Create New App**.
 1.   From the **Create a New App** screen, select **Enterprise Integration** and click **Next**.
 1.   On the **Authentication Method** screen, select **OAuth 2.0 with JWT (Server Authentication)** and click **Next**.
-1.   Name your app and click the **Create App** button. Once your Box app has been created, click **View Your App**.
+1.   Name your app and click the **Create App** button. After you create your Box app, click **View Your App**.
 1.   While viewing your app, select **Application access** as **Application**. You can use your existing managed users as you continue; you are not required to create new ones.
-1.   Scroll down to the **Application Scopes** section of the page and enable the following checkboxes: 
+1.   Scroll down to the **Application Scopes** section of the page and enable the following checkboxes:
      - `Read and write all folders stored in Box`
      - `Manage Users`
 1.   Scroll down to the **Advanced Features** section and enable the following toggles:
@@ -114,12 +114,12 @@ The steps to setup Box access may change if there is a Box update. Consult the [
      - `Generate User Access Tokens` 
 1.  Click the **Save Changes** button.
 
-The next few steps will require assistance from the Administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
+The next few steps require assistance from the administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
 
 1.  [Administrator step] Authorize your application client id at `https://app.box.com/master/settings/openbox` by clicking the **Authorize New App** button.
 1.  [Administrator step] Type the **client ID** from `https://app.box.com/developers/console` into the **API key** field and then click the **Authorize** button.
 1.  [Administrator step] Retrieve a developer token for the application. To do this, navigate to `https://app.box.com/developers/console`, scroll to the **Developer Token** section and generate your token.
-1.  Now that the application has been authorized by the Administrator, navigate to `https://developer.box.com/reference#page-create-an-enterprise-user` and create an App User using the API reference page.
+1.  Now that the administrator authorized the application, navigate to `https://developer.box.com/reference#page-create-an-enterprise-user` and create an App User using the API reference page.
 
    Curl example to create an App User:
 
@@ -145,9 +145,9 @@ The next few steps will require assistance from the Administrator of your organi
 1.  Navigate to `https://app.box.com/developers/console` (use your company's Box URL) and click **Create New App**.
 1.  From the **Create a New App** screen, select **Enterprise Integration** and click **Next**.
 1.  On the **Authentication Method** screen, select **OAuth 2.0 with JWT (Server Authentication)** and click **Next**.
-1.  Name your app and click the **Create App** button. Once your Box app has been created, click **View Your App**.
+1.  Name your app and click the **Create App** button. After you create your Box app, click **View Your App**.
 1.  While viewing your app, select **Application access** as **Enterprise**. You can use your existing managed users as you continue; you are not required to create new ones.
-1.  Scroll down to the **Application Scopes** section of the page and enable the following checkboxes: 
+1.  Scroll down to the **Application Scopes** section of the page and enable the following checkboxes:
     - `Read and write all folders stored in Box`
     - `Manage Users`
     - `Manage Enterprise Properties`
@@ -159,7 +159,7 @@ The next few steps will require assistance from the Administrator of your organi
 If you change your Box App settings, `Reauthorize` your App so the changes take effect.
 {: tip}
 
-The next few steps will require assistance from the Administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
+The next few steps require assistance from the administrator of your organization's Box account. If you are not your organization's Box Administrator, you can identify the Administrator by opening the Box developer's console and looking under **Account settings** > **Account details** > **Settings**.
 
 1.  [Administrator step] Authorize your application client id by navigating to **Admin console** > **Enterprise settings** > **Apps** and scrolling to `Custom applications`. Example URL:`https://app.box.com/master/settings/openbox`.
 1.  [Administrator step] Type the **client ID** from `https://app.box.com/developers/console` into the **API key** field and then click the **Authorize** button.
@@ -172,10 +172,10 @@ The next few steps will require assistance from the Administrator of your organi
     -  `private_key` 
     -  `passphrase` 
 
-Other items to consider when crawling Box:
+Other items to consider when you crawl Box:
 
--  Box notes are stored in JSON format, so any Box notes in the specified folders will be ingested by {{site.data.keyword.discoveryshort}}.
--  When using the API, you will need to have a list of Folders IDs and the associated Owner ID for each folder that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl.
+-  Box notes are stored in JSON format, so {{site.data.keyword.discoveryshort}} ingests any Box notes in the specified folders.
+-  When you use the API, you must have a list of Folders IDs and the associated Owner ID for each folder that you want to crawl. Use the {{site.data.keyword.discoveryshort}} tooling to browse and select which content to crawl.
 
 ## Salesforce
 {: #connectsf}
@@ -183,17 +183,17 @@ Other items to consider when crawling Box:
 <!-- Learn more topic WDS -->
 When connecting to a Salesforce source, ensure that the instance you plan to connect to is an Enterprise plan or higher.
 
-The following credentials are required to connect to a Salesforce source, they should be obtained from your Salesforce administrator:
+The following credentials are required to connect to a Salesforce source. If you do not know these credentials, consult your Salesforce administrator:
 -  `url` - The `url` of the source that these credentials connect to.
 -  `username` - The `username` of the source that these credentials connect to.
 -  `password` - The `password` consists of the Salesforce password and a valid Salesforce security token concatenated. This value is never returned and is only used when creating or modifying credentials.
 
 When identifying the credentials, it might be useful to consult the [Salesforce developer documentation](https://developer.salesforce.com/docs/){: external}.
 
-Other items to note when crawling Salesforce:
+Other items to note when you crawl Salesforce:
 
 -  Knowledge Articles are only crawled if their **version** is `published` and their languages is `en-us`.
--  When using the API, you will need to have a list of Salesforce objects that you want to crawl. The {{site.data.keyword.discoveryshort}} tooling lets you browse and select which content to crawl.
+-  When you use the API, you must have a list of Salesforce objects that you want to crawl. Use the {{site.data.keyword.discoveryshort}} tooling to browse and select which content to crawl.
 
 ## SharePoint Online
 {: #connectsp}
@@ -201,7 +201,7 @@ Other items to note when crawling Salesforce:
 <!-- Learn more topic WDS -->
 When connecting to a Microsoft SharePoint Online source, ensure that the instance you plan to connect to is an Enterprise (E1) plan or higher.
 
-The following credentials are required to connect to a SharePoint Online source, they should be obtained from your SharePoint administrator:
+The following credentials are required to connect to a SharePoint Online source. If you do not know these credentials, consult your SharePoint administrator:
 
 -  `organization_url` - The `organization_url` of the source that these credentials connect to.
 -  `site_collection_path` - The `site_collection_path` of the source that these credentials connect to.
@@ -210,10 +210,10 @@ The following credentials are required to connect to a SharePoint Online source,
 
 When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}.
 
-Other items to note when crawling Microsoft SharePoint Online:
+Other items to note when you crawl Microsoft SharePoint Online:
 
 -  To crawl SharePoint, the `username` account does not need `SiteCollection Administrator` permissions.
--  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
+-  When you crawl SharePoint, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
 -  It is recommended that you use the default Azure Active Directory (Azure AD) authentication. The username for the default Azure AD authentication is in the form of `<username>@<domain>.onmicrosoft.com`. If you do not have an Azure AD username, contact your SharePoint site administrator. 
 
 ## Web Crawl
@@ -224,11 +224,11 @@ This feature can be used crawl public websites that don’t require a password. 
 
 -  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
 -  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
--  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). You can also specify URL paths to exclude from the crawl. These paths should be separated by commas. For example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/` in the **Exclude URLs where the path includes** field.
+-  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). You can also specify URL paths to exclude from the crawl. Separate these paths, using commas. For example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/` in the **Exclude URLs where the path includes** field.
 
-When you specify a URL to crawl, the final `/` determines the subtree to crawl. For example, if you enter the URL `https://www.mycompany.com/banking/faqs.html`, all URLs that begin with `https://www.mycompany.com/banking/` will be crawled, while  `https://www.mycompany.com/banking` will crawl all URLs that begin with `https://www.mycompany.com/`. If you would like to restrict the crawl to a specific URL, such as `https://www.mycompany.com/banking/faqs.html`, enter that URL in the `URL group to sync` field, then set the **Maximum hops** to `0`.
+When you specify a URL to crawl, the final `/` determines the subtree to crawl. For example, if you enter the URL `https://www.example.com/banking/faqs.html`, all URLs that begin with `https://www.example.com/banking/` are crawled, and the input of `https://www.example.com/banking` crawls all URLs that begin with `https://www.example.com/`. If you would like to restrict the crawl to a specific URL, such as `https://www.example.com/banking/faqs.html`, enter that URL in the `URL group to sync` field, and then set the **Maximum hops** to `0`.
 
-The number of web pages crawled is limited to 250,000, so the web crawler may not crawl all the websites specified and reach the maximum number of hops.
+The number of web pages crawled is limited to 250,000, so the web crawler might not crawl all the specified websites and might reach the maximum number of hops.
 {: note}
 
 If you require different **Crawl settings** for other URLs, click **Add URL group** and create a new group. You can create as many URL groups as you need.
@@ -238,10 +238,10 @@ If you require different **Crawl settings** for other URLs, click **Add URL grou
 {: #connectsp_op}
 
 <!-- Learn more topic WDS -->
-Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premises data source. To connect to it, you must first install and configure IBM Secure Gateway. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
+Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premises data source. To connect to it, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
 {: note}
 
-The following credentials are required to connect to a SharePoint 2016 data source, they should be obtained from your SharePoint administrator:
+The following credentials are required to connect to a SharePoint 2016 data source. If you do not know these credentials, consult your SharePoint administrator:
 
 -  `username` - The `username` to connect to the SharePoint 2016 web application to crawl. This user must have access to all sites and lists that need to be crawled and indexed.
 -  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
@@ -250,32 +250,32 @@ The following credentials are required to connect to a SharePoint 2016 data sour
 
 When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}.
 
-Other items to note when crawling Microsoft SharePoint 2016:
+Other items to note when you crawl Microsoft SharePoint 2016:
 
 -  To crawl SharePoint 2016, the `username` account must have `SiteCollection Administrator` permissions.
--  When crawling SharePoint, you will need the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as an input.
+-  When you crawl SharePoint, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
 
 ## IBM Cloud Object Storage
 {: #connectcos}
 
 <!-- Learn more topic WDS -->
-When connecting to an IBM Cloud Object Storage source, the following credentials are required. They should be obtained from your IBM Cloud Object Storage administrator:
+When you connect to an {{site.data.keyword.blockstoragefull}} source, the following credentials are required. You can obtain them from your {{site.data.keyword.blockstoragefull}} administrator:
 
--  `endpoint` - The `endpoint` name used to interact with IBM Cloud Object Storage data.
-   Do not enter `http://` or `https://`, as part of the IBM Cloud Object Storage `endpoint` credential. Otherwise, you might receive an error message indicating that you have invalid or expired credentials. For the proper formatting of endpoints, see the column named Endpoint in the table in [Regional Endpoints](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-region).
--  `access_key_id` - `access_key_id` obtained when the IBM Cloud Object Storage instance was created.
--  `secret_access_key` - `secret_access_key` to sign requests obtained when the IBM Cloud Object storage instance was created.
+-  `endpoint` - The `endpoint` name used to interact with {{site.data.keyword.blockstoragefull}} data.
+   Do not enter `http://` or `https://`, as part of the {{site.data.keyword.blockstoragefull}} `endpoint` credential. Otherwise, you might receive an error message indicating that you have invalid or expired credentials. For the proper formatting of endpoints, see the column named Endpoint in the table in [Regional Endpoints](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-region).
+-  `access_key_id` - `access_key_id` obtained when the {{site.data.keyword.blockstoragefull}} instance was created.
+-  `secret_access_key` - `secret_access_key` to sign requests obtained when the {{site.data.keyword.blockstoragefull}} instance was created.
 
 IAM authentication is not currently supported for this connector. You need to set up HMAC authentication before you configure this connector. See [Service Credentials](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials) for instructions.
 {: important}
 
-After this information is entered, you can choose how often you'd like to sync your data and select the buckets you want to sync to.
+After this information is entered, you can choose how often you want to sync your data and select the buckets you want to sync to.
 
-Other items to note when crawling IBM Cloud Object Storage:
+Other items to note when you crawl {{site.data.keyword.blockstoragefull}}:
 
--  This connector doesn't support crawling private endpoints.
+-  This connector does not support crawling private endpoints.
 -  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#select-regions-and-endpoints).
--  There is a slight performance issue if all buckets are selected. In this case, there may be a delay before the documents complete indexing.
+-  There is a slight performance issue if all buckets are selected. In this case, a delay is possible, before the documents complete indexing.
 
 ## Using the tooling
 {: #source_tooling}
@@ -283,7 +283,7 @@ Other items to note when crawling IBM Cloud Object Storage:
 Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooling is performed by creating a collection specifically for a source. Perform the following steps to create a source collection and crawl it:
 
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
-2.  Select the data source that you want to connect to. If you have selected an on-premises data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information. 
+2.  Select the data source that you want to connect to. If you select an on-premises data source, install the {{site.data.keyword.SecureGatewayfull}}. For more information, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway).
 3.  Enter your source credentials and click connect. Your source credentials must be obtained from your source system administrator.
 4.  Choose which data you want to the crawl and how often you want to sync it. Sync options:
     -  Every five minutes: runs every five minutes
@@ -303,20 +303,22 @@ Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooli
     ```
 5.  Click **Save & Sync objects** to start crawling your data source. You are then redirected to the collection status screen which updates as documents are added to the collection.
 
-The crawl will sync the data initially and then on frequency that you specified.
-**Note:** If you modify anything in the **Sync settings** screen and then click **Save and Sync objects** a crawl will be started (or restarted if one is already running) at that time.
+Initially, the crawl syncs the data and, subsequently, on the frequency that you specified.
+
+If you modify anything in the **Sync settings** screen and then click **Save and Sync objects**, a crawl starts at that time or restarts if one is already running.
+{: note}
 
 ## Using the API
 {: #source_api}
 
-Use the following process to create a collection connected to a data source using the API.
+Use the following process to create a collection connected to a data source, using the API.
 
-If you plan to connect to an on-premises data source, you will first need to install IBM Secure Gateway, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information. 
+If you plan to connect to an on-premises data source, first, you must install {{site.data.keyword.SecureGatewayfull}}. For more information, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway).
 
 The following example uses the SharePoint data source.
 
 1.  Create credentials for the source that you are connecting to using the [Source Credentials API](https://{DomainName}/apidocs/discovery#create-credentials){: external}. Record the returned **credential_id** of the newly created credentials.
-2.  Create a new configuration using the [Configuration API](https://{DomainName}/apidocs/discovery#add-configuration){: external}. This configuration must contain a **source** object which defines what should be crawled. The **source** object must contain the **credential_id** that you recorded earlier.
+2.  Create a new configuration, using the **[Add configuration](https://{DomainName}/apidocs/discovery#add-configuration){: external}** API method. To define what to crawl, include a **source** object that contains the **credential_id** that you recorded earlier.
     ```json
     "source" : {
       "type" : "salesforce",
@@ -338,8 +340,10 @@ The following example uses the SharePoint data source.
     Record the returned **configuration_id** of the newly created configuration.
 3.  Create a new collection using the [Collections API](https://{DomainName}/apidocs/discovery#create-a-collection){: external}. The object defining the collection must contain the **configuration_id** that you recorded earlier.
 
-The source crawl begins as soon as the collection is created, and then again on the frequency that you specified.
-**Note:** If you modify anything in the **source** object of the configuration a new crawl will be started (or restarted if one is already running) at that time.
+The source crawl begins as soon as you create the collection. After the initial crawl, all subsequent crawls run on the frequency that you specified.
+
+If you modify anything in the **source** object of the configuration, a new crawl starts at that time or restarts if one is already running.
+{: note}
 
 ### Specifying a `customer_id`
 {: #source_customer_id}
@@ -347,10 +351,10 @@ The source crawl begins as soon as the collection is created, and then again on 
 A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} document can be used to delete content based on the `customer_id` using the **user-data** method in the API. Incoming documents from a data source are not automatically assigned a `customer_id` when ingested. If your application requires a `customer_id` to be defined, you can specify one (or more) of the incoming fields from the source system to be copied and used as a `customer_id`. To do this you must modify the configuration that is being used to connect to the source.
 
 1.  Perform a sample query and identify which field you want to use as a `customer_id`.
-2.  Modify the configuration. You will need to add a **Normalization** section in order to create the `customer_id` field.
+2.  Modify the configuration. Add a **Normalization** section to create the `customer_id` field.
     -  In the tooling, navigate to your collection and click the **edit** link in the configuration section. Next, click the **Normalization** tab and add in a **copy** normalization to create the `customer_id` field. Then click **Apply & save**.
     ![Copy normalization](images/norm_copy.png)
-    -  When using the API, add the following object to the **normalizations** array:
+    -  When you use the API, add the following object to the **normalizations** array:
        ```json
        {
          "operation" : "copy",
@@ -359,7 +363,7 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
        }
        ```
        {: codeblock}
-3.  The next scheduled crawl will add the `customer_id` field to all documents. If you want to have a crawl start immediately, modify the source configuration (**Sync settings** in the tooling).
+3.  The next scheduled crawl adds the `customer_id` field to all documents. To start a crawl immediately, modify the source configuration (**Sync settings** in the tooling).
 
 See [Information security](/docs/discovery?topic=discovery-information-security) for more information and information about deleting based on `customer_id`.
 
@@ -367,15 +371,15 @@ See [Information security](/docs/discovery?topic=discovery-information-security)
 {: #gateway}
 
 <!-- Learn more topic WDS -->
-To connect to an on-premises data source, you first need to download, install, and configure IBM Secure Gateway. After you have installed IBM Secure Gateway for your first on-premises data source, you won't need to repeat this process.
+To connect to an on-premises data source, you first need to download, install, and configure {{site.data.keyword.SecureGatewayfull}}. After you install {{site.data.keyword.SecureGatewayfull}} for your first on-premises data source, you won't need to repeat this process.
 
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
 1.  Select the data source that you want to connect to. When you select an on-premises data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
-1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of IBM Secure Gateway.
-1.  After you have completed the download, click the **Download Secure Gateway and Continue** button. During installation, you will need the **Gateway ID** and **Token** provided on the screen when prompted by the Secure Gateway Client. See [Installing the client](https://cloud.ibm.com/docs/services/SecureGateway?topic=securegateway-client-install#installing-the-client){: external} in the Secure Gateway documentation for installation instructions.
+1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of {{site.data.keyword.SecureGatewayfull}}.
+1.  After you complete the download, click **Download Secure Gateway and Continue**. When prompted, enter the **Gateway ID** and **Token** that are displayed. For more information about installation, see [Installing the client](/docs/services/SecureGateway?topic=securegateway-client-install#installing-the-client).
 1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
 1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `mycompany.sharepoint.com` and port: `80`.
-1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful you will see the `Connection successful` message. If the connection was not successful, open the Secure Gateway dashboard and verify that the endpoints on the **Allow access** list are correct.
+1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful, a `Connection successful` message displays. If the connection was not successful, open the {{site.data.keyword.SecureGatewayfull}} dashboard, and verify that the endpoints on the **Allow access** list are correct.
 
 After the connection is successful you can begin entering the credentials for your on-premises data source.
 

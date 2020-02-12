@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -46,7 +46,7 @@ Size | Number of Docs\* | Price
 ------ | ------ | ------
 N/A | 1,000 docs total | Free
 
-The Lite plan is a starter plan and should not be used for production. When you upgrade to a paid plan, you can keep all ingested documents.  Lite plan instances are deleted after 30 days of inactivity.
+The Lite plan is a starter plan, so do not use it in your production environment. When you upgrade to a paid plan, you can keep all ingested documents.  Lite plan instances are deleted after 30 days of inactivity.
 
 Attributes:
 - 1 environment
@@ -66,7 +66,7 @@ For query performance information, see [Query performance](/docs/discovery?topic
 ## Advanced
 {: #advanced}
 
-When choosing an Advanced Plan size, note that resources are required for both document storage and querying. Therefore, you may require a larger environment if you are close to the maximum document limit for a plan size and also have the following requirements:
+When choosing an Advanced Plan size, note that resources are required for both document storage and querying. Therefore, you might require a larger environment if you are close to the maximum document limit for a plan size and also have the following requirements:
 
 -  Higher query performance requirements (for example, using relevancy training)
 -  You anticipate a large number of concurrent users
@@ -88,7 +88,7 @@ XXX-Large | Up to 100M docs total | Starting at $45,000 per month
 
 X-Small is the smallest environment available, and is recommended for development and testing only.\*\*\*\*
 
-Moving from one level of Advanced to another does not require the creation of new instances. New instances will be required if switching from an Advanced to a Premium plan. For information about upgrading from one tier of Advanced to another, see [Moving from one Advanced tier to another](/docs/discovery?topic=discovery-upgrading-your-plan).
+Moving from one level of Advanced to another does not require the creation of new instances. New instances are required if switching from an Advanced to a Premium plan. For information about upgrading from one tier of Advanced to another, see [Moving from one Advanced tier to another](/docs/discovery?topic=discovery-upgrading-your-plan).
 
 \*\*\*\*Attributes of X-Small plans:
 - 1 environment
@@ -112,13 +112,13 @@ Over 100,000 queries (per month): $0.03 per query<br>
 
 `-----`
 <br>
-\* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it has gone through conversion and enrichment, so document size may change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://{DomainName}/apidocs/discovery#get-environment-info) or [Collections](https://{DomainName}/apidocs/discovery#get-collection-details) API, or by using the tooling. If your documents are on average larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation) on your documents, each segment counts as a separate document.
+\* The document limit assumes an average document size of 100KB on disk. Document size is calculated after it goes through conversion and enrichment, so document size might change significantly from the original input. You can view the number of documents stored and the total amount of storage used by either using the [Environments](https://{DomainName}/apidocs/discovery#get-environment-info) or [Collections](https://{DomainName}/apidocs/discovery#get-collection-details) API, or by using the tooling. If your documents are, on average, larger than 100KB on disk, you will hit the storage limit of a plan before the maximum document limit. If you perform [document segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation) on your documents, each segment counts as a separate document.
 
 \*\* The [{{site.data.keyword.nlufull}} enrichments](/docs/discovery?topic=discovery-configservice#adding-enrichments) are: Entity Extraction, Sentiment Analysis, Category Classification, Concept Tagging, Keyword Extraction, Relation Extraction, Emotion Analysis, Element Classification, and Semantic Role Extraction.  Only the first 50,000 characters of each document are enriched.
 
 \*\*\* Element Classification is an enrichment that parses through governing documents to convert, identify, and classify elements of importance. It uses Natural Language Processing to extract the following elements from PDF documents: party (who it refers to), nature (type of element), and category (specific class).
 
-To take advantage of the new environment sizing options (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), you must use the API version date of `2018-08-01` or later when creating environments with the API. The environment sizes now have the type of `string` (previously the type was `integer`.)
+To take advantage of the new string environment sizing values (`LT`, `XS`, `S`, `MS`, `M`, `ML`, `L`, `XL`, `XXL`, `XXXL`), use the version date of `2018-08-01` or later in your API request when you create an environment. Before version `2018-08-01`, the value was an `integer`.
 {: note}
 
 ## Premium
@@ -140,8 +140,8 @@ For additional pricing information, see the [{{site.data.keyword.discoveryshort}
 ## Notes for Customers with Existing Plans
 {: #pricingnotes}
 
-- Beginning **August 1, 2018**, your billing and usage will be based on this pricing plan.
-- The Lite plan has been reduced from 2,000 documents/400 {{site.data.keyword.discoverynewsshort}} queries per month to 1,000 documents/200 {{site.data.keyword.discoverynewsshort}} queries per month.  If you have already exceeded the new Lite plan limits, you can't add any more documents. However, you can continue using it or upgrade to an Advanced or Premium plan.
-- The Standard plan has been retired and will no longer be available to new users. If you are currently on an existing Standard plan, you can continue using it or upgrade to an Advanced or Premium plan.
-- The Advanced and Premium plans are now based on document tiers, they are no longer based on document hours. Your monthly bill will not fluctuate based on the number of documents unless you switch between tiers.
+- Beginning **1 August 2018**, your billing and usage is based on this pricing plan.
+- The Lite plan is now reduced from 2,000 documents/400 {{site.data.keyword.discoverynewsshort}} queries per month to 1,000 documents/200 {{site.data.keyword.discoverynewsshort}} queries per month.  If you already exceeded the new Lite plan limits, you cannot add any more documents. However, you can continue using it or upgrade to an Advanced or Premium plan.
+- The Standard plan is retired and is no longer available to new users. If you are currently on an existing Standard plan, you can continue using it or upgrade to an Advanced or Premium plan.
+- The Advanced and Premium plans are now based on document tiers. They are no longer based on document hours. Your monthly bill will not fluctuate, based on the number of documents, unless you switch between tiers.
 - Premium customers, contact [Sales](https://ibm.biz/contact-wdc-premium){: external} for details on billing changes.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-07"
 
 subcollection: discovery
 
@@ -39,7 +39,7 @@ subcollection: discovery
 
 Search parameters enable you to search your collection, identify a result set, and perform analysis on the result set.
 
-The **results set** is the group of documents identified by the combined searches of the search parameters. The results set may be significantly larger than the returned results. If an empty query is performed, the results set is equal to all the documents in the collection.
+The **results set** is the group of documents identified by the combined searches of the search parameters. The results set might be significantly larger than the returned results. If an empty query is performed, the results set is equal to all the documents in the collection.
 
 ## query
 {: #query}
@@ -57,10 +57,10 @@ A cacheable query that excludes any documents that don't mention the query conte
 <!-- Learn more topic WDS -->
 If you test the same search term on a small data set, you might find that the `filter` and `query` parameters return very similar (if not identical) results. However, there is a difference between the two parameters.
 
-- Using a filter parameter alone will return search results in no specific order.
-- Using a query parameter alone will return search results in order of relevance.
+- Using a filter parameter alone returns search results in no specific order.
+- Using a query parameter alone returns search results in order of relevance.
 
-In large data sets, if you need results returned in order of relevance, you should combine the `filter` and `query` parameters, because using them together will improve performance. This is because the `filter` parameter will run first and cache results, then the `query` parameter will rank them. For an example of using filters and queries together, see [Building combined queries](/docs/discovery?topic=discovery-query-concepts#building-combined-queries). Filters can also be used in aggregations.
+In large data sets, if you need results returned in order of relevance, it is advisable that you combine the `filter` and `query` parameters because using them together improves performance. The reason is because the `filter` parameter runs first and caches results, and then the `query` parameter ranks them. For an example of using filters and queries together, see [Building combined queries](/docs/discovery?topic=discovery-query-concepts#building-combined-queries). Filters can also be used in aggregations.
 
 When you write a query that includes both a `filter`, and an `aggregation`, `query`, or `natural_language_query` parameter; the `filter` parameters run first, after which any `aggregation`, `query`, or `natural_language_query` parameters run in parallel.
 
@@ -74,11 +74,11 @@ Aggregation queries return a count of documents matching a set of data values; f
 ## natural_language_query
 {: #nlq}
 
-A natural language query enables you to perform queries expressed in natural language, as might be received from an end user in a conversational or free-text interface - for example: "IBM Watson in healthcare". The parameter uses the entire input as the query text. It does **not** recognize operators. The `natural_language_query` parameter enables capabilities such as passage search and relevancy training. All private collections will return a `confidence` score in the query results in most cases. See [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence) for details. The maximum query string length for a natural language query is `2048`.
+A natural language query enables you to perform queries expressed in natural language, as might be received from an end user in a conversational or free-text interface - for example: "IBM Watson in healthcare". The parameter uses the entire input as the query text. It does **not** recognize operators. The `natural_language_query` parameter enables capabilities such as passage search and relevancy training. All private collections return a `confidence` score in the query results in most cases. For details, see [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence). The maximum query string length for a natural language query is `2048`.
 
 **Structure parameters**
 
-Structure parameters define the content and organization of the documents in the returned JSON. This includes the number of results retuned, where in the results set to start returning documents, how the result set is sorted, which fields to return for each documents, if duplicate documents should be removed, and if relevant passages should be extracted from the results set. Structure parameters don't affect which documents are part of the entire results set.
+Structure parameters define the content and organization of the documents in the returned JSON. This includes the number of results retuned, where in the results set to start returning documents, how the result set is sorted, which fields to return for each documents, if duplicate documents must be removed, and if relevant passages must be extracted from the results set. Structure parameters don't affect which documents are part of the entire results set.
 
 ## count
 {: #count}
@@ -105,7 +105,7 @@ The `sort` parameter is currently available for use only with the API; it is not
 ## bias
 {: #bias}
 
-Adjusts search results to bias towards certain results, for example, documents that were published most recently. `bias` must be set to either a `date` type field or a `number` type field, for example `bias=publication_date` or `bias=field_1`.  When a `date` type field is specified, returned results will be biased towards field values closer to the current date. When a `number` type field is specified, returned results will be biased towards higher field values. This parameter cannot be used in the same query as the `sort` parameter.
+Adjusts search results to bias towards certain results, for example, documents that were published most recently. `bias` must be set to either a `date` type field or a `number` type field, for example `bias=publication_date` or `bias=field_1`.  When a `date` type field is specified, returned results are biased towards field values closer to the current date. When a `number` type field is specified, returned results are biased towards higher field values. This parameter cannot be used in the same query as the `sort` parameter.
 
 The `bias` parameter is currently available for use only with the API; it is not available through the tooling.
 
@@ -117,9 +117,9 @@ A boolean that specifies whether the service returns a set of the most relevant 
 The `passages` parameter can only be used on private collections. It cannot be used on the {{site.data.keyword.discoverynewsfull}} collection.
 {: tip}
 
-{{site.data.keyword.discoveryshort}} attempts to return passages that start at the beginning of a sentence and stop at the end using sentence boundary detection. To do so, it first searches for passages approximately the length specified in the [`passages.characters` parameter](/docs/discovery?topic=discovery-query-parameters#passages_characters) (default `400`). It then expands each passage to the limit of twice the specified length in order to return full sentences. If your `passages.characters` parameter is short and/or the sentences in your documents are very long there may be no sentence boundaries close enough to return the full sentence without going over twice the requested length. In that case, {{site.data.keyword.discoveryshort}} stays within the limit of twice the `passages.characters` parameter, so the passage returned will not include the entire sentence and omit the beginning, end, or both.
+{{site.data.keyword.discoveryshort}} attempts to return passages that start at the beginning of a sentence and stop at the end using sentence boundary detection. To do so, it first searches for passages approximately the length specified in the [`passages.characters` parameter](/docs/discovery?topic=discovery-query-parameters#passages_characters). The default is `400`. It then expands each passage to the limit of twice the specified length to return full sentences. If your `passages.characters` parameter is short and/or the sentences in your documents are very long, there might be no sentence boundaries close enough to return the full sentence without going over twice the requested length. In that case, {{site.data.keyword.discoveryshort}} stays within the limit of twice the `passages.characters` parameter, so the passage returned does not include the entire sentence and omits the beginning, end, or both.
 
-Since sentence boundary adjustments expand passage size, you will see a substantial increase in average passage length. If your application has limited screen space, you may want to set a smaller value for `passages.characters` and/or truncate the passages that are returned by {{site.data.keyword.discoveryshort}}. Sentence boundary detection works for all supported languages and uses language-specific logic.
+Because sentence boundary adjustments expand passage size, there is a substantial increase in average passage length. If your application has limited screen space, you might want to set a smaller value for `passages.characters` and/or truncate the passages that are returned by {{site.data.keyword.discoveryshort}}. Sentence boundary detection works for all supported languages and uses language-specific logic.
 
 You can adjust the fields in the documents over which passage retrieval searches with the [`passages.fields`](/docs/discovery?topic=discovery-query-parameters#passages_fields) parameter.
 
@@ -132,7 +132,7 @@ The `passages` parameter returns matching passages (`passage_text`), as well as 
 
 Replace `{apikey}` and `{url}` with your API key and URL.
 
-The JSON that is returned will be of the following format:
+The returned JSON is in the following format:
 
 ```json
  {
@@ -161,17 +161,17 @@ The JSON that is returned will be of the following format:
 ### passages.fields
 {: #passages_fields}
 
-A comma-separated list of fields in the index that passages will be drawn from. If this parameter not specified then all top level field are included.
+A comma-separated list of fields in the index that passages are drawn from. If this parameter not specified then all top level field are included.
 
 ### passages.count
 {: #passages_count}
 
-The maximum number of passages to return. The search will return fewer passages if that is the total number found. The default is `10`. The maximum is `100`.
+The maximum number of passages to return. The search returns fewer passages if that is the total number found. The default is `10`. The maximum is `100`.
 
 ### passages.characters
 {: #passages_characters}
 
-The approximate number of characters that any one passage should have. The default is `400`. The minimum is `50`. The maximum is `2000`. Passages returned may be up to twice the requested length (if necessary) to get them to begin and end at sentence boundaries.
+The approximate number of characters that any one passage must have. The default is `400`. The minimum is `50`. The maximum is `2000`. Passages returned might be up to twice the requested length, if necessary, to get them to begin and end at sentence boundaries.
 
 ## highlight
 {: #highlight}
@@ -187,7 +187,7 @@ curl -u "apikey":"{apikey_value}" "{url}/v1/environments/{environment_id}/collec
 
 Replace `{apikey}` and `{url}` with your API key and URL.
 
-The JSON that is returned will be of the following format:
+The returned JSON is in the following format:
 
 ```json
 {
@@ -237,11 +237,13 @@ A beta capability that excludes duplicate documents from your query results base
 
 If you are querying the {{site.data.keyword.discoverynewsfull}} collection, or your private data collection contains multiple identical (or near-identical) documents, you can exclude most of them from your query results using document deduplication.
 
-**Note:** Document deduplication is currently supported only as a beta capability. See [Beta features](/docs/discovery?topic=discovery-release-notes#beta-features) in the Release notes for more information. This beta feature is currently supported in English only, see [Language support](/docs/discovery?topic=discovery-language-support#feature-support) for details.
+Document deduplication is currently supported only as a beta capability. For more information, see [Beta features](/docs/discovery?topic=discovery-release-notes#beta-features) in the release notes. This beta feature is currently supported in English only. For details, see [Language support](/docs/discovery?topic=discovery-language-support#feature-support).
+{: note}
 
-**Note:**  Each query is deduplicated independently, so deduplication across offsets is not supported.
+Each query is deduplicated independently, so deduplication across offsets is not supported.
+{: note}
 
-Deduplication is performed after `passages` are extracted and aggregations are calculated, so if you include the `passages` parameter in your query, passages will be returned from all documents in the query results, before deduplication. If you run an aggregation and query together, the aggregation results will include data from all documents returned, before deduplication.
+Deduplication is performed after `passages` are extracted and aggregations are calculated, so if you include the `passages` parameter in your query, passages are returned from all documents in the query results, before deduplication. If you run an aggregation and query together, the aggregation results include data from all documents returned, before deduplication.
 
 Deduplication is performed on returned fields only. If you choose to specify the `return=` in your query, include the field you are deduplicating on.
 
@@ -257,7 +259,7 @@ When deduplicating, the JSON response includes `"duplicates_removed": x`, where 
 #### Deduplicating documents in Watson Discovery News
 {: #deduplicatewds}
 
-News articles may be syndicated to several news outlets and {{site.data.keyword.discoverynewsfull}} will pick up each of them, resulting in duplicate articles. This means that a query to {{site.data.keyword.discoverynewsfull}} may potentially return several identical or nearly identical articles in query results. Using deduplication will remove most duplicate articles from your search queries.
+News articles might be syndicated to several news outlets, and {{site.data.keyword.discoverynewsfull}} picks up each of them, resulting in duplicate articles. Because {{site.data.keyword.discoverynewsfull}} has articles that might be syndicated to several news outlets, a query to {{site.data.keyword.discoverynewsfull}} might potentially return several identical or nearly identical articles in query results. Using deduplication removes most duplicate articles from your search queries.
 
 {{site.data.keyword.discoveryshort}} deduplicates by using approximate matching on the `title` field and therefore a field doesn't need to be specified.
 
@@ -278,7 +280,7 @@ If you prefer to deduplicate on a field other than `title`, use the following sy
 ## collection_ids
 {: #collection_ids}
 
-A comma-separated list of collections in the same environment that will be queried. This parameter is only valid when using the `environments/{environment_id}/query?` method. See [Querying multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections) for more information.
+A comma-separated list of collections in the same environment to be queried. This parameter is only valid when using the `environments/{environment_id}/query?` method. See [Querying multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections) for more information.
 
 ```bash
 &collection_ids={id1},{id2}
@@ -288,7 +290,7 @@ A comma-separated list of collections in the same environment that will be queri
 ## similar
 {: #similar}
 
-Document similarity identifies documents that are similar to the documents listed in the `similar.document_ids` parameters. This can be further refined by specifing which fields will be considered for comparison using the `similar.fields` parameters. The default is `false`. See [Document similarity](/docs/discovery?topic=discovery-query-concepts#doc-similarity) for more information.
+Document similarity identifies documents that are similar to the documents listed in the `similar.document_ids` parameters, which can be further refined by specifing which fields to consider for comparison, using the `similar.fields` parameters. The default is `false`. See [Document similarity](/docs/discovery?topic=discovery-query-concepts#doc-similarity) for more information.
 
 ```bash
 &similar=true
@@ -298,7 +300,7 @@ Document similarity identifies documents that are similar to the documents liste
 ### similar.document_ids
 {: #similar_document_ids}
 
-A comma-separated list of document IDs that will be used as a basis for finding similar documents as results. This parameter is required if the `similar` parameter is set to `true`.
+A comma-separated list of document IDs that is used as a basis for finding similar documents as results. This parameter is required if the `similar` parameter is set to `true`.
 
 ```bash
 &similar.document_ids={id1},{id2}
@@ -308,7 +310,7 @@ A comma-separated list of document IDs that will be used as a basis for finding 
 ### similar.fields
 {: #similar_fields}
 
-An optional, comma-separated list of fields that will be used to compare documents to find similar documents. This parameter can only be used in conjunction with the `similar.document_ids` parameter.
+An optional, comma-separated list of fields that is used to compare documents to find similar documents. This parameter can only be used in conjunction with the `similar.document_ids` parameter.
 
 ```bash
 &similar.fields={field1},{field2}

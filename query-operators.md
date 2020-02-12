@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -187,7 +187,7 @@ enriched_text.entities.text:ib*
 ## ~n \[String variation\]
 {: #variation}
 
-The number of one character changes that need to be made to one string to make it the same as another string. For example `car~1` will match `car`,`cap`,`cat`,`can`, etc.
+The number of one-character changes to make one string match another. For example, `car~1` matches `car`,`cap`,`cat`,`can`, and so on.
 
 For example:
 ```bash

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-02-07"
 
 subcollection: discovery
 
@@ -43,9 +43,9 @@ The Data Crawler collects the raw data that is eventually used to form search re
 
 -   Java Runtime Environment version 8 or higher
 
-    Your `JAVA_HOME` environment variable must be set correctly, or not be set at all, in order to run the Crawler.
+    Your `JAVA_HOME` environment variable must be set correctly, or not be set at all, to run the Crawler.
     {: tip}
--   Red Hat Enterprise Linux 6 or 7, or Ubuntu Linux 15 or 16. For optimal performance, the Data Crawler should run on its own instance of Linux, whether it is a virtual machine, a container, or hardware.
+-   Red Hat Enterprise Linux 6 or 7, or Ubuntu Linux 15 or 16. For optimal performance, the Data Crawler must run on its own instance of Linux, whether it is a virtual machine, a container, or hardware.
 
 -   Minimum 2 GB RAM on the Linux system
 
@@ -60,7 +60,7 @@ The Data Crawler collects the raw data that is eventually used to form search re
 
 1.  Verify that you are running Java Runtime Environment version 8 or higher. Run the command `java -version`, and look for **1.8**. If you are running something earlier than **1.8**, you need to upgrade Java by installing the Java Developer Kit (JDK) 8 from your package management system, from the [IBM JDK](https://developer.ibm.com/javasdk/downloads/){: external} website, or from [java.com](http://www.java.com){: external}.
 
-    Your `JAVA_HOME` environment variable must be set correctly, or not be set at all, in order to run the Crawler.
+    Your `JAVA_HOME` environment variable must be set correctly, or not be set at all, to run the Crawler.
     {: tip}
 
 1.  As an administrator, use the appropriate commands to install the archive file that you downloaded:
@@ -73,9 +73,11 @@ The Data Crawler collects the raw data that is eventually used to form search re
     {: tip}
 1.  Create your working directory by copying the contents of the `{installation_directory}/share/examples/config` directory to a working directory on your system, for example `/home/config`.
 
-    **Warning:** Do not modify the provided configuration example files directly. Copy and then edit them. If you edit the example files in-place, your configuration may be overwritten when upgrading the Data Crawler, or may be removed when uninstalling it.
+    Do not modify the provided configuration example files directly. Copy and then edit them. If you edit the example files in-place, your configuration might be overwritten when upgrading the Data Crawler, or it might be removed when uninstalling it.
+    {: important}
 
-    **Note:** References in the rest of this guide to files in the `config` directory, such as `config/crawler.conf`, refer to that file in your working directory, and NOT in the installed `{installation_directory}/share/examples/config` directory.
+    References in the rest of this guide to files in the `config` directory, such as `config/crawler.conf`, refer to that file in your working directory, not in the installed `{installation_directory}/share/examples/config` directory.
+    {: note}
 
 1.  You are now ready to [configure the Data Crawler to connect to your repository](/docs/discovery?topic=discovery-configuring-connector-and-seed-options).
 
@@ -90,12 +92,12 @@ The Data Crawler download places the following folders on your system:
 -   `lib` - Library files used by the crawler.
 -   `share`
     -   `doc` - Provides both HTML and Markdown-formatted documentation files.
-    -   `examples/config` - Files that let you tell the crawler which data to use for its crawl, where to send your collection of crawled data once the crawl has been completed, and other crawl management options.
+    -   `examples/config` - Files that let you tell the crawler which data to use for its crawl, where to send your collection of crawled data after the crawl finishes, and other crawl management options.
     -   `man` - In-product manual page crawler documentation.
 
 ## Known limitations in this release
 {: #dc-limitations}
 
--   The Data Crawler may hang when running the Filesystem connector with an invalid or missing URL.
+-   The Data Crawler might hang when running the Filesystem connector with an invalid or missing URL.
 -   Configure the `urls_to_filter` value in the `crawler.conf` file, such that all the whitelist URLs or RegExes are included in a single RegEx expression. See [Configuring crawl options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options) for more information.
 -   The path to the configuration file passed in the `--config -c` option must be a qualified path. That is, it must be in the relative formats `config/crawler.conf` or `./crawler.conf`, or absolute path `/path/to/config/crawler.conf`. Specifying just `crawler.conf` is only possible if the `orchestration_service.conf` file is in-lined instead of referenced using `include` in the `crawler.conf` file.

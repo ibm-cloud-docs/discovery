@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -100,7 +100,7 @@ Converting documents takes the original source format and using one or more step
 If you use [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) to create your collection, the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
-These options are described in the following sections. After conversion has completed, [enrichment](#enrichment) and [normalization](#normalization) are performed before the content is stored.
+These options are described in the following sections. After conversion completes, [enrichment](#enrichment) and [normalization](#normalization) are performed before the content is stored.
 
 ### PDF
 {: #pdf}
@@ -108,7 +108,7 @@ These options are described in the following sections. After conversion has comp
 If you use [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) to create your collection, the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
-The `pdf` conversion object defines how PDF documents should be converted into HTML and has the following structure:
+The `pdf` conversion object defines the conversion from PDF to HTML and has the following structure:
 
 ```json
 "pdf": {
@@ -136,7 +136,7 @@ The `pdf` conversion object defines how PDF documents should be converted into H
 ```
 {: codeblock}
 
-When converting PDF files headings in those files can be identified (and converted into an appropriate HTML "`h`" tag) by identifying the size, font and style of each heading level. Heading levels can be specified multiple times if necessary in order to correctly identify all relevant sections. HTML heading levels are important to identify if you plan on extracting the contents using CSS selectors, or intend to split the document using document splitting. The `heading` object contains the `fonts` array and each item in that array specifies a heading level using the following parameters:
+When converting PDF files, headings in those files can be identified and converted into an appropriate HTML "`h`" tag by identifying the size, font, and style of each heading level. Heading levels can be specified multiple times, if necessary, to correctly identify all relevant sections. HTML heading levels are important to identify, if you plan on extracting the contents, using CSS selectors, or if you intend to split the document, using document splitting. The `heading` object contains the `fonts` array and each item in that array specifies a heading level, using the following parameters:
 
 - `"level": INT` - *required* - the HTML `h` level that text identified with these parameters are converted into.
 - `"min_size": INT` - _optional_ - the smallest font size that is identified as this heading level.
@@ -145,7 +145,7 @@ When converting PDF files headings in those files can be identified (and convert
 - `"italic": boolean` - _optional_ - When `true` only italic fonts are identified as this heading level.
 - `"name": "string"` - _optional_ - The name of the font that is identified as this heading level.
 
-For an area of text to be identified as a heading it must match all of the parameters defined in the specific array item. If the parameters defined are too flexible, you may have more headings identified than you anticipated. Your results are better if you strictly define each heading level multiple times to ensure all heading level variations are included without invalid matches.
+For an area of text to be identified as a heading it must match all of the parameters defined in the specific array item. If the parameters defined are too flexible, you might have more headings identified than you anticipated. Your results are better if you strictly define each heading level multiple times to ensure all heading level variations are included without invalid matches.
 
 
 ### Word
@@ -154,7 +154,7 @@ For an area of text to be identified as a heading it must match all of the param
 If your collection was created using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
-The `word` conversion object defines how PDF documents should be converted into HTML and has the following structure:
+The `word` conversion object defines how to convert PDF documents into HTML and has the following structure:
 
 ```json
 "word": {
@@ -207,14 +207,14 @@ Each item in the `fonts` array specifies a heading level using the following par
 - `"italic": boolean` - _optional_ - When `true` only italic fonts are identified as this heading level.
 - `"name": "string"` - _optional_ - The name of the font that is identified as this heading level.
 
-For an area of text to be identified as a heading in the `font` array it must match all of the parameters defined in the specific array item. If the parameters defined are too flexible, you may have more headings identified than you anticipated. Your results are better if you strictly define each heading level multiple times to ensure all heading level variations are included without invalid matches.
+For an area of text to be identified as a heading in the `font` array it must match all of the parameters defined in the specific array item. If the parameters defined are too flexible, you might have more headings identified than you anticipated. Your results are better if you strictly define each heading level multiple times to ensure all heading level variations are included without invalid matches.
 
 Each item in the `styles` array specifies a heading level from the Microsoft Word styles that are applied to that paragraph.
 
 - `"level": INT` - *required* - the HTML `h` level that text identified with these parameters are converted into.
 - `"names": array` - *required* - a comma separated array of style names that is identified as this heading level.
 
-*When to use fonts and when to use styles* - If your Microsoft Word documents conform well to the style sheet with each paragraph correctly tagged with the appropriate style, then it is recommended that you use `styles` to extract headings. However, you may find that some documents have styles that have been manually overwritten by the writer. These documents are more likely to provide good conversion when the `fonts` extraction method is used.
+*When to use fonts and when to use styles* - If your Microsoft Word documents conform well to the style sheet with each paragraph correctly tagged with the appropriate style, then it is recommended that you use `styles` to extract headings. However, you might find that some documents have styles that the writer overwrote. These documents are more likely to provide good conversion when the `fonts` extraction method is used.
 {: tip}
 
 
@@ -284,7 +284,7 @@ Each item in the `styles` array specifies a heading level from the Microsoft Wor
 
 `"exclude_tag_attributes" : array` - An array of HTML attribute names that are removed by the conversion regardless of which HTML tag they are present in. 
 
-You receive an error message if you specify both `exclude_tag_attributes` and `keep_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `keep_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
+You receive an error message if you specify both `exclude_tag_attributes` and `keep_tag_attributes` in the same configuration - only one can be specified per configuration. If present, `keep_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
 {: note}
 
 #### keep_tag_attributes
@@ -292,7 +292,7 @@ You receive an error message if you specify both `exclude_tag_attributes` and `k
 
 `"keep_tag_attributes" : array` - An array of HTML attribute names that are retained by the conversion.
 
-You receive an error message if you specify both `keep_tag_attributes` and `exclude_tag_attributes` in the same configuration - only one may be specified per configuration. If present, `exclude_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
+You receive an error message if you specify both `keep_tag_attributes` and `exclude_tag_attributes` in the same configuration - only one can be specified per configuration. If present, `exclude_tag_attributes` must be completely removed from the configuration; it cannot be present as an empty array.
 {: note}
 
 #### extracted_fields
@@ -467,7 +467,7 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
   When you use the `elements` enrichment, it is important to follow the guidelines specified in [Element Classification](/docs/discovery?topic=discovery-element-classification) documentation. Specifically, only PDF files can be ingested when this enrichment is specified.
   {: note}
 
-- `"source_field" : string` - *required* - The source field to be enriched. This field must exist in your source after the `json_normalizations` operation has completed.
+- `"source_field" : string` - *required* - The source field to be enriched. This field must exist in your source after the `json_normalizations` operation completes.
 - `"destination_field" : string` - *required* - The name of the container object where enrichments are created.
 
   Field names defined in your configuration must meet the restrictions defined in [Field Name Requirements](#field_reqs).
@@ -557,7 +557,7 @@ The `relations` enrichment extracts known relationships between identified entit
 ## Normalization
 {: #normalization}
 
-`normalizations` is an array of JSON `operation` objects that are used to clean the ingested JSON after the `enrichments` have been applied and before it is stored.
+The `normalizations` array is an array of JSON `operation` objects that are used to clean the ingested JSON after the `enrichments` are applied and before it is stored.
 
 ```json
 "normalizations": [
@@ -593,4 +593,4 @@ Field names cannot contain spaces. The following characters and strings are rese
 
 The characters `_`, `+`, and `-` cannot be used to prefix the `field_name`
 
-Numerical characters `0 - 9` should not be the suffix of a field name (for example `extracted-content2`). These field names are indexed, but cannot be queried.
+Do not append numerical characters `0 - 9` to a field name, for example `extracted-content2`. These field names are indexed but cannot be queried.

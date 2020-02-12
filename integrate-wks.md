@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -142,7 +142,7 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
     ```
     {: pre}
 
-    **Note:** If you are creating a new configuration, or modifying the default configuration, you will need to create a new custom configuration instead of updating an existing configuration. Before creating a new configuration, make sure that the `"configuration_id":` field is removed from your `my_config.json` file and then run the following command:
+    If you are creating a configuration or modifying the default configuration, create another custom configuration instead of updating an existing configuration. Before you create the configuration, remove the `"configuration_id":` field from your `my_config.json` file, and then run the following command:
 
     ```bash
     curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: application/json" -d @my_config.json "{url}/v1/environments/{environment_id}/configurations?version=2019-04-30"
@@ -158,9 +158,9 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 
 You can apply more than one custom model to identical fields using the API. Follow the steps in [Integrating your custom model with the API](/docs/discovery?topic=discovery-integrating-with-wks#integrate-customAPI) and use the example here as a guide. 
 
-You cannot apply multiple custom models using the {{site.data.keyword.discoveryshort}} tooling. Only the entity and relations enrichments may be customized.
+You cannot apply multiple custom models using the {{site.data.keyword.discoveryshort}} tooling. Only the entity and relations enrichments can be customized.
 
-You must specify a different `destination_field` for each identical `source_field`. In addition, each `source_field` must be enriched by a unique model. For example, if you want to apply multiple custom models to the `source_field` of `text`, and you apply the `model` `{watson_knowledge_studio_model_ID}` to the `entities` enrichment, you should not use that model again for the `entities` enrichment.
+You must specify a different `destination_field` for each identical `source_field`. In addition, each `source_field` must be enriched by a unique model. For example, if you want to apply multiple custom models to the `source_field` of `text` and you apply the `model` `{watson_knowledge_studio_model_ID}` to the `entities` enrichment, you must not use that model again for the `entities` enrichment.
 {: tip}
 
 
@@ -207,13 +207,17 @@ You can integrate a {{site.data.keyword.knowledgestudioshort}} custom model into
 You cannot apply multiple custom models to the same field using the {{site.data.keyword.discoveryshort}} tooling. It is possible to apply more than one custom model to identical fields using the API. See [Integrating your custom model with the API](/docs/discovery?topic=discovery-integrating-with-wks#integrate-customAPI).
 
 1. Get the `Model ID` of your {{site.data.keyword.knowledgestudioshort}} model.
-1. In the {{site.data.keyword.discoveryshort}} tooling, click the **Manage Data** icon to open the **Manage data** screen, then create or open a collection. **Note:** If you choose an existing collection, it should be empty. If not, you should reingest those documents after creating your new configuration file.
+1. In the {{site.data.keyword.discoveryshort}} tooling, click the **Manage Data** icon to open the **Manage data** screen, then create or open a collection.
+
+If you choose an existing collection, it must be empty. If not, reingest those documents, after creating your new configuration file.
+{: note}
+
 1. In the **Configuration** section of the **Manage Data** screen for your collection, click **Switch**, then **Create a New Configuration**. Name the configuration. 
 1. Click **Add enrichments** and select either the **Entity Extraction** or **Relation Extraction** enrichments.
-1. Enter the `Model ID` in the `Custom Model ID` box of the selected enrichment. The custom {{site.data.keyword.knowledgestudiofull}} model will override the default for that enrichment. 
+1. Enter the `Model ID` in the `Custom Model ID` box of the selected enrichment. The custom {{site.data.keyword.knowledgestudiofull}} model overrides the default for that enrichment. 
 1. Click **Apply**, then **Done**.
 
-When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you switch an existing collection to a new configuration file after documents have been uploaded, those uploaded documents will remain converted by the original configuration file. Any documents uploaded after switching the configuration file will use the new configuration file. If you want the **entire** collection to use the new configuration, you will need to create a new collection, choose that new configuration file, and re-upload all the documents.
+When documents are uploaded to a data collection, they are converted and enriched using the configuration file chosen for that collection. If you switch an existing collection to a new configuration file after documents are uploaded, those uploaded documents remain converted by the original configuration file. Any documents uploaded after switching the configuration file use the new configuration file. If you want the **entire** collection to use the new configuration, you must create a new collection, choose that new configuration file, and re-upload all the documents.
 
 ## Next Steps
 {: #wks-nextsteps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -33,7 +33,7 @@ subcollection: discovery
 {: #discovery-archives}
 
 This topic contains information about {{site.data.keyword.discoveryshort}} features that have been replaced with newer options.
-{: tip}
+{: important}
 
 ## AlchemyLanguage enrichments
 {: #AlchemyLanguage-enrichments}

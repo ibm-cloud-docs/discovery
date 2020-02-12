@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-10"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Relevancy training tips
 {: #relevancy-tips}
 
- Answers to common questions about training a collection and explanations of common error and warning messages. For more information on improving the relevancy of natural language queries, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling) and [Improving result relevance with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api).
+ Answers to common questions about training a collection and explanations of common error and warning messages. For more information about improving the relevancy of natural language queries, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling) and [Improving result relevance with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api).
 {: shortdesc}
 
 ## Understanding training
@@ -43,7 +43,7 @@ Answers to common questions about training a collection.
 ### How do I know if my system is trained?
 {: #understanding-system}
 
-Use the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} API command to verify that your system has been trained.  
+Use the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} API method to verify that your system is trained.  
 
 ```bash
 curl -u "apikey":"{apikey_value}" {url}/v1/environments/{environment_id}/collections/{collection_id}?version=2019-04-30"
@@ -63,19 +63,19 @@ Example response:
     "successfully_trained": "2017-02-08T14:18:22.786Z",
     "available": true,
     "notices": 13,
-    "minimum_queries_added": true    
+    "minimum_queries_added": true
     }
 }
 ```
 
-In order to satisfy the requirements for training, the following must all be `true`:
+To satisfy the requirements for training, the following must all be `true`:
 - `minimum_queries_added`
 - `minimum_examples_added`
-- `sufficient_label_diversity`   
+- `sufficient_label_diversity`
 
 In the response:
 - `successfully_trained` is the last time training was successfully completed. 
-- `available: true` indicates that training has occurred and a model is available.
+- `available: true` indicates that training occurred and a model is available.
 - `processing: true` indicates that training is in progress.
 -  If the `data_updated` date is later than the `successfully_trained` date, then a new model has not been trained since a recent data upload.  
 
@@ -106,13 +106,14 @@ Explanations of common error and warning messages.
 ### Warning: `Invalid training data found: The document was not returned in the top 100 search results for the given query, and will not be used for training`
 {: #warning-docnotreturned}
 
-This warning is caused by the `document_ids` in your training data not matching the `document_ids` in a search performed against the collection. You should check your queries, make sure that the `document_id` of the document you are rating is returned in the top 100 results for that query. If it is not, then you might want to check two things:  
+This warning is caused by the `document_ids` in your training data not matching the `document_ids` in a search performed against the collection. Check your queries, and make sure that the `document_id` of the document you are rating is returned in the top 100 results for that query. If it is not, then you might want to check two things:  
 
 - If the document is not returned in the top 100, it might not be a good example of a high-quality result, and you might want to revisit why this document was chosen.  
 
-- If the document is not returned at all, then you should review why it is not returned and see if there is any text in the document that matches portions of the query.  
+- If the document is not returned at all, then review why it is not returned, and see if there is any text in the document that matches portions of the query.  
 
-**Note:** This warning indicates that you might have one or more bad queries, it is not an indication that training will not happen.  
+This warning indicates that you might have one or more bad queries. It is not an indication that training cannot happen.
+{: note}
 
 ### Error: `Invalid training data found: Syntax error when parsing query`
 {: #error-syntax}
@@ -132,12 +133,12 @@ This warning is caused by the `document_ids` in your training data not matching 
 ### Error: `Training data quality standards not met: You will need additional training queries with labeled examples. (To be considered for training, each example must appear in the top 100 search results for its query.)`
 {: #error-labels}
 
-- This means that you need to add more training data in order to train sucessfully. You need at least 49 unique training queries at a minimum, and each one needs at least one rated document. Minimum does not equate to optimal; the size of the collection and other factors can increase the number of training examples needed to meet the minimum.  
+- This error means that you need to add more training data to train successfully. You need at least 49 unique training queries at a minimum, and each one needs at least one rated document. Minimum does not equate to optimal; the size of the collection and other factors can increase the number of training examples needed to meet the minimum.  
 
 ### Error: `Training data quality standards not met: Insufficient number of unique training queries. Expected at least n, but found m.`
 {: #error-notunique}
 
-- In order to meet the minimum training requirements; you need at least 49 unique training queries at a minimum, and each one needs at least one rated document. If you have more than that and are still receiving this error message, you should check your notices for additional errors.  
+- To meet the minimum training requirements, you need at least 49 unique training queries, and each one needs at least one rated document. If you have more than that and are still receiving this error message, check your notices for additional errors.  
 
 ### Error: `Training data quality standards not met: No documents found with non-zero relevance labels.`
 {: #error-relevance}
@@ -147,4 +148,4 @@ This warning is caused by the `document_ids` in your training data not matching 
 ### Error: `Training data quality standards not met: Training examples have no relevance label variety for X queries.`
 {: #error-variety}
 
-- One of the requirements for training is to have sufficient label diversity. This means that if you want to get a well-trained system, you should add not only documents that are the best relevance match, but also documents that are “good” relevant documents. In other words, if you have a scale of 0-4, it helps to have documents rated as 2's and 3's in addition to those rated as 4's. (If you are using the Discovery tooling, documents are rated either Relevant (`10`) or Not relevant (`0`)). At least 25% of the questions must have some label variety.   
+- One of the requirements for training is to have sufficient label diversity, meaning that if you want to get a well-trained system, it is recommended that you not only add documents that are the best relevance match, but also documents that are “good” relevant documents. In other words, if you have a scale of 0-4, it helps to have documents rated as 2's and 3's, in addition to those rated as 4's. If you are using the Discovery tooling, documents are rated either Relevant (`10`) or Not relevant (`0`). At least 25% of the questions must have some label variety.

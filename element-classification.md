@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-07"
 
 subcollection: discovery
 
@@ -64,7 +64,7 @@ This feature is currently supported in English only. For more information, see [
 To classify documents using Element Classification your configuration and source documents must meet the following requirements:
 
 -  Files to be analyzed are in PDF format.
--  The PDF contents are in text form. Documents that have been scanned cannot be parsed, even if they have been OCRed.
+-  The PDF contents are in text form. Scanned documents cannot be parsed, even if they are OCRed.
    
    You can identify a PDF that is in text by opening the document in a PDF viewer and using the  **Text select**  tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
    {: note}
@@ -84,7 +84,7 @@ The **Default Contract Configuration** file was updated on September 25, 2018. I
 
 To use Element Classification, your collection must be configured to meet specific requirements.
 
-The {{site.data.keyword.discoveryshort}} tooling includes a configuration named **Default Contract Configuration** that has been pre-configured to enrich PDF documents with the **Element Classification** enrichment and other required options. You can choose this configuration when you create your collection. The JSON for this configuration is:
+The {{site.data.keyword.discoveryshort}} tooling includes a configuration, named **Default Contract Configuration**, that is pre-configured to enrich PDF documents with the **Element Classification** enrichment and other required options. You can choose this configuration when you create your collection. The JSON for this configuration is:
 
 ```json
  {
@@ -137,9 +137,9 @@ After selecting the `Default Contract Configuration` in the tooling, you can upl
 ## Classified elements
 {: #classified-elements}
 
-After a document has been indexed with Element Classification, it is returned with an `elements` array as part of the searchable document.
+After a document is indexed with Element Classification, it is returned with an `elements` array as part of the searchable document.
 
-Each object in the `elements` array describes an element of the contract that {{site.data.keyword.discoveryshort}} has identified. The following code represents a typical element:
+Each object in the `elements` array describes an element of the contract that {{site.data.keyword.discoveryshort}} identified. The following code represents a typical element:
 
 ```json
  {
