@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-02-13"
 
 subcollection: discovery
 
@@ -36,30 +36,8 @@ subcollection: discovery
 {{site.data.keyword.discoveryshort}} lets you connect to and crawl documents from remote sources.
 {: shortdesc}
 
-You can connect to a data source and pull documents on a schedule (if desired) into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. Each collection can be configured with one data source. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by {{site.data.keyword.discoveryshort}}. The following types of data sources can be crawled:
+You can connect to a data source and pull documents on a schedule (if desired) into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. Each collection can be configured with one data source. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by {{site.data.keyword.discoveryshort}}. 
 
--  [Box](/docs/discovery?topic=discovery-sources#connectbox)
--  [Salesforce](/docs/discovery?topic=discovery-sources#connectsf)
--  [Microsoft SharePoint Online](/docs/discovery?topic=discovery-sources#connectsp)
--  [Microsoft SharePoint 2016 On-Premise](/docs/discovery?topic=discovery-sources#connectsp_op)
--  [Web Crawl](/docs/discovery?topic=discovery-sources#connectwebcrawl)
--  [IBM Cloud Object Storage](/docs/discovery?topic=discovery-sources#connectcos)
-
-Connecting to a data source can be performed using the {{site.data.keyword.discoveryshort}} tooling, or the API. The {{site.data.keyword.discoveryshort}} tooling provides a simplified method of connection that requires less understanding of the source systems, and the API provides a more granular and highly configurable interface which required a greater understanding of the source that you are connecting to. The following process overview let you know which sections of this document to read next:
-
-1.  Read the [General Source Requirements](/docs/discovery?topic=discovery-sources#gen_req).
-2.  Read the requirements specific to your source system:
-    -  [Box](/docs/discovery?topic=discovery-sources#connectbox)
-    -  [Salesforce](/docs/discovery?topic=discovery-sources#connectsf)
-    -  [Microsoft SharePoint Online](/docs/discovery?topic=discovery-sources#connectsp)
-    -  [Microsoft SharePoint 2016 On-Premise](/docs/discovery?topic=discovery-sources#connectsp_op)
-    -  [Web Crawl](/docs/discovery?topic=discovery-sources#connectwebcrawl)
-    -  [IBM Cloud Object Storage](/docs/discovery?topic=discovery-sources#connectcos)
-3.  Read the source configuration instructions based on your configuration choice:
-    -  [Using the tooling](/docs/discovery?topic=discovery-sources#source_tooling)
-    -  [Using the API](/docs/discovery?topic=discovery-sources#source_api)
-
-If you select an on-premises data source, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
 
 ## General Source Requirements
 {: #gen_req}
@@ -83,7 +61,31 @@ Collections created after the release of [SDU](/docs/discovery?topic=discovery-s
 
 \*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned, and the text, if any, is extracted.
 
-## Box
+
+## Available data sources
+{: #available sources}
+
+You can use {{site.data.keyword.discoveryshort}} to crawl from the following data sources:
+
+-  [Box](/docs/discovery?topic=discovery-sources#connectbox)
+-  [Salesforce](/docs/discovery?topic=discovery-sources#connectsf)
+-  [Microsoft SharePoint Online](/docs/discovery?topic=discovery-sources#connectsp)
+-  [Microsoft SharePoint 2016 On-Premise](/docs/discovery?topic=discovery-sources#connectsp_op)
+-  [Web Crawl](/docs/discovery?topic=discovery-sources#connectwebcrawl)
+-  [IBM Cloud Object Storage](/docs/discovery?topic=discovery-sources#connectcos)
+
+Connecting to a data source can be performed using the {{site.data.keyword.discoveryshort}} tooling, or the API. The {{site.data.keyword.discoveryshort}} tooling provides a simplified method of connection that requires less understanding of the source systems, and the API provides a more granular and highly configurable interface which required a greater understanding of the source that you are connecting to. The following process overview let you know which sections of this document to read next:
+
+1.  Read the [General Source Requirements](/docs/discovery?topic=discovery-sources#gen_req).
+2.  Read the requirements for your data source. For the available data sources, see the list above.
+3.  Read the instructions to connect to {{site.data.keyword.discoveryshort}} by using one of the following methods:
+    -  [Using the tooling](/docs/discovery?topic=discovery-sources#source_tooling)
+    -  [Using the API](/docs/discovery?topic=discovery-sources#source_api)
+
+If you select an on-premises data source, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
+
+
+### Box
 {: #connectbox}
 
 <!-- Learn more topic WDS -->
@@ -98,7 +100,7 @@ You'll need to create a new Box custom application to connect to {{site.data.key
 If there is a Box update, the steps to set up Box access might change. For more information, see the [Box developer documentation](https://developer.box.com/){: external}.
 {: note}
 
-### Setting up Application level access
+#### Setting up Application level access
 {: #applevelbox}
 
 1.   Navigate to `https://app.box.com/developers/console` (use your company's Box URL) and click **Create New App**.
@@ -139,7 +141,7 @@ The next few steps require assistance from the administrator of your organizatio
     -  `private_key` 
     -  `passphrase` 
 
-### Setting up Enterprise level access
+#### Setting up Enterprise level access
 {: #entlevelbox}
 
 1.  Navigate to `https://app.box.com/developers/console` (use your company's Box URL) and click **Create New App**.
@@ -177,7 +179,7 @@ Other items to consider when you crawl Box:
 -  Box notes are stored in JSON format, so {{site.data.keyword.discoveryshort}} ingests any Box notes in the specified folders.
 -  When you use the API, you must have a list of Folders IDs and the associated Owner ID for each folder that you want to crawl. Use the {{site.data.keyword.discoveryshort}} tooling to browse and select which content to crawl.
 
-## Salesforce
+### Salesforce
 {: #connectsf}
 
 <!-- Learn more topic WDS -->
@@ -195,7 +197,7 @@ Other items to note when you crawl Salesforce:
 -  Knowledge Articles are only crawled if their **version** is `published` and their languages is `en-us`.
 -  When you use the API, you must have a list of Salesforce objects that you want to crawl. Use the {{site.data.keyword.discoveryshort}} tooling to browse and select which content to crawl.
 
-## SharePoint Online
+### SharePoint Online
 {: #connectsp}
 
 <!-- Learn more topic WDS -->
@@ -216,7 +218,7 @@ Other items to note when you crawl Microsoft SharePoint Online:
 -  When you crawl SharePoint, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
 -  It is recommended that you use the default Azure Active Directory (Azure AD) authentication. The username for the default Azure AD authentication is in the form of `<username>@<domain>.onmicrosoft.com`. If you do not have an Azure AD username, contact your SharePoint site administrator. 
 
-## Web Crawl
+### Web Crawl
 {: #connectwebcrawl}
 
 <!-- Learn more topic WDS -->
@@ -234,7 +236,7 @@ The number of web pages crawled is limited to 250,000, so the web crawler might 
 If you require different **Crawl settings** for other URLs, click **Add URL group** and create a new group. You can create as many URL groups as you need.
 {: tip}
 
-## SharePoint 2016 On-Premise
+### SharePoint 2016 On-Premise
 {: #connectsp_op}
 
 <!-- Learn more topic WDS -->
@@ -255,7 +257,7 @@ Other items to note when you crawl Microsoft SharePoint 2016:
 -  To crawl SharePoint 2016, the `username` account must have `SiteCollection Administrator` permissions.
 -  When you crawl SharePoint, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
 
-## IBM Cloud Object Storage
+### IBM Cloud Object Storage
 {: #connectcos}
 
 <!-- Learn more topic WDS -->
@@ -277,7 +279,7 @@ Other items to note when you crawl {{site.data.keyword.blockstoragefull}}:
 -  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#select-regions-and-endpoints).
 -  There is a slight performance issue if all buckets are selected. In this case, a delay is possible, before the documents complete indexing.
 
-## Using the tooling
+## Creating a collection using the tooling
 {: #source_tooling}
 
 Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooling is performed by creating a collection specifically for a source. Perform the following steps to create a source collection and crawl it:
@@ -301,14 +303,17 @@ Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooli
       "next_crawl" : "2019-02-10T05:00:00-05:00"
     }
     ```
-5.  Click **Save & Sync objects** to start crawling your data source. You are then redirected to the collection status screen which updates as documents are added to the collection.
+5.  Click **Save & Sync objects** to start crawling your data source. You are then redirected to the collection status page, which updates as documents are added to the collection.
 
 Initially, the crawl syncs the data and, subsequently, on the frequency that you specified.
 
 If you modify anything in the **Sync settings** screen and then click **Save and Sync objects**, a crawl starts at that time or restarts if one is already running.
 {: note}
 
-## Using the API
+When you connect to a data source, you can see document level errors under **Errors and warnings** on your collection page. There is a delay in publishing the errors and warnings that are related to a crawl.
+{: note}
+
+## Creating a collection using the API
 {: #source_api}
 
 Use the following process to create a collection connected to a data source, using the API.
