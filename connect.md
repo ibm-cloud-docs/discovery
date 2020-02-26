@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-02-26"
 
 subcollection: discovery
 
@@ -99,6 +99,9 @@ You'll need to create a new Box custom application to connect to {{site.data.key
 
 If there is a Box update, the steps to set up Box access might change. For more information, see the [Box developer documentation](https://developer.box.com/){: external}.
 {: note}
+
+If you only want to run a full crawl, **Application level** access is sufficient, but you must have an administrator approve your application. However, if you want to run a full crawl and you need refresh functionalities, you must have **Enterprise level** access.
+{: important}
 
 #### Setting up Application level access
 {: #applevelbox}
