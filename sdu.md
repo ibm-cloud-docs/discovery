@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-07"
+lastupdated: "2020-02-27"
 
 subcollection: discovery
 
@@ -33,7 +33,7 @@ subcollection: discovery
 # Smart Document Understanding
 {: #sdu}
 
-Smart Document Understanding (SDU) is a new way to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. Customizing how your documents are indexed into {{site.data.keyword.discoveryshort}} improves the answers that your application returns.
+Smart Document Understanding (SDU) trains {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. Customizing how your documents are indexed into {{site.data.keyword.discoveryshort}} improves the answers that your application returns.
 
 With SDU, you annotate fields within your documents to train custom conversion models. As you annotate, Watson is learning and starts to predict annotations. SDU models can be exported and used on other collections. 
 
@@ -52,7 +52,7 @@ Supported document types for Smart Document Understanding:
 {: #annotate}
 
 <!-- Learn more topic WDS -->
-The SDU editor is only available for new collections that contain supported document types and do not have the Element Classification enrichment applied. Existing private collections use the original configuration method. If you would like to use the SDU editor on an existing collection, you must create a new collection and upload those documents to it. If you do not want to use the SDU editor, you can set up your configuration using the API, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
+The SDU editor is only available for collections that contain supported document types and do not have the Element Classification enrichment applied. If you do not want to use the SDU editor, you can set up your configuration using the API, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 {: important}
 
 The SDU editor functions are only available in the {{site.data.keyword.discoveryshort}} tooling, they are not available in the API.
@@ -84,7 +84,7 @@ You can use the toolbar at the top to complete the following actions:
 - Navigate the document displayed
 - Adjust the page view (`single page view`, `zoom in`, `zoom out`), `clear changes`, and `export/import models`. Click on `single page view` to toggle the display - you can view your annotations and document separately, or together.
 
-You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information. If you create a collection, using this method, no enrichments are automatically applied.
+You can also crawl various data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information. 
 {: tip}
 
 ## How to annotate a document

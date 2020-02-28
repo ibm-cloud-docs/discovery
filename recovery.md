@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-02-27"
 
 subcollection: discovery
 
@@ -141,7 +141,7 @@ Consider using your backups to restore to a new {{site.data.keyword.discoverysho
 To begin restoration, first start by reviewing your list of collections and associated data sources, as well as your file backups.
 
 -  Create your [environment](https://cloud.ibm.com/apidocs/discovery#create-an-environment) and [collections](https://cloud.ibm.com/apidocs/discovery#create-a-collection) using the saved configuration information. Ensure that the appropriate configuration is defined appropriately, and that the language for the collection is set properly. Failure to do so delays getting your system back up and running.
--  If you have any custom configurations set up in {{site.data.keyword.discoveryshort}}, [recreate](/docs/discovery?topic=discovery-configservice#when-you-need-a-custom-configuration) them.
+-  If you have any custom configurations set up in {{site.data.keyword.discoveryshort}}, recreate them. See the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external} for details.
 -  Add back tokenization dictionaries or stopwords into the collections. See [Creating custom tokenization dictionaries](/docs/discovery?topic=discovery-query-concepts#tokenization) and [Defining stopwords](/docs/discovery?topic=discovery-query-concepts#stopwords).  
 -  If you use custom query expansion, [add your query expansions](https://{DomainName}/apidocs/discovery#create-or-update-expansion-list){: external} for each collection, as well.
 -  If you use any custom entity models from {{site.data.keyword.knowledgestudiofull}} for enrichment, [reimport that model](/docs/discovery?topic=discovery-configservice#custom-entity-model) into your {{site.data.keyword.discoveryshort}} instance.
