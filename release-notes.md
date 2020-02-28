@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-27"
 
 subcollection: discovery
 
@@ -148,7 +148,7 @@ Beginning April 9, 2019, there is an upgrade to {{site.data.keyword.discoveryful
 
 - The version string for all API calls changed to `2019-03-25` from `2019-01-01`
 
-- The `title` field is now extracted from HTML documents as a top-level field during conversion. See [HTML conversion](/docs/discovery?topic=discovery-configservice#html-conversion). This `title` field is included in each segment of any documents split, using document segmentation. For an example, see [Splitting documents with document segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation). This might improve the `confidence` score for query results, and might change the `passages` returned because the `title` might be returned, as part of a passage. Existing collections must be reindexed to extract the `title` field.
+- The `title` field is now extracted from HTML documents as a top-level field during conversion. This `title` field is included in each segment of any documents split, using document segmentation. For an example, see [Splitting documents with document segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation). This might improve the `confidence` score for query results, and might change the `passages` returned because the `title` might be returned, as part of a passage. Existing collections must be reindexed to extract the `title` field.
 
 The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-03-25` (it currently uses `2018-12-03`), so the `title` is not extracted when ingesting HTML documents by uploading or using the Web Crawl connector in the {{site.data.keyword.discoveryshort}} tooling.
 {: note}
@@ -436,7 +436,7 @@ In your application, check the access token's expiration time before you use it 
 ## 9 May 2018
 {: #9may18}
 
-- Sample documents are now stored locally, in your browser's local roaming data folder. For more information about sample documents, see [Uploading sample documents](/docs/discovery?topic=discovery-configservice#uploading-sample-documents).
+- Sample documents are now stored locally, in your browser's local roaming data folder.
 
 ## 4 May 2018
 {: #4may18}
@@ -670,7 +670,7 @@ Document deduplication is currently supported only as a beta capability. See the
    - `+` and `-` prefixed field names
    - `"` `"` empty values for a field name
 
-If your JSON documents include these characters in the field names, or `id`, `score`, and `highlight` at the top level, you need to remove them before adding the documents to your collection, or those fields are empty. You can create a custom configuration and normalize your JSON before adding documents to your collection to avoid this issue. See [Custom Configuration](/docs/discovery?topic=discovery-configservice#custom-configuration).  In addition, documents that include the punctuation characters `?`, `:`, or `#` in the file name cause errors during ingestion. Before ingesting them, rename any documents that include these characters.
+If your JSON documents include these characters in the field names, or `id`, `score`, and `highlight` at the top level, you need to remove them before adding the documents to your collection, or those fields are empty. You can create a custom configuration and normalize your JSON before adding documents to your collection to avoid this issue. See the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external} for details. In addition, documents that include the punctuation characters `?`, `:`, or `#` in the file name cause errors during ingestion. Before ingesting them, rename any documents that include these characters.
 {: note}
 
 - The retrieval methods for `natural_language_query` are updated to improve the relevance of results by matching words with related semantics. This update only affects collections that did not undergo relevance training. If you are using `natural_language_query` and did not conduct relevance training, you might see improvement in the order of results returned.

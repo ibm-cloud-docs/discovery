@@ -148,7 +148,7 @@ US Health Insurance Portability and Accountability Act (HIPAA) support is availa
 There are several scenarios where you must use extra care to protect personal health information (PHI) in {{site.data.keyword.discoveryshort}}:
 
 - Avoid importing any files that contain PHI from external data sources, such as Box, SharePoint, Salesforce, Web Crawl, IBM Cloud Object Storage. Avoid importing files with PHI from external data sources because data in transit between the source and the service cannot be isolated. See [Data source connection and data isolation](/docs/discovery?topic=discovery-sources#source_isolation).
-- Avoid using PHI in your custom configuration files. See [Custom configuration](/docs/discovery?topic=discovery-configservice#custom-configuration).
+- Avoid using PHI in your custom configuration files. See the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external}.
 - Queries are logged. If you anticipate that PHI might be used in a query, opt out of query logging. See [Usage monitoring](/docs/discovery?topic=discovery-usage).
 - If you are specifying your own `document_id`s using the API, avoid using a file name as the `document_id`.  See [Add a document](https://{DomainName}/apidocs/discovery#add-a-document){: external} for instructions to specify your own `document_id`.
 - Avoid using PHI in your {{site.data.keyword.knowledgestudiofull}} models. See [Integrating with {{site.data.keyword.knowledgestudioshort}}](/docs/discovery?topic=discovery-integrating-with-wks).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-26"
+lastupdated: "2020-02-27"
 
 subcollection: discovery
 
@@ -50,16 +50,16 @@ The following general requirements apply to all data sources:
 -  If using the {{site.data.keyword.discoveryshort}} tooling, a collection can be configured with a single data source. If using the API, documents from multiple data sources can be sent into a single collection.
 -  Crawling a data source uses resources, namely API calls, of the data source. The number of API calls depends on the number of documents that need to be crawled. An appropriate level of service license (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is re-crawled, new documents are added, updated document are modified to the current version, and deleted documents remain as the version last stored.
--  The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
+-   The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
 
-Collection | Lite plans | Advanced plans 
----------------- | ------------------------------ | ------------------------------------------- 
-Existing collections created specifically for {{site.data.keyword.discoveryfull}} before the release of [Smart Document Understanding (SDU)](/docs/discovery?topic=discovery-release-notes#22jan19) | Microsoft Word, PDF, HTML, JSON | Microsoft Word, PDF, HTML, JSON     
-Collections created after the release of [SDU](/docs/discovery?topic=discovery-sdu) | PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
-    
+Lite plans | Advanced plans 
+------------------------------ | ------------------------------------------- 
+PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
+
+
 \* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
-\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned, and the text, if any, is extracted.
+\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned and the text (if any) extracted.
 
 
 ## Available data sources

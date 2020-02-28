@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-02-27"
 
 subcollection: discovery
 
@@ -35,9 +35,9 @@ subcollection: discovery
 You can create your own {{site.data.keyword.discoveryshort}} ingestion configuration in JSON if your data has special [conversion](#conversion), [enrichment](#enrichment), or [normalization](#normalization) needs.
 {: shortdesc}
 
-The following sections detail the structure of this JSON and the object that can be defined in it.
+The following sections detail the structure of this JSON and the object that can be defined in it. Also see the **Configurations** section of the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external}.
 
-If your collection was created using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
+If you configure your collection using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
 ## Configuration structure
@@ -97,7 +97,7 @@ Converting documents takes the original source format and using one or more step
 
 - **JSON** files are converted using the `json` options.
 
-If you use [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) to create your collection, the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
+If you configure your collection using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
 These options are described in the following sections. After conversion completes, [enrichment](#enrichment) and [normalization](#normalization) are performed before the content is stored.
@@ -105,7 +105,7 @@ These options are described in the following sections. After conversion complete
 ### PDF
 {: #pdf}
 
-If you use [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) to create your collection, the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
+If you configure your collection using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
 The `pdf` conversion object defines the conversion from PDF to HTML and has the following structure:
@@ -151,7 +151,7 @@ For an area of text to be identified as a heading it must match all of the param
 ### Word
 {: #word}
 
-If your collection was created using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
+If you configure your collection using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}
 
 The `word` conversion object defines how to convert PDF documents into HTML and has the following structure:
@@ -213,10 +213,6 @@ Each item in the `styles` array specifies a heading level from the Microsoft Wor
 
 - `"level": INT` - *required* - the HTML `h` level that text identified with these parameters are converted into.
 - `"names": array` - *required* - a comma separated array of style names that is identified as this heading level.
-
-*When to use fonts and when to use styles* - If your Microsoft Word documents conform well to the style sheet with each paragraph correctly tagged with the appropriate style, then it is recommended that you use `styles` to extract headings. However, you might find that some documents have styles that the writer overwrote. These documents are more likely to provide good conversion when the `fonts` extraction method is used.
-{: tip}
-
 
 ### HTML
 {: #html}
