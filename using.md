@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-11"
+lastupdated: "2020-03-06"
 
 subcollection: discovery
 
@@ -313,7 +313,7 @@ Notes about query expansion:
 -  All `input_terms` and `expanded_terms` must be lowercase. Lowercase terms expand to uppercase.
 -  The query expansion list must be written in JSON.
 -  To disable query expansion, delete the query expansion list.
--  Query expansion is performed on the `query` and `multiple collection query` methods. Query expansion is not performed on Knowledge Graph queries.
+-  Query expansion is performed on the `query` and `multiple collection query` methods. 
 -  Each set of expansions is associated with a collection. When querying across [multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections), each collection is expanded individually.
 -  Query expansions are applied at query time, not during indexing, so the query expansion list can be updated without the need to re-ingest your documents.
 -  Do not upload or delete a query expansion list at the same time documents are being ingested into your collection. This could cause the index to be unavailable for that brief period.
@@ -448,7 +448,7 @@ With this custom dictionary, you can create rules with a single token. In this e
 -  The character limit for a custom tokenization dictionary is 1 million characters.
 -  To disable tokenization, delete the tokenization dictionary and reingest your documents.
 -  You cannot currently upload or delete a tokenization dictionary using the {{site.data.keyword.discoveryshort}} tooling; it must be done using the {{site.data.keyword.discoveryshort}} API.
--  Tokenization is performed on the `query` and `multiple collection query` methods. Tokenization is not performed on Knowledge Graph queries.
+-  Tokenization is performed on the `query` and `multiple collection query` methods.
 -  Each tokenization dictionary is associated with a collection. When querying across [multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections), each collection is tokenized individually.
 -  Do not upload or delete a tokenization dictionary at the same time documents are being ingested into your collection.
 

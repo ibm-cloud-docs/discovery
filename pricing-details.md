@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-03-06"
 
 subcollection: discovery
 
@@ -63,6 +63,9 @@ For information about upgrading from Lite to Advanced, see [Upgrading your servi
 
 For query performance information, see [Query performance](/docs/discovery?topic=discovery-qp). Queries are limited based on plan. Estimated Average Query rates per **Lite** plan: 1 QPS for reranked queries with two top-level text fields.
 
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
+
 ## Advanced
 {: #advanced}
 
@@ -109,6 +112,9 @@ One {{site.data.keyword.knowledgestudioshort}} model included. Additional models
 Over 100,000 queries (per month): $0.03 per query<br>
 [Query Expansions](/docs/discovery?topic=discovery-query-concepts#query-expansion):
 5,000 query expansions with 25,000 total terms
+
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
 
 `-----`
 <br>

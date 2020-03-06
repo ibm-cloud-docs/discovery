@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-07"
+lastupdated: "2020-03-06"
 
 subcollection: discovery
 
@@ -33,6 +33,9 @@ subcollection: discovery
 {: #element-classification}
 
 <!-- Learn more topic WDS -->
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
+
 Element Classification makes it possible to rapidly parse through governing documents to convert, identify, & classify elements of importance. Using state of the art Natural Language Processing, party (who it refers to), nature (type of element), and category (specific class) are extracted from elements of a document.
 
 Element Classification is designed to provide:
@@ -61,6 +64,9 @@ This feature is currently supported in English only. For more information, see [
 ## Classification requirements
 {: #element-class}
 
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
+
 To classify documents using Element Classification your configuration and source documents must meet the following requirements:
 
 -  Files to be analyzed are in PDF format.
@@ -81,6 +87,9 @@ The **Default Contract Configuration** file was updated on September 25, 2018. I
 
 ## Collection requirements
 {: #element-collection}
+
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
 
 To use Element Classification, your collection must be configured to meet specific requirements.
 
@@ -136,6 +145,9 @@ After selecting the `Default Contract Configuration` in the tooling, you can upl
 
 ## Classified elements
 {: #classified-elements}
+
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
 
 After a document is indexed with Element Classification, it is returned with an `elements` array as part of the searchable document.
 
