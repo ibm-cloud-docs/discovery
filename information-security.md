@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-03-06"
 
 subcollection: discovery
 
@@ -81,8 +81,6 @@ The following stored information can be deleted using a `customer_id` if the `cu
 - events (`/v1/events`)
 - documents (`/v1/environments/{environment_id}/collections/{collection_id}/documents`)
 - notices (`/v1/environments/{environment_id}/collections/{collection_id}/notices`) Only ingestion `notices` are labeled.
-- Knowledge Graph entities (`/v1/environments/{environment_id}/collections/{collection_id}/query_entities`)
-- Knowledge Graph relations (`/v1/environments/{environment_id}/collections/{collection_id}/query_relations`)
 - training data (`/v1/environments/{environment_id}/collections/{collection_id}/training_data`)
 
 The following stored information is not explicitly labeled and cannot be deleted by specifying the `customer_id`. Personal Data is not supported in these fields.
@@ -118,7 +116,7 @@ Restrictions:
 
 Data can be labeled with the `customer_id` field, when you use the {{site.data.keyword.discoveryshort}} tooling. Click the ![Environment details](images/env_icon.png)<!-- {width="20" height="20" style="padding-left:5px;padding-right:5px;"} --> and enter the `customer_id` in the **GDPR Data Label** field. After this field is set, all data uploaded using this browser session is labeled with the specified `customer_id`. If the associated customer ID changes, change this field.
 
-Adding a `customer_id` with the **GDPR Data Label** field labels the documents, notices, Knowledge Graph entities, Knowledge Graph relations, and training data within that URL domain from that point forward, including each instance under that domain. Any actions, including document uploads, that occurred in the {{site.data.keyword.discoveryshort}} tooling before adding the **GDPR Data Label** field are not labeled.
+Adding a `customer_id` with the **GDPR Data Label** field labels the documents, notices, and training data within that URL domain from that point forward, including each instance under that domain. Any actions, including document uploads, that occurred in the {{site.data.keyword.discoveryshort}} tooling before adding the **GDPR Data Label** field are not labeled.
 
 If you switch domains or browsers, empty the browser cache, or start an incognito session after you specify your `customer_id` using the **GDPR Data Label** field of the {{site.data.keyword.discoveryshort}} tooling, the `customer_id` is not retained, and your data is not labeled. If you must switch domains or browsers, re-enter the `customer_id` in the **GDPR Data Label** field.
 {: note}

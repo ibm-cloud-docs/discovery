@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-27"
+lastupdated: "2020-03-06"
 
 subcollection: discovery
 
@@ -55,6 +55,11 @@ IBM will release services, features, and language support that are classified as
 
 The following new features and changes to the service are available.
 
+## 6 March 2020
+{: #6mar2020}
+
+- The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**. Data already in {{site.data.keyword.discoveryshort}} collections enriched with Element Classification is not affected, nor are any other existing queries or operations affected. After the deprecation date, you can no longer apply the Element Classification enrichment to any new or existing collection.
+
 ## 17 January 2020
 {: #17jan2020}
 
@@ -106,7 +111,7 @@ As announced [4 June 2019](/docs/discovery?topic=discovery-release-notes#4jun19)
 ## 3 September 2019
 {: #3sept19}
 
-{{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) are no longer be accessible, as of **30 September 2019**. Data already in {{site.data.keyword.discoveryshort}} collections are not be affected, nor are any other existing queries or operations be affected. You can find the documentation for Knowledge Graph in the [{{site.data.keyword.discoveryshort}} archives](/docs/discovery?topic=discovery-discovery-archives#kg) until 30 September 2019.
+{{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs (Knowledge graph entity query `/v1/environments/{environment_id}/collections/{collection_id}/query_entities` and Knowledge Graph relationship query `/v1/environments/{environment_id}/collections/{collection_id}/query_relations`) are no longer be accessible, as of **30 September 2019**. Data already in {{site.data.keyword.discoveryshort}} collections is not affected, nor are any other existing queries or operations affected. You can find the documentation for Knowledge Graph in the [{{site.data.keyword.discoveryshort}} archives](/docs/discovery?topic=discovery-discovery-archives#kg) until 30 September 2019.
 
 ## 29 August 2019
 {: #29aug19}

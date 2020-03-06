@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-03-06"
 
 subcollection: discovery
 
@@ -32,6 +32,9 @@ subcollection: discovery
 
 # Understanding the output schema
 {: #output_schema}
+
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
 
 After a document is ingested by using Element Classification, the service returns JSON output in the following schema for version date `2018-10-15` or later. The output is included in the `enriched_html_elements` object.
 {: shortdesc}
@@ -385,6 +388,9 @@ After a document is ingested by using Element Classification, the service return
 ## Schema arrangement
 {: #schema-arrangement}
 
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
+
 The schema is arranged as follows.
 
   - `document`: An object that lists basic information about the document, including:
@@ -555,6 +561,9 @@ The schema is arranged as follows.
 ### \*Notes on tables
 {: #table-notes}
 
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
+
   - Row and column index values per cell are zero-based and so begin with `0`.
   - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
   - Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a possible hierarchy of column headers.
@@ -566,6 +575,9 @@ The value of `unit` is the [ISO-4217 currency code](https://www.iso.org/iso-4217
   
 ### Note on `location` objects
 {: #location-note}
+
+The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+{:important}
 
 The `location` object is included with the majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
   
