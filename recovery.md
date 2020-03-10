@@ -75,9 +75,9 @@ If you also import documents by doing scheduled crawls of external data sources,
 
 Back up your instance configurations, and store them locally.
 
-To back up these configurations, first [list your configurations](https://cloud.ibm.com/apidocs/discovery#list-configurations) for each instance.
+To back up these configurations, first [list your configurations](https://{DomainName}/apidocs/discovery#list-configurations){: external} for each instance.
 
-After obtaining the list of configurations, [get the details](https://cloud.ibm.com/apidocs/discovery#get-configuration-details) for each configuration.
+After obtaining the list of configurations, [get the details](https://{DomainName}/apidocs/discovery#get-configuration-details){: external} for each configuration.
 
 ### Training data
 {: #backuptraining}
@@ -88,9 +88,9 @@ Training data is used for explicit training of your collections and is stored on
 
 To extract the training data, use the API to download the queries and the ratings from {{site.data.keyword.discoveryshort}}.
 
-1.  [List the training data](https://cloud.ibm.com/apidocs/discovery#list-training-data)
-1.  [List the examples](https://cloud.ibm.com/apidocs/discovery#list-examples-for-a-training-data-query) for each query.
-1.  [Get the details](https://cloud.ibm.com/apidocs/discovery#get-details-for-training-data-example) for a training data examples.
+1.  [List the training data](https://{DomainName}/apidocs/discovery#list-training-data){: external}
+1.  [List the examples](https://{DomainName}/apidocs/discovery#list-examples-for-a-training-data-query){: external} for each query.
+1.  [Get the details](https://{DomainName}/apidocs/discovery#get-details-for-training-data-example){: external} for a training data examples.
 
 The document IDs that you use in your training data point to the documents in your current collection. Use the same IDs in your new collections to ensure that the correct documents are referenced. If the IDs do not match, your restored relevancy training will not work.
 {: important}
@@ -102,17 +102,17 @@ By default, {{site.data.keyword.discoveryshort}} stores the queries that you sen
 
 If you want to be able to restore your queries for [statistical purposes](https://cloud.ibm.com/apidocs/discovery#number-of-queries-over-time), it is recommended that you store those queries separately.
 
-You can [extract queries](https://cloud.ibm.com/apidocs/discovery#search-the-query-and-event-log) from {{site.data.keyword.discoveryshort}}, however a maximum of 10,000 queries are stored. There is no paging API. Restoring queries is not recommended; we recommend starting from scratch.
+You can [extract queries](https://{DomainName}/apidocs/discovery#search-the-query-and-event-log){: external} from {{site.data.keyword.discoveryshort}}, however a maximum of 10,000 queries are stored. There is no paging API. Restoring queries is not recommended; we recommend starting from scratch.
 
 ### Feedback/clicks
 {: #clicks}
 
-If you are storing clicks in the form of feedback events, there is currently no easy way to back up and restore this information. The recommendation is to start from scratch with the [clicks/feedback data](https://cloud.ibm.com/apidocs/discovery#create-event) API.
+If you are storing clicks in the form of feedback events, there is currently no easy way to back up and restore this information. The recommendation is to start from scratch with the [clicks/feedback data](https://{DomainName}/apidocs/discovery#create-event){: external} API.
 
 ### Expansion lists
 {: #backupexpansions}
 
-If you are using expansions for query modification, back up your expansion list, and store it locally. To do so, request the expansion list ,using the [get expansion list](https://cloud.ibm.com/apidocs/discovery#get-the-expansion-list) API command, and store it locally.
+If you are using expansions for query modification, back up your expansion list, and store it locally. To do so, request the expansion list ,using the [get expansion list](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: external} API command, and store it locally.
 
 ### Tokenization dictionaries or stopwords
 {: #backupstopwords}
@@ -140,7 +140,7 @@ Consider using your backups to restore to a new {{site.data.keyword.discoverysho
 
 To begin restoration, first start by reviewing your list of collections and associated data sources, as well as your file backups.
 
--  Create your [environment](https://cloud.ibm.com/apidocs/discovery#create-an-environment) and [collections](https://cloud.ibm.com/apidocs/discovery#create-a-collection) using the saved configuration information. Ensure that the appropriate configuration is defined appropriately, and that the language for the collection is set properly. Failure to do so delays getting your system back up and running.
+-  Create your [environment](https://{DomainName}/apidocs/discovery#create-an-environment){: external} and [collections](https://{DomainName}/apidocs/discovery#create-a-collection){: external} using the saved configuration information. Ensure that the appropriate configuration is defined appropriately, and that the language for the collection is set properly. Failure to do so delays getting your system back up and running.
 -  If you have any custom configurations set up in {{site.data.keyword.discoveryshort}}, recreate them. See the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external} for details.
 -  Add back tokenization dictionaries or stopwords into the collections. See [Creating custom tokenization dictionaries](/docs/discovery?topic=discovery-query-concepts#tokenization) and [Defining stopwords](/docs/discovery?topic=discovery-query-concepts#stopwords).  
 -  If you use custom query expansion, [add your query expansions](https://{DomainName}/apidocs/discovery#create-or-update-expansion-list){: external} for each collection, as well.

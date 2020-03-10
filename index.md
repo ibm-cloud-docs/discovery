@@ -51,7 +51,7 @@ How does {{site.data.keyword.discoveryshort}} do it? By using data analysis comb
 
 You can use Smart Document Understanding (SDU) to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. See [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) for more information.
 
-If you create a chatbot in {{site.data.keyword.conversationfull}}, you can route complex customer inquiries to {{site.data.keyword.discoveryshort}} using a search skill. When a customer asks a question that the dialog is not designed to answer, your assistant can search for relevant information from {{site.data.keyword.discoveryshort}}, extract the information, and return it as the response. See [Creating a search skill](https://cloud.ibm.com/docs/services/assistant?topic=assistant-skill-search-add){: external} for details. (This feature is available only to {{site.data.keyword.conversationshort}} Plus or Premium plan users.)
+If you create a chatbot in {{site.data.keyword.conversationfull}}, you can route complex customer inquiries to {{site.data.keyword.discoveryshort}} using a search skill. When a customer asks a question that the dialog is not designed to answer, your assistant can search for relevant information from {{site.data.keyword.discoveryshort}}, extract the information, and return it as the response. See [Creating a search skill](/docs/services/assistant?topic=assistant-skill-search-add) for details. (This feature is available only to {{site.data.keyword.conversationshort}} Plus or Premium plan users.)
 
 For information about language support, see [{{site.data.keyword.discoveryshort}} language support](/docs/discovery?topic=discovery-language-support).
 
@@ -86,5 +86,5 @@ The {{site.data.keyword.discoveryshort}} tooling is designed to save time by eli
     - [Getting started with the {{site.data.keyword.discoveryshort}} tooling](/docs/discovery?topic=discovery-getting-started)
     - [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/discovery?topic=discovery-gs-api)
 - {{site.data.keyword.discoveryshort}} supports a number of SDKs to simplify the development of applications. The SDKs are available for many popular programming languages and platforms, including Node.js, Java, and Python. All SDKs are available from the [watson-developer-cloud namespace](https://github.com/watson-developer-cloud){: external} on GitHub.
-    - For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs](https://cloud.ibm.com/docs/services/watson?topic=watson-using-sdks#sdks){: external}.
+    - For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs](/docs/watson?topic=watson-using-sdks).
     - For detailed information about all methods of the Node, Java, and Python SDKs, see the [API reference](https://{DomainName}/apidocs/discovery){: external}.
