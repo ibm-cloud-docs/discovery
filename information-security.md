@@ -41,10 +41,7 @@ Clients are responsible for ensuring their own compliance with various laws and 
 
 The products, services, and other capabilities described herein are not suitable for all client situations and might have restricted availability. IBM does not provide legal, accounting, or auditing advice or represent or warrant that its services or products ensure that clients are in compliance with any law or regulation.
 
-If you need to request GDPR support for {{site.data.keyword.cloud}} {{site.data.keyword.watson}} resources that are created
-
--   In the European Union (EU), see [Requesting support for IBM Cloud Watson resources created in the European Union](https://cloud.ibm.com/docs/services/watson?topic=watson-gdpr-sar#request-EU){: external}.
--   Outside of the EU, see [Requesting support for resources outside the European Union](https://cloud.ibm.com/docs/services/watson?topic=watson-gdpr-sar#request-non-EU){: external}.
+If you need to request GDPR support for {{site.data.keyword.cloud}} {{site.data.keyword.watson}} resources that are created, see [GDPR Subject Access Request](/docs/watson?topic=watson-gdpr-sar).
 
 ## European Union General Data Protection Regulation (GDPR)
 {: #gdpr}

@@ -326,7 +326,7 @@ If you plan to connect to an on-premises data source, first, you must install {{
 The following example uses the SharePoint data source.
 
 1.  Create credentials for the source that you are connecting to using the [Source Credentials API](https://{DomainName}/apidocs/discovery#create-credentials){: external}. Record the returned **credential_id** of the newly created credentials.
-2.  Create a new configuration, using the **[Add configuration](https://{DomainName}/apidocs/discovery#add-configuration){: external}** API method. To define what to crawl, include a **source** object that contains the **credential_id** that you recorded earlier.
+2.  Create a new configuration, using the [Add configuration](https://{DomainName}/apidocs/discovery#add-configuration){: external} API method. To define what to crawl, include a **source** object that contains the **credential_id** that you recorded earlier.
     ```json
     "source" : {
       "type" : "salesforce",
@@ -384,7 +384,7 @@ To connect to an on-premises data source, you first need to download, install, a
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
 1.  Select the data source that you want to connect to. When you select an on-premises data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
 1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of {{site.data.keyword.SecureGatewayfull}}.
-1.  After you complete the download, click **Download Secure Gateway and Continue**. When prompted, enter the **Gateway ID** and **Token** that are displayed. For more information about installation, see [Installing the client](/docs/services/SecureGateway?topic=securegateway-client-install#installing-the-client).
+1.  After you complete the download, click **Download Secure Gateway and Continue**. When prompted, enter the **Gateway ID** and **Token** that are displayed. For more information about installation, see [Installing the client](/docs/SecureGateway?topic=securegateway-client-install#installing-the-client).
 1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
 1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `mycompany.sharepoint.com` and port: `80`.
 1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful, a `Connection successful` message displays. If the connection was not successful, open the {{site.data.keyword.SecureGatewayfull}} dashboard, and verify that the endpoints on the **Allow access** list are correct.

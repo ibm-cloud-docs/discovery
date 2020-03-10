@@ -77,7 +77,7 @@ The following new features and changes to the service are available.
 
         The previous public endpoint domain was `watsonplatform.net`.
 
-        For more information about the URLs, see the [API reference](https://cloud.ibm.com/apidocs/discovery/discovery#service-endpoint){: external}.
+        For more information about the URLs, see the [API reference](https://{DomainName}/apidocs/discovery/discovery#service-endpoint){: external}.
 
         These URLs do not introduce a breaking change. The new URLs work both for your existing service instances and for new instances. The original URLs continue to work on your existing service instances for at least one year (until December 2020).
     - For more information about IAM, see [Authenticating to Watson services](/docs/watson?topic=watson-iam).
@@ -383,7 +383,7 @@ The version date of the API is updated to `2018-08-01`. To take advantage of the
 
    In the Sydney location, you use IAM access tokens with {{site.data.keyword.discoveryshort}} for
 
-    -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iam){: external}.
+    -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens](/docs/watson?topic=watson-iam).
     -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](https://cloud.ibm.com/docs/resources?topic=resources-migrate#migrate){: external}.
 
     All new and existing service instances in other regions continue to use service credentials (`apikey:{apikey_value}`) for authentication.
@@ -394,7 +394,7 @@ The version date of the API is updated to `2018-08-01`. To take advantage of the
 When you use IAM access tokens, you authenticate before you send a request to {{site.data.keyword.discoveryshort}}.
 
 
-1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [How to get an IAM token by using a {{site.data.keyword.watson}} service API key](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: external}.
+1.  Get an API key from IBM Cloud. Use that key to generate an IAM access token. For more information, see [Authenticating to Watson services](/docs/watson?topic=watson-iam).
 1.  Pass the IAM access token to {{site.data.keyword.discoveryshort}} by using the `Authorization` header. In the header, indicate that the access token is a `Bearer` token by specifying `Authorization: Bearer {access_token}`.
 
     The following simple cURL example uses an access token:
@@ -405,8 +405,6 @@ When you use IAM access tokens, you authenticate before you send a request to {{
     "{url}/v1/environments?version=2017-11-07"
     ```
     {: pre}
-
-    For more information, see [Using a token to authenticate](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#use_token){: external}.
 
     Replace `{url}` with your URL.
 
@@ -428,7 +426,7 @@ IAM access tokens that you generate have the following structure. You use the va
 
 Access tokens have a limited time to live. The `expires_in` field indicates how long the token lasts, in this case one hour. The `expiration` field shows when the token expires as a UNIX timestamp that specifies the number of seconds since January 1, 1970 (midnight UTC/GMT).
 
-In your application, check the access token's expiration time before you use it to make an authenticated request. If it is expired, you must refresh the access token before you can use it. You use the value of the `refresh_token` field to refresh the access token. For more information, see [Refreshing a token](https://cloud.ibm.com/docs/services/watson?topic=watson-iam#iamtoken){: external}.
+In your application, check the access token's expiration time before you use it to make an authenticated request. If it is expired, you must refresh the access token before you can use it. You use the value of the `refresh_token` field to refresh the access token. For more information, see [Authenticating to Watson services](/docs/watson?topic=watson-iam).
 
 
 ## 11 May 2018
@@ -457,7 +455,7 @@ In your application, check the access token's expiration time before you use it 
 ## 12 April 2018
 {: #12apr18}
 
-- Knowledge Graph: [Evidence](/docs/discovery?topic=discovery-kg#kg_evidence) and [Canonicalization and filtering](/docs/discovery?topic=discovery-kg#kg_canonicalization) are now available in all collections. In any collections created before `03-05-2018`, you need to reingest your documents to use these features. Previously, you needed to create a new collection and reingest your documents.
+- Knowledge Graph: **Evidence** and **Canonicalization and filtering** are now available in all collections. In any collections created before `03-05-2018`, you need to reingest your documents to use these features. Previously, you needed to create a new collection and reingest your documents.
 
 Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/discovery?topic=discovery-release-notes#3sept19) for more information.
 
@@ -488,10 +486,10 @@ Known issue:
 ## 8 March 2018
 {: #8mar18}
 
-- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, [Knowledge Graph](/docs/discovery?topic=discovery-kg) functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all **Dedicated** environments. The new features are:
-  - [Entity similarity](/docs/discovery?topic=discovery-kg#kg_similarity)
-  - [Evidence](/docs/discovery?topic=discovery-kg#kg_evidence)
-  - [Canonicalization and filtering](/docs/discovery?topic=discovery-kg#kg_canonicalization)
+- The beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph added several features. During the beta release, Knowledge Graph functionality and the methods associated with it are only available for service instances that are subscribed to **Advanced** plans, **Premium** plans, and all **Dedicated** environments. The new features are:
+  - Entity similarity
+  - Evidence
+  - Canonicalization and filtering
 
 Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/discovery?topic=discovery-release-notes#3sept19) for more information.
 
@@ -564,7 +562,9 @@ Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Kno
 
 {{site.data.keyword.discoveryshort}} tooling:
 
-- Added a visual query builder for the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph. See [Querying Knowledge Graph using the {{site.data.keyword.discoveryshort}} tooling](/docs/discovery?topic=discovery-kg#querying-kg)
+- Added a visual query builder for the beta version of {{site.data.keyword.discoveryfull}} Knowledge Graph.
+
+Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/discovery?topic=discovery-release-notes#3sept19) for more information.
 
 ## 30 November 2017
 {: #30nov17}
