@@ -228,7 +228,7 @@ Other items to note when you crawl Microsoft SharePoint Online:
 This feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
 
 -  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
--  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/discovery?topic=discovery-language-support#supported-languages) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
+-  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/discovery?topic=discovery-language-support) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
 -  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). You can also specify URL paths to exclude from the crawl. Separate these paths, using commas. For example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/` in the **Exclude URLs where the path includes** field.
 
 When you specify a URL to crawl, the final `/` determines the subtree to crawl. For example, if you enter the URL `https://www.example.com/banking/faqs.html`, all URLs that begin with `https://www.example.com/banking/` are crawled, and the input of `https://www.example.com/banking` crawls all URLs that begin with `https://www.example.com/`. If you would like to restrict the crawl to a specific URL, such as `https://www.example.com/banking/faqs.html`, enter that URL in the `URL group to sync` field, and then set the **Maximum hops** to `0`.
@@ -279,7 +279,7 @@ After this information is entered, you can choose how often you want to sync you
 Other items to note when you crawl {{site.data.keyword.blockstoragefull}}:
 
 -  This connector does not support crawling private endpoints.
--  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#select-regions-and-endpoints).
+-  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints).
 -  There is a slight performance issue if all buckets are selected. In this case, a delay is possible, before the documents complete indexing.
 
 ## Creating a collection using the tooling
@@ -384,7 +384,7 @@ To connect to an on-premises data source, you first need to download, install, a
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
 1.  Select the data source that you want to connect to. When you select an on-premises data source, go to the **Connect to your on-premise network** section and click the **Make connection** button.
 1.  On the **Download and install the Secure Gateway Client** screen, download the appropriate version of {{site.data.keyword.SecureGatewayfull}}.
-1.  After you complete the download, click **Download Secure Gateway and Continue**. When prompted, enter the **Gateway ID** and **Token** that are displayed. For more information about installation, see [Installing the client](/docs/SecureGateway?topic=securegateway-client-install#installing-the-client).
+1.  After you complete the download, click **Download Secure Gateway and Continue**. When prompted, enter the **Gateway ID** and **Token** that are displayed. For more information about installation, see [Installing the client](/docs/SecureGateway?topic=securegateway-client-install).
 1.  On the machine running the Secure Gateway Client, open the Secure Gateway dashboard at http://localhost:9003.
 1.  Click **add ACL** on the dashboard. Add the endpoint URL of each SharePoint collection to the **Allow access** list. For example, Hostname: `mycompany.sharepoint.com` and port: `80`.
 1.  Return to the {{site.data.keyword.discoveryshort}} tooling and click **Continue**. If the connection is successful, a `Connection successful` message displays. If the connection was not successful, open the {{site.data.keyword.SecureGatewayfull}} dashboard, and verify that the endpoints on the **Allow access** list are correct.

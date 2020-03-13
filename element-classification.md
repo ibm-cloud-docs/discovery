@@ -82,7 +82,7 @@ To classify documents using Element Classification your configuration and source
 -  Not available in **Dedicated** environments.
 -  Post-enrichment normalization cannot be performed when using Element Classification.
 
-The **Default Contract Configuration** file was updated on September 25, 2018. If you applied this configuration to a collection prior to this date, see the [release notes](/docs/discovery?topic=discovery-release-notes#25sept) for information on updating your collection.
+The **Default Contract Configuration** file was updated on September 25, 2018. If you applied this configuration to a collection prior to this date, see the [release notes](/docs/discovery?topic=discovery-release-notes#25sept18) for information on updating your collection.
 {: note}
 
 ## Collection requirements
