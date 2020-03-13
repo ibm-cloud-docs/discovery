@@ -53,7 +53,7 @@ Attributes:
 - Up to 2 collections
 - Free NLU enrichments\*\*
 
-Additional options:<br> [Custom Models](/docs/discovery?topic=discovery-integrating-with-wks#integrating-your-custom-model):<br>
+Additional options:<br> [Custom Models](/docs/discovery?topic=discovery-integrating-with-wks):<br>
 One {{site.data.keyword.knowledgestudiofull}} model included. Additional models: Not available<br>[Element Classification](/docs/discovery?topic=discovery-element-classification)\*\*\*:
 500 pages included per month. Additional pages: Not available <br>[News Queries](/docs/discovery?topic=discovery-watson-discovery-news):
 200 News queries included per month. Additional queries:  Not available<br>[Query Expansions](/docs/discovery?topic=discovery-query-concepts#query-expansion):
@@ -103,7 +103,7 @@ Attributes of all other Advanced plans:
 - Up to 100 collections
 - Free NLU enrichments\*\*
 
-Additional options:<br> [Custom Models](/docs/discovery?topic=discovery-integrating-with-wks#integrating-your-custom-model):<br>
+Additional options:<br> [Custom Models](/docs/discovery?topic=discovery-integrating-with-wks):<br>
 One {{site.data.keyword.knowledgestudioshort}} model included. Additional models: $800 each<br>[Element Classification](/docs/discovery?topic=discovery-element-classification)\*\*\*:
 500 pages included per month. Additional pages: $0.40 each<br>[News Queries](/docs/discovery?topic=discovery-watson-discovery-news):
 200 News queries included per month

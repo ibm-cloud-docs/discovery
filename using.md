@@ -355,7 +355,7 @@ This list contains all the default English stopwords <a target="_blank" href="ht
 -  Japanese: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_ja.txt" download>custom_stopwords_ja.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 -  Spanish: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/custom_stopwords_es.txt" download>custom_stopwords_es.txt <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. 
 
-For the list of languages that {{site.data.keyword.discoveryshort}} supports, see [Language support](/docs/discovery?topic=discovery-language-support#supported-languages). Several supported languages do not have a default stopwords list.
+For the list of languages that {{site.data.keyword.discoveryshort}} supports, see [Language support](/docs/discovery?topic=discovery-language-support). Several supported languages do not have a default stopwords list.
 
 To upload or delete stopword files using the {{site.data.keyword.discoveryshort}} tooling, open the **Search settings** screen and choose **Stopwords**. To open **Search settings**, click the ![Manage Data](/images/icon_yourData.png) icon, open your collection, and choose the **Search settings** tab.
 

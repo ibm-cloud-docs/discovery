@@ -62,7 +62,7 @@ US Health Insurance Portability and Accountability Act (HIPAA) support is availa
 ## Browser support and prerequisites
 {: #browser-support-and-prerequisites}
 
-For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites](https://cloud.ibm.com/docs/overview?topic=overview-prereqs-platform#prereqs){: external}.
+For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites](https://cloud.ibm.com/docs/overview?topic=overview-prereqs-platform){: external}.
 
 ## Watson Discovery News
 {: #wds}

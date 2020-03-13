@@ -345,7 +345,7 @@ The version date of the API is updated to `2018-08-01`. To take advantage of the
 {: #11jun18}
 
 -  For applications that are hosted in Washington, DC (US East), the service now supports token-based Identity and Access Management (IAM) authentication. IAM uses access tokens rather than service credentials for authentication with a service. For more information about using IAM tokens with existing and new applications, see the [17 May 2018](/docs/discovery?topic=discovery-release-notes#17May18) release update.
--  An additional contract element is now supported in Element Classification: `Safety and Security`. See [Understanding Contract Elements](/docs/discovery?topic=discovery-element-classification#contract-elements) for details.
+-  An additional contract element is now supported in Element Classification: `Safety and Security`. See [Understanding Contract Elements](/docs/discovery?topic=discovery-element-classification) for details.
 
 ## 6 June 2018
 {: #6jun18}
@@ -444,7 +444,7 @@ In your application, check the access token's expiration time before you use it 
 ## 4 May 2018
 {: #4may18}
 
-- Two additional contract elements are now supported in Element Classification: Attributes and Provenance. See [Understanding Contract Elements](/docs/discovery?topic=discovery-element-classification#contract-elements) for details.
+- Two additional contract elements are now supported in Element Classification: Attributes and Provenance. See [Understanding Contract Elements](/docs/discovery?topic=discovery-element-classification) for details.
 
 ## 26 April 2018
 {: #26apr18}
@@ -462,7 +462,7 @@ Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Kno
 ## 11 April 2018
 {: #11apr18}
 
-- Two additional categories are now supported in Element Classification: `Asset Use` and `Communication`. See [Understanding Contract Elements](/docs/discovery?topic=discovery-element-classification#contract-elements) for details.
+- Two additional categories are now supported in Element Classification: `Asset Use` and `Communication`. See [Understanding Contract Elements](/docs/discovery?topic=discovery-element-classification) for details.
 
 ## 2 April 2018
 {: #2apr18}
