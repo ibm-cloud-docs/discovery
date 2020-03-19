@@ -78,7 +78,7 @@ A natural language query enables you to perform queries expressed in natural lan
 
 **Structure parameters**
 
-Structure parameters define the content and organization of the documents in the returned JSON. This includes the number of results retuned, where in the results set to start returning documents, how the result set is sorted, which fields to return for each documents, if duplicate documents must be removed, and if relevant passages must be extracted from the results set. Structure parameters don't affect which documents are part of the entire results set.
+Structure parameters define the content and organization of the documents in the returned JSON. This includes the number of results returned, where in the results set to start returning documents, how the result set is sorted, which fields to return for each documents, if duplicate documents must be removed, and if relevant passages must be extracted from the results set. Structure parameters don't affect which documents are part of the entire results set.
 
 ## count
 {: #count}

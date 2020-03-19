@@ -898,7 +898,7 @@ Wildcards are not necessary within phrases in queries. For example, given the ke
 The following known issues have been discovered.
 
 -  All fields that are ingested from HTML, PDF, and Word documents are typed as **string**. JSON fields and calculated fields, such as sentiment score, are typed as defined. [Update](/docs/discovery?topic=discovery-addcontent#adding-content-with-the-api-or-tooling)
-- The `preview` operation does not currently check for nested JSON arrays within a submitted JSON document. The service does not currently support nested JSON arrays, so a document with nested arrays can successfully pass the `preview` operation but fail upon an ingestion attempt. See [Can I upload JSON arrays?](/docs/discovery?topic=discovery-faqs#array)
+- The `preview` operation does not currently check for nested JSON arrays within a submitted JSON document. The service does not currently support nested JSON arrays, so a document with nested arrays can successfully pass the `preview` operation but fail upon an ingestion attempt. See [Can I upload JSON arrays?](/docs/discovery?topic=discovery-faqs#faq-array)
 - If you encounter ingestion errors with the message `unsupported text language`, update your configuration with the `"language": "english"` enrichment option to force all text to be interpreted as English, as shown in the following example. 
 ```json
 "enrichments": [
