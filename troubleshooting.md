@@ -40,7 +40,7 @@ Frequently asked questions about {{site.data.keyword.discoveryshort}}.
 {: faq}
 {: support}
 
-If you cannot find a solution to the issue you are having, try the resources available from the **Developer community** section of the table of contents.
+If you cannot find a solution to the issue you are having, search this documentation. You can also try the resources available from the **Developer community** section of the table of contents.
 
 If your service plan covers it, you can get help by creating a case from [IBM Cloud Support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external}.
 
