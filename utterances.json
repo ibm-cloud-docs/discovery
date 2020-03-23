@@ -1,0 +1,112 @@
+{
+   "faq-support": [
+   "support for Watson Discovery",
+   "help with Discovery",
+   "technical support for Discovery",
+   "questions about Discovery",
+   "Watson Discovery support"
+  ],
+   "faq-confidence": [
+   "interpret confidence scores in Discovery",
+   "understanding Discovery confidence scores",
+   "where is the confidence score",
+   "reading confidence scores in Watson Discovery",
+   "interpreting confidence scores",
+   "confidence score"
+  ],
+   "faq-integrate": [  
+   "integrating Discovery and Assistant",
+   "integrate Watson Discovery with Assistant",
+   "Discovery and Assistant integration",
+   "integrate discovery with chatbot",
+   "link Assistant and Discovery",
+   "integrate Assistant chatbot with Discovery"
+  ],
+   "faq-env": [  
+   "Error 'Only one free environment is allowed per resource group' for Watson Discovery",
+   "400 error in Discovery",
+   "Discovery environment issue",
+   "Can't create a new Discovery environment",
+   "environment error message in Discovery",
+   "Discovery enviroment message",
+   "Only one free environment is allowed per resource group",
+   "can't create a Discovery Resource Instance"
+ ],
+   "faq-nlqsize": [  
+   "NLQ limit in Watson Discovery",
+   "natural language query limit",
+   "limit to natural language query",
+   "NLQ limit",
+   "size limitation on NLQ",
+   "maximum query string limit",
+   "maximum query length limit"
+ ],
+   "faq-relevancy": [  
+   "when relevancy training complete",
+   "relevancy training done",
+   "completed relevancy training",
+   "Watson Discovery training errors",
+   "Discovery training complete",
+   "Error: Invalid training data found"
+ ],
+   "faq-uploaddocs": [  
+   "uploading documents to Watson Discovery",
+   "uploading documents with API",
+   "uploading documents with Discovery tooling",
+   "document upload using the Discovery tooling",
+   "available document uploading methods"
+ ],
+   "faq-price": [  
+   "Discovery plan cost",
+   "Watson Discovery cost",
+   "Discovery price",
+   "price of discovery",
+   "Discovery pricing",
+   "discovery pricing plans",
+   "pricing plans for Discovery"
+ ],
+   "faq-upgrade": [  
+   "Watson Discovery upgrade",
+   "upgrading Discovery existing plan",
+   "resizing plans for Discovery",
+   "switching Discovery plans",
+   "switching tiers in Discovery"
+ ],
+   "faq-stopwords": [  
+   "Watson Discovery stop words list",
+   "define a stopwords list",
+   "creating stopwords",
+   "create stop words",
+   "custom stopwords list"
+ ],
+   "faq-expansion": [  
+   "query expansion",
+   "Watson Discovery query expansions",
+   "creating query expansion terms",
+   "expand queries in Discovery",
+   "use synonyms antonyms in Discovery",
+   "query expansion list"
+ ],
+   "faq-newsquery": [  
+   "Discovery news query results",
+   "length of Watson Discovery news queries",
+   "Watson Discovery News JSON",
+   "Watson Discovery News query result",
+   "length of Watson Discovery news results"
+ ],
+   "faq-newsapi": [  
+   "query Watson Discovery News using API",
+   "using API to query Discovery News",
+   "querying Discovery News",
+   "querying watson discovery news with the api",
+   "Watson Discovery News queries"
+],
+ "faq-array": [
+    "upload JSON arrays",
+    "JSON array upload to Watson Discovery",
+    "upload the complete JSON array",
+    "JSON array uploading",
+    "uploading the JSON array",
+    "JSON array upload to Discovery"
+  ]
+}   
