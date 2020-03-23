@@ -29,6 +29,7 @@ subcollection: discovery
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 {:support: data-reuse='support'}
+{:faq: data-hd-content-type='faq'}
 
 # Getting help
 {: #troubleshoot}
