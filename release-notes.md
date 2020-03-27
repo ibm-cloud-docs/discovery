@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-06"
+lastupdated: "2020-03-27"
 
 subcollection: discovery
 
@@ -58,7 +58,7 @@ The following new features and changes to the service are available.
 ## 6 March 2020
 {: #6mar2020}
 
-- The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**. Data already in {{site.data.keyword.discoveryshort}} collections enriched with Element Classification is not affected, nor are any other existing queries or operations affected. After the deprecation date, you can no longer apply the Element Classification enrichment to any new or existing collection.
+- The Element Classification enrichment is deprecated and will no longer be available, effective **15 May 2020**. Data already in {{site.data.keyword.discoveryshort}} collections enriched with Element Classification is not affected, nor are any other existing queries or operations affected. After the deprecation date, you can no longer apply the Element Classification enrichment to any new or existing collection.
 
 ## 17 January 2020
 {: #17jan2020}

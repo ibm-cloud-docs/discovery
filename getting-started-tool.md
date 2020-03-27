@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-06"
+lastupdated: "2020-03-27"
 
 keywords: discovery,getting started,tutorial,IBM cloud,cognitive,exploration,insights,data,unstructured data,query,enrich,ai,artificial intelligence,watson
 
@@ -81,7 +81,7 @@ The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collectio
 
     When creating a collection, under **Advanced**, you have the option to choose a configuration file named **Default Contract Configuration**. This configuration supports only the Element Classification enrichment, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/discovery?topic=discovery-element-classification#element-collection) for details. Do not choose this option for this tutorial.
 
-    The Element Classification enrichment is deprecated and will no longer be available, effective **6 April 2020**.
+    The Element Classification enrichment is deprecated and will no longer be available, effective **15 May 2020**.
     {:important}
 
 You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information.
