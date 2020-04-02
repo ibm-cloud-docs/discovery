@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-03-31"
 
 subcollection: discovery
 
@@ -47,7 +47,7 @@ The current version is `2019-04-30`.
 ## Beta features
 {: #beta-features}
 
-IBM will release services, features, and language support that are classified as beta or experimental. These capacities can be unstable, can change frequently, and can be discontinued with short notice. They are provided so you can evaluate their functionality. A beta or experimental capacity might not provide the same level of performance or compatibility that generally released capacities provide. These capacities are not designed for use in a production environment, and any such use is at your own risk.
+{{site.data.keyword.IBM_notm}} releases services, features, and language support for your evaluation that are classified as beta. These features can be unstable, can change frequently, and can be discontinued with short notice. Beta features might not provide the same level of performance or compatibility that generally available features provide and are not intended for use in a production environment.
 
 
 ## Changes
