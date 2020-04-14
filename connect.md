@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-27"
+lastupdated: "2020-04-14"
 
 subcollection: discovery
 
@@ -219,7 +219,10 @@ Other items to note when you crawl Microsoft SharePoint Online:
 
 -  To crawl SharePoint, the `username` account does not need `SiteCollection Administrator` permissions.
 -  When you crawl SharePoint, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
--  It is recommended that you use the default Azure Active Directory (Azure AD) authentication. The username for the default Azure AD authentication is in the form of `<username>@<domain>.onmicrosoft.com`. If you do not have an Azure AD username, contact your SharePoint site administrator. 
+-  It is recommended that you use the default Azure Active Directory (Azure AD) authentication. The username for the default Azure AD authentication is in the form of `<username>@<domain>.onmicrosoft.com`. If you do not have an Azure AD username, contact your SharePoint site administrator.
+
+If you created a SharePoint Online account after January 2020, two-factor authentication is enabled for your account, by default. To crawl your SharePoint Online collection, you must disable two-factor authentication. To view and change your multifactor authentication status, see [View the status for a user](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates#view-the-status-for-a-user){: external} or [Change the status for a user](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates#change-the-status-for-a-user){: external}.
+{: important}
 
 ### Web Crawl
 {: #connectwebcrawl}
