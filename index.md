@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-07"
+lastupdated: "2020-04-21"
 
 subcollection: discovery
 
@@ -36,7 +36,7 @@ subcollection: discovery
 {: shortdesc}
 
 
-![Discovery architecture diagram](images/about-discovery.png)
+![Discovery architecture diagram](images/about-discovery1.png)
 
 With {{site.data.keyword.discoveryshort}}, it only takes a few steps to prepare your unstructured data, create a query that pinpoints the information you need, and then integrate those insights into your new application or existing solution.
 
@@ -48,6 +48,8 @@ How does {{site.data.keyword.discoveryshort}} do it? By using data analysis comb
 - Securely explore your proprietary content as well as free and licensed public content.
 - Apply additional enrichments such as concepts, relations, and sentiment through {{site.data.keyword.nlushort}} (NLU).
 - Simplify development while still providing direct access to APIs.
+
+To try out {{site.data.keyword.discoveryshort}}, see the [{{site.data.keyword.discoveryfull}} Query Demo](https://www.ibm.com/demos/live/watson-discovery/self-service/home){: external}.
 
 You can use Smart Document Understanding (SDU) to train {{site.data.keyword.discoveryfull}} to extract custom fields in your documents. See [Smart Document Understanding](/docs/discovery?topic=discovery-sdu) for more information.
 
@@ -67,7 +69,7 @@ For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browse
 ## Watson Discovery News
 {: #wds}
 
-{{site.data.keyword.discoverynewsshort}}, a public data set that is pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information. See a demo of what you can build with {{site.data.keyword.discoverynewsshort}} [here](https://discovery-news-demo.ng.bluemix.net/){: external}.
+{{site.data.keyword.discoverynewsshort}}, a public data set that is pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information.
 
 {{site.data.keyword.discoveryshort}} is available on [{{site.data.keyword.Bluemix_notm}}](https://{DomainName}/catalog/services/discovery){: external}
 
