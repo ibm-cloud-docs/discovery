@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-14"
+lastupdated: "2020-04-28"
 
 subcollection: discovery
 
@@ -292,13 +292,12 @@ Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooli
 
 1.  From the **Manage data** page of the {{site.data.keyword.discoveryshort}} tooling, select **Connect a data source**.
 2.  Select the data source that you want to connect to. If you select an on-premises data source, install the {{site.data.keyword.SecureGatewayfull}}. For more information, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway).
-3.  Enter your source credentials and click connect. Your source credentials must be obtained from your source system administrator.
-4.  Choose which data you want to the crawl and how often you want to sync it. Sync options:
-    -  Every five minutes: runs every five minutes
-    -  Hourly: runs every hour
-    -  Daily: runs every day between the hours of 00:00 and 06:00 in the specified time zone
-    -  Weekly: runs every week on Sunday between hours of 00:00 and 06:00 in the specified time zone
-    -  Monthly: runs every month on the first Sunday of the month between the hours of 00:00 and 06:00 in the specified time zone
+3.  Enter your source credentials, and click **Connect**. You must obtain your source credentials from your source system administrator.
+4.  Choose which data that you want to crawl and how often you want to sync it:
+    -  **once an hour**: runs every hour
+    -  **once a day**: runs every day between the hours of 00:00 and 06:00 in the specified time zone
+    -  **once a week**: runs every week on Sunday between hours of 00:00 and 06:00 in the specified time zone
+    -  **once a month**: runs every month on the first Sunday of the month between the hours of 00:00 and 06:00 in the specified time zone
     
     Example crawl status:
     
@@ -311,7 +310,7 @@ Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooli
     ```
 5.  Click **Save & Sync objects** to start crawling your data source. You are then redirected to the collection status page, which updates as documents are added to the collection.
 
-Initially, the crawl syncs the data and, subsequently, on the frequency that you specified.
+After the initial sync, all subsequent crawls run on the frequency that you specified. For information about managing a collection, see [Manage collections](/docs/discovery?topic=discovery-sources#manage-collections).
 
 If you modify anything in the **Sync settings** screen and then click **Save and Sync objects**, a crawl starts at that time or restarts if one is already running.
 {: note}
@@ -351,7 +350,7 @@ The following example uses the SharePoint data source.
     Record the returned **configuration_id** of the newly created configuration.
 3.  Create a new collection using the [Collections API](https://{DomainName}/apidocs/discovery#create-a-collection){: external}. The object defining the collection must contain the **configuration_id** that you recorded earlier.
 
-The source crawl begins as soon as you create the collection. After the initial crawl, all subsequent crawls run on the frequency that you specified.
+The source crawl begins as soon as you create the collection. After the initial crawl, all subsequent crawls run on the frequency that you specified. For information about managing a collection, see [Manage collections](/docs/discovery?topic=discovery-sources#manage-collections).
 
 If you modify anything in the **source** object of the configuration, a new crawl starts at that time or restarts if one is already running.
 {: note}
@@ -377,6 +376,38 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
 3.  The next scheduled crawl adds the `customer_id` field to all documents. To start a crawl immediately, modify the source configuration (**Sync settings** in the tooling).
 
 See [Information security](/docs/discovery?topic=discovery-information-security) for more information and information about deleting based on `customer_id`.
+
+## Managing collections
+{: #manage-collections}
+
+After you create a collection, you can view a crawler status or change the content that you want to crawl, your security credentials to connect to a data source, or a crawler schedule.
+{: shortdesc}
+
+When you click **Manage data**, these tabs are available after collection processing finishes. The tabs contain data that is associated with your collection and options for managing it.
+
+**Overview** tab:
+- The number of documents
+- The collection status. While syncing is in progress, the collection status states, `Sync in progress`. If you recrawl your collection when the sync is in progress, the current crawler stops, and a new full crawling session begins. Unless you want to make a change to your collection immediately, you might want to wait until syncing completes before starting a recrawl. When collection processing completes, you receive a status message that states, `Your documents have finished processing! You can now work with your full data set.`.
+- The creation and last update dates of the collection
+- A list of warnings and errors
+- Any fields that the crawler identified from your data
+- Any enrichments that were added to your data and the option to **Add enrichments**
+- Available sample queries and the option to **Build your own query**
+
+**Errors and warnings** tab:
+- A list of any warnings and errors that might appear while your collection processes, such as the affected file name and its associated document ID
+
+**Sync settings** tab:
+- The option to change your security credentials. If your security credentials for connecting to a data source change, you must update your credentials. To update your credentials, in the **Your service's credentials** pane, click **Edit credentials**.
+- The option to edit the content that you want to crawl in the **Enter the data that you would like to sync** pane. You can change or delete any URL or file path that you already specified. To delete a URL or file path, click the minus icon next to the ![Settings](images/icon_settings.png) icon.
+- The option to change your crawler schedule in the **Additional settings** pane by clicking **Sync frequency**
+- The **Crawl settings** dialog box. For example, if you select **Web Crawl** and you already added a start URL, you can click the ![Settings](images/icon_settings.png) icon next to the start URL to access the **Crawl settings** dialog box. In this dialog box, you can specify the **Maximum hops** or exclude URLs that include specific subdirectories in **Exclude URLs where the path includes**.
+
+**Search settings** tab:
+- The option to upload a synonym list file to enhance your query
+- The option to upload a stopwords file to further enhance the relevance of your results
+
+For information about creating a collection, see [Creating a collection using the tooling](/docs/discovery?topic=discovery-sources#source_tooling) or [Creating a collection using the API](/docs/discovery?topic=discovery-sources#source_api).
 
 ## Installing IBM Secure Gateway for on-premises data 
 {: #gateway}
