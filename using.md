@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-21"
+lastupdated: "2020-05-05"
 
 subcollection: discovery
 
@@ -363,8 +363,8 @@ See the [stopwords API reference](https://{DomainName}/apidocs/discovery#create-
 
 Notes about stopwords:
 
--  Uploading a custom stopword list is only available for private collections on `Advanced` and `Premium` plans.
--  The size limit for a custom stopword list `txt` file is one million characters. However, if you upload a custom stopwords list with a large number of terms, you might negatively affect search accuracy. The number of words is dependent on the language, the document contents, and the words chosen. A good best practice would be to keep your list of stopwords under `200` total words.
+-  Uploading a custom stopword list is only available for private collections on `Advanced` and `Premium` plans, with the exception of the COVID-19 collection available in Lite plans.
+-  The size limit for a custom stopword list `txt` file is 10,000 total characters or 1,000 words. If you upload a custom stopwords list with a large number of terms, you might negatively affect search accuracy. A good best practice would be to keep your list of stopwords under 200 total words.
 -  Only one custom stopword list can be uploaded per collection; if a second custom stopword list is uploaded, it replaces the first.
 -  All stopwords must be lowercase.
 -  To disable the custom stopword list, delete the custom stopword list.
