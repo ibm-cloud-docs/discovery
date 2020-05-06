@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-21"
+lastupdated: "2020-05-06"
 
 subcollection: discovery
 
@@ -499,7 +499,7 @@ Emotion Analysis is supported in English only.
 ### Element classification
 {: #elements}
 
-The Element Classification enrichment is deprecated and will no longer be available, effective **15 May 2020**.
+The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
 {:important}
 
 Parses elements (sentences, lists, tables) in governing documents to classify important types and categories
