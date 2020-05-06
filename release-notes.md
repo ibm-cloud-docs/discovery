@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-31"
+lastupdated: "2020-05-06"
 
 subcollection: discovery
 
@@ -54,6 +54,13 @@ The current version is `2019-04-30`.
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+
+## 6 May 2020
+{: #6may2020}
+
+The Element Classification enrichment deprecation date announced [6 March 2020](/docs/services/discovery?topic=discovery-release-notes#6mar2020) has been changed. The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**. 
+
 
 ## 6 March 2020
 {: #6mar2020}

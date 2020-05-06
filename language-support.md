@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-05-06"
 
 subcollection: discovery
 
@@ -90,7 +90,7 @@ The following features are currently supported in English only:
 - Element Classification enrichment
 - Document deduplication (beta)
 
-The Element Classification enrichment is deprecated and will no longer be available, effective **15 May 2020**.
+The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
 {:important}
 
 ## Japanese-only support
