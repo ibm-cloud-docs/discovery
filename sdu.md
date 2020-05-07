@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-27"
+lastupdated: "2020-05-07"
 
 subcollection: discovery
 
@@ -77,7 +77,7 @@ If you did not yet create a {{site.data.keyword.discoveryshort}} instance and en
    If you did not upload any documents earlier, return to the **Overview** screen by clicking the name of your collection in the upper left, or click the ![Manage Data](/images/icon_yourData.png) icon and choose your collection. Drag and drop documents into your collection, or click **browse from computer**. After you initially upload your documents, the **Upload documents** button displays on the upper right.
    {: important}
 
-1. Open the **Identify fields** tab. A maximum of twenty (20) documents from your collection automatically loads in the Smart Document Understanding editor.
+1. Open the **Identify fields** tab. The number of documents displayed in the Smart Document Understanding editor varies based on your plan.
 
 You can use the toolbar at the top to complete the following actions:
 - Choose a document to annotate
