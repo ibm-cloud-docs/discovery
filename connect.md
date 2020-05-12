@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-05-12"
 
 subcollection: discovery
 
@@ -29,37 +29,50 @@ subcollection: discovery
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# Connecting to Data Sources
+# Connecting to data sources
 {: #sources}
 
 <!-- Learn more topic WDS -->
-{{site.data.keyword.discoveryshort}} lets you connect to and crawl documents from remote sources.
+You can use {{site.data.keyword.discoveryshort}} to connect to and crawl documents from remote sources.
 {: shortdesc}
 
-You can connect to a data source and pull documents on a schedule (if desired) into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. Each collection can be configured with one data source. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. Only items explicitly specified by you are crawled by {{site.data.keyword.discoveryshort}}. 
+You can connect to a data source and pull documents on a schedule into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. You can configure each collection with one data source. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. {{site.data.keyword.discoveryshort}} only crawls items that you explicitly specify. The first time that a crawler crawls a data source is a full crawl, and every time that the crawler runs after the full crawl, per the crawl schedule, is a refresh, also called a recrawl.
 
 
-## General Source Requirements
+## General source requirements
 {: #gen_req}
 
 The following general requirements apply to all data sources:
 
 -  The individual document file size limit for Box, Salesforce, SharePoint Online, SharePoint 2016, IBM Cloud Object Storage, and Web Crawl is 10MB.
--  You must have the credentials and file locations (or URLs) for each data source - these are typically provided by a developer/system administrator of the data source.
--  You must know which resources of the data source to crawl, which the source administrator can provide. If you crawl Box or Salesforce, a list of available resources is presented when configuring a source, using the {{site.data.keyword.discoveryshort}} tooling.
--  If using the {{site.data.keyword.discoveryshort}} tooling, a collection can be configured with a single data source. If using the API, documents from multiple data sources can be sent into a single collection.
--  Crawling a data source uses resources, namely API calls, of the data source. The number of API calls depends on the number of documents that need to be crawled. An appropriate level of service license (for example Enterprise) must be obtained for the data source, and the source system administrator consulted.
--  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection. When a source is re-crawled, new documents are added, updated document are modified to the current version, and deleted documents remain as the version last stored.
--   The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
+-  You must have the credentials, file locations, or URLs for each data source. A developer or system administrator typically provides the credentials, file locations, and URLs of the data source.
+-  You must know which resources of the data source to crawl, which the source administrator can provide. If you crawl Box or Salesforce, a list of available resources is presented when you configure a source, using the {{site.data.keyword.discoveryshort}} tooling.
+-  If you are using the {{site.data.keyword.discoveryshort}} tooling, you can configure a collection with a single data source. If you are using the API, you can ingest documents from multiple data sources into a single collection.
+-  Crawling a data source uses resources, namely API calls, of the data source. The number of API calls depends on the number of documents that need to be crawled. You must obtain an appropriate level of service license, for example Enterprise, for the data source. For information about the appropriate service level license that you need, contact the source system administrator.
+-  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection, but you can manually delete them using the API. When a source is re-crawled, new documents are added, updated documents are modified to the current version, and deleted documents remain as the version last stored.
+-  {{site.data.keyword.discoveryshort}} can only ingest the following file types, and it ignores all other document types:
 
 Lite plans | Advanced plans 
 ------------------------------ | ------------------------------------------- 
 PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
 
 
-\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
+\* {{site.data.keyword.discoveryfull}} supports crawling JSON and HTML documents, but you cannot edit these documents using the SDU editor. To change the configuration of HTML and JSON documents, you must use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
 
-\*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned and the text (if any) extracted.
+\*\* Individual image files, such as PNG, TIFF, and JPG, are scanned, and any text is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned, and any text is extracted.
+
+View the following table to see the objects that a data source can crawl and which data sources support crawling new and modified documents during a refresh:
+
+Data source                          | Crawls new and modified documents during refresh? | Compatible objects that can be crawled
+------------------------------------ | ------------------------------------------------- | --------------------------------------
+Box (**Application level** access)   | No                                                | Files, folders
+Box (**Enterprise level** access)    | Yes                                               | Files, folders
+Salesforce                           | Yes                                               | Any default and custom objects that you have access to, accounts, contacts, cases, contracts, knowledge articles, attachments
+Microsoft SharePoint Online          | Yes                                               | SiteCollections, websites, lists, list items, document libraries
+Microsoft SharePoint 2016 On-Premise | Yes                                               | SiteCollections, websites, lists, list items, document libraries
+Web Crawl                            | No                                                | Websites, website subdirectories
+IBM Cloud Object Storage             | Yes                                               | Buckets, files
+{: caption="Table 1. Data sources that support crawling new and modified documents during refresh and objects that can be crawled" caption-side="top"}
 
 
 ## Available data sources
@@ -74,7 +87,7 @@ You can use {{site.data.keyword.discoveryshort}} to crawl from the following dat
 -  [Web Crawl](/docs/discovery?topic=discovery-sources#connectwebcrawl)
 -  [IBM Cloud Object Storage](/docs/discovery?topic=discovery-sources#connectcos)
 
-Connecting to a data source can be performed using the {{site.data.keyword.discoveryshort}} tooling, or the API. The {{site.data.keyword.discoveryshort}} tooling provides a simplified method of connection that requires less understanding of the source systems, and the API provides a more granular and highly configurable interface which required a greater understanding of the source that you are connecting to. The following process overview let you know which sections of this document to read next:
+You can connect to a data source using the {{site.data.keyword.discoveryshort}} tooling or the API. The {{site.data.keyword.discoveryshort}} tooling provides a simplified method of connection that requires less understanding of the source systems, and the API provides a more granular and highly configurable interface, which requires a greater understanding of the source that you are connecting to. Consult the following process overview to see which sections of this document to read next:
 
 1.  Read the [General Source Requirements](/docs/discovery?topic=discovery-sources#gen_req).
 2.  Read the requirements for your data source. For the available data sources, see the list above.
@@ -82,7 +95,7 @@ Connecting to a data source can be performed using the {{site.data.keyword.disco
     -  [Using the tooling](/docs/discovery?topic=discovery-sources#source_tooling)
     -  [Using the API](/docs/discovery?topic=discovery-sources#source_api)
 
-If you select an on-premises data source, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
+If you select an on-premises data source, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. For more information about installing {{site.data.keyword.SecureGatewayfull}}, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway).
 
 
 ### Box
@@ -94,14 +107,11 @@ You'll need to create a new Box custom application to connect to {{site.data.key
 -  If you are not the Box administrator for your organization, [**Application level** access](/docs/discovery?topic=discovery-sources#applevelbox) is recommended. You must have an administrator approve your application.
 -  If you are the Box administrator for your organization, [**Enterprise level** access](/docs/discovery?topic=discovery-sources#entlevelbox) is recommended.
 
-`Refresh` is only supported with Enterprise level access.
-{: note}
+If you have **Application level** access, new and modified documents are not crawled during a refresh. This functionality is only supported if you have **Enterprise level** access. If you have **Application level** access, you must first have an administrator approve your application.
+{: important}
 
 If there is a Box update, the steps to set up Box access might change. For more information, see the [Box developer documentation](https://developer.box.com/){: external}.
 {: note}
-
-If you only want to run a full crawl, **Application level** access is sufficient, but you must have an administrator approve your application. However, if you want to run a full crawl and you need refresh functionalities, you must have **Enterprise level** access.
-{: important}
 
 #### Setting up Application level access
 {: #applevelbox}
@@ -228,13 +238,15 @@ If you created a SharePoint Online account after January 2020, two-factor authen
 {: #connectwebcrawl}
 
 <!-- Learn more topic WDS -->
-This feature can be used crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
+You can use the web crawler to crawl public websites that don’t require a password. You can select how often you'd like {{site.data.keyword.discoveryshort}} to sync with the websites, the language, and the number of hops.
 
--  `Sync my data` - You can choose to sync every 5 minutes, hourly, daily, weekly, or monthly. 
--  `Select language` - Choose the language of the websites from the list of supported languages. See [Language support](/docs/discovery?topic=discovery-language-support) for the list of languages supported by {{site.data.keyword.discoveryshort}}. It is recommended that you create a separate collection for each language.
--  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20` (if using the API, the maximum is `1000`). You can also specify URL paths to exclude from the crawl. Separate these paths, using commas. For example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/` in the **Exclude URLs where the path includes** field.
+-  `Sync my data` - You can choose to sync hourly, daily, weekly, or monthly.
+-  `Select language` - Choose the language of the websites from the list of supported languages. For the list of languages that {{site.data.keyword.discoveryshort}} supports, see [Language support](/docs/discovery?topic=discovery-language-support). You should create a separate collection for each language.
+-  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20`. If you are using the API, the maximum is `1000`. You can specify URL paths to exclude from the crawl in the **Exclude URLs where the path includes** field. Separate the paths, using commas, for example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/`.
 
 When you specify a URL to crawl, the final `/` determines the subtree to crawl. For example, if you enter the URL `https://www.example.com/banking/faqs.html`, all URLs that begin with `https://www.example.com/banking/` are crawled, and the input of `https://www.example.com/banking` crawls all URLs that begin with `https://www.example.com/`. If you would like to restrict the crawl to a specific URL, such as `https://www.example.com/banking/faqs.html`, enter that URL in the `URL group to sync` field, and then set the **Maximum hops** to `0`.
+
+The web crawler does not crawl dynamic websites that use JavaScript to render content. You can confirm the use of JavaScript by viewing the source code of the website in your browser.
 
 The number of web pages crawled is limited to 250,000, so the web crawler might not crawl all the specified websites and might reach the maximum number of hops.
 {: note}
