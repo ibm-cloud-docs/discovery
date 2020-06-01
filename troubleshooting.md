@@ -75,14 +75,18 @@ If you have recently deleted a Lite instance and then receive a `400 - Only one 
 
 The maximum query string length for a natural language query is `2048`. For more information, see [Natural language query](/docs/discovery?topic=discovery-query-parameters#nlq). 
 
+## How do you improve query results?
+{: #faq-improving}
+{: faq}
+
+The relevance of natural language query results can be improved in IBM Watson Discovery with training.  You can train your private collections using either the Discovery tooling, or the Discovery APIs. For information, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling).
 
 ## How do you know that relevancy training is complete?
 {: #faq-relevancy}
 {: faq}
 {: support}
 
-For answers to common questions about training a collection and explanations of common error and warning messages, see [Relevancy training tips](/docs/discovery?topic=discovery-relevancy-tips). For more about training requirements and options, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling).
-
+For answers to common questions about training a collection and explanations of common error and warning messages, see [Relevancy training tips](/docs/discovery?topic=discovery-relevancy-tips).
 
 ## Where can I learn more about uploading documents to Watson Discovery?
 {: #faq-uploaddocs}
@@ -90,6 +94,18 @@ For answers to common questions about training a collection and explanations of 
 {: support}
 
 You can upload documents using the API or the {{site.data.keyword.discoveryshort}} tooling. You can also connect to several different data sources (including Box, Salesforce, SharePoint Online, SharePoint 2016, and IBM Cloud Object Storage), or do a web crawl. For details, see [Adding content](/docs/discovery?topic=discovery-addcontent).
+
+## What document types are supported for ingestion?
+{: #faq-doctype}
+{: faq}
+
+Refer to [Supported document types and browsers](/docs/discovery?topic=discovery-sdu#doctypes) for a list of the available document types by plan.
+
+## How do you use the Smart Document Understanding editor?
+{: #faq-sdu}
+{: faq}
+
+The SDU editor functions are available in the Discovery tooling. Read [Using the Smart Document Understanding editor](/docs/discovery?topic=discovery-sdu#annotate) to get started.
 
 ## How much does Discovery cost?
 {: #faq-price}
@@ -219,3 +235,16 @@ Section 2:
 }
 ```
 {: codeblock}
+
+
+## How can you protect your data when using Watson Discovery?
+{: #faq-secure}
+{: faq}
+
+To learn about securing your data when using Watson Discovery, refer to [Protecting sensitive information in your Watson service](/docs/discovery?topic=watson-keyservice).  For general information about the security architecture, review [Securing AI apps: Watson on IBM Cloud security](https://www.ibm.com/cloud/architecture/architectures/securityArchitecture/watson-security).  
+
+## What Watson solutions are available to respond to Covid-19 questions?
+{: #faq-covid19kit}
+{: faq}
+
+[IBM Watson Assistant for Citizens](https://www.ibm.com/watson/covid-response) on the IBM public cloud brings together Watson Assistant, Natural Language Processing capabilities from IBM Research, and state-of-art enterprise AI search capabilities with Watson Discovery, to understand and respond to common questions about COVID-19.  For information on what’s available with Watson Discovery, review [Using the COVID-19 kit](/docs/discovery?topic=discovery-covidkit).
