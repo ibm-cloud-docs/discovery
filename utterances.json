@@ -1,0 +1,202 @@
+{
+    "faq-support": [
+        "get support for Discovery",
+        "raise a case for Watson Discovery",
+        "need technical support for Watson Discovery",
+        "technical support for Discovery",
+        "Discovery support case",
+        "connect to Discovery support please",
+        "open ticket for Discovery",
+        "get connected to Discovery technical support",
+        "support ticket creation for Watson Discovery",
+        "additional assistance with Discovery"
+    ],
+    "faq-confidence": [
+        "interpret confidence scores in Discovery",
+        "understanding discovery confidence scores",
+        "where is the confidence score for discovery",
+        "cofidence score returned by collections in Discovery",
+        "confidence scores returned for Discovery",
+        "reading confidence scores in Watson Discovery",
+        "interpreting confidence scores for Discovery",
+        "confidence scores interpretation in Discovery"
+    ],
+    "faq-integrate": [
+        "integrating Discovery and Assistant",
+        "integrate Discovery with Assistant",
+        "Discovery and Assistant integration",
+        "integrating Watson Discovery with chatbot",
+        "link Assistant and Discovery together",
+        "integrating Discovery with Watson Assistant",
+        "integrate Discovery with Assistant chatbot",
+        "Assistant integration with Discovery",
+        "Assistant and Discovery integration"
+    ],
+    "faq-env": [
+        "Error 'Only one free environment is allowed per resource group' for Watson Discovery",
+        "400 error in Discovery",
+        "Discovery environment error given",
+        "Only one free environment is allowed per resource group error",
+        "Can't create a new Discovery environment",
+        "environment error message for discovery",
+        "Discover enviroment error message",
+        "Only one free environment is allowed per resource group"
+    ],
+    "faq-nlqsize": [
+        "NLQ limit Discovery",
+        "natural language query limit",
+        "size limitation on the length of Natural Language Queries (NLQ)",
+        "size limit on the length of NLQ for Discovery",
+        "maximum query string length for a Discovery natural language query",
+        "limit to natural language query length",
+        "limit on NLQ",
+        "maximum query string limit in Discovery",
+        "maximum NL query length in Watson Discovery",
+        "limit to the NL query length within Discovery"
+    ],
+    "faq-relevancy": [
+        "relevancy training complete",
+        "relevancy training done",
+        "completed relevancy training",
+        "Discovery relevancy training finished",
+        "training complete for Discovery",
+        "relevancy training completed",
+        "relevancy training status",
+        "training status overview in discovery"
+    ],
+    "faq-uploaddocs": [
+        "uploading documents to Discovery",
+        "uploading documents with API",
+        "uploading supported documents to Discovery",
+        "upload documents with tooling in Discovery",
+        "document upload for Watson Discovery",
+        "upload documents from Box in Discovery collection",
+        "understand about uploading data sources into Discovery",
+        "uploading documents into Discovery from Salesforce",
+        "upload from SharePoint Online to Discovery",
+        "load documents from SharePoint 2016 to discovery",
+        "up-load document to Discovery from IBM Cloud Object Storage"
+    ],
+    "faq-price": [
+        "Discovery cost",
+        "Watson Discovery cost",
+        "cost of Watson Discovery",
+        "Discovery price",
+        "price of discovery",
+        "pricing plans for Watson Discovery",
+        "Discovery pricing",
+        "Price of Watson Discovery",
+        "Discovery pricing plans"
+    ],
+    "faq-upgrade": [
+        "Discovery upgrade",
+        "upgrade my discovery plan",
+        "Discovery plan upgrade",
+        "upgrading to premium discovery plan for discovery",
+        "upgrading existing Discovery plan",
+        "resizing plans for Watson Discovery",
+        "switching Discovery plan",
+        "switching tiers in Discovery"
+    ],
+    "faq-stopwords": [
+        "Discovery stop words list",
+        "create a  stopwords list",
+        "creating stopwords",
+        "upload default stopword list ",
+        "creating stop words",
+        "custom stopwords list to upload",
+        "discovery stop word lists",
+        "filter words out for discovery",
+        "filtering out words in Doscovery"
+    ],
+    "faq-expansion": [
+        "what's query expansions",
+        "Discovery query expansions",
+        "creating query expansions",
+        "expanding queries in Discovery",
+        "building a query expansion list"
+    ],
+    "faq-newsquery": [
+        "Discovery news query results length",
+        "length of Watson Discovery news queries",
+        "limit for Watson Discovery News query results",
+        "Discovery News query results length",
+        "Watson Discovery News JSON",
+        "Watson Discovery News query results",
+        "length of Watson Discovery query results"
+    ],
+    "faq-newsapi": [
+        "Query Watson Discovery News using API",
+        "Using API to query Discovery News",
+        "query Discovery News collection using API",
+        "querying Discovery News",
+        "querying Watson Discovery News with the API",
+        "Watson Discovery News queries",
+        "query Watson Discovery News"
+    ],
+    "faq-array": [
+        "upload JSON arrays",
+        "JSON array upload to Discovery",
+        "upload the complete JSON array",
+        "JSON array uploading",
+        "uploading the JSON array",
+        "json array to upload",
+        "uploading JSON arrays to Discovery",
+        "JSON array upload to Discovery"
+    ],
+    "faq-doctype": [
+        "supported document types for Discovery",
+        "supported document types for Lite Plan  for Discovery",
+        "document types are supported for ingestion",
+        "document type supported for Advanced plan in Discovery",
+        "type of document for Discovery ingestion",
+        "supported doc types for Premium in Discovery",
+        "ingesting pdf document into Discovery",
+        "doc type to ingest in Discovery Lite plan",
+        "types of documents that can be used in Discovery"
+    ],
+    "faq-sdu": [
+        "smart document understanding editor",
+        "use of smart doc editor in Discovery",
+        "SDU use in Discovery",
+        "SDU editor in Discovery",
+        "annotate a document using SDU",
+        "label a document using SDU editor",
+        "label a document using smart document understanding editor"
+    ],
+    "#faq-secure": [
+        "does discovery protect sensitive content",
+        "discovery encrypt documents",
+        "sensitive information protection in Discovery ",
+        "encrypt the data within Discovery",
+        "data encryption available for discovery",
+        "How to protect my senstive documents in Watson Discovery",
+        "What  security is offered in Discovery",
+        "Discovery secure my data in the cloud"
+    ],
+    "#faq-covid19kit": [
+        "covid-19 within discovery",
+        "covid 19 feature in Discovery",
+        "corona available for discovery",
+        "corona virus kit in Discovery",
+        "corona feature added to discovery",
+        "covid 19 collection for Discovery",
+        "covid-19 feature available in Watson Discovery"
+    ],
+    "#faq-improving": [
+        "how to improve Discovery confidence score",
+        "low confidence score what to do?",
+        "how to get higher confidence scores",
+        "how to get high quality query output in Discovery",
+        "low performance query results for Discovery",
+        "bad quality query result for Discovery",
+        "how to improve Discovery confidence score using API",
+        "low confidence score what to do in API",
+        "how to get higher confidence scores using API",
+        "how to get high quality query output using API in Discovery",
+        "improve low performance using API for Discovery",
+        "improve bad quality query result for Discovery with API",
+        "improve query result using Discovery api",
+        "improve the quality of Discovery query results"
+    ]
+}
