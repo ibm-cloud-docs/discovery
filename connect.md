@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-12"
+lastupdated: "2020-06-03"
 
 subcollection: discovery
 
@@ -94,6 +94,8 @@ You can connect to a data source using the {{site.data.keyword.discoveryshort}} 
 3.  Read the instructions to connect to {{site.data.keyword.discoveryshort}} by using one of the following methods:
     -  [Using the tooling](/docs/discovery?topic=discovery-sources#source_tooling)
     -  [Using the API](/docs/discovery?topic=discovery-sources#source_api)
+
+To learn about integrating {{site.data.keyword.discoveryshort}} with App Connect, see [Adding content](/docs/discovery?topic=discovery-addcontent).
 
 If you select an on-premises data source, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. For more information about installing {{site.data.keyword.SecureGatewayfull}}, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway).
 
