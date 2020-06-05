@@ -18,6 +18,7 @@
         "confidence score returned by collections in Discovery",
         "confidence scores returned for Discovery",
         "reading confidence scores in Watson Discovery",
+        "interpret the confidence score in a Discovery query",
         "interpreting confidence scores for Discovery",
         "confidence scores interpretation in Discovery"
     ],
@@ -83,6 +84,8 @@
         "cost of Watson Discovery",
         "Discovery price",
         "price of discovery",
+        "about the pricing plans of Discovery",
+        "about the cost of Discovery",
         "pricing plans for Watson Discovery",
         "Discovery pricing",
         "Price of Watson Discovery",
@@ -94,6 +97,8 @@
         "Discovery plan upgrade",
         "upgrading to premium discovery plan for discovery",
         "upgrading existing Discovery plan",
+        "upgrade from Discovery Lite to Discovery Advanced Plan",
+        "upgrade my discovery lite plan",
         "resizing plans for Watson Discovery",
         "switching Discovery plan",
         "switching tiers in Discovery"
@@ -105,6 +110,7 @@
         "upload default stopword list ",
         "creating stop words",
         "custom stopwords list to upload",
+        "custom stopword list uploaded",
         "discovery stop word lists",
         "filter words out for discovery",
         "filtering out words in Doscovery"
@@ -122,6 +128,8 @@
         "limit for Watson Discovery News query results",
         "Discovery News query results length",
         "Watson Discovery News JSON",
+        "maximum number of results returned for Discovery News query",
+        "max number of results returned in discovery News",
         "Watson Discovery News query results",
         "length of Watson Discovery query results"
     ],
@@ -131,6 +139,8 @@
         "query Discovery News collection using API",
         "querying Discovery News",
         "querying Watson Discovery News with the API",
+        "querying a collection via the API in discovery",
+        "about querying a collection via the API",        
         "Watson Discovery News queries",
         "query Watson Discovery News"
     ],
@@ -164,7 +174,7 @@
         "label a document using SDU editor",
         "label a document using smart document understanding editor"
     ],
-    "#faq-secure": [
+    "faq-secure": [
         "does discovery protect sensitive content",
         "discovery encrypt documents",
         "sensitive information protection in Discovery ",
@@ -174,7 +184,7 @@
         "What security is offered in Discovery",
         "Discovery secure my data in the cloud"
     ],
-    "#faq-covid19kit": [
+    "faq-covid19kit": [
         "covid-19 within discovery",
         "covid 19 feature in Discovery",
         "corona available for discovery",
@@ -183,7 +193,7 @@
         "covid 19 collection for Discovery",
         "covid-19 feature available in Watson Discovery"
     ],
-    "#faq-improving": [
+    "faq-improving": [
         "how to improve Discovery confidence score",
         "low confidence score what to do?",
         "how to get higher confidence scores",
