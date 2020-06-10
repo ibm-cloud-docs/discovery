@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-06-09"
 
 subcollection: discovery
 
@@ -806,7 +806,7 @@ Documents can be split based on the following HTML tags: `h1` `h2` `h3` `h4` `h5
 
 Considerations:
 
-  - The number of segments per document is limited to `250`. Any document content remaining after `249` segments are stored within segment `250`.
+  - In the Lite plan, the number of segments per document is limited to `250`. Any document content remaining after `249` segments are stored within segment `250`. In the Advanced plan, the number of segments per document is limited to `1,000`. Any document content remaining after `999` segments are stored within segment `1,000`. Segmentation limits are dependent on your plan. For more information, see [Discovery pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans).
 
   - Each segment counts towards the document limit of your plan. {{site.data.keyword.discoveryshort}} indexes segments until the plan limit is reached. See [Discovery pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for document limits.
 
