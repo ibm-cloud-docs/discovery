@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-06-10"
 
 subcollection: discovery
 
@@ -57,7 +57,8 @@ Additional options:<br> [Custom Models](/docs/discovery?topic=discovery-integrat
 One {{site.data.keyword.knowledgestudiofull}} model included. Additional models: Not available<br>[Element Classification](/docs/discovery?topic=discovery-element-classification)\*\*\*:
 500 pages included per month. Additional pages: Not available <br>[News Queries](/docs/discovery?topic=discovery-watson-discovery-news):
 200 News queries included per month. Additional queries:  Not available<br>[Query Expansions](/docs/discovery?topic=discovery-query-concepts#query-expansion):
-500 query expansions with 1,000 total terms. Additional expansions: Not available
+500 query expansions with 1,000 total terms. Additional expansions: Not available<br>
+[Document splitting](/docs/discovery?topic=discovery-configservice#doc-segmentation): 250 segments per plan. Additional segments: Not available
 
 For information about upgrading from Lite to Advanced, see [Upgrading your service](/docs/discovery?topic=discovery-upgrading-your-plan#service)
 
@@ -111,7 +112,8 @@ One {{site.data.keyword.knowledgestudioshort}} model included. Additional models
 10,001 - 100,000 additional queries (per month): $0.05 per query<br>
 Over 100,000 queries (per month): $0.03 per query<br>
 [Query Expansions](/docs/discovery?topic=discovery-query-concepts#query-expansion):
-5,000 query expansions with 25,000 total terms
+5,000 query expansions with 25,000 total terms<br>
+[Document splitting](/docs/discovery?topic=discovery-configservice#doc-segmentation): 1,000 segments per plan. Additional segments: Not available
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
 {:important}
