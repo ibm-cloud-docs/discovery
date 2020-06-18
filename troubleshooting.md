@@ -248,3 +248,15 @@ To learn about securing your data when using Watson Discovery, refer to [Protect
 {: faq}
 
 [IBM Watson Assistant for Citizens](https://www.ibm.com/watson/covid-response) on the IBM public cloud brings together Watson Assistant, Natural Language Processing capabilities from IBM Research, and state-of-art enterprise AI search capabilities with Watson Discovery, to understand and respond to common questions about COVID-19.  For information on what’s available with Watson Discovery, review [Using the COVID-19 kit](/docs/discovery?topic=discovery-covidkit).
+
+## Can I migrate documents from one Discovery instance to another?
+{: #faq-migratecontent}
+{: faq}
+
+You cannot migrate original documents from one instance to another. Instead, ingest the documents to the newly created instance.
+
+## How do I delete documents from my Discovery collection?
+{: #faq-deletecontent}
+{: faq}
+
+Use the [Delete method](/apidocs/discovery#delete-a-document) in the Discovery API to delete documents.  There is no delete option within the user interface.
