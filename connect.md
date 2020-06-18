@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-06-17"
 
 subcollection: discovery
 
@@ -216,22 +216,23 @@ Other items to note when you crawl Salesforce:
 {: #connectsp}
 
 <!-- Learn more topic WDS -->
-When connecting to a Microsoft SharePoint Online source, ensure that the instance you plan to connect to is an Enterprise (E1) plan or higher.
+When connecting to a Microsoft SharePoint Online source, ensure that the instance that you plan to connect to is an Enterprise (E1) plan or higher.
 
-The following credentials are required to connect to a SharePoint Online source. If you do not know these credentials, consult your SharePoint administrator:
+Except for `site_collection_path`, the following fields are required to connect to a SharePoint Online source. If you do not know what to enter in these fields, contact your SharePoint administrator, or consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}:
 
--  `organization_url` - The `organization_url` of the source that these credentials connect to.
--  `site_collection_path` - The `site_collection_path` of the source that these credentials connect to.
--  `username` - The `username` to connect to the SharePoint Online SiteCollection to crawl. This user must have access to all sites and lists that need to be crawled and indexed.
--  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
+-  `username` - The `username` to connect to the SharePoint Online SiteCollection that you want to crawl. This user must have access to all sites and lists that the user wants to crawl and index. Your `username` input must be a default Azure Active Directory (Azure AD) account, which is formatted as follows: `<username>@<domain>.onmicrosoft.com`. If you do not have an Azure AD username, contact your SharePoint site administrator.
+-  `password` - The `password` to connect to the SharePoint Online SiteCollection that you want to crawl. This value is never returned and is only used when creating or modifying credentials.
+-  `organization_url` - The `organization_url` of the source that you want to crawl. When you enter this input, only enter the domain name of the URL, for example `https://<company>.<domain>.com/`. If you enter a URL that extends beyond the domain name, or `.com/`, the input is invalid.
+-  `site_collection_path` Optional: - The `site_collection_path` to the source that you want to crawl. For guidance on how to format this input, see the following example: `/sites/test`. If unspecified, the default is `/`, and the root site collection is crawled.
 
-When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}.
-
-Other items to note when you crawl Microsoft SharePoint Online:
+Note the following items when you crawl Microsoft SharePoint Online:
 
 -  To crawl SharePoint, the `username` account does not need `SiteCollection Administrator` permissions.
 -  When you crawl SharePoint, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
--  It is recommended that you use the default Azure Active Directory (Azure AD) authentication. The username for the default Azure AD authentication is in the form of `<username>@<domain>.onmicrosoft.com`. If you do not have an Azure AD username, contact your SharePoint site administrator.
+-  You might want to use the default Azure AD authentication.
+
+To successfully crawl Microsoft SharePoint Online, you must enable legacy authentication and Contribute level permissions. To enable legacy authentication, visit the [Azure portal](https://portal.azure.com/){: external}, or contact your SharePoint administrator. For assistance with enabling Contribute level permissions, you can also contact your SharePoint administrator.
+{: important}
 
 If you created a SharePoint Online account after January 2020, two-factor authentication is enabled for your account, by default. To crawl your SharePoint Online collection, you must disable two-factor authentication. To view and change your multifactor authentication status, see [View the status for a user](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates#view-the-status-for-a-user){: external} or [Change the status for a user](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates#change-the-status-for-a-user){: external}.
 {: important}
@@ -260,22 +261,20 @@ If you require different **Crawl settings** for other URLs, click **Add URL grou
 {: #connectsp_op}
 
 <!-- Learn more topic WDS -->
-Microsoft SharePoint 2016 (also known as SharePoint Server 2016) is an on-premises data source. To connect to it, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. See [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway) for more information.
+Also known as SharePoint Server 2016, Microsoft SharePoint 2016 is an on-premises data source. To connect to it, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. For more information about installing {{site.data.keyword.SecureGatewayfull}}, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway).
 {: note}
 
-The following credentials are required to connect to a SharePoint 2016 data source. If you do not know these credentials, consult your SharePoint administrator:
+The following fields are required to connect to a SharePoint 2016 data source. If you do not know what to enter in these fields, contact your SharePoint administrator, or consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}:
 
--  `username` - The `username` to connect to the SharePoint 2016 web application to crawl. This user must have access to all sites and lists that need to be crawled and indexed.
--  `password` - The `password` of the source that these credentials connect to. This value is never returned and is only used when creating or modifying credentials.
--  `web_application_url` - The SharePoint 2016 `web_application_url`; for example, `https://sharepointwebapp.com:8443`. If the port is not supplied, it defaults to port `80` for http and port `443` for https.
+-  `username` - The `username` to connect to the SharePoint 2016 web application that you want to crawl. This user must have access to all sites and lists that they want to crawl and index.
+-  `password` - The `password` to connect to the SharePoint 2016 web application that you want to crawl. This value is never returned and is only used when creating or modifying credentials.
+-  `web_application_url` - The SharePoint 2016 `web_application_url`, for example `https://sharepointwebapp.com:8443`. If you do not enter a port number, the default is port `80` for HTTP and port `443` for HTTPS.
 -  `domain` - The `domain` of the SharePoint 2016 account.
 
-When identifying the credentials, it might be useful to consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}.
-
-Other items to note when you crawl Microsoft SharePoint 2016:
+Note the following items when you crawl Microsoft SharePoint 2016:
 
 -  To crawl SharePoint 2016, the `username` account must have `SiteCollection Administrator` permissions.
--  When you crawl SharePoint, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
+-  To crawl SharePoint 2016, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
 
 ### IBM Cloud Object Storage
 {: #connectcos}
