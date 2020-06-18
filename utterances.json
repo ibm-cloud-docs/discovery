@@ -208,5 +208,26 @@
         "improve bad quality query result for Discovery with API",
         "improve query result using Discovery api",
         "improve the quality of Discovery query results"
+     ],
+    "faq-migratecontent": [  
+        "move document from one collection to another in Discovery",
+        "migrate discovery content",
+        "migrating documents from one Discovery instance to another",
+        "migrate docs from  one Discovery instance to another",
+        "discovery document migration",
+        "migrating discovery document content",
+        "migrate discovery documents",
+        "export documents from one collection to another",
+        "export and import discovery documents",
+        "migrate documents from one Discovery instance to another"
+      ],
+    "faq-deletecontent": [  
+        "delete discovery document",
+        "Delete document from my discovery collection",
+        "clean up my collection in discovery",
+        "remove contents from discovery collection",
+        "empty discovery collection",
+        "delete documents from discovery",
+        "deleting docs from discovery"       
     ]
 }
