@@ -62,8 +62,7 @@ Create a news app in Node.js to deliver custom alerts via email for specific pro
 Create a chatbot dialog using Watson Assistant, a Cloudant NoSQL database, Watson Discovery, and a Slack group.
   - [Get the Code](https://github.com/IBM/watson-online-store/?cm_sp=IBMCode-_-create-cognitive-retail-chatbot-_-Get-the-Code){: external}
   - [View the Demo](https://www.youtube.com/watch?v=b-94B3O1czU&cm_sp=IBMCode-_-create-cognitive-retail-chatbot-_-View-the-Demo){: external}
-  - [Watch the Tech Talk](https://developer.ibm.com/code/videos/tech-talk-replay-create-cognitive-retail-chatbot/){: external}
-  
+    
 [Cognitive News Search App](https://developer.ibm.com/patterns/create-a-cognitive-news-search-app/?cm_sp=Developer-_-code-_-trending_news){: external}
 Build your own news mining web application using JavaScript, Node.js, and the Watson Discovery service. Use the Watson Node.js SDK to build your news app to search the latest news, find trends, and even integrate it with other applications, such as Slack.
   - [Get the Code](https://github.com/IBM/watson-discovery-news/?cm_sp=IBMCode-_-create-a-cognitive-news-search-app-_-Get-the-Code){: external}
