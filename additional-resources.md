@@ -44,8 +44,6 @@ Learn more about {{site.data.keyword.discoveryfull}} from these blog posts, webi
 
 - [Using Watson Discovery’s Document Segmentation Feature](https://medium.com/ibm-watson/using-ibm-watson-discoverys-new-document-segmentation-feature-7a58b44d32c2){: external}
 
-- [Analyzing Customer Feedback with Watson Discovery](https://developer.ibm.com/code/2018/04/02/analyzing-customer-feedback-watson-discovery/){: external}
-
 - [Extend Chatbots, Find Support Solutions, and Uncover New Information with Watson Discovery](https://developer.ibm.com/dwblog/2018/watson-discovery-customer-support/){: external}
 
 - [8 Steps for Developing Question/Answer Solutions Using Watson Conversation and Watson Discovery](https://developer.ibm.com/dwblog/2017/best-practices-developing-question-answer-solutions-watson-conversation-discovery/){: external}

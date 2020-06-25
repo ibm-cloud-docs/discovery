@@ -88,7 +88,7 @@ You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Objec
 {: tip}
 
 If you have recently deleted a Lite instance and then receive a `400 - Only one free environment is allowed per resource group` error message when creating a new environment in a new Lite instance, you need to finish deleting the original Lite instance. See [ibmcloud resource reclamations](/docs/cli?topic=cloud-cli-ibmcloud_commands_resource#ibmcloud_resource_reclamations) and follow the `reclamation-delete` instructions.
-{: important}    
+{: important}
 
 ## Step 3: Download the sample document and upload to your collection
 {: create-custom-configuration}
