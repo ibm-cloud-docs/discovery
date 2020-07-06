@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-05"
+lastupdated: "2020-07-07"
 
 subcollection: discovery
 
@@ -322,6 +322,8 @@ To upload or delete query expansion files using the {{site.data.keyword.discover
 
 See the [query expansion API reference](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: external} for the API commands to upload and delete query expansion files.
 
+Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion does not work. For example, if `on` is included in your stopword list, and you specify in your query expansion list that `rotfl` must expand to `rolling on the floor laughing`, that expansion does not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_{language}.txt`) in {{site.data.keyword.discoveryshort}}, so compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly.
+{: important}
 
 ## Defining Stopwords
 {: #stopwords}
@@ -372,6 +374,9 @@ Notes about stopwords:
    - If a user searches for a word that was a stopword at one point in time but is later removed from the custom stopword list, they cannot find documents that match the original stopword because the term was removed during indexing. To fix this issue, delete the documents in your collection, and reupload all the documents so that they are indexed with the updated custom stopword list.
 -  Each set of stopwords is associated with a collection. If you query across multiple collections, each collection uses the custom stopword list associated with that collection.
 - If you make significant changes to your custom stopword list, delete the documents in your collection and reupload all the documents so that they are indexed with the updated custom stopword list.
+
+Stopword and query expansion lists cannot contain overlapping terms. If a [stopword](/docs/discovery?topic=discovery-query-concepts#stopwords) in your stopwords list is also included within your query expansion list, the query expansion does not work. For example, if `on` is included in your stopword list and you specify in your query expansion list that `rotfl` must expand to `rolling on the floor laughing`, that expansion does not return the expected results. A list of stopwords is enabled by default (file name: `custom_stopwords_{language}.txt`) in {{site.data.keyword.discoveryshort}}, so compare the words in that file to your query expansion file (`expansions.json`) and adjust accordingly.
+{: important}
 
 ## Creating custom tokenization dictionaries
 {: #tokenization}
