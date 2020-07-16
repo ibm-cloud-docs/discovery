@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-07-16"
 
 keywords: discovery,getting started,tutorial,IBM cloud,cognitive,exploration,insights,data,unstructured data,query,enrich,ai,artificial intelligence,watson
 
@@ -34,11 +34,11 @@ subcollection: discovery
 # Getting started with Discovery
 {: #getting-started}
 
-In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} tooling and go through the process of creating a private data collection and searching it.
+In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} tooling and go through the process of creating a private data collection and searching it. If you prefer to work in the API, see [Getting started with the API](/docs/discovery?topic=discovery-gs-api).
 {: shortdesc}
 
-If you prefer to work in the API, see [Getting started with the API](/docs/discovery?topic=discovery-gs-api).
-{: tip}
+This documentation applies to Premium {{site.data.keyword.discoveryshort}} instances created before 16 July 2020 and to all Lite and Advanced plans. For more information about features in {{site.data.keyword.discoveryshort}} Premium instances created after that date, see [these docs](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-getting-started).
+{: important}
 
 ## Before you begin
 {: #before-you-begin-tool}

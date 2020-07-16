@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="discovery" category="ai" service-name="Discovery" audience="service" console-page="/developer/watson" product-page="https://www.ibm.com/cloud/watson-discovery" href="/docs/discovery?topic=discovery-getting-started" path="discovery"}
+{: .toc subcollection="discovery" service-name="Discovery" audience="service" console-page="/developer/watson" product-page="https://www.ibm.com/cloud/watson-discovery" href="/docs/discovery?topic=discovery-getting-started" path="discovery"}
 Discovery
 
     {: .navgroup id="learn"}
