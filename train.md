@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-11"
+lastupdated: "2020-07-30"
 
 subcollection: discovery
 
@@ -72,13 +72,14 @@ Training data must meet the following **minimal** quality criteria to effectivel
 - The collection's training-data set must contain at least 49 unique training queries (that is, sets of queries and examples). Depending on the size and complexity of your collection, the number of training queries in your set might need to be higher than 49 before Watson is able to apply relevancy training to the collection. Watson provides feedback if it needs more queries so that it can train.
 - When assigning relevance scores via the API: The relevance score for each training query must be a non-negative integer, for example `0` to represent *not relevant*, `1` to represent *somewhat relevant*,  and `2` to represent *highly relevant*. However, for maximum flexibility, the service accepts non-negative integers between `0` and `100` for advanced users experimenting with different scoring schemes. Regardless of the range you use, the largest integer in the set of training queries indicates maximum relevance.
 - When assigning relevance ratings, using the tooling, the {{site.data.keyword.discoveryshort}} tooling uses the relevance scores of `0` to represent *not relevant*, and `10` to represent *relevant*. We recommend that you apply both available ratings to your results: `Relevant` and `Not relevant`. Only rating the `Relevant` documents does not provide the data needed.  If you plan to score your documents, using both the {{site.data.keyword.discoveryshort}} tooling and the API, or if you plan to begin with the API and move to the tooling, use the `0` and `10` relevancy scores.
+- A random sample of documents that are not explicitly given a relevance rating is assigned a relevance score of `0`. It is not mandatory to apply a relevance score of `0` when you train your documents, but if you apply a relevance score of `0` to certain documents, relevancy training marks those documents as non-relevant examples, instead of treating them as a random sample of results from the query.
 - The training queries must include some term overlap between the query and the desired answer so it can be retrieved by the Discovery service's initial search, which is broad in scope.
 
 Watson uses training data to learn patterns and to generalize, not to memorize individual training queries. The service, therefore, might not always reproduce identical relevance results for any given training query.
 {: note}
 
 Training cannot exceed the following **maximum** requirements:
-  - You cannot exceed 24 trained collections per environment.
+  - You cannot exceed 40 trained collections per environment.
   - Within a single collection, you are limited to 10,000 training queries, with a maximum of 100 examples per query. 
 
 ## Adding a query to the training-data set

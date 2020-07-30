@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-07-30"
 
 subcollection: discovery
 
@@ -36,6 +36,9 @@ subcollection: discovery
 {: shortdesc}
 
 See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans) and [{{site.data.keyword.discoveryshort}} catalog](https://cloud.ibm.com/catalog/services/discovery){: external} for details.
+
+You cannot directly upgrade your plan from `Lite` to `XS` because `XS` plans are not suitable for production usage. If you have the `Lite` plan but want the `XS` plan, you must create a new instance by using the `XS` size and then manually recreate your collections. In addition, you cannot directly downgrade from `S` to `XS`. If you have the `S` plan but want the `XS` plan, follow the same steps in the case of moving to an `XS` plan from a `Lite` plan.
+{: note}
 
 ## Upgrading your service
 {: #service}

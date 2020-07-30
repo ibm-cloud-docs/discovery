@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-07-30"
 
 subcollection: discovery
 
@@ -55,6 +55,11 @@ The current version is `2019-04-30`.
 
 The following new features and changes to the service are available.
 
+
+## 30 July 2020
+{: #30jul2020}
+
+The maximum number of trained collections has been increased from 24 to 40. For more information, see [Training data requirements](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs).
 
 ## 6 May 2020
 {: #6may2020}
