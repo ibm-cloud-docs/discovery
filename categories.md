@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-18"
+lastupdated: "2020-08-05"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Categories hierarchy
 {: #cathierarchy}
 
-The following table shows the categories that are returned by the Category Classification enrichment. You can download a spreadsheet with this information here: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
+The following table shows the categories that are returned by the Category Classification enrichment. You can download a spreadsheet with this information here: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/categories-hierarchy.xlsx" download>XLSX <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 {: shortdesc}
 
 | LEVEL 1                   | LEVEL 2                                | LEVEL 3                                | LEVEL 4                        | LEVEL 5                       |

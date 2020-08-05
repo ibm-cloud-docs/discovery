@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-11"
+lastupdated: "2020-08-05"
 
 subcollection: discovery
 
@@ -126,7 +126,7 @@ Now that the environment is ready, you can create a collection. Think of a colle
 ## Step 3: Download the sample documents
 {: #download-sample-documents}
 
-Download these sample documents: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download="test-doc1.html">test-doc1.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download="test-doc2.html">test-doc2.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download="test-doc3.html">test-doc3.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, and <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download="test-doc4.html">test-doc4.html <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
+Download these sample documents: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc1.html" download="test-doc1.html">test-doc1.html <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc2.html" download="test-doc2.html">test-doc2.html <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc3.html" download="test-doc3.html">test-doc3.html <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>, and <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/test-doc4.html" download="test-doc4.html">test-doc4.html <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 
 In some browsers, the preceding links open in a new window. To save locally, select `Save As` in your browser's `File` menu to save a copy of the file.
 {: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-16"
+lastupdated: "2020-08-05"
 
 keywords: discovery,getting started,tutorial,IBM cloud,cognitive,exploration,insights,data,unstructured data,query,enrich,ai,artificial intelligence,watson
 
@@ -93,7 +93,7 @@ If you have recently deleted a Lite instance and then receive a `400 - Only one 
 ## Step 3: Download the sample document and upload to your collection
 {: create-custom-configuration}
 
-1.  Download this sample PDF document: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/watsonexplorerinstall.pdf" download>Watson Explorer Installation Guide <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. See [Supported document types](/docs/discovery?topic=discovery-sdu#doctypes) for the full list of document types supported in {{site.data.keyword.discoveryshort}}. 
+1.  Download this sample PDF document: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/watsonexplorerinstall.pdf" download>Watson Explorer Installation Guide <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. See [Supported document types](/docs/discovery?topic=discovery-sdu#doctypes) for the full list of document types supported in {{site.data.keyword.discoveryshort}}. 
 
     In some browsers, the link opens in a new window instead of saving locally. If this occurs, select `Save As` in your browser's `File` menu to save a copy of the file.
     {: tip}
