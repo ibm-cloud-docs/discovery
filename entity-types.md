@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-09"
+lastupdated: "2020-08-05"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Entity types and subtypes
 {: #entity-types-and-subtypes}
 
-The following tables list the possible entity types and subtypes that are returned by the Entity Extraction enrichment. You can download a spreadsheet with this information here: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
+The following tables list the possible entity types and subtypes that are returned by the Entity Extraction enrichment. You can download a spreadsheet with this information here: <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/natural-language-understanding/entity-types.xlsx" download>XLSX <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.
 {: shortdesc}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-06-10"
+lastupdated: "2020-08-05"
 
 subcollection: discovery
 
@@ -134,7 +134,7 @@ To take advantage of the new string environment sizing values (`LT`, `XS`, `S`, 
 
 Premium plans offer developers and organizations a single tenant instance of one or more Watson services for better isolation and security. These plans offer compute-level isolation on the existing shared platform, as well as end-to-end encrypted data while in transit and at rest.
 
-For more information, or to purchase a Premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium).
+For more information, or to purchase a Premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium){: external}.
 
 ## Additional information
 {: #pricingadd}

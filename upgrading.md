@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-08-05"
 
 subcollection: discovery
 
@@ -79,4 +79,4 @@ XX-Large | XXL
 ## Upgrading to a Premium plan
 {: #premium}
 
-If you are interested in a Premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium).  
+If you are interested in a Premium plan, contact [Sales](https://ibm.biz/contact-wdc-premium){: external}.  
