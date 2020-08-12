@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-08-12"
 
 subcollection: discovery
 
@@ -92,6 +92,9 @@ timeslice(product.sales,2day,America/New York)
 ### Timeslice anomaly detection
 {: #anomaly-detection}
 
+Anomaly detection is deprecated and will no longer be available, effective **12 September 2020**.
+{:deprecated}
+
 You can optionally apply anomaly detection to the results of a `timeslice` aggregation. Anomaly detection is used to locate unusual datapoints within a time series and to flag them for further review. Example uses for anomaly detection include identifying spikes in credit-card usage and searching Watson Discovery News for clusters of articles regarding a particular topic.
 
 To apply anomaly detection, use the following syntax in your aggregation:
@@ -153,19 +156,12 @@ If you specify `anomaly:true` with the `timeslice` aggregation, the output inclu
 #### Limitations of anomaly detection
 {: #anomaly-limitations}
 
+Anomaly detection is deprecated and will no longer be available, effective **12 September 2020**.
+{:deprecated}
+
 - Anomaly detection is currently available only on top-level `timeslice` aggregations. It is not available in lower-level (nested) aggregations.
 - The maximum number of points that can be processed by anomaly detection in any given `timeslice` aggregation is `1500`.
 - The maximum number of top-level timeslice aggregations that can be processed by anomaly detection is `20`.
-
-<!--
-#### Anomaly detection workflow
-
-The following example workflow detects an anomaly for the text entity `London` and retrieves additional information about the anomalous datapoint.
-
-  1. Timeslice aggregation: `query=entities.text:London&count=0&aggregation=timeslice(blekko.last_crawled,1day,anomaly:true)`
-  1. Term aggregation to retrieve top keywords: `query=entities.text:London&count=0&aggregation=term(keywords.text,count:5)&filter=blekko.last_crawled>=1490140800,<=1490227200`
-  1. Query to retrieve top enriched title: `query=entities.text:London,keywords.text:Westminster Bridge|police officer|people|Prime Minister Theresa|parliament&count=1&filter=blekko.last_crawled>=1490140800,<=1490227200&return=enrichedTitle.text`
-  -->
 
 ## top_hits
 {: #top_hits}
