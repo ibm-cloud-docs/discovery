@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-08-12"
 
 subcollection: discovery
 
@@ -55,16 +55,21 @@ The current version is `2019-04-30`.
 
 The following new features and changes to the service are available.
 
+## 12 August 2020
+{: #12august2020}
+
+- Anomaly detection is deprecated and will no longer be available, effective **12 September 2020**. After the deprecation date, you can no longer apply anomaly detection to a timeslice aggregation.
+
 
 ## 30 July 2020
 {: #30jul2020}
 
-The maximum number of trained collections has been increased from 24 to 40. For more information, see [Training data requirements](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs).
+- The maximum number of trained collections has been increased from 24 to 40. For more information, see [Training data requirements](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api#reqs).
 
 ## 6 May 2020
 {: #6may2020}
 
-The Element Classification enrichment deprecation date announced [6 March 2020](/docs/services/discovery?topic=discovery-release-notes#6mar2020) has been changed. The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**. 
+- The Element Classification enrichment deprecation date announced [6 March 2020](/docs/services/discovery?topic=discovery-release-notes#6mar2020) has been changed. The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**. 
 
 
 ## 6 March 2020

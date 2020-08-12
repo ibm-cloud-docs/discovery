@@ -5,6 +5,7 @@
         "need technical support for Watson Discovery",
         "technical support for Discovery",
         "Discovery support case",
+        "technical help for watson discovery services",
         "connect to Discovery support please",
         "open ticket for Discovery",
         "get connected to Discovery technical support",
@@ -38,9 +39,12 @@
         "400 error in Discovery",
         "Discovery environment error given",
         "Only one free environment is allowed per resource group error",
+        "getting an error 400 while creating a watson discovery",
         "Can't create a new Discovery environment",
         "environment error message for discovery",
+        "create a discovery service it is showing error 400",
         "Discover enviroment error message",
+        "ERR0R 400 WATSON DISCOVERY",
         "Only one free environment is allowed per resource group"
     ],
     "faq-nlqsize": [
@@ -73,6 +77,8 @@
         "document upload for Watson Discovery",
         "upload documents from Box in Discovery collection",
         "understand about uploading data sources into Discovery",
+        "how do ingest documents into Discovery ",
+        "ingesting documents into Discovery",
         "uploading documents into Discovery from Salesforce",
         "upload from SharePoint Online to Discovery",
         "load documents from SharePoint 2016 to discovery",
@@ -99,13 +105,15 @@
         "upgrading existing Discovery plan",
         "upgrade from Discovery Lite to Discovery Advanced Plan",
         "upgrade my discovery lite plan",
+        "need to change my discovery plan",
+        "change my discovery plan",
         "resizing plans for Watson Discovery",
         "switching Discovery plan",
         "switching tiers in Discovery"
     ],
     "faq-stopwords": [
         "Discovery stop words list",
-        "create a  stopwords list",
+        "create a stopwords list",
         "creating stopwords",
         "upload default stopword list ",
         "creating stop words",
@@ -118,7 +126,10 @@
     "faq-expansion": [
         "what's query expansions",
         "Discovery query expansions",
+        "query expansion in Discovery",
         "creating query expansions",
+        "what's query expansion list",
+        "query expansion lists in Discovery",
         "expanding queries in Discovery",
         "building a query expansion list"
     ],
@@ -126,7 +137,7 @@
         "Discovery news query results length",
         "length of Watson Discovery news queries",
         "limit for Watson Discovery News query results",
-        "Discovery News query results length",
+        "length of Discovery News query results",
         "Watson Discovery News JSON",
         "maximum number of results returned for Discovery News query",
         "max number of results returned in discovery News",
@@ -189,6 +200,7 @@
         "covid 19 feature in Discovery",
         "corona available for discovery",
         "corona virus kit in Discovery",
+        "coronavirus kit for Discovery",
         "corona feature added to discovery",
         "covid 19 collection for Discovery",
         "covid-19 feature available in Watson Discovery"
@@ -223,6 +235,7 @@
       ],
     "faq-deletecontent": [  
         "delete discovery document",
+        "delete documents discovery collection",
         "Delete document from my discovery collection",
         "clean up my collection in discovery",
         "remove contents from discovery collection",
