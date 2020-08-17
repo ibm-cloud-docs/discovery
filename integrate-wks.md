@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-08-17"
 
 subcollection: discovery
 
@@ -209,11 +209,11 @@ You cannot apply multiple custom models to the same field using the {{site.data.
 1. Get the `Model ID` of your {{site.data.keyword.knowledgestudioshort}} model.
 1. In the {{site.data.keyword.discoveryshort}} tooling, click the **Manage Data** icon to open the **Manage data** screen, then create or open a collection.
 
-If you choose an existing collection, it must be empty. If not, reingest those documents, after creating your new configuration file.
+If you choose an existing collection, it must be empty. If not, create a new collection and reingest the documents after you have followed these steps.
 {: note}
 
-1. In the **Configuration** section of the **Manage Data** screen for your collection, click **Switch**, then **Create a New Configuration**. Name the configuration. 
-1. Click **Add enrichments** and select either the **Entity Extraction** or **Relation Extraction** enrichments.
+1. Click **Configure data**. The **Enrich fields** tab opens.
+1. Click **Add enrichments** and select either the **Entity Extraction** or **Relation Extraction** enrichment.
 1. Enter the `Model ID` in the `Custom Model ID` box of the selected enrichment. The custom {{site.data.keyword.knowledgestudiofull}} model overrides the default for that enrichment. 
 1. Click **Apply**, then **Done**.
 
