@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-09-02"
 
 subcollection: discovery
 
@@ -35,7 +35,7 @@ subcollection: discovery
 You can train {{site.data.keyword.discoveryshort}} to improve the relevance of query results for your particular organization or subject area. When you provide a {{site.data.keyword.discoveryshort}} instance with *training data*, the service uses machine-learning Watson techniques to find signals in your content and questions. The service then reorders query results to display the most relevant results at the top. As you add more training data, the service instance becomes more accurate and sophisticated in the ordering of results it returns.
 {: shortdesc}
 
-Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For an overview of building use cases for training, see the blog post [How to get the most out of Relevancy Training](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: external}.
+Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For information about use cases for relevancy training, see [Improve your natural language query results from Watson Discovery](https://developer.ibm.com/blogs/improving-your-natural-language-query-results-from-watson-discovery/){: external}.
 
 For comprehensive information about the training APIs, see the [API reference](https://{DomainName}/apidocs/discovery){: external}.
 

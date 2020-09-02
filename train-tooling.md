@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-09-02"
 
 subcollection: discovery
 
@@ -36,7 +36,7 @@ subcollection: discovery
 The relevance of natural language query results can be improved in {{site.data.keyword.discoveryfull}} with training. You can train your private collections using either the {{site.data.keyword.discoveryshort}} tooling, or the {{site.data.keyword.discoveryshort}} APIs. See [Improving the relevance of your query results with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api) if you would prefer to use the APIs.
 {: shortdesc}
 
-Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For an overview of building use cases for training, see the blog post [How to get the most out of Relevancy Training](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: external}.
+Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For information about use cases for relevancy training, see [Improve your natural language query results from Watson Discovery](https://developer.ibm.com/blogs/improving-your-natural-language-query-results-from-watson-discovery/){: external}.
 
 To train Watson, you must provide the following:
 

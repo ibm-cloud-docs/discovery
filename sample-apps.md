@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018, 2019
-lastupdated: "2019-08-14"
+  years: 2015, 2020
+lastupdated: "2020-09-02"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Sample Apps
 {: #sample-apps}
 
-Learn more about {{site.data.keyword.discoveryfull}} from these sample applications and labs.
+Explore our sample applications to learn more about what you can develop with {{site.data.keyword.discoveryshort}}.
 {: shortdesc}
 
 [Learning path: Getting started with {{site.data.keyword.discoveryshort}}](https://developer.ibm.com/series/learning-path-watson-discovery/){: external}
@@ -53,11 +53,6 @@ Use the Watson Node.js SDK to import and enrich your data using the Watson Disco
   - [Get the Code](https://github.com/IBM/watson-discovery-analyze-data-breaches?cm_sp=IBMCode-_-import-enrich-and-gain-insight-from-data-_-Get-the-Code){: external}
   - [View the Demo](https://www.youtube.com/watch?v=zAu9tHefdDc&cm_sp=IBMCode-_-import-enrich-and-gain-insight-from-data-_-View-the-Demo){: external}
  
-[Cognitive News Alerting App](https://developer.ibm.com/patterns/create-cognitive-news-alerting-app/?cm_sp=Developer-_-code-_-news_alerting){: external}
-Create a news app in Node.js to deliver custom alerts via email for specific products or brands mentioned in the news. The app can also alert users on brand sentiment and related products, as well as stock price changes.
-  - [Get the Code](https://github.com/IBM/watson-discovery-news-alerting?cm_sp=IBMCode-_-create-a-cognitive-news-alerting-app-_-Get-the-Code){: external}
-  - [View the Demo](https://www.youtube.com/watch?v=N-HaIpPGde0&cm_sp=IBMCode-_-create-a-cognitive-news-alerting-app-_-View-the-demo){: external}
-  
 [Cognitive Retail Chatbot](https://developer.ibm.com/patterns/create-cognitive-retail-chatbot/?cm_sp=Developer-_-code-_-retail_chatbot){: external}
 Create a chatbot dialog using Watson Assistant, a Cloudant NoSQL database, Watson Discovery, and a Slack group.
   - [Get the Code](https://github.com/IBM/watson-online-store/?cm_sp=IBMCode-_-create-cognitive-retail-chatbot-_-Get-the-Code){: external}
@@ -72,7 +67,6 @@ Build your own news mining web application using JavaScript, Node.js, and the Wa
 Create an app that uses Watson Discovery, Node.js, and Cloudant NoSQL DB to help you make informed investment decisions. You can then use it as a guide to jump-start your own coding projects.
   - [Get the Code](https://github.com/IBM/watson-stock-advisor){: external}
   - [View the Demo](https://www.youtube.com/watch?v=uigisF50F8s&feature=youtu.be){: external}
-  - [Watch the Playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde){: external}
 
 [Cognitive Banking Chatbot](https://developer.ibm.com/patterns/create-cognitive-banking-chatbot/?cm_sp=Developer-_-code-_-banking_chatbot){: external}
 Create a web UI chatbot using the IBM Watson Node.js SDK to include conversation interaction, anger detection, natural language understanding, and answer discovery. Answers are discovered from a collection of FAQ documents. Built as a fictional financial institution, this app calls out to simple banking services code as an example of how to include external business data in a conversation response.
