@@ -401,7 +401,7 @@ The version date of the API is updated to `2018-08-01`. To take advantage of the
    In the Sydney location, you use IAM access tokens with {{site.data.keyword.discoveryshort}} for
 
     -   *New service instances* that you create after May 15. For more information, see [Authenticating with IAM tokens](/docs/watson?topic=watson-iam).
-    -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](https://cloud.ibm.com/docs/resources?topic=resources-migrate#migrate){: external}.
+    -   *Existing service instances* that you migrate from Cloud Foundry to a resource group that is managed by the Resource Controller (RC). Service instances that were created before May 15 continue to use service credentials for authentication until you migrate them. For more information, see [Migrating Cloud Foundry service instances to a resource group](https://cloud.ibm.com/docs/account?topic=account-migrate#migrate){: external}.
 
     All new and existing service instances in other regions continue to use service credentials (`apikey:{apikey_value}`) for authentication.
 
