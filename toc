@@ -69,9 +69,9 @@ Discovery
 
     {: topicgroup}
     Enrichment
-        categories.md
         entity-types.md
-        relation-types.md
+        entity-types-v1.md
+        entity-types-v2.md
 
     query-reference.md
     custom-config.md
