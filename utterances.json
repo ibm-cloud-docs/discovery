@@ -6,6 +6,7 @@
         "technical support for Discovery",
         "Discovery support case",
         "technical help for watson discovery services",
+        "need technical help for watson discovery",
         "connect to Discovery support please",
         "open ticket for Discovery",
         "get connected to Discovery technical support",
@@ -40,6 +41,8 @@
         "Discovery environment error given",
         "Only one free environment is allowed per resource group error",
         "getting an error 400 while creating a watson discovery",
+        "fix the error that shows that you have only one free environment",
+        "when i create a discovery service it is showing error 400",
         "Can't create a new Discovery environment",
         "environment error message for discovery",
         "create a discovery service it is showing error 400",
@@ -69,6 +72,7 @@
         "relevancy training status",
         "training status overview in discovery"
     ],
+    
     "faq-uploaddocs": [
         "uploading documents to Discovery",
         "uploading documents with API",
@@ -138,6 +142,8 @@
         "length of Watson Discovery news queries",
         "limit for Watson Discovery News query results",
         "length of Discovery News query results",
+        "how many news queries you have used on the Lite version of Watson Discovery",
+        "many news queries you have used in Discovery",
         "Watson Discovery News JSON",
         "maximum number of results returned for Discovery News query",
         "max number of results returned in discovery News",
