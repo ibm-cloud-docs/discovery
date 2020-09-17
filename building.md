@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-06-09"
+lastupdated: "2020-09-16"
 
 subcollection: discovery
 
@@ -84,7 +84,7 @@ You can further augment your documents by adding more enrichments to the `text` 
 ### Entity extraction
 {: #entity-extraction}
 
-Returns items such as persons, places, and organizations that are present in the input text. Entity extraction adds semantic knowledge to content to help understand the subject and context of the text that is being analyzed. The entity extraction techniques are based on sophisticated statistical algorithms and natural language processing technology, and are unique in the industry with their support for multilingual analysis and context-sensitive disambiguation. For a complete list of entity types and subtypes, see [Entity types and subtypes](/docs/discovery?topic=discovery-entity-types-and-subtypes). You can also create and add a [custom entity model](/docs/discovery?topic=discovery-configservice#custom-entity-model) with {{site.data.keyword.knowledgestudiofull}}.
+Returns items such as persons, places, and organizations that are present in the input text. Entity extraction adds semantic knowledge to content to help understand the subject and context of the text that is being analyzed. The entity extraction techniques are based on sophisticated statistical algorithms and natural language processing technology, and are unique in the industry with their support for multilingual analysis and context-sensitive disambiguation. For a complete list of entity type systems, see [Entity type systems](/docs/discovery?topic=discovery-entity-type-systems), or for a list of entity types and subtypes that are used in the Version 1 and Version 2 entity type systems, see [Entity types (Version 1)](/docs/discovery?topic=discovery-entity-types-version-1) or [Entity types (Version 2)](/docs/discovery?topic=discovery-entity-types-version-2). You can also create and add a [custom entity model](/docs/discovery?topic=discovery-configservice#custom-entity-model) with {{site.data.keyword.knowledgestudiofull}}.
 
 Example portion of a document enriched with Entity Extraction:
 
@@ -161,8 +161,6 @@ Only one {{site.data.keyword.knowledgestudiofull}} model can be assigned to an e
 
 Recognizes when two entities are related and identifies the type of relation. You can also create and add a [custom relation model](/docs/discovery?topic=discovery-configservice#custom-relation-model) with {{site.data.keyword.knowledgestudiofull}}.
 
-For a complete list of relation types, see [Relation types](/docs/discovery?topic=discovery-relation-types).
-
 Example portion of a document enriched with Relation Extraction:
 
 ```json
@@ -211,7 +209,7 @@ Example portion of a document enriched with Relation Extraction:
 
 In the preceding example, you could query the relation type by accessing `enriched_text.relations.type`.
 
-The related entities are listed in the `arguments`. For a list of the entity types that the Relation Extraction enrichment can identify, see [Entity types specific to Relation Extraction](/docs/discovery?topic=discovery-relation-types#specific-entity-types).
+The related entities are listed in the `arguments`.
 
 The `score` ranges from `0.0` to `1.0`. The higher the score, the more relevant the relation.
 
@@ -292,7 +290,7 @@ The `relevance` score ranges from `0.0` to `1.0`. The higher the score, the more
 ### Category classification
 {: #category-classification}
 
-Categorizes input text, HTML, or web-based content into a hierarchical taxonomy up to five levels deep. Deeper levels allow you to classify content into more accurate and useful subsegments. For a complete list of categories, see [Categories hierarchy](/docs/discovery?topic=discovery-cathierarchy).
+Categorizes input text, HTML, or web-based content into a hierarchical taxonomy up to five levels deep. Deeper levels allow you to classify content into more accurate and useful subsegments.
 
 Example portion of a document enriched with Category Classification:
 
