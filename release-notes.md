@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-08-12"
+lastupdated: "2020-09-22"
 
 subcollection: discovery
 
@@ -54,6 +54,11 @@ The current version is `2019-04-30`.
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 22 September 2020
+{: #22sept2020}
+
+- Released the beta version of [FAQ extraction](/docs/discovery?topic=discovery-sources#connectwebcrawl). This beta feature is only available if you build a search skill in {{site.data.keyword.conversationshort}} and configure a web crawl. FAQ extraction automatically extracts question-and-answer pairs from your FAQ web pages so that {{site.data.keyword.conversationshort}} returns more precise answers. For a statement about beta features, see [Beta features](/docs/discovery?topic=discovery-release-notes#beta-features).
 
 ## 12 August 2020
 {: #12august2020}
