@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-08-12"
+lastupdated: "2020-10-14"
 
 subcollection: discovery
 
@@ -81,87 +81,13 @@ histogram(product.price,interval:1)
 ## timeslice
 {: #timeslice}
 
-A specialized histogram that uses dates to create interval segments. Valid date interval values are `second/seconds` `minute/minutes`, `hour/hours`, `day/days`, `week/weeks`, `month/months`, and `year/years`. The syntax is `timeslice(<field>,<interval>,<time_zone>)`. To use `timeslice`, the time fields in your documents must be of the `date` data type and in [UNIX time](http://en.wikipedia.org/wiki/Unix_time){: external} format. Unless both of these requirements are met, the `timeslice` parameter does not work correctly. You can create a timeslice if your documents contain `date` fields with values such as `1496228512`. The value must be in a numeric format (for example, `float` or `double`) and not enclosed in quotation marks. The service treats dates in text and dates in ISO 8601 format as data type `string`, not as data type `date`. You can detect anomalous points in timeslice aggregations. See [Timeslice anomaly detection](#anomaly-detection) for additional information. This example returns values for "sales" ("product.sales") at intervals of 2 days in the New York City time zone.
+A specialized histogram that uses dates to create interval segments. Valid date interval values are `second/seconds` `minute/minutes`, `hour/hours`, `day/days`, `week/weeks`, `month/months`, and `year/years`. The syntax is `timeslice(<field>,<interval>,<time_zone>)`. To use `timeslice`, the time fields in your documents must be of the `date` data type and in [UNIX time](http://en.wikipedia.org/wiki/Unix_time){: external} format. Unless both of these requirements are met, the `timeslice` parameter does not work correctly. You can create a timeslice if your documents contain `date` fields with values such as `1496228512`. The value must be in a numeric format (for example, `float` or `double`) and not enclosed in quotation marks. The service treats dates in text and dates in ISO 8601 format as data type `string`, not as data type `date`. This example returns values for "sales" ("product.sales") at intervals of 2 days in the New York City time zone.
 
 For example:
 ```bash
 timeslice(product.sales,2day,America/New York)
 ```
 {: codeblock}
-
-### Timeslice anomaly detection
-{: #anomaly-detection}
-
-Anomaly detection is deprecated and will no longer be available, effective **12 September 2020**.
-{:deprecated}
-
-You can optionally apply anomaly detection to the results of a `timeslice` aggregation. Anomaly detection is used to locate unusual datapoints within a time series and to flag them for further review. Example uses for anomaly detection include identifying spikes in credit-card usage and searching Watson Discovery News for clusters of articles regarding a particular topic.
-
-To apply anomaly detection, use the following syntax in your aggregation:
-
-```bash
-timeslice(field:<date>,interval:<interval>,anomaly:true)`
-```
-{: codeblock}
-
-If you specify `anomaly:true` with the `timeslice` aggregation, the output includes the following two additional fields, which are shown in the example.
-
-  - `"anomaly": true` to indicate that anomaly detection was performed
-  - An `anomaly` field in the points that are anomalous in the output's results array. The anomaly field has a value of the `float` data type indicating the magnitude of the anomalous behavior. The closer the value of the anomaly field is to `1`, the more likely the result is anomalous.
-
-  - The `key` and `key_as_string` in each of the objects in the `results` array corresponds to a UNIX timestamp in seconds.
-  - The anomaly score is relative to the original query only.
-
-```json
-"type": "timeslice",
-"field": "blekko.chrondate",
-"interval": "1d",
-"anomaly": true,
-"results": [
-  {
-    "matching_results": 2933,
-    "anomaly": 1,
-    "key_as_string": "1496880000",
-    "key": 1496880000000
-  },
-  {
-    "matching_results": 3435,
-    "anomaly": 1,
-    "key_as_string": "1496966400",
-    "key": 1496966400000
-  },
-  {
-    "matching_results": 3692,
-    "anomaly": 0.598226,
-    "key_as_string": "1496016000",
-    "key": 1496016000000
-  },
-  {
-    "matching_results": 4551,
-    "anomaly": 0.828498,
-    "key_as_string": "1495411200",
-    "key": 1495411200000
-  },
-  {
-    "matching_results": 947,
-    "key_as_string": "1489968000",
-    "key": 1489968000000
-  },
- ...
-]
-...
-```
-{: codeblock}
-
-#### Limitations of anomaly detection
-{: #anomaly-limitations}
-
-Anomaly detection is deprecated and will no longer be available, effective **12 September 2020**.
-{:deprecated}
-
-- Anomaly detection is currently available only on top-level `timeslice` aggregations. It is not available in lower-level (nested) aggregations.
-- The maximum number of points that can be processed by anomaly detection in any given `timeslice` aggregation is `1500`.
-- The maximum number of top-level timeslice aggregations that can be processed by anomaly detection is `20`.
 
 ## top_hits
 {: #top_hits}

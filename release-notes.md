@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-10-14"
 
 subcollection: discovery
 
@@ -798,7 +798,7 @@ Both features are query building enhancements and can be found on the **Build qu
 
     If you do not use enrichments in non-English languages, you can continue to use the `2016-12-01` version string. However, to avoid potential future conflicts, it is recommended that you update the version string as soon as possible.
 
- - Anomaly detection is now available as part of `timeslice` aggregations as a GA capability. See [Timeslice anomaly detection](/docs/discovery?topic=discovery-query-aggregations#anomaly-detection) for details.
+ - Anomaly detection is now available as part of `timeslice` aggregations as a GA capability.
 
  - Discovery Tooling:
 
