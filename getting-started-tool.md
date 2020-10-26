@@ -51,7 +51,7 @@ You need a service instance to start.
 
     The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
 
-    If you are creating an instance for more robust use and need information about organizing resource groups, see [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup).
+    If you are creating an instance for more robust use and need information about organizing resource groups, see [Best practices for organizing resources and assigning access](https://{DomainName}/docs/account?topic=account-account_setup){: external}.
 1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
 1.  {: hide-dashboard} Click **Create**.
 
