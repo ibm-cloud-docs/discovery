@@ -54,7 +54,7 @@ To resize your plan from Lite to Advanced:
 ## Switching from one Advanced tier to another
 {: #switchadvanced} 
 
-If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API](https://{DomainName}/apidocs/discovery#update-an-environment){: external}. 
+If you already have an Advanced plan, and would like to upgrade it to a larger plan size, you can do so using the [API](https://{DomainName}/apidocs/discovery#updateenvironment){: external}. 
 
 For detailed information on Advanced plan storage limits and pricing, see [Advanced pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans#advanced).
 
