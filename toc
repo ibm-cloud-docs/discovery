@@ -51,7 +51,6 @@ Discovery
     Discovery and Knowledge Studio
         integrate-wks.md
 
-    /watson/watson-migrate
     recovery.md
     upgrading.md
     /watson/watson-keyservice
