@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-10-29"
+lastupdated: "2020-12-03"
 
 subcollection: discovery
 
@@ -283,6 +283,7 @@ Note the following items when you crawl Microsoft SharePoint 2016:
 
 -  To crawl SharePoint 2016, the `username` account must have `SiteCollection Administrator` permissions.
 -  To crawl SharePoint 2016, you must have the list of SharePoint site collection paths that you want to crawl. {{site.data.keyword.discoveryshort}} does not support folder paths as input.
+-  The number of gateways that you can create is limited to 50. If you exceed this limit, you will be unable to create any more gateways, and you will see an error message that states, `Failed to update or create the network resource.`.
 
 ### IBM Cloud Object Storage
 {: #connectcos}
