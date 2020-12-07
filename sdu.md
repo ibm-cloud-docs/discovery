@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-09-10"
+lastupdated: "2020-12-03"
 
 subcollection: discovery
 
@@ -63,8 +63,8 @@ Navigating the Smart Document Understanding editor:
 If you did not yet create a {{site.data.keyword.discoveryshort}} instance and environment, see [Getting started](/docs/discovery?topic=discovery-getting-started) for instructions.
 {: tip}
 
-1. On the **Manage Data** screen, click the **Upload your own data** button and create a new Private collection in {{site.data.keyword.discoveryshort}}.
-1. If you wish, drag and drop documents into your collection, or click **browse from computer** to upload documents. After the upload is complete, this information displays:
+1. On the **Manage Data** screen, click **Upload your own data**, and create a new private collection in {{site.data.keyword.discoveryshort}}.
+1. Drag and drop documents into your collection, or click **select documents** to upload documents. After the upload is complete, this information displays:
    -  The fields identified from your documents.
    -  Enrichments applied to your documents. The Entity Extraction, Sentiment Analysis, Category Classification, and Concept Tagging enrichments are automatically applied to the `text` field by {{site.data.keyword.discoveryshort}} (unless you are importing documents using a connector). You can add (or remove) additional enrichments to the `text` (and other) fields.
    -  Pre-built queries you can run immediately.
@@ -87,6 +87,19 @@ You can use the toolbar at the top to complete the following actions:
 You can also crawl various data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information. 
 {: tip}
 
+## Managing enrichments
+{: #mng-enrichments}
+
+You can enrich fields, including custom fields that Smart Document Understanding identifies, in your collection with cognitive metadata.
+
+Many enrichments are available in {{site.data.keyword.discoveryshort}}. You must create some of the enrichments before you can apply them. To access the **Enrichments** tab, click **Manage data** in your collection and then **Configure data**. By default, the **Identify fields** tab opens. Click **Enrich fields**. For more information about collections, see [Connecting to data sources](/docs/discovery?topic=discovery-sources).
+
+To apply an enrichment to a field, complete the following steps:
+
+1. In the **Enrich fields** tab, look for the fields that you want to enrich in **Fields to be enriched**, and delete or **Add enrichments** from or to the field of your choice.
+1. If there are any other fields that you want to enrich that are not yet listed in **Fields to be enriched**, enter them in **Add a field to enrich**, and add the enrichments.
+1. Click **Apply changes to collection**.
+
 ## How to annotate a document
 {: #documents}
 
@@ -97,7 +110,7 @@ See [Best practices for annotating documents](/docs/discovery?topic=discovery-sd
 1. Click on the content representing that field in the SDU editor. The content highlights with the corresponding field label color.
    - Alternately, you can select a field label on the right, and drag it to the content in the SDU editor.
    - To clear a change, click the **Clear change** button on the toolbar.
-1. Click **Submit**.
+1. Click **Submit page**.
    
    As you annotate, Watson is learning and starts to predict annotations. Continue annotating, until Watson correctly and consistently identifies fields.
    {: note}
@@ -134,7 +147,7 @@ Considerations:
 
   - PDF and Word metadata, as well as any custom metadata, is extracted and included in the index with each segment. Every segment of a document includes identical metadata.
 
-  - If a split document is updated and needs to be re-uploaded, it is recommended that you replace the document, using the [Update document](https://{DomainName}/apidocs/discovery#update-a-document){: external} method. It is recommended that you upload the document, using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable. All segments are overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments remain in the index and can be individually deleted, using the API. For details, see the [API Reference](https://{DomainName}/apidocs/discovery#delete-a-document){: external}.
+  - If a split document is updated and needs to be re-uploaded, consider replacing the document, using the [Update document](https://{DomainName}/apidocs/discovery#update-a-document){: external} method. Also, consider uploading the document, using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable. All segments are overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments remain in the index and can be individually deleted, using the API. For details, see the [API Reference](https://{DomainName}/apidocs/discovery#delete-a-document){: external}.
 
 ## Importing and exporting models
 {: #import}
@@ -150,6 +163,9 @@ An imported model is intended to be used without any further annotations. If you
 ## Best practices for annotating documents
 {: #bestpractices}
 
+If you want to save time reprocessing all the files in a large collection, start with a small collection of documents, build your model, and then export it. For more information about importing and exporting models, see [Importing and exporting models](/docs/discovery?topic=discovery-sdu#import). Create a collection that contains only one document, import the model, and then upload the remainder of the documents.
+{: tip}
+
 - Follow all guidelines and use consistent labeling on all documents
 - Do not label whitespace
 - Use the `image` labels on images and diagrams
@@ -159,6 +175,7 @@ An imported model is intended to be used without any further annotations. If you
 - Pages can be submitted at any time. Ensure that all appropriate labeling is complete before submitting.
 - Documents that appear to have text overlaying other text are considered “double overlaid” and cannot be annotated. Report these documents to your administrator.
 - Documents that contain multiple columns of text on a single page cannot be annotated. Report these documents to your administrator.
-- It is recommended that you only label footnotes when they appear at the bottom of the page and are referenced in the main body of text in the document.
-- It is recommended that you label notes that appear within sections or lists, for example, explicitly called out as “Notes,” as `text`.
-- When annotating a table, make sure to select the entire table before applying the `table` label.
+- Consider only labeling footnotes when they appear at the bottom of the page and are referenced in the main body of text in the document.
+- Consider labeling notes that appear within sections or lists, for example notes that are explicitly called out as “Notes,” as `text`.
+- When you annotate a table, make sure to select the entire table before you apply the `table` label.
+- If the visual structure of one set of documents is drastically different from another, group the documents that are structured similarly in separate collections and then retrain each collection.
