@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-12-14"
+lastupdated: "2020-12-17"
 
 subcollection: discovery
 
@@ -412,7 +412,7 @@ When you click **Manage data**, these tabs are available after collection proces
 **Overview** tab:
 - The number of documents
 - The collection status. While syncing is in progress, the collection status states, `Sync in progress`. If you recrawl your collection when the sync is in progress, the current crawler stops, and a new full crawling session begins. Unless you want to make a change to your collection immediately, you might want to wait until syncing completes before starting a recrawl. When collection processing completes, you receive a status message that states, `Your documents have finished processing! You can now work with your full data set.`.
-- The creation and last update dates of the collection
+- The **Next sync scheduled for** date and time. Your current crawl schedule settings determine the **Next sync scheduled for**, which updates if you change your crawl schedule in the **Sync settings** tab. Also, when your next scheduled crawl begins, the **Next sync scheduled for** automatically updates.
 - A list of warnings and errors
 - Any fields that the crawler identified from your data
 - Any enrichments that were added to your data and the option to **Add enrichments**
