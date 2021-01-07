@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-17"
+  years: 2015, 2021
+lastupdated: "2021-01-07"
 
 subcollection: discovery
 
@@ -48,7 +48,7 @@ The following general requirements apply to all data sources:
 -  The individual document file size limit for Box, Salesforce, SharePoint Online, SharePoint OnPrem, IBM Cloud Object Storage, and Web Crawl is 10MB.
 -  You must have the credentials, file locations, or URLs for each data source. A developer or system administrator typically provides the credentials, file locations, and URLs of the data source.
 -  You must know which resources of the data source to crawl, which the source administrator can provide. If you crawl Box or Salesforce, a list of available resources is presented when you configure a source, using the {{site.data.keyword.discoveryshort}} tooling.
--  If you are using the {{site.data.keyword.discoveryshort}} tooling, you can configure a collection with a single data source. If you are using the API, you can ingest documents from multiple data sources into a single collection.
+-  If you are using the {{site.data.keyword.discoveryshort}} tooling, you can configure a collection with a single data source.
 -  Crawling a data source uses resources, namely API calls, of the data source. The number of API calls depends on the number of documents that need to be crawled. You must obtain an appropriate level of service license, for example Enterprise, for the data source. For information about the appropriate service level license that you need, contact the source system administrator.
 -  {{site.data.keyword.discoveryshort}} source crawls do not delete documents that are stored in a collection, but you can manually delete them using the API. When a source is re-crawled, new documents are added, updated documents are modified to the current version, and deleted documents remain as the version last stored.
 -  {{site.data.keyword.discoveryshort}} can only ingest the following file types, and it ignores all other document types:
