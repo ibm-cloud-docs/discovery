@@ -1,10 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-02"
+  years: 2015, 2021
+lastupdated: "2021-01-21"
 
 subcollection: discovery
+
+content-type: faq
 
 ---
 
@@ -17,18 +19,10 @@ subcollection: discovery
 {:deprecated: .deprecated}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:download: .download}
-{:hide-dashboard: .hide-dashboard}
-{:apikey: data-credential-placeholder='apikey'} 
-{:url: data-credential-placeholder='url'}
-{:curl: .ph data-hd-programlang='curl'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:ruby: .ph data-hd-programlang='ruby'}
-{:swift: .ph data-hd-programlang='swift'}
-{:go: .ph data-hd-programlang='go'}
-{:support: data-reuse='support'}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 {:faq: data-hd-content-type='faq'}
 
 # Getting help
@@ -52,7 +46,6 @@ If your service plan covers it, you can get help by creating a case from [IBM Cl
 
 {{site.data.keyword.discoveryshort}} returns a `confidence` score for both natural language queries and those written in the {{site.data.keyword.discoveryshort}} Query Language. For more information, see [Confidence scores](/docs/services/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
 
-
 ## How do you integrate Watson Discovery with Watson Assistant?
 {: #faq-integrate}
 {: faq}
@@ -67,13 +60,12 @@ If you create a chatbot in {{site.data.keyword.conversationfull}}, you can route
 
 If you have recently deleted a Lite instance and then receive a `400 - Only one free environment is allowed per resource group` error message when creating a new environment in a new Lite instance, you need to finish deleting the original Lite instance. See [ibmcloud resource reclamations](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_reclamations) and follow the `reclamation-delete` instructions.
 
-
 ## Is there size limitation on the length of Natural Language Queries (NLQ)?
 {: #faq-nlqsize}
 {: faq}
 {: support}
 
-The maximum query string length for a natural language query is `2048`. For more information, see [Natural language query](/docs/discovery?topic=discovery-query-parameters#nlq). 
+The maximum query string length for a natural language query is `2048`. For more information, see [Natural language query](/docs/discovery?topic=discovery-query-parameters#nlq).
 
 ## How do you improve query results?
 {: #faq-improving}
@@ -137,7 +129,7 @@ Query expansion terms are usually synonyms, antonyms, or typical misspellings fo
 {: #faq-newsquery}
 {: faq}
 
-{{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. For more information, see [{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}}](/docs/services/discovery?topic=discovery-watson-discovery-news). 
+{{site.data.keyword.discoverynewsfull}} queries display approximately 50 words from each article in the `text` JSON field. For more information, see [{{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}}](/docs/services/discovery?topic=discovery-watson-discovery-news).
 
 ## How do you query Watson Discovery News using the API?
 {: #faq-newsapi}
@@ -241,7 +233,7 @@ Section 2:
 {: #faq-secure}
 {: faq}
 
-To learn about securing your data when using Watson Discovery, refer to [Protecting sensitive information in your Watson service](/docs/discovery?topic=watson-keyservice).  For general information about the security architecture, review [Securing AI apps: Watson on IBM Cloud security](https://www.ibm.com/cloud/architecture/architectures/securityArchitecture/watson-security).  
+To learn about securing your data when using Watson Discovery, refer to [Protecting sensitive information in your Watson service](/docs/discovery?topic=watson-keyservice).  For general information about the security architecture, review [Securing AI apps: Watson on IBM Cloud security](https://www.ibm.com/cloud/architecture/architectures/securityArchitecture/watson-security).
 
 ## What Watson solutions are available to respond to Covid-19 questions?
 {: #faq-covid19kit}
