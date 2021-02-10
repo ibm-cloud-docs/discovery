@@ -51,7 +51,6 @@ Discovery
     Discovery and Knowledge Studio
         integrate-wks.md
 
-    recovery.md
     upgrading.md
     /watson/watson-keyservice
     /watson/watson-public-private-endpoints
@@ -60,6 +59,7 @@ Discovery
     {: .navgroup id="reference"}
     [API reference](https://cloud.ibm.com/apidocs/discovery)
     at-events.md
+    recovery.md
 
     {: topicgroup}
     Whitepapers
