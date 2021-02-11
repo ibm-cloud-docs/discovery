@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-01-07"
+lastupdated: "2021-02-11"
 
 subcollection: discovery
 
@@ -223,8 +223,8 @@ Except for `site_collection_path`, the following fields are required to connect 
 
 -  `username` - The `username` to connect to the SharePoint Online SiteCollection that you want to crawl. This user must have access to all sites and lists that the user wants to crawl and index. Your `username` input must be a default Azure Active Directory (Azure AD) account, which is formatted as follows: `<username>@<domain>.onmicrosoft.com`. If you do not have an Azure AD username, contact your SharePoint site administrator.
 -  `password` - The `password` to connect to the SharePoint Online SiteCollection that you want to crawl. This value is never returned and is only used when creating or modifying credentials.
--  `organization_url` - The `organization_url` of the source that you want to crawl. When you enter this input, only enter the domain name of the URL, for example `https://<company>.<domain>.com/`. If you enter a URL that extends beyond the domain name, or `.com/`, the input is invalid.
--  `site_collection_path` Optional: - The `site_collection_path` to the source that you want to crawl. For guidance on how to format this input, see the following example: `/sites/test`. If unspecified, the default is `/`, and the root site collection is crawled.
+-  `organization_url` - The `organization_url` of the source that you want to crawl. When you enter this input, only enter the domain name of the URL, for example `https://<company>.<domain>.com/`. If you enter a URL that extends beyond the domain name, or `.com/`, the input is invalid. Replace `<company>` and `<domain>` with the corresponding parts of the organization URL that you want to crawl.
+-  `site_collection_path` Optional: - The `site_collection_path` to the source that you want to crawl. For example, if your organization URL is `https://<company>.<domain>.com/sites/test`, the `/sites/test` segment is the input to enter in this field. You cannot enter the full organization URL in this field, and you cannot specify any input that has the extension `.aspx`, such as URLs to document libaries, lists, and subsites. For example, the following URL to a list is invalid input: `https://..com/Lists//AllItems.aspx`. If unspecified, the default is `/`, and the root site collection is crawled.
 
 Note the following items when you crawl Microsoft SharePoint Online:
 
