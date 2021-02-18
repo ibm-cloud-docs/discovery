@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-17"
 
 subcollection: discovery
 
@@ -45,7 +45,7 @@ You can connect to a data source and pull documents on a schedule into {{site.da
 
 The following general requirements apply to all data sources:
 
--  The individual document file size limit for Box, Salesforce, SharePoint Online, SharePoint OnPrem, IBM Cloud Object Storage, and Web Crawl is 10MB.
+-  The individual document file size limit for Box, Salesforce, SharePoint Online, SharePoint OnPrem, {{site.data.keyword.cos_full}}, and Web Crawl is 10MB.
 -  You must have the credentials, file locations, or URLs for each data source. A developer or system administrator typically provides the credentials, file locations, and URLs of the data source.
 -  You must know which resources of the data source to crawl, which the source administrator can provide. If you crawl Box or Salesforce, a list of available resources is presented when you configure a source, using the {{site.data.keyword.discoveryshort}} tooling.
 -  If you are using the {{site.data.keyword.discoveryshort}} tooling, you can configure a collection with a single data source.
@@ -72,7 +72,7 @@ Salesforce                           | Yes                                      
 Microsoft SharePoint Online          | Yes                                               | SiteCollections, websites, lists, list items, document libraries, custom metadata, list item attachments
 Microsoft SharePoint OnPrem          | Yes                                               | SiteCollections, websites, lists, list items, document libraries, custom metadata, list item attachments
 Web Crawl                            | No                                                | Websites, website subdirectories
-IBM Cloud Object Storage             | Yes                                               | Buckets, files
+{{site.data.keyword.cos_full_notm}}  | Yes                                               | Buckets, files
 {: caption="Table 1. Data sources that support crawling new and modified documents during refresh and objects that can be crawled" caption-side="top"}
 
 
@@ -291,22 +291,22 @@ Note the following items when you crawl Microsoft SharePoint OnPrem:
 {: #connectcos}
 
 <!-- Learn more topic WDS -->
-When you connect to an {{site.data.keyword.blockstoragefull}} source, the following credentials are required. You can obtain them from your {{site.data.keyword.blockstoragefull}} administrator:
+When you connect to an {{site.data.keyword.cos_full_notm}} source, the following credentials are required. You can obtain them from your {{site.data.keyword.cos_full_notm}} administrator:
 
--  `endpoint` - The `endpoint` name used to interact with {{site.data.keyword.blockstoragefull}} data.
-   Do not enter `http://` or `https://`, as part of the {{site.data.keyword.blockstoragefull}} `endpoint` credential. Otherwise, you might receive an error message indicating that you have invalid or expired credentials. For the proper formatting of endpoints, see the column named Endpoint in the table in [Regional Endpoints](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-region).
--  `access_key_id` - `access_key_id` obtained when the {{site.data.keyword.blockstoragefull}} instance was created.
--  `secret_access_key` - `secret_access_key` to sign requests obtained when the {{site.data.keyword.blockstoragefull}} instance was created.
+-  `endpoint` - The `endpoint` name used to interact with {{site.data.keyword.cos_full_notm}} data.
+   Do not enter `http://` or `https://`, as part of the {{site.data.keyword.cos_full_notm}} `endpoint` credential. Otherwise, you might receive an error message indicating that you have invalid or expired credentials. For the proper formatting of endpoints, see the column named Endpoint in the table in [Regional Endpoints](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-region).
+-  `access_key_id` - `access_key_id` obtained when the {{site.data.keyword.cos_full_notm}} instance was created.
+-  `secret_access_key` - `secret_access_key` to sign requests obtained when the {{site.data.keyword.cos_full_notm}} instance was created.
 
 IAM authentication is not currently supported for this connector. You need to set up HMAC authentication before you configure this connector. See [Service Credentials](/docs/cloud-object-storage/iam?topic=cloud-object-storage-service-credentials) for instructions.
 {: important}
 
 After this information is entered, you can choose how often you want to sync your data and select the buckets you want to sync to.
 
-Other items to note when you crawl {{site.data.keyword.blockstoragefull}}:
+Other items to note when you crawl {{site.data.keyword.cos_full_notm}}:
 
 -  This connector does not support crawling private endpoints.
--  For more information about IBM Cloud Object Storage endpoints, see [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints).
+-  For more information about {{site.data.keyword.cos_full_notm}} endpoints, see [Endpoints and storage locations](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints).
 -  There is a slight performance issue if all buckets are selected. In this case, a delay is possible, before the documents complete indexing.
 
 ## Creating a collection using the tooling
