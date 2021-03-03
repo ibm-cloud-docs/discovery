@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-03-01"
 
 subcollection: discovery
 
@@ -319,9 +319,9 @@ Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooli
 3.  Enter your source credentials, and click **Connect**. You must obtain your source credentials from your source system administrator.
 4.  Choose which data that you want to crawl and how often you want to sync it:
     -  **once an hour**: runs every hour
-    -  **once a day**: runs every day between the hours of 00:00 and 06:00 in the specified time zone
-    -  **once a week**: runs every week on Sunday between hours of 00:00 and 06:00 in the specified time zone
-    -  **once a month**: runs every month on the first Sunday of the month between the hours of 00:00 and 06:00 in the specified time zone
+    -  **once a day**: runs every day between the hours of 00:00 and 06:00
+    -  **once a week**: runs every week on Sunday between hours of 00:00 and 06:00
+    -  **once a month**: runs every month on the first day of the month between the hours of 00:00 and 06:00
     
     Example crawl status:
     
@@ -336,6 +336,9 @@ Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooli
 
 After the initial sync, all subsequent crawls run on the frequency that you specified. For information about managing a collection, see [Manage collections](/docs/discovery?topic=discovery-sources#manage-collections).
 
+In the tooling, the default time zone of the crawl schedule is set to `America/New_York`. Therefore, {{site.data.keyword.discoveryshort}} recrawls your collection at the interval that you specified for that time zone.
+{: note}
+
 If you modify anything in the **Sync settings** screen and then click **Save and Sync objects**, a crawl starts at that time or restarts if one is already running.
 {: note}
 
@@ -346,6 +349,9 @@ When you connect to a data source, you can see document level errors under **Err
 {: #source_api}
 
 Use the following process to create a collection connected to a data source, using the API.
+
+When you create a collection by using the API, the default time setting for crawling and recrawling is set to UTC.
+{: note}
 
 If you plan to connect to an on-premises data source, first, you must install {{site.data.keyword.SecureGatewayfull}}. For more information, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway).
 
