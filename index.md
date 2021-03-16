@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-07-16"
+  years: 2015, 2021
+lastupdated: "2021-03-16"
 
 subcollection: discovery
 
@@ -29,13 +29,13 @@ subcollection: discovery
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# About
+# About Discovery
 {: #about}
 
 {{site.data.keyword.discoveryfull}} makes it possible to rapidly build cognitive, cloud-based exploration applications that unlock actionable insights hidden in unstructured data — including your own proprietary data, as well as public and third-party data.
 {: shortdesc}
 
-This documentation applies to Premium {{site.data.keyword.discoveryshort}} instances created before 16 July 2020 and to all Lite and Advanced plans. For more information about features in {{site.data.keyword.discoveryshort}} Premium instances created after that date, see [these docs](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-getting-started).
+This documentation applies to Lite and Advanced plans and Premium plan instances that were created before 16 July 2020. For more information about features in Premium plan instances created after that date, see [these docs](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-about).
 {: important}
 
 ![Discovery architecture diagram](images/about-discovery1.png)

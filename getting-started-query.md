@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-08-05"
+  years: 2015, 2021
+lastupdated: "2021-03-16"
 
 subcollection: discovery
 
@@ -29,7 +29,7 @@ subcollection: discovery
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# Getting started with querying
+# Building queries with the Discovery Query Language
 {: #getting-started-with-querying}
 
 <!-- Learn more topic WDS -->
