@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-02"
+  years: 2015, 2021
+lastupdated: "2021-03-16"
 
 subcollection: discovery
 
@@ -28,7 +28,7 @@ subcollection: discovery
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# Getting started with the Discovery API
+# Using the Discovery API
 {: #gs-api}
 
 In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} API and go through the process of creating a private data collection and searching it.
