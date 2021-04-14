@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-12-03"
+  years: 2015, 2021
+lastupdated: "2021-04-14"
 
 subcollection: discovery
 
@@ -105,10 +105,23 @@ To apply an enrichment to a field, complete the following steps:
 
 See [Best practices for annotating documents](/docs/discovery?topic=discovery-sdu#bestpractices) before you begin annotating.
 
-1. A default set of fields appears to the right of your document. The available fields are `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, `title`, `image`, and `table`. If you would like to create one or more new custom field labels, click **Create new**. You are limited to the following number of custom labels: Lite plans - `0`, Advanced plans - `10`, Premium plans - `100`.
-1. Click on a field label on the right to activate it.
-1. Click on the content representing that field in the SDU editor. The content highlights with the corresponding field label color.
-   - Alternately, you can select a field label on the right, and drag it to the content in the SDU editor.
+1.  Review the field labels that you can use to annotate the document. They are displayed in the *Field labels* panel.
+
+    See the *Default field labels* table for a list of the fields and their descriptions. 
+1.  To create a custom field label, click **Create new**. 
+
+    The field label must consist of all lowercase letters with no spaces. For example, `my_field` is a valid field label.
+    {: important}
+
+    The number of custom fields you can add varies by plan type:
+    
+    - Lite: `0`
+    - Advanced: `10`
+    - Premium: `100`
+1. Click a field label from the list to activate it.
+1. Click the content representing that field in the SDU editor. The content highlights with the corresponding field label color.
+
+   - Alternately, you can select a field label, and then drag it to the content in the SDU editor.
    - To clear a change, click the **Clear change** button on the toolbar.
 1. Click **Submit page**.
    
@@ -117,19 +130,21 @@ See [Best practices for annotating documents](/docs/discovery?topic=discovery-sd
 
 1. After you finish annotating, click **Apply changes to collection.** The **Upload your documents** screen opens. Re-upload the documents in your collection. After uploading is complete, you are redirected to the **Overview** screen.
 
-Field | Definition  
------- | ------ 
-answer | In a Q/A pair (often in an FAQ), the answer to the question.
-author | Name of author (or authors).
-footer | Use this tag to denote meta-information about the document (such as the page number or references), that appear at the bottom of the page.
-header | Use this tag to denote meta-information about the document that appears at the top of the page.
-question | In a Q/A pair (often in an FAQ), the question.
-subtitle | The secondary title of the document being annotated. 
-table_of_contents | Use this tag on listings in the document table of contents.
-text | Use this tag for standard copy text, including paragraphs, definitions, or any set of words that is not a title, part of a table, answer, author, subtitle, header, or a footer. 
-title | The main title of the document being annotated.
-table |	Use this tag to annotate tables in your document.
-image |	Use this tag to annotate images and diagrams in your document.
+| Field | Definition |
+|-------|------------|
+| answer | In a Q/A pair (often in an FAQ), the answer to the question. |
+| author | Name of author (or authors). |
+| footer | Use this tag to denote meta-information about the document (such as the page number or references), that appear at the bottom of the |page. |
+| header | Use this tag to denote meta-information about the document that appears at the top of the page. |
+| question | In a Q/A pair (often in an FAQ), the question. |
+| subtitle | The secondary title of the document being annotated. |
+| table_of_contents | Use this tag on listings in the document table of contents. |
+| text | Use this tag for standard copy text, including paragraphs, definitions, or any set of words that is not a title, part of a table, answer, author, subtitle, header, or a footer. |
+| title | The main title of the document being annotated. |
+| table |	Use this tag to annotate tables in your document. |
+| image |	Use this tag to annotate images and diagrams in your document. |
+{: caption="Default field labels" caption-side="top"}
+
 
 ## Splitting documents
 {: #splitting}
