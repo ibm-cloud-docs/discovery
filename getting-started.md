@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-16"
+lastupdated: "2021-05-04"
 
 subcollection: discovery
 
@@ -41,6 +41,7 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
 {: #before-you-begin-api}
 
 1.  Create an instance of the service:
+
     1.  Go to the [{{site.data.keyword.discoveryshort}}](https://{DomainName}/catalog/services/discovery){: external} page in the catalog.
 
         The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
@@ -48,9 +49,12 @@ If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [
 
     1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
     1.  Click **Create**.
+
+        A {{site.data.keyword.discoveryshort}} service instance is created and a summary page is displayed.
 1.  Copy the credentials to authenticate to your service instance:
-    1.  On the **Manage** page, click **Show Credentials**.
-    1.  Copy the `API Key` and `URL` values.
+
+    1.  Click **Show credentials**.
+    1.  Copy the `API key` and `URL` values.
 1. Make sure that you have the `curl` command.
     - Test whether `curl` is installed. Run the following command on the command line. If the output lists the `curl` version with SSL support, you are set for the tutorial.
 
