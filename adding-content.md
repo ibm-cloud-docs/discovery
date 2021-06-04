@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-10-15"
+  years: 2015, 2021
+lastupdated: "2021-06-04"
 
 subcollection: discovery
 
@@ -96,6 +96,4 @@ For more information about the API, see the [API reference](https://{DomainName}
 ## Crawling URLs
 {: #crawl_urls}
 
-You can crawl URLs and index them using the {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} Service [Indexing plugin for Apache Nutch](https://github.com/IBM-Watson/nutch-indexer-discovery){: external}. The crawl does not update automatically, so you must repeat the procedure periodically to keep the index up-to-date. 
-
-You also have the option to use the Web Crawl connector. See [Connecting to data sources](/docs/discovery?topic=discovery-sources#connectwebcrawl).
+You can crawl URLs and index them using the Web Crawl connector. See [Connecting to data sources](/docs/discovery?topic=discovery-sources#connectwebcrawl).
