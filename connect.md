@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-01"
+lastupdated: "2021-06-18"
 
 subcollection: discovery
 
@@ -39,6 +39,8 @@ You can use {{site.data.keyword.discoveryshort}} to connect to and crawl documen
 
 You can connect to a data source and pull documents on a schedule into {{site.data.keyword.discoveryshort}} by configuring a collection to associate with that source. You can configure each collection with one data source. {{site.data.keyword.discoveryshort}} pulls documents from the data source using a process called crawling. Crawling is the process of systematically browsing and retrieving documents from the specified start location. {{site.data.keyword.discoveryshort}} only crawls items that you explicitly specify. The first time that a crawler crawls a data source is a full crawl, and every time that the crawler runs after the full crawl, per the crawl schedule, is a refresh, also called a recrawl.
 
+This documentation applies to {{site.data.keyword.discoveryshort}} service instances that you create with a Lite or Advanced plan, or that you created with a Premium plan before 16 July 2020. For more information about features in Premium plan instances created on or after 16 July 2020, and in Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-collections){: external}.
+{: important}
 
 ## General source requirements
 {: #gen_req}

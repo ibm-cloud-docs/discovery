@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-03-16"
+lastupdated: "2021-06-18"
 
 subcollection: discovery
 
@@ -35,7 +35,7 @@ subcollection: discovery
 {{site.data.keyword.discoveryfull}} makes it possible to rapidly build cognitive, cloud-based exploration applications that unlock actionable insights hidden in unstructured data — including your own proprietary data, as well as public and third-party data.
 {: shortdesc}
 
-This documentation applies to {{site.data.keyword.discoveryshort}} service instances that you create with a Lite or Advanced plan, or that you created with a Premium plan before 16 July 2020. For more information about features in Premium plan instances created on or after 16 July 2020, see [these docs](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-about){: external}.
+This documentation applies to {{site.data.keyword.discoveryshort}} service instances that you create with a Lite or Advanced plan, or that you created with a Premium plan before 16 July 2020. For more information about features in Premium plan instances created on or after 16 July 2020, and in Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-about){: external}.
 {: important}
 
 ![Discovery architecture diagram](images/about-discovery1.png)

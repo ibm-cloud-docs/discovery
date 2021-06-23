@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-08-05"
+  years: 2015, 2021
+lastupdated: "2021-06-23"
 
 subcollection: discovery
 
@@ -36,6 +36,9 @@ subcollection: discovery
 <!-- Learn more topic WDS -->
 {{site.data.keyword.discoveryfull}} offers three plans -- **Lite**, **Advanced**, and **Premium** -- that provide different levels of resources and capabilities to suit your needs.
 {: shortdesc}
+
+For more information about Premium plans that were created after 16 July 2020 or about Plus plans (including Plus Trial), see [these docs](/docs/discovery-data?topic=discovery-data-pricing-plans){: external}.
+{: note}
 
 **Private data use cases** have the following features, limits, and prices:
 
