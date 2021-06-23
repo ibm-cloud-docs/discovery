@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-18"
+lastupdated: "2021-06-23"
 
 subcollection: discovery
 
@@ -35,7 +35,7 @@ subcollection: discovery
 How do I decide which document upload method to use?
 {: shortdesc}
 
-This documentation applies to {{site.data.keyword.discoveryshort}} service instances that you create with a Lite or Advanced plan, or that you created with a Premium plan before 16 July 2020. For more information about features in Premium plan instances created on or after 16 July 2020, and in Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-upload-data){: external}.
+This documentation applies to {{site.data.keyword.discoveryshort}} service instances that you create with a Lite or an Advanced plan, or that you created with a Premium plan before 16 July 2020. For more information about features in Premium plan instances created on or after 16 July 2020, and in Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-upload-data){: external}.
 {: important}
 
 -   Use the [API](/docs/discovery?topic=discovery-gs-api) if you are integrating the upload of content with an existing application or creating your own custom upload mechanism.
