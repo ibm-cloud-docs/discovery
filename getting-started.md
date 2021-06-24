@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-04"
+lastupdated: "2021-06-23"
 
 subcollection: discovery
 
@@ -34,8 +34,10 @@ subcollection: discovery
 In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} API and go through the process of creating a private data collection and searching it.
 {: shortdesc}
 
-If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started](/docs/discovery?topic=discovery-getting-started).
-{: tip}
+If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started with Discovery](/docs/discovery?topic=discovery-getting-started).
+
+This documentation applies to {{site.data.keyword.discoveryshort}} service instances that you create with a Lite or an Advanced plan, or that you created with a Premium plan before 16 July 2020. For more information about features in Premium plan instances created on or after 16 July 2020, and in Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-configuring-fields){: external}.
+{: important}
 
 ## Before you begin
 {: #before-you-begin-api}
