@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-05-06"
+  years: 2015, 2021
+lastupdated: "2021-08-06"
 
 subcollection: discovery
 
@@ -65,6 +65,8 @@ subcollection: discovery
 - Enrichments
     - Integration with {{site.data.keyword.knowledgestudiofull}} custom models
     - Language detection
+
+To create a collection in Dutch or Chinese, you must use the API. For more information, see the [API reference](https://cloud.ibm.com/apidocs/discovery#createcollection){: external}.
 
 ## Full support
 {: #full-support}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-06-24"
 
 subcollection: discovery
 
@@ -39,7 +39,7 @@ See [{{site.data.keyword.discoveryshort}} pricing plans](/docs/discovery?topic=d
 
 You cannot directly upgrade your plan from `Lite` to `XS` because `XS` plans are not suitable for production usage. If you have the `Lite` plan but want the `XS` plan, you must create a new instance by using the `XS` size and then manually recreate your collections. In addition, you cannot directly downgrade from `S` to `XS`. If you have the `S` plan but want the `XS` plan, follow the same steps in the case of moving to an `XS` plan from a `Lite` plan.
 
-You cannot upgrade from a Lite (v1) plan to a Plus (v2) plan. And you cannot upgrade from an Advanced (v1) plan to a Premium (v2) plan. To start using v2, create a new Plus or Premium plan. For more information about Premium plan instances that were created on or after 16 July 2020 or about Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-about){: external}.
+You cannot upgrade from a Lite (v1) plan to a Plus (v2) plan. And you cannot upgrade from an Advanced (v1) plan to a Premium (v2) plan. To start using v2, create a new Plus or Premium plan. For more information about Premium plan instances that were created on or after 16 July 2020 or about Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-upgrade){: external}.
 {: important}
 
 ## Upgrading your service
