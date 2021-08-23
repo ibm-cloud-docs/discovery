@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-08-23"
 
 subcollection: discovery
 
@@ -275,7 +275,9 @@ If you require different **Crawl settings** for other URLs, click **Add URL grou
 To connect to SharePoint OnPrem, you must first install and configure {{site.data.keyword.SecureGatewayfull}}. For more information about installing {{site.data.keyword.SecureGatewayfull}}, see [Installing IBM Secure Gateway for on-premises data](/docs/discovery?topic=discovery-sources#gateway).
 {: note}
 
-You can use this connector to crawl a SharePoint 2013, 2016, or 2019 on-premises data source. Complete the following fields to connect to the data source. If you do not know what to enter in these fields, contact your SharePoint administrator, or consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}:
+You can use this connector to crawl a SharePoint 2013, 2016, or 2019 on-premises data source. The crawler supports Windows New Technology LAN Manager (NTLM) v1 authentication only. It does not support NTLM v2 or Security Assertion Markup Language (SAML) authentication.
+
+Complete the following fields to connect to the data source. If you do not know what to enter in these fields, contact your SharePoint administrator, or consult the [Microsoft SharePoint developer documentation](https://docs.microsoft.com/en-us/sharepoint/dev/){: external}:
 
 -  `username` - The `username` to connect to the SharePoint OnPrem web application that you want to crawl. This user must have access to all sites and lists that they want to crawl and index.
 -  `password` - The `password` to connect to the SharePoint OnPrem web application that you want to crawl. This value is never returned and is only used when creating or modifying credentials.
