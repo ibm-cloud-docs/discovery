@@ -17,7 +17,6 @@ Discovery
         parsing.md
 
     sample-apps.md
-    [Videos](https://ibm.biz/wds_videos)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
