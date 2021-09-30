@@ -12,7 +12,7 @@ subcollection: discovery
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:pre: .pre}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}

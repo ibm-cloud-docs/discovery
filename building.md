@@ -15,7 +15,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -498,7 +498,7 @@ Emotion Analysis is supported in English only.
 {: #elements}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 Parses elements (sentences, lists, tables) in governing documents to classify important types and categories
 For more information, see [Element classification](/docs/discovery?topic=discovery-element-classification).

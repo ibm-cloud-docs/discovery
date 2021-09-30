@@ -15,7 +15,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -33,7 +33,7 @@ subcollection: discovery
 {: #configuring-connector-and-seed-options}
 
 The Data Crawler is no longer supported or available for download beginning [17 April 2019](/docs/discovery?topic=discovery-release-notes#17apr19). This content is provided for existing installations only. See [Connecting to Data Sources](/docs/discovery?topic=discovery-sources) for other available connectivity options.
-{:important}
+{: important}
 
 When crawling data, the Crawler first identifies the type of data repository (connector) and the user-specified starting location (seed) to begin downloading information.
 {: shortdesc}

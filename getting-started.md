@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-24"
+lastupdated: "2021-09-30"
 
 subcollection: discovery
 
@@ -14,7 +14,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -111,6 +111,7 @@ Now that the environment is ready, you can create a collection. Think of a colle
       curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/configurations?version=2019-04-30"
     ```
     {: pre}
+
 1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection called **my-first-collection**. Replace `{apikey}`, `{url}`, `{environment_id}` and `{configuration_id}` with your information:
     ```sh
     curl -X POST -u "apikey:{apikey}" \
@@ -119,6 +120,7 @@ Now that the environment is ready, you can create a collection. Think of a colle
     "{url}/v1/environments/{environment_id}/collections?version=2019-04-30"
     ```
     {: pre}
+
     The API returns information such as your collection ID, collection status, and how much storage your collection is using.
 1.  Check the collection status periodically until you see a status of `active`.
 

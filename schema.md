@@ -15,7 +15,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -34,7 +34,7 @@ subcollection: discovery
 {: #output_schema}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 After a document is ingested by using Element Classification, the service returns JSON output in the following schema for version date `2018-10-15` or later. The output is included in the `enriched_html_elements` object.
 {: shortdesc}
@@ -389,7 +389,7 @@ After a document is ingested by using Element Classification, the service return
 {: #schema-arrangement}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The schema is arranged as follows.
 
@@ -562,7 +562,7 @@ The schema is arranged as follows.
 {: #table-notes}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
   - Row and column index values per cell are zero-based and so begin with `0`.
   - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
@@ -577,7 +577,7 @@ The value of `unit` is the [ISO-4217 currency code](https://www.iso.org/iso-4217
 {: #location-note}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `location` object is included with the majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
   

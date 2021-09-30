@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-08-23"
+lastupdated: "2021-09-30"
 
 subcollection: discovery
 
@@ -16,7 +16,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -336,6 +336,8 @@ Connecting to a data source using the {{site.data.keyword.discoveryshort}} tooli
       "next_crawl" : "2019-02-10T05:00:00-05:00"
     }
     ```
+    {: codeblock}
+
 5.  Click **Save & Sync objects** to start crawling your data source. You are then redirected to the collection status page, which updates as documents are added to the collection.
 
 After the initial sync, all subsequent crawls run on the frequency that you specified. For information about managing a collection, see [Manage collections](/docs/discovery?topic=discovery-sources#manage-collections).
@@ -363,6 +365,7 @@ The following example uses the SharePoint data source.
 
 1.  Create credentials for the source that you are connecting to using the [Source Credentials API](https://{DomainName}/apidocs/discovery#create-credentials){: external}. Record the returned **credential_id** of the newly created credentials.
 2.  Create a new configuration, using the [Add configuration](https://{DomainName}/apidocs/discovery#add-configuration){: external} API method. To define what to crawl, include a **source** object that contains the **credential_id** that you recorded earlier.
+
     ```json
     "source" : {
       "type" : "salesforce",
@@ -381,6 +384,7 @@ The following example uses the SharePoint data source.
     }
     ```
     {: codeblock}
+
     Record the returned **configuration_id** of the newly created configuration.
 3.  Create a new collection using the [Collections API](https://{DomainName}/apidocs/discovery#create-a-collection){: external}. The object defining the collection must contain the **configuration_id** that you recorded earlier.
 
@@ -399,6 +403,7 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
     -  In the tooling, navigate to your collection and click the **edit** link in the configuration section. Next, click the **Normalization** tab and add in a **copy** normalization to create the `customer_id` field. Then click **Apply & save**.
     ![Copy normalization](images/norm_copy.png)
     -  When you use the API, add the following object to the **normalizations** array:
+
        ```json
        {
          "operation" : "copy",
@@ -407,6 +412,7 @@ A `customer_id` field in an ingested {{site.data.keyword.discoveryshort}} docume
        }
        ```
        {: codeblock}
+
 3.  The next scheduled crawl adds the `customer_id` field to all documents. To start a crawl immediately, modify the source configuration (**Sync settings** in the tooling).
 
 See [Information security](/docs/discovery?topic=discovery-information-security) for more information and information about deleting based on `customer_id`.

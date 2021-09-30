@@ -13,7 +13,7 @@ subcollection: discovery
 {:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:tip: .tip}
 {:important: .important}
 {:note: .note}

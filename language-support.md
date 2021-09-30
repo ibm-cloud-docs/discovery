@@ -15,7 +15,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -93,7 +93,7 @@ The following features are currently supported in English only:
 - Document deduplication (beta)
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 ## Japanese-only support
 {: #japanese-support}
