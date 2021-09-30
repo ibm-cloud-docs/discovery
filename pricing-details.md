@@ -15,7 +15,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -68,7 +68,7 @@ For information about upgrading from Lite to Advanced, see [Upgrading your servi
 For query performance information, see [Query performance](/docs/discovery?topic=discovery-qp). Queries are limited based on plan. Estimated Average Query rates per **Lite** plan: 1 QPS for reranked queries with two top-level text fields.
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 ## Advanced
 {: #advanced}
@@ -119,7 +119,7 @@ Over 100,000 queries (per month): $0.03 per query<br>
 [Document splitting](/docs/discovery?topic=discovery-configservice#doc-segmentation): 1,000 segments per plan. Additional segments: Not available
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 `-----`
 <br>

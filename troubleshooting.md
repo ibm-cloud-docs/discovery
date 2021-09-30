@@ -17,7 +17,7 @@ content-type: faq
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}

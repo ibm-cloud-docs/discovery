@@ -15,7 +15,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -459,7 +459,7 @@ You can perform pre-enrichment normalization of the ingested JSON by defining `o
 {{site.data.keyword.discoveryshort}} supports adding {{site.data.keyword.nlushort}} and Element Classification enrichments. Each field that you want to enrich is defined by an object in the `enrichments` array. Each enrichment object requires a `source_field`, a `destination_field` and enrichments to specified.
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 - `"enrichment" : string` - *required* - The type of enrichment to use on this field. To extract {{site.data.keyword.nlushort}} enrichments use `natural_language_understanding`, to perform Element Classification use `elements`.
 
@@ -476,7 +476,7 @@ The Element Classification enrichment is deprecated and will no longer be availa
 {: #element_classification_enrichments}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 When you use the Element Classification, each `elements` enrichment object must contain an `"options": {}` object with the following parameters specified:
 
@@ -574,7 +574,7 @@ The `normalizations` array is an array of JSON `operation` objects that are used
   }
 ]
 ```
-{:codeblock}
+{: codeblock}}
 
 The `operation` object options are listed [here](#operations)
 

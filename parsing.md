@@ -15,7 +15,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -34,7 +34,7 @@ subcollection: discovery
 {: #contract_parsing}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 Element Classification returns parsed contracts with an analysis of each identified element.
 
@@ -44,7 +44,7 @@ The following sections describe how the returned JSON provides the analysis.
 {: #contract_types}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `types` array includes a number of objects, each of which contains `nature` and `party` keys whose values identify a couplet for the element.
 
@@ -64,7 +64,7 @@ Each `nature` key is paired with a `party` key, which contains either the name o
 {: #contract_parties}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `parties` array specifies the participants that are listed in the contract. Each `party` object is associated with other objects that provide details about the party, including:
 
@@ -93,7 +93,7 @@ The values of `role` that can be returned for contracts include, but are not lim
 {: #contract_categories}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `categories` array defines the subject matter of the sentence. Currently supported categories include:
 
@@ -131,7 +131,7 @@ The categories and descriptions in the preceding table are based on United State
 {: #attributes}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `attributes` array specifies any attributes that are identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `location` (the `begin` and `end` indexes of the attribute in the input document). Currently supported attributes include:
 
@@ -151,7 +151,7 @@ The `attributes` array specifies any attributes that are identified in the sente
 {: #effective_dates}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `effective_dates` array identifies the date or dates on which the document becomes effective.
 
@@ -167,7 +167,7 @@ The `effective_dates` array identifies the date or dates on which the document b
 {: #contract_amounts}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `contract_amounts` array specifies monetary amounts that identify the total amount of the contract that needs to be paid from one party to another.
 
@@ -182,7 +182,7 @@ The `contract_amounts` array specifies monetary amounts that identify the total 
 {: #termination_dates}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `termination_dates` array identifies the date or dates on which the document is to be terminated.
 
@@ -198,7 +198,7 @@ The `termination_dates` array identifies the date or dates on which the document
 {: #ec_types}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `contract_types` array identifies the document's contract type or types as declared in the document.
 
@@ -213,7 +213,7 @@ The `contract_types` array identifies the document's contract type or types as d
 {: #contract_terms}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `contract_terms` array identifies the duration or durations of the contract as declared in the document.
 
@@ -228,7 +228,7 @@ The `contract_terms` array identifies the duration or durations of the contract 
 {: #payment-terms}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `payment_terms` array identifies the payment duration or durations as declared in the document.
 
@@ -248,7 +248,7 @@ The `payment_terms` array identifies the payment duration or durations as declar
 {: #contract-currencies}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 The `contract_currencies` array identifies the contract currency or currencies as declared in the document.
 
@@ -264,6 +264,6 @@ The `contract_currencies` array identifies the contract currency or currencies a
 {: #provenance}
 
 The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-{:important}
+{: important}
 
 Each object in the `types` and `categories` arrays includes a `provenance_ids` array. The `provenance_ids` array has one or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.

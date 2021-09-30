@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-09-30"
 
 subcollection: discovery
 
@@ -15,7 +15,7 @@ subcollection: discovery
 {:pre: .pre}
 {:important: .important}
 {:deprecated: .deprecated}
-{:codeblock: .codeblock}
+{: codeblock}: .codeblock}
 {:screen: .screen}
 {:download: .download}
 {:hide-dashboard: .hide-dashboard}
@@ -45,23 +45,21 @@ This documentation applies to {{site.data.keyword.discoveryshort}} service insta
 {: hide-dashboard}
 
 You need a service instance to start.
-{: hide-dashboard}
 
-1.  {: hide-dashboard} Go to the [{{site.data.keyword.discoveryshort}}](https://{DomainName}/catalog/services/discovery){: external} page in the {{site.data.keyword.cloud_notm}} catalog.
+1.  Go to the [{{site.data.keyword.discoveryshort}}](https://{DomainName}/catalog/services/discovery){: external} page in the {{site.data.keyword.cloud_notm}} catalog.
 
     The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
 
     If you are creating an instance for more robust use and need information about organizing resource groups, see [Best practices for organizing resources and assigning access](https://{DomainName}/docs/account?topic=account-account_setup){: external}.
-1.  {: hide-dashboard} Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
-1.  {: hide-dashboard} Click **Create**.
+1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
+1.  Click **Create**.
 
 ## Step 1: Launch the tooling
 {: #launch-the-tooling}
 
 After you create an instance of {{site.data.keyword.discoveryshort}}, you're taken to your list of services.
-{: hide-dashboard}
 
-1.  {: hide-dashboard} Click the {{site.data.keyword.discoveryshort}} instance you created to go to the service dashboard.
+1.  Click the {{site.data.keyword.discoveryshort}} instance you created to go to the service dashboard.
 1.  On the **Manage** page, click **Launch Watson Discovery**. If you're prompted to log in to the tooling, provide your {{site.data.keyword.cloud_notm}} credentials.
 
 ## Step 2: Create a collection
@@ -82,7 +80,7 @@ The public, pre-enriched {{site.data.keyword.discoverynewsshort}} data collectio
     When creating a collection, under **Advanced**, you have the option to choose a configuration file named **Default Contract Configuration**. This configuration supports only the Element Classification enrichment, which can be used to extract party, nature, and category from elements in PDFs. See [Element Classification](/docs/discovery?topic=discovery-element-classification#element-collection) for details. Do not choose this option for this tutorial.
 
     The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**.
-    {:important}
+    {: important}
 
 You can also crawl Box, Salesforce, Microsoft SharePoint Online, IBM Cloud Object Storage, and Microsoft SharePoint 2016 data sources, or do a web crawl with the {{site.data.keyword.discoveryshort}} tooling. Click the **Connect a data source** button and see [Connecting to data sources](/docs/discovery?topic=discovery-sources) for more information.
 {: tip}
