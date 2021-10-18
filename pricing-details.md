@@ -82,7 +82,7 @@ When choosing an Advanced Plan size, note that resources are required for both d
 For additional details on factors that influence query performance, see [Query performance](/docs/discovery?topic=discovery-qp). Queries are limited based on plan. Estimated Average Query rates per **Advanced** (S, MS) plans: 10 QPS for reranked queries with two top-level text fields.
 
 Size | Number of Docs\* | Price
------- | ------ | ------ | ------
+------ | ------ | ------
 X-Small\*\*\*\* | Up to 50,000 docs total | Starting at $500 per month
 Small | Up to 1M docs total | Starting at $1,500 per month
 Medium-Small | Up to 2M docs total | Starting at $3,000 per month
