@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-02-05"
+  years: 2015, 2021
+lastupdated: "2021-10-20"
 
 subcollection: discovery
 
@@ -100,7 +100,7 @@ Operators are the separators between different parts of a query. These are the a
 | [*](/docs/discovery?topic=discovery-query-operators#wildcard) | Wildcard | `query-enriched_text.concepts.text:pre*` |
 | [~n](/docs/discovery?topic=discovery-query-operators#variation) | String variation | `query-enriched_text.entities.text:cat~1` |
 | [:*](/docs/discovery?topic=discovery-query-operators#exists) | Exists | `title:*` |
-| [!*](/docs/discovery?topic=discovery-query-operators#dnexist) | Does not exist | `title!*` |
+| [!*](/docs/discovery?topic=discovery-query-operators#dnexist) | Does not exist | `title:!*` |
 
 ## Aggregations
 {: #aggregations}
