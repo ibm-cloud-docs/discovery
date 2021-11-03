@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-11-03"
 
 subcollection: discovery
 
@@ -33,6 +33,9 @@ subcollection: discovery
 {: #watson-discovery-news}
 
 {{site.data.keyword.discoverynewsfull}} is included with {{site.data.keyword.discoveryshort}}. {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is an indexed dataset that is pre-enriched with the following cognitive insights: **Keyword Extraction**, **Entity Extraction**, **Semantic Role Extraction**, **Sentiment Analysis**, **Relation Extraction**, and **Category Classification**. (To learn more about enrichments, see [Adding enrichments](/docs/discovery?topic=discovery-configservice#adding-enrichments).) The following additional metadata is also added: crawl date and publication date. Historical search is available for the past 60 days of news data.
+
+Starting 8 October, 2021 you are no longer able to provision new Discovery News instances. Existing instances continue to be supported. Support ends for Discovery News on 8 October 2022. Until 8 October 2022, all existing Discovery News instances are available and continue to be supported. Any instances still provisioned after 8 October 2022 will be deleted.
+{: deprecated}
 
 {{site.data.keyword.watson}} {{site.data.keyword.discoverynewsshort}} is updated continuously with new articles, and is available in English, Spanish, German, Korean, French, and Japanese. {{site.data.keyword.discoverynewsshort}} English is updated with approximately 200,000 new articles daily; {{site.data.keyword.discoverynewsshort}} Spanish is updated with approximately 60,000 new articles daily; {{site.data.keyword.discoverynewsshort}} German is updated with approximately 15,000 new articles daily; {{site.data.keyword.discoverynewsshort}} Korean with 10,000 new articles daily; {{site.data.keyword.discoverynewsshort}} French with 23,000 new articles daily; {{site.data.keyword.discoverynewsshort}} Japanese is updated with approximately 17,000 new articles daily. The news sources vary by language, so the query results for each collection are not identical.
 
