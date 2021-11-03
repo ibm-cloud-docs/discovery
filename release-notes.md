@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-10-14"
+  years: 2015, 2021
+lastupdated: "2021-11-03"
 
 subcollection: discovery
 
@@ -54,6 +54,12 @@ The current version is `2019-04-30`.
 {: #change-log}
 
 The following new features and changes to the service are available.
+
+## 8 October 2021
+{: #8oct2021}
+
+Starting 8 October, 2021 you are no longer able to provision new Discovery News instances. Existing instances continue to be supported. Support ends for Discovery News on 8 October 2022. Until 8 October 2022, all existing Discovery News instances are available and continue to be supported. Any instances still provisioned after 8 October 2022 will be deleted. The Discovery News collection is not available in Watson Discovery v2 service instances.
+{: deprecated}
 
 ## 22 September 2020
 {: #22sept2020}
