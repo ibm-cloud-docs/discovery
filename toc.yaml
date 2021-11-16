@@ -1,0 +1,125 @@
+toc:
+  properties:
+    subcollection: discovery-data
+    version: 1
+    category: ai
+    audience: service
+    href: /docs/discovery?topic=discovery-getting-started
+    product-page: https://www.ibm.com/cloud/watson-discovery
+    path: discovery
+    label: Discovery (v1)
+
+  entries:
+  - navgroup:
+      id: learn
+      topics:
+      - getting-started-tool.md
+      - index.md
+      - covid.md
+      - watson-discovery-news.md
+      - topicgroup:
+          label: Element classification
+          topics:
+          - element-classification.md
+          - schema.md
+          - parsing.md
+      - sample-apps.md
+      - release-notes.md
+
+  - navgroup:
+      id: tutorial
+      topics:
+      - getting-started.md
+      - getting-started-query.md
+
+  - navgroup:
+      id: howto
+      topics:
+      - building.md
+      - sdu.md
+      - adding-content.md
+      - connect.md
+      - topicgroup:
+          label: Building queries
+          topics:
+          - using.md
+          - query-parameters.md
+          - query-operators.md
+          - query-aggregations.md
+      - topicgroup:
+          label: Improving relevance of results
+          topics:
+          - train-tooling.md
+          - dashboard.md
+          - train.md
+          - train-tips.md
+          - continuous-training.md
+          - feedback.md
+          - topicgroup:
+              label: Discovery and Knowledge Studio
+              topics:
+              - integrate-wks.md
+          - upgrading.md
+          - /watson/watson-keyservice
+          - /watson/watson-public-private-endpoints
+
+  - navgroup:
+      id: reference
+      topics:
+      - link:
+          label: API reference
+          href: https://{DomainName}/apidocs/discovery
+      - at-events.md
+      - recovery.md
+      - topicgroup:
+          label: Whitepapers
+          inks:
+          - link:
+              label: Discovery Cloud architecture
+              href: http://ibm.biz/discovery_advantage_paper
+          - link:
+              label: Discovery Whitepaper
+              href: https://www.ibm.com/watson/whitepaper/discovery/
+      - topicgroup:
+          label: Enrichment
+          topics:
+          - entity-types.md
+          - entity-types-v1.md
+          - entity-types-v2.md
+      - query-reference.md
+      - custom-config.md
+      - language-support.md
+      - information-security.md
+      - qp.md
+      - additional-resources.md
+      - topicgroup:
+          label: Discovery archives
+          topics:
+          - discovery-auxiliary.md
+          - data-crawler.md
+          - data-crawler-qs.md
+          - data-crawler-install.md
+          - data-crawler-seeds.md
+          - data-crawler-discovery.md
+          - data-crawler-run.md
+      - /watson/watson-using-sdks
+      - link:
+          label: Watson GitHub repos
+          href: https://github.com/watson-developer-cloud/
+  - navgroup:
+      id: help
+      topics:
+      - troubleshooting.md
+      - pricing-details.md
+      - topicgroup:
+          label: Developer community
+          links:
+          - link:
+              label: IBM Watson Apps community
+              href: https://community.ibm.com/community/user/watsonapps/communities/community-home?CommunityKey=80650291-2ff4-4a43-9ff8-5188fdb9552f
+          - link:
+              label: Watson Developer Community Slack channel
+              href: http://wdc-slack-inviter.mybluemix.net/
+          - link:
+              label: Stack Overflow
+              href: http://stackoverflow.com/questions/tagged/watson-discovery
