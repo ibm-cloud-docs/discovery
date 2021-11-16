@@ -30,7 +30,7 @@ content-type: release-note
 {:swift: .ph data-hd-programlang='swift'}
 {:go: .ph data-hd-programlang='go'}
 
-# Release notes for {{site.data.keyword.discoveryshort}} on {{site.data.keyword.cloud_notm}}
+# Release notes for {{site.data.keyword.discoveryshort}}
 {: #release-notes}
 
 The release notes provide information about updates and improvements to {{site.data.keyword.discoveryfull}} since the previous release.
