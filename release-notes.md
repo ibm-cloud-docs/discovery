@@ -50,9 +50,9 @@ The current version is `2019-04-30`.
 {: #discovery-8october2021}
 {: release-note}
 
-Deprecated new instances for Discovery News
-:   From 8 October 2021, you are no longer able to provision **new** Discovery News instances. Existing instances continue to be supported. Support ends for Discovery News on 8 October 2022. Until 8 October 2022, all existing Discovery News instances are available and continue to be supported. Any instances still provisioned after 8 October 2022 will be deleted. The Discovery News collection is not available in Watson Discovery v2 service instances.
-{: deprecated}
+Deprecated Discovery News
+:   You can no longer provision **new** Discovery News instances as of 8 October 2021. 
+:   Existing instances are available and support continues until 8 October 2022. Any instances still provisioned after this date will be deleted. The Discovery News collection is not available in Watson Discovery v2 service instances.
 
 ## 22 September 2020
 {: #discovery-22september2020}
@@ -80,7 +80,8 @@ Improved training data limit
 {: #discovery-6may2020}
 {: release-note}
 
-- The Element Classification enrichment deprecation date announced [6 March 2020](/docs/services/discovery?topic=discovery-release-notes#6mar2020) has been changed. The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**. 
+Deprecated Element Classification
+:   The Element Classification enrichment deprecation date announced [6 March 2020](/docs/services/discovery?topic=discovery-release-notes#6mar2020) has been changed. The Element Classification enrichment is deprecated and will no longer be available, effective **10 July 2020**. 
 
 
 ## 6 March 2020
@@ -94,7 +95,7 @@ Change to Element Classification deprecation date
 {: release-note}
 
 New French language support for Discovery News
-- Released [{{site.data.keyword.discoverynewsfull}}](/docs/discovery?topic=discovery-watson-discovery-news) in one additional language: French (`collection_id`: `news-fr`).
+:   Released [{{site.data.keyword.discoverynewsfull}}](/docs/discovery?topic=discovery-watson-discovery-news) in one additional language: French (`collection_id`: `news-fr`).
 
 ## 12 December 2019
 {: #discovery-12december2019}
@@ -204,7 +205,7 @@ Update to version string
 
 Improved extraction of title field from HTML documents
 :   The `title` field is now extracted from HTML documents as a top-level field during conversion. This `title` field is included in each segment of any documents split, using document segmentation. For an example, see [Splitting documents with document segmentation](/docs/discovery?topic=discovery-configservice#doc-segmentation). This might improve the `confidence` score for query results, and might change the `passages` returned because the `title` might be returned, as part of a passage. Existing collections must be reindexed to extract the `title` field.
-: The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-03-25` (it currently uses `2018-12-03`), so the `title` is not extracted when ingesting HTML documents by uploading or using the Web Crawl connector in the {{site.data.keyword.discoveryshort}} tooling.
+:   The {{site.data.keyword.discoveryshort}} tooling does not yet use the current API version: `2019-03-25` (it currently uses `2018-12-03`), so the `title` is not extracted when ingesting HTML documents by uploading or using the Web Crawl connector in the {{site.data.keyword.discoveryshort}} tooling.
 
 New enrichment for arrays
 :   Arrays can now be enriched (previously, arrays could not be enriched). When using Smart Document Understanding, this means that you can now enrich both default (for example: `answer`, `author`, `footer`, `header`, `question`, `subtitle`, `table_of_contents`, `text`, and `title`) and custom fields. Previously, you were limited to enriching only the `text` field.
@@ -835,7 +836,9 @@ New Premium pricing plan
 
 New feature for querying multiple collections
 :   The ability to query, list fields, and query notices across collections within the same environment is added. For details, see [Querying multiple collections](/docs/discovery?topic=discovery-query-concepts#multiple-collections).
-- Language support information for {{site.data.keyword.discoveryshort}} is available at [Language support](/docs/discovery?topic=discovery-language-support).
+
+New language support
+:   Language support information for {{site.data.keyword.discoveryshort}} is available at [Language support](/docs/discovery?topic=discovery-language-support).
 
 Change to Visual Query Builder
 :   The Visual Query Builder moved from beta status to GA status. Filter, Timeslice, and Histogram aggregations are not currently supported with the Visual Query Builder. Click **Include analysis of your results**, then **Edit in Query Language** on the **Build queries** screen to write those aggregations.
@@ -956,7 +959,6 @@ Update to enrichment mechanism
 :   {{site.data.keyword.discoveryfull}} is changing its enrichment mechanism from {{site.data.keyword.alchemylanguageshort}} to {{site.data.keyword.nlushort}} as of this release. 
 :   {{site.data.keyword.alchemylanguageshort}} is in the process of being deprecated, so it is recommended that you start using {{site.data.keyword.nlushort}} as soon as possible.
 :   If you integrate with Watson Knowledge Studio, you must still use the {{site.data.keyword.alchemylanguageshort}} enrichment configuration. For details, see [Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/discovery?topic=discovery-integrating-with-wks).
-   {: note}
 
 Update to version string
 :   The version string for all API calls changed to `2017-07-19` from `2017-06-25`. This version enables an NLU default config on collection creation. You should still be able to enrich with {{site.data.keyword.alchemylanguageshort}} in previous versions.
@@ -1004,15 +1006,15 @@ Added a Natural Language Query option to the **Build queries** screen
 The **Build queries** screen was redesigned, but all fields and options remain. 
 :   Following are the old and new names for the fields.
 
-| **Old field name**                                           | **New field or section name**                                                                                             |
-|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| Write and run a query                                    | Search for documents                                                                                                  |
-| Narrow your query results (Filter)                       | Limit which documents you query                                                                                       |
-| Group query results (Aggregation)                        | Include analysis of your results                                                                                      |
-| Fields to display                                        | Name did not change, but moved to the new **Customize display options** section.                                      |
-| Number of documents to return (Count)                    | Number of documents to return [This field was moved to the **Customize display options** section.]                    |
-| Include matching passages                                | Include relevant passages [This field was moved to the **Customize display options** section.]                        |
-| Number of query fields to skip at the beginning (Offset) | Number of query results to skip at the beginning [This field was moved to the **Customize display options** section.] |
+    | **Old field name**                                           | **New field or section name**                                                                                                 |
+    |----------------------------------------------------------|-------------------------------------------------------------------------------------------------- ---------------------|
+    | Write and run a query                                    | Search for documents                                                                                                  |
+    | Narrow your query results (Filter)                       | Limit which documents you query                                                                                       |
+    | Group query results (Aggregation)                        | Include analysis of your results                                                                                      |
+    | Fields to display                                        | Name did not change, but moved to the new **Customize display options** section.                                      |
+    | Number of documents to return (Count)                    | Number of documents to return [This field was moved to the **Customize display options** section.]                    |
+    | Include matching passages                                | Include relevant passages [This field was moved to the **Customize display options** section.]                        |
+    | Number of query fields to skip at the beginning (Offset) | Number of query results to skip at the beginning [This field was moved to the **Customize display options** section.] |
 
 ### 5 June 2017
 {: #discovery-5june2017}
@@ -1127,20 +1129,20 @@ Known issues
 :   All fields that are ingested from HTML, PDF, and Word documents are typed as **string**. JSON fields and calculated fields, such as sentiment score, are typed as defined. [Update](/docs/discovery?topic=discovery-addcontent#adding-content-with-the-api-or-tooling)
 :   The `preview` operation does not currently check for nested JSON arrays within a submitted JSON document. The service does not currently support nested JSON arrays, so a document with nested arrays can successfully pass the `preview` operation but fail upon an ingestion attempt. See [Can I upload JSON arrays?](/docs/discovery?topic=discovery-troubleshoot#faq-array)
 :   If you encounter ingestion errors with the message `unsupported text language`, update your configuration with the `"language": "english"` enrichment option to force all text to be interpreted as English, as shown in the following example. 
-```json
-"enrichments": [
-   {
-     "enrichment": "alchemy_language",
-     "source_field": "author.label",
-     "options": {
-       "extract": "taxonomy,entity,relation,doc-emotion,doc-sentiment,concept,keyword",
-       "sentiment": true,
-       "quotations": true,
-       "language": "english"
-     }
-   }
- ]
-```
+    ```json
+    "enrichments": [
+       {
+         "enrichment": "alchemy_language",
+         "source_field": "author.label",
+         "options": {
+           "extract": "taxonomy,entity,relation,doc-emotion,doc-sentiment,concept,keyword",
+           "sentiment": true,
+           "quotations": true,
+           "language": "english"
+         }
+       }
+     ]
+    ```
 {: codeblock}
 
 Fixed known issue
@@ -1178,9 +1180,9 @@ Change to number of results
 :   The {{site.data.keyword.discoverynewsshort}} service returns only 50 results at a time. As a workaround, use the `offset` parameter in your query to page through results.
 :   You can submit a new configuration with an individual document by using the following command:
 
-```bash
-curl -X POST -u apikey:{apikey_value} -F "file=@wikipedia-sample.html" -F "configuration=$(cat config.json)" "https://gateway.watsonplatform.net/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2016-12-01"
-```
+    ```bash
+    curl -X POST -u apikey:{apikey_value} -F "file=@wikipedia-sample.html" -F "configuration=$(cat config.json)" "https://gateway.watsonplatform.net/v1/environments/{environment_id}/collections/{collection_id}/documents?version=2016-12-01"
+    ```
 {: pre}
 
 :   The PDF and Word converters create HTML as a middle step. The service can apply additional transforms and normalizations on the intermediary HTML before the final transformation to normalized JSON.
