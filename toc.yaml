@@ -73,7 +73,7 @@ toc:
       - recovery.md
       - topicgroup:
           label: Whitepapers
-          inks:
+          links:
           - link:
               label: Discovery Cloud architecture
               href: http://ibm.biz/discovery_advantage_paper
