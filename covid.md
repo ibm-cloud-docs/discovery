@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-05-05"
+  years: 2020, 2021
+lastupdated: "2021-11-16"
 
 subcollection: discovery
 
@@ -32,7 +32,7 @@ subcollection: discovery
 # Using the COVID-19 kit
 {: #covidkit}
 
-The COVID-19 kit is a special collection available in **US instances** of {{site.data.keyword.discoveryfull}} (more regions are planned). This pre-built collection includes more than 10  data sources you can use to fuel a dynamic chatbot built with {{site.data.keyword.conversationfull}} and {{site.data.keyword.discoveryshort}} to answer your customers' questions about COVID-19.
+The COVID-19 kit is a special collection available in **US instances** of {{site.data.keyword.discoveryfull}}. This pre-built collection includes more than 10  data sources you can use to fuel a dynamic chatbot built with {{site.data.keyword.conversationfull}} and {{site.data.keyword.discoveryshort}} to answer your customers' questions about COVID-19.
 {: shortdesc}
 
 The COVID-19 kit extracts answers from trusted sources and automatically updates your chatbot as the content from those sources are updated. It uses FAQ extraction machine learning models developed by IBM Research labs to extract question/answer pairs. The kit is pre-configured with web crawl seeds from trusted sources such as the CDC, Harvard, and the United States Department of Labor. An expanded stopwords list and query expansions are also included in this collection to improve search results. It is designed to be augmented with your own data and customized to your needs. 
