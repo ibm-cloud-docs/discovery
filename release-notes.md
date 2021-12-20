@@ -51,8 +51,8 @@ The current version is `2019-04-30`.
 {: release-note}
 
 Deprecated Discovery News
-:   You can no longer provision **new** Discovery News instances as of 8 October 2021. 
-:   Existing instances are available and support continues until 8 October 2022. Any instances still provisioned after this date will be deleted. The Discovery News collection is not available in Watson Discovery v2 service instances.
+:   The Watson Discovery News feature is deprecated as of 8 October 2021.
+:   Existing News collections are available and support continues until 8 October 2022, after which date they will no longer be accessible. The Discovery News collection is not available in Watson Discovery v2 service instances.
 
 ## 22 September 2020
 {: #discovery-22september2020}
