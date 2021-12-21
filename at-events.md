@@ -10,14 +10,7 @@ subcollection: discovery
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:table: .aria-labeledby="caption"}
-{: codeblock}: .codeblock}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Activity Tracker events
 {: #at_events}
