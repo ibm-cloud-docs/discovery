@@ -82,7 +82,7 @@ For more information about the API, see the [API reference](https://{DomainName}
 
 You can crawl URLs and index them using the Web Crawl connector. See [Connecting to data sources](/docs/discovery?topic=discovery-sources#connectwebcrawl).
 
-## Troubleshooting issues
+## Troubleshooting ingestion issues
 {: #adding-ts}
 
 Learn about steps you can take to mitigate issues that you might encounter when you are adding documents.

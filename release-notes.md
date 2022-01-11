@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-11-15"
+  years: 2015, 2022
+lastupdated: "2022-01-11"
 keywords:  discovery release notes,discovery for IBM cloud release notes,what's new,new features,change log,changelog
 subcollection: discovery
 content-type: release-note
@@ -25,6 +25,13 @@ API requests require a version parameter that takes a date in the format `versio
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
 The current version is `2019-04-30`.
+
+## 11 January 2022
+{: #discovery-11january2021}
+{: release-note}
+
+Operation limits
+:   New limits were applied to long-running operations, such as ingestion. For more information, see [Troubleshooting ingestion issues](/docs/discovery?topic=discovery-addcontent#adding-ts).
 
 ## 8 October 2021
 {: #discovery-8october2021}
