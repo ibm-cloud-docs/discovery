@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-06-23"
+  years: 2015, 2022
+lastupdated: "2022-01-11"
 
 subcollection: discovery
 
@@ -81,3 +81,12 @@ For more information about the API, see the [API reference](https://{DomainName}
 {: #crawl_urls}
 
 You can crawl URLs and index them using the Web Crawl connector. See [Connecting to data sources](/docs/discovery?topic=discovery-sources#connectwebcrawl).
+
+## Troubleshooting issues
+{: #adding-ts}
+
+Learn about steps you can take to mitigate issues that you might encounter when you are adding documents.
+
+-   Microsoft Office document is too large
+
+    If a document is large or complex, the step in the ingestion process that extracts the document structure can take too long to complete. If a message is displayed that indicates that a `document is too large for content structure extraction` to occur, decrease the size of the document. To decrease the document size, you can split the document into many smaller documents. For example, if you are adding an Excel spreadsheet, split a large XLXS file by sheets or rows into several smaller XLXS files. For a DOC file, split the document by pages. How small should each chunk of the document be? There is no one size that is best for all documents; it depends on the document. Aim to make each chunk as small as possible, while keeping plan-based document limits in mind.
