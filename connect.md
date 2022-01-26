@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2021
-lastupdated: "2021-09-30"
+lastupdated: "2022-01-26"
 
 subcollection: discovery
 
@@ -232,8 +232,8 @@ You can use the web crawler to crawl public websites that don’t require a pass
 -  `Select language` - Choose the language of the websites from the list of supported languages. For the list of languages that {{site.data.keyword.discoveryshort}} supports, see [Language support](/docs/discovery?topic=discovery-language-support). You should create a separate collection for each language.
 -  `URL group to sync` - Enter your URL and click the **Add** button to add it to the URL group. To specify the **Crawl settings** for this URL group, click the ![Cog](images/icon_settings.png) icon. You can set the **Maximum hops**, which is the number of consecutive links to follow from the starting URL (the starting URL is `0`). The default number of hops is `2` and the maximum is `20`. If you are using the API, the maximum is `1000`. You can specify URL paths to exclude from the crawl in the **Exclude URLs where the path includes** field. Separate the paths, using commas, for example, if you specified the URL `http://domain.com`, you could exclude `http://domain.com/licenses` and `http://domain.com/pricing` by entering `/licenses/, /pricing/`.
 
-FAQ extraction is available when you are building a search skill in {{site.data.keyword.conversationshort}} only. This feature returns more precise answers in which {{site.data.keyword.discoveryshort}} automatically extracts question-and-answer pairs from your FAQ web pages. When you create a new search skill, create a new collection, select the **Web crawl** data source, and select **Apply FAQ extraction** to index question-and-answer pairs as separate documents. If {{site.data.keyword.discoveryshort}} cannot identify question-and-answer pairs on a web page, the entire web page is indexed as a document.
-{: beta}
+FAQ extraction was available as a beta feature that was supported only with web crawl connectors built for use from a Search skill in {{site.data.keyword.conversationshort}}. The beta feature is deprecated. FAQ extraction will stop being supported in v1 {{site.data.keyword.discoveryshort}} service instances on 1 March 2022.
+{: deprecated}
 
 When you specify a URL to crawl, the final `/` determines the subtree to crawl. For example, if you enter the URL `https://www.example.com/banking/faqs.html`, all URLs that begin with `https://www.example.com/banking/` are crawled, and the input of `https://www.example.com/banking` crawls all URLs that begin with `https://www.example.com/`. If you would like to restrict the crawl to a specific URL, such as `https://www.example.com/banking/faqs.html`, enter that URL in the `URL group to sync` field, and then set the **Maximum hops** to `0`.
 

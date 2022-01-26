@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-01-11"
+lastupdated: "2022-01-26"
 keywords:  discovery release notes,discovery for IBM cloud release notes,what's new,new features,change log,changelog
 subcollection: discovery
 content-type: release-note
@@ -25,6 +25,13 @@ API requests require a version parameter that takes a date in the format `versio
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
 The current version is `2019-04-30`.
+
+## 25 January 2022
+{: #discovery-26january2022}
+{: release-note}
+
+FAQ extraction beta feature is deprecated
+:   Support for the FAQ extraction beta feature was removed. The beta feature was available only for Web crawl connectors that were used from Watson Assistant sSearch skills.  FAQ extraction will stop being supported in v1 {{site.data.keyword.discoveryshort}} service instances on 1 March 2022.
 
 ## 11 January 2022
 {: #discovery-11january2021}
