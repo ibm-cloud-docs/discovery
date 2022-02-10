@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-01-26"
+lastupdated: "2022-02-10"
 keywords:  discovery release notes,discovery for IBM cloud release notes,what's new,new features,change log,changelog
 subcollection: discovery
 content-type: release-note
@@ -31,7 +31,7 @@ The current version is `2019-04-30`.
 {: release-note}
 
 FAQ extraction beta feature is deprecated
-:   Support for the FAQ extraction beta feature was removed. The beta feature was available only for Web crawl connectors that were used from Watson Assistant sSearch skills.  FAQ extraction will stop being supported in v1 {{site.data.keyword.discoveryshort}} service instances on 1 March 2022.
+:   Support for the FAQ extraction beta feature was removed. The beta feature was available only for Web crawl connectors that were used from Watson Assistant Search skills.  FAQ extraction will stop being supported in v1 {{site.data.keyword.discoveryshort}} service instances on 1 March 2022. As a consequence of the end of FAQ extraction support, the COVID-19 kit data collection will stop being supported also.
 
 ## 11 January 2022
 {: #discovery-11january2021}
