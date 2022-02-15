@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-15"
 keywords:  discovery release notes,discovery for IBM cloud release notes,what's new,new features,change log,changelog
 subcollection: discovery
 content-type: release-note
@@ -32,6 +32,13 @@ The current version is `2019-04-30`.
 
 FAQ extraction beta feature is deprecated
 :   Support for the FAQ extraction beta feature was removed. The beta feature was available only for Web crawl connectors that were used from Watson Assistant Search skills.  FAQ extraction will stop being supported in v1 {{site.data.keyword.discoveryshort}} service instances on 1 March 2022. As a consequence of the end of FAQ extraction support, the COVID-19 kit data collection will stop being supported also.
+
+Known issue for training
+:   You might encounter the following issue when you try to train your data collection.
+
+    -   **Error**: If you are training your collection, you might see the message, `Your query can not be run because you have exceeded the rate limit for your plan. Your current plan limits the number of complex queries you can run simultaneously, so you can fix this by upgrading or reducing the number of queries.`
+    -   **Cause**: If you have a very small plan (XS or S), you might encounter this problem because your plan limits the number of queries that you can submit at one time. This message might be displayed even when you aren't submitting test queries because the product user interface can send some queries in the background to update the training page.
+    -   **Solution**: Close the training page or view a different page and then try to submit your query again. As a longer term fix, consider upgrading your plan.
 
 ## 11 January 2022
 {: #discovery-11january2021}
