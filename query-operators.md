@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-18"
 
 subcollection: discovery
 
@@ -132,7 +132,7 @@ enriched_text.entities.text:Google|IBM
 ```
 {: codeblock}
 
-It is treated as follows:
+The query is treated as follows:
 
 ```bash
 (enriched_text.entities.text:Google) OR IBM
@@ -161,7 +161,7 @@ enriched_text.entities.text:Google,IBM
 ```
 {: codeblock}
 
-It is treated as follows:
+The query is treated as follows:
 
 ```bash
 (enriched_text.entities.text:Google) AND IBM
