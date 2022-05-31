@@ -56,7 +56,7 @@ To return to the main **Build queries** screen at any time, click **Build querie
 To return to the **Manage data** screen, click the name of the collection on the upper right.
 {: tip}
 
-If you would like to delete all of the training data in your collection at one time, you must do so via the API. See [Delete all training data for a collection](https://{DomainName}/apidocs/discovery#delete-all-training-data){: external} for more information. For more information about training via the API, see [Improving the relevance of your query results with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api).
+If you would like to delete all of the training data in your collection at one time, you must do so via the API. See [Delete all training data for a collection](/apidocs/discovery#delete-all-training-data){: external} for more information. For more information about training via the API, see [Improving the relevance of your query results with the API](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api).
 
 ## Testing and iterating on the relevancy of results
 {: #testing-results}

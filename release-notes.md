@@ -108,7 +108,7 @@ Full support for IBM Cloud IAM
 
         The previous public endpoint domain was `watsonplatform.net`.
 
-        For more information about the URLs, see the [API reference](https://{DomainName}/apidocs/discovery/discovery#service-endpoint){: external}.
+        For more information about the URLs, see the [API reference](/apidocs/discovery/discovery#service-endpoint){: external}.
 
         These URLs do not introduce a breaking change. The new URLs work both for your existing service instances and for new instances. The original URLs continue to work on your existing service instances for at least one year (until December 2020). For more information about IAM, see [Authenticating to Watson services](/docs/watson?topic=watson-iam).
 
@@ -360,7 +360,7 @@ New Continuous Relevancy Training feature
 :   Released Continuous Relevancy Training, which uses interactions from users to learn how to surface the most relevant results. It can learn from user behavior automatically, significantly reducing the effort required to improve the relevancy ranking of results.  See [Continuous Relevancy Training](/docs/discovery?topic=discovery-crt) for details.
 
 New API support for longer queries
-:   Added API support for performing longer queries. This increases the character limit to 10,000 characters, and makes it possible to increase the number of filters in your queries and perform more complex aggregations. See the POST Query at [API reference](https://{DomainName}/apidocs/discovery#long-collection-queries){: external} and [API reference](https://{DomainName}/apidocs/discovery#long-environment-queries){: external} for details.
+:   Added API support for performing longer queries. This increases the character limit to 10,000 characters, and makes it possible to increase the number of filters in your queries and perform more complex aggregations. See the POST Query at [API reference](/apidocs/discovery#long-collection-queries){: external} and [API reference](/apidocs/discovery#long-environment-queries){: external} for details.
 
 Improved ability to upgrade to Advanced plan
 :   You can now upgrade your Advanced plan using the API. See [Upgrading your plan](/docs/discovery?topic=discovery-upgrading-your-plan#switchadvanced) for details.
@@ -372,14 +372,14 @@ New full support for Brazilian Portuguese
 :   Added full support for the Brazilian Portuguese language. For more information, see [Language support](/docs/discovery?topic=discovery-language-support).
 
 New support for 'bias' parameter in the query API
-:   The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `bias` parameter, which allows you to bias towards certain results, for example, documents that were published most recently. See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
+:   The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `bias` parameter, which allows you to bias towards certain results, for example, documents that were published most recently. See the [Query your collection](/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 
 New Default Contract Configuration
 :   The **Default Contract Configuration** file provided to enrich collections for [Element Classification](/docs/discovery?topic=discovery-element-classification#element-collection) was found to have an issue with HTML normalizations. A new **Default Contract Configuration** is included with this release. Follow the steps below to apply the new **Default Contract Configuration** to your collections.
 
      1. Determine which of your collections are using either the **Default Contract Configuration** configuration file, or a custom configuration based on **Default Contract Configuration**.
      1. Make note of the changes you made to any custom configurations based on **Default Contract Configuration**.
-     1. Since the old **Default Contract Configuration** file needs to be deleted from your environment before the new one is used, use the API [Delete configuration](https://{DomainName}/apidocs/discovery#delete-a-configuration){: external} to delete the current **Default Contract Configuration** associated with any of your collections. Also delete any configurations based on the old **Default Contract Configuration**.
+     1. Since the old **Default Contract Configuration** file needs to be deleted from your environment before the new one is used, use the API [Delete configuration](/apidocs/discovery#delete-a-configuration){: external} to delete the current **Default Contract Configuration** associated with any of your collections. Also delete any configurations based on the old **Default Contract Configuration**.
      1. Now you can use the new **Default Contract Configuration** file. For each collection using one of those configurations, create a new collection. Apply the new **Default Contract Configuration** or create a new custom configuration based on the new **Default Contract Configuration** using the notes you made in step 2.
      1. Upload the files previously ingested to the original collections.
      1. Delete the old collections.
@@ -421,7 +421,7 @@ New Japanese language support for Discovery News
 
 New connect and sync with Box, Microsoft SharePoint Online, and Salesforce
 :   Added the option to connect to and sync with Salesforce, Microsoft SharePoint Online, and Box data sources. These data sources are not available in Premium environments. 
-:   Released the [Source Credential](https://{DomainName}/apidocs/discovery#list-credentials){: external} and [Configuration](https://{DomainName}/apidocs/discovery#add-configuration){: external} APIs for these data sources. 
+:   Released the [Source Credential](/apidocs/discovery#list-credentials){: external} and [Configuration](/apidocs/discovery#add-configuration){: external} APIs for these data sources. 
 :   {{site.data.keyword.discoveryfull}} supports only English language collections when connecting and syncing to Box, Salesforce, and SharePoint Online with the {{site.data.keyword.discoveryshort}} tooling. [Resolved](/docs/discovery?topic=discovery-release-notes#2aug18)
 :   The individual document file size limit for Box, Salesforce, and SharePoint Online is 10MB.
 
@@ -436,7 +436,7 @@ New full support for Japanese language
 {: release-note}
 
 New Events and Feedback API
-:   Released the Events and Feedback API. See the [API reference](https://{DomainName}/apidocs/discovery#create-event){: external} for more information.
+:   Released the Events and Feedback API. See the [API reference](/apidocs/discovery#create-event){: external} for more information.
 
 ## 11 June 2018
 {: #discovery-11june2018}
@@ -736,7 +736,7 @@ New beta Knowledge Graph
 :   Update: As of **30 September 2019**, the {{site.data.keyword.discoveryfull}} Knowledge Graph Beta APIs are no longer accessible. See the [3 September 2019 release notes](/docs/discovery?topic=discovery-release-notes#discovery-3september2019) for more information.
   
 New Korean and Spanish language support for Discovery News
-:   Released [{{site.data.keyword.discoverynewsfull}}](/docs/discovery?topic=discovery-watson-discovery-news) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external}. :   Update: [Resolved](/docs/discovery?topic=discovery-release-notes#26jan18). {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news`. If you use the former `collection_id`, it continues to work; however, you might want to switch to the new `collection_id` for new projects.
+:   Released [{{site.data.keyword.discoverynewsfull}}](/docs/discovery?topic=discovery-watson-discovery-news) in two additional languages: Korean (`collection_id`: `news-ko`) and Spanish (`collection_id`: `news-es`). {{site.data.keyword.discoverynewsfull}} Korean and Spanish are available for use via the API-only; for information about querying a collection via the API, see [API Reference](/apidocs/discovery#query-your-collection){: external}. :   Update: [Resolved](/docs/discovery?topic=discovery-release-notes#26jan18). {{site.data.keyword.discoverynewsfull}} English now has the `collection_id` of `news-en`. Formerly, the `collection_id` was `news`. If you use the former `collection_id`, it continues to work; however, you might want to switch to the new `collection_id` for new projects.
 
 Updated confidence score calculations
 :   Query results return a `score` value, which indicates the relative relevancy between query results. Starting 30 November 2017, the way that `score` is calculated changed. It is recommended that you only use the `score` value to rank documents in a single search, not across searches or sessions. If you trained a collection, a `score` value is returned in the results of a natural language query. Because the `score` indicates the relative relevancy between query results, it is not recommended tht it be used as a threshold. Instead, use the `confidence`, which indicates the relevance of the result as compared to the trained model, to set thresholds. For more information about setting thresholds, see [Confidence scores](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling#confidence).
@@ -874,12 +874,12 @@ Update to version string
 :   The version string for all API calls changed to `2017-09-01` from `2017-08-01`. This version includes updates that filter out the following invalid JSON fields during preview and ingestion so that only valid JSON fields are ingested. Update your version string to `2017-09-01` to avoid conflicts and possible errors.
 
 Improved query and add functions at top level
-:   `id`, `score`, and `highlight` at the top level (You can continue to add documents to your collection using document IDs with the `add a document` function. See the [API Reference](https://{DomainName}/apidocs/discovery#add-a-document){: external} for details.
+:   `id`, `score`, and `highlight` at the top level (You can continue to add documents to your collection using document IDs with the `add a document` function. See the [API Reference](/apidocs/discovery#add-a-document){: external} for details.
 :   `_` prefixed field names at the top level (as a result, when querying for a document by ID, you can query for `id` instead of `_id`.)
 :   `#` and `,` in the field name
 :   `+` and `-` prefixed field names
 :   `"` `"` empty values for a field name
-:   If your JSON documents include these characters in the field names, or `id`, `score`, and `highlight` at the top level, you need to remove them before adding the documents to your collection, or those fields are empty. You can create a custom configuration and normalize your JSON before adding documents to your collection to avoid this issue. See the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external} for details. In addition, documents that include the punctuation characters `?`, `:`, or `#` in the file name cause errors during ingestion. Before ingesting them, rename any documents that include these characters.
+:   If your JSON documents include these characters in the field names, or `id`, `score`, and `highlight` at the top level, you need to remove them before adding the documents to your collection, or those fields are empty. You can create a custom configuration and normalize your JSON before adding documents to your collection to avoid this issue. See the [API reference](/apidocs/discovery#add-configuration){: external} for details. In addition, documents that include the punctuation characters `?`, `:`, or `#` in the file name cause errors during ingestion. Before ingesting them, rename any documents that include these characters.
 
 Improved 'natural_language_query' retrieval methods
 :   The retrieval methods for `natural_language_query` are updated to improve the relevance of results by matching words with related semantics. This update only affects collections that did not undergo relevance training. If you are using `natural_language_query` and did not conduct relevance training, you might see improvement in the order of results returned.
@@ -941,7 +941,7 @@ Change to Pricing plans
 :   Users that are currently on the deprecated **30 day free trial** plan will be automatically migrated to the **Lite** plan. As a result of this transition, existing users might meet or exceed the lite plan limit on documents _(2000)_, storage _(200Mb)_, or number of collections _(2)_. If you exceed the limit of the **Lite** plan, you cannot add any additional content into the service, but you can still query collections. 
 :   View the current status of all these limits by using the {{site.data.keyword.discoveryshort}} tooling or API. To resume adding content to the {{site.data.keyword.discoveryshort}} instance, you must complete one of the following actions:
 :   Remove collections or documents so that limits of the **Lite** plan are not exceeded.
-:   You can delete documents either individually in the API, using the [delete-doc](https://{DomainName}/apidocs/discovery#delete-a-document){: external} method, or you can delete whole collections, using the tooling or API, by using the [delete-collection](https://{DomainName}/apidocs/discovery#delete-a-collection){: external} method.
+:   You can delete documents either individually in the API, using the [delete-doc](/apidocs/discovery#delete-a-document){: external} method, or you can delete whole collections, using the tooling or API, by using the [delete-collection](/apidocs/discovery#delete-a-collection){: external} method.
 :   Upgrade your plan to a level that meets your storage needs.
 :   Customers with size **`1`** **`2`** or **`3`** environments will be automatically migrated to the **Advanced** plan.
 
@@ -1076,20 +1076,20 @@ Improved availability of 'passages' parameter
 {: release-note}
 
 New training data functionality
-:   Use *training data* to improve the accuracy of your query results. When you provide a Discovery instance with training data, the service uses advanced Watson algorithms to determine the most relevant results. As you add more training data, the service instance becomes more accurate and sophisticated in the results it returns. See [Improving the relevance of your query results](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api) and the [API Reference](https://{DomainName}/apidocs/discovery#list-training-data){: external} for information.
+:   Use *training data* to improve the accuracy of your query results. When you provide a Discovery instance with training data, the service uses advanced Watson algorithms to determine the most relevant results. As you add more training data, the service instance becomes more accurate and sophisticated in the results it returns. See [Improving the relevance of your query results](/docs/discovery?topic=discovery-improving-result-relevance-with-the-api) and the [API Reference](/apidocs/discovery#list-training-data){: external} for information.
 
 New beta support for 'natural_language_query' parameter
-:   The API now supports the `natural_language_query` parameter as a beta release. This parameter enables you to specify a query in natural language instead of in the Discovery service's query language. See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
+:   The API now supports the `natural_language_query` parameter as a beta release. This parameter enables you to specify a query in natural language instead of in the Discovery service's query language. See the [Query your collection](/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 
 ### 14 April 2017
 {: #discovery-14april2017}
 {: release-note}
 
 New enhancements to query API
-:   Enhancements are now available for the query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
+:   Enhancements are now available for the query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`). See the [Query your collection](/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 
 New support for 'passages' parameter in the query API
-:   The query API now supports the `passages` parameter. If the parameter is set to `true`, the query returns a set of the most relevant passages from the documents in your collection. The passages are generated by sophisticated Watson algorithms to determine the best passages of text from all of the documents returned by the query. This enables you to find information and context more precisely. See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
+:   The query API now supports the `passages` parameter. If the parameter is set to `true`, the query returns a set of the most relevant passages from the documents in your collection. The passages are generated by sophisticated Watson algorithms to determine the best passages of text from all of the documents returned by the query. This enables you to find information and context more precisely. See the [Query your collection](/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 :   Specifying `passages=true` in your query can reduce performance as a result of increased processing to extract passages. With larger environments, the performance impact can be lessened.
 :   The `passages` parameter is supported only on private collections. It is not supported in the Watson Discovery News collection.
 :   The `passages` parameter currently returns a maximum of 10 results. The number of returned results cannot be changed. [Update](/docs/discovery?topic=discovery-query-parameters#passages_count)
@@ -1100,13 +1100,13 @@ New support for 'passages' parameter in the query API
 {: release-note}
 
 New support for 'sort' parameter in the query API
-:   The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `sort` parameter, which enables you to specify a comma-separated list of fields in the document to sort on. See the [Query your collection](https://{DomainName}/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
+:   The query API (`GET /v1/environments/{environment_id}/collections/{collection_id}/query`) now supports the `sort` parameter, which enables you to specify a comma-separated list of fields in the document to sort on. See the [Query your collection](/apidocs/discovery#query-your-collection){: external} method in the API reference for information.
 
 Improved handling by 'timeslice' parameter
 :   The `timeslice` parameter for query aggregations now correctly handles dates in UNIX epoch format. See [Query reference](/docs/discovery?topic=discovery-query-reference#aggregations) for information about aggregations and the `timeslice` parameter.
 
 Update to JavaSDK
-:   The {{site.data.keyword.discoveryshort}} Java SDK has been updated. See the [API Reference](https://{DomainName}/apidocs/discovery?language=java){: external} for details.
+:   The {{site.data.keyword.discoveryshort}} Java SDK has been updated. See the [API Reference](/apidocs/discovery?language=java){: external} for details.
 
 Fixed known issues with wildcard limitations in queries
 :   Only one wildcard worked in any given query. For example, `query-month:*ctober` worked, but `query-month:*ctobe*` generated a parsing error. This is resolved.
@@ -1192,7 +1192,7 @@ Change to number of results
 
 New features for JSON fields and environments
 :   You can now use CSS selectors to select JSON fields that you can then apply enrichments to. See [Using CSS selectors to extract fields](/docs/discovery?topic=discovery-configservice#using-css) for information.
-:   You can now increase the size of an environment by passing a new `size: X` parameter to the [update-environment method](https://{DomainName}/apidocs/discovery#update-an-environment){: external}, where `X` is an integer between 0 and 3. See the [create-environment method](https://{DomainName}/apidocs/discovery#create-an-environment){: external} for information about environment sizes and attributes. If you want to update your pricing plan, see [{{site.data.keyword.discoveryshort}} pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans).
+:   You can now increase the size of an environment by passing a new `size: X` parameter to the [update-environment method](/apidocs/discovery#update-an-environment){: external}, where `X` is an integer between 0 and 3. See the [create-environment method](/apidocs/discovery#create-an-environment){: external} for information about environment sizes and attributes. If you want to update your pricing plan, see [{{site.data.keyword.discoveryshort}} pricing plans](/docs/discovery?topic=discovery-discovery-pricing-plans).
 :   You cannot reduce the size of an existing environment. If you want to reduce the size of your environment, contact {{site.data.keyword.IBM}} support for assistance.
 
 New query operator
@@ -1224,7 +1224,7 @@ New release of Data Crawler now available
 {: release-note}
 
 Known issues identified after the GA release on 15 December 2016.
-:   [Update: API reference](https://{DomainName}/apidocs/discovery){: external}
+:   [Update: API reference](/apidocs/discovery){: external}
 :   If you add a document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents`
     or `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the call returns a document ID and the **processing** status. If you then query the document by using the `GET /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the status remains at **processing** until ingestion is completed, at which point the status changes to **available**.
 :   If you **update** an existing document by using the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents/[:{id}]` call, the corresponding **GET** call returns the `available` status, even if the service did not yet fully process the updated document. The `available` status can refer to either the original document or the updated document. Unless the update operation returns an error, there is not currently a way to determine the status of the updated document.
@@ -1242,7 +1242,7 @@ A GA release is now available
 
 General notes
 :   Adding content [Update: Adding content](/docs/discovery?topic=discovery-addcontent)
-:   [API reference](https://{DomainName}/apidocs/discovery){: external} for current API version.
+:   [API reference](/apidocs/discovery){: external} for current API version.
 :   Integration [Update: Integrating with {{site.data.keyword.knowledgestudiofull}}](/docs/discovery?topic=discovery-integrating-with-wks).
 :   You cannot currently specify the data type of fields. All fields are indexed as text (data type **string**).
 :   If you use the API to work with the service, you must specify the API version with each call. The current API version is **2016-12-01**. The specific version is not enforced in the GA release, but it still must be listed to enable compatibility with future releases.
@@ -1306,20 +1306,20 @@ Query limitations
 {: #rn-issues}
 
 Updates
-:   API Reference [Update: API reference](https://{DomainName}/apidocs/discovery){: external}
+:   API Reference [Update: API reference](/apidocs/discovery){: external}
 :   Tooling [Update: tooling](/docs/discovery?topic=discovery-getting-started)
 :   Data Crawler [Update: Data Crawler](/docs/discovery?topic=discovery-adding-content-with-data-crawler)
 :   Enrichments [Update: Enrichments](/docs/discovery?topic=discovery-configservice#adding-enrichments)
 :   Adding content [Update: Adding content](/docs/discovery?topic=discovery-addcontent)
 
 Known issues
-:   You cannot delete a document by using the tooling. If you need to delete a document, you must use the API's [Delete a document](https://{DomainName}/apidocs/discovery#delete-a-document){: external} method as described in the API reference.
+:   You cannot delete a document by using the tooling. If you need to delete a document, you must use the API's [Delete a document](/apidocs/discovery#delete-a-document){: external} method as described in the API reference.
 :   The API does not currently support getting a list of notices (warnings and error) that are generated during document ingestion. The tooling is therefore unable to show a list of ingestion notices, and there is no easy way to determine which, if any, documents crawled by the Data Crawler failed to be ingested. 
 :   Document status information is not always accurate.
 :   If an ingestion operation takes longer than the configured timeout of 10 minutes, the service reports that the document is not known to the service until the ingestion operation completes. After the operation completes, the document status is available and accurate.
 :   Documents that are successfully indexed but generated errors can have a status of **failed** for a short period of time until the document fully commits to the index. After the document commits to the index, the listed status is accurate.
-:   You cannot use the tooling to replace a specific document. If you attempt to do so, the second document is uploaded as a separate document. If you are using the API and know the ID of the document you want to replace, you can do so; see [Update a document](https://{DomainName}/apidocs/discovery#update-a-document){: external} in the API reference. If you are using the Data Crawler, uploading an updated document from the same URL as a previous document replaces the original document.
-:   If you are using the tooling to edit the enrichments in your configuration, you can edit only enrichments used for extraction. If you want to add or edit other enrichments (for example, custom enrichments from a {{site.data.keyword.knowledgestudiofull}} model), you must use the API. See the [Update a configuration](https://{DomainName}/apidocs/discovery#update-a-configuration){: external} method in the API reference for information.
+:   You cannot use the tooling to replace a specific document. If you attempt to do so, the second document is uploaded as a separate document. If you are using the API and know the ID of the document you want to replace, you can do so; see [Update a document](/apidocs/discovery#update-a-document){: external} in the API reference. If you are using the Data Crawler, uploading an updated document from the same URL as a previous document replaces the original document.
+:   If you are using the tooling to edit the enrichments in your configuration, you can edit only enrichments used for extraction. If you want to add or edit other enrichments (for example, custom enrichments from a {{site.data.keyword.knowledgestudiofull}} model), you must use the API. See the [Update a configuration](/apidocs/discovery#update-a-configuration){: external} method in the API reference for information.
 :   The Java, Python, and Node.js SDKs for {{site.data.keyword.discoveryshort}} do not provide all of the functionality provided by the default REST (cURL) API. Not all cURL methods have an equivalent method in the non-cURL SDKs, and not all non-cURL methods provide all of the same features that their cURL equivalents have. In other words, the Java, Python, and Node.js SDKs currently provide only a subset of the cURL API's capabilities.
 :   If you use the Word converter, matching on headings by using the `style` key is much more accurate and efficient than it by using the `level` key.
 

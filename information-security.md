@@ -104,7 +104,7 @@ If you switch domains or browsers, empty the browser cache, or start an incognit
 
 To delete it later, data must be labeled with a `customer_id`.
 
-1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/discovery?topic=discovery-information-security#pi_methods). Also see the [API reference](https://{DomainName}/apidocs/discovery#delete-labeled-data){: external}
+1. Use the `DELETE /v1/user_data` operation and provide the `customer_id` of the data you wish to delete. `DELETE /v1/user_data` deletes all data associated with a particular `customer_id` within that service instance, as specified in [Methods that support labeling data](/docs/discovery?topic=discovery-information-security#pi_methods). Also see the [API reference](/apidocs/discovery#delete-labeled-data){: external}
 
 Deletions are performed asynchronously. You cannot track the progress of deletions.
 
@@ -124,7 +124,7 @@ US Health Insurance Portability and Accountability Act (HIPAA) support is availa
 There are several scenarios where you must use extra care to protect personal health information (PHI) in {{site.data.keyword.discoveryshort}}:
 
 - Avoid importing any files that contain PHI from external data sources, such as Box, SharePoint, Salesforce, Web Crawl, IBM Cloud Object Storage. Avoid importing files with PHI from external data sources because data in transit between the source and the service cannot be isolated. See [Data source connection and data isolation](/docs/discovery?topic=discovery-sources#source_isolation).
-- Avoid using PHI in your custom configuration files. See the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external}.
+- Avoid using PHI in your custom configuration files. See the [API reference](/apidocs/discovery#add-configuration){: external}.
 - Queries are logged. If you anticipate that PHI might be used in a query, opt out of query logging. See [Usage monitoring](/docs/discovery?topic=discovery-usage).
-- If you are specifying your own `document_id`s using the API, avoid using a file name as the `document_id`.  See [Add a document](https://{DomainName}/apidocs/discovery#add-a-document){: external} for instructions to specify your own `document_id`.
+- If you are specifying your own `document_id`s using the API, avoid using a file name as the `document_id`.  See [Add a document](/apidocs/discovery#add-a-document){: external} for instructions to specify your own `document_id`.
 - Avoid using PHI in your {{site.data.keyword.knowledgestudiofull}} models. See [Integrating with {{site.data.keyword.knowledgestudioshort}}](/docs/discovery?topic=discovery-integrating-with-wks).

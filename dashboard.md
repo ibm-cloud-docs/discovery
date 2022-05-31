@@ -46,4 +46,4 @@ The Query overview section displays:
 - The percentage of queries with no results returned
 - A graph that displays these results over time, so that you can track how adding more data and relevancy training are improving performance
 
-These results are gathered using the Events and Feedback API. See the [API reference](https://{DomainName}/apidocs/discovery#create-event){: external} for more information.
+These results are gathered using the Events and Feedback API. See the [API reference](/apidocs/discovery#create-event){: external} for more information.

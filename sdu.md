@@ -27,7 +27,7 @@ Supported document types for Smart Document Understanding:
 -  Lite plans: PDF, Word, PowerPoint, Excel, JSON\*, HTML\*
 -  Advanced plans: PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
 
-\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
+\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](/apidocs/discovery/){: external}.
 
 \*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned and the text, if any, is extracted.
 
@@ -35,7 +35,7 @@ Supported document types for Smart Document Understanding:
 {: #annotate}
 
 <!-- Learn more topic WDS -->
-The SDU editor is only available for collections that contain supported document types and do not have the Element Classification enrichment applied. If you do not want to use the SDU editor, you can set up your configuration using the API, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
+The SDU editor is only available for collections that contain supported document types and do not have the Element Classification enrichment applied. If you do not want to use the SDU editor, you can set up your configuration using the API, see the [API reference](/apidocs/discovery/){: external}.
 {: important}
 
 The SDU editor functions are only available in the {{site.data.keyword.discoveryshort}} tooling, they are not available in the API.
@@ -145,7 +145,7 @@ Considerations:
 
   - PDF and Word metadata, as well as any custom metadata, is extracted and included in the index with each segment. Every segment of a document includes identical metadata.
 
-  - If a split document is updated and needs to be re-uploaded, consider replacing the document, using the [Update document](https://{DomainName}/apidocs/discovery#update-a-document){: external} method. Also, consider uploading the document, using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable. All segments are overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments remain in the index and can be individually deleted, using the API. For details, see the [API Reference](https://{DomainName}/apidocs/discovery#delete-a-document){: external}.
+  - If a split document is updated and needs to be re-uploaded, consider replacing the document, using the [Update document](/apidocs/discovery#update-a-document){: external} method. Also, consider uploading the document, using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable. All segments are overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments remain in the index and can be individually deleted, using the API. For details, see the [API Reference](/apidocs/discovery#delete-a-document){: external}.
 
 ## Importing and exporting models
 {: #import}

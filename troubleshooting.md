@@ -122,7 +122,7 @@ Query expansion terms are usually synonyms, antonyms, or typical misspellings fo
 {: #faq-newsapi}
 {: faq}
 
-For information about querying a collection via the API, see [API Reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. The `collection_id` of the Korean collection is `news-ko`, the Spanish `collection_id` is `news-es`, the German `collection_id` is `news-de`, the French `collection_id` is `news-fr`, and the Japanese `collection_id` is `news-ja`. For more information, see [Querying Watson Discovery News](/docs/discovery?topic=discovery-query-concepts#querying-news).
+For information about querying a collection via the API, see [API Reference](/apidocs/discovery#query-your-collection){: external}. The `collection_id` of the English language version of Watson {{site.data.keyword.discoverynewsshort}} is `news-en`. The `collection_id` of the Korean collection is `news-ko`, the Spanish `collection_id` is `news-es`, the German `collection_id` is `news-de`, the French `collection_id` is `news-fr`, and the Japanese `collection_id` is `news-ja`. For more information, see [Querying Watson Discovery News](/docs/discovery?topic=discovery-query-concepts#querying-news).
 
 ## Can I upload JSON arrays?
 {: #faq-array}
