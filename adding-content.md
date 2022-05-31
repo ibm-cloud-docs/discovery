@@ -42,7 +42,7 @@ Lite plans | Advanced plans
 PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
 
 
-\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
+\* JSON and HTML documents are supported by {{site.data.keyword.discoveryfull}}, but can not be edited using the SDU editor. To change the configuration of HTML and JSON docs, you need to use the API. For more information, see the [API reference](/apidocs/discovery/){: external}.
 
 \*\* Individual image files (PNG, TIFF, JPG) are scanned and the text (if any) is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned and the text (if any) extracted.
 
@@ -72,7 +72,7 @@ For information on how to connect to various data sources, or do a web crawl wit
 
 See [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/discovery?topic=discovery-gs-api) for a step-by-step tutorial.
 
-For more information about the API, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
+For more information about the API, see the [API reference](/apidocs/discovery/){: external}.
 
 1.  Use the `POST /v1/environments/{environment_id}/collections` method to create a collection.
 1.  Then use the `POST /v1/environments/{environment_id}/collections/{collection_id}/documents` method to add documents to your collection.

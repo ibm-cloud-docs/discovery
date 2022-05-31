@@ -56,9 +56,9 @@ If you also import documents by doing scheduled crawls of external data sources,
 
 Back up your instance configurations, and store them locally.
 
-To back up these configurations, first [list your configurations](https://{DomainName}/apidocs/discovery#list-configurations){: external} for each instance.
+To back up these configurations, first [list your configurations](/apidocs/discovery#list-configurations){: external} for each instance.
 
-After obtaining the list of configurations, [get the details](https://{DomainName}/apidocs/discovery#get-configuration-details){: external} for each configuration.
+After obtaining the list of configurations, [get the details](/apidocs/discovery#get-configuration-details){: external} for each configuration.
 
 ### Training data
 {: #backuptraining}
@@ -69,9 +69,9 @@ Training data is used for explicit training of your collections and is stored on
 
 To extract the training data, use the API to download the queries and the ratings from {{site.data.keyword.discoveryshort}}.
 
-1.  [List the training data](https://{DomainName}/apidocs/discovery#list-training-data){: external}
-1.  [List the examples](https://{DomainName}/apidocs/discovery#list-examples-for-a-training-data-query){: external} for each query.
-1.  [Get the details](https://{DomainName}/apidocs/discovery#get-details-for-training-data-example){: external} for a training data examples.
+1.  [List the training data](/apidocs/discovery#list-training-data){: external}
+1.  [List the examples](/apidocs/discovery#list-examples-for-a-training-data-query){: external} for each query.
+1.  [Get the details](/apidocs/discovery#get-details-for-training-data-example){: external} for a training data examples.
 
 The document IDs that you use in your training data point to the documents in your current collection. Use the same IDs in your new collections to ensure that the correct documents are referenced. If the IDs do not match, your restored relevancy training will not work.
 {: important}
@@ -83,17 +83,17 @@ By default, {{site.data.keyword.discoveryshort}} stores the queries that you sen
 
 If you want to be able to restore your queries for [statistical purposes](https://cloud.ibm.com/apidocs/discovery#number-of-queries-over-time), it is recommended that you store those queries separately.
 
-You can [extract queries](https://{DomainName}/apidocs/discovery#search-the-query-and-event-log){: external} from {{site.data.keyword.discoveryshort}}, however a maximum of 10,000 queries are stored. There is no paging API. Restoring queries is not recommended; we recommend starting from scratch.
+You can [extract queries](/apidocs/discovery#search-the-query-and-event-log){: external} from {{site.data.keyword.discoveryshort}}, however a maximum of 10,000 queries are stored. There is no paging API. Restoring queries is not recommended; we recommend starting from scratch.
 
 ### Feedback/clicks
 {: #clicks}
 
-If you are storing clicks in the form of feedback events, there is currently no easy way to back up and restore this information. The recommendation is to start from scratch with the [clicks/feedback data](https://{DomainName}/apidocs/discovery#create-event){: external} API.
+If you are storing clicks in the form of feedback events, there is currently no easy way to back up and restore this information. The recommendation is to start from scratch with the [clicks/feedback data](/apidocs/discovery#create-event){: external} API.
 
 ### Expansion lists
 {: #backupexpansions}
 
-If you are using expansions for query modification, back up your expansion list, and store it locally. To do so, request the expansion list ,using the [get expansion list](https://{DomainName}/apidocs/discovery#get-the-expansion-list){: external} API command, and store it locally.
+If you are using expansions for query modification, back up your expansion list, and store it locally. To do so, request the expansion list ,using the [get expansion list](/apidocs/discovery#get-the-expansion-list){: external} API command, and store it locally.
 
 ### Tokenization dictionaries or stopwords
 {: #backupstopwords}
@@ -103,7 +103,7 @@ If you use these capabilities, back up these files, and store them locally. In t
 ### Collection information
 {: #collectioninfo}
 
-This is not required, but it is a good best practice to [retrieve the status](https://{DomainName}/apidocs/discovery#get-collection-details){: external} for each collection on a regular basis and store the information locally. By retaining these statistics, you can later verify that your restoration processes were successful if needed.
+This is not required, but it is a good best practice to [retrieve the status](/apidocs/discovery#get-collection-details){: external} for each collection on a regular basis and store the information locally. By retaining these statistics, you can later verify that your restoration processes were successful if needed.
 {: tip} 
 
 
@@ -121,14 +121,14 @@ Consider using your backups to restore to a new {{site.data.keyword.discoverysho
 
 To begin restoration, first start by reviewing your list of collections and associated data sources, as well as your file backups.
 
--  Create your [environment](https://{DomainName}/apidocs/discovery#create-an-environment){: external} and [collections](https://{DomainName}/apidocs/discovery#create-a-collection){: external} using the saved configuration information. Ensure that the appropriate configuration is defined appropriately, and that the language for the collection is set properly. Failure to do so delays getting your system back up and running.
--  If you have any custom configurations set up in {{site.data.keyword.discoveryshort}}, recreate them. See the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external} for details.
+-  Create your [environment](/apidocs/discovery#create-an-environment){: external} and [collections](/apidocs/discovery#create-a-collection){: external} using the saved configuration information. Ensure that the appropriate configuration is defined appropriately, and that the language for the collection is set properly. Failure to do so delays getting your system back up and running.
+-  If you have any custom configurations set up in {{site.data.keyword.discoveryshort}}, recreate them. See the [API reference](/apidocs/discovery#add-configuration){: external} for details.
 -  Add back tokenization dictionaries or stopwords into the collections. See [Creating custom tokenization dictionaries](/docs/discovery?topic=discovery-query-concepts#tokenization) and [Defining stopwords](/docs/discovery?topic=discovery-query-concepts#stopwords).  
--  If you use custom query expansion, [add your query expansions](https://{DomainName}/apidocs/discovery#create-or-update-expansion-list){: external} for each collection, as well.
+-  If you use custom query expansion, [add your query expansions](/apidocs/discovery#create-or-update-expansion-list){: external} for each collection, as well.
 -  If you use any custom entity models from {{site.data.keyword.knowledgestudiofull}} for enrichment, [reimport that model](/docs/discovery?topic=discovery-configservice#custom-entity-model) into your {{site.data.keyword.discoveryshort}} instance.
 
 After you set up your collections as it was before, begin ingesting your source documents. Depending upon how you ingested your documents previously, you can do so by using your own solution or one of the following methods:
--  The [API](https://{DomainName}/apidocs/discovery#add-a-document){: external}
+-  The [API](/apidocs/discovery#add-a-document){: external}
 -  A [connector](/docs/discovery?topic=discovery-sources)
 
 ### Restoring training data
@@ -138,8 +138,8 @@ After you restore the collections, you can begin the process of [recreating your
 
 Retrieve the training data you backed up, then:
 
-1. [Upload your queries](https://{DomainName}/apidocs/discovery#add-query-to-training-data){: external}.
-1. [Upload the example documents](https://{DomainName}/apidocs/discovery#add-example-to-training-data-query){: external} for each query.
+1. [Upload your queries](/apidocs/discovery#add-query-to-training-data){: external}.
+1. [Upload the example documents](/apidocs/discovery#add-example-to-training-data-query){: external} for each query.
 1.  After training data is uploaded, review this [blog post](https://developer.ibm.com/dwblog/2017/get-relevancy-training/){: external} to ensure you meet the previous accuracy numbers. Keep in mind that old `document ids` must be transferred to the new training data, or updated to reflect the new document ids in your new collection.
 
 

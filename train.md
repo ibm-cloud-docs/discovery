@@ -18,7 +18,7 @@ You can train {{site.data.keyword.discoveryshort}} to improve the relevance of q
 
 Relevancy training is optional; if the results of your queries meet your needs, no further training is necessary. For information about use cases for relevancy training, see [Improve your natural language query results from Watson Discovery](https://developer.ibm.com/blogs/improving-your-natural-language-query-results-from-watson-discovery/){: external}.
 
-For comprehensive information about the training APIs, see the [API reference](https://{DomainName}/apidocs/discovery){: external}.
+For comprehensive information about the training APIs, see the [API reference](/apidocs/discovery){: external}.
 
 If you would prefer to use the {{site.data.keyword.discoveryshort}} tooling to train {{site.data.keyword.discoveryshort}}, see [Improving result relevance with the tooling](/docs/discovery?topic=discovery-improving-result-relevance-with-the-tooling).
 
@@ -161,7 +161,7 @@ After you create a training-data query, you can continue to add examples to it t
 
 Perform the following steps to add an example to a training-data query.
 
-1. Get the query ID of the training-data query to which you want to add a new example by [listing the collection's training-data queries](https://{DomainName}/apidocs/discovery#list-training-data){: external}:
+1. Get the query ID of the training-data query to which you want to add a new example by [listing the collection's training-data queries](/apidocs/discovery#list-training-data){: external}:
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
@@ -205,7 +205,7 @@ Perform the following steps to add an example to a training-data query.
    ```
    {: pre}
 
-1. Verify that the new example is added to the training-data query by again [listing the collection's training-data queries](https://{DomainName}/apidocs/discovery#list-training-data){: external}:
+1. Verify that the new example is added to the training-data query by again [listing the collection's training-data queries](/apidocs/discovery#list-training-data){: external}:
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850/training_data?version=2019-04-30"
@@ -242,7 +242,7 @@ Perform the following steps to add an example to a training-data query.
    ```
    {: codeblock}
 
-1. Check the status of the training by using the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} method and looking at the value of the `"training"`/`"available"` field. When you add enough queries and examples to meet the training requirements, the value of the field returns as `true`, and the service automatically begins to use the training data.
+1. Check the status of the training by using the [List collection details](/apidocs/discovery#get-collection-details){: external} method and looking at the value of the `"training"`/`"available"` field. When you add enough queries and examples to meet the training requirements, the value of the field returns as `true`, and the service automatically begins to use the training data.
 
    ```bash
     curl -u "4ba1624f-48b6-484a-8e32-18d1c205c1fa":"qUy3B0CbGf9G" "{url}/v1/environments/a56dd9b4-040b-4ea3-a736-c1e7a467e191/collections/99040100-fe6a-4782-a4f5-28f9eee30850?version=2019-04-30"
@@ -299,14 +299,14 @@ For additional training guidance, see [Relevancy training tips](/docs/discovery?
 ## Performing other training-data query operations
 {: #training-data-operations}
 
-You can administer and maintain training-data queries by using other API methods as described in the [API reference](https://{DomainName}/apidocs/discovery){: external}:
+You can administer and maintain training-data queries by using other API methods as described in the [API reference](/apidocs/discovery){: external}:
 
- - [List the training data for a collection](https://{DomainName}/apidocs/discovery#list-training-data){: external}
- - [Delete all training data for a collection](https://{DomainName}/apidocs/discovery#delete-all-training-data){: external}
- - [Display the contents of a specified training-data query](https://{DomainName}/apidocs/discovery#get-details-about-a-query){: external}
+ - [List the training data for a collection](/apidocs/discovery#list-training-data){: external}
+ - [Delete all training data for a collection](/apidocs/discovery#delete-all-training-data){: external}
+ - [Display the contents of a specified training-data query](/apidocs/discovery#get-details-about-a-query){: external}
  - [Delete a training-data query from the collection](https://cloud.ibm.com/apidocs/discovery#delete-example-for-training-data-query){: external}
- - [Change a training-data query example's relevance label or cross reference](https://{DomainName}/apidocs/discovery#change-label-or-cross-reference-for-example){: external}
- - [Delete an example document from a training-data query](https://{DomainName}/apidocs/discovery#list-training-data){: external}
+ - [Change a training-data query example's relevance label or cross reference](/apidocs/discovery#change-label-or-cross-reference-for-example){: external}
+ - [Delete an example document from a training-data query](/apidocs/discovery#list-training-data){: external}
 
- **Error monitoring:** Training-data errors appear in the notices, which you can monitor using the [query notices API](https://{DomainName}/apidocs/discovery#query-system-notices){: external}
+ **Error monitoring:** Training-data errors appear in the notices, which you can monitor using the [query notices API](/apidocs/discovery#query-system-notices){: external}
  (`GET /v1/environments/{environment_id}/collections/{collection_id}/notices`).

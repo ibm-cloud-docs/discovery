@@ -39,7 +39,7 @@ Continuous Relevancy Training does not affect queries made to a trained or untra
 
 Tracking status:
 
-The status of Continuous Relevancy Training can be viewed from the `/api/v1/environments` endpoint. See the [API reference](https://{DomainName}/apidocs/discovery#get-environment-info){: external}. The `status` provides information about the state of the training operations and informs you if Continuous Relevancy Training is active:
+The status of Continuous Relevancy Training can be viewed from the `/api/v1/environments` endpoint. See the [API reference](/apidocs/discovery#get-environment-info){: external}. The `status` provides information about the state of the training operations and informs you if Continuous Relevancy Training is active:
 
 ```
 "search_status" : [

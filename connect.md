@@ -40,7 +40,7 @@ Lite plans | Advanced plans
 PDF, Word, PowerPoint, Excel, JSON\*, HTML\* | PDF, Word, PowerPoint, Excel, PNG\*\*, TIFF\*\*, JPG\*\*, JSON\*, HTML\* 
 
 
-\* {{site.data.keyword.discoveryfull}} supports crawling JSON and HTML documents, but you cannot edit these documents using the SDU editor. To change the configuration of HTML and JSON documents, you must use the API. For more information, see the [API reference](https://{DomainName}/apidocs/discovery/){: external}.
+\* {{site.data.keyword.discoveryfull}} supports crawling JSON and HTML documents, but you cannot edit these documents using the SDU editor. To change the configuration of HTML and JSON documents, you must use the API. For more information, see the [API reference](/apidocs/discovery/){: external}.
 
 \*\* Individual image files, such as PNG, TIFF, and JPG, are scanned, and any text is extracted. PNG, TIFF, and JPEG images embedded in PDF, Word, PowerPoint, and Excel files are also scanned, and any text is extracted.
 
@@ -343,8 +343,8 @@ If you plan to connect to an on-premises data source, first, you must install {{
 
 The following example uses the SharePoint data source.
 
-1.  Create credentials for the source that you are connecting to using the [Source Credentials API](https://{DomainName}/apidocs/discovery#create-credentials){: external}. Record the returned **credential_id** of the newly created credentials.
-2.  Create a new configuration, using the [Add configuration](https://{DomainName}/apidocs/discovery#add-configuration){: external} API method. To define what to crawl, include a **source** object that contains the **credential_id** that you recorded earlier.
+1.  Create credentials for the source that you are connecting to using the [Source Credentials API](/apidocs/discovery#create-credentials){: external}. Record the returned **credential_id** of the newly created credentials.
+2.  Create a new configuration, using the [Add configuration](/apidocs/discovery#add-configuration){: external} API method. To define what to crawl, include a **source** object that contains the **credential_id** that you recorded earlier.
 
     ```json
     "source" : {
@@ -366,7 +366,7 @@ The following example uses the SharePoint data source.
     {: codeblock}
 
     Record the returned **configuration_id** of the newly created configuration.
-3.  Create a new collection using the [Collections API](https://{DomainName}/apidocs/discovery#create-a-collection){: external}. The object defining the collection must contain the **configuration_id** that you recorded earlier.
+3.  Create a new collection using the [Collections API](/apidocs/discovery#create-a-collection){: external}. The object defining the collection must contain the **configuration_id** that you recorded earlier.
 
 The source crawl begins as soon as you create the collection. After the initial crawl, all subsequent crawls run on the frequency that you specified. For information about managing a collection, see [Manage collections](/docs/discovery?topic=discovery-sources#manage-collections).
 

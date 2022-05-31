@@ -72,4 +72,4 @@ The {{site.data.keyword.discoveryshort}} tooling is designed to save time by eli
     - [Getting started with the {{site.data.keyword.discoveryshort}} API](/docs/discovery?topic=discovery-gs-api)
 - {{site.data.keyword.discoveryshort}} supports a number of SDKs to simplify the development of applications. The SDKs are available for many popular programming languages and platforms, including Node.js, Java, and Python. All SDKs are available from the [watson-developer-cloud namespace](https://github.com/watson-developer-cloud){: external} on GitHub.
     - For a complete list of SDKs and information about using them, see [{{site.data.keyword.watson}} SDKs](/docs/watson?topic=watson-using-sdks).
-    - For detailed information about all methods of the Node, Java, and Python SDKs, see the [API reference](https://{DomainName}/apidocs/discovery){: external}.
+    - For detailed information about all methods of the Node, Java, and Python SDKs, see the [API reference](/apidocs/discovery){: external}.

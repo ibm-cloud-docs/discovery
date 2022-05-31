@@ -16,7 +16,7 @@ subcollection: discovery
 You can create your own {{site.data.keyword.discoveryshort}} ingestion configuration in JSON if your data has special [conversion](#conversion), [enrichment](#enrichment), or [normalization](#normalization) needs.
 {: shortdesc}
 
-The following sections detail the structure of this JSON and the object that can be defined in it. Also see the **Configurations** section of the [API reference](https://{DomainName}/apidocs/discovery#add-configuration){: external}.
+The following sections detail the structure of this JSON and the object that can be defined in it. Also see the **Configurations** section of the [API reference](/apidocs/discovery#add-configuration){: external}.
 
 If you configure your collection using [Smart Document Understanding](/docs/discovery?topic=discovery-sdu), the PDF and Word conversion settings listed are not used, so changing these conversion settings are ignored.
 {: note}

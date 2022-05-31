@@ -905,11 +905,11 @@ All segments include an:
 ### Updating a segmented document
 {: #update-seg}
 
-If a segmented document is updated and needs to be ingested again, it can be replaced by using the [Update document](https://{DomainName}/apidocs/discovery#update-a-document){: external} method.
+If a segmented document is updated and needs to be ingested again, it can be replaced by using the [Update document](/apidocs/discovery#update-a-document){: external} method.
 
 When updating a segmented document, you must upload the document by using the POST method of the `/environments/{environment_id}/collections/{collection_id}/documents/{document_id}` API, specifying the contents of the `parent_id` field of one of the current segments as the `{document_id}` path variable.
 
-When updating, all segments are overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments remain in the index and might be individually deleted, using the API. See the [API Reference](https://{DomainName}/apidocs/discovery#delete-a-document){: external} for details. You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that is comprised of the `{parent_id}`, followed by an underscore, followed by the segment number.
+When updating, all segments are overwritten, unless the updated version of the document has fewer total sections than the original. Those older segments remain in the index and might be individually deleted, using the API. See the [API Reference](/apidocs/discovery#delete-a-document){: external} for details. You can identify how many segments were created by querying the `notices`. Each segment is given a `document_id` field that is comprised of the `{parent_id}`, followed by an underscore, followed by the segment number.
 
 If any of the segments of the document that you intend to update are ranked for relevancy training, you must first delete all the segments of that document and then ingest the updated document as a new document. This results in a new `document_id` for each segment and any trained segments must be retrained. The trained index becomes inaccurate if you don't delete the old content first.
 

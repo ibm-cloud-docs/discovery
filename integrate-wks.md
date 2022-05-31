@@ -29,8 +29,8 @@ Before you can integrate a custom model from {{site.data.keyword.knowledgestudio
 ## Integrating your custom model with the API
 {: #integrate-customAPI}
 
-1.  Get the ID of your {{site.data.keyword.discoveryshort}} environment as described at [List environments](https://{DomainName}/apidocs/discovery#list_environments){: external}. Note the environment ID.
-1.  List the IDs of your current {{site.data.keyword.discoveryshort}} configuration or configurations as described at [List configurations](https://{DomainName}/apidocs/discovery#list_configurations){: external} Note the ID of the configuration that you want to integrate with your {{site.data.keyword.knowledgestudiofull}} custom model.
+1.  Get the ID of your {{site.data.keyword.discoveryshort}} environment as described at [List environments](/apidocs/discovery#list_environments){: external}. Note the environment ID.
+1.  List the IDs of your current {{site.data.keyword.discoveryshort}} configuration or configurations as described at [List configurations](/apidocs/discovery#list_configurations){: external} Note the ID of the configuration that you want to integrate with your {{site.data.keyword.knowledgestudiofull}} custom model.
 1.  Download a copy of your current {{site.data.keyword.discoveryshort}} configuration by running the following commands in a bash shell or equivalent, such as Cygwin for Windows. Substitute `{environment_id}` and `{configuration_id}` with the IDs you noted down in the previous two steps.
 
     ```bash

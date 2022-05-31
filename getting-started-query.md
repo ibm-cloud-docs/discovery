@@ -21,7 +21,7 @@ For more information about writing queries, see:
 - [Query concepts](/docs/discovery?topic=discovery-query-concepts)
 - [Query reference](/docs/discovery?topic=discovery-query-reference) (includes the list of parameters, operators, and aggregations available in the {{site.data.keyword.discoveryshort}} Query Language)
 
-These example queries are built using the {{site.data.keyword.discoveryshort}} tooling. If you'd like to use the API instead, add the query parameters to your API call. For more information and examples, see the Queries section of the [API reference](https://{DomainName}/apidocs/discovery#query-your-collection){: external}.
+These example queries are built using the {{site.data.keyword.discoveryshort}} tooling. If you'd like to use the API instead, add the query parameters to your API call. For more information and examples, see the Queries section of the [API reference](/apidocs/discovery#query-your-collection){: external}.
 
 You can also write natural language queries (such as "IBM Watson partnerships") using the {{site.data.keyword.discoveryshort}} tooling. This tutorial primarily focuses on how to write queries with {{site.data.keyword.discoveryshort}} Query Language because your requirements might necessitate a structured query, and filters and aggregations must be written in the {{site.data.keyword.discoveryshort}} Query Language.
 {: tip}

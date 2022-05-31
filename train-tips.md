@@ -24,7 +24,7 @@ Answers to common questions about training a collection.
 ### How do I know if my system is trained?
 {: #understanding-system}
 
-Use the [List collection details](https://{DomainName}/apidocs/discovery#get-collection-details){: external} API method to verify that your system is trained.  
+Use the [List collection details](/apidocs/discovery#get-collection-details){: external} API method to verify that your system is trained.  
 
 ```bash
 curl -u "apikey":"{apikey_value}" {url}/v1/environments/{environment_id}/collections/{collection_id}?version=2019-04-30"
@@ -63,7 +63,7 @@ In the response:
 ### How do I check errors and warnings?
 {: #understanding-errors}
 
-You can use the [Query notices API](https://{DomainName}/apidocs/discovery#query-system-notices){: external} to view errors or warnings.  
+You can use the [Query notices API](/apidocs/discovery#query-system-notices){: external} to view errors or warnings.  
 
 ```bash
 curl -u "apikey":"{apikey_value}" {url}/v1/environments/{environment_id}/collections/{collection_id}/notices?version=2019-04-30"

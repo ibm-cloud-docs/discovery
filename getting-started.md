@@ -131,7 +131,7 @@ In some browsers, the preceding links open in a new window. To save locally, sel
         ```
         {: pre}
 
-        Alternatively, use one of the SDKs listed in the [API reference](https://{DomainName}/apidocs/discovery){: external}:
+        Alternatively, use one of the SDKs listed in the [API reference](/apidocs/discovery){: external}:
 
     - Java:
       ```java
@@ -225,6 +225,6 @@ curl -u "apikey:{apikey}" "{url}/v1/environments/{environment_id}/collections/{c
 
 You successfully queried documents in the environment and collection you created. You can now begin customizing your collection by adding more documents and enrichments, and customizing conversion settings.
 
-- Read about the API in the [API reference](https://{DomainName}/apidocs/discovery){: external}
+- Read about the API in the [API reference](/apidocs/discovery){: external}
 - [Configure](/docs/discovery?topic=discovery-configservice) your service
 - Learn about [authenticating with IAM](/docs/watson?topic=watson-iam)
