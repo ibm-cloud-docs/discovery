@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-09-16"
+  years: 2015, 2022
+lastupdated: "2022-06-01"
 
 subcollection: discovery
 
@@ -26,7 +26,7 @@ In {{site.data.keyword.discoveryshort}}, the content that you upload is stored i
 
 -   **Environment** — The environment defines the amount of storage space that you have for content in {{site.data.keyword.discoveryshort}}. A maximum of one environment can be created for each instance of {{site.data.keyword.discoveryshort}}.
 
-    You have several plans (Lite, Advanced, Premium) to choose from, see the [{{site.data.keyword.discoveryshort}} catalog](https://{DomainName}/catalog/services/discovery){: external} and [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for details. Your source files do not count against your plan size limit, only the size of the converted JSON that is indexed counts towards your size limit.
+    You have several plans (Lite, Advanced, Premium) to choose from, see the [{{site.data.keyword.discoveryshort}} catalog](https://cloud.ibm.com/catalog/services/discovery){: external} and [{{site.data.keyword.discoveryshort}} Pricing Plans](/docs/discovery?topic=discovery-discovery-pricing-plans) for details. Your source files do not count against your plan size limit, only the size of the converted JSON that is indexed counts towards your size limit.
 
 -   **Collection** — A collection is a grouping of your content within the environment. You must create at least one collection to be able to upload your content.
 
@@ -489,7 +489,7 @@ For more information, see [Element classification](/docs/discovery?topic=discove
 #### Enrichment pricing
 {: #enrichment-pricing}
 
-Enrichment pricing information is available on [{{site.data.keyword.Bluemix_notm}}](https://{DomainName}/catalog/services/discovery){: external}.
+Enrichment pricing information is available on [{{site.data.keyword.Bluemix_notm}}](https://cloud.ibm.com/catalog/services/discovery){: external}.
 
 #### Enrichment language support
 {: #enrichment-language-support}
