@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-05-26"
+lastupdated: "2022-06-01"
 
 subcollection: discovery
 
@@ -33,7 +33,7 @@ The Data Crawler collects the raw data that is eventually used to form search re
 ## Download and install the Data Crawler
 {: #dc-download-install}
 
-1.  Open a browser and log into your [{{site.data.keyword.Bluemix}} account](https://{DomainName}/){: external}.
+1.  Open a browser and log into your [{{site.data.keyword.Bluemix}} account](https://cloud.ibm.com/){: external}.
 
 1.  From your {{site.data.keyword.Bluemix_notm}} dashboard, select the {{site.data.keyword.discoveryshort}} instance you previously created.
 

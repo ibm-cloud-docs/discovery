@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-06-24"
+  years: 2015, 2022
+lastupdated: "2022-06-01"
 
 subcollection: discovery
 
@@ -28,7 +28,7 @@ You cannot upgrade from a Lite (v1) plan to a Plus (v2) plan. And you cannot upg
 
 To resize your plan from Lite to Advanced:
 
-1. From the [resource list](https://{DomainName}/resources/){: external}, click on your {{site.data.keyword.discoveryshort}} instance to go to the {{site.data.keyword.discoveryshort}} dashboard page.
+1. From the [resource list](https://cloud.ibm.com/resources/){: external}, click on your {{site.data.keyword.discoveryshort}} instance to go to the {{site.data.keyword.discoveryshort}} dashboard page.
 1. From the **Manage** page of {{site.data.keyword.discoveryshort}}, click **Upgrade** to choose the Advanced plan. Follow the steps on the **Plan** page to complete your upgrade.
 1. Return to the **Manage** page and click **Launch Watson Discovery** to open the {{site.data.keyword.discoveryshort}} tooling.
    - If you never created an environment for your Lite plan before the upgrade to Advanced, click the ![Cog](images/icon_settings.png) icon, and choose **Create environment**. Choose the options for the Advanced plan that fit your needs.  (`X-Small`, `Small`, `Medium-Small`, `Medium`, `Medium-Large`, `Large`, `X-Large`, `XX-Large`).

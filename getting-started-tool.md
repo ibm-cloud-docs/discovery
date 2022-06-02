@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-09-30"
+  years: 2015, 2022
+lastupdated: "2022-06-01"
 
 subcollection: discovery
 
@@ -27,11 +27,11 @@ This documentation applies to {{site.data.keyword.discoveryshort}} service insta
 
 You need a service instance to start.
 
-1.  Go to the [{{site.data.keyword.discoveryshort}}](https://{DomainName}/catalog/services/discovery){: external} page in the {{site.data.keyword.cloud_notm}} catalog.
+1.  Go to the [{{site.data.keyword.discoveryshort}}](https://cloud.ibm.com/catalog/services/discovery){: external} page in the {{site.data.keyword.cloud_notm}} catalog.
 
     The service instance is created in the **default** resource group if you do not choose a different one, and it *cannot* be changed later. This group is sufficient for the purposes of trying out the service.
 
-    If you are creating an instance for more robust use and need information about organizing resource groups, see [Best practices for organizing resources and assigning access](https://{DomainName}/docs/account?topic=account-account_setup){: external}.
+    If you are creating an instance for more robust use and need information about organizing resource groups, see [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup){: external}.
 1.  Sign up for a free {{site.data.keyword.cloud_notm}} account or log in.
 1.  Click **Create**.
 

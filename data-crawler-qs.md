@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-08-05"
+  years: 2015, 2022
+lastupdated: "2022-06-01"
 
 subcollection: discovery
 
@@ -94,7 +94,7 @@ Download these documents:
     -   Red Hat Enterprise Linux 6 or 7, or Ubuntu Linux 15 or 16. For optimal performance, the Data Crawler must run on its own instance of Linux, whether it is a virtual machine, a container, or hardware.
     -   Minimum 2 GB RAM on the Linux system
 
-1.  Open a browser and log into your [{{site.data.keyword.Bluemix_notm}} account](https://{DomainName}/){: external}.
+1.  Open a browser and log into your [{{site.data.keyword.Bluemix_notm}} account](https://cloud.ibm.com){: external}.
 1.  From your {{site.data.keyword.Bluemix_notm}} Dashboard, select the {{site.data.keyword.discoveryshort}} instance you previously created.
 1.  Under **Automate the upload of content to the Discovery service**, select the appropriate download link for your system (DEB, RPM, or ZIP) to download the Data Crawler.
 1.  As an administrator, use the appropriate commands to install the archive file that you downloaded:
