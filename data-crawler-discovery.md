@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-02-10"
+  years: 2015, 2022
+lastupdated: "2022-06-22"
 
 subcollection: discovery
 
@@ -98,7 +98,7 @@ The options that can be set in this file are:
 
     You can leave this value empty (i.e., empty string "") when using other connectors.
 
--   **`urls_to_filter`** - Blacklist of URLs that must not be crawled, in regular expression form. The Data Crawler does not crawl URLs that match any of the regular expressions provided.
+-   **`urls_to_filter`** - Blocklist of URLs that must not be crawled, in regular expression form. The Data Crawler does not crawl URLs that match any of the regular expressions provided.
 
     The `domain list` contains the domains that cannot be crawled. Add to it if necessary.
 

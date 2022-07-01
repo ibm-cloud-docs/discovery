@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-06-30"
 
 subcollection: discovery
 
@@ -80,5 +80,5 @@ The Data Crawler download places the following folders on your system:
 {: #dc-limitations}
 
 -   The Data Crawler might hang when running the Filesystem connector with an invalid or missing URL.
--   Configure the `urls_to_filter` value in the `crawler.conf` file, such that all the whitelist URLs or RegExes are included in a single RegEx expression. See [Configuring crawl options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options) for more information.
+-   Configure the `urls_to_filter` value in the `crawler.conf` file, such that all the allowlist URLs or RegExes are included in a single RegEx expression. See [Configuring crawl options](/docs/discovery?topic=discovery-configuring-the-data-crawler#configuring-crawl-options) for more information.
 -   The path to the configuration file passed in the `--config -c` option must be a qualified path. That is, it must be in the relative formats `config/crawler.conf` or `./crawler.conf`, or absolute path `/path/to/config/crawler.conf`. Specifying just `crawler.conf` is only possible if the `orchestration_service.conf` file is in-lined instead of referenced using `include` in the `crawler.conf` file.
