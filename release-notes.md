@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-02-16"
+lastupdated: "2022-07-18"
 keywords:  discovery release notes,discovery for IBM cloud release notes,what's new,new features,change log,changelog
 subcollection: discovery
 content-type: release-note
@@ -25,6 +25,11 @@ API requests require a version parameter that takes a date in the format `versio
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Don't default to the current date. Instead, specify a date that matches a version that is compatible with your app, and don't change it until your app is ready for a later version.
 
 The current version is `2019-04-30`.
+
+## Discovery v1 deprecation announcement
+{: #discovery-v1-deprecation-12july2022}
+
+Watson Discovery v1 is being deprecated. Existing clients who use Watson Discovery v1 are asked to migrate to Watson Discovery v2 before the end-of-support date of **11 July 2023**. End of Support means that no v1 instance will work on or after 11 July 2023. For more information about migration, see [Getting the most from Discovery](/docs/discovery-data?topic=discovery-data-version-choose){: external}.
 
 ## 25 January 2022
 {: #discovery-26january2022}
