@@ -29,7 +29,7 @@ The current version is `2019-04-30`.
 ## Discovery v1 deprecation announcement
 {: #discovery-v1-deprecation-12july2022}
 
-Watson Discovery v1 is being deprecated. Existing clients who use Watson Discovery v1 are asked to migrate to Watson Discovery v2 before the end-of-support date of **July 11th, 2023**. End of Support means that no v1 instance will work on or after July 11th, 2023. For more information about migration, see [Getting the most from Discovery](/docs/discovery-data?topic=discovery-data-version-choose){: external}.
+Watson Discovery v1 is being deprecated. Existing clients who use Watson Discovery v1 are asked to migrate to Watson Discovery v2 before the end-of-support date of **11 July 2023**. End of Support means that no v1 instance will work on or after 11 July 2023. For more information about migration, see [Getting the most from Discovery](/docs/discovery-data?topic=discovery-data-version-choose){: external}.
 
 ## 25 January 2022
 {: #discovery-26january2022}
