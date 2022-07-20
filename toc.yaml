@@ -5,6 +5,7 @@ toc:
     category: ai
     audience: service
     href: /docs/discovery?topic=discovery-getting-started
+    release-level: deprecated
     product-page: https://www.ibm.com/cloud/watson-discovery
     path: discovery
     label: Discovery v1
