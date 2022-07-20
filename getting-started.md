@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-07-20"
 
 subcollection: discovery
 
@@ -9,16 +9,16 @@ subcollection: discovery
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Using the Discovery API
+# Using the Discovery v1 API
 {: #gs-api}
 
-In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} API and go through the process of creating a private data collection and searching it.
+{{site.data.keyword.discoveryfull}} v1 is deprecated. As of 1 October 2021, you cannot create new v1 instances. Lite or Advanced plan service instances are {{site.data.keyword.discoveryshort}} v1 instances, as are service instances that you created with a Premium plan before 16 July 2020. Existing v1 service instances are supported until 11 July 2023. Any v1 instances that still exist on that date will be deleted. Migrate your solutions to use {{site.data.keyword.discoveryshort}} v2 before 11 July 2023. For more information, see the [{{site.data.keyword.discoveryshort}} v2 documentation](/docs/discovery-data?topic=discovery-data-version-choose){: external}.
+{: deprecated}
+
+In this short tutorial, we introduce the {{site.data.keyword.discoveryshort}} v1 API and go through the process of creating a private data collection and searching it.
 {: shortdesc}
 
-If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started with Discovery](/docs/discovery?topic=discovery-getting-started).
-
-This documentation applies to {{site.data.keyword.discoveryshort}} service instances that you create with a Lite or an Advanced plan, or that you created with a Premium plan before 16 July 2020. For more information about getting started with Premium plan instances that were created on or after 16 July 2020, and with Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-getting-started){: external}.
-{: important}
+If you prefer to work in the {{site.data.keyword.discoveryshort}} tooling, see [Getting started with Discovery v1](/docs/discovery?topic=discovery-getting-started).
 
 ## Before you begin
 {: #before-you-begin-api}
