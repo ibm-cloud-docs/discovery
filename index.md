@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-07-20"
 
 subcollection: discovery
 
@@ -10,14 +10,14 @@ subcollection: discovery
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About Discovery
+# About Discovery v1
 {: #about}
 
-{{site.data.keyword.discoveryfull}} makes it possible to rapidly build cognitive, cloud-based exploration applications that unlock actionable insights hidden in unstructured data — including your own proprietary data, as well as public and third-party data.
-{: shortdesc}
+{{site.data.keyword.discoveryfull}} v1 is deprecated. As of 1 October 2021, you cannot create new v1 instances. Lite or Advanced plan service instances are {{site.data.keyword.discoveryshort}} v1 instances, as are service instances that you created with a Premium plan before 16 July 2020. Existing v1 service instances are supported until 11 July 2023. Any v1 instances that still exist on that date will be deleted. Migrate your solutions to use {{site.data.keyword.discoveryshort}} v2 before 11 July 2023. For more information, see the [{{site.data.keyword.discoveryshort}} v2 documentation](/docs/discovery-data?topic=discovery-data-version-choose){: external}.
+{: deprecated}
 
-This documentation applies to {{site.data.keyword.discoveryshort}} service instances that you create with a Lite or an Advanced plan, or that you created with a Premium plan before 16 July 2020. For more information about features in Premium plan instances created on or after 16 July 2020, and in Plus (including Plus Trial) plan instances, see [these docs](/docs/discovery-data?topic=discovery-data-about){: external}.
-{: important}
+{{site.data.keyword.discoveryshort}} makes it possible to rapidly build cognitive, cloud-based exploration applications that unlock actionable insights hidden in unstructured data — including your own proprietary data, as well as public and third-party data.
+{: shortdesc}
 
 ![Discovery architecture diagram](images/about-discovery1.png)
 
