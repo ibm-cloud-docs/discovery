@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2020
-lastupdated: "2020-08-05"
+  years: 2015, 2022
+lastupdated: "2022-07-21"
 
 subcollection: discovery
 
@@ -203,9 +203,6 @@ You can expand the scope of a query beyond exact matches - for example, you can 
 You can define two types of expansions:
 -  **bidirectional** - each `expanded_term` expands to include all expanded terms. For example, a query for `ibm` expands to `ibm OR international business machines OR big blue`).
 -  **unidirectional** - the `input_terms` in the query are replaced by the `expanded_terms`. For example, a query for `banana` could expand to `plantain` and `fruit`. `input_terms` are not used as part of the resulting query. In the previous `banana` example, the query `banana` would be converted to `plantain` OR `fruit` and not contain the original term.
-
-Multi-word terms are supported only for bidirectional expansions.
-{: note}
 
 This file can be used as a starting point when building a query expansion list:
 <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/discovery/expansions.json" download>expansions.json <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a>. You can modify this file to create a custom query expansion list.
