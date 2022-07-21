@@ -4,7 +4,7 @@ toc:
     version: 1
     category: ai
     audience: service
-    href: /docs/discovery?topic=discovery-getting-started
+    href: /docs/discovery?topic=discovery-about
     release-level: deprecated
     product-page: https://www.ibm.com/cloud/watson-discovery
     path: discovery
@@ -14,7 +14,6 @@ toc:
   - navgroup:
       id: learn
       topics:
-      - getting-started-tool.md
       - index.md
       - covid.md
       - watson-discovery-news.md
