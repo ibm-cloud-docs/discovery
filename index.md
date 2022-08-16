@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-07-20"
+lastupdated: "2022-08-16"
 
 subcollection: discovery
 
@@ -48,13 +48,6 @@ US Health Insurance Portability and Accountability Act (HIPAA) support is availa
 {: #browser-support-and-prerequisites}
 
 For the list of {{site.data.keyword.Bluemix}} prerequisites and supported browsers, see [Prerequisites](https://cloud.ibm.com/docs/overview?topic=overview-prereqs-platform){: external}.
-
-## Watson Discovery News
-{: #wds}
-
-{{site.data.keyword.discoverynewsshort}}, a public data set that is pre-enriched with cognitive insights, is also included with {{site.data.keyword.discoveryshort}}. You can use this public, unstructured data set to query for insights that you can integrate into your applications. See [Watson Discovery News](/docs/discovery?topic=discovery-watson-discovery-news) for more information.
-
-{{site.data.keyword.discoveryshort}} is available on [{{site.data.keyword.Bluemix_notm}}](https://cloud.ibm.com/catalog/services/discovery){: external}
 
 ## Discovery tooling
 {: #discovery-tooling}

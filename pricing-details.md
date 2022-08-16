@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2021
-lastupdated: "2021-10-18"
+  years: 2015, 2022
+lastupdated: "2022-08-16"
 
 subcollection: discovery
 
@@ -123,8 +123,6 @@ For more information, or to purchase a Premium plan, contact [Sales](https://ibm
 {: #pricingadd}
 
 For information about calculating costs, see the [IBM Cloud Pricing Calculator](https://cloud.ibm.com/estimator/review){: external}.
-
-For information about IBM Cloud security, see [Cloud Services data security and privacy](https://www.ibm.com/software/sla/sladb.nsf/sla/csdsp?OpenDocument){: external}.
 
 For additional pricing information, see the [{{site.data.keyword.discoveryshort}} catalog](https://cloud.ibm.com/catalog/services/discovery){: external}.
 
