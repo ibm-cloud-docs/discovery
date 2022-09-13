@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2022
-lastupdated: "2022-01-11"
+lastupdated: "2022-09-13"
 
 subcollection: discovery
 
@@ -34,6 +34,7 @@ Consider the following when you are ready to add documents to your collection:
 
 -   The maximum file size that can be uploaded to {{site.data.keyword.discoveryshort}} is 50MB.
 -   Only the first 50,000 characters of each JSON field selected for enrichment are enriched.
+-   A maximum of 1,000 fields can be added to the document index.
 -   When creating a collection, you select the document language (English is the default). See [Language support](/docs/discovery?topic=discovery-language-support) for the list of languages. Your documents are enriched in the selected language. Do not mix languages within the same collection.
 -   The following file types can be ingested by {{site.data.keyword.discoveryshort}}, all other document types are ignored:
 
