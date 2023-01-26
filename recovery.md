@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-02-09"
+  years: 2019, 2023
+lastupdated: "2023-01-26"
 
 subcollection: discovery
 
@@ -116,7 +116,7 @@ If you use Smart Document Understanding (SDU), you have models associated with y
 ## Restoring your data to a new Watson Discovery instance
 {: #restore}
 
-Consider using your backups to restore to a new {{site.data.keyword.discoveryshort}} instance in a different Data Center, also known as a region or location. For example, these regions or locations include Dallas, Houston; Washington, DC; and London).
+Consider using your backups to restore to a new {{site.data.keyword.discoveryshort}} instance in a different Data Center, also known as a region or location. For example, these regions or locations include Dallas, Washington DC, and London).
 {: note}
 
 To begin restoration, first start by reviewing your list of collections and associated data sources, as well as your file backups.
